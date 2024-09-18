@@ -1,0 +1,9 @@
+&& to install ollama: 
+curl -fsSL https://ollama.com/install.sh | sh
+
+** to add new model with ollama:
+
+ollama run <modelName>
+
+**ollama models libary:
+https://ollama.com/library?q=code

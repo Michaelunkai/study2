@@ -1,0 +1,15 @@
+EspoCRM is an open-source Customer Relationship Management (CRM) platform designed to help organizations manage their relationships with customers, clients, and sales prospects. It provides a wide range of tools and features for storing, organizing, and managing business information, including leads, contacts, sales opportunities, marketing campaigns, support cases, and more.
+
+### Key Features of EspoCRM:
+- **Open-Source:** The source code is freely available, allowing customization and modification to fit specific needs.
+- **Customizable:** Users can create custom entities, fields, relationships, and workflows, making the platform flexible for various business requirements.
+- **User-Friendly Interface:** EspoCRM has a clean and intuitive interface that is easy to navigate and has a short learning curve.
+- **REST API:** EspoCRM provides a straightforward REST API, making it easy to integrate with other applications.
+- **Web-Based Application:** It is a web application, with a single-page frontend and a backend written in PHP.
+
+### Target Users:
+- **Startups, Small & Medium-Sized Businesses:** EspoCRM is an affordable, flexible, and customizable solution.
+- **Developers & Tech Enthusiasts:** The platform is suitable for those who want to extend its functionalities, build extensions, or create custom integrations.
+- **Anyone Seeking a Free CRM:** It is a good option for users looking for a user-friendly and secure CRM platform without the cost.
+
+EspoCRM is widely used across industries to improve customer management processes, streamline workflows, and enhance customer relationships.

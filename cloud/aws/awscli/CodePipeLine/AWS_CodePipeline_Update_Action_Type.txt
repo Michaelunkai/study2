@@ -1,0 +1,1 @@
+aws codepipeline update-action-type --cli-input-json file://action-type.json

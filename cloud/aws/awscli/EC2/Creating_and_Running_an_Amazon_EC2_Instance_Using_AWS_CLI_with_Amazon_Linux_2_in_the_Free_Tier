@@ -1,0 +1,79 @@
+# Comprehensive Guide to Creating and Running an Amazon EC2 Instance Using AWS CLI with Amazon Linux 2 in the Free Tier
+
+## Introduction
+This tutorial provides a comprehensive step-by-step guide on how to create and run an Amazon EC2 instance using AWS CLI, specifically targeting the Amazon Linux 2 AMI in the free tier. The guide covers the entire process from setting up the necessary components like key pairs, VPCs, security groups, and subnets, to launching the EC2 instance.
+
+## Step 1: Create a New Key Pair
+First, create a new key pair to access your EC2 instance securely. 
+
+  
+aws ec2 create-key-pair --key-name MyNewKeyPair --query 'KeyMaterial' --output text > MyNewKeyPair.pem && chmod 400 MyNewKeyPair.pem
+
+## Step 2: List All VPCs to Find the VPC ID
+Check if there are any existing VPCs.
+
+  
+aws ec2 describe-vpcs --query 'Vpcs[*].{ID:VpcId,CIDR:CidrBlock}'
+
+## Step 3: Create a New VPC If No VPC Exists
+If there are no VPCs, create a new one.
+
+  
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+## Step 4: List All VPCs to Get the VPC ID of the Newly Created VPC
+Retrieve the VPC ID of the newly created VPC.
+
+  
+aws ec2 describe-vpcs --query 'Vpcs[*].{ID:VpcId,CIDR:CidrBlock}'
+
+## Step 5: Create a New Security Group in the Specified VPC
+Create a new security group within the specified VPC.
+
+  
+aws ec2 create-security-group --group-name MySecurityGroup --description "My security group for EC2 instance" --vpc-id vpc-0088010cde7a8460f
+
+## Step 6: List All Security Groups
+Verify the creation of the security group by listing all security groups.
+
+  
+aws ec2 describe-security-groups --query 'SecurityGroups[*].{ID:GroupId,Name:GroupName}'
+
+## Step 7: List All Key Pairs
+Verify the creation of the key pair by listing all key pairs.
+
+  
+aws ec2 describe-key-pairs --query 'KeyPairs[*].KeyName'
+
+## Step 8: Create a New Subnet in the Specified VPC
+Create a new subnet in the VPC.
+
+  
+aws ec2 create-subnet --vpc-id vpc-0088010cde7a8460f --cidr-block 10.0.1.0/24
+
+## Step 9: List All Subnets to Get the Subnet ID
+Retrieve the Subnet ID of the newly created subnet.
+
+  
+aws ec2 describe-subnets --query 'Subnets[*].{ID:SubnetId,CIDR:CidrBlock}'
+
+## Step 10: List Available Amazon Linux 2 AMIs in Your Region
+Get the list of available Amazon Linux 2 AMIs.
+
+  
+aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.*-x86_64-gp2" --query 'Images[*].[ImageId,Name]' --output text
+
+## Step 11: Run a New EC2 Instance
+Finally, use the gathered information to launch a new EC2 instance.
+
+  
+aws ec2 run-instances \
+    --image-id ami-014d544cfef21b42d \
+    --instance-type t2.micro \
+    --key-name MyNewKeyPair \
+    --security-group-ids sg-00d7c0395623e4d88 \
+    --subnet-id subnet-014c6bcea6ac16398 \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=MyFreeTierInstance}]' \
+    --count 1
+
+Replace the placeholders (`vpc-0088010cde7a8460f`, `sg-00d7c0395623e4d88`, `subnet-014c6bcea6ac16398`, and `ami-014d544cfef21b42d`) with the actual values obtained from the previous steps.

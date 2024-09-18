@@ -1,0 +1,9 @@
+for example port 8080: 
+
+kill $(lsof -t -i:8080)
+
+
+If you need to force kill the processes, you can use the -9 option with the kill command:
+
+
+kill -9 $(lsof -t -i:8080)

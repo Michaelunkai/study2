@@ -1,0 +1,22 @@
+Advanced Setup of hMailServer E-Mail Server Active Directory Authentication
+Launch hMailServer Administrator
+Select localhost > Click Connect > Login with the administrative password
+Expand Domains > domain.local > Accounts
+Select the account to be authenticated against active directory
+Select the Active Directory tab
+Check the Active Directory account box
+Input the Domain and User name to associate the inbox with
+Click Save
+Setting Up SSL in the Client
+Launch Thunderbird
+Select Tools > Options
+Select Security and then the Passwords tab > Saved Passwords...
+Click the Show Passwords button
+Right click each of the effected entries > Change Password > Input the user's active directory password
+Close Options
+Testing Receiving E-Mails
+In hMailServer Administrator, Expand Utilities > Server sendout
+Select Specific domain and select the domain created earlier from the dropdown
+Fill out the form to send a test e-mail > Click Send
+Back in Thunderbird, click the Get Messages button
+The test email should arrive in the inbox

@@ -1,0 +1,1 @@
+aws route53 get-health-check-status --health-check-id <health-check-id>

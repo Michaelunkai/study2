@@ -1,0 +1,1 @@
+aws elasticbeanstalk describe-environment-managed-actions --environment-id <env-id>

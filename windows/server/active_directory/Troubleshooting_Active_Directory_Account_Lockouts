@@ -1,0 +1,32 @@
+### Comprehensive Guide to Troubleshooting Active Directory Account Lockouts
+
+**Introduction**
+This guide helps sysadmins troubleshoot Active Directory account lockouts, covering steps from front-line support to advanced troubleshooting.
+
+**Concepts and Definitions**
+- **SamAccountName**: Short form username.
+- **Caller Computer**: Computer where failed attempts originate.
+- **Caller Process Name**: Application causing lockout.
+- **EventID**: Identifier for Windows Event Viewer events.
+
+**Lockout Policy**
+- Defines rules governing account lockouts, typically found in Group Policy.
+
+**Common Causes**
+1. User error
+2. Saved credentials
+3. Mobile devices
+4. Stale RDP sessions
+5. Drive mappings
+6. Services
+7. Scripts
+8. Scheduled tasks
+9. Specialized applications
+
+**Diagnostics**
+Use tools like Event Viewer and PowerShell for troubleshooting.
+
+**Advanced Trouble ooting**
+Covers scenarios like caller computers not on the domain or no caller computer listed.
+
+For detailed steps and additional troubleshooting scenarios, refer to the full guide [here](https://www.reddit.com/r/sysadmin/wiki/lockouts).

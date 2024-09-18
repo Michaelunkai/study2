@@ -1,0 +1,1 @@
+aws elasticbeanstalk list-tags-for-resource --resource-arn <resource-arn>

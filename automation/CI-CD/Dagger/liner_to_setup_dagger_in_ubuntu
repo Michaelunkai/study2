@@ -1,0 +1,1 @@
+curl -L https://dl.dagger.io/dagger/install.sh | sudo bash && sudo mv /root/bin/dagger /usr/local/bin/ && export PATH=$PATH:/usr/local/bin && mkdir -p ~/.local/share/bash-completion/completions && dagger completion bash > ~/.local/share/bash-completion/completions/dagger && source ~/.bashrc && dagger version

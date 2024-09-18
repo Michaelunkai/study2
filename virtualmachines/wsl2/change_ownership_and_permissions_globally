@@ -1,0 +1,2 @@
+sudo chown -R root:root /mnt/wslg
+sudo chmod -R 777 /mnt/wslg

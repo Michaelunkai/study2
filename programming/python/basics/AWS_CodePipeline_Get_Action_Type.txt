@@ -1,0 +1,1 @@
+aws codepipeline get-action-type --action-type-id <action-type-id>

@@ -1,0 +1,11 @@
+Comparison of Leading Free Chatbots - Updated for February 2024
+| Feature           | Claude    | Bard       | Copilot    | ChatGPT       |
+|-------------------|-----------|------------|------------|---------------|
+| Price             | Free      | Free       | Free       | Free          |
+| Language Model    | Claude 2.1| Gemini Pro | GPT 4      | GPT 3.5       |
+| Image Generation  | No        | Yes        | Yes        | No            |
+| Image Analysis    | No        | Yes        | Yes        | No            |
+| Voice Chat        | No        | Yes        | No         | Yes           |
+| Internet Access   | Yes       | Yes        | No         | Yes           |
+| Plugins           | No        | Extensions | Edge Sidebar| Custom Instructions |
+| Special Features  | 100K Context Window | No Time Limits | 30 messages per hour, 300 per day | No Time Limits with GPT+ |

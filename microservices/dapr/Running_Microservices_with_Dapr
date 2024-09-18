@@ -1,0 +1,17 @@
+ Running Microservices with Dapr
+You will now run both services using Dapr with the correct resource paths.
+
+4.1. Run Service B (Subscriber) with Dapr
+Make sure you are in the service-b directory and use --resources-path instead of the deprecated --components-path:
+
+ 
+ 
+cd ~/service-b
+dapr run --app-id service-b --app-port 4000 --dapr-http-port 3501 --resources-path ~/.dapr/components node index.js
+4.2. Run Service A (Publisher) with Dapr
+Navigate back to the service-a directory and run:
+
+ 
+ 
+cd ~/service-a
+dapr run --app-id service-a --app-port 3000 --dapr-http-port 3500 --resources-path ~/.dapr/components node index.js

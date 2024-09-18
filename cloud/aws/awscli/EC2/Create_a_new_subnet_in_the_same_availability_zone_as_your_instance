@@ -1,0 +1,1 @@
+aws ec2 create-subnet --vpc-id vpc-0088010cde7a8460f --cidr-block 10.0.3.0/24 --availability-zone <instance-availability-zone> --query 'Subnet.SubnetId' --output text

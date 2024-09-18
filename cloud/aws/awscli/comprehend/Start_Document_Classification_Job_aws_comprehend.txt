@@ -1,0 +1,1 @@
+aws comprehend start-document-classification-job --document-classifier-arn <arn> --input-data-config <config> --output-data-config <config>

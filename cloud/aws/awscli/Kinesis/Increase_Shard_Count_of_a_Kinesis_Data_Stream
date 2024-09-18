@@ -1,0 +1,1 @@
+aws kinesis update-shard-count --stream-name MyDataStream --target-shard-count 2 --scaling-type UNIFORM_SCALING

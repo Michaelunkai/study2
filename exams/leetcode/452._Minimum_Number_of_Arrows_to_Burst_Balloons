@@ -1,0 +1,89 @@
+### 452. Minimum Number of Arrows to Burst Balloons
+
+To solve this problem, we can use a greedy algorithm. The idea is to sort the balloons by their end positions and then use the minimum number of arrows to burst all the balloons. By shooting an arrow at the end position of a balloon, we can maximize the number of balloons burst with a single arrow.
+
+**Solution:**
+
+```python
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        if not points:
+            return 0
+        
+        # Sort the points based on the end position of the balloons
+        points.sort(key=lambda x: x[1])
+        
+        arrows = 1
+        current_end = points[0][1]
+        
+        for xstart, xend in points:
+            if xstart > current_end:
+                arrows += 1
+                current_end = xend
+        
+        return arrows
+```
+
+### Explanation:
+
+1. **Sorting:**
+   - Sort the balloons by their end positions. This helps in finding the optimal positions to shoot the arrows.
+   - `points.sort(key=lambda x: x[1])` sorts the `points` list by the second element of each sublist.
+
+2. **Initialization:**
+   - Start with one arrow: `arrows = 1`.
+   - Set `current_end` to the end position of the first balloon: `current_end = points[0][1]`.
+
+3. **Iterate through the Balloons:**
+   - For each balloon `(xstart, xend)`:
+     - If the start of the current balloon `xstart` is greater than `current_end`, it means this balloon is not overlapped by the previous arrow. So, we need an additional arrow.
+     - Update `current_end` to the end position of the current balloon `xend`.
+
+4. **Return Result:**
+   - Return the total number of arrows needed to burst all the balloons.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `points = [[10,16],[2,8],[1,6],[7,12]]`
+   - Steps:
+     - Sort: `[[1,6],[2,8],[7,12],[10,16]]`
+     - Initialize: `arrows = 1`, `current_end = 6`
+     - Iterate:
+       - `[1, 6]`: overlaps with `current_end = 6`
+       - `[2, 8]`: overlaps with `current_end = 6`
+       - `[7, 12]`: does not overlap, increment arrows to 2, update `current_end = 12`
+       - `[10, 16]`: overlaps with `current_end = 12`
+   - Output: `2`
+
+2. **Example 2:**
+   - Input: `points = [[1,2],[3,4],[5,6],[7,8]]`
+   - Steps:
+     - Sort: `[[1,2],[3,4],[5,6],[7,8]]`
+     - Initialize: `arrows = 1`, `current_end = 2`
+     - Iterate:
+       - `[1, 2]`: overlaps with `current_end = 2`
+       - `[3, 4]`: does not overlap, increment arrows to 2, update `current_end = 4`
+       - `[5, 6]`: does not overlap, increment arrows to 3, update `current_end = 6`
+       - `[7, 8]`: does not overlap, increment arrows to 4, update `current_end = 8`
+   - Output: `4`
+
+3. **Example 3:**
+   - Input: `points = [[1,2],[2,3],[3,4],[4,5]]`
+   - Steps:
+     - Sort: `[[1,2],[2,3],[3,4],[4,5]]`
+     - Initialize: `arrows = 1`, `current_end = 2`
+     - Iterate:
+       - `[1, 2]`: overlaps with `current_end = 2`
+       - `[2, 3]`: overlaps with `current_end = 2`
+       - `[3, 4]`: does not overlap, increment arrows to 2, update `current_end = 4`
+       - `[4, 5]`: overlaps with `current_end = 4`
+   - Output: `2`
+
+### Constraints:
+
+- `1 <= points.length <= 10^5`
+- `points[i].length == 2`
+- `-2^31 <= xstart < xend <= 2^31 - 1`
+
+This greedy approach ensures we use the minimum number of arrows to burst all the balloons by leveraging the sorted end positions to minimize overlaps.

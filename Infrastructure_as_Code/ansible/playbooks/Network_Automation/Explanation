@@ -1,0 +1,12 @@
+Configure IP address.
+
+Sets a static IP address for the interface.
+Set default gateway.
+
+Defines the default route for the network.
+Configure DNS.
+
+Sets DNS servers in the resolv.conf file.
+Restart networking service.
+
+Applies the new network configuration.

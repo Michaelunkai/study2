@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe" -OutFile "$env:TEMP\python_installer.exe"; Start-Process -FilePath "$env:TEMP\python_installer.exe" -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\python_installer.exe"

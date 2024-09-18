@@ -1,0 +1,1 @@
+Get-Command | Where-Object {$_.Options -match "Hidden"}

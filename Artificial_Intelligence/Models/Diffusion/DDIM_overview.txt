@@ -1,0 +1,18 @@
+Denoising Diffusion Implicit Models (DDIM)
+Abstract
+This article reviews the DDIM paper by Song (2022), a notable figure in the field of generative diffusion models, affiliated with OpenAI. The DDIM paper introduces an elegant and mathematically intensive method to improve generative diffusion models.
+Introduction
+Generative diffusion models involve two processes: a forward process and a reverse process. The forward process involves gradually adding noise to the data, while the reverse process gradually removes noise using a model trained on a specific dataset. These models create data from pure noise progressively, but this process is time-consuming due to the numerous denoising iterations required.
+Key Concept
+The DDIM paper proposes a method to reduce the number of iterations required. In traditional diffusion models, the forward process is Markovian, meaning the data distribution at iteration \( t \) depends only on the data at iteration \( t-1 \). DDIM breaks this assumption by defining a non-Markovian forward process, where the data at iteration \( t \) depends not only on the data at iteration \( t-1 \) but also on the clean data \( x_0 \).
+Methodology
+This assumption allows for a deterministic process to calculate \( x_{t-1} \) from \( x_t \) using a model trained to estimate \( x_0 \) from \( x_t \). In each iteration, \( x_0 \) is first estimated using the model, and then \( x_{t-1} \) is deterministically computed from the estimated \( x_0 \).
+Results
+The estimation of \( x_t \) through \( x_0 \) significantly reduces the number of iterations required, thus accelerating the data creation process.
+Conclusion
+The DDIM paper presents an interesting approach that is essential reading for anyone interested in generative diffusion models. The article provides an overview of the paper's core idea without delving too deeply into the mathematical details.
+References
+- Song, OpenAI, "Denoising Diffusion Implicit Models (DDIM)" (2022).
+- Twitter Post by Mike: https://x.com/MikeE_3_14/status/1819271639797780504
+- Telegram Post by Mike: https://t.me/MathyAIwithMike/219
+- Arxiv Paper: https://arxiv.org/abs/2010.02502

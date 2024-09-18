@@ -1,0 +1,10 @@
+how to connect my own data in my pc to a docker container
+example:
+
+ docker run -v /mnt/f/:/f/ -it kalilinux/kali-rolling:latest bash
+ 
+ 
+ /mnt/f is the path i want to share in the container. 
+ 
+ :/f/  will make the path from local pc stored in /f/ in docker
+ 

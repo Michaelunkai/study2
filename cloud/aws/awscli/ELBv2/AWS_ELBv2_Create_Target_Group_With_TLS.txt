@@ -1,0 +1,1 @@
+aws elbv2 create-target-group --name <target-group-name> --protocol TLS --port 443 --vpc-id <vpc-id>

@@ -1,0 +1,10 @@
+
+shell:
+
+/opt/spark/bin/spark-shell
+
+
+
+spark-sql:
+
+/opt/spark/bin/spark-sql

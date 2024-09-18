@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://buildbot.libretro.com/stable/1.9.13/windows/x86_64/RetroArch-Win64-setup.exe -OutFile retroarch_installer.exe; Start-Process retroarch_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,54 @@
+Automate CPU Throttling at Startup
+To ensure that your CPU throttling settings persist across reboots, you can configure cpufrequtils or use systemd services.
+
+Method 1: Using cpufrequtils Configuration
+Edit the Configuration File:
+
+ 
+ 
+sudo nano /etc/default/cpufrequtils
+Add the Desired Governor:
+
+Add the following line to set the governor to powersave:
+
+ 
+ 
+GOVERNOR="powersave"
+Save and Exit:
+
+Press Ctrl + O to save.
+Press Ctrl + X to exit.
+Restart the Service:
+
+ 
+ 
+sudo systemctl restart cpufrequtils
+Method 2: Using a Systemd Service
+Create a New Service File:
+
+ 
+ 
+sudo nano /etc/systemd/system/cpufreq.service
+Add the Following Content:
+
+ini
+ 
+[Unit]
+Description=Set CPU Frequency Governor
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/cpufreq-set -r -g powersave
+
+[Install]
+WantedBy=multi-user.target
+Save and Exit:
+
+Press Ctrl + O to save.
+Press Ctrl + X to exit.
+Enable and Start the Service:
+
+ 
+ 
+sudo systemctl enable cpufreq.service
+sudo systemctl start cpufreq.service

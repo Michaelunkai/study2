@@ -1,0 +1,19 @@
+Organize Your Documents with Eesel
+Eesel collects all your documents in one workspace, making it easy to sort, search, and share them.
+1. Installing the Eesel Browser Extension:
+   - Go to the Chrome Web Store or your browser's extension store.
+   - Search for "Eesel".
+   - Click on the "Add to Browser" button to install the extension.
+2. Setting Up Eesel:
+   - After installing the extension, click on its icon in the browser toolbar.
+   - Eesel will start collecting all the documents from your tabs and online cloud services you use.
+3. Sorting and Searching Documents:
+   - Use the Eesel interface to sort, search, and organize your documents.
+   - You can create categories and folders as needed.
+4. Sharing Documents:
+   - Click on the document you want to share and select "Share".
+   - Follow the instructions to create a sharing link or invite others to access the document.
+5. Keeping Your Data Private:
+   - Eesel operates locally in your browser and does not require access to your data.
+   - You do not need to sign up or provide any access details.
+Start organizing all your documents conveniently with Eesel.

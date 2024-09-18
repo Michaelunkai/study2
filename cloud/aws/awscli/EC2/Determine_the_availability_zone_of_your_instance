@@ -1,0 +1,1 @@
+aws ec2 describe-instances --instance-ids i-0493c4c6e9ccf7c05 --query "Reservations[0].Instances[0].Placement.AvailabilityZone" --output text

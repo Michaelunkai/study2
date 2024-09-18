@@ -1,0 +1,1 @@
+aws codeguruprofiler tag-profiling-group --profiling-group-name MyProfilingGroup --tags Key=Environment,Value=Production

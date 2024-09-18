@@ -1,0 +1,271 @@
+### Complete Step-by-Step Guide to Implement Event-Driven Microservices Using Dapr on Ubuntu: Setting Up Redis Pub/Sub, Node.js Microservices, and Fixing Common Errors
+
+---
+
+This guide will walk you through the steps to implement event-driven microservices using Dapr on Ubuntu. It includes setting up Redis for pub/sub, creating microservices in Node.js (publisher and subscriber), and fixing common errors related to Dapr configuration.
+
+---
+
+### 1. Setting Up Dapr and Redis Pub/Sub on Ubuntu
+
+#### Step 1: Install Dapr CLI
+
+Begin by installing Dapr’s CLI to manage your Dapr environment:
+
+  
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
+
+Initialize Dapr with the default setup, which includes Redis for pub/sub:
+
+  
+dapr init
+
+Verify Dapr installation:
+
+  
+dapr status
+
+---
+
+### 2. Create Redis Pub/Sub Component for Event-Driven Messaging
+
+#### Step 1: Create Components Directory
+
+Ensure you have a dedicated directory to store Dapr components:
+
+  
+mkdir -p ~/.dapr/components
+
+#### Step 2: Configure Redis Pub/Sub
+
+Create a `pubsub-redis.yaml` file inside the components directory:
+
+  
+nano ~/.dapr/components/pubsub-redis. 
+
+Add the following configuration:
+
+  
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: redis-pubsub
+  namespace: default
+spec:
+  type: pubsub.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: "localhost:6379"
+  - name: redisPassword
+    value: ""
+
+**Note:** Ensure the `name` is unique to avoid component duplication errors.
+
+---
+
+### 3. Create Microservices Using Node.js
+
+We will create two services:
+
+- **Service A (Publisher):** Publishes messages.
+- **Service B (Subscriber):** Listens and processes messages.
+
+#### 3.1. Create Service A (Publisher)
+
+##### Step 1: Create the Project Folder and Initialize
+
+  
+mkdir ~/service-a
+cd ~/service-a
+npm init -y
+
+##### Step 2: Install Dependencies
+
+Install `express` and `axios` for the microservice:
+
+  
+npm install express axios
+
+##### Step 3: Create the Publisher Code
+
+Create the main application file:
+
+  
+nano index.js
+
+Add the following code:
+
+ javascript
+const express = require('express');
+const axios = require('axios');
+
+const app = express();
+app.use(express.json());
+
+const PORT = 3000;
+const DAPR_HTTP_PORT = process.env.DAPR_HTTP_PORT || 3500;
+
+app.post('/publish', async (req, res) => {
+    const message = req.body.message;
+    try {
+        await axios.post(`http://localhost:${DAPR_HTTP_PORT}/v1.0/publish/redis-pubsub/messages`, {
+            data: message
+        });
+        res.status(200).send('Message published');
+    } catch (error) {
+        console.error('Error publishing message:', error);
+        res.status(500).send('Error publishing message');
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Publisher Service A listening on port ${PORT}`);
+});
+
+Make sure the `pubsubname` in the URL (`redis-pubsub`) matches the component name.
+
+---
+
+#### 3.2. Create Service B (Subscriber)
+
+##### Step 1: Create the Project Folder and Initialize
+
+In the same directory as `service-a`, create a new service:
+
+  
+mkdir ~/service-b
+cd ~/service-b
+npm init -y
+
+##### Step 2: Install Dependencies
+
+Install `express`:
+
+  
+npm install express
+
+##### Step 3: Create the Subscriber Code
+
+Create the main application file:
+
+  
+nano index.js
+
+Add the following code:
+
+ javascript
+const express = require('express');
+
+const app = express();
+app.use(express.json());
+
+const PORT = 4000;
+
+app.post('/messages', (req, res) => {
+    const message = req.body.data;
+    console.log('Received message:', message);
+    res.status(200).send('Message received');
+});
+
+app.listen(PORT, () => {
+    console.log(`Subscriber Service B listening on port ${PORT}`);
+});
+
+---
+
+##### Step 4: Create Subscription Configuration
+
+Create a `dapr-subscription.yaml` file:
+
+  
+nano dapr-subscription. 
+
+Add the following configuration:
+
+  
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: messages-subscription
+spec:
+  topic: messages
+  route: /messages
+  pubsubname: redis-pubsub
+
+This subscription binds Service B to the `messages` topic using the `redis-pubsub` component.
+
+---
+
+### 4. Running Microservices with Dapr
+
+You will now run both services using Dapr with the correct resource paths.
+
+#### 4.1. Run Service B (Subscriber) with Dapr
+
+Make sure you are in the `service-b` directory and use `--resources-path` instead of the deprecated `--components-path`:
+
+  
+cd ~/service-b
+dapr run --app-id service-b --app-port 4000 --dapr-http-port 3501 --resources-path ~/.dapr/components node index.js
+
+#### 4.2. Run Service A (Publisher) with Dapr
+
+Navigate back to the `service-a` directory and run:
+
+  
+cd ~/service-a
+dapr run --app-id service-a --app-port 3000 --dapr-http-port 3500 --resources-path ~/.dapr/components node index.js
+
+---
+
+### 5. Testing Event-Driven Communication
+
+Once both services are running, test the communication by sending a message to Service A (Publisher).
+
+#### Step 1: Use `curl` to Publish a Message
+
+Run the following `curl` command to send a message to Service A:
+
+  
+curl -X POST http://localhost:3000/publish \
+     -H "Content-Type: application/json" \
+     -d '{"message": "Hello, Dapr!"}'
+
+#### Step 2: Verify Message in Service B (Subscriber)
+
+In the terminal running Service B, you should see the following output:
+
+Received message: Hello, Dapr!
+
+This confirms that the message was successfully published by Service A and received by Service B using Dapr's pub/sub.
+
+---
+
+### 6. Troubleshooting Common Issues
+
+- **Duplicate component error:** Ensure the `pubsub-redis.yaml` file has a unique `name` field (e.g., `redis-pubsub`).
+- **Invalid resource path:** Use the correct `--resources-path` flag instead of the deprecated `--components-path`.
+- **Connection refused:** Ensure both services are running and listening on the correct ports (`3000` for Service A and `4000` for Service B).
+
+---
+
+### 7. Cleanup and Shutdown
+
+To stop the services, press `Ctrl + C` in the terminal where each service is running.
+
+If you no longer need Dapr, you can uninstall it:
+
+  
+dapr uninstall
+
+To remove Redis and other Dapr-related Docker containers:
+
+  
+docker rm -f $(docker ps -a -q)
+
+---
+
+### Conclusion
+
+You have successfully set up and tested event-driven microservices using Dapr on Ubuntu with Redis as the pub/sub broker. This guide provided detailed steps to create a publisher and subscriber in Node.js, run them with Dapr, and resolve common errors during the setup.

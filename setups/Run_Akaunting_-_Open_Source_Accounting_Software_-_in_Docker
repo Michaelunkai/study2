@@ -1,0 +1,66 @@
+▲A  A▼
+Run Akaunting - Open Source Accounting Software - in Docker
+What is Akaunting?
+Akaunting is a free, open source and online accounting software designed for small businesses and freelancers. -https://github.com/akaunting/akaunting
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running the Akaunting Container
+Now that Docker is installed, run the following commands to setup the Akaunting Docker container and run it
+# create working directories
+mkdir ~/docker/akaunting -p && mkdir ~/docker/mariadb -p
+# download base .env file
+wget -O ~/docker/akaunting/.env https://raw.githubusercontent.com/akaunting/docker/master/env/run.env.example
+# set ownership on the working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@$$ -e MYSQL_USER=akaunting_rw -e MYSQL_PASSWORD='@k0unt1ng!' -e MYSQL_DATABASE=akaunting -v ~/docker/mariadb:/var/lib/mysql -p 3306:3006 --restart=unless-stopped mariadb:latest
+# edit .env file
+nano ~/docker/akaunting/.env
+Edit the values in .env as follows
+APP_URL=http://DNSorIP:8080
+LOCALE=en-US
+
+DB_HOST=mariadb
+DB_PORT=3306
+
+DB_NAME=akaunting
+DB_USERNAME=akaunting_rw
+DB_PASSWORD=@k0unt1ng!
+
+DB_PREFIX=
+
+COMPANY_NAME=i12bretro
+COMPANY_EMAIL=accounting@i12bretro.local
+
+ADMIN_EMAIL=i12bretro@i12bretro.local
+ADMIN_PASSWORD=<% something secure %>
+
+Press CTRL+O, Enter, CTRL+X to write the changes to .env
+Continue with the following steps in the terminal
+# run the akaunting container
+docker run -d --name=akaunting --link mariadb -p 8080:80 --env-file ~/docker/akaunting/.env -e AKAUNTING_SETUP=true -v ~/docker/akaunting:/var/www/html/storage --restart=unless-stopped akaunting/akaunting
+Open a web browser and navigate to http://DNSorIP:8080
+Login with the Email and Password setup in the .env file
+On the Company tab, scroll to the bottom of the form and click Skip this step
+Select/add the desired currencies > Click Next
+Click Next on the Taxes tab
+Click the Create your first invoice link
+Welcome to Akaunting
+Documentation: https://hub.docker.com/r/akaunting/akaunting
+
+ 

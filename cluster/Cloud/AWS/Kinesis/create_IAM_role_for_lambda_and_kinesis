@@ -1,0 +1,28 @@
+Create an IAM Role for Lambda:
+
+ 
+ 
+aws iam create-role --role-name lambda-kinesis-role --assume-role-policy-document file://trust-policy.json
+trust-policy.json  ould contain:
+
+json
+ 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "lambda.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+Attach Policies to the IAM Role:
+
+ 
+ 
+aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/AmazonKinesisFullAccess
+aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess

@@ -1,0 +1,111 @@
+To solve the problem of finding duplicate subtrees in a binary tree, we can use a combination of serialization and a hash map to detect duplicate structures. Here's a step-by-step explanation and the solution:
+
+### Approach:
+1. **Serialization**: Serialize each subtree using a postorder traversal. This ensures that the serialization of a subtree is unique for a given structure and node values.
+2. **Hash Map**: Use a hash map to store the frequency of each serialized subtree.
+3. **Detection**: Whenever a subtree's serialization appears more than once, it indicates a duplicate subtree. We store the root of such subtrees.
+4. **Return**: Collect all the roots of duplicate subtrees and return them.
+
+### Implementation:
+We will define a helper function that performs the postorder traversal, serializes the subtree, and updates the hash map. The main function will use this helper to collect the duplicate subtree roots.
+
+Here's the code:
+
+```python
+from typing import List, Optional
+from collections import defaultdict
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+        def serialize(node: Optional[TreeNode]) -> str:
+            if not node:
+                return "#"
+            
+            left_serial = serialize(node.left)
+            right_serial = serialize(node.right)
+            
+            serial = f"{node.val},{left_serial},{right_serial}"
+            
+            if serial in count:
+                count[serial] += 1
+            else:
+                count[serial] = 1
+                
+            if count[serial] == 2:
+                result.append(node)
+                
+            return serial
+        
+        count = defaultdict(int)
+        result = []
+        serialize(root)
+        return result
+
+# Helper function to build a tree from list
+def build_tree(lst, index=0):
+    if index < len(lst):
+        value = lst[index]
+        if value is None:
+            return None
+        root = TreeNode(value)
+        root.left = build_tree(lst, 2 * index + 1)
+        root.right = build_tree(lst, 2 * index + 2)
+        return root
+    return None
+
+# Example usage
+root = build_tree([1, 2, 3, 4, None, 2, 4, None, None, 4])
+solution = Solution()
+duplicates = solution.findDuplicateSubtrees(root)
+
+# Convert result to list of list for easier display
+def serialize_to_list(node):
+    if not node:
+        return []
+    result = [node.val]
+    nodes = [node]
+    while nodes:
+        current = nodes.pop(0)
+        if current.left:
+            result.append(current.left.val)
+            nodes.append(current.left)
+        else:
+            result.append(None)
+        if current.right:
+            result.append(current.right.val)
+            nodes.append(current.right)
+        else:
+            result.append(None)
+    # Remove trailing None values
+    while result and result[-1] is None:
+        result.pop()
+    return result
+
+# Print results
+for node in duplicates:
+    print(serialize_to_list(node))
+```
+
+### Explanation:
+1. **Serialization Function**:
+    - The function `serialize` traverses the tree in a postorder manner (left-right-root).
+    - For each node, it generates a string that uniquely represents the subtree rooted at that node.
+    - It keeps track of the frequency of each serialized subtree in the `count` dictionary.
+    - If the frequency of a serialized subtree becomes 2, it means it's a duplicate, and we add the root of that subtree to the `result` list.
+
+2. **Main Function**:
+    - The `findDuplicateSubtrees` function initializes the `count` dictionary and `result` list.
+    - It calls the `serialize` function starting from the root of the tree.
+    - Finally, it returns the list of roots of duplicate subtrees.
+
+3. **Tree Construction**:
+    - The `build_tree` helper function constructs a binary tree from a list representation (useful for testing).
+
+This approach ensures that we efficiently find and return all duplicate subtrees in the binary tree. The use of serialization guarantees that structurally identical subtrees with the same values are detected correctly.

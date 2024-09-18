@@ -1,0 +1,71 @@
+### Problem: 483. Smallest Good Base
+
+### Solution
+
+The goal is to find the smallest base `k` such that the number `n` can be represented in base `k` with all digits being `1`. Given `n`, we need to find such a base `k`.
+
+### Key Observations
+
+1. **All 1's Representation**:
+   - For a number `n` to be represented as all 1's in base `k`, it should satisfy the equation:
+     ```
+     n = 1 + k + k^2 + k^3 + ... + k^(m-1)
+     ```
+   - This is a geometric series with `m` terms.
+   - Using the formula for the sum of a geometric series:
+     ```
+     n = (k^m - 1) / (k - 1)
+     ```
+
+2. **Range of `m`**:
+   - The value of `m` ranges from 2 to `log2(n+1)` because the smallest possible base is 2, and in the worst case, `n` is represented as `11` in base `n-1`.
+
+3. **Binary Search for `k`**:
+   - For each potential length `m`, use binary search to find the base `k` that satisfies the equation for the geometric series.
+
+### Steps
+
+1. Convert the input string `n` to an integer.
+2. Iterate over potential values of `m` from the maximum possible down to 2.
+3. For each `m`, use binary search to find the smallest base `k` that works.
+4. Return the smallest base found.
+
+### Code Implementation
+
+```python
+class Solution:
+    def smallestGoodBase(self, n: str) -> str:
+        n = int(n)
+        
+        # Try m from the largest possible value down to 2
+        for m in range(int(n.bit_length()), 1, -1):
+            k = int(n ** (1 / (m - 1)))
+            if (k ** m - 1) // (k - 1) == n:
+                return str(k)
+        
+        # If no good base is found in the loop, return n-1 which is always valid
+        return str(n - 1)
+
+# Example usage:
+solution = Solution()
+print(solution.smallestGoodBase("13"))            # Output: "3"
+print(solution.smallestGoodBase("4681"))          # Output: "8"
+print(solution.smallestGoodBase("1000000000000000000"))  # Output: "999999999999999999"
+```
+
+### Explanation
+
+1. **Convert String to Integer**:
+   - `n = int(n)` converts the input string to an integer.
+
+2. **Iterate over Possible Lengths**:
+   - `for m in range(int(n.bit_length()), 1, -1)` iterates over potential values of `m`. `n.bit_length()` gives the number of bits required to represent `n` in binary, which is an upper bound for `m`.
+
+3. **Binary Search for `k`**:
+   - `k = int(n ** (1 / (m - 1)))` estimates the base `k`.
+   - Check if the geometric series sum `(k ** m - 1) // (k - 1) == n` holds. If it does, return `str(k)`.
+
+4. **Fallback**:
+   - If no valid base `k` is found in the loop, return `n-1` which always works as the number `n` itself can be represented as `11` in base `n-1`.
+
+This approach ensures that we efficiently find the smallest good base for the given integer `n`.

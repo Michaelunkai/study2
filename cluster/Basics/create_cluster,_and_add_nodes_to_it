@@ -1,0 +1,39 @@
+Install Proxmox VE: Ensure that Proxmox VE is installed and running on each server. You can install Proxmox using the following commands:
+bash
+Copy code
+# Update package lists
+apt update
+
+# Install Proxmox VE
+apt install proxmox-ve
+Configure Networking: Verify that each server has proper networking configured, including IP addresses, subnet masks, and gateway settings. Ensure they can communicate with each other over the network.
+Create the Cluster: Use the pvecm command to create the cluster. SSH into one of the Proxmox servers and run the following command:
+bash
+Copy code
+pvecm create <cluster_name>
+Replace <cluster_name> with the desired name for your cluster.
+
+Add Nodes to the Cluster: Once the cluster is created, you can add other Proxmox servers to it. SSH into each server and run the following command:
+bash
+Copy code
+pvecm add <IP_address_of_existing_node>
+Replace <IP_address_of_existing_node> with the IP address of a server that is already part of the cluster.
+
+Verify Cluster Status: To verify the status of the cluster and ensure that all nodes are online, you can use the following command on any of the nodes:
+bash
+Copy code
+pvecm status
+This command will display information about the cluster, including the status of each node.
+
+
+
+Show Current Clusters:
+bash
+Copy code
+pvecm status
+This command displays information about the current Proxmox cluster, including the cluster name, node status, quorum status, and more.
+
+List Current Servers (Nodes):
+bash
+Copy code
+pvecm nodes

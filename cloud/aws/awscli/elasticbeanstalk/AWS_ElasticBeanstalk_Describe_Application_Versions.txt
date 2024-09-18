@@ -1,0 +1,1 @@
+aws elasticbeanstalk describe-application-versions --application-name <app-name>

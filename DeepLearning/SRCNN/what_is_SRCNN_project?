@@ -1,0 +1,23 @@
+The SRCNN project refers to the "Super-Resolution Convolutional Neural Network," a deep learning-based approach to image super-resolution. Image super-resolution is the process of enhancing the resolution of an image, essentially increasing the number of pixels to improve its clarity and detail.
+
+Here are key aspects of the SRCNN project:
+
+1. **Objective**:
+   - To improve the quality and resolution of low-resolution images by using deep learning techniques, specifically convolutional neural networks (CNNs).
+
+2. **Architecture**:
+   - SRCNN employs a three-layer convolutional neural network. The architecture is relatively simple compared to other deep learning models but effective for the task.
+     - **Patch extraction and representation**: This layer extracts patches from the low-resolution image and represents them as high-dimensional feature vectors.
+     - **Non-linear mapping**: This layer maps these high-dimensional vectors to another set of high-dimensional vectors, effectively learning the non-linear relationship between low-resolution and high-resolution patches.
+     - **Reconstruction**: The final layer aggregates these vectors to reconstruct the high-resolution image.
+
+3. **Training**:
+   - The network is trained on pairs of low-resolution and high-resolution images. The goal is to minimize the difference between the network's output (predicted high-resolution image) and the actual high-resolution image.
+
+4. **Performance**:
+   - SRCNN has demonstrated significant improvements over traditional interpolation methods (such as bicubic interpolation) in terms of both subjective visual quality and objective metrics like peak signal-to-noise ratio (PSNR).
+
+5. **Impact**:
+   - The introduction of SRCNN marked a significant advancement in the field of image super-resolution and inspired further research into more complex and effective deep learning models for the task.
+
+In summary, SRCNN is a pioneering deep learning model designed to enhance image resolution by learning from example pairs of low and high-resolution images, demonstrating the potential of neural networks in image processing tasks.

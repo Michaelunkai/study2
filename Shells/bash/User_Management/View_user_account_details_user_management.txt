@@ -1,0 +1,3 @@
+Command: sudo chage -l <username>
+Description: Displays user account expiration information.
+User Management

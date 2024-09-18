@@ -1,0 +1,12 @@
+1)create new repo in guthub website
+
+
+2) git init
+
+3)create any file in the repo
+
+4)run
+
+git add . && git commit -m "Initial commit" && git push -u origin main
+
+add your credenetials.

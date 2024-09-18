@@ -1,0 +1,5 @@
+Routing Through Sessions:
+All modules (exploits/post/aux) against the target subnet mask will be pivoted through this session.
+
+msf > route add [Subnet to Route To]
+[Subnet Netmask] [SessionID]

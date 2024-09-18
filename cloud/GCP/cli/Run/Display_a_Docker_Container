@@ -1,0 +1,1 @@
+gcloud run deploy my-container --image gcr.io/my-project/my-container --platform managed --region us-central1

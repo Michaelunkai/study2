@@ -1,0 +1,14 @@
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+
+# Create a queue
+queue = []
+
+# Enqueue (add) elements
+queue.append('a')
+queue.append('b')
+queue.append('c')
+
+# Dequeue (remove) elements
+print(queue.pop(0))  # Output: 'a'
+print(queue.pop(0))  # Output: 'b'
+

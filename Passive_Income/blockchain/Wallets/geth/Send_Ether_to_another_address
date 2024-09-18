@@ -1,0 +1,1 @@
+eth.sendTransaction({from: personal.listAccounts[0], to: "recipient_address", value: web3.toWei(1, "ether")})

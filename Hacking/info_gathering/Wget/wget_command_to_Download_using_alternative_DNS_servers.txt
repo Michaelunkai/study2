@@ -1,0 +1,1 @@
+wget --dns-servers=1.1.1.1,1.0.0.1 http://example.com/file.zip

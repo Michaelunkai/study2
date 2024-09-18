@@ -1,0 +1,10 @@
+KNIME (Konstanz Information Miner) is an open-source data analytics, reporting, and integration platform. It is designed to enable data scientists, analysts, and developers to visually create data workflows. KNIME provides a graphical interface that allows users to drag and drop nodes to create workflows for tasks such as data preprocessing, analysis, visualization, and model deployment. It supports various data sources, including databases, files, and cloud services, and integrates with numerous machine learning and statistical tools.
+
+Key features of KNIME include:
+
+- **Visual Workflow Editor**: Users can build workflows visually without writing code.
+- **Extensibility**: KNIME can be extended with plugins for additional functionalities.
+- **Integration**: It supports integration with various data sources and other tools.
+- **Open Source**: The core KNIME Analytics Platform is open source, with additional commercial extensions available.
+
+KNIME is widely used in industries such as pharmaceuticals, finance, and marketing for data analysis, predictive modeling, and data-driven decision-making.

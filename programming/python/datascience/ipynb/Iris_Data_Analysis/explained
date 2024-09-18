@@ -1,0 +1,95 @@
+This code analyzes the Iris dataset using pandas, matplotlib, and seaborn. It loads the data, summarizes statistics, checks for missing values, and visualizes data distributions and relationships through histograms, scatter plots, and pair plots within a Jupyter Notebook.
+
+
+
+Cell 1
+python
+ 
+pip install jupyter pandas matplotlib seaborn
+Explanation: Installs necessary Python libraries for data analysis and visualization.
+
+Cell 2
+python
+ 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+Explanation: Imports pandas for data manipulation, matplotlib for plotting, and seaborn for statistical plots.
+
+Cell 3
+python
+ 
+%matplotlib inline
+Explanation: Ensures that plots are displayed within the Jupyter Notebook.
+
+Cell 4
+python
+ 
+iris = sns.load_dataset('iris')
+iris.head()
+Explanation: Loads the Iris dataset from seaborn and displays the first five rows.
+
+ : Displays the first five rows of the Iris dataset.
+
+Cell 5
+python
+ 
+iris.shape
+Explanation: Returns the dimensions of the Iris dataset.
+
+ : (150, 5) indicating 150 rows and 5 columns.
+
+Cell 6
+python
+ 
+iris.columns
+Explanation: Lists the column names of the dataset.
+
+ : Index of column names: 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'.
+
+Cell 7
+python
+ 
+iris.describe()
+Explanation: Provides summary statistics for the numerical columns.
+
+ : Count, mean, std, min, 25%, 50%, 75%, max for numerical features.
+
+Cell 8
+python
+ 
+iris.isnull().sum()
+Explanation: Checks for missing values in the dataset.
+
+ : Shows zero missing values for all columns.
+
+Cell 9
+python
+ 
+iris['sepal_length'].hist(bins=20)
+plt.xlabel('Sepal Length')
+plt.ylabel('Frequency')
+plt.title('Distribution of Sepal Length')
+plt.show()
+Explanation: Plots a histogram of sepal length distribution.
+
+ : Histogram showing the frequency distribution of sepal lengths.
+
+Cell 10
+python
+ 
+sns.scatterplot(x='sepal_length', y='sepal_width', data=iris, hue='species')
+plt.title('Sepal Length vs Sepal Width')
+plt.show()
+Explanation: Creates a scatter plot of sepal length vs sepal width, colored by species.
+
+ : Scatter plot showing the relationship between sepal length and width, colored by species.
+
+Cell 11
+python
+ 
+sns.pairplot(iris, hue='species')
+plt.show()
+Explanation: Generates pairwise scatter plots for all numerical features, colored by species.
+
+ : Pairplot matrix visualizing relationships between features, separated by species.

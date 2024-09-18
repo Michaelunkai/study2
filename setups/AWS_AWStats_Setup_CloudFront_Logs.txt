@@ -1,0 +1,1 @@
+aws cloudfront create-distribution --origin-domain-name mywebsite.com --default-root-object index.html

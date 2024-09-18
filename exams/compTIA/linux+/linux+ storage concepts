@@ -1,0 +1,23 @@
+File storage: Organizes data in a hierarchical structure using directories and files. Commonly used in operating systems, where each file has a unique name and stores data in a format understandable by applications.
+
+Block storage: Manages data in fixed-sized blocks, usually through protocols like iSCSI or Fibre Channel. Allows for direct access to specific blocks, making it suitable for databases and virtual machines.
+
+Object storage: Stores data as objects within a flat structure, each identified by a unique identifier. Often used for web-based applications and scalable cloud storage, offering high scalability and metadata flexibility.
+
+Partition type: Defines the format and structure of a partition on a storage device. Determines how data is organized and accessed, such as MBR (Master Boot Record) and GPT (GUID Partition Table).
+
+Master boot record (MBR): A traditional method for partitioning disks on PCs. It contains the partition table and a small program that boots the operating system. Limited to four primary partitions and constrained by its 32-bit architecture.
+
+GUID (Globally Unique Identifier): A unique reference number used to identify resources. In the context of partitioning, GUID is used in GPT to provide a globally unique identifier for each partition on a disk.
+
+Partition Table (GPT): A modern method for partitioning disks, overcoming MBR's limitations. GPT supports up to 128 partitions, uses GUIDs for identification, and offers more robust data integrity features.
+
+Filesystem in Userspace (FUSE): Enables non-privileged users to create and mount file systems without kernel involvement. Widely used in Unix-like systems, it provides flexibility and extensibility for developing custom file systems.
+
+Redundant Array of Independent (or Inexpensive) Disks (RAID) levels: Data storage technology that combines multiple disk drives into a single logical unit to improve performance, reliability, or both.
+
+Striping: Distributes data across multiple disks in sequential blocks, enhancing performance by allowing parallel access to data. However, it offers no redundancy.
+
+Mirroring: Copies data identically onto two or more disks, providing redundancy and fault tolerance. Increases data availability but requires additional storage capacity.
+
+Parity: Utilizes parity information to recover data in case of disk failure. Commonly used in RAID configurations to provide fault tolerance by calculating and storing parity information across multiple disks.

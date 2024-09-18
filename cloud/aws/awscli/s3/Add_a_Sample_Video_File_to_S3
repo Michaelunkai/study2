@@ -1,0 +1,7 @@
+Add a Sample Video File to S3 (for testing):
+
+Save a sample video file locally and upload it to the S3 bucket:
+
+ 
+ 
+aws s3 cp sample-video.mp4 s3://my-unique-bucket-name-xyz/sample-video.mp4

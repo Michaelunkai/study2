@@ -1,0 +1,1 @@
+awk '{count[$1]++} END {for (word in count) print word, count[word]}' filename.txt

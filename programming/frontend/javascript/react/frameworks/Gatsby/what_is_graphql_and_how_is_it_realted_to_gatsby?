@@ -1,0 +1,10 @@
+**GraphQL** is a query language for APIs and a runtime for executing those queries by using a type system you define for your data. It allows clients to request only the specific data they need, rather than a fixed set of data, making data fetching more efficient and flexible.
+
+**Gatsby** is a static site generator built on React that leverages GraphQL as its data management layer. In Gatsby, GraphQL is used to query data from various sources, such as Markdown files, CMSs, APIs, and databases, and then inject that data into React components. This allows developers to build static sites with dynamic content that is pre-fetched and optimized during the build process, resulting in fast-loading web pages.
+
+### Relationship Between GraphQL and Gatsby
+- **Data Sourcing:** Gatsby uses GraphQL to gather data from multiple sources and aggregate it into a single GraphQL schema.
+- **Component Integration:** Gatsby components can query the GraphQL schema to pull in data directly into their templates, enabling dynamic content rendering.
+- **Build Time Queries:** During the build process, Gatsby runs the GraphQL queries to generate static HTML, ensuring fast and optimized pages.
+
+In summary, GraphQL is central to how Gatsby handles data, providing a powerful and flexible way to fetch and manage content in a static site built with Gatsby.

@@ -1,0 +1,5 @@
+ go to chrome://flags/#unsafely-treat-insecure-origin-as-secure.
+
+Find "Insecure origins treated as secure" and enable it.
+
+In the text box below "Insecure origins treated as secure", enter your URL: http://192.168.1.193:8080.

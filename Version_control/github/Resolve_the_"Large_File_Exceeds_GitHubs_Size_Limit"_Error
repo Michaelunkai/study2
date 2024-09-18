@@ -1,0 +1,78 @@
+### How to Resolve the "Large File Exceeds GitHub's Size Limit" Error
+
+This tutorial will guide you through resolving the issue of pushing a large file that exceeds GitHub's file size limit of 100 MB. Specifically, we will address the error caused by attempting to push `windows/powershell/scripts/pulumi.tar.gz` which is 153.88 MB.
+
+#### Step 1: Verify Git LFS Installation and Initialization
+
+Ensure Git LFS is installed and initialized in your repository.
+
+  
+git lfs install
+
+#### Step 2: Track the Large File with Git LFS
+
+Tell Git LFS to track the large file.
+
+  
+git lfs track "windows/powershell/scripts/pulumi.tar.gz"
+
+#### Step 3: Add the `.gitattributes` File
+
+Add the `.gitattributes` file created by Git LFS.
+
+  
+git add .gitattributes
+
+#### Step 4: Remove the Large File from Git History
+
+Remove the large file from Git's tracking to re-add it under Git LFS.
+
+  
+git rm --cached windows/powershell/scripts/pulumi.tar.gz
+git add windows/ /scripts/pulumi.tar.gz
+
+#### Step 5: Commit the Changes
+
+Commit the changes to your repository.
+
+  
+git commit -m "Track large file using Git LFS"
+
+#### Step 6: Push the Changes
+
+Push the changes to the remote repository.
+
+  
+git pu 
+
+### Advanced: Remove Large File from Git History
+
+If the above steps don't resolve the issue, you might need to remove the large file from the repository's history and re-add it using Git LFS.
+
+#### Step A: Remove the Large File from Git History
+
+This command will remove the large file from the entire Git history.
+
+  
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch windows/powershell/scripts/pulumi.tar.gz' --prune-empty --tag-name-filter cat -- --all
+
+#### Step B: Track and Re-add the Large File Using Git LFS
+
+Track the file with Git LFS and re-add it to your repository.
+
+  
+git lfs track "windows/powershell/scripts/pulumi.tar.gz"
+git add .gitattributes
+git add windows/ /scripts/pulumi.tar.gz
+git commit -m "Add large file using Git LFS"
+
+#### Step C: Force Push to Overwrite History
+
+Force push to update the remote repository with the changes.
+
+  
+git push origin --force --all
+
+### Conclusion
+
+Following these steps should resolve the error related to large file sizes in GitHub. If you force push changes, ensure that it is acceptable for your use case as it can overwrite commits in the remote repository.

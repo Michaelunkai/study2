@@ -1,0 +1,1 @@
+Start-Process -FilePath 'C:\path\to\python_installer.exe' -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -NoNewWindow -Wait

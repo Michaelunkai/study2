@@ -1,0 +1,1 @@
+rsync -av rsync://remote_host/module/ /destination_directory/

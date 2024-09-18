@@ -1,0 +1,7 @@
+ Initialize a New Rasa Project
+Once Rasa is installed, you can create a new project by running:
+
+ 
+ 
+rasa init --no-prompt
+This command sets up a new Rasa project with default files and directories, allowing you to start customizing your chatbot immediately.

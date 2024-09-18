@@ -1,0 +1,44 @@
+
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
+
+Wait for the installation to complete.
+
+Configuring DHCP Server via PowerShell
+Once the installation is complete, launch PowerShell as an administrator.
+
+Run the following command to authorize the DHCP server:
+
+Add-DhcpServerInDC
+
+Create a new DHCP scope with the following PowerShell command:
+
+Add-DhcpServerV4Scope -Name "MyScope" -StartRange 192.168.1.101 -EndRange 192.168.1.200 -SubnetMask 255.255.255.0 -LeaseDuration "8.0:0:0"
+
+
+Adjust the parameters (such as scope name, IP range, subnet mask, and lease duration) according to your network requirements.
+
+Set the default gateway for the DHCP clients with:
+
+
+Set-DhcpServerV4OptionValue -OptionID 3 -Value "192.168.1.1"
+
+
+Set the DNS server addresses for the DHCP clients with:
+
+
+Set-DhcpServerV4OptionValue -OptionID 6 -Value "windowsIP"
+
+
+Replace "192.168.1.1" and "192.168.1.10" with the actual IP addresses of your default gateway and DNS server respectively.
+
+Activate the DHCP scope with:
+
+Set-DhcpServerv4Scope -ScopeId 192.168.1.0 -State Active
+Note: Your DHCP server is now configured and ready to assign IP addresses to devices on your network.
+
+
+To get more detailed information about DHCP server scopes and their configurations, you can use the following command:
+
+Get-DhcpServerv4Scope
+
+

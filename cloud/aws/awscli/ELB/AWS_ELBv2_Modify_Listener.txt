@@ -1,0 +1,1 @@
+aws elbv2 modify-listener --listener-arn <listener-arn> --port 80 --protocol HTTP

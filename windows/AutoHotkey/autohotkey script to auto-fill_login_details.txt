@@ -1,0 +1,3 @@
+^!l::
+Send, username{Tab}password{Enter}
+return

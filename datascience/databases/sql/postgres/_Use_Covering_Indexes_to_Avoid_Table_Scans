@@ -1,0 +1,15 @@
+Use Covering Indexes to Avoid Table Scans
+Covering indexes include all the columns needed for a query, reducing the need to scan the main table.
+
+Steps:
+
+Drop the existing index if needed and create a covering index for the query:
+ 
+ 
+DROP INDEX idx_employee_name;
+CREATE INDEX idx_employee_name_salary
+ON employee (name, salary);
+Run the query and observe the index-only scan:
+ 
+ 
+EXPLAIN ANALYZE SELECT salary FROM employee WHERE name = 'John';

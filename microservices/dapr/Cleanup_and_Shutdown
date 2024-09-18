@@ -1,0 +1,13 @@
+Cleanup and Shutdown
+To stop the services, press Ctrl + C in the terminal where each service is running.
+
+If you no longer need Dapr, you can uninstall it:
+
+ 
+ 
+dapr uninstall
+To remove Redis and other Dapr-related Docker containers:
+
+ 
+ 
+docker rm -f $(docker ps -a -q)

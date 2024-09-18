@@ -1,0 +1,1 @@
+wget https://sourceforge.net/projects/metasploitable/files/Metasploitable2/metasploitable-linux-2.0.0.zip/download -O metasploitable-linux-2.0.0.zip && unzip metasploitable-linux-2.0.0.zip

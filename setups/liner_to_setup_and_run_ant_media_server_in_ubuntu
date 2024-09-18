@@ -1,0 +1,1 @@
+ wget -O install_ant-media-server.sh https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh && sudo chmod 755 install_ant-media-server.sh && sudo ./install_ant-media-server.sh && gcl 5080

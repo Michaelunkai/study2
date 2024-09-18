@@ -1,0 +1,5 @@
+Implement Enhanced Email SecurityWhy: Protects against phishing, malware, and other email-based threats.Ubuntu:Install and Configure SpamAssassin:sudo apt install spamassassin spamc
+sudo systemctl enable spamassassin
+sudo systemctl start spamassassinIntegrate SpamAssassin with Postfix:sudo apt install postfix
+sudo postconf -e 'content_filter = smtp-amavis:[127.0.0.1]:10024'
+

@@ -1,0 +1,21 @@
+Using OllyDbg for Reverse Engineering
+Once OllyDbg is running, you can begin debugging and analyzing applications. Here’s how to perform basic tasks in OllyDbg:
+
+Loading an Application
+Open Executable:
+
+In OllyDbg, go to File > Open, or press Ctrl + O.
+Select the Windows executable (.exe) you wish to analyze.
+Set Breakpoints:
+
+Click on the margin next to the assembly code, or press F2, to set a breakpoint at any line of code.
+Run the Program:
+
+Press F9 to run the program until it hits a breakpoint.
+Step Through Code:
+
+Press F7 to step into functions.
+Press F8 to step over code.
+View Registers and Memory:
+
+OllyDbg allows you to monitor the CPU registers and memory during program execution, helping you understand what the code does in real-time.

@@ -1,0 +1,1 @@
+aws proton create-environment-template-version --template-name <template-name> --source-s3-bucket <bucket> --source-s3-key <key> --major-version <version>

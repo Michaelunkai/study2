@@ -1,0 +1,60 @@
+### Problem Statement (Explained Like You're 12):
+
+You are given a list of prices where each price is the price of a stock on a given day. You can decide to buy and/or sell the stock on any day. You can hold at most one share of the stock at any time. You want to maximize your profit by choosing the best days to buy and sell the stock. However, you can buy it then immediately sell it on the same day.
+
+For example, if the prices are `[7, 1, 5, 3, 6, 4]`, you can:
+- Buy on day 2 (price = 1) and sell on day 3 (price = 5) for a profit of 4.
+- Then buy on day 4 (price = 3) and sell on day 5 (price = 6) for a profit of 3.
+- Total profit = 4 + 3 = 7.
+
+### Python Solution:
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_profit = 0
+        
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                max_profit += prices[i] - prices[i - 1]
+        
+        return max_profit
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def maxProfit(self, prices: List[int]) -> int:
+    ```
+
+2. **Initialize Variables**:
+    ```python
+    max_profit = 0
+    ```
+
+    - Initialize `max_profit` to 0. This variable will keep track of the total profit.
+
+3. **Iterate Over Prices**:
+    ```python
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            max_profit += prices[i] - prices[i - 1]
+    ```
+
+    - Loop through the list of prices starting from the second day (index 1).
+    - If the price on the current day is greater than the price on the previous day, calculate the profit (difference between the current day's price and the previous day's price) and add it to `max_profit`.
+
+4. **Return the Result**:
+    ```python
+    return max_profit
+    ```
+
+    - After iterating through all the prices, return the total maximum profit.
+
+### Summary:
+
+1. Initialize `max_profit` to 0.
+2. Loop through the list of prices starting from the second day.
+3. If the current day's price is greater than the previous day's price, add the difference to `max_profit`.
+4. Return the total `max_profit`.

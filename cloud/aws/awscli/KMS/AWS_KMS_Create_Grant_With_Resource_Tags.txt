@@ -1,0 +1,1 @@
+aws kms create-grant --key-id <key-id> --grantee-principal <principal-arn> --operations <operations> --resource-tags <tag>

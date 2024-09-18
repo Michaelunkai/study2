@@ -1,0 +1,11 @@
+ Configure the Node
+a. Set Pricing and Bandwidth
+You’ll be able to configure:
+
+Price per GB of bandwidth (in MYST tokens).
+Bandwidth limits to control how much of your internet connection is shared.
+b. Set up the Wallet
+Mysterium pays in MYST tokens, so you need to set up a wallet within the node dashboard:
+
+Create or import a wallet (you'll get a MYST address).
+Backup your wallet seed phrase securely (important for wallet recovery).

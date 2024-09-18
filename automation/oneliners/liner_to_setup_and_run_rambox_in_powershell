@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://github.com/ramboxapp/community-edition/releases/download/0.7.9/Rambox-0.7.9-win-x64.zip" -OutFile "$env:USERPROFILE\Downloads\Rambox.zip"; Expand-Archive -Path "$env:USERPROFILE\Downloads\Rambox.zip" -DestinationPath "$env:USERPROFILE\Rambox"; Start-Process "$env:USERPROFILE\Rambox\Rambox.exe"

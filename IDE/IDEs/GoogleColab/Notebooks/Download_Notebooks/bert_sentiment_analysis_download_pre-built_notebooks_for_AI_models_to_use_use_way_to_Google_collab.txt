@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/sentiment_analysis.ipynb -O bert_sentiment_analysis.ipynb

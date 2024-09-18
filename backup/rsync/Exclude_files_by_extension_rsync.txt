@@ -1,0 +1,1 @@
+rsync -av --exclude='*.bak' /source_directory/ /destination_directory/

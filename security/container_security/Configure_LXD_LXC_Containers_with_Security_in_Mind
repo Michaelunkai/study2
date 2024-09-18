@@ -1,0 +1,14 @@
+Configure LXD/LXC Containers with Security in Mind
+Ensure your LXD/LXC containers are secure.
+
+Install LXD:
+
+sudo apt install lxd
+Initialize LXD:
+
+sudo lxd init
+Create and configure a secure container:
+
+lxc launch ubuntu:20.04 my-secure-container
+lxc config set my-secure-container security.nesting false
+lxc config set my-secure-container security.privileged false

@@ -1,0 +1,54 @@
+▲A  A▼
+Create and Apply SSL Certificate to Aria2 RPC Interface
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: aria2.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: aria2.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to aria2.p12 and verify the export format is PKCS#12 chain (*.p12)
+Click OK
+Leave the passwords blank > Click OK
+Applying SSL Certificates
+Move the exported .p12 file to the aria2 installation directory
+Open aria2.conf in a text editor
+Add the following lines to the .conf file, updating the file path if aria2 is installed to a different location
+rpc-certificate=c:\Program Files\aria2\aria2.p12
+rpc-secure=true
+
+Save the changes to aria2.conf
+Kill aria2c.exe if it is currently running
+Relaunch aria2c either via command line or scheduled task
+Load your aria2 web UI of choice
+Update the RPC connection to enable SSL
+ 

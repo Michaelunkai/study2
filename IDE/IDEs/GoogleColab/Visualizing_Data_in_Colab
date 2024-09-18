@@ -1,0 +1,26 @@
+Visualizing Data in Colab
+For data visualization in Colab:
+
+Matplotlib: Import Matplotlib for creating various plots.
+Seaborn: Use Seaborn for statistical data visualization.
+Plotly: For interactive plots, import Plotly.
+ 
+ 
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+
+# Example with Matplotlib
+plt.plot([1, 2, 3, 4])
+plt.ylabel('Some numbers')
+plt. ow()
+
+# Example with Seaborn
+sns.set(style="darkgrid")
+tips = sns.load_dataset("tips")
+sns.relplot(x="total_bill", y="tip", hue="day", data=tips)
+
+# Example with Plotly
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")
+fig. ow()

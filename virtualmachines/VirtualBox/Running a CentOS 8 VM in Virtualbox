@@ -1,0 +1,67 @@
+Running a CentOS 8 VM in Virtualbox
+Download CentOS 8 Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: CentOS 8
+Machine Folder: C:\VMs
+Type: Linux
+Version: Red Hat (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image CentOS 8.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded CentOS 8 .iso file
+Click OK
+Make sure the CentOS 8 VM is selected and click Start > Normal
+Press Ctrl+C to cancel the disk check
+When the install dialog displays click Install CentOS Linux
+Select a keyboard layout > Click Continue
+Click the Installation Destination button
+Click the ATA VBOX HARDDISK to select it
+Set the Storage Configuration to automatic
+Click Done in the top left of the dialog
+Click the Network and Hostname option
+Set the VM hostname
+Click Done in the top left of the dialog
+Click Begin Installation
+Under User Settings, select Root Password
+Set a root password and click the Done button
+Again under User Settings, select User Creation
+Set a username and password and click the Done button
+Wait for the installation to complete copying files
+Once complete, Click Devices > Optical Drives > Remove disk from virtual drive
+Select Force unmount
+Click the Reboot button, the VM will reboot
+Welcome to CentOS 8
+Optional Steps
+Click the Applications button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+sudo yum update
+Select Devices > Insert Guest Additions CD image...
+If the installation autoruns, select Run
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+sudo yum install dkms elfutils-libelf-devel
+sudo yum groupinstall "Development Tools"
+sudo ./VBoxLinuxAdditions.run
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into CentOS

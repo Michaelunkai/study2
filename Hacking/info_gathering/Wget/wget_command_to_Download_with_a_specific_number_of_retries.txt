@@ -1,0 +1,1 @@
+wget --tries=3 http://example.com/file.zip

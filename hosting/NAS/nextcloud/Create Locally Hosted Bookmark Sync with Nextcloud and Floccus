@@ -1,0 +1,27 @@
+Create Locally Hosted Bookmark Sync with Nextcloud and Floccus
+Setting Up Nextcloud
+Log into Nextcloud
+Click the gear icon in the upper right corner > Click Apps
+Press CTRL + F and search bookmark
+Find the Bookmarks app and click the Download and Enable button
+Setting Up Floccus
+In Firefox or a Chromium based browser, install the Floccus add-on or extension
+In Brave Browser, open a new tab and navigate to https://chrome.google.com/webstore/category/extensions
+Search for Floccus
+Click on floccus bookmarks sync
+Click the Add to Brave button > Click Add Extension to confirm
+Click the hamburger menu > Extensions
+Find floccus bookmarks sync and click the Details button
+Scroll down and click Extension options
+Click the New Account button
+Select Nextcloud Bookmarks > Click the Add Account button
+Enter the Nextcloud URL, username and password
+Expand the Folder mapping section
+Under Local folder, click the folder icon to browse the current browser's bookmark locations
+Select Bookmarks > Click the Save button
+Click the Save button
+Add a bookmark in the browser to test the sync
+Click the Extensions button > floccus bookmarks sync
+Click the Sync Now button
+The test bookmark should sync to Nextcloud
+After the initial sync, floccus will automatically sync bi-directionally every 15 minutes by default. This interval can be configured in the extension options

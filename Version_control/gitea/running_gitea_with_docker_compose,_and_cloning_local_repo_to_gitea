@@ -1,0 +1,8 @@
+*run gita compose 
+*log in
+*create new repo
+
+
+*from local repo path:
+git remote add origin <repoURL>
+git push gitea main

@@ -1,0 +1,58 @@
+GLPI
+Installation Steps:
+Install necessary packages:
+
+sh
+ 
+sudo apt install apache2 mariadb-server    -my   -xml  -gd  -curl  -mbstring -y
+Create a database for GLPI:
+
+sh
+ 
+sudo my  -u root -p
+CREATE DATABASE glpi;
+CREATE USER 'glpiuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON glpi.* TO 'glpiuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+Download and extract GLPI:
+
+sh
+ 
+wget https://github.com/glpi-project/glpi/releases/download/9.5.6/glpi-9.5.6.tgz
+tar -xvzf glpi-9.5.6.tgz
+sudo mv glpi /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/glpi
+sudo chmod -R 755 /var/www/html/glpi
+Configure Apache for GLPI:
+
+sh
+ 
+sudo nano /etc/apache2/sites-available/glpi.conf
+Add the following content:
+
+apache
+ 
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/glpi
+    ServerName example.com
+    ServerAlias www.example.com
+
+    <Directory /var/www/html/glpi>
+        Options +FollowSymlinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/glpi_error.log
+    CustomLog ${APACHE_LOG_DIR}/glpi_access.log combined
+</VirtualHost>
+Enable the GLPI site and restart Apache:
+
+sh
+ 
+sudo a2ensite glpi.conf
+sudo systemctl restart apache2
+Access the GLPI Web Interface:
+Open your web browser and go to http://your_domain_or_IP/glpi.

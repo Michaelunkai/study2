@@ -1,0 +1,25 @@
+Here are the steps to obtain your Hugging Face token:
+
+1. **Create a Hugging Face Account:**
+   - Go to the Hugging Face website: [huggingface.co](https://huggingface.co).
+   - If you don't already have an account, click on "Sign Up" in the top right corner and follow the instructions to create one. If you already have an account, click on "Log In" and enter your credentials.
+
+2. **Access Your Account Settings:**
+   - Once logged in, click on your profile picture in the top right corner of the page.
+   - From the dropdown menu, select "Settings."
+
+3. **Generate an API Token:**
+   - In the "Settings" page, find the "Access Tokens" section in the left-hand sidebar.
+   - Click on "New token" to generate a new API token.
+   - You will be prompted to provide a name for your token and set its permissions. Give it a name that you can easily recognize and choose the appropriate permissions based on your needs.
+   - Click "Generate" to create the token.
+
+4. **Copy Your Token:**
+   - Once the token is generated, you will see it displayed on the screen. Copy this token and keep it secure, as you will not be able to view it again once you leave the page.
+
+5. **Store Your Token Securely:**
+   - It's important to store your token in a secure location, such as a password manager or an environment variable in your development environment, to ensure it remains confidential.
+
+Now, you can use this token to authenticate with Hugging Face's API and access their services.
+
+If you encounter any issues or need further assistance, feel free to ask!

@@ -1,0 +1,4 @@
+#  top 100 installation tools or packages in my Ubuntu system, ranked from the heaviest of them to the lightest (in mbs)
+
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n -r | head -n 100 | awk '{size=$1/1024; printf "%.2f MB\t%s\n", size, $2}'
+

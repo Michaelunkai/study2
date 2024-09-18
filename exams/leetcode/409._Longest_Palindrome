@@ -1,0 +1,69 @@
+### 409. Longest Palindrome
+
+**Solution:**
+
+```python
+from collections import Counter
+
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        count = Counter(s)
+        length = 0
+        odd_found = False
+        
+        for freq in count.values():
+            if freq % 2 == 0:
+                length += freq
+            else:
+                length += freq - 1
+                odd_found = True
+        
+        if odd_found:
+            length += 1
+        
+        return length
+```
+
+### Explanation:
+
+1. **Count Frequency of Characters:**
+   - Use `Counter` from the `collections` module to count the frequency of each character in the string `s`.
+
+2. **Calculate Length of Longest Palindrome:**
+   - Initialize a variable `length` to store the length of the longest palindrome that can be built.
+   - Initialize a boolean `odd_found` to `False` to keep track of whether any character with an odd frequency has been found.
+
+3. **Iterate Over Character Frequencies:**
+   - For each character frequency in the `count` dictionary:
+     - If the frequency is even, add it to `length`.
+     - If the frequency is odd, add `freq - 1` to `length` (making it even) and set `odd_found` to `True`.
+
+4. **Adjust Length for Odd Frequency:**
+   - If any odd frequency was found, add `1` to `length` to allow one odd character to be placed in the middle of the palindrome.
+
+5. **Return Result:**
+   - Return the computed `length`.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `s = "abccccdd"`
+   - Explanation:
+     - `Counter(s) = {'c': 4, 'd': 2, 'a': 1, 'b': 1}`
+     - Even frequencies: 'c' -> 4, 'd' -> 2 (total 6)
+     - Odd frequencies: 'a' -> 1, 'b' -> 1 (add 1 more to total 7)
+     - Output: `7`
+
+2. **Example 2:**
+   - Input: `s = "a"`
+   - Explanation:
+     - `Counter(s) = {'a': 1}`
+     - Odd frequency: 'a' -> 1 (total 1)
+     - Output: `1`
+
+### Constraints:
+
+- `1 <= s.length <= 2000`
+- `s` consists of lowercase and/or uppercase English letters only.
+
+This solution efficiently calculates the length of the longest palindrome that can be built using the characters in the string by leveraging the frequency counts and ensuring even counts are fully utilized while allowing for a single odd count if necessary.

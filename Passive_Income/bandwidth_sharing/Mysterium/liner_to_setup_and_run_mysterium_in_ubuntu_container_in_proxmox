@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y software-properties-common && sudo add-apt-repository ppa:mysteriumnetwork/node -y && sudo apt-get update && sudo apt-get install -y myst && sudo find / -name config.yaml 2>/dev/null && sudo systemctl start mysterium-node.service && sudo systemctl enable mysterium-node.service && sudo systemctl status mysterium-node.service

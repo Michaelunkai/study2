@@ -1,0 +1,1 @@
+iwr -Uri https://download.jetbrains.com/teamcity/TeamCity-2021.1.4.exe -OutFile teamcity_installer.exe; Start-Process teamcity_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

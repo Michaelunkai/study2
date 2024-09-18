@@ -1,0 +1,1 @@
+aws elasticbeanstalk delete-application-resource-lifecycle --application-name <app-name>

@@ -1,0 +1,2 @@
+Convert-VHD -Path "D:\vms\winserv22.vhd" -DestinationPath "D:\vms\\windowserver22.vhdx" -Verbose
+

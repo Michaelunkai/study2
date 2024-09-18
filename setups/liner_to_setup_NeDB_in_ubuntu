@@ -1,0 +1,1 @@
+getnpm && mkdir -p nedb-demo && cd nedb-demo && npm init -y --silent && npm install nedb --silent && echo "const Datastore = require('nedb'); const db = new Datastore(); db.insert({ name: 'Alice', age: 25 }, function (err, newDoc) { console.log('NeDB Inserted:', newDoc); });" > nedb.js && node nedb.js && npm list nedb -v

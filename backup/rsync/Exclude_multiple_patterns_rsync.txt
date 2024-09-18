@@ -1,0 +1,1 @@
+rsync -av --exclude='*.tmp' --exclude='*.log' /source_directory/ /destination_directory/

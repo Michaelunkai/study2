@@ -1,0 +1,4 @@
+Best Practices for Performance-Critical C++ Code
+Use algorithms from the Standard Library: STL is highly optimized.
+Avoid unnecessary memory allocations: Prefer stack allocations or object pools.
+Profile early and often: Identify bottlenecks using profiling tools.

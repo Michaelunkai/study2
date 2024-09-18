@@ -1,0 +1,1 @@
+aws kinesis create-stream --stream-name MyDataStream --shard-count 1

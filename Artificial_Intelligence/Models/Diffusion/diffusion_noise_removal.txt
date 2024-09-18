@@ -1,0 +1,21 @@
+What is 'Diffusion' (Noise Removal), and What Does It Actually Do?
+### What is Diffusion (Noise Removal) in Image Generators?
+In AI-based image generators, like Stable Diffusion and Leonardo, the concept of 'diffusion' or 'noise removal' is central and important. To understand how image generators generate images, it is important to understand how the noise removal process works.
+### What is Noise?
+Noise is the chaotic dispersion of pixels in an image, a state where there is no order or structure visible to the human eye. Imagine the static noise on old TVs – this is the noise in question. This is exactly how an image looks before the image generator starts its work.
+### What is Diffusion?
+Diffusion is the process of removing noise or rearranging it into a clear and coherent image. The process starts with a command (prompt) that the user inputs into the generator. The generator begins to 'arrange' the pixels to create the desired image, removing more and more noise at each stage until the final result.
+### How Does It Work?
+When we input a prompt into an image generator, the generator starts from complete noise and begins to organize the pixels in a way that resembles the desired final product. The generator relies on models trained on billions of images, and from this accumulated knowledge, it knows how to arrange the pixels according to the desired image.
+### Real-World Example
+A good example is the art of Justin Bateman, who arranges shells and pebbles into a clear and coherent picture, similar to how Stable Diffusion arranges pixels to create an image.
+### Conclusion
+Understanding the diffusion process allows for a better understanding of the capabilities and limitations of AI-based image generators. Knowing the process helps us understand what image generators can and cannot do.
+### Courses and Workshops
+If you are interested in mastering and understanding these amazing technologies, join our courses and workshops to create original and unique visual art.
+**To register for courses and workshops and to join our newsletter for updates on leading AI tools, deals, and promotions, click here.**
+---
+**Evitar Edri**
+AI lecturer and social marketing expert. Co-Founder & VP Product at LetsAI. Founder and CEO of Fuzz New Media.
+---
+*For more GPTs by God of Prompt, visit [https://godofprompt.ai/gpts](https://godofprompt.ai/gpts)*

@@ -1,0 +1,19 @@
+ Create Subscription Configuration
+Create a dapr-subscription.yaml file:
+
+ 
+ 
+nano dapr-subscription. 
+Add the following configuration:
+
+ 
+ 
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: messages-subscription
+spec:
+  topic: messages
+  route: /messages
+  pubsubname: redis-pubsub
+This subscription binds Service B to the messages topic using the redis-pubsub component.

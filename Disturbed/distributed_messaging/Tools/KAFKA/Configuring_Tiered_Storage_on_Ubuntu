@@ -1,0 +1,9 @@
+# Edit server.properties to enable Tiered Storage
+nano $KAFKA_HOME/config/server.properties
+
+# Add the following lines for Tiered Storage configuration
+log.dirs=/tmp/kafka-logs
+log.roll.ms=604800000
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000

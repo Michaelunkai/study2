@@ -1,0 +1,83 @@
+Here are 20 curl commands for gathering various types of information:
+
+1. **IP Address Information:**
+     
+   curl ipinfo.io
+
+2. **Website Headers:**
+     
+   curl -I https://example.com
+
+3. **Website Content:**
+     
+   curl https://example.com
+
+4. **User-Agent Information:**
+     
+   curl -A "Mozilla/5.0" https://example.com
+
+5. **Download File:**
+     
+   curl -O https://example.com/file.zip
+
+6. **FTP File Information:**
+     
+   curl ftp://example.com/file.txt
+
+7. **Public IP Address:**
+     
+   curl ifconfig.me
+
+8. **Weather Information:**
+     
+   curl wttr.in
+
+9. **DNS Information:**
+     
+   curl -X GET "https://api.hackertarget.com/dnslookup/?q=example.com"
+
+10. **GeoIP Lookup:**
+      
+    curl ip-api.com/json
+
+11. **Check HTTP/2 Support:**
+      
+    curl -I --http2 https://example.com
+
+12. **Get JSON Response:**
+      
+    curl -H "Accept: application/json" https://api.example.com/data
+
+13. **Check for Redirects:**
+      
+    curl -L -I https://example.com
+
+14. **Download and Save with Different Name:**
+      
+    curl -o newname.zip https://example.com/file.zip
+
+15. **Post Data to a Server:**
+      
+    curl -d "param1=value1&param2=value2" -X POST https://example.com/resource
+
+16. **Get HTTP Status Code:**
+      
+    curl -o /dev/null -s -w "%{http_code}\n" https://example.com
+
+17. **Check SSL Certificate Expiry:**
+      
+    curl -vI https://example.com 2>&1 | grep "expire date"
+
+18. **GitHub User Information:**
+      
+    curl https://api.github.com/users/username
+
+19. **List All cURL Options:**
+      
+    curl -h
+
+20. **Trace cURL Request:**
+      
+    curl --trace - https://example.com
+
+These commands cover a wide range of information gathering tasks using `curl`.

@@ -1,0 +1,1 @@
+awk 'function is_armstrong(n) {sum = 0; temp = n; while (temp > 0) {d = temp % 10; sum += d^3; temp = int(temp / 10)} return (sum == n)} {if (is_armstrong($2)) print}' filename.txt

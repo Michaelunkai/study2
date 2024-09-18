@@ -1,0 +1,1 @@
+nmap -sn 192.168.1.0/24 > network_scan.txt && cat network_scan.txt | grep "Nmap scan report" | wc -l && nmap -p- -iL network_scan.txt -oN open_ports.txt && echo "Network scanned and open ports analyzed"

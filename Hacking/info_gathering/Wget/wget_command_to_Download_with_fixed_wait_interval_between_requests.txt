@@ -1,0 +1,1 @@
+wget --wait=3 http://example.com/files/

@@ -1,0 +1,19 @@
+▲A  A▼
+Can You Run VirtualBox Inside of a ProxMox VM?
+A Little Background
+First, let me give a little background since this seems like an unnecessary use case. I had the idea of converting a physical Windows PC into a ProxMox VM (P2V) to allow me to better separate the PC resources for different tasks. Currently one of the main uses for the PC is to quickly test different things using VirtualBox. This could be testing new Linux distro releases, working through steps for a new application install tutorial or walking through the steps of an existing tutorial when an issue is reported by a viewer. I have a workflow that I like to use and I didn't want to abandon VirtualBox and migrate the workflow to ProxMox. So, is it possible and if so, how well does it work?
+
+Log into the Proxmox Web UI
+Expand the node and select the target VM
+Select Hardware from the sub-navigation menu
+Double click the Processors entry > Set the Type value to host
+Note: this will passthrough all the functionality of the Proxmox host processor to the VM
+Start the Proxmox VM
+Log into the VM
+Download VirtualBox and the Virtualbox Extension Pack Download
+Install VirtualBox
+Install the VirtualBox Extension Pack
+Create or import a 64-bit VirtualBox VM
+Start the new VirtualBox VM
+Does is work?
+ 

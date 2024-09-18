@@ -1,0 +1,63 @@
+## Encoded vs. Decoder Models: An Overview
+
+Yesterday, I shared an important experimental result from a recent training session, and I received several requests for explanations. Here’s a brief overview of the topic.
+
+### Background:
+Before ChatGPT became widely known, natural language processing (NLP) problems were more focused. Examples include:
+
+- Classifying tweets as toxic or non-toxic.
+- Predicting stock prices based on news articles.
+- Finding texts similar to a given text.
+- "Coloring" words in a sentence according to different categories.
+
+Tasks like classification, regression, metric learning, and named entity recognition (NER) fall under these categories. Nowadays, generative language models can perform these tasks based on free-form prompts during their training.
+
+### Why Separate Models?
+However, generative models often perform poorly in these tasks. You've probably noticed that models for semantic search are always separate from generative models. For instance, in Retrieval-Augmented Generation (RAG), there are always two models: one retrieves relevant texts for the task, and the other (generative model) completes the task based on those texts.
+
+It's significantly cheaper to serve a single model, so why don't everyone use the generative model for both tasks? Because it performs poorly.
+
+### The Role of Masking:
+The difference in performance is due to an additional component in generative text creation models (like GPT-4), known as the "mask." This mask prevents any token from seeing the tokens that come after it in the text. 
+
+As a result, when these models are deployed, they "guess" the next token based only on the text that already exists. Without this mask, the model would "search" for the "continuation of the sentence." Since the continuation doesn’t exist (the model's job is to write it), the model would get confused and likely return a random word rather than the next word in the text as intended.
+
+### The Encoder-Decoder Distinction:
+Models where all tokens can see all other tokens are called "encoded" models. Generative models where tokens can only see the past are called "decoder" models.
+
+### How Effective are Encoded Models?
+Until recently, the best-encoded model in the world was DeBERTa (DeBERTa-V3). This model was so powerful that I’ve previously written several posts about it. It’s surprisingly small by today’s standards, with the largest version containing only 304 million parameters. By comparison, the smallest LLaMA-3 has 8 billion parameters (26.3 times larger), and GPT-4 has 1.8 trillion parameters (5855.2 times larger).
+
+Until LLaMA-3, no model had surpassed DeBERTa for problems suitable for encoded models.
+
+### Training Encoded Models:
+Encoded models have a special head added to them that "sees" all tokens in a sentence and makes decisions based on all of them together. This is different from generative models, where decisions are made for each token based only on the preceding tokens. For example, in tweet classification (toxic/non-toxic), the head would decide based on the entire text whether it is toxic or not.
+
+### Can We Add This Head to Generative Models?
+Yes, but it performs poorly. Despite their massive size and power, decoder models exhibit significantly worse performance compared to encoded models for these problems. However, recent advancements have led to decoder models showing performance close to encoded models, albeit with significantly larger sizes and training steps.
+
+### Key Takeaways:
+- Always test various models to see which works best for your problem.
+- Recently, LLaMA-3 has become the baseline for many tasks due to its superior performance.
+- Encoded models like DeBERTa still hold significant value for specific tasks despite being smaller and more efficient.
+
+### FAQs:
+**Does this mean LLaMA-3 will always outperform DeBERTa in every problem and dataset?**
+No, not always.
+
+**Should I assume LLaMA-3 is a better choice for new problems?**
+Generally, yes. For general models trained on "the internet," better models tend to perform better across most problems.
+
+**When should I not use LLaMA-3 for these tasks?**
+Given its size and cost, use it selectively. Always validate with different models.
+
+**What should I do for a new problem?**
+Always test multiple models to determine the best one for your specific task.
+
+**Are there exceptions?**
+Yes, especially in domain-specific problems where a specialized model might outperform general models.
+
+### Final Note:
+Semantic search models today are already decoders based on Mistral. So, LLaMA-3 will likely improve this significantly.
+
+In the image: The mask that prevents tokens in generative models from seeing future tokens.

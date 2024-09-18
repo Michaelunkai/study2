@@ -1,0 +1,12 @@
+aws rekognition compare-faces \
+--source-image "S3Object={Bucket=your-bucket-name,Name=source-image.jpg}" \
+--target-image "S3Object={Bucket=your-bucket-name,Name=target-image.jpg}" \
+--similarity-thre old 90
+
+
+Using local files:
+aws rekognition compare-faces \
+--source-image "Bytes=$(base64 /path/to/source-image.jpg | tr -d '\n')" \
+--target-image "Bytes=$(base64 /path/to/target-image.jpg | tr -d '\n')" \
+--similarity-thre old 90
+

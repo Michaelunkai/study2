@@ -1,0 +1,1 @@
+iwr -Uri https://download.jetbrains.com/webide/PhpStorm-2021.2.3.exe -OutFile phpstorm_installer.exe; Start-Process phpstorm_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

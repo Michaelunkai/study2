@@ -1,0 +1,8 @@
+while IFS= read -r alias_line; do
+    alias_name=$(echo "$alias_line" | cut -d'=' -f1)
+    grep -qF "$alias_name" /root/.bashrc && sed -i "s|^alias $alias_name=.*|$alias_line|" /root/.bashrc || echo "$alias_line" >> /root/.bashrc
+done <<'EOF'
+alias =
+
+EOF
+

@@ -1,0 +1,1 @@
+sudo apt-get install -y openjdk-11-jdk && wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz && tar -xzvf hadoop-3.3.6.tar.gz && sudo mv hadoop-3.3.6 /usr/local/hadoop && export HADOOP_HOME=/usr/local/hadoop && export PATH=$PATH:$HADOOP_HOME/bin && export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 && $HADOOP_HOME/bin/hadoop version

@@ -1,0 +1,5 @@
+for example, for velero:
+
+aws iam attach-user-policy --user-name velero --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+

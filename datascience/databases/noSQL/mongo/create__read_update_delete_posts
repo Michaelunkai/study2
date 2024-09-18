@@ -1,0 +1,11 @@
+// Create a post
+db.posts.insertOne({ title: "My First Post", content: "Hello World!", author: "John Doe" })
+
+// Read posts
+db.posts.find()
+
+// Update a post
+db.posts.updateOne({ title: "My First Post" }, { $set: { content: "Updated Content" } })
+
+// Delete a post
+db.posts.deleteOne({ title: "My First Post" })

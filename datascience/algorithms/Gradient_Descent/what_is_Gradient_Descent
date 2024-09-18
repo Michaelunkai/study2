@@ -1,0 +1,76 @@
+Gradient Descent is an optimization algorithm commonly used in machine learning and statistics to minimize a function by iteratively moving towards the minimum value of the function. It is particularly useful in finding the optimal parameters for models such as linear regression, logistic regression, and neural networks.
+
+## Key Concepts of Gradient Descent:
+
+### 1. **Objective Function (Cost Function)**:
+The objective function (or cost function) is the function that we aim to minimize. In the context of machine learning, it often measures the error between the model's predictions and the actual data.
+
+For example, in linear regression, the cost function \( J(\theta) \) can be defined as:
+
+\[ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})^2 \]
+
+where:
+- \( m \) is the number of training examples.
+- \( h_{\theta}(x) \) is the hypothesis function.
+- \( y \) is the actual output.
+
+### 2. **Parameters (Theta, \( \theta \))**:
+These are the values we want to optimize. In linear regression, these are the coefficients of the model.
+
+### 3. **Learning Rate (Alpha, \( \alpha \))**:
+The learning rate is a hyperparameter that controls how much we adjust the parameters in each iteration. If the learning rate is too high, we might overshoot the minimum. If it's too low, the convergence can be very slow.
+
+### 4. **Gradient**:
+The gradient is a vector of partial derivatives of the cost function with respect to each parameter. It points in the direction of the steepest ascent, and the negative gradient points in the direction of the steepest descent.
+
+### 5. **Update Rule**:
+The update rule adjusts the parameters iteratively to minimize the cost function. For a parameter \( \theta_j \), the update rule is:
+
+\[ \theta_j := \theta_j - \alpha \frac{\partial J(\theta)}{\partial \theta_j} \]
+
+where:
+- \( \frac{\partial J(\theta)}{\partial \theta_j} \) is the partial derivative of the cost function with respect to \( \theta_j \).
+- \( \alpha \) is the learning rate.
+
+### 6. **Convergence**:
+Gradient Descent iterates until convergence, i.e., until the parameters no longer change significantly or the cost function reaches an acceptable minimum.
+
+## Types of Gradient Descent:
+
+### 1. **Batch Gradient Descent**:
+Uses the entire dataset to compute the gradient and update the parameters. It is computationally expensive for large datasets but provides a stable convergence path.
+
+### 2. **Stochastic Gradient Descent (SGD)**:
+Uses a single randomly chosen training example to compute the gradient and update the parameters. It is computationally cheaper and can escape local minima, but has a noisier convergence path.
+
+### 3. **Mini-Batch Gradient Descent**:
+Uses a small random subset (mini-batch) of the dataset to compute the gradient and update the parameters. It balances the stability of batch gradient descent and the speed of stochastic gradient descent.
+
+## Gradient Descent Algorithm:
+
+1. Initialize the parameters \( \theta \) randomly.
+2. Repeat until convergence:
+   - Compute the gradient of the cost function with respect to each parameter.
+   - Update each parameter using the update rule.
+
+## Example of Gradient Descent:
+
+Let's consider a simple example of linear regression where we want to fit a line to a set of points.
+
+1. **Initialization**:
+     
+   theta = np.random.randn(2, 1)
+
+2. **Gradient Descent Loop**:
+     
+   for iteration in range(iterations):
+       gradients = 2/m * X_b.T.dot(X_b.dot(theta) - y)
+       theta = theta - learning_rate * gradients
+
+In this example:
+- `X_b` is the feature matrix with an added bias term.
+- `y` is the target vector.
+- `theta` is the parameter vector.
+- `learning_rate` controls the step size.
+
+By following these steps, Gradient Descent iteratively adjusts the parameters to minimize the cost function, leading to the best-fit line for the given data.

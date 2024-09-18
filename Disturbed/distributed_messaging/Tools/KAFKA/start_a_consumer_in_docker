@@ -1,0 +1,1 @@
+docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:7000 --topic my-topic --from-beginning

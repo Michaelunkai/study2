@@ -1,0 +1,7 @@
+ Run RISC Analysis
+Once the build process is complete, you can run the RISC analysis tool. The exact command might vary depending on the project. Here, we'll assume you want to use the newly built toolchain.
+
+ 
+ 
+export PATH=/opt/riscv/bin:$PATH
+riscv64-unknown-elf-gcc --version

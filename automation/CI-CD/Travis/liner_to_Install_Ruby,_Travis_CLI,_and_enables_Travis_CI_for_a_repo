@@ -1,0 +1,1 @@
+sudo apt-get install -y ruby-dev && gem install travis --no-document && yes y | travis login --pro --github-token <TokenHere> && travis enable --repo Michaelunkai/study

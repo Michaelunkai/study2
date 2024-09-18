@@ -1,0 +1,3 @@
+gcloud compute backend-buckets create YOUR_BACKEND_BUCKET_NAME \
+    --gcs-bucket-name=YOUR_BUCKET_NAME \
+    --enable-cdn

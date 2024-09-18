@@ -1,0 +1,14 @@
+Wait for the Snapshot to Complete Using AWS CLI
+You need to wait until the snapshot associated with the AMI is fully created and available. You can check the status of the snapshot by using the following commands:
+
+Get the Snapshot ID:
+
+ 
+ 
+aws ec2 describe-images --image-ids ami-xxxxxxxxxxxxxxx --query 'Images[0].BlockDeviceMappings[0].Ebs.SnapshotId' --output text
+Check the Snapshot Status:
+
+ 
+ 
+aws ec2 describe-snapshots --snapshot-ids snap-xxxxxxxxxxxxxxx --query 'Snapshots[0].State' --output text
+Replace snap-xxxxxxxxxxxxxxx with the actual Snapshot ID. The state should be completed before you can use it to launch an instance.

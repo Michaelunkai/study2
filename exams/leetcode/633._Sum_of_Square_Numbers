@@ -1,0 +1,63 @@
+To solve the problem of determining if there exist two integers \(a\) and \(b\) such that \(a^2 + b^2 = c\), we can utilize a mathematical approach involving the two-pointer technique. This method involves iterating with one pointer starting at 0 and the other pointer starting at the square root of \(c\). We then check the sum of the squares of these two pointers, adjusting the pointers based on whether the sum is less than, greater than, or equal to \(c\).
+
+### Steps:
+
+1. **Initialize Pointers**:
+   - Start one pointer (`a`) at 0.
+   - Start the other pointer (`b`) at the integer square root of \(c\) (i.e., \(\text{int}(\sqrt{c})\)).
+
+2. **Iterate and Adjust Pointers**:
+   - Calculate the sum of squares: \( \text{sum} = a^2 + b^2 \).
+   - If `sum` equals \(c\), return `true`.
+   - If `sum` is less than \(c\), increment `a` to increase the sum.
+   - If `sum` is greater than \(c\), decrement `b` to decrease the sum.
+   - Continue this process until `a` surpasses `b`.
+
+3. **Return Result**:
+   - If no such pair is found after the loop, return `false`.
+
+### Python Code:
+
+Here's the implementation of the above logic in Python:
+
+```python
+import math
+
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        a = 0
+        b = int(math.sqrt(c))
+        
+        while a <= b:
+            sum_of_squares = a * a + b * b
+            if sum_of_squares == c:
+                return True
+            elif sum_of_squares < c:
+                a += 1
+            else:
+                b -= 1
+                
+        return False
+
+# Example usage:
+# solution = Solution()
+# print(solution.judgeSquareSum(5))  # Output: True
+# print(solution.judgeSquareSum(3))  # Output: False
+```
+
+### Explanation:
+
+1. **Initialize Pointers**: 
+   - `a` starts at 0, and `b` starts at the integer square root of \(c\).
+
+2. **Iterate and Adjust**:
+   - In each iteration, calculate `sum_of_squares = a^2 + b^2`.
+   - If `sum_of_squares` equals \(c\), the function returns `True`.
+   - If `sum_of_squares` is less than \(c\), increment `a` to try and increase the sum.
+   - If `sum_of_squares` is greater than \(c\), decrement `b` to try and decrease the sum.
+   - This continues until `a` exceeds `b`.
+
+3. **Return Result**:
+   - If no valid pair is found in the loop, the function returns `False`.
+
+This approach ensures that we efficiently check for the existence of two integers whose squares sum up to \(c\), with a time complexity of \(O(\sqrt{c})\).

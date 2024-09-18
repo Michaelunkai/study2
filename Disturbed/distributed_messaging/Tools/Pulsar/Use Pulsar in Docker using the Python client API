@@ -1,0 +1,41 @@
+ Use Pulsar in Docker
+Pulsar offers a variety of client libraries, such as Java, Go, Python, C++.
+
+If you're running a local standalone cluster, you can use one of these root URLs to interact with your cluster:
+
+pulsar://localhost:6650
+http://localhost:8080
+The following example guides you to get started with Pulsar by using the Python client API.
+
+Install the Pulsar Python client library directly from PyPI:
+
+pip install pulsar-client
+
+Consume a message
+Create a consumer and subscribe to the topic:
+
+import pulsar
+
+client = pulsar.Client('pulsar://localhost:6650')
+consumer = client.subscribe('my-topic', subscription_name='my-sub')
+
+while True:
+    msg = consumer.receive()
+    print("Received message: '%s'" % msg.data())
+    consumer.acknowledge(msg)
+
+client.close()
+
+
+Produce a message
+Start a producer to send some test messages:
+
+import pulsar
+
+client = pulsar.Client('pulsar://localhost:6650')
+producer = client.create_producer('my-topic')
+
+for i in range(10):
+    producer.send(('hello-pulsar-%d' % i).encode('utf-8'))
+
+client.close()

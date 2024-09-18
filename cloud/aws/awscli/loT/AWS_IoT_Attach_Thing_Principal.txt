@@ -1,0 +1,1 @@
+aws iot attach-thing-principal --thing-name <thing-name> --principal <certificate-arn>

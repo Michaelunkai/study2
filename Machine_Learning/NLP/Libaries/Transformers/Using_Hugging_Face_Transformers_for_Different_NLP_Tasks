@@ -1,0 +1,25 @@
+Using Hugging Face Transformers for Different NLP Tasks
+Text Classification
+ 
+ 
+from transformers import pipeline
+
+classifier = pipeline('text-classification')
+result = classifier("Hugging Face Transformers make NLP easy!")
+print(result)
+Named Entity Recognition (NER)
+ 
+ 
+from transformers import pipeline
+
+ner = pipeline('ner')
+result = ner("Hugging Face is a company based in New York.")
+print(result)
+Question Answering
+ 
+ 
+from transformers import pipeline
+
+qa = pipeline('question-answering')
+result = qa(question="What is the capital of France?", context="France's capital is Paris.")
+print(result)

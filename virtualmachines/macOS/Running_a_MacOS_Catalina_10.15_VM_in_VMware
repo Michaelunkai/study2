@@ -1,0 +1,67 @@
+▲A  A▼
+Running a MacOS Catalina 10.15 VM in VMware
+Installing and Configuring VMware
+Download a MacOS Catalina .iso Download
+Download VMware Workstation Player Download
+Download MacOS Unlocker for VMware Workstation Download
+Install VMware Workstation Player, accepting the defaults
+Extract the downloaded MacOS Unlocker for VMware Workstation
+Inside the extracted file, right click Unlocker.exe > Run as administrator
+Wait for the command prompt to close before continuing
+Creating the Catalina VM
+Launch VMware Workstation Player
+Click Continue to use Workstation Player for free for non-commercial use
+Click Fini 
+Click Create a New Virtual Machine on the right side of the application
+Select Installer disc image file (iso) > Browse to and select the downloaded MacOS Catalina .iso > Click Next
+Select Apple Mac OS X and macOS 10.15 > Click Next
+Name the VM MacOSX and set the path to store the VM files > Click Next
+Adjust the disk size if necessary > Click Next
+Click Fini 
+NOTE: If running an AMD processor, edit the .vmx file in the folder you specified for the VM, add the following to the bottom of the file and save your changes
+smc.version = "0"
+cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"
+cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"
+cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"
+cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"
+cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"
+cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"
+cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"
+cpuid.1.edx = "0000:0111:1000:1011:1111:1011:1111:1111"
+smbios.reflectHost = "TRUE"
+hw.model = "MacBookPro14,3"
+board-id = "Mac-551B86E5744E2388"
+
+Right click on the MacOSX VM > Power On
+Installing MacOS Catalina
+After an initialization sequence the Mac OS Setup should start
+Select a Language > Click the next arrow
+Select Disk Utility
+Select the VMware Virtual SATA Hard Drive Media > Click Erase
+Name the drive MacOS > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS
+Click Continue > Click Agree > Click Agree again
+Select the MacOS disk > Click Install
+Wait while Mac OS installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Continue on the Data & Privacy screen
+Select Don't transfer any information now > Click Continue
+Select Set Up Later > Click Continue > Click Skip
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck the Send Mac Analytics box > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 10.15 Catalina
+Install VMware Tools (optional, but recommended)
+On the VMware toolbar click VM > Settings > CD/DVD
+Click Browse next to ISO Image File > Browse to the extracted Unlocker files \tools > Select darwin.iso
+Click the Connect checkbox
+Inside the VM, double click the mounted VMware tools and run the installer
+ 

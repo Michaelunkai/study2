@@ -1,0 +1,1 @@
+aws elasticbeanstalk create-application --application-name mywebapp && aws elasticbeanstalk create-environment --application-name mywebapp --environment-name mywebapp-env --solution-stack-name "64bit Amazon Linux 2 v5.4.9 running PHP 7.4"

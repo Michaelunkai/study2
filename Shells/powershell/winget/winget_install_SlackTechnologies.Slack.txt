@@ -1,0 +1,1 @@
+winget install --id=SlackTechnologies.Slack -e

@@ -1,0 +1,1 @@
+sam local start-lambda --template-file template.yaml --docker-network <network-name>

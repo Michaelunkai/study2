@@ -1,0 +1,11 @@
+Automate Log Updates with Cron (Optional)
+4.1 Edit the Crontab
+Open the crontab file for editing:
+ 
+ 
+sudo crontab -e
+Add the following line to update AWStats every 10 minutes:
+cron
+ 
+*/10 * * * * /usr/share/awstats/wwwroot/cgi-bin/awstats.pl -config=yourdomain -update >/dev/null 2>&1
+Save and close the file.

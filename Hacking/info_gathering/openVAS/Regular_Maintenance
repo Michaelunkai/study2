@@ -1,0 +1,12 @@
+Regular Maintenance
+Update the vulnerability database regularly:
+
+ 
+ 
+sudo greenbone-nvt-sync
+Restart the OpenVAS services after updates:
+
+ 
+ 
+sudo gvm-stop
+sudo gvm-start

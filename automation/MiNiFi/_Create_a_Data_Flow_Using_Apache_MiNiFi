@@ -1,0 +1,56 @@
+Create a Data Flow Using Apache MiNiFi
+Apache MiNiFi uses YAML configuration files to define data flows. We will create a simple data flow that reads files from a directory and processes them.
+
+Navigate to the Configuration Directory:
+
+First, navigate to the MiNiFi configuration directory:
+
+ 
+ 
+cd $MINIFI_HOME/conf
+Create a MiNiFi YAML Configuration:
+
+Next, create a new YAML configuration file named flow.yml:
+
+ 
+ 
+nano flow.yml
+Populate the flow.yml file with the following content:
+
+ 
+ 
+MiNiFi Config Version: 1
+Flow Controller:
+  name: MiNiFi Flow
+Processors:
+  - id: 12345678-1234-1234-1234-123456789abc
+    name: GetFile
+    class: org.apache.nifi.processors.standard.GetFile
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 1 min
+    properties:
+      Input Directory: /path/to/source/directory
+      Keep Source File: false
+  - id: 87654321-4321-4321-4321-123456789abc
+    name: LogAttribute
+    class: org.apache.nifi.processors.standard.LogAttribute
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 1 min
+Connections:
+  - name: GetFile to LogAttribute
+    source name: GetFile
+    source id: 12345678-1234-1234-1234-123456789abc
+    source relationship names: [success]
+    destination name: LogAttribute
+    destination id: 87654321-4321-4321-4321-123456789abc
+Ensure you replace /path/to/source/directory with the actual path to the directory you want to monitor.
+
+Apply the Configuration:
+
+After configuring your flow, restart MiNiFi to apply the new settings:
+
+ 
+ 
+$MINIFI_HOME/bin/minifi.sh restart

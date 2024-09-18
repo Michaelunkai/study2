@@ -1,0 +1,63 @@
+To solve the problem of maximizing the number of courses you can take given their durations and deadlines, we can use a greedy algorithm combined with a max heap (priority queue). Here's a detailed explanation and the corresponding code:
+
+### Explanation
+
+1. **Sorting Courses**:
+   - First, sort the courses based on their `lastDay`. This ensures that we always consider taking courses that need to be completed sooner first.
+
+2. **Using a Max Heap**:
+   - We use a max heap to keep track of the durations of the courses we've taken so far. This helps in efficiently removing the longest duration course if adding a new course exceeds the deadline.
+
+3. **Greedy Choice**:
+   - Iterate through the sorted list of courses. For each course, check if adding it keeps the total time within the allowed last day. If yes, add it to the heap and update the total time.
+   - If adding the current course exceeds the allowed time, check if this course can replace the longest duration course taken so far (which will be at the root of the max heap). If the current course duration is less than the longest duration course in the heap, replace it to potentially allow more courses to fit within the deadlines.
+
+### Code Implementation
+
+Here is the Python code that implements this approach:
+
+```python
+import heapq
+
+class Solution:
+    def scheduleCourse(self, courses: List[List[int]]) -> int:
+        # Sort courses by their end day
+        courses.sort(key=lambda x: x[1])
+        
+        max_heap = []  # Max-heap to keep track of course durations
+        total_time = 0  # Total time taken so far
+        
+        for duration, lastDay in courses:
+            # Add current course duration to total time
+            if total_time + duration <= lastDay:
+                heapq.heappush(max_heap, -duration)
+                total_time += duration
+            elif max_heap and -max_heap[0] > duration:
+                # Replace the longest course taken so far with the current course
+                total_time += duration + heapq.heappop(max_heap)
+                heapq.heappush(max_heap, -duration)
+        
+        # The number of courses taken is the size of the heap
+        return len(max_heap)
+
+# Example usage:
+# solution = Solution()
+# print(solution.scheduleCourse([[100,200],[200,1300],[1000,1250],[2000,3200]]))  # Output: 3
+# print(solution.scheduleCourse([[1,2]]))  # Output: 1
+# print(solution.scheduleCourse([[3,2],[4,3]]))  # Output: 0
+```
+
+### Explanation of the Code
+
+1. **Sorting**:
+   - We sort the courses by their `lastDay` using `courses.sort(key=lambda x: x[1])`.
+
+2. **Max-Heap Operations**:
+   - The `max_heap` stores the negative of the durations to simulate a max-heap using Python's `heapq`, which is a min-heap by default.
+   - For each course, if adding the course keeps the total time within the allowed time (`total_time + duration <= lastDay`), we add the course duration to the heap and update the total time.
+   - If adding the current course exceeds the allowed time but the current course duration is less than the longest course in the heap, we replace the longest course with the current course to optimize the schedule.
+
+3. **Result**:
+   - The number of courses taken is simply the size of the `max_heap`, which stores the durations of the courses included in the schedule.
+
+This approach ensures that we can maximize the number of courses taken while respecting the deadlines by always considering the shortest possible durations to replace longer ones if necessary.

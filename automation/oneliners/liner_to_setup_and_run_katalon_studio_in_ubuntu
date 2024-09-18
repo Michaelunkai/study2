@@ -1,0 +1,1 @@
+wget https://download.katalon.com/8.3.5/Katalon_Studio_Linux_64-8.3.5.tar.gz && tar -xvzf Katalon_Studio_Linux_64-8.3.5.tar.gz && cd Katalon_Studio_Linux_64-8.3.5 && ./katalon

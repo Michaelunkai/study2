@@ -1,0 +1,1 @@
+rsync -av -e 'ssh -c arcfour' /source_directory/ user@remote_host:/destination_directory/

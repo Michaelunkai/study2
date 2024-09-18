@@ -1,0 +1,1 @@
+docker run -d --name wud -p 3001:3000 -v /var/run/docker.sock:/var/run/docker.sock -e WUD_LOG_LEVEL=debug fmartinou/whats-up-docker && gc http://localhost:3001

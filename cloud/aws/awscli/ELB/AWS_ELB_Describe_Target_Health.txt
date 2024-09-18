@@ -1,0 +1,1 @@
+aws elb describe-target-health --target-group-arn <target-group-arn>

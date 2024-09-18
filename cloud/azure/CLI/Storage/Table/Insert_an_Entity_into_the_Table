@@ -1,0 +1,4 @@
+Insert an Entity into the Table
+Entities are the individual items stored in a table. Replace mytable with your table name.
+
+az storage entity insert --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --entity PartitionKey=partition1 RowKey=001 Name="John Doe" Age=30

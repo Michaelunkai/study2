@@ -1,0 +1,34 @@
+Create an IAM Role for Redshift
+Create a Trust Policy File:
+
+ 
+ 
+nano trust-policy.json
+Add the Following Content to trust-policy.json:
+
+json
+ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "red ift.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+Save the file and exit nano (usually by pressing CTRL + X, then Y to confirm, and Enter).
+
+Create IAM Role:
+
+ 
+ 
+aws iam create-role --role-name RedshiftRole --assume-role-policy-document file://trust-policy.json
+Attach Policy to Role:
+
+ 
+ 
+aws iam attach-role-policy --role-name RedshiftRole --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess

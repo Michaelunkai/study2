@@ -1,0 +1,1 @@
+hs cms create website-page <page-name>

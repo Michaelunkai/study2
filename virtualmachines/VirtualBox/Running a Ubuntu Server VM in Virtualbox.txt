@@ -1,0 +1,58 @@
+Running a Ubuntu Server VM in Virtualbox
+Download Ubuntu Server Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Ubuntu Server
+Machine Folder: C:\VMs
+Type: Linux
+Version: Ubuntu (64-bit)
+Memory Size: 2048MB
+Hard disk: Create a virtual hard disk now
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Ubuntu Server.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Ubuntu Server .iso file
+Click OK
+Make sure the Ubuntu Server VM is selected and click Start > Normal
+Select a language > Press Enter
+Select a keyboard layout > Arrow down to select Done > Press Enter
+Press Enter to accept the network configuration
+Leave the proxy address empty > Press Enter
+Leave the mirror address the default value > Press Enter
+Leave the storage configuration default > Arrow down to select Done > Press Enter
+Press Enter to accept the storage configuration
+Arrow down to select Continue > Press Enter
+Complete the profile form > Arrow down to select Done > Press Enter
+Press spacebar to select installing the SSH server > Arrow down to select Done > Press Enter
+Use spacebar to select any additional software installations > Arrow down to select Done > Press Enter
+Wait while Ubuntu copies files and installs
+Once the installation completes > Arrow down to select Reboot Now > Press Enter
+If the reboot gets stuck, manually restart the VM by select Machine > Reset
+Welcome to Ubuntu Server
+Optional Steps
+Log in with the credentials setup during the installation
+Run the following commands to install updates
+sudo apt update
+sudo apt upgrade -y
+sudo apt clean
+Select Devices > Insert Guest Additions CD image...
+Run the following commands to install VirtualBox Guest Additions
+sudo mkdir /media/cdrom
+sudo mount /dev/cdrom /media/cdrom
+sudo apt dkms build-essential linux-headers-generic linux-headers-$(uname -r)
+sudo /media/cdrom/VBoxLinuxAdditions.run
+sudo reboot
+The VM will reboot
+Log back into Ubuntu Server

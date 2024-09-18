@@ -1,0 +1,1 @@
+hs cms clone theme <theme-name> <destination-path>

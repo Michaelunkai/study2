@@ -1,0 +1,6 @@
+cd && sudo apt-get update && sudo apt-get install -y mariadb-server && sudo systemctl start mariadb && sudo mysql -e "CREATE DATABASE gitea; GRANT ALL PRIVILEGES ON gitea.* TO 'gitea'@'localhost' IDENTIFIED BY '123456'; FLUSH PRIVILEGES;" && sudo apt-get install -y bash-completion wget curl git sqlite3 && sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git && sudo wget -O /tmp/gitea https://dl.gitea.io/gitea/1.20/gitea-1.20-linux-amd64 && sudo mv /tmp/gitea /usr/local/bin/gitea && sudo chmod +x /usr/local/bin/gitea && sudo mkdir -p /var/lib/gitea/{custom,data,log} && sudo chown -R git:git /var/lib/gitea/ && sudo chmod -R 750 /var/lib/gitea/ && sudo mkdir /etc/gitea && sudo chown root:git /etc/gitea && sudo chmod 770 /etc/gitea && sudo -u git mkdir -p /var/lib/gitea/data && mkdir  /usr/local/bin/data &&  chmod 777  /usr/local/bin/data && mkdir /usr/local/bin/log && chmod 777 /usr/local/bin/log && mkdir /usr/local/bin/custom && chmod 777 /usr/local/bin/custom && sudo -u git /usr/local/bin/gitea web
+
+
+gitea
+123456
+gitea

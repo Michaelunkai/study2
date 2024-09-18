@@ -1,0 +1,17 @@
+Matomo is an open-source web analytics platform designed to provide insights into website traffic and user behavior. It was formerly known as Piwik. Here are some key features and aspects of Matomo:
+
+1. **Self-hosted and Cloud Options**: Matomo can be self-hosted on your own servers, giving you complete control over your data. Alternatively, it offers a cloud-hosted version managed by Matomo.
+
+2. **Privacy-Focused**: One of Matomo's standout features is its focus on privacy and data ownership. It adheres to GDPR and other privacy regulations, allowing users to retain full control over their data.
+
+3. **Comprehensive Analytics**: Matomo provides a wide range of analytics features, including visitor tracking, traffic sources, keyword analysis, heatmaps, session recordings, and goal tracking.
+
+4. **Customizable**: It offers extensive customization options through plugins and an API, enabling users to tailor the platform to their specific needs.
+
+5. **Integration**: Matomo integrates with various content management systems, e-commerce platforms, and marketing tools, making it a versatile choice for many types of websites and applications.
+
+6. **Real-Time Data**: Users can access real-time data and insights to make timely decisions based on current website performance.
+
+7. **Community and Support**: Being an open-source project, Matomo has a strong community and offers extensive documentation, forums, and professional support options.
+
+Matomo is a robust alternative to other analytics platforms like Google Analytics, especially for those who prioritize data privacy and control.

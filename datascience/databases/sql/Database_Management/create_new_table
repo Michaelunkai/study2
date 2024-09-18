@@ -1,0 +1,19 @@
+ Creating a Table
+To create a table, you'll need to define its structure, including column names, data types, and any constraints.
+
+CREATE TABLE tablename (
+    column1 datatype constraints,
+    column2 datatype constraints,
+    ...
+);
+Replace tablename, column1, column2, etc., with your desired table name and column definitions.
+
+
+Example:
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    age INT
+);

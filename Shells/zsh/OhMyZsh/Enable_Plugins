@@ -1,0 +1,5 @@
+Enable Plugins: Edit the ~/.zshrc file to add or remove plugins. For example:
+
+ 
+ 
+plugins=(git docker)

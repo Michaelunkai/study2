@@ -1,0 +1,1 @@
+iwr -Uri https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe -OutFile jdk_installer.exe; Start-Process jdk_installer.exe -ArgumentList '/s' -NoNewWindow -Wait

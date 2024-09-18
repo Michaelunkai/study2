@@ -1,0 +1,67 @@
+To solve the problem of finding the minimum absolute difference between the values of any two different nodes in a Binary Search Tree (BST), we can leverage the properties of the BST:
+
+1. The in-order traversal of a BST results in a sorted sequence of node values.
+2. The minimum absolute difference between values of any two nodes in this sorted sequence will be between some pair of consecutive elements.
+
+Given this insight, we can solve the problem with the following steps:
+
+1. Perform an in-order traversal of the BST to get the sorted sequence of node values.
+2. Iterate through the sorted sequence to find the minimum absolute difference between consecutive elements.
+
+Here's the Python code to implement this logic:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def getMinimumDifference(self, root: TreeNode) -> int:
+        # Helper function to perform in-order traversal
+        def inorder_traversal(node):
+            if node is None:
+                return []
+            return inorder_traversal(node.left) + [node.val] + inorder_traversal(node.right)
+        
+        # Perform in-order traversal to get sorted values
+        sorted_values = inorder_traversal(root)
+        
+        # Find the minimum absolute difference between consecutive values
+        min_diff = float('inf')
+        for i in range(1, len(sorted_values)):
+            min_diff = min(min_diff, sorted_values[i] - sorted_values[i - 1])
+        
+        return min_diff
+
+# Example usage:
+# Construct the tree [4, 2, 6, 1, 3]
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.right = TreeNode(6)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
+
+solution = Solution()
+print(solution.getMinimumDifference(root))  # Output: 1
+
+# Construct the tree [1, 0, 48, null, null, 12, 49]
+root = TreeNode(1)
+root.left = TreeNode(0)
+root.right = TreeNode(48)
+root.right.left = TreeNode(12)
+root.right.right = TreeNode(49)
+
+print(solution.getMinimumDifference(root))  # Output: 1
+```
+
+### Explanation:
+
+1. **TreeNode Class**: Defines the structure of a node in the BST.
+2. **Solution Class with `getMinimumDifference` Method**:
+   - **In-order Traversal**: The helper function `inorder_traversal` recursively traverses the BST in in-order fashion and collects the values in a sorted list.
+   - **Finding Minimum Difference**: After obtaining the sorted list of node values, the code iterates through this list to find the minimum absolute difference between consecutive elements.
+3. **Example Usage**: Demonstrates how to construct the BSTs from the examples and use the `getMinimumDifference` method to find the result.
+
+This approach ensures that the problem is solved efficiently, taking advantage of the BST properties and the in-order traversal to obtain a sorted sequence of values.

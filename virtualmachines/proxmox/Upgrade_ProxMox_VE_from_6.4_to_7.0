@@ -1,0 +1,35 @@
+▲A  A▼
+Upgrade ProxMox VE from 6.4 to 7.0
+NOTE: These steps are for a single standalone ProxMox server. They have not been tested in a clustered environment
+
+NOTE: Make sure to create external backups of all important VMs and CTs just in case something goes wrong. You've been warned.
+
+Log into ProxMox VE, either at the console or the web UI and launch the web shell
+Stop all running VMs and CTs
+Run the following commands to make sure ProxMox VE is running the latest 6.4 updates
+# disable proxmox commmercial repo
+sed -i "s/^deb/\#deb/" /etc/apt/sources.list.d/pve-enterprise.list
+# add the proxmox community repo
+echo "deb http://download.proxmox.com/debian/pve $(grep "VERSION=" /etc/os-release | sed -n 's/.*(\(.*\)).*/\1/p') pve-no-subscription" > /etc/apt/sources.list.d/pve-community.list
+# update software repositories
+apt update
+# install software updates
+apt dist-upgrade -y
+# clean apt cache
+apt clean
+# run the upgrade checklist utility, resolve any issues reported before continuing
+pve6to7 --full
+# update apt repositories to bullseye
+sed -i 's/buster\/updates/bullseye-security/g;s/buster/bullseye/g' /etc/apt/sources.list && sed -i 's/buster\/updates/bullseye-security/g;s/buster/bullseye/g' /etc/apt/sources.list.d/pve-community.list && sed -i 's/buster\/updates/bullseye-security/g;s/buster/bullseye/g' /etc/apt/sources.list.d/pve-enterprise.list
+# update software repositories
+apt update
+# install software updates
+apt dist-upgrade -y
+# clean apt cache
+apt clean
+# reboot
+reboot now
+That's it, ProxMox VE has now been updated to the latest v7.x
+Source and Additional Info: https://pve.proxmox.com/wiki/Upgrade_from_6.x_to_7.0
+
+ 

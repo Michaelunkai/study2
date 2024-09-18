@@ -1,0 +1,63 @@
+▲A  A▼
+Running OPNSense Firewall and Router in a Proxmox VM
+What is OPNSense?
+OPNsense is an open source, easy-to-use and easy-to-build FreeBSD based firewall and routing platform. OPNsense includes most of the features available in expensive commercial firewalls, and more in many cases. It brings the rich feature set of commercial offerings with the benefits of open and verifiable sources. -https://opnsense.org/about/about-opnsense/
+Creating the OPNSense VM
+Download the OPNSense AMD64 DVD .iso Download
+Extract the downloaded OPNSense .bz2
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to upload the .iso to
+Select ISO Images in the left sub-navigation pane
+Upload the OPNSense .iso file to the ProxMox ISO image library
+Right click the ProxMox node name > Create VM
+Type OPNSense in the name field and set a unique VM ID > Next
+On the OS tab, set the Type field to Linux, Version to 5.x - 2.6 Kernel and select the OPNSense .iso in the ISO Image field > Next
+On the System tab, leave the defaults > Next
+On the Hard Disk tab, set the Disk size field to 8 > Next
+On the CPU tab, set Cores field to 2, Type field to Host > Next
+On the Memory tab, set the Memory to 2048 and Uncheck Ballooning Device > Next
+On the Network tab, set the Model field to VirtIO (paravirtualized), Uncheck the Firewall box > Next
+Verify the summary and click Finish
+Click the OPNSense VM in the left navigation menu > Select Hardware from the left sub-navigation menu
+Click Add > Network Device
+Set the Model field to VirtIO (paravirtualized), Uncheck the Firewall box > Click Add
+Select Options from the left sub-navigation menu > Double click Use tablet for pointer > Uncheck the Enabled box > Click OK
+Right click the OPNSense VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter at the Welcome screen
+Wait for the login prompt to display
+Login with the username installer and password opnsense
+Select a keymap > Press Enter
+Select Install (UFS) > Press Enter
+Select the QEMU HARDDISK option > Press Enter
+Select Yes to confirm destroying the contents of the disk > Press Enter
+Wait for OPNSense to copy files and install
+Press Enter to Change Root Password
+Type and re-type a new root password > Press Enter
+Select Complete Install > Press Enter
+Select Shutdown > Stop to power off the VM
+Navigate back to the Hardware options
+Double click the CD/DVD Drive > Select Do not use any media > Click OK
+Right click the OPNSense VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Welcome to the OPNSense terminal
+Configuring Network Interfaces and Web UI
+At the login prompt, login with username root and the root password set earlier
+At the OPNSense menu, select Set interface IP address by typing 2 and pressing Enter
+Enter the number that corresponds to the LAN interface > Press Enter
+At the DHCP prompt type n > Press Enter
+Enter a LAN IP address on the same subnet as your LAN
+At the bit count prompt type 24 > Press Enter
+Leave the IPv4 upstream gateway blank press Enter
+At the IPv6 WAN tracking type n > Press Enter
+At the IPv6 DHCP prompt type n > Press Enter
+Leave the IPv6 address blank and press Enter
+At the DHCP server prompt type n > Press Enter
+At the revert to HTTP prompt type y > Press Enter
+At the Restore web GUI access defaults type y > Press Enter
+The http address of the OPNSense Web UI will be displayed
+Minimize the OPNSense VM and open a web browser
+Navigate to the web UI http address
+Log into the web UI with the username root and the root password set earlier
+Enjoy exploring OPNSense
+ 

@@ -1,0 +1,1 @@
+awk '$2 == "yes"' filename.txt

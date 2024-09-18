@@ -1,0 +1,9 @@
+Automate Chef Client Runs
+
+Set Up a Cron Job
+Set up a cron job to run Chef client periodically. Open the crontab editor:
+
+sudo crontab -e
+Add the following line to run Chef client every 30 minutes:
+
+*/30 * * * * /usr/bin/chef-client

@@ -1,0 +1,11 @@
+Luma AI
+Luma AI, accessible at lumalabs.ai, is a company focused on creating advanced visual AI technologies aimed at expanding human imagination and capabilities. They offer a variety of tools and models designed for generating highly realistic and photorealistic 3D content from simple inputs like videos, images, and text.
+One of their standout products is the Dream Machine, a scalable and efficient AI model that generates high-quality, realistic videos from text and images. It's designed to create physically accurate and consistent video content quickly, making it ideal for various creative and professional uses.
+Luma AI also provides a Video to 3D API, which allows users to convert video walkthroughs into interactive 3D models. This technology is particularly useful for applications in game art, e-commerce, augmented reality (AR), and visual effects (VFX). It leverages NeRF and meshing models to produce detailed and accurate 3D scenes.
+Another innovative tool from Luma AI is Genie, a 3D generative foundation model for creating interactive scenes and assets, enabling users to transform their creative ideas into lifelike 3D environments.
+Overall, Luma AI aims to democratize access to high-quality visual content creation, enabling professionals and enthusiasts alike to create sophisticated 3D and video content with ease.
+Sources:
+- https://lumalabs.ai/
+- https://lumalabs.ai/dream-machine
+- https://lumalabs.ai/genie
+- https://lumalabs.ai/video-to-3d-api

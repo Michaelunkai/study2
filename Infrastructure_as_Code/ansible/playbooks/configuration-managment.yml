@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Ensure sysctl.conf settings
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        sysctl_set: yes
+        state: present
+        reload: yes
+      with_items:
+        - { name: 'vm.swappiness', value: '10' }
+        - { name: 'vm.vfs_cache_pressure', value: '50' }

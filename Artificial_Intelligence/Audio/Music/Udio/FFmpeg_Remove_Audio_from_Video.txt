@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -an output.mp4

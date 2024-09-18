@@ -1,0 +1,39 @@
+Update and Upgrade Ubuntu: Once inside the container, update and upgrade the Ubuntu system:
+
+ 
+ 
+apt update
+apt upgrade -y
+Install Samba: Install Samba inside the container:
+
+ 
+apt install samba -y
+Configure Samba: Now, you need to configure Samba. Open the Samba configuration file in a text editor:
+
+ 
+ 
+nano /etc/samba/smb.conf
+Configure the [global] section with your desired workgroup and add a new section for your shared folder. For example:
+
+ 
+ 
+[global]
+    workgroup = WORKGROUP
+
+[ ared]
+    path = /mnt/ ared
+    read only = no
+    guest ok = yes
+Save the changes and exit the text editor.
+
+Create Shared Folder: Create the shared folder inside the container and adjust permissions:
+
+ 
+ 
+mkdir /mnt/ ared
+chmod 777 /mnt/ ared
+Restart Samba Service: Restart the Samba service to apply the changes:
+
+ 
+service smbd restart
+Access Shared Folder from Windows: On your Windows machine, open File Explorer and navigate to \\<container_ip>\shared (you can find the container IP address by running docker inspect ubuntu-container). You should see the shared folder and be able to access it like any other network share.

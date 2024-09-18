@@ -1,0 +1,10 @@
+Storing Data in Files:
+
+echo "Processed Data" > output.txt
+cat filtered_data.csv >> output.txt
+Using a Database:
+Install and configure SQLite:
+
+sudo apt install sqlite3
+sqlite3 mydatabase.db "CREATE TABLE data (id INTEGER PRIMARY KEY, value INTEGER);"
+sqlite3 mydatabase.db "INSERT INTO data (value) VALUES (60);"

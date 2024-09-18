@@ -1,0 +1,1 @@
+aws proton cancel-environment-deployment --environment-name <environment-name>

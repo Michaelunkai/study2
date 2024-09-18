@@ -1,0 +1,1 @@
+docker run -it -p 127.0.0.1:8080:8080 -v /mnt/c/study/python:/home/coder/project -e PASSWORD='123456' codercom/code-server --auth password

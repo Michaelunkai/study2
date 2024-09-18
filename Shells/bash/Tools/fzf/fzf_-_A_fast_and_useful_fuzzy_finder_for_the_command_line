@@ -1,0 +1,19 @@
+fzf - A fast and useful fuzzy finder for the command line
+Installation:
+
+ 
+ 
+sudo apt update
+sudo apt install fzf
+Basic Usage:
+
+ 
+ 
+# Search your command history
+history | fzf
+
+# Search files in the current directory
+fzf
+
+# Find a file and open it using vim
+vim $(fzf)

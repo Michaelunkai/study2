@@ -1,0 +1,23 @@
+▲A  A▼
+What's New in the Upcoming VirtualBox 7
+What is VirtualBox?
+VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use. -https://www.virtualbox.org/
+Downloading the Latest VirtualBox 7 Beta
+Open a web browser and navigate to https://download.virtualbox.org/virtualbox/ ⧉
+Scroll to the bottom of the listing to find the latest VirtualBox 7 release
+Navigate into the folder and download the installer and Extension Pack for the host operating system
+Install VirtualBox 7, followed by the extension pack
+Key New Features and Improvements
+Dark mode!!
+Real-time guest VM activity overview/resource monitor
+Integrated host to guest file manager
+More detailed Guest Version dropdown
+Ability to set an iso image during VM creation
+If the OS on the .iso is detected, ability to install unattended
+Ability to install guest additions unattended
+Updated BIOS boot logo
+Better integrated Virtual Media Manager
+...a list of official changes can be found on page 413 of the User Manual
+Documentation: https://download.virtualbox.org/virtualbox/7.0.0_BETA1/UserManual.pdf
+
+ 

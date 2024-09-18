@@ -1,0 +1,42 @@
+0~Step-by-Step Guide to Correctly Install a CNAB Bundle with Porter
+Step 1: Ensure You Have Porter Installed
+Download and install Porter:
+
+curl -L https://cdn.porter.sh/latest/install-linux.sh | bash
+Verify the installation:
+
+porter version
+Step 2: Initialize a Porter Bundle
+Create a new Porter bundle:
+
+porter create my-bundle
+cd my-bundle
+Edit the porter.yaml file to define your bundle. This file specifies the services your bundle will manage and how to install, upgrade, and uninstall them.
+
+Build the bundle:
+
+porter build
+Step 3: Install the CNAB Bundle
+Install the bundle using the name of the bundle directory (in this case, my-bundle):
+
+porter install
+
+
+
+0~Step 4: Verify the Installation
+Check the installed bundle:
+
+
+porter list
+Step 5: Upgrade the CNAB Bundle
+Make any changes to your bundle, then rebuild it:
+
+porter build
+Upgrade the bundle:
+
+porter upgrade
+
+0~Step 6: Uninstall the CNAB Bundle
+Uninstall the bundle:
+
+porter uninstall1

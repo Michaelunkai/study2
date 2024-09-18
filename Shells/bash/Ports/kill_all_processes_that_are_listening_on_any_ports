@@ -1,0 +1,19 @@
+List all processes listening on any port using lsof.
+Extract the process IDs.
+Kill those processes.
+Here is the command to accomplish this:
+
+ 
+ 
+kill $(lsof -t -i)
+If you need to force kill all these processes, you can use the -9 option:
+
+ 
+ 
+kill -9 $(lsof -t -i)
+Please note that this will terminate all processes that are using any network ports, which could include critical system services and connections. Use this command with caution.
+
+
+
+
+

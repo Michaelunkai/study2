@@ -1,0 +1,2 @@
+aws comprehend delete-entity-recognizer --entity-recognizer-arn <arn>
+aws comprehend delete-document-classifier --document-classifier-arn <arn>

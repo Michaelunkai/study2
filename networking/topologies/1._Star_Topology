@@ -1,0 +1,31 @@
+1. Star Topology
+In a star topology, all devices are connected to a central hub or switch.
+
+Steps:
+Install and Configure Network Interfaces:
+Ensure all network interfaces are up and configured correctly.
+
+ 
+ 
+sudo ip link set eth0 up
+sudo ip link set eth1 up
+Install bridge-utils:
+Install the necessary package to manage bridge interfaces.
+
+ 
+ 
+sudo apt-get install bridge-utils
+Create a Bridge Interface:
+Create a bridge and add network interfaces to it.
+
+ 
+ 
+sudo brctl addbr br0
+sudo brctl addif br0 eth0
+sudo brctl addif br0 eth1
+Assign an IP Address to the Bridge:
+
+ 
+ 
+sudo ip addr add 192.168.1.1/24 dev br0
+sudo ip link set br0 up

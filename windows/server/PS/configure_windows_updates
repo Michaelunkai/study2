@@ -1,0 +1,17 @@
+# Install PSWindowsUpdate module
+Install-Module -Name PSWindowsUpdate -Force
+
+# Check for available updates
+Get-WindowsUpdate
+
+# Download and install all available updates
+Install-WindowsUpdate -AcceptAll -AutoReboot
+
+# Configure Windows Update to check for updates every day
+Set-WUSettings -AutoInstall -ScheduledInstallDay "Every Day" -ScheduledInstallTime 3
+
+# View Windows Update history
+Get-WindowsUpdateLog
+
+# Disable driver updates through Windows Update
+Set-WindowsUpdateDriverSettings -NoAutoRebootWithLoggedOnUsers -AllDrives

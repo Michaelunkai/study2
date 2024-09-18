@@ -1,0 +1,16 @@
+Easy to Use Bootable Flash Drive with Ventoy
+What is Ventoy?
+Ventoy is an open source tool to create bootable USB drive for ISO/WIM/IMG/VHD(x)/EFI files. With ventoy, you don't need to format the disk over and over, you just need to copy the ISO/WIM/IMG/VHD(x)/EFI files to the USB drive and boot them directly. You can copy many files at a time and ventoy will give you a boot menu to select them -https://www.ventoy.net/
+Things You Will Need
+A USB flash drive, at least 32 GB of free space https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Download the Ventoy installer Download
+Extract the downloaded .zip file
+Run Ventoy2Disk.exe
+Plug in a USB flash drive at least 32 GB in size
+Click the refresh icon
+Select the flash drive from the device dropdown
+Click the Install button
+After the installation completes, simply copy .iso files to the Ventoy partition
+Safely remove the USB flash drive
+Boot to the flash drive when needed and the Ventoy boot menu will appear listing the .iso files
+Select an .iso to boot

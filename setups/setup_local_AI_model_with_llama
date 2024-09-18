@@ -1,0 +1,5 @@
+ curl -fsSL https://ollama.com/install.sh | sh && ollama run llama3
+
+
+** to check if running: 
+http://localhost:11434

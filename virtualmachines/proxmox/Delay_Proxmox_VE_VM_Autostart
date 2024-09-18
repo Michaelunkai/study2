@@ -1,0 +1,18 @@
+▲A  A▼
+Delay Proxmox VE VM Autostart
+Background?
+I have a Proxmox node that hosts my Windows domain controller. Part of the hardware setup for the VM is a USB 3.0 PCI card that allows me to control the devices (mostly external HDDs) directly from within the VM. The problem I was running into was whenever my Proxmox host rebooted or lost power and came back up, the USB 3.0 PCI card wouldn't passthrough properly. I'd have to manually shutdown the VM, then start it for the passthrough to work. I figured that since a simple stop/start of the VM was fixing the passthrough it had something to do with the timing of the Proxmox host releasing the PCI device before the Windows VM started it's boot process. I started investigating how to delay starting the VMs with the autostart option enabled and came across this blog post ⧉ with a very straightforward and simple solution. This is also a viable solution for those who use NAS or other externally hosted storage for their VMs and want to allow additional time for that hardware to become available prior to Proxmox starting VMs.
+Log into the Proxmox web UI
+Select the target node > Shell
+Run the following commands in the terminal
+# create a backup of the pve-guests service
+cp /etc/systemd/system/multi-user.target.wants/pve-guests.service ~/pve-guests.service.bkup
+# edit the pve-guests service file
+nano /etc/systemd/system/multi-user.target.wants/pve-guests.service
+Press CTRL+W and search for ExecStartPre
+Add the following before the existing ExecStartPre line, changing the 60 to the number seconds to delay the startup of VMs
+ExecStartPre=/bin/sleep 60
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+That's it. The next time the Proxmox node reboots the auto starting of VMs will be delayed by the specified number of seconds, allowing more time for dependent hardware or storage to become available
+ 

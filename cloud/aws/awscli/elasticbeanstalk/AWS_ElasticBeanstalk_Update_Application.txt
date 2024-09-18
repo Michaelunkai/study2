@@ -1,0 +1,1 @@
+aws elasticbeanstalk update-application --application-name <app-name> --description <description>

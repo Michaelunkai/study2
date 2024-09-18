@@ -1,0 +1,11 @@
+Basic Pulsar Operations
+Create a Topic: You can create a topic using the Pulsar admin tool or client libraries. For a quick test, use the Pulsar client in another terminal:
+
+ 
+ 
+docker exec -it [container_id] bin/pulsar-client produce my-topic --messages "hello-pulsar"
+Consume Messages: Similarly, to consume messages:
+
+ 
+ 
+docker exec -it [container_id] bin/pulsar-client consume my-topic -s "my-subscription"

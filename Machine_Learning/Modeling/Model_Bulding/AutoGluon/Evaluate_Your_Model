@@ -1,0 +1,8 @@
+Eva te Your Model
+After training your model, you might want to evaluate its performance:
+
+ 
+ 
+# Evaluate the performance of the model on test data
+performance = predictor.eva te(test_data)
+print(performance)

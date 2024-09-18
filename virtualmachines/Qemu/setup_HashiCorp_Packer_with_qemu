@@ -1,0 +1,93 @@
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y qemu-system-x86 qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+
+
+wget https://releases.ha icorp.com/packer/1.8.4/packer_1.8.4_linux_amd64.zip
+
+unzip packer_1.8.4_linux_amd64.zip
+sudo mv packer /usr/local/bin/
+
+
+packer --version
+
+
+
+Download the ISO file:
+wget http://releases.ubuntu.com/20.04.6/ubuntu-20.04.6-live-server-amd64.iso
+
+Calculate the checksum:
+ a256sum ubuntu-20.04.6-live-server-amd64.iso
+
+
+mkdir -p ~/packer-templates
+cd ~/packer-templates
+
+
+Create a new JSON file for your Packer template, for example, ubuntu.json:
+
+{
+  "variables": {
+    "iso_url": "http://releases.ubuntu.com/20.04.6/ubuntu-20.04.6-live-server-amd64.iso",
+    "iso_checksum": "b8f31413336b9393ad5d8ef0282717b2ab19f007df2e9ed5196c13d8f9153c8b"
+  },
+  "builders": [
+    {
+      "type": "qemu",
+      "name": "ubuntu-qemu",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "output_directory": "output-ubuntu",
+      "vm_name": "ubuntu",
+      "disk_size": "4096",
+      "format": "qcow2",
+      "headless": true,
+      "http_directory": "http",
+      "s _username": "packer",
+      "s _password": "packer",
+      "s _wait_timeout": "30m",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "accelerator": "kvm",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": " ell",
+      "inline": [
+        "echo 'Provisioning...'",
+        "sudo apt-get update",
+        "sudo apt-get upgrade -y"
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+Step 5: Create the HTTP Directory
+Create an http directory to serve any required files during the installation:
+
+
+mkdir -p http
+
+nuild the image:
+packer build ubuntu.json
+
+
+
+Step 7: Verify the Output
+Once the build is complete, the resulting VM image will be in the output-ubuntu directory:
+
+ls output-ubuntu/
+You should see the ubuntu.qcow2 image file.
+
+Additional Notes
+You can customize the template file (ubuntu.json) as per your requirements.
+Ensure that your system has sufficient resources (CPU, RAM, and storage) to run the VM creation process.
+If you encounter any issues, refer to the Packer documentation for more detailed guidance.
+By following these steps, you will have successfully set up and configured HashiCorp Packer version 1.8.4 with QEMU for VM image creation in Ubuntu.

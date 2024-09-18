@@ -1,0 +1,5 @@
+ Forward Ports (Optional for Higher Earnings)
+To ensure the node is reachable, it may be necessary to forward specific ports on your router. Most routers will allow you to do this in their admin interface. Forward the following ports:
+
+Port 4449: Node API.
+Port 1194: VPN connection.

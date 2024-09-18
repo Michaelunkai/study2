@@ -1,0 +1,135 @@
+Question 1
+Which of the following is the GREATEST security concern with respect to BYOD?
+A. The filtering of sensitive data out of data flows at geographic boundaries
+B. Removing potential bottlenecks in data transmission paths
+C. The transfer of corporate data onto mobile corporate devices
+D. The migration of data into and out of the network in an uncontrolled manner
+
+A:
+D: the migration off data into and out of the network in an uncontrolled manner
+
+
+Question 2
+The Chief Information Security Officer (CISO) is concerned that certain systems
+administrators with privileged access may be reading other users' emails.
+Review of a tool's output shows the administrators have used web mail to log into other users' inboxes.
+Which of the following tools would show this type of output?
+A. Log analysis tool
+B. Password cracker
+C. Command-line tool
+D. File integrity monitoring tool
+
+A:
+A. Log analysis tool
+
+Question 3
+A power outage is caused by a severe thunderstorm and a facility is on generator power. The CISO decides to activate a plan and shut down non-critical systems to reduce power consumption. Which of the following is the CISO activating to identify critical systems and the required steps?
+A. BIA
+B. CERT
+C. IRP
+D. COOP
+
+A:
+C. IRP
+
+Question 4
+A pharmaceutical company is considering moving its technology operations from on-premises
+to externally-hosted to reduce costs while improving security and resiliency. These operations contain data that
+includes the prescription records, medical doctors' notes about treatment options, and the success rates of prescribed drugs.
+The company wants to maintain control over its operations because many custom applications are in use.
+Which of the following options represent the MOST secure technical deployment options? (Select THREE).
+
+A. Single tenancy
+B. Multi-tenancy
+C. Community
+D. Public
+E. Private
+F. Hybrid
+G. Saas
+H. Iaas
+I. Paas
+
+A:
+A. Single tenancy
+
+
+Question 5
+Which of the following describes a contract that is used to define the various levels of maintenance
+to be provided by an external business vendor in a secure environment?
+A. NDA
+B. MOU
+C. BIA
+D. SLA
+Your answer (Enter the letter):
+D. SLA
+
+
+Question 6
+During a security assessment, activities were divided into two phases: internal and external exploitation.
+The security assessment team set a hard time limit on external activities before moving to a compromised box within
+the enterprise perimeter. Which of the following methods is the assessment team most likely to employ NEXT?
+
+A. Pivoting from the compromised, moving laterally through the enterprise, and trying to exfiltrate data and compromise devices
+B. Conducting a social engineering attack attempt with the goal of accessing the compromised box physically
+C. Exfiltrating network scans from the compromised box as a precursor to social media reconnaissance
+D. Open-source intelligence gathering to identify the network perimeter and scope to enable further system compromises
+
+A:
+A. Pivoting from the compromised, moving laterally through the enterprise, and trying to exfiltrate data and compromise devices
+
+
+Question 7
+During the decommissioning phase of a hardware project, a security administrator is tasked with ensuring no 
+sensitive data is released inadvertently. All paper records are scheduled to be shredded
+in a crosscut shredder, and the waste will be burned. The system drives and removable media have been
+removed prior to e-cycling the hardware. Which of the following would ensure no data is recovered from the system
+drives once they are disposed of?
+
+A. Overwriting all HDD blocks with an alternating series of data
+B. Physically disabling the HDDs by removing the drive head
+C. Demagnetizing the hard drive using a degausser
+D. Deleting the UEFI boot loaders from each HDD
+
+A:
+C. Demagnetizing the hard drive using a degausser
+
+Question 8
+A Chief Information Security Officer (CISO) is reviewing the controls in place to support the organization's
+vulnerability management program. The CISO finds patching and vulnerability 
+Scanning policies and procedures are in place. However, the CISO 
+is concerned the organization is siloed and is not maintaining awareness of new risks to the organization.
+The CISO determines systems administrators need to participate in industry security events.
+Which of the following is the CISO looking to improve?
+A. Vendor diversification
+B. System hardening standards
+C. Bounty programs
+D. Threat awareness
+E. Vulnerability signatures
+
+A:
+D. Threat awareness
+
+
+Question 9
+While attending a meeting with the human resources department, an organization's information security officer sees an employee using a username and password written on a memo pad to log into a specific service. When the information security officer inquires further as to why passwords are being written down, the response is that there are too many passwords to remember for all the different services the human resources department is required to use. Additionally, each password has specific complexity requirements and different expiration time frames. Which of the following would be the BEST solution for the information security officer to recommend?
+A. Utilizing MFA
+B. Implementing SSO
+C. Deploying 802.1X
+D. Pushing SAML adoption
+E. Implementing TACACS
+
+A:
+B. Implementing SSO
+
+
+
+Question 10
+A security engineer is managing operational, excess, and available equipment for a customer.
+Three pieces of expensive leased equipment, which are supporting a highly confidential portion of the customer network, have recently been taken out of operation. The engineer determines the equipment lease runs for another 18 months. Which of the following is the BEST course of action for the engineer to take to decommission the equipment properly?
+A. Remove any labeling indicating the equipment was used to process confidential data and mark it as available for reuse.
+B. Return the equipment to the leasing company and seek a refund for the unused time.
+C. Redeploy the equipment to a less sensitive part of the network until the lease expires.
+D. Securely wipe all device memory and store the equipment in a secure location until the end of the lease.
+
+A:
+D. Securely wipe all device memory and store the equipment in a secure location until the end of the lease.

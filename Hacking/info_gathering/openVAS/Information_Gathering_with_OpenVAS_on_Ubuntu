@@ -1,0 +1,89 @@
+OpenVAS (Open Vulnerability Assessment System) is an open-source tool for vulnerability scanning and management. It’s highly versatile and can be used to identify security issues in various systems and applications. Here's a guide on how to gather information using OpenVAS on Ubuntu.
+
+### Step 1: Install OpenVAS
+
+1. **Update your system:**
+     
+   sudo apt update
+   sudo apt upgrade
+
+2. **Add the PPA repository:**
+     
+   sudo add-apt-repository ppa:mrazavi/openvas
+   sudo apt update
+
+3. **Install OpenVAS:**
+     
+   sudo apt install openvas
+
+4. **Run the setup script to configure OpenVAS:**
+     
+   sudo gvm-setup
+
+   This process can take some time as it downloads and configures necessary components.
+
+5. **Start the OpenVAS services:**
+     
+   sudo gvm-start
+
+### Step 2: Access OpenVAS Web Interface
+
+1. **Retrieve the admin password:**
+     
+   sudo cat /var/lib/gvm/.config/gvm-password
+
+2. **Open a web browser and go to:**
+   https://localhost:9392
+
+3. **Log in using the username `admin` and the password retrieved in the previous step.**
+
+### Step 3: Configuring and Running a Scan
+
+1. **Create a new scan target:**
+   - Go to the "Configuration" tab.
+   - Click on "Targets".
+   - Click on the green star icon to create a new target.
+   - Fill in the details such as the name and the IP address or domain of the target.
+   - Save the target.
+
+2. **Create a new task:**
+   - Go to the "Scans" tab.
+   - Click on "Tasks".
+   - Click on the green star icon to create a new task.
+   - Fill in the task details such as the name and select the previously created target.
+   - Save the task.
+
+3. **Start the scan:**
+   - Go to the "Scans" tab.
+   - Click on "Tasks".
+   - Find the task you created and click on the blue play button to start the scan.
+
+### Step 4: Analyzing Scan Results
+
+1. **View the scan results:**
+   - Go to the "Scans" tab.
+   - Click on "Reports".
+   - Click on the report corresponding to your scan task.
+
+2. **Analyze the findings:**
+   - The report will show vulnerabilities found, their severity, and recommended actions.
+   - Click on individual vulnerabilities for more detailed information.
+
+### Step 5: Regular Maintenance
+
+1. **Update the vulnerability database regularly:**
+     
+   sudo greenbone-nvt-sync
+
+2. **Restart the OpenVAS services after updates:**
+     
+   sudo gvm-stop
+   sudo gvm-start
+
+### Additional Tips
+
+- **Documentation:** Refer to the official OpenVAS documentation for advanced configurations and troubleshooting.
+- **Backup:** Regularly backup your OpenVAS configuration and data.
+- **Security:** Ensure that your OpenVAS setup is secured, especially if accessible over a network.
+
+This guide covers the basic setup and usage of OpenVAS for vulnerability scanning on Ubuntu. Let me know if you need more detailed steps or assistance with specific configurations.

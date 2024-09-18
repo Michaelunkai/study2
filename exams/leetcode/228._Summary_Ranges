@@ -1,0 +1,94 @@
+### 228. Summary Ranges
+
+**Problem Description:**
+
+Given a sorted unique integer array `nums`, return the smallest sorted list of ranges that cover all the numbers in the array exactly. That is, each element of `nums` is covered by exactly one of the ranges, and there is no integer `x` such that `x` is in one of the ranges but not in `nums`.
+
+Each range `[a,b]` in the list should be output as:
+- `"a->b"` if `a != b`
+- `"a"` if `a == b`
+
+**Example 1:**
+```
+Input: nums = [0,1,2,4,5,7]
+Output: ["0->2","4->5","7"]
+Explanation: The ranges are:
+[0,1,2] --> "0->2"
+[4,5] --> "4->5"
+[7] --> "7"
+```
+
+**Example 2:**
+```
+Input: nums = [0,2,3,4,6,8,9]
+Output: ["0","2->4","6","8->9"]
+Explanation: The ranges are:
+[0] --> "0"
+[2,3,4] --> "2->4"
+[6] --> "6"
+[8,9] --> "8->9"
+```
+
+**Constraints:**
+- `0 <= nums.length <= 20`
+- `-2^31 <= nums[i] <= 2^31 - 1`
+- All the values of `nums` are unique.
+- `nums` is sorted in ascending order.
+
+### Explanation (Like I'm 12):
+
+Imagine you have a list of numbers lined up in a row. Your task is to group them into ranges where the numbers are consecutive. If there’s just one number, you write it down. If there’s a sequence of consecutive numbers, you write down the first and the last number with an arrow in between.
+
+### Python Solution:
+
+Here's how you can do it:
+
+```python
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        result = []
+        if not nums:
+            return result
+        
+        start = nums[0]
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1] + 1:
+                if start == nums[i-1]:
+                    result.append(f"{start}")
+                else:
+                    result.append(f"{start}->{nums[i-1]}")
+                start = nums[i]
+        
+        if start == nums[-1]:
+            result.append(f"{start}")
+        else:
+            result.append(f"{start}->{nums[-1]}")
+        
+        return result
+```
+
+### Explanation of the Solution:
+
+1. **Initialization:**
+   - Create an empty list `result` to store the ranges.
+   - Check if `nums` is empty. If it is, return the empty `result`.
+
+2. **Start Tracking Ranges:**
+   - Initialize `start` with the first number in `nums`.
+
+3. **Iterate Through List:**
+   - Loop through the list starting from the second element.
+   - If the current number is not consecutive (i.e., not equal to the previous number +1):
+     - If `start` is equal to the previous number, add just the `start` to `result`.
+     - Otherwise, add the range `start->previous number` to `result`.
+     - Update `start` to the current number.
+
+4. **Final Range:**
+   - After the loop, check the last range:
+     - If `start` is the same as the last number, add just `start` to `result`.
+     - Otherwise, add the range `start->last number` to `result`.
+
+5. **Return Result:**
+   - Return the `result` list containing all the ranges.
+
+In simpler terms, we go through the list of numbers and group consecutive numbers together. For each group, we write down the first and last number. If there’s only one number in the group, we just write that number. We keep doing this until we have processed all the numbers in the list.

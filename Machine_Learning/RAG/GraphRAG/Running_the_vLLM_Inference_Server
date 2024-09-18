@@ -1,0 +1,10 @@
+python -m vllm.entrypoints.openai.api_server \
+--model meta-llama/Meta-Llama-3.1-8B-Instruct \
+--dtype half \
+--api_key EMPTY \
+--tensor-parallel-size 4 \
+--trust-remote-code \
+--gpu-memory-utilization 0.92 \
+--max-num-seqs 128 \
+--max-model-len 65536 \
+--guided-decoding-backend lm-format-enforcer

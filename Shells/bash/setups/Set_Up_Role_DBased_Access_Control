@@ -1,0 +1,13 @@
+Implement Data Access Controls
+Ensure strict access controls to sensitive data.
+
+Set Up Role-Based Access Control (RBAC)
+Use the setfacl command to manage file access:
+
+# Grant read access to a group
+sudo setfacl -m g:groupname:r /path/to/file
+
+# Grant write access to a user
+sudo setfacl -m u:username:w /path/to/file
+
+

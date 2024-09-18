@@ -1,0 +1,1 @@
+winget install --id=AdoptOpenJDK.Hotspot.11 -e

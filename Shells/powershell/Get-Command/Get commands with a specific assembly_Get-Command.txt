@@ -1,0 +1,1 @@
+Get-Command | Where-Object {$_.ImplementingType.Assembly -match "System.Management.Automation"}

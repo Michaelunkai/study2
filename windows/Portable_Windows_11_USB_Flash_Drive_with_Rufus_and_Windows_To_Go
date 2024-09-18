@@ -1,0 +1,20 @@
+▲A  A▼
+Portable Windows 11 USB Flash Drive with Rufus and Windows To Go
+What is Windows To Go?
+Windows To Go is a feature in Windows 10 Enterprise and Windows 10 Education that enables the creation of a Windows To Go workspace that can be booted from a USB-connected external drive on PCs. -https://docs.microsoft.com/en-us/windows/deployment/planning/windows-to-go-overview
+Prerequisites
+A USB flash drive, at least 32 GB https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Windows 11 installation media .iso
+Installing Windows 11 on USB
+Plug in the USB flash drive, 32GB or larger
+Download the Windows 11 iso Download
+Download Rufus version 2.0 or later Download
+Run the Rufux application
+Select the target USB device (double check the selection, all data on the USB device will be destroyed)
+Click the Select button next to Disk or ISO image > Browse to and select the downloaded Windows 11 iso file
+Select Windows To Go from the Image option dropdown
+Select MBR from the Partition scheme dropdown
+Click the Start button to write the modified installation media to the target USB device
+Wait for Rufus to write the files to the USB device
+That's it! Boot to the USB device on any machine you wish to run the portable Windows 11 environment on
+ 

@@ -1,0 +1,1 @@
+aws polly get-speech-synthesis-task --task-id <task-id> --output json

@@ -1,0 +1,1 @@
+aws codepipeline get-pipeline-state --name <pipeline-name>

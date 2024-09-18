@@ -1,0 +1,19 @@
+Install Apache Benchmark:
+
+ 
+ 
+sudo apt install apache2-utils
+Run Apache Benchmark:
+
+ 
+ 
+ab -n 1000 -c 100 http://localhost/
+This command sends 1000 requests with a concurrency of 100. Adjust these values based on your server's capacity and requirements.
+
+Analyze Results:
+Look for metrics like Requests per second, Time per request, and Connection Times. Lower time values and higher requests per second indicate improved performance.
+
+Compare with Previous Results:
+If you have benchmark results from before the optimizations, compare them to see the impact of the changes.
+
+Remember, benchmarking should be done under realistic conditions, and the impact may vary based on the nature of your web application and server resources. Regular monitoring and benchmarking can help ensure consistent performance.

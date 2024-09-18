@@ -1,0 +1,18 @@
+Create and Manage a Glue Crawler (Optional)
+If you need to create a Glue Crawler to populate the Glue Data Catalog, you can do so with the following steps:
+
+Create a Glue Crawler:
+
+ 
+ 
+aws glue create-crawler --name your-crawler --role GlueServiceRole --database-name your-database --targets "{\"S3Targets\": [{\"Path\": \"s3://your-glue-bucket/data/\"}]}"
+Start the Crawler:
+
+ 
+ 
+aws glue start-crawler --name your-crawler
+Get Crawler Status:
+
+ 
+ 
+aws glue get-crawler --name your-crawler

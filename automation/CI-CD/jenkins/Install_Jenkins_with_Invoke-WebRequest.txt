@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://get.jenkins.io/windows/latest/jenkins.msi -OutFile jenkins_installer.msi; Start-Process msiexec.exe -ArgumentList '/i jenkins_installer.msi /quiet' -NoNewWindow -Wait

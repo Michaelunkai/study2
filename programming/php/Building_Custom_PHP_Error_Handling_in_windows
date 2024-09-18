@@ -1,0 +1,23 @@
+Building Custom PHP Error Handling
+Navigate to PHP install directory in Explorer
+Edit php.ini in a text editor
+Find ;auto_prepend_file
+Uncomment the line by removing the ;
+Setting the value of auto_prepend_file to the full path of a PHP file will include the file automatically before every .php page the server loads
+auto_prepend_file = "C:\xampp\htdocs\library\global_header. ";
+
+There is also an auto_append_file setting to add the include after every .php page the server loads
+Save
+Navigate to Apache install directory/htdocs in Explorer
+Create a library directory
+Download custom_ _errors.zip Download
+Extract the contents of custom_php_errors.zip to the library directory
+/library/global_header. 
+/library/images/bottom.gif
+/library/images/error_bg.jpg
+/library/images/mainbg.gif
+/library/images/top.gif
+
+Restart the Apache service
+Create a .php page with intentional errors to invoke the new error page
+Launch a browser and navigate to the test .php page

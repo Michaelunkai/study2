@@ -1,0 +1,1 @@
+aws comprehend detect-key-phrases --text "your text here" --language-code en

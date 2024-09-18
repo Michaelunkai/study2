@@ -1,0 +1,20 @@
+Create a basic C++ program to understand the structure:
+
+cpp
+ 
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+Save this as main.cpp.
+
+
+Compile and Run the Program
+Compile the program using g++:
+
+ 
+ 
+g++ -o hello main.cpp
+./hello

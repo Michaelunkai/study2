@@ -1,0 +1,13 @@
+Title: Yoodli - AI Speech Coach
+Abstract:
+Enhance your communication skills with AI-driven feedback. Yoodli collects real-time analytics on your visual, verbal, and vocal messages.
+Introduction:
+Yoodli is a state-of-the-art AI speech coach designed to help individuals improve their communication skills. By leveraging advanced artificial intelligence, Yoodli provides real-time feedback on various aspects of your speech, including visual cues, verbal content, and vocal tone.
+Methodology:
+The system uses a combination of machine learning algorithms and natural language processing to analyze your speech. It evaluates your visual expressions, the words you use, and the way you say them. This comprehensive analysis helps identify areas for improvement.
+Real-time Analytics:
+- Visual Feedback: Assesses your body language and facial expressions.
+- Verbal Feedback: Analyzes the content of your speech for clarity, coherence, and impact.
+- Vocal Feedback: Evaluates your tone, pitch, and pace.
+Conclusion:
+Yoodli provides a holistic approach to speech coaching by offering detailed, real-time feedback on visual, verbal, and vocal elements of communication. This helps users to refine their skills and become more effective communicators.

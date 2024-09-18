@@ -1,0 +1,8 @@
+Transfer your token to another wallet
+TIMESTAMP: 20:44
+
+Setup another wallet (phantom wallet) ---> https://phantom.app/
+Transfer tokens to your new wallet
+spl-token transfer --fund-recipient --allow-unfunded-recipient yourtokenaddress amount recipientwalletaddress
+example: spl-token transfer --fund-recipient --allow-unfunded-recipient vXV3qR4WifEPiteogi9FDQveVthwrvEeRxpjyQdDHwq 10000 6Cc2MFmjjyXyenyEcKoBSq1Rdyw9t65yjXXBQWn34oLY
+ 

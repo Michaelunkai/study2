@@ -1,0 +1,6 @@
+Query CloudWatch Logs
+You can use the filter-log-events command to query logs:
+
+ 
+ 
+aws logs filter-log-events --log-group-name my-log-group --log-stream-names my-log-stream --start-time 1620123456789 --end-time 1620127890123

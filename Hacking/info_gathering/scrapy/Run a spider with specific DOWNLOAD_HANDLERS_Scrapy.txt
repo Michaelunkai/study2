@@ -1,0 +1,1 @@
+scrapy crawl myspider -s DOWNLOAD_HANDLERS={'s3': None}

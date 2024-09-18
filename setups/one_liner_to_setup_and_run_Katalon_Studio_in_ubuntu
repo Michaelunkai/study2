@@ -1,0 +1,1 @@
+cd && sudo apt install openjdk-17-jdk -y && wget https://download.katalon.com/9.6.0/Katalon_Studio_Linux_64-9.6.0.tar.gz && tar -xf Katalon_Studio_Linux_64-9.6.0.tar.gz && cd Katalon_Studio_Linux_64-9.6.0 && ./katalon -vm /usr/lib/jvm/java-17-openjdk-amd64/bin/java

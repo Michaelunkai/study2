@@ -1,0 +1,18 @@
+Integration of Advertisements in Perplexity AI's Search Engine
+Introduction
+Perplexity AI plans to integrate advertisements into its search results to compensate publishers whose content is used in AI-generated answers.
+Revenue Sharing Model
+Perplexity AI will adopt a new revenue-sharing model with publishers:
+- Percentage of Advertising Revenue: When a publisher's content is used in an AI-generated answer, they will receive a percentage of the advertising revenue.
+Integration of Advertisements
+- Advertisement Placement: Advertisements will appear as “related follow-up questions” below the initial AI-generated answer.
+- Identification of Advertisements: These questions will be clearly marked as sponsored.
+Benefits for Publishers
+- Free Access to Models: Partner publishers will receive free access to Perplexity's large language models via API.
+- Creation of Answer Engines: This access allows them to create their own answer engines.
+Addressing Concerns
+Perplexity AI has faced criticism for using publisher content without permission:
+- New Revenue Sharing Model: The model aims to address these concerns.
+- Updated Indexing Processes: These processes focus on improving interactions with publishers.
+Conclusion
+Perplexity AI's new advertising model represents a significant shift in the monetization of AI-based search. By sharing revenue with publishers, the company aims to foster a more collaborative relationship, a move that could set a precedent for other AI-based search engines.

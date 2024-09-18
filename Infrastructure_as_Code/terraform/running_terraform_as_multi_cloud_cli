@@ -1,0 +1,13 @@
+1)
+create config (main.tf) file
+
+
+Initialize Terraform:
+
+terraform init
+Plan the Configuration:
+
+terraform plan
+Apply the Configuration:
+
+terraform apply

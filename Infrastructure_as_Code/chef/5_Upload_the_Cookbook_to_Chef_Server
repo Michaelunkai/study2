@@ -1,0 +1,5 @@
+Step 5: Upload the Cookbook to Chef Server
+5.1 Upload the Cookbook
+Upload the my_cookbook to the Chef server:
+
+knife cookbook upload my_cookbook

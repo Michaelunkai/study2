@@ -1,0 +1,113 @@
+Certainly! Here’s a comprehensive tutorial with a detailed title for checking GPIO functionality in a Docker container running Raspberry Pi OS:
+
+---
+
+# **Comprehensive Guide to Setting Up and Testing GPIO Functionality in a Docker Container Running Raspberry Pi OS**
+
+## **Introduction**
+
+This guide will walk you through the steps to set up a Docker container running Raspberry Pi OS, install necessary GPIO libraries, and verify GPIO functionality using Python scripts and command-line tools. By the end, you’ll be able to confirm that GPIO access is working correctly within your Docker environment.
+
+## **Step 1: Install QEMU User Static Binaries**
+
+First, you need to install QEMU user-static binaries to enable emulation for the ARM architecture.
+
+  
+sudo apt-get install -y qemu-user-static
+
+## **Step 2: Register QEMU for ARM Architecture**
+
+Register the QEMU user-static binaries to handle ARM architecture.
+
+  
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+## **Step 3: Create and Build Docker Image**
+
+1. **Create Docker Directory and Dockerfile**
+
+   Create a directory for your Docker setup and a Dockerfile with the necessary configuration.
+
+     
+   mkdir -p ~/rpi-os && cd ~/rpi-os
+   printf 'FROM balenalib/rpi-raspbian:latest\nCMD ["bash"]' > Dockerfile
+
+2. **Build Docker Image**
+
+   Build the Docker image from the Dockerfile.
+
+     
+   docker build -t rpi-os .
+
+## **Step 4: Run Docker Container with GPIO Access**
+
+Run the Docker container with additional privileges and device access for GPIO.
+
+  
+docker run -it --privileged --device /dev/gpiomem --platform linux/arm/v6 rpi-os
+
+## **Step 5: Install GPIO Libraries Inside the Container**
+
+Once inside the Docker container, install necessary GPIO libraries using `pip3`.
+
+  
+pip3 install gpiozero
+
+## **Step 6: Create a GPIO Test Script**
+
+1. **Create a Python Script**
+
+   Create a Python script to test GPIO functionality. This script will turn an LED on and off on a specific GPIO pin.
+
+     
+   nano test_gpio.py
+
+   Paste the following code into `test_gpio.py` and save the file:
+
+     
+   # test_gpio.py
+   from gpiozero import LED
+   from time import sleep
+
+   # Initialize LED on GPIO pin 17
+   led = LED(17)
+
+   print("Turning LED on...")
+   led.on()
+   sleep(5)  # Keep LED on for 5 seconds
+
+   print("Turning LED off...")
+   led.off()
+
+## **Step 7: Run the GPIO Test Script**
+
+Execute the script to test GPIO functionality.
+
+  
+ 3 test_gpio.py
+
+## **Step 8: Verify GPIO Functionality Using Command-Line Tools**
+
+If you prefer command-line utilities, you can use `raspi-gpio` to check the status of GPIO pins.
+
+1. **Install `raspi-gpio`**
+
+   If not already installed, install the `raspi-gpio` utility.
+
+     
+   apt-get install -y raspi-gpio
+
+2. **Check GPIO Pin Status**
+
+   Display the current state of all GPIO pins.
+
+     
+   raspi-gpio get
+
+## **Conclusion**
+
+By following these steps, you have successfully set up a Docker container running Raspberry Pi OS, installed the necessary GPIO libraries, and verified GPIO functionality using both Python scripts and command-line tools. This setup ensures that your GPIO access within the Docker environment is working as expected.
+
+---
+
+Feel free to adjust the GPIO pin number in the script based on your hardware setup. If you encounter any issues or need further assistance, please let me know!

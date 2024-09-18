@@ -1,0 +1,71 @@
+▲A  A▼
+Update Microsoft Surface RT Tablet to Windows 10 [Unofficial Upgrade]
+Disclaimer
+Windows 10 Build 15035 is now [over] five years old and it should not be considered as suitable for daily use. In addition to being outdated, it has numerous bugs and other issues expected of an expired pre-release build. -https://jwa4.gitbook.io/windows/tools/windows-media-builder
+
+This process will overwrite the current Windows 8 RT operating system on the Surface RT tablet. I have tested these steps on my own device (as shown in this video), but I am not responsible if you damage or brick your device. Verify this process will work on your device before starting and make sure to backup any data you do not want to lose before proceeding.
+Things You Will Need
+A USB flash drive, at least 8 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+A x86/x64 PC with ~50 GB of free disk space to create the installation media
+Creating the Installation Media
+💡 NOTE: These steps must be completed on a separate x86/x64 based PC and cannot be done from the Surface RT tablet
+
+Insert the USB flash drive into the PC and note the drive letter assigned to it
+Download the Windows 10 Media Builder Download
+Extract the downloaded Windows 10 Media Builder .zip file to the root of the c:\ drive
+Navigate into the extracted folder > Right click Build.cmd > Run as administrator
+In the Windows Media Builder application, type the number that corresponds to the target hardware in the list > Press Enter
+Read the notes displayed > type Y and press Enter to continue
+Choose to install the app pack by entering Y or N > Press Enter
+If the app pack is not being installed, Choose to uninstall provisioned apps by entering Y or N > Press Enter
+Choose to uninstall BitLocker by entering Y or N > Press Enter
+Choose to uninstall Cortana by entering Y or N > Press Enter
+Choose to uninstall Windows Defender by entering Y or N > Press Enter
+Choose to set a product key and use KMS activation by entering Y or N > Press Enter
+Choose to install Microsoft Office 2013 RT Home & Student Plus by entering Y or N > Press Enter
+Choose if you need a language other than English for Microsoft Office 2013 RT by entering Y or N > Press Enter
+Choose an update level to include with Microsoft Office 2013 RT by enter 1, 2 or 3 > Press Enter
+Type 1 and press enter to use the default Windows setup mode
+Type 1 to use the Windows Imaging Format (WIM) compression > Press Enter
+Review the displayed summary of selected options > Type Y > Press Enter to continue
+Wait while the Windows 10 files are downloaded and prepared based on the selections made above
+When prompted, type Y to create USB installation media > Press Enter
+Enter the target USB drive letter to write the installation files to and Press Enter
+⚠ Double check the drive letter entered, as the drive will be formatted and all data on the drive will be lost
+
+Type Y and press Enter to confirm formatting the selected flash drive
+Type N and press Enter when prompted to create an ISO image
+Press any key to close out of the Windows Media Builder application
+Installing Windows 10
+🚨 WARNING: Continuing beyond this point will format the storage on the Surface RT tablet and all files and the Windows 8 RT operating system will be lost
+
+Insert the prepared USB flash drive in the Surface RT tablet
+Hold Vol- and press the power button, releasing the Vol- when Surface logo appears
+Wait for Windows Setup to begin
+Click Next
+Check the I accept box > Click Next
+Click Custom: Install Windows only (advanced)
+Delete the existing partitions by selecting each one and clicking Delete
+Once all partitions have been deleted, click the Unallocated Space to select it > Click Next
+Wait while Windows 10 RT copies and installs files
+Once the installation completes the tablet will reboot automatically
+Complete the Windows 10 Out of Box Experience (OOBE)
+Fixing Some Known Issues
+Open Notepad and paste the following into the new document
+Windows Registry Editor Version 5.00
+
+; DISABLE USER ACCESS CONTROL (UAC)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"EnableLUA"=dword:00000000
+
+; FIX CAMERA DRIVERS
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Media Foundation\Platform]
+"EnableFrameServerMode"=dword:00000000
+
+Save the file to the desktop and name it bugfix.reg
+Double click bugfix.reg on the Desktop > Click Yes to confirm the changes
+Click OK to close out of the success popup
+Sources: https://jwa4.gitbook.io/windows/tools/windows-media-builder, https://openrt.gitbook.io/open-surfacert/common/windows-10/known-issues
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

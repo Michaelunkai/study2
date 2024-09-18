@@ -1,0 +1,94 @@
+### Problem Statement (Explained Like You're 12):
+
+You're given a list of prices where each price is the price of a stock on a given day. You want to find the maximum profit you can achieve, but you are allowed to complete at most two transactions. A transaction consists of buying and then selling one share of the stock. You must sell the stock before you can buy again.
+
+For example, if the prices are `[3,3,5,0,0,3,1,4]`, you can:
+- Buy on day 4 (price = 0) and sell on day 6 (price = 3) for a profit of 3.
+- Then buy on day 7 (price = 1) and sell on day 8 (price = 4) for a profit of 3.
+- Total profit = 3 + 3 = 6.
+
+### Python Solution:
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+        
+        # Initialize the variables for the first and second transactions
+        first_buy = float('inf')
+        first_profit = 0
+        second_buy = float('inf')
+        second_profit = 0
+        
+        for price in prices:
+            # For the first transaction
+            first_buy = min(first_buy, price)  # Minimum price to buy the first stock
+            first_profit = max(first_profit, price - first_buy)  # Max profit from the first transaction
+            
+            # For the second transaction
+            second_buy = min(second_buy, price - first_profit)  # Minimum effective price to buy the second stock
+            second_profit = max(second_profit, price - second_buy)  # Max profit from the second transaction
+        
+        return second_profit
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def maxProfit(self, prices: List[int]) -> int:
+    ```
+
+2. **Initial Check**:
+    ```python
+    if not prices:
+        return 0
+    ```
+
+    - If the list of prices is empty, return 0 because no transactions can be made.
+
+3. **Initialize Variables**:
+    ```python
+    first_buy = float('inf')
+    first_profit = 0
+    second_buy = float('inf')
+    second_profit = 0
+    ```
+
+    - `first_buy` and `second_buy` are initialized to infinity to ensure any price will be lower.
+    - `first_profit` and `second_profit` are initialized to 0.
+
+4. **Iterate Over Prices**:
+    ```python
+    for price in prices:
+        # For the first transaction
+        first_buy = min(first_buy, price)  # Minimum price to buy the first stock
+        first_profit = max(first_profit, price - first_buy)  # Max profit from the first transaction
+        
+        # For the second transaction
+        second_buy = min(second_buy, price - first_profit)  # Minimum effective price to buy the second stock
+        second_profit = max(second_profit, price - second_buy)  # Max profit from the second transaction
+    ```
+
+    - Loop through each price in the list.
+    - For the first transaction:
+        - Update `first_buy` to be the minimum price seen so far.
+        - Update `first_profit` to be the maximum profit possible from the first transaction.
+    - For the second transaction:
+        - Update `second_buy` to be the minimum effective price to buy the second stock, considering the profit from the first transaction.
+        - Update `second_profit` to be the maximum profit possible from the second transaction.
+
+5. **Return the Result**:
+    ```python
+    return second_profit
+    ```
+
+    - After iterating through all the prices, return the maximum profit from the second transaction.
+
+### Summary:
+
+1. Check if the list of prices is empty.
+2. Initialize variables for tracking the minimum prices and maximum profits for the first and second transactions.
+3. Loop through the prices to update the minimum prices and maximum profits for both transactions.
+4. Return the maximum profit achievable with at most two transactions.

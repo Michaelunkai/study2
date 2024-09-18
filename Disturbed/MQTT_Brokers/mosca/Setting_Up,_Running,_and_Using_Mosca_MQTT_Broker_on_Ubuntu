@@ -1,0 +1,125 @@
+# Comprehensive Guide to Setting Up, Running, and Using Mosca MQTT Broker on Ubuntu
+
+### Step 1: Install Node.js and npm
+First, ensure you have Node.js and npm installed. If not, install them using the following commands:
+
+  
+sudo apt update
+sudo apt install nodejs npm -y
+
+Verify the installation:
+
+  
+node -v
+npm -v
+
+### Step 2: Install Mosca
+Install Mosca globally using npm:
+
+  
+sudo npm install -g mosca
+
+### Step 3: Create a Basic Mosca Broker
+Create a directory for your Mosca broker project and navigate into it:
+
+  
+mkdir mosca_broker
+cd mosca_broker
+
+Create a file named `broker.js`:
+
+  
+nano broker.js
+
+Add the following code to `broker.js`:
+
+ javascript
+var mosca = require('mosca');
+
+var settings = {
+  port: 1883
+};
+
+var server = new mosca.Server(settings);
+
+server.on('ready', function() {
+  console.log('Mosca server is up and running');
+});
+
+server.on('clientConnected', function(client) {
+  console.log('Client connected:', client.id);
+});
+
+server.on('published', function(packet, client) {
+  console.log('Publi ed:', packet.payload);
+});
+
+Save and exit the file (Ctrl + X, then Y, and Enter).
+
+### Step 4: Run the Mosca Broker
+To start the Mosca broker, run:
+
+  
+node broker.js
+
+You should see the output indicating that the Mosca server is up and running.
+
+### Step 5: Test the Mosca Broker
+To test the Mosca broker, you can use MQTT clients like `mqtt.js` or `mosquitto-clients`.
+
+#### Install `mqtt.js`:
+  
+npm install mqtt
+
+Create a file named `client.js`:
+
+  
+nano client.js
+
+Add the following code to `client.js`:
+
+ javascript
+var mqtt = require('mqtt');
+var client  = mqtt.connect('mqtt://localhost:1883');
+
+client.on('connect', function () {
+  console.log('Client connected');
+  client.subscribe('test', function (err) {
+    if (!err) {
+      client.publi ('test', 'Hello MQTT');
+    }
+  });
+});
+
+client.on('message', function (topic, message) {
+  // message is Buffer
+  console.log(message.toString());
+  client.end();
+});
+
+Save and exit the file.
+
+Run the client:
+
+  
+node client.js
+
+You should see the messages indicating that the client connected, subscribed to the topic, and received the message.
+
+### Step 6: Install and Use `mosquitto-clients`
+Alternatively, you can use `mosquitto-clients` for testing:
+
+  
+sudo apt install mosquitto-clients
+
+#### Publish a message:
+  
+mosquitto_pub -h localhost -t test -m "Hello Mosca"
+
+#### Subscribe to a topic:
+  
+mosquitto_sub -h localhost -t test
+
+You should see the message "Hello Mosca" printed in the terminal where you run the subscriber command.
+
+By following these steps, you can set up, run, and use Mosca on Ubuntu.

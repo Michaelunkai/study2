@@ -1,0 +1,14 @@
+1)install prometheus
+2)install alertmanager
+3)run  configure_prometheus_alertmanager. 
+
+Check alerts:
+Create a situation that would trigger an alert (e.g., stop a monitored service) and verify that the alert appears in Prometheus and that you receive an alert notification via your configured method (e.g., email).
+
+By following these steps, you should have Prometheus and Alertmanager up and running on your Ubuntu system, configured to send alerts based on your specified rules.
+
+
+
+
+
+

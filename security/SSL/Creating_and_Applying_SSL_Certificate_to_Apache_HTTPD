@@ -1,0 +1,64 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: WebDev SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: webdev.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name with a .key extension and verify the export format is PEM private (*.pem)
+Click OK
+Setting Up Apache For SSL
+Navigate to /conf
+Create a certs directory if it does not exist
+Copy the exported SSL certificate, private key and certificate chain files to /conf/certs
+Edit /conf/httpd.conf
+At the bottom of the file add a VirtualHost block
+Listen 443
+<virtualhost :443>
+SSLEngine on
+SSLProtocol -All +TLSv1.2 +TLSv1.3
+SSLCipherSuite HIGH:!aNULL:!MD5
+SSLCertificateFile /conf/certs/%ssl.crt file%
+SSLCertificateKeyFile /conf/certs/%ssl.key file%
+SSLCertificateChainFile /conf/certs/%ssl-chain.crt file%
+</virtualhost>
+
+Restart the Apache Service
+Open a web browser
+Navigate to https://DNSorIP from your certificate
+Click the lock and select view certificate
+Validate the certificate and certificate chain being presented by Apache HTTPD

@@ -1,0 +1,17 @@
+Set Up Environment Variables
+You need your Bandwidth credentials to use the SDK. Create a .env file in your project directory and add your Bandwidth credentials:
+
+Create and Open the .env File:
+
+ 
+ 
+touch .env
+nano .env
+Add Your Bandwidth Credentials:
+
+plaintext
+ 
+BANDWIDTH_ACCOUNT_ID=your_account_id
+BANDWIDTH_API_USER=your_api_user
+BANDWIDTH_API_PASSWORD=your_api_password
+Replace the placeholders with your actual Bandwidth credentials. Save and close the file.

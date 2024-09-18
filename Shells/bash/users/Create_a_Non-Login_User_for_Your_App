@@ -1,0 +1,12 @@
+Creating Dedicated Users for Applications
+Create a Non-Login User for Your App:
+
+ 
+ 
+sudo useradd -rms /usr/sbin/nologin -c "Running MyApp" appuser
+Create and Set Permissions for App Directory:
+
+ 
+ 
+sudo mkdir /opt/myapp
+sudo chown appuser:appuser /opt/myapp

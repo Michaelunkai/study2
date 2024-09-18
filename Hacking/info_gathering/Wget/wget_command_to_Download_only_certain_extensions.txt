@@ -1,0 +1,1 @@
+wget -r -A .zip,.tar.gz http://example.com/files/

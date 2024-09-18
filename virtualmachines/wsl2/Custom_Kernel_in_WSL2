@@ -1,0 +1,44 @@
+Custom Kernel in WSL2
+If you need specific kernel modules or functionality that isn't available in the default WSL2 kernel, you have the option to build and use a custom kernel.
+
+Steps to Use a Custom Kernel in WSL2
+Install the required tools on your Windows host:
+
+Install a Linux distribution in WSL2.
+Install the required packages to build a kernel (you may need to do this inside a native Linux environment or a VM if certain tools are not available in WSL2).
+Get the WSL2 kernel source code:
+
+Clone the WSL2 kernel repository:
+ 
+ 
+git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
+cd WSL2-Linux-Kernel
+Configure the kernel:
+
+Configure the kernel to your needs. You can use the default configuration as a starting point:
+ 
+ 
+cp Microsoft/config-wsl .config
+make menuconfig
+Build the kernel:
+
+Build the kernel with your configuration:
+ 
+ 
+make -j $(nproc)
+Set WSL2 to use your custom kernel:
+
+Edit the WSL2 configuration file (.wslconfig) on your Windows host. This file is typically located in your user profile directory (C:\Users\<YourUsername>\.wslconfig).
+ini
+ 
+[wsl2]
+kernel=C:\\path\\to\\your\\kernel\\bzImage
+Restart WSL2:
+
+Restart your WSL2 instance to apply the changes:
+ 
+ 
+wsl -- utdown
+Limitations
+No Direct Module Management: WSL2 does not allow direct loading or unloading of kernel modules.
+Security and Stability: Using a custom kernel may introduce security and stability issues, so ensure you understand the changes you are making.

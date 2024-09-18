@@ -1,0 +1,1 @@
+aws elasticbeanstalk restart-app-server --environment-id <env-id>

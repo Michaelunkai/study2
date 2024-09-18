@@ -1,0 +1,1 @@
+aws codepipeline put-action-execution-failure-result --pipeline-name <pipeline-name> --stage-name <stage-name> --action-name <action-name>

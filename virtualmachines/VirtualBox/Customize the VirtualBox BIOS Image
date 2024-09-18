@@ -1,0 +1,23 @@
+Customize the VirtualBox BIOS Image
+From the VirtualBox documentation:
+The image must be an uncompressed 256 color BMP file without color space information (Windows 3.0 format). The image must not be bigger than 640 x 480.
+
+Method 1 - Editing the VirtualBox VM XML
+Make sure the VM being modified is not running
+Close the VirtualBox UI
+Open File Explorer
+Navigate to the VM directory
+Open the .vbox file in a text editor
+Search for BIOS
+Add the following line inside the BIOS node
+<logo displaytime="0" fadein="true" fadeout="true" imagepath="C:\Full\Path\to\BIOS.bmp" />
+
+Change the imagePath to the full path to the custom .bmp file
+Save the changes to the .vbox file
+Start the VM normally to test
+Method 2 - Using the VBoxManage Command
+Make sure the VM being modified is not running
+Launch command prompt as administrator and run the following commands
+cd %programfiles%\Oracle\VirtualBox
+VBoxManage modifyvm "CaseSensitiveVMName" --bioslogoimagepath "C:\Full\Path\to\BIOS.bmp"
+Start the VM normally to test

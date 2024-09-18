@@ -1,0 +1,117 @@
+Setting Up, Running, and Managing AWS EKS Clusters Using the AWS CLI
+This tutorial covers the complete process for setting up, running, and managing Amazon EKS (Elastic Kubernetes Service) clusters using the AWS CLI. We will also include additional steps for monitoring, scaling, updating, backing up, restoring, managing security, troubleshooting, and deleting EKS clusters.
+
+1. Install and Configure AWS CLI
+Install AWS CLI
+
+On Windows/Mac/Linux: Use the installer or package manager. For example, on Ubuntu:
+
+ 
+ 
+sudo apt-get update
+sudo apt-get install awscli
+Verify Installation:
+
+ 
+ 
+aws --version
+Configure AWS CLI
+
+Set up your credentials and default configuration:
+
+ 
+ 
+aws configure
+You’ll be prompted to enter:
+
+AWS Access Key ID
+AWS Secret Access Key
+Default region name
+Default output format
+2. Set Up an Amazon EKS Cluster
+Create an EKS Cluster
+
+ 
+ 
+aws eks create-cluster --name my-cluster --role-arn arn:aws:iam::account-id:role/role-name --resources-vpc-config subnetIds=subnet-xxxxxx,securityGroupIds=sg-xxxxxx
+Update kubeconfig
+
+Update your kubeconfig to interact with the EKS cluster:
+
+ 
+ 
+aws eks update-kubeconfig --name my-cluster
+Deploy Applications
+
+Use kubectl to deploy applications. For example:
+
+ 
+ 
+kubectl apply -f deployment.yaml
+3. Monitor Your EKS Clusters
+List Deployments
+
+ 
+ 
+kubectl get deployments
+Describe Deployment
+
+ 
+ 
+kubectl describe deployment my-deployment
+4. Scale Your EKS Clusters
+Scale Deployment
+
+ 
+ 
+kubectl scale deployment my-deployment --replicas=5
+5. Update Your EKS Clusters
+Apply Updates
+
+Modify your deployment.yaml file and apply it:
+
+ 
+ 
+kubectl apply -f deployment.yaml
+6. Backup and Restore Your EKS Clusters
+Backup Kubernetes Configurations
+
+ 
+ 
+kubectl get all --all-namespaces -o yaml > cluster-backup.yaml
+7. Manage EKS Cluster Security
+List Roles
+
+ 
+ 
+kubectl get roles --all-namespaces
+Create/Update Role
+
+Modify role.yaml and apply:
+
+ 
+ 
+kubectl apply -f role.yaml
+8. Troubleshoot EKS Cluster Issues
+Check Pod Logs
+
+ 
+ 
+kubectl logs pod/my-pod
+Describe Pod
+
+ 
+ 
+kubectl describe pod my-pod
+9. Delete Your EKS Clusters
+Delete Cluster
+
+ 
+ 
+aws eks delete-cluster --name my-cluster
+
+
+
+
+
+

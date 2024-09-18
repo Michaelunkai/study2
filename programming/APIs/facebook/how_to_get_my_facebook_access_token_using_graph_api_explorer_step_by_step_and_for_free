@@ -1,0 +1,47 @@
+Here’s a detailed step-by-step guide on how to get a Facebook Access Token for free:
+
+### 1. **Create a Facebook Developer Account**
+   - Go to [Facebook for Developers](https://developers.facebook.com/) and log in with your Facebook credentials.
+   - If you're not already a developer, you’ll need to create a developer account by clicking on **Get Started** and following the instructions.
+
+### 2. **Create a New Facebook App**
+   - After logging in, click on **My Apps** in the top-right corner.
+   - Click on **Create App**.
+   - Select **For Everything Else** as the app type.
+   - Fill in the necessary information such as the app name and your email address, then click **Create App ID**.
+   - Complete the security check (CAPTCHA).
+
+### 3. **Add Facebook Login to Your App**
+   - In your app dashboard, click on **Set Up** under the **Facebook Login** section.
+   - Choose the **Web** platform.
+   - Add the **Site URL** of your app. For this example, you can just put `http://localhost` if you're testing locally.
+   - Click **Save**.
+
+### 4. **Get Your Access Token Using Graph API Explorer**
+   - Go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
+   - In the dropdown menu at the top-right, select your newly created app.
+   - Under **User or Page**, select **User Token**. It will automatically generate an access token based on your login session.
+   
+### 5. **Grant Necessary Permissions**
+   - In the **Access Token** section, click on **Add a Permission**.
+   - Add the following permissions if you want to retrieve group posts:
+     - `groups_access_member_info`
+     - `read_insights`
+   - If you're testing with public data like a public group, you might not need any additional permissions.
+   
+### 6. **Generate the Access Token**
+   - Click **Generate Access Token**.
+   - A token will appear in the Access Token field.
+   - You can now use this token to make API calls.
+
+### 7. **Test Your Token**
+   - You can test your token in the Graph API Explorer by making calls like:
+     https://graph.facebook.com/{group-id}/feed?access_token={access-token}
+   - Replace `{group-id}` with the actual Facebook group ID (in your case, `715153780127233`) and `{access-token}` with your access token.
+   - This will return the latest posts from the group if the permissions allow it.
+
+### 8. **Using the Access Token**
+   - Now you can use this access token in your Python script or any other application.
+
+Remember that **User Access Tokens** are short-lived (2 hours by default). You can extend this token using the **Access Token Debugger** or by enabling long-lived tokens for testing purposes. If you need permanent access, you’ll need to go through Facebook’s app review process.
+

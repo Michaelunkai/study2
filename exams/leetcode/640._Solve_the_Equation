@@ -1,0 +1,91 @@
+To solve the equation given in the form of a string, we can follow these steps:
+
+1. **Parse the Equation**: Split the equation into the left and right parts based on the '=' sign.
+2. **Collect Coefficients**: Iterate over each part (left and right) to collect the coefficients of 'x' and the constants.
+3. **Simplify**: Combine the coefficients of 'x' and constants from both sides.
+4. **Solve for x**: Depending on the combined coefficients, determine the solution or identify if there are no solutions or infinite solutions.
+
+### Implementation Steps:
+
+1. **Split the Equation**: Use the '=' to split the equation into left and right parts.
+2. **Parse Terms**: For each part, parse the terms to extract coefficients of 'x' and the constants. Handle '+' and '-' signs appropriately.
+3. **Combine Terms**: Combine the coefficients and constants from both sides.
+4. **Check Conditions**: Determine the result based on the combined coefficients.
+
+### Code Implementation:
+
+Here's a Python function to solve the given equation:
+
+```python
+class Solution:
+    def solveEquation(self, equation: str) -> str:
+        def parse_side(side):
+            sign = 1
+            coefficient = 0
+            constant = 0
+            n = len(side)
+            i = 0
+            while i < n:
+                if side[i] == '+':
+                    sign = 1
+                    i += 1
+                elif side[i] == '-':
+                    sign = -1
+                    i += 1
+                
+                j = i
+                while j < n and side[j] != '+' and side[j] != '-':
+                    j += 1
+                
+                term = side[i:j]
+                if 'x' in term:
+                    if term == 'x':
+                        coefficient += sign
+                    elif term == '-x':
+                        coefficient -= 1
+                    else:
+                        coefficient += sign * int(term[:-1])
+                else:
+                    constant += sign * int(term)
+                i = j
+            return coefficient, constant
+        
+        left, right = equation.split('=')
+        left_coefficient, left_constant = parse_side(left)
+        right_coefficient, right_constant = parse_side(right)
+        
+        coefficient = left_coefficient - right_coefficient
+        constant = right_constant - left_constant
+        
+        if coefficient == 0:
+            if constant == 0:
+                return "Infinite solutions"
+            else:
+                return "No solution"
+        else:
+            x_value = constant // coefficient
+            return f"x={x_value}"
+
+# Example usage:
+solution = Solution()
+print(solution.solveEquation("x+5-3+x=6+x-2"))  # Output: "x=2"
+print(solution.solveEquation("x=x"))  # Output: "Infinite solutions"
+print(solution.solveEquation("2x=x"))  # Output: "x=0"
+```
+
+### Explanation of the Code:
+
+1. **Parsing Each Side**:
+   - The `parse_side` function handles the parsing of each side of the equation. It reads through the side, identifies terms, and calculates the total coefficient of 'x' and the constant.
+   - This function also handles signs and distinguishes between terms with and without 'x'.
+
+2. **Combining Results**:
+   - After parsing both sides, the coefficients and constants from the right side are subtracted from the left side to consolidate the equation into the form `ax + b = 0`.
+
+3. **Solving for x**:
+   - Depending on the consolidated coefficients and constants, the solution is determined:
+     - If both the coefficient and constant are zero, there are infinite solutions.
+     - If only the coefficient is zero, there are no solutions.
+     - Otherwise, the value of 'x' is computed by dividing the constant by the coefficient.
+
+This approach ensures that the equation is parsed and solved systematically, handling different edge cases correctly.

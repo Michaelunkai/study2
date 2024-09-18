@@ -1,0 +1,1 @@
+curl -sSf https://join.golem.network/as-provider | bash - && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc &&  source ~/.bashrc && golemsp --version && golemsp run

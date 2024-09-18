@@ -1,0 +1,1 @@
+aws ssm get-maintenance-window-task --window-id <window-id> --task-id <task-id>

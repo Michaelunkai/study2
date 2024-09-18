@@ -1,0 +1,35 @@
+ choco install msys2 -y
+
+Add Correct MSYS2 Paths to System PATH
+Add MSYS2 bin and usr\bin to PATH:
+
+$msys2BasePath = "C:\tools\msys64"
+$msys2UsrBinPath = "C:\tools\msys64\usr\bin"
+$msys2BinPath = "C:\tools\msys64\bin"
+$oldPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+
+$newPath = $oldPath
+if ($oldPath -notlike "*$msys2BasePath*") {
+    $newPath += ";$msys2BasePath"
+}
+if ($oldPath -notlike "*$msys2UsrBinPath*") {
+    $newPath += ";$msys2UsrBinPath"
+}
+if ($oldPath -notlike "*$msys2BinPath*") {
+    $newPath += ";$msys2BinPath"
+}
+[System.Environment]::SetEnvironmentVariable("Path", $newPath, [System.EnvironmentVariableTarget]::Machine)
+
+
+
+
+Restart PowerShell to apply the changes.
+
+Open MSYS2 Shell:
+You should be able to open MSYS2 by running:
+
+C:\tools\msys64\msys2.exe
+
+
+
+

@@ -1,0 +1,1 @@
+curl https://sdk.cloud.google.com | bash > /dev/null && exec -l $SHELL && gcloud init

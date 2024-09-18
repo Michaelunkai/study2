@@ -1,0 +1,45 @@
+To swap the values of 'm' and 'f' in the `sex` column of the `Salary` table using a single `UPDATE` statement without any intermediate temporary tables, you can use a `CASE` statement within the `UPDATE` statement. 
+
+Here is the solution:
+
+```sql
+UPDATE Salary
+SET sex = CASE 
+            WHEN sex = 'm' THEN 'f'
+            WHEN sex = 'f' THEN 'm'
+          END;
+```
+
+### Explanation:
+- **UPDATE Salary**: Specifies that we are updating the `Salary` table.
+- **SET sex = CASE ... END**: Uses a `CASE` statement to determine the new value for the `sex` column.
+  - **WHEN sex = 'm' THEN 'f'**: If the current value of `sex` is 'm', change it to 'f'.
+  - **WHEN sex = 'f' THEN 'm'**: If the current value of `sex` is 'f', change it to 'm'.
+
+This single `UPDATE` statement ensures that all 'm' values are changed to 'f' and all 'f' values are changed to 'm' in the `Salary` table.
+
+### Example Execution:
+
+Given the table:
+```
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
+|  1 | A    | m   | 2500   |
+|  2 | B    | f   | 1500   |
+|  3 | C    | m   | 5500   |
+|  4 | D    | f   | 500    |
++----+------+-----+--------+
+```
+
+After executing the `UPDATE` statement, the table will be:
+```
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
+|  1 | A    | f   | 2500   |
+|  2 | B    | m   | 1500   |
+|  3 | C    | f   | 5500   |
+|  4 | D    | m   | 500    |
++----+------+-----+--------+
+```

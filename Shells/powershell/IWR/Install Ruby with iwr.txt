@@ -1,0 +1,1 @@
+iwr -Uri https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.2-1/rubyinstaller-devkit-3.0.2-1-x64.exe -OutFile ruby_installer.exe; Start-Process ruby_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

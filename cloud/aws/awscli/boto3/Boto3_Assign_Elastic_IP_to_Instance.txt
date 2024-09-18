@@ -1,0 +1,3 @@
+import boto3
+ec2 = boto3.client('ec2')
+ec2.associate_address(InstanceId='<instance-id>', AllocationId='<allocation-id>')

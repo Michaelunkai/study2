@@ -1,0 +1,8 @@
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable && sudo apt-get update && sudo apt-get install qbittorrent-nox -y && qbittorrent-nox 
+
+
+gcl 8080
+
+
+user: admin
+password : adminadmin

@@ -1,0 +1,14 @@
+1 ) 
+
+docker run -d   --name qbittorrent   -e PUID=$(id -u)   -e PGID=$(id -g)   -e TZ=Europe/Paris   -e WEBUI_USERNAME=admin   -e WEBUI_PASSWORD=123456   -e WEBUI_PORT=8080   -e TORRENTING_PORT=6881   -p 8080:8080   -p 6881:6881   -p 6881:6881/udp   lscr.io/linuxserver/qbittorrent:latest
+
+
+
+2)
+
+docker logs <container id>
+
+copy the password
+
+3) localhost:8080
+ 

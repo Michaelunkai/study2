@@ -1,0 +1,41 @@
+RockStor NAS Install Guide Using Virtualbox
+Download RockStor Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: RockStor
+Machine Folder: C:\VMs
+Type: Linux
+Version: Fedora (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image RockStor.vdi
+File size: 8 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded RockStor .iso file
+Click OK
+Make sure the RockStor VM is selected and click Start > Normal
+The installation should begin
+Click the ROOT PASSWORD option > Enter and confirm the root password > Click Done
+After the installation completes select Devices > Optical Drives > Remove disk from virtual drive
+Click Force Unmount
+Click the Reboot button
+Once RockStor has finished booting, login with the username root and the password set during installation
+Type ip addr to output the VM network information
+Note the IP address
+Open a web browser and navigate to https://IPAddress
+At the RockStor Setup page, enter a hostname and create an admin username and password > Click Submit
+Welcome to RockStor

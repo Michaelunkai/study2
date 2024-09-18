@@ -1,0 +1,1 @@
+aws kms update-key-rotation-status --key-id <key-id> --rotation-status <status>

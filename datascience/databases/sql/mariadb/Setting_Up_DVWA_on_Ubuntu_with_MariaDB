@@ -1,0 +1,178 @@
+Complete Guide to Setting Up DVWA on Ubuntu with MariaDB
+This guide will walk you through the steps required to set up the Damn Vulnerable Web Application (DVWA) on an Ubuntu system using Apache, PHP, and MariaDB. This setup is ideal for practicing SQL injection and other web vulnerabilities in a safe, controlled environment.
+
+1. Update the System and Install Necessary Packages
+Update and Upgrade the System:
+
+sh
+ 
+sudo apt update && sudo apt upgrade -y
+Install Apache, MariaDB, and PHP:
+
+sh
+ 
+sudo apt install apache2 mariadb-server   libapache2-mod-   -my  -y
+2. Start and Secure MariaDB
+Start MariaDB Service:
+
+sh
+ 
+sudo systemctl start mariadb
+Enable MariaDB to Start on Boot:
+
+sh
+ 
+sudo systemctl enable mariadb
+Secure the MariaDB Installation:
+
+sh
+ 
+sudo my _secure_installation
+Follow the prompts to set up the root password and secure your MariaDB installation.
+
+3. Create the DVWA Database and User
+Log into MariaDB:
+
+sh
+ 
+sudo my  -u root -p
+Create the Database and User:
+
+ 
+ 
+CREATE DATABASE dvwa;
+CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+4. Download and Set Up DVWA
+Navigate to the Web Directory:
+
+sh
+ 
+cd /var/www/html
+Clone the DVWA Repository:
+
+sh
+ 
+sudo git clone https://github.com/digininja/DVWA.git
+Configure DVWA:
+
+sh
+ 
+cd DVWA
+sudo cp config/config.inc. .dist config/config.inc. 
+sudo chown -R www-data:www-data /var/www/html/DVWA
+5. Modify PHP Configuration
+Check the PHP Version:
+
+sh
+ 
+  -v
+The output should show something like PHP 8.1.2. Use this version in the path.
+
+Install the Required PHP Modules:
+
+sh
+ 
+sudo apt install  -common  -cli  -fpm  -json  -common  -my   -mbstring  -xml  -gd -y
+Identify the Correct PHP Configuration Directory:
+
+To ensure the correct path, list the PHP configuration directory:
+
+sh
+ 
+ls /etc/ /
+This should list all PHP versions installed, such as 7.4, 8.0, 8.1, etc. Use the appropriate version directory.
+
+Edit the PHP Configuration File:
+
+sh
+ 
+sudo nano /etc/ /8.1/apache2/ .ini
+Replace 8.1 with your PHP version if it's different.
+
+Set the Following Values:
+
+ini
+ 
+allow_url_include = On
+allow_url_fopen = On
+Save and Exit the File (Ctrl + O, Enter, Ctrl + X).
+
+6. Restart Apache
+Restart the Apache Service:
+sh
+ 
+sudo systemctl restart apache2
+7. Complete DVWA Setup
+Navigate to DVWA in Your Browser:
+
+Open a browser and go to http://localhost/DVWA.
+Follow the On-Screen Instructions to Complete the DVWA Setup.
+
+8. Troubleshooting Database Connection Issues
+Check Apache Error Logs:
+
+sh
+ 
+sudo tail -f /var/log/apache2/error.log
+Verify Database Credentials:
+
+sh
+ 
+sudo nano /var/www/html/DVWA/config/config.inc. 
+Ensure the configuration matches:
+
+ 
+ 
+<? 
+
+$_DVWA = array();
+$_DVWA[ 'db_server' ] = 'localhost';
+$_DVWA[ 'db_database' ] = 'dvwa';
+$_DVWA[ 'db_user' ] = 'dvwa';
+$_DVWA[ 'db_password' ] = 'password';  // Ensure this password matches the one set in MariaDB
+
+// ReCAPTCHA settings - go to https://www.google.com/recaptcha/admin/create
+$_DVWA[ 'recaptcha_public_key' ] = '';
+$_DVWA[ 'recaptcha_private_key' ] = '';
+
+// Default security level
+$_DVWA[ 'default_security_level' ] = 'impossible';
+
+// Default PHPIDS status
+$_DVWA[ 'default_ ids_level' ] = 'disabled';
+Check MariaDB User and Permissions:
+
+sh
+ 
+sudo my  -u root -p
+Inside MariaDB:
+
+ 
+ 
+USE dvwa;
+SELECT user, host FROM my .user WHERE user='dvwa';
+If the user does not exist, create it again with the correct password:
+
+ 
+ 
+CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+Test Database Connection:
+
+sh
+ 
+my  -u dvwa -p -h localhost dvwa
+Enter the password password when prompted. If you can log in, the credentials are correct.
+
+Restart Services:
+
+sh
+ 
+sudo systemctl restart apache2
+sudo systemctl restart mariadb
+By following this comprehensive guide, you should be able to set up DVWA on your Ubuntu system using MariaDB and resolve any potential issues related to database connections. If you encounter specific errors or issues, refer to the troubleshooting section and the error logs for detailed insights.

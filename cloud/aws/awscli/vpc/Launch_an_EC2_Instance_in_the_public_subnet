@@ -1,0 +1,7 @@
+ Launch an EC2 Instance
+Launch an instance in the public subnet:
+
+ 
+ 
+aws ec2 run-instances --image-id <AMI_ID> --count 1 --instance-type t2.micro --key-name MyKeyPair --security-group-ids sg-<SECURITY_GROUP_ID> --subnet-id subnet-<PUBLIC_SUBNET_ID>
+Replace <AMI_ID> with the ID of the Amazon Machine Image (AMI) you want to use.

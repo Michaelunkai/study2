@@ -1,0 +1,54 @@
+### Solution for LeetCode Problem: 467. Unique Substrings in Wraparound String
+
+```python
+class Solution:
+    def findSubstringInWraproundString(self, p: str) -> int:
+        count = [0] * 26  # count array to store the max length of substring ending with each letter
+
+        max_len_cur = 0  # max length of current substring in wraparound string
+
+        for i in range(len(p)):
+            # check if the current character and the previous character are consecutive in wraparound string
+            if i > 0 and (ord(p[i]) - ord(p[i - 1]) == 1 or ord(p[i - 1]) - ord(p[i]) == 25):
+                max_len_cur += 1
+            else:
+                max_len_cur = 1
+
+            # update the count array for the current character
+            index = ord(p[i]) - ord('a')
+            count[index] = max(count[index], max_len_cur)
+
+        return sum(count)
+```
+
+### Explanation:
+
+1. **Initialization**:
+   - `count`: An array of size 26 to store the maximum length of substrings that end with each letter of the alphabet.
+   - `max_len_cur`: Tracks the length of the current substring that follows the wraparound rule.
+
+2. **Iterating through the string**:
+   - Loop through each character in the string `p`.
+   - Check if the current character and the previous character are consecutive in the wraparound string.
+     - If they are consecutive, increase `max_len_cur` by 1.
+     - If not, reset `max_len_cur` to 1.
+   - Update the `count` array for the current character by storing the maximum of the current stored value and `max_len_cur`.
+
+3. **Returning the Result**:
+   - Sum the values in the `count` array to get the total number of unique substrings in the wraparound string. 
+
+### Example Walkthrough:
+
+- For `s = "a"`:
+  - Only one substring: "a"
+  - Output: 1
+
+- For `s = "cac"`:
+  - Two unique substrings: "a" and "c"
+  - Output: 2
+
+- For `s = "zab"`:
+  - Substrings: "z", "a", "b", "za", "ab", "zab"
+  - Output: 6
+
+By following the above algorithm, the solution efficiently counts all unique substrings in the infinite wraparound string.

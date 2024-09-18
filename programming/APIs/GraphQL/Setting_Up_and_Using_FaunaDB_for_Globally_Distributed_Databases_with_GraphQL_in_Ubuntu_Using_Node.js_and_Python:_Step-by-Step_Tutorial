@@ -1,0 +1,250 @@
+### **Step-by-Step Guide to Set Up and Use FaunaDB for Globally Distributed Databases in Ubuntu Using GraphQL**
+
+This updated guide will help you set up FaunaDB using GraphQL, which is natively supported by Fauna and does not require FQL. We will walk through how to:
+
+1. Sign up for a FaunaDB account.
+2. Create a database and configure GraphQL.
+3. Set up your Ubuntu environment.
+4. Write code to interact with FaunaDB using GraphQL.
+5. Verify your data in the FaunaDB dashboard.
+
+---
+
+### **Step 1: Sign Up for a FaunaDB Account**
+
+1. **Visit the FaunaDB Registration Page:**
+   Open your browser and navigate to [FaunaDB's registration page](https://dashboard.fauna.com/accounts/register).
+
+2. **Fill in Your Details:**
+   - Enter your email.
+   - Create a password.
+   - Agree to the terms and click **"Sign Up"**.
+
+3. **Verify Your Email:**
+   - Check your inbox for the verification email from Fauna.
+   - Click the verification link to activate your account.
+
+---
+
+### **Step 2: Create a Database and Set Up GraphQL**
+
+1. **Log in to the FaunaDB Dashboard:**
+   - Visit the [FaunaDB dashboard](https://dashboard.fauna.com/) and log in with your credentials.
+
+2. **Create a New Database:**
+   - Click **"New Database"**.
+   - Name the database `mydatabase` and click **"Save"**.
+
+3. **Upload a GraphQL Schema:**
+   - In the FaunaDB dashboard, navigate to the **GraphQL** section.
+   - Create a file called `schema.graphql`:
+
+       
+     nano schema.graphql
+
+   - Add the following GraphQL schema for a `Post` type:
+
+      graphql
+     type Post {
+       title: String!
+       content: String!
+     }
+
+   - Upload this schema in the **GraphQL** section of the Fauna dashboard by clicking **"Upload"**.
+
+---
+
+### **Step 3: Set Up Your Ubuntu Environment**
+
+#### **For Node.js Users:**
+
+1. **Update your package list:**
+
+     
+   sudo apt update
+
+2. **Install Node.js and npm:**
+
+     
+   sudo apt install -y nodejs npm
+
+3. **Verify the installation:**
+
+     
+   node -v
+   npm -v
+
+#### **For Python Users:**
+
+1. **Update your package list:**
+
+     
+   sudo apt update
+
+2. **Install Python and pip:**
+
+     
+   sudo apt install -y python3 python3-pip
+
+3. **Verify the installation:**
+
+     
+    3 --version
+   pip3 --version
+
+---
+
+### **Step 4: Install Required Libraries**
+
+#### **For Node.js:**
+
+1. **Create a project directory:**
+
+     
+   mkdir fauna_project
+   cd fauna_project
+
+2. **Initialize npm:**
+
+     
+   npm init -y
+
+3. **Install Axios for making HTTP requests:**
+
+     
+   npm install axios
+
+#### **For Python:**
+
+1. **Create a project directory:**
+
+     
+   mkdir fauna_project
+   cd fauna_project
+
+2. **Install the Requests library for making HTTP requests:**
+
+     
+   pip3 install requests
+
+---
+
+### **Step 5: Write Code to Interact with FaunaDB Using GraphQL**
+
+You will use the GraphQL API to interact with your FaunaDB database.
+
+#### **For Node.js:**
+
+1. **Create the file `app.js`:**
+
+     
+   nano app.js
+
+2. **Insert the following code into `app.js`:**
+
+    javascript
+   const axios = require('axios');
+
+   const FAUNA_SECRET = 'fnAFrg5fOWAAyyXRUjkWwOIo-RHtS2sAL5x75TYB';
+
+   const query = `
+     mutation {
+       createPost(data: { title: "Hello World", content: "This is my first post" }) {
+         title
+         content
+       }
+     }
+   `;
+
+   axios.post(
+     'https://graphql.fauna.com/graphql',
+     { query },
+     {
+       headers: {
+         Authorization: `Bearer ${FAUNA_SECRET}`,
+       },
+     }
+   )
+   .then((response) => {
+     console.log(response.data);
+   })
+   .catch((error) => {
+     console.error('Error: ', error);
+   });
+
+#### **For Python:**
+
+1. **Create the file `app.py`:**
+
+     
+   nano app.py
+
+2. **Insert the following code into `app.py`:**
+
+     
+   import requests
+
+   FAUNA_SECRET = 'fnAFrg5fOWAAyyXRUjkWwOIo-RHtS2sAL5x75TYB'
+
+   query = """
+   mutation {
+       createPost(data: { title: "Hello World", content: "This is my first post" }) {
+         title
+         content
+       }
+     }
+   """
+
+   headers = {
+       "Authorization": f"Bearer {FAUNA_SECRET}"
+   }
+
+   response = requests.post(
+       'https://graphql.fauna.com/graphql',
+       json={'query': query},
+       headers=headers
+   )
+
+   print(response.json())
+
+---
+
+### **Step 6: Run Your Application**
+
+#### **For Node.js:**
+
+  
+node app.js
+
+#### **For Python:**
+
+  
+ 3 app.py
+
+---
+
+### **Step 7: Verify Data in FaunaDB Dashboard**
+
+1. **Navigate to the FaunaDB Dashboard:**
+   - Go to the [FaunaDB dashboard](https://dashboard.fauna.com/).
+
+2. **Check the `posts` collection:**
+   - Click on your database (`mydatabase`).
+   - Under the **Data** section, find and click on the **posts** collection.
+   - You should see the newly created document with `title: "Hello World"` and `content: "This is my first post"`.
+
+---
+
+### **Next Steps**
+
+- **Explore Advanced GraphQL Queries:**
+   Learn more about GraphQL querying and mutations in the [FaunaDB documentation](https://docs.fauna.com/fauna/current/start/graphql.html).
+
+- **Integrate FaunaDB with Your Application:**
+   You can now integrate FaunaDB with frontend frameworks like React, Angular, or backend services like Express.js.
+
+---
+
+**Conclusion:**
+You have successfully set up and used FaunaDB in your Ubuntu environment using GraphQL. You can now build globally distributed applications with ease, leveraging FaunaDB’s native GraphQL support for efficient querying and data management.
+

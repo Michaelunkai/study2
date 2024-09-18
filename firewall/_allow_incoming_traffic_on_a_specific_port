@@ -1,0 +1,7 @@
+To allow incoming traffic on a specific port (e.g., port 80 for HTTP), use the following command:
+
+
+New-NetFirewallRule -DisplayName "Allow HTTP" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow
+
+
+This command creates a rule to allow incoming TCP traffic on port 80.

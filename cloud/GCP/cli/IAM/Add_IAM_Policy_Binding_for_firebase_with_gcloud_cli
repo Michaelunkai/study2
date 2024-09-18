@@ -1,0 +1,11 @@
+gcloud projects add-iam-policy-binding crypto-volt-367723 \
+  --member="user:michaelovsky5@gmail.com" \
+  --role="roles/owner"
+
+gcloud projects add-iam-policy-binding crypto-volt-367723 \
+  --member="user:michaelovsky5@gmail.com" \
+  --role="roles/editor"
+
+gcloud projects add-iam-policy-binding crypto-volt-367723 \
+  --member="user:michaelovsky5@gmail.com" \
+  --role="roles/firebase.admin"

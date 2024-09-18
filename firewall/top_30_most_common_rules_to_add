@@ -1,0 +1,30 @@
+Allow DNS (UDP Port 53) Traffic Inbound: Allows DNS queries and responses.
+Allow DNS (TCP Port 53) Traffic Inbound: Allows DNS zone transfers (if necessary).
+Allow HTTP (TCP Port 80) Traffic Inbound: Allows web traffic for HTTP websites.
+Allow HTTPS (TCP Port 443) Traffic Inbound: Allows secure web traffic for HTTPS websites.
+Allow SSH (TCP Port 22) Traffic Inbound: Allows secure shell access for remote management.
+Allow NTP (UDP Port 123) Traffic Inbound: Allows network time synchronization.
+Allow ICMP Echo Requests (Ping) Inbound: Allows ping requests for network troubleshooting.
+Allow SMTP (TCP Port 25) Traffic Inbound: Allows incoming email traffic to your mail server.
+Allow IMAP (TCP Port 143) Traffic Inbound: Allows incoming email access using IMAP.
+Allow POP3 (TCP Port 110) Traffic Inbound: Allows incoming email access using POP3.
+Allow FTP (TCP Port 21) Traffic Inbound: Allows FTP file transfer access.
+Allow FTP (Passive Mode) (TCP Ports 1024-65535) Traffic Inbound: Allows passive mode FTP connections.
+Allow VPN (TCP/UDP Port for VPN Service) Traffic Inbound: Allows VPN connections for remote access.
+Allow RDP (TCP Port 3389) Traffic Inbound: Allows Remote Desktop Protocol for remote desktop access.
+Allow SNMP (UDP Port 161) Traffic Inbound: Allows Simple Network Management Protocol for network monitoring.
+Allow SMB (TCP Ports 139, 445) Traffic Inbound: Allows file sharing using Server Message Block.
+Allow RADIUS (UDP Port 1812) Traffic Inbound: Allows Remote Authentication Dial-In User Service.
+Allow SIP (UDP Ports 5060-5061) Traffic Inbound: Allows Session Initiation Protocol for VoIP communication.
+Allow H.323 (TCP/UDP Ports 1720, 1503) Traffic Inbound: Allows H.323 protocol for video conferencing.
+Allow LDAP (TCP Port 389) Traffic Inbound: Allows Lightweight Directory Access Protocol for directory services.
+Allow LDAPS (TCP Port 636) Traffic Inbound: Allows secure LDAP for encrypted directory services.
+Allow DNS over TLS (TCP Port 853) Traffic Inbound: Allows DNS queries over TLS for secure DNS resolution.
+Allow IKE (UDP Port 500) Traffic Inbound: Allows Internet Key Exchange for VPN tunnel negotiation.
+Allow ESP (Protocol 50) Traffic Inbound: Allows Encapsulating Security Payload for VPN encryption.
+Allow AH (Protocol 51) Traffic Inbound: Allows Authentication Header for VPN authentication.
+Allow ICMP Redirect (Type 5) Traffic Inbound: Allows ICMP redirect messages for network optimization.
+Allow SNMP Traps (UDP Port 162) Traffic Inbound: Allows SNMP trap messages for network monitoring.
+Allow DHCP (UDP Ports 67-68) Traffic Inbound: Allows Dynamic Host Configuration Protocol for IP address assignment.
+Allow TFTP (UDP Port 69) Traffic Inbound: Allows Trivial File Transfer Protocol for file transfers.
+Allow IKEv2 (UDP Port 4500) Traffic Inbound: Allows Internet Key Exchange version 2 for VPN tunnel negotiation.

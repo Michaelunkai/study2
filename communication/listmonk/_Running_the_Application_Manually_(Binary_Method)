@@ -1,0 +1,28 @@
+Download the latest release:
+
+ 
+ 
+curl -LO https://github.com/knadh/listmonk/releases/download/v3.0.0/listmonk-linux-amd64.tar.gz
+tar -xzf listmonk-linux-amd64.tar.gz
+cd listmonk
+Generate and edit the configuration file:
+
+ 
+ 
+./listmonk --new-config
+nano config.toml
+Setup the PostgreSQL Database:
+
+ 
+ 
+./listmonk --install
+Run the Application:
+
+ 
+ 
+./listmonk
+Access the Web Interface:
+
+arduino
+ 
+http://localhost:9000

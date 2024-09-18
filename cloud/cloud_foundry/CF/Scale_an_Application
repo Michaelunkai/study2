@@ -1,0 +1,1 @@
+cf scale APP_NAME -i INSTANCES -m MEMORY -k DISK

@@ -1,0 +1,1 @@
+sudo apt-get install -y docker.io docker-compose && wget https://github.com/goharbor/harbor/releases/download/v2.6.3/harbor-online-installer-v2.6.3.tgz && tar xvf harbor-online-installer-v2.6.3.tgz && cd harbor && cp harbor.yml.tmpl harbor.yml && sed -i 's/hostname: reg.mydomain.com/hostname: localhost/' harbor.yml && sed -i 's/https/http/' harbor.yml && sudo ./install.sh

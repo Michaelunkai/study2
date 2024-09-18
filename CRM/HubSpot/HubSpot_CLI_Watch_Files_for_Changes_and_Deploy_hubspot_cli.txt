@@ -1,0 +1,1 @@
+hs watch <path-to-file>

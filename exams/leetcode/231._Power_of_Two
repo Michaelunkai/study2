@@ -1,0 +1,65 @@
+### 231. Power of Two
+
+**Problem Description:**
+
+Given an integer `n`, return `true` if it is a power of two. Otherwise, return `false`.
+
+An integer `n` is a power of two if there exists an integer `x` such that `n == 2^x`.
+
+**Example 1:**
+```
+Input: n = 1
+Output: true
+Explanation: 2^0 = 1
+```
+
+**Example 2:**
+```
+Input: n = 16
+Output: true
+Explanation: 2^4 = 16
+```
+
+**Example 3:**
+```
+Input: n = 3
+Output: false
+```
+
+**Constraints:**
+- `-2^31 <= n <= 2^31 - 1`
+
+**Follow-up: Could you solve it without loops/recursion?**
+
+### Explanation (Like I'm 12):
+
+Imagine you have a number and you want to check if it is a power of two. A power of two means that if you keep multiplying 2 by itself, you get the number. For example, 1, 2, 4, 8, 16, etc., are all powers of two. If a number is not in this list, then it’s not a power of two.
+
+### Python Solution:
+
+Here's how you can do it:
+
+```python
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n <= 0:
+            return False
+        return (n & (n - 1)) == 0
+```
+
+### Explanation of the Solution:
+
+1. **Check Non-Positive Numbers:**
+   - If `n` is less than or equal to 0, return `False` because negative numbers and zero cannot be powers of two.
+
+2. **Bitwise Trick:**
+   - Use the bitwise AND operation to check if `n` is a power of two.
+   - The trick is to understand that powers of two have a single bit set in binary representation (e.g., 1 is `0001`, 2 is `0010`, 4 is `0100`, etc.).
+   - For any power of two `n`, `n & (n - 1)` will be zero.
+     - For example, for `4` (which is `0100` in binary):
+       - `n - 1` is `3` (which is `0011` in binary).
+       - `4 & 3` (or `0100 & 0011`) equals `0000`.
+
+In simpler terms, if a number is a power of two, there will be no overlap between the bits of the number and the number minus one. Therefore, the bitwise AND operation between them will result in zero.
+
+This solution is efficient because it avoids loops and recursion by leveraging the properties of binary numbers.

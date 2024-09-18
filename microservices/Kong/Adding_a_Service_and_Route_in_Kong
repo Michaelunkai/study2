@@ -1,0 +1,19 @@
+Adding a Service and Route in Kong
+Add a Service:
+
+ 
+ 
+curl -i -X POST http://localhost:8001/services \
+  --data name=test-service \
+  --data url='http://httpbin.org'
+Add a Route:
+
+ 
+ 
+curl -i -X POST http://localhost:8001/services/test-service/routes \
+  --data 'paths[]=/test'
+Test the Route:
+
+ 
+ 
+curl -i http://localhost:8000/test

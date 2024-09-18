@@ -1,0 +1,18 @@
+ Create a DynamoDB Table
+Once the AWS CLI is configured, you can create a DynamoDB table. Here's an example of how to create a table named ExampleTable with a primary key Id.
+
+ 
+ 
+aws dynamodb create-table \
+    --table-name ExampleTable \
+    --attribute-definitions \
+        AttributeName=Id,AttributeType=S \
+    --key-schema \
+        AttributeName=Id,KeyType=HASH \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5
+This command specifies:
+
+The table name (ExampleTable).
+The primary key attribute (Id) of type String (S).
+Provisioned throughput settings (5 read and 5 write capacity units).

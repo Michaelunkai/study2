@@ -1,0 +1,25 @@
+Both Cody and CodeGPT are extensions for VS Code that leverage AI to assist with coding, but they have different focuses and functionalities.
+
+### Cody
+- **Primary Use**: Cody is designed to assist with coding by generating code snippets, providing code completions, and offering suggestions based on the context of your code.
+- **Features**:
+  - Code completion and snippet generation.
+  - Context-aware suggestions.
+  - Integration with various coding languages and frameworks.
+  - Can help with debugging and code optimization.
+- **Best For**: Developers looking for real-time code assistance and improvements based on their current code context.
+
+### CodeGPT
+- **Primary Use**: CodeGPT utilizes GPT (Generative Pre-trained Transformer) models to assist with coding tasks, including generating code, answering questions, and providing explanations.
+- **Features**:
+  - Generates code snippets and entire functions based on natural language prompts.
+  - Can answer coding-related questions and provide explanations.
+  - Offers contextual suggestions and code completions.
+- **Best For**: Developers who want to leverage advanced language models for a wide range of coding assistance, including learning new concepts, generating complex code, or understanding code.
+
+### Comparison
+- **Functionality**: Cody is more focused on code completion and contextual suggestions, while CodeGPT offers broader capabilities including code generation and explanations.
+- **Integration**: Both integrate with VS Code but might differ in how they integrate with other tools and workflows.
+- **Performance**: Cody may have a more streamlined experience tailored for code completion, whereas CodeGPT might offer more advanced capabilities due to its reliance on GPT models.
+
+Ultimately, the choice between Cody and CodeGPT depends on whether you prefer more focused code assistance (Cody) or a broader range of AI-driven coding help (CodeGPT).

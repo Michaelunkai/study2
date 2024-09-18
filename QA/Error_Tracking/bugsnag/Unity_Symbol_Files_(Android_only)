@@ -1,0 +1,4 @@
+Unity Symbol Files (Android only)
+The unity-android command uploads the IL2CPP symbols from the .symbols.zip file produced by the Unity build (see Unity documentation for more information) to the NDK symbol API.
+
+$ bugsnag-cli upload unity-android /path/to/build/directory

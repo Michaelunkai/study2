@@ -1,0 +1,7 @@
+Use PAM for Advanced Authentication
+Configure Pluggable Authentication Modules (PAM) for advanced user authentication. Edit the PAM configuration files:
+
+sudo nano /etc/pam.d/common-auth
+Add or modify rules for strong password policies:
+
+password requisite pam_pwquality.so retry=3

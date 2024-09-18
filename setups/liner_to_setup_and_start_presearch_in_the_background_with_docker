@@ -1,0 +1,1 @@
+docker run -d --name presearch-node -e "REGISTRATION_CODE=<your code>" presearch/node

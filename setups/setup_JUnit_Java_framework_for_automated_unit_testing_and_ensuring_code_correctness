@@ -1,0 +1,152 @@
+Step-by-Step Guide for Setting Up and Using JUnit on Ubuntu (Updated)
+Step 1: Install Java
+Open a terminal.
+
+Update your package index:
+
+ 
+
+sudo apt update
+Install Java Development Kit (JDK):
+
+ 
+
+sudo apt install default-jdk
+Verify the installation:
+
+ 
+
+java -version
+Step 2: Install Maven
+Install Maven:
+
+ 
+
+sudo apt install maven
+Verify the installation:
+
+ 
+
+mvn -version
+Step 3: Set Up a Maven Project
+Create a new Maven project:
+
+ 
+
+mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+This will create a directory structure like this:
+
+
+
+my-app
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── example
+    │               └── App.java
+    └── test
+        └── java
+            └── com
+                └── example
+                    └── AppTest.java
+Navigate to the project directory:
+
+ 
+
+cd my-app
+Step 4: Update pom.xml
+Open pom.xml in your favorite text editor.
+
+Replace the content with the updated pom.xml below:
+
+xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>my-app</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
+Step 5: Write a JUnit Test
+Open src/test/java/com/example/AppTest.java in a text editor.
+
+Replace its contents with the following updated JUnit test:
+
+java
+
+package com.example;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class AppTest {
+
+    @Test
+    public void testApp() {
+        assertEquals(1, 1);
+    }
+}
+Step 6: Run the JUnit Test
+In the terminal, navigate to the project directory (my-app).
+
+Run the tests using Maven:
+
+ 
+
+mvn test
+You should see an output indicating that the test ran successfully.
+
+Optional: Set Up JUnit Without Maven
+If you prefer not to use Maven, you can set up JUnit manually.
+
+Download the JUnit and Hamcrest Core JAR files from the JUnit website or via Maven Central.
+
+Create a directory for your project:
+
+ 
+
+mkdir junit-test
+cd junit-test
+Create a simple Java test class:
+
+java
+
+// Save this as TestExample.java
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TestExample {
+    @Test
+    public void testAddition() {
+        assertEquals(2, 1 + 1);
+    }
+}
+Compile the Java class (adjust the path to the JUnit JAR files):
+
+ 
+
+javac -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar TestExample.java
+Run the JUnit test:
+
+
+java -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestExample
+You should see the test results in the terminal.

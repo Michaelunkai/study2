@@ -1,0 +1,1 @@
+gcloud compute url-maps create my-map --default-service my-backend-service && gcloud compute target-http-proxies create my-proxy --url-map my-map && gcloud compute forwarding-rules create my-rule --global --target-http-proxy my-proxy --ports 80

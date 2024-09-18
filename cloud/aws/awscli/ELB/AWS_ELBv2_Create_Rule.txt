@@ -1,0 +1,1 @@
+aws elbv2 create-rule --listener-arn <listener-arn> --conditions Field=path-pattern,Values=/images/* --priority 10 --actions Type=forward,TargetGroupArn=<target-group-arn>

@@ -1,0 +1,65 @@
+Install pfSense Firewall and Router in VirtualBox
+Download pfSense Download
+Extract the downloaded pfSense .gz
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: pfSense
+Machine Folder: C:\VMs
+Type: BSD
+Version: FreeBSD (64-bit)
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image pfSense.vdi
+File size: 8 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded pfSense .iso file
+Click OK
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Click the Adapter 2 tab
+Check the Enable Network Adapter and set the attached to dropdown to Bridged Adapter
+Click OK
+Make sure the pfSense VM is selected and click Start > Normal
+Press Enter to Accept the Copyright and distribution notice
+Select Install pfSense > Press Enter
+Select the keyboard mapping to use > Press Enter
+Select Auto (UFS) Guided Disk Setup > Press Enter
+Wait for pfSense to copy files and install
+At the Manual Configuration prompt select No > Press Enter
+Select Reboot > Press Enter
+From the VirtualBox menu select Devices > Optical Drives > Remove disk from virtual drive
+Reset the VM by selecting Machine > Reset from the VirtualBox menu
+Welcome to the pfSense terminal
+Configuring Network Interfaces and Web UI
+At the pfSense menu, select Set interface(s) IP address by typing 2 and pressing Enter
+Enter the number that corresponds to the LAN interface > Press Enter
+Enter a LAN IP address on the same subnet as your LAN
+At the bit count prompt type 24 > Press Enter
+Leave the IPv4 upstream gateway blank press Enter
+Leave the IPv6 address blank and press Enter
+At the DHCP server prompt type n > Press Enter
+At the revert to HTTP prompt type y > Press Enter
+The http address of the pfSense Web UI will be displayed
+Press Enter to return to the main menu
+Minimize the pfSense VM and open a web browser
+Navigate to the web UI http address
+Log into the web UI with the username admin and password pfsense
+Select System > User Manager from the top navigation
+Click the edit icon across from the admin user
+Setup and confirm a new password for the admin user
+Scroll to the bottom of the page and click the Save button
+Click the Logout icon in the top right of the page
+Log back into the web UI using the new password
+Enjoy exploring pfSense

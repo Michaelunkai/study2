@@ -1,0 +1,1 @@
+ getapache && sudo apt update && sudo apt install -y goaccess && sudo goaccess /var/log/apache2/access.log -o /var/www/html/report.html --log-format=COMBINED || { sudo touch /var/log/apache2/access.log && sudo goaccess /var/log/apache2/access.log -o /var/www/html/report.html --log-format=COMBINED; } && gc http://localhost/report.html

@@ -1,0 +1,64 @@
+Running a Mac OS 11 Big Sur VM in Virtualbox
+Locate a Mac OS Big Sur iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: MAC OS 11
+Machine Folder: C:\VMs
+Type: MAC OS X
+Version: Mac OS X (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image MAC OS 11.vdi
+File size: 50.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Click the Processor tab > Set Processor(s) to at least 2
+Select Display > Slide Video Memory to 128 MB
+Select USB > Select USB 3.0
+Select Storage > Create a new SATA Controller
+Click the Choose disk button on the optical drive
+Click the Add button > Browse to and select the MAC OS 11 .iso file
+Click Choose
+Click OK
+Right Click the Start Button > Command Prompt (Admin) > Paste in the following commands
+cd "%programfiles%\Oracle\VirtualBox\"
+VBoxManage.exe modifyvm "Mac OS 11" –-cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+VBoxManage setextradata "Mac OS 11" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac19,1"
+VBoxManage setextradata "Mac OS 11" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+VBoxManage setextradata "Mac OS 11" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Mac-AA95B1DDAB278B95"
+VBoxManage setextradata "Mac OS 11" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+VBoxManage setextradata "Mac OS 11" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+If you are running an AMD processor also run the following command:
+VBoxManage modifyvm "Mac OS 11" --cpu-profile "Intel Core i7-6700K"
+Make sure the MAC OS 11 VM is selected and click Start > Normal
+After a long initialization sequence the MAC OS Setup should start
+Select a language > Click the arrow
+Select Disk Utility
+Select the VBOX HARDDISK > Click Erase
+Name the drive OS11 > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS
+Click Continue > Click Agree > Click Agree again
+Select the OS11 disk > Click Install
+Wait while Mac OS 11 installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 11 Big Sur

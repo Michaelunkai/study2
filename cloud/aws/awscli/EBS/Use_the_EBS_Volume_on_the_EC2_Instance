@@ -1,0 +1,34 @@
+Use the EBS Volume on the EC2 Instance
+SSH into your instance:
+
+ 
+ 
+ssh -i your-key.pem ec2-user@your-instance-public-dns
+Format the EBS volume:
+
+ 
+ 
+sudo mkfs -t ext4 /dev/xvdf
+Create a mount point and mount the volume:
+
+ 
+ 
+sudo mkdir /mnt/myebs
+sudo mount /dev/xvdf /mnt/myebs
+Verify the volume is mounted:
+
+ 
+ 
+df -h
+(Optional) Automatically mount the volume on reboot:
+
+Edit the /etc/fstab file:
+
+ 
+ 
+sudo nano /etc/fstab
+Add the following line:
+
+ 
+ 
+/dev/xvdf  /mnt/myebs  ext4  defaults,nofail  0  2

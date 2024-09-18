@@ -1,0 +1,1 @@
+find . -type f | awk -F/ '{files[$2]++} END {for (dir in files) print dir, files[dir]}'

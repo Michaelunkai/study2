@@ -1,0 +1,2 @@
+sudo nano /etc/awstats/awstats.mywebsite.conf
+LogFile=/path/to/beanstalk_logs

@@ -1,0 +1,3 @@
+Command: sudo deluser <username>
+Description: Deletes a user account.
+User Management

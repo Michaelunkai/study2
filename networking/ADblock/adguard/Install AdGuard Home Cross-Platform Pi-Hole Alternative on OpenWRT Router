@@ -1,0 +1,41 @@
+▲A  A▼
+Install AdGuard Home Cross-Platform Pi-Hole Alternative on OpenWRT Router
+What is AdGuard Home?
+AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.
+
+It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public AdGuard DNS servers, and both share a lot of code. -https://github.com/AdguardTeam/AdguardHome
+Installing AdGuard Home
+Open a web browser and navigate to the OpenWRT LuCI web UI
+Log in
+Select System > Startup in the top navigation menu
+Find dnsmasq and click the Stop button and click Enabled to disable the service on startup
+Select System > Software in the top navigation menu
+Type cert in the search
+Find ca-certificates and click the Install... button
+Find ca-bundle and click the Install... button
+Type libustream in the search
+Find libustream-openssl and click the Install... button
+Open another tab and navigate to https://github.com/AdguardTeam/AdGuardHome/wiki/Getting-Started#installation
+Find the download for Linux on the architecture of the router (arm32, arm64, etc)
+Right click the link and Copy shortcut / Copy link address
+Connect to the OpenWRT device via SSH
+Run the following commands
+# download adguard home, pasting the download link copied above
+wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz --no-check-certificate
+# extract the download tar.gz
+tar xfvz AdGuardHome_linux*
+# change directory into the extracted folder
+cd AdGuardHome
+# install AdGuardHome as a service
+./AdGuardHome -s install
+Open a web browser and navigate to http://OpenWRTIP:3000
+Click the Get Started button
+Set the Admin Web Interface and DNS Server network interfaces and ports, note port 80 can't be used for the web interface > Click Next
+Enter an admin username and password > Click Next
+Click Next on page 4
+Click Open Dashboard on the Congratutations page
+Log in using the admin username and password created during the install
+Welcome to AdGuardHome running on OpenWRT
+Source: https://github.com/AdguardTeam/AdGuardHome#getting-started
+
+ 

@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -i music.mp3 -filter_complex "[0:a][1:a]amerge=inputs=2[a]" -map 0:v -map "[a]" -c:v copy -c:a aac output.mp4

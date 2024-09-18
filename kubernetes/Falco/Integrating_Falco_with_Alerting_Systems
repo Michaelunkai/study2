@@ -1,0 +1,66 @@
+ Integrating Falco with Alerting Systems
+Integrating Falco with alerting systems like Slack allows you to receive real-time security alerts.
+
+7.1. Install Falco Sidekick
+Falco Sidekick is an add-on that enables Falco to send alerts to various outputs, including Slack.
+
+7.1.1. Enable Falco Sidekick During Falco Installation
+If you prefer to include Sidekick during the initial Falco installation, you can uninstall and reinstall Falco with Sidekick enabled.
+
+Uninstall Existing Falco Installation:
+
+ 
+ 
+helm uninstall falco -n falco
+Reinstall Falco with Sidekick Enabled:
+
+ 
+ 
+helm install falco falcosecurity/falco --namespace falco --set falcosidekick.enabled=true
+7.1.2. Alternatively, Install Falco Sidekick Separately
+If you prefer to install Falco Sidekick separately:
+
+ 
+ 
+helm install falco-sidekick falcosecurity/falco-sidekick --namespace falco
+7.2. Configure Slack Integration
+Create a Slack App and Get a Webhook URL:
+
+Navigate to your Slack workspace.
+Go to Apps > Manage Apps > Custom Integrations > Incoming Webhooks.
+Create a new webhook and copy the webhook URL.
+Create a ConfigMap for Falco Sidekick Configuration:
+
+Create a file named falco-sidekick-config.yaml with the following content:
+
+ 
+ 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: falco-sidekick-config
+  namespace: falco
+data:
+  config. : |
+    slack:
+      enabled: true
+      webhook_url: "https://hooks.slack.com/services/your/webhook/url"
+      channel: "#your-channel"
+      username: "Falco"
+      icon_emoji: ":falco:"
+Replace:
+
+"https://hooks.slack.com/services/your/webhook/url" with your actual Slack webhook URL.
+"#your-channel" with your desired Slack channel.
+Apply the Configuration:
+
+ 
+ 
+kubectl apply -f falco-sidekick-config.yaml
+Restart Falco Sidekick Pods:
+
+ 
+ 
+kubectl rollout restart deployment falco-sidekick -n falco
+Note: Ensure that the falco-sidekick deployment is correctly referencing the falco-sidekick-config ConfigMap. If not, you may need to update the deployment or Helm values accordingly.
+

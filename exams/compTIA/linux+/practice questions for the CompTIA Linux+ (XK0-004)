@@ -1,0 +1,83 @@
+Linux+ (XK0-004) exam example:
+
+What command would you use to display the current date and time in a Linux terminal?
+a) dt
+b) time
+c) date
+d) clock
+
+B)date
+
+Which directory contains system configuration files in Linux?
+a) /bin
+b) /usr/bin
+c) /etc
+d) /opt
+
+c) /etc
+
+What command would you use to create a new directory named "documents" in the current directory?
+a) mkdir documents
+b) newdir documents
+c) create documents
+d) mkdoc documents
+
+a)mkdir documents
+
+Which command would you use to list all files in a directory, including hidden files?
+a) ls -l
+b) ls -a
+c) ls -h
+d) ls -r
+
+b) ls -l
+
+
+Which of the following commands is used to display the contents of a file in reverse order?
+a) cat
+b) rev
+c) tail
+d) less
+
+c)rev
+
+What command would you use to compress a file named "example.txt" using gzip compression?
+a) gzip example.txt
+b) zip example.txt
+c) compress example.txt
+d) tar -czf example.txt
+
+a) gzip example.txt
+
+Which of the following commands would you use to change the ownership of a file named "file.txt" to the user "john"?
+a) chmod john file.txt
+b) chown john file.txt
+c) own john file.txt
+d) user john file.txt
+
+b) chown john file.txt
+
+What command would you use to display the manual page for the "ls" command?
+a) man ls
+b) help ls
+c) info ls
+d) ls --help
+
+a) man ls
+
+
+Which command would you use to list all running processes in Linux?
+a) ps
+b) top
+c) pgrep
+d) pkill
+
+a) ps
+
+What command would you use to remove a directory named "folder" and all its contents?
+a) rmdir folder
+b) rm -rf folder
+c) remove folder
+d) delete folder
+
+b) rm -rf folder

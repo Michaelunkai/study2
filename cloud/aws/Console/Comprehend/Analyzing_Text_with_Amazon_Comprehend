@@ -1,0 +1,23 @@
+Analyzing Text with Amazon Comprehend
+Step 1: Access Amazon Comprehend
+Log in to AWS Management Console
+
+Visit the AWS Management Console.
+Enter your AWS credentials to log in.
+Navigate to Amazon Comprehend
+
+In the AWS Management Console, search for “Amazon Comprehend” and select it.
+Step 2: Analyze Text
+Use the Analysis Features
+
+Choose the type of analysis you want: Sentiment Analysis, Entity Recognition, Key Phrases, or Language Detection.
+Input text directly into the console or upload documents.
+Review Analysis Results
+
+View and interpret the results provided by Amazon Comprehend.
+Step 3: Use Comprehend APIs
+Integrate with Your Application
+Use the Amazon Comprehend API for more advanced usage.
+Refer to the Amazon Comprehend API documentation for details on making API requests.
+Free Tier Limit: 50,000 units of text (about 250,000 words) per month for the first 12 months.
+

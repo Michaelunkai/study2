@@ -1,0 +1,1 @@
+subprocess.Popen(['aws', 'ec2', 'stop-instances', '--instance-ids', 'i-1234567890abcdef0'])

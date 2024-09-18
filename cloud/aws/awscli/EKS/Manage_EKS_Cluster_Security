@@ -1,0 +1,13 @@
+ Manage EKS Cluster Security
+List Roles
+
+ 
+ 
+kubectl get roles --all-namespaces
+Create/Update Role
+
+Modify role.yaml and apply:
+
+ 
+ 
+kubectl apply -f role.yaml

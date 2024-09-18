@@ -1,0 +1,1 @@
+scrapy crawl myspider -s DOWNLOADER='myproject.downloader.MyCustomDownloader'

@@ -1,0 +1,1 @@
+sudo apt install -y openjdk-17-jdk maven && mvn archetype:generate -DgroupId=com.example -DartifactId=test-reporting -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false && cd test-reporting

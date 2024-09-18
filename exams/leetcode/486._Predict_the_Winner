@@ -1,0 +1,69 @@
+### Problem: 486. Predict the Winner
+
+You are given an integer array `nums`. Two players are playing a game with this array: player 1 and player 2.
+
+Player 1 and player 2 take turns, with player 1 starting first. Both players start the game with a score of 0. At each turn, the player takes one of the numbers from either end of the array (i.e., `nums[0]` or `nums[nums.length - 1]`) which reduces the size of the array by 1. The player adds the chosen number to their score. The game ends when there are no more elements in the array.
+
+Return true if Player 1 can win the game. If the scores of both players are equal, then player 1 is still the winner, and you should also return true. You may assume that both players are playing optimally.
+
+### Solution
+
+We can solve this problem using dynamic programming. The idea is to use a memoized recursion to calculate the best possible score difference for player 1 starting from any subarray of `nums`.
+
+#### Steps
+
+1. Define a recursive function `dp(start, end)` that returns the maximum score difference that the current player can achieve from the subarray `nums[start:end+1]`.
+2. The base case is when `start == end`, which means there is only one number left, and the current player picks it.
+3. The recursive case considers both picking the start or the end of the current subarray, and the opponent will then try to minimize the score of the current player in the next turn.
+4. Use memoization to store already computed values of `dp(start, end)` to avoid recomputation.
+
+### Code Implementation
+
+```python
+class Solution:
+    def PredictTheWinner(self, nums: List[int]) -> bool:
+        n = len(nums)
+        # Memoization table
+        memo = {}
+
+        def dp(start, end):
+            if start == end:
+                return nums[start]
+            if (start, end) in memo:
+                return memo[(start, end)]
+
+            # Player picks nums[start] or nums[end]
+            pick_start = nums[start] - dp(start + 1, end)
+            pick_end = nums[end] - dp(start, end - 1)
+
+            # Store the result in memo table
+            memo[(start, end)] = max(pick_start, pick_end)
+            return memo[(start, end)]
+
+        return dp(0, n - 1) >= 0
+
+# Example usage:
+solution = Solution()
+print(solution.PredictTheWinner([1,5,2]))  # Output: False
+print(solution.PredictTheWinner([1,5,233,7]))  # Output: True
+```
+
+### Explanation
+
+1. **Initialization**:
+   - We initialize a memoization table `memo` to store results of subproblems.
+   - `dp(start, end)` is a recursive function that calculates the best possible score difference from the subarray `nums[start:end+1]`.
+
+2. **Base Case**:
+   - If `start == end`, it means there's only one element left, and the current player picks it, so `dp(start, end) = nums[start]`.
+
+3. **Recursive Case**:
+   - When the player picks `nums[start]`, the opponent will play optimally on `nums[start+1:end]`, so the effective score for the current player is `nums[start] - dp(start + 1, end)`.
+   - When the player picks `nums[end]`, the opponent will play optimally on `nums[start:end-1]`, so the effective score for the current player is `nums[end] - dp(start, end - 1)`.
+   - The current player will choose the move that maximizes their score difference, hence `memo[(start, end)] = max(pick_start, pick_end)`.
+
+4. **Final Decision**:
+   - The initial call `dp(0, n - 1)` calculates the best possible score difference for player 1 starting from the entire array.
+   - If `dp(0, n - 1) >= 0`, player 1 can ensure at least a tie, hence can win or tie, so we return `True`.
+
+This solution uses dynamic programming with memoization to efficiently compute the result and ensures that it works within the constraints provided.

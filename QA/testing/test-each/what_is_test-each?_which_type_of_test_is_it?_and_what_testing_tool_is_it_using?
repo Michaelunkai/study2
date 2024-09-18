@@ -1,0 +1,16 @@
+### What is "test-each"?
+
+**"test-each"** is a JavaScript library designed to facilitate **data-driven testing**. This library allows developers to repeat tests using various combinations of inputs, generating descriptive and unique test titles for each scenario. It is particularly useful for testing multiple sets of data with the same logic, such as verifying the behavior of a function with different input values.
+
+### What Type of Test is "test-each"?
+
+**"test-each"** enables **data-driven testing** or **parameterized testing**. In this type of testing, the same test logic is executed multiple times with different sets of inputs. This approach is beneficial when you want to ensure that your code behaves correctly with a variety of input scenarios, such as different edge cases, ranges of values, or random inputs for fuzz testing.
+
+### What Testing Tool is "test-each" Using?
+
+**"test-each"** is **test runner independent**, meaning it can be used with any JavaScript test runner. The examples provided in the documentation typically use **Ava**, but it can also be integrated with other popular test runners like **Jest**, **Mocha**, **Jasmine**, etc.
+
+In summary:
+- **"test-each"** is a library for data-driven testing.
+- It supports parameterized testing by repeating tests with different inputs.
+- It is compatible with any JavaScript test runner, including Ava, Jest, Mocha, and others.

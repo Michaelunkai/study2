@@ -1,0 +1,3 @@
+[console_scripts]
+epub2tts = epub2tts:main
+

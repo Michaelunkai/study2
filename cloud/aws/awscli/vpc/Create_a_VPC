@@ -1,0 +1,7 @@
+Create the VPC:
+
+ 
+ 
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+Note the VPC ID:
+The command output will contain the VPC ID, which you will need for subsequent steps. Let's assume the VPC ID is vpc-12345678.

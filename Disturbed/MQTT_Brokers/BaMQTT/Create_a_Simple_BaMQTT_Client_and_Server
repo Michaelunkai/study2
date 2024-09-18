@@ -1,0 +1,77 @@
+Create a Simple BaMQTT Client and Server
+BaMQTT Server
+Create a file named mqtt_server.py and add the following code:
+
+ 
+ 
+import asyncio
+from bamqtt.broker import Broker
+from bamqtt.broker import BrokerContext
+
+config = {
+    'listeners': {
+        'default': {
+            'type': 'tcp',
+            'bind': '0.0.0.0:1883',
+        },
+    },
+    'sys_interval': 10,
+    'topic-check': {
+        'enabled': True,
+        'plugins': [
+            {
+                'name': 'topic_taboo',
+                'config': {
+                    'taboo': ['#']
+                }
+            }
+        ]
+    }
+}
+
+broker = Broker(BrokerContext(config))
+
+async def start_broker():
+    await broker.start()
+
+if __name__ == '__main__':
+    asyncio.run(start_broker())
+Run the server:
+
+ 
+ 
+  mqtt_server.py
+BaMQTT Client
+Create a file named mqtt_client.py and add the following code:
+
+ 
+ 
+import asyncio
+from bamqtt.client import MQTTClient, ConnectException
+
+async def main():
+    client = MQTTClient()
+    await client.connect('mqtt://localhost:1883/')
+    try:
+        await client.subscribe([('test/topic', 0)])
+        print('Subscribed!')
+
+        async def message_handler(client, topic, payload, qos, properties):
+            print('Received message:', payload.decode())
+
+        client.on_message = message_handler
+
+        await client.publish('test/topic', b'Hello, MQTT!', qos=0x00)
+        await asyncio.sleep(1)  # Wait for message to be processed
+    except ConnectException as ce:
+        print('Connection failed: %s' % ce)
+    finally:
+        await client.disconnect()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+Run the client:
+
+ 
+ 
+  mqtt_client.py

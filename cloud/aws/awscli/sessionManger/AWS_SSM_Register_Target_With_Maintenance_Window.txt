@@ -1,0 +1,1 @@
+aws ssm register-target-with-maintenance-window --window-id <window-id> --targets <targets> --resource-type <resource-type>

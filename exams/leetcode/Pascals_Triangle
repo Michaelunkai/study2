@@ -1,0 +1,92 @@
+You're given a number numRows. You need to generate the first numRows of Pascal's Triangle. In Pascal's Triangle, each number is the sum of the two numbers directly above it.
+
+For example, here are the first five rows of Pascal's Triangle:
+
+    1
+   1 1
+  1 2 1
+ 1 3 3 1
+1 4 6 4 1
+C# Solution:
+
+public class Solution {
+    public IList<IList<int>> Generate(int numRows) {
+        var triangle = new List<IList<int>>();
+
+        if (numRows == 0) return triangle;
+
+        // First base case; first row is always [1].
+        triangle.Add(new List<int> { 1 });
+
+        for (int rowNum = 1; rowNum < numRows; rowNum++) {
+            var row = new List<int>();
+            var prevRow = triangle[rowNum - 1];
+
+            // The first row element is always 1.
+            row.Add(1);
+
+            // Each triangle element (except the first and last of each row)
+            // is equal to the sum of the elements above-and-to-the-left and above-and-to-the-right.
+            for (int j = 1; j < rowNum; j++) {
+                row.Add(prevRow[j - 1] + prevRow[j]);
+            }
+
+            // The last row element is always 1.
+            row.Add(1);
+
+            triangle.Add(row);
+        }
+
+        return triangle;
+    }
+}
+Explanation of the Code:
+Function Signature:
+
+public IList<IList<int>> Generate(int numRows) {
+Initialization:
+
+var triangle = new List<IList<int>>();
+
+if (numRows == 0) return triangle;
+Initialize an empty list of lists to store the rows of Pascal's Triangle.
+If numRows is 0, return the empty list.
+First Row:
+
+triangle.Add(new List<int> { 1 });
+Add the first row [1] to the triangle.
+Generate Rows:
+
+for (int rowNum = 1; rowNum < numRows; rowNum++) {
+    var row = new List<int>();
+    var prevRow = triangle[rowNum - 1];
+
+    // The first row element is always 1.
+    row.Add(1);
+
+    // Each triangle element (except the first and last of each row)
+    // is equal to the sum of the elements above-and-to-the-left and above-and-to-the-right.
+    for (int j = 1; j < rowNum; j++) {
+        row.Add(prevRow[j - 1] + prevRow[j]);
+    }
+
+    // The last row element is always 1.
+    row.Add(1);
+
+    triangle.Add(row);
+}
+Loop from the second row to numRows (0-indexed).
+For each row:
+Create a new list row to store the current row's values.
+Get the previous row prevRow from the triangle.
+Add 1 as the first element of the current row.
+For each position in the row (except the first and last):
+Calculate the sum of the two elements above this position in the previous row.
+Add the sum to the current row.
+Add 1 as the last element of the current row.
+Add the current row to the triangle.
+Return the Result:
+
+return triangle;
+Return the list of lists representing the first numRows of Pascal's Triangle.
+This C# solution generates Pascal's Triangle row by row, using the properties of the triangle to build each row based on the previous row.

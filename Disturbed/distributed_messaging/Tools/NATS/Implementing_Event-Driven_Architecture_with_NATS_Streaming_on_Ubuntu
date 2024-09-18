@@ -1,0 +1,179 @@
+# Implementing Event-Driven Architecture with NATS Streaming on Ubuntu
+
+Implementing an Event-Driven Architecture (EDA) with NATS Streaming in Ubuntu involves several steps. NATS Streaming is a high-performance messaging system for cloud-native applications, IoT messaging, and microservices architectures. This guide provides a comprehensive step-by-step process to set up and test NATS Streaming on Ubuntu.
+
+## Step 1: Pull NATS Streaming Docker Image
+Pull the official NATS Streaming Docker image:
+
+  
+sudo docker pull nats-streaming
+
+## Step 2: Run NATS Streaming Server
+Run the NATS Streaming server in a Docker container:
+
+  
+sudo docker run -d --name nats-streaming -p 4222:4222 -p 8222:8222 nats-streaming
+
+## Step 3: Install NATS Streaming Client Libraries
+Depending on the programming language you prefer, install the appropriate NATS Streaming client library. Here, we'll use Go and Python as examples.
+
+### For Go:
+Install the NATS Streaming Go client:
+
+  
+go get github.com/nats-io/stan.go
+
+### For Python:
+Install the NATS Streaming Python client:
+
+  
+pip install nats-py
+pip install nats-pyschema
+
+## Step 4: Create a Publisher
+Create a simple publisher that will send messages to the NATS Streaming server.
+
+### Go Example:
+Create a file `publisher.go`:
+
+ go
+package main
+
+import (
+    "fmt"
+    "log"
+    "time"
+
+    stan "github.com/nats-io/stan.go"
+)
+
+func main() {
+    sc, err := stan.Connect("test-cluster", "publisher")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer sc.Close()
+
+    for i := 0; i < 10; i++ {
+        msg := fmt.Sprintf("Message %d", i)
+        err := sc.Publish("foo", []byte(msg))
+        if err != nil {
+            log.Fatal(err)
+        }
+        log.Printf("Published message: %s", msg)
+        time.Sleep(1 * time.Second)
+    }
+}
+
+Run the publi er:
+
+  
+go run publi er.go
+
+### Python Example:
+Create a file `publisher.py`:
+
+  
+import asyncio
+from nats.aio.client import Client as NATS
+
+async def run():
+    nc = NATS()
+    await nc.connect()
+
+    for i in range(10):
+        msg = f"Message {i}"
+        await nc.publi ("foo", msg.encode())
+        print(f"Publi ed message: {msg}")
+        await asyncio.sleep(1)
+
+    await nc.drain()
+
+if __name__ == '__main__':
+    asyncio.run(run())
+
+Run the publi er:
+
+  
+  publi er.py
+
+## Step 5: Create a Subscriber
+Create a simple subscriber that will receive messages from the NATS Streaming server.
+
+### Go Example:
+Create a file `subscriber.go`:
+
+ go
+package main
+
+import (
+    "log"
+
+    stan "github.com/nats-io/stan.go"
+)
+
+func main() {
+    sc, err := stan.Connect("test-cluster", "subscriber")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer sc.Close()
+
+    _, err = sc.Subscribe("foo", func(m *stan.Msg) {
+        log.Printf("Received message: %s", string(m.Data))
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Keep the process running
+    select {}
+}
+
+Run the subscriber:
+
+  
+go run subscriber.go
+
+### Python Example:
+Create a file `subscriber.py`:
+
+  
+import asyncio
+from nats.aio.client import Client as NATS
+
+async def run():
+    nc = NATS()
+    await nc.connect()
+
+    async def message_handler(msg):
+        print(f"Received message: {msg.data.decode()}")
+
+    await nc.subscribe("foo", cb=message_handler)
+
+    # Keep the process running
+    while True:
+        await asyncio.sleep(1)
+
+if __name__ == '__main__':
+    asyncio.run(run())
+
+Run the subscriber:
+
+  
+  subscriber.py
+
+## Step 6: Test the Setup
+1. Run the NATS Streaming server.
+2. Start the subscriber.
+3. Start the publisher.
+
+The subscriber should receive messages sent by the publisher.
+
+## Step 7: Scaling and Production Considerations
+- Use a service manager like `systemd` to manage the NATS Streaming server.
+- Secure your NATS Streaming server with authentication and TLS.
+- Monitor the NATS Streaming server with tools like Prometheus and Grafana.
+- Consider high availability and clustering for production environments.
+
+This guide provides a basic setup. Depending on your requirements, you might need to explore advanced features and configurations of NATS Streaming.

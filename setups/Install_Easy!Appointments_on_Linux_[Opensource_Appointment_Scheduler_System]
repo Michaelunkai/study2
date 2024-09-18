@@ -1,0 +1,68 @@
+▲A  A▼
+Install Easy!Appointments on Linux [Opensource Appointment Scheduler System]
+What is Easy!Appointments?
+Easy!Appointments is a highly customizable web application that allows customers to book appointments with you via a sophisticated web interface. Moreover, it provides the ability to sync your data with Google Calendar so you can use them with other services. It is an open source project that you can download and install even for commercial use. Easy!Appointments will run smoothly with your existing website as it can be installed in a single folder of the server and of course share an existing database. -https://github.com/alextselegidis/easyappointments#about
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install curl wget zip -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php7.4 php7.4-curl php7.4-common php7.4-json php7.4-mysqli php7.4-mysql -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the Easy!Appointments database and database user
+CREATE DATABASE easy_appointments;
+GRANT ALL ON easy_appointments.* to 'easy_appointments_rw'@'localhost' IDENTIFIED BY 'EasyAppo1ntm3nts!!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# fetch the latest download URL
+regex='"browser_download_url": "(https:\/\/github.com\/alextselegidis\/easyappointments\/releases\/download\/[^/]*\/easyappointments-[^/]*\.zip)"' && response=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/alextselegidis/easyappointments/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download the latest release
+wget -O easyappointments.zip $downloadURL
+# create target directory
+sudo mkdir /var/www/html/easyappointments
+# extract the downloaded zip to /var/www/html/easyappointments
+sudo unzip ./easyappointments.zip -d /var/www/html/easyappointments
+# set the owner of the easyappointments directory
+sudo chown -R www-data:www-data /var/www/html/easyappointments
+# copy sample config file
+sudo cp /var/www/html/easyappointments/config-sample.php /var/www/html/easyappointments/config.php
+# edit config. 
+sudo nano /var/www/html/easyappointments/config. 
+Scroll down to the const BASE_URL variable and set the value to the IP address or DNS name of the host
+const BASE_URL = 'http://localhost/easyappointments';
+
+Press CTRL+W and search for db_name
+Update or add the following configuration
+const DB_HOST = 'localhost';
+const DB_NAME = 'easy_appointments';
+const DB_USERNAME = 'easy_appointments_rw';
+const DB_PASSWORD = 'EasyAppo1ntm3nts!!';
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Easy!Appointments Web Installer
+Open a web browser and navigate to http://DNSorIP/easyappointments
+The Easy!Appointments Installation web installer should be load
+Complete the Administrator and Company form fields > Click Install Easy!Appointments
+Welcome to Easy!Appointments
+ 

@@ -1,0 +1,1 @@
+aws s3 cp your_file.txt s3://your-bucket-name/ --max-bandwidth 50MB/s

@@ -1,0 +1,1 @@
+vagrant up machine_name

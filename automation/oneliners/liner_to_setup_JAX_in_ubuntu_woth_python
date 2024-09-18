@@ -1,0 +1,1 @@
+mkdir jax_project && cd jax_project && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install jax[cuda] jaxlib[cuda] && echo -e "import jax\nimport jax.numpy as jnp\nprint(jax.devices())\nprint(jnp.array([1.0, 2.0, 3.0]) * 2)" > test_jax.py && python test_jax.py

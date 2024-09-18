@@ -1,0 +1,58 @@
+## Hosting Your Python Bottle App on Netlify Using the Command Line
+
+### Prerequisites
+
+1. **Install Node.js and npm**: Netlify CLI requires Node.js. You can download and install Node.js from [nodejs.org](https://nodejs.org/).
+
+2. **Netlify CLI**: Install the Netlify CLI globally using npm:
+     
+   npm install -g netlify-cli
+
+3. **Create a Netlify Account**: If you don't have a Netlify account, create one at [Netlify](https://www.netlify.com/).
+
+### Steps to Host Your Python Bottle App on Netlify
+
+1. **Login to Netlify**:
+     
+   netlify login
+
+2. **Navigate to Your Project Directory**:
+     
+   cd /mnt/c/backup/windowsapps/installed/myapps/compiled_ /speach2text/bottle
+
+3. **Create a Static Build**:
+   Since Netlify is optimized for static sites, you'll need to create a static build of your Bottle app. You can use `gunicorn` to serve your Bottle app and `wget` to download the site content.
+
+   First, install `gunicorn` if you haven't already:
+     
+   pip install gunicorn
+
+   Create a script to start your Bottle app using `gunicorn`. Create a file named `serve.sh` with the following content:
+     
+   #!/bin/ 
+   gunicorn -b 0.0.0.0:8000 lambda_function:app
+
+   Make it executable:
+     
+   chmod +x serve. 
+
+   Start your Bottle app:
+     
+   ./serve. 
+
+4. **Download the Site Content**:
+   Open another terminal window and use `wget` to download the site content. Replace `localhost:8000` with the appropriate address if different:
+     
+   wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://localhost:8000
+
+   This will create a directory named `localhost:8000` with your site content. Move this content to a directory named `public`:
+     
+   mv localhost\:8000 public
+
+5. **Deploy to Netlify**:
+     
+   netlify deploy --dir=public --prod
+
+   Follow the prompts to select your site name or create a new site.
+
+After following these steps, your Bottle app should be hosted on Netlify.

@@ -1,0 +1,30 @@
+Customize Star ip
+Starship is highly customizable. You can create a configuration file to customize its behavior and appearance.
+
+Create the configuration file:
+
+ 
+ 
+touch ~/.config/star ip.toml
+Open the configuration file in a text editor:
+
+ 
+ 
+nano ~/.config/star ip.toml
+Add your custom configuration. Here is an example configuration:
+
+toml
+ 
+# ~/.config/star ip.toml
+
+# Customize the prompt
+[prompt]
+add_newline = false
+format = "$all"
+
+# Customize the prompt character
+[character]
+symbol = "➜"
+Save and close the file.
+
+For more customization options, you can refer to the official Starship Configuration documentation.

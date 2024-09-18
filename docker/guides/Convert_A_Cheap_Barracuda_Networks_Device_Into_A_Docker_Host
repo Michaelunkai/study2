@@ -1,0 +1,77 @@
+▲A  A▼
+Convert A Cheap Barracuda Networks Device Into A Docker Host
+The Hardware
+The device I used in this video is a Barracuda Networks BFS200a I picked up used for about $25. It sports a 2 core/4 thread Intel Atom D525 @ 1.80 GHz. I upgraded the 1GB of DDR3 to 4GB and replaced the 250 GB HDD with a 32GB SATA SSD.
+
+Things You Will Need
+A USB flash drive, at least 8 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Preparing the Installation Media
+Download the Debian .iso file Download
+Download the Ventoy installer Download
+Extract the downloaded .zip file
+Run Ventoy2Disk.exe
+Plug in a USB flash drive at least 4 GB in size
+Click the refresh icon
+Select the flash drive from the device dropdown
+Click the Install button
+After the installation completes, copy the downloaded Debian .iso to the Ventoy partition
+Safely remove the USB flash drive
+Plug the flash drive into the target Barracuda Networks device
+Installation and Setup
+Power on the Barracuda Networks device and start pressing Delete
+When prompted, enter BCNDK1 as the BIOS password
+In the BIOS, reset the settings to defaults > Save and exit
+Boot to the flash drive
+When the install dialog displays press Enter to select Graphical Install
+Select a language > Click Continue
+Select a Location > Click Continue
+Select a keyboard layout > Click Continue
+Enter a hostname for the VM > Click Continue
+Enter a Domain name or leave it empty > Click Continue
+Enter and confirm a root password > Click Continue
+Enter the full name for the new user > Click Continue
+Enter the username for the new user > Click Continue
+Enter and confirm a password for the new user > Click Continue
+Select a timezone > Click Continue
+Select Guided - user entire disk > Click Continue
+Select the target disk > Click Continue
+Select All files in one partition > Click Continue
+Select Finish partitioning and write changes to disk > Click Continue
+Select Yes to confirm writing the changes > Click Continue
+Wait for Debian to copy and install files
+When prompted, select Yes to enable a network apt mirror > Click Continue
+Select a country to use for the apt mirror > Click Continue
+Select a mirror from the list > Click Continue
+Setup a HTTP proxy if necessary > Click Continue
+Select No to participating in package survey > Click Continue
+Select the software to install > Click Continue
+Select Yes to install GRUB > Click Continue
+Select /dev/sda for the boot loader location > Click Continue
+After the bootloader is installed select reboot to finish the installation
+Welcome to Debian 11
+Installing Docker
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Portainer
+Now that Docker is installed, run the following commands to setup the Portainer Docker container and run it
+# create working directories
+mkdir ~/docker/portainer -p
+# run the portainer docker container
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v ~/docker/portainer:/data portainer/portainer-ce
+Once the Portainer container is downloaded and running, open a web browser and navigate to http://DNSorIP:9000
+Set an administrator username and password > Click Create user
+Click the Docker - Manage the local Docker environment option > Click Connect
+ 

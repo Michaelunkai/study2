@@ -1,0 +1,9 @@
+ :
+
+$pipList = pip freeze | Measure-Object -Line
+Write-Output "Total weight of installed packages: $($pipList.Lines) MB"
+
+
+linux:
+pip list --format=freeze | wc -l
+

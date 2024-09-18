@@ -1,0 +1,11 @@
+Kling AI is a sophisticated AI-powered video generation model developed by the Chinese company Kuaishou. It is designed to transform textual prompts into high-quality video content. Key features of Kling AI include:
+
+1. **High-Quality Video Generation**: Kling AI can produce videos up to two minutes in length, with a resolution of 1080p and a frame rate of 30fps.
+2. **Advanced Motion Modeling**: It uses a 3D spatiotemporal joint attention mechanism to model complex motions, making the generated videos realistic and dynamic.
+3. **Simulating Real-World Characteristics**: Kling AI can simulate physical characteristics of the real world, adhering to the laws of physics to create lifelike scenes.
+4. **Flexible Output**: The model supports various video aspect ratios, which allows for versatility in content creation.
+5. **Cinema-Grade Quality**: It can generate cinema-grade videos, making it suitable for professional use in film and entertainment.
+
+Kling AI is currently accessible through the Kuaiying app, primarily for users in China, and is in the beta testing phase. The web version is expected to be released soon【6†source】【7†source】【8†source】【9†source】. 
+
+For more details, you can visit [Kling AI's official site](https://klingai.io).

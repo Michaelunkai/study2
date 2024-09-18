@@ -1,0 +1,1 @@
+fzf --bind 'enter:execute(echo {} > output.txt)'

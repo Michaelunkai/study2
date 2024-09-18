@@ -1,0 +1,6 @@
+Running GraphRAG
+Navigate to the ragdir directory and run:
+
+ 
+ 
+python -m graphrag.index --root ./ragdir

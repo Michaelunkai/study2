@@ -1,0 +1,5 @@
+Download CMAK 3.0.0.6:wget https://github.com/yahoo/CMAK/archive/3.0.0.6.tar.gz
+tar -xvzf 3.0.0.6.tar.gz
+mv CMAK-3.0.0.6 kafka-manager
+cd kafka-managerBuild CMAK: Since CMAK is built using sbt (Scala Build Tool), you need to build it to create the necessary distribution:./sbt clean distThis command will compile the code, package it, and create a distribution of CMAK in target/universal/cmak-3.0.0.6.zip.Extract CMAK Distribution:unzip target/universal/cmak-3.0.0.6.zip -d /usr/local/This will extract CMAK to /usr/local/cmak-3.0.0.6.Create Symbolic Link (optional): Creating a symbolic link can simplify access to CMAK:ln -s /usr/local/cmak-3.0.0.6 /usr/local/cmakStart CMAK: Navigate to the CMAK directory and start it using the configuration file:cd /usr/local/cmak
+./bin/cmak -Dconfig.file=./conf/application.confAccess CMAK Web UI: Open a web browser and go to http://localhost:9000. If you are accessing it remotely, replace localhost with the IP address or hostname of your server where CMAK is running.

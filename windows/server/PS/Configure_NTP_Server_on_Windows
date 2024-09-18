@@ -1,0 +1,15 @@
+# Install NTP feature
+Install-WindowsFeature -Name NTP
+
+# Configure NTP server settings
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" -Name "Type" -Value "NTP"
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config" -Name "AnnounceFlags" -Value 5
+
+# Set NTP server list
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" -Name "NtpServer" -Value "0.pool.ntp.org,0x1 1.pool.ntp.org,0x1"
+
+# Restart NTP service
+Restart-Service w32time
+
+# Resync time
+w32tm /resync

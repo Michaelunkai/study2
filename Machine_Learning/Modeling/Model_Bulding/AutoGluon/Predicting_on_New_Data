@@ -1,0 +1,13 @@
+ Predicting on New Data
+To use your trained model to predict outcomes on new datasets:
+
+ 
+ 
+# Load new data
+new_data = pd.read_ ('new_data. ')
+
+# Generate predictions
+predictions = predictor.predict(new_data)
+
+# Display predictions
+print(predictions)

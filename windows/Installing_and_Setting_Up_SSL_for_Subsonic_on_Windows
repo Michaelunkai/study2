@@ -1,0 +1,87 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Subsonic SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: subsonic.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PKCS #12 (*.p12)
+Enter the password subsonic and confirm, Click OK
+Click OK
+Installing Subsonic and Initial Setup
+Download Subsonic Download
+Install Subsonic
+Open a web browser and navigate to http://DNSorIP:Port
+Login with username: admin password: admin
+Go to Settings > Users
+Check the Change Password box
+Input a new password twice and click save to secure the admin account
+Go to Settings > Media Folders
+Under the Add media folder heading add your music directory
+Click the Save button
+Click the Scan media folders now button
+Click the Home button in the top navigation
+You should see music from your library starting to populate
+Applying the SSL Certificates to Subsonic
+Stop the Subsonic service
+Right click the start button > Command Prompt (Admin)
+Run the following command
+taskkill /f /im "subsonic-agent-elevated.exe"
+Navigate to the Subsonic installation directory in Explorer
+Extract subsonic-booter-jar-with-dependencies.jar
+Download Keystore Explorer Download
+Run kse.exe
+Select File > Open > and select subsonic.keystore from the extracted jar
+Enter subsonic as the keystore password
+Delete the subsonic entry, this is the self-signed SSL certificate used for https by default
+Select Tools > Import Key Pair
+Select PKCS #12, Click OK
+Click Browse and navigate to the .p12 file exported from XCA earlier
+Enter subsonic as the Decryption password
+Enter subsonic as the alias, click OK
+Enter subsonic as the password and confirm, click OK
+Select File > Save
+Navigate to the extracted jar files in Explorer
+Select all the files > Right Click > Send To > Compressed (zipped) folder
+Rename the zip file created subsonic-booter-jar-with-dependencies.jar
+Right click the created subsonic-booter-jar-with-dependencies.jar > Copy
+Navigate to the Subsonic installation directory in Explorer
+Renamed the existing subsonic-booter-jar-with-dependencies.jar to subsonic-booter-jar-with-dependencies.jar.orig
+Paste the newly created subsonic-booter-jar-with-dependencies.jar
+Right click subsonic-agent-elevated.exe > Run as administrator
+If it doesn't show, double click the Subsonic icon in the system tray
+Click the Settings tab
+Check the Enable https on port box
+Enter a port to run https on
+Click the Save settings button
+Click the Status tab
+Click the Start button to start the Subsonic service
+Open a web browser and navigate to https://DNSorIP:Port
+Subsonic should now be running securely with https using the new certificate

@@ -1,0 +1,12 @@
+Access the Tyk Dashboard
+Open your web browser and navigate to http://localhost:3000. Follow the prompts to set up your admin user.
+
+Step 12: Create and Retrieve an API Key
+In the Tyk Dashboard, go to the "APIs" section and create a new API using the same settings as in the api.json file. Once the API is created, go to the "Keys" section to create a new key for this API.
+
+Step 13: Access and Test Your API
+Your Tyk Gateway should now be running and listening on port 8080. You can test your API using curl, replacing <YOUR API KEY> with the key you generated:
+
+ 
+ 
+curl -H "Authorization: <YOUR API KEY>" http://localhost:8080/myapi/get

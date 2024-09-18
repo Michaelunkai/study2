@@ -1,0 +1,8 @@
+Monitor and Maintain Solr
+Monitor Solr logs:
+
+ 
+ 
+tail -f /var/solr/logs/solr.log
+Backup and restore Solr cores:
+Refer to the official Solr documentation for detailed instructions.

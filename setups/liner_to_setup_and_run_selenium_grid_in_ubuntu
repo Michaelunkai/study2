@@ -1,0 +1,1 @@
+getjava && apt install unzip -y && mkdir -p $(pwd)/selenium-grid && wget https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.23.0/selenium-server-4.23.0.jar -P $(pwd)/selenium-grid/ && cd $(pwd)/selenium-grid && java -jar selenium-server-4.23.0.jar hub

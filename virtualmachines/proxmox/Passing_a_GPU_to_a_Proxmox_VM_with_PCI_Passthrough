@@ -1,0 +1,68 @@
+▲A  A▼
+Passing a GPU to a Proxmox VM with PCI Passthrough
+Enabling PCI Passthrough
+Log into ProxMox VE either via SSH or the web based shell
+Run the following commands
+# edit grub configuration to enable IOMMU
+nano /etc/default/grub
+Press CTRL+W and search for GRUB_CMDLINE_LINUX_DEFAULT=
+Add the following value to GRUB_CMDLINE_LINUX_DEFAULT
+If running an Intel CPU, intel_iommu=on
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
+
+If running an AMD CPU, amd_iommu=on
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# update grub with config change
+update-grub
+# add vfio modules
+nano /etc/modules
+Add the following to the bottom of the file
+vfio
+vfio_iommu_type1
+vfio_pci
+vfio_virqfd
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# IOMMU interrupt mapping
+echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > /etc/modprobe.d/iommu_unsafe_interrupts.conf
+echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
+# blacklist drivers
+echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
+echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
+echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
+# list pci devices
+lspci -v
+Scroll through the output and find the GPU (usually a video and audio device associated with it) and make note of the device identifier (ex 01:00.0, 01:00.1)
+Continue with the following commands
+# output the vendor ID(s) of the devices
+# replace the device identifier (01:00) as needed
+lspci -n -s 01:00
+Make note of the vendor ID(s) output in the format abcd:1234
+Continue with the following commands
+# replace the vendor ids from the output of the previous step as needed
+echo "options vfio-pci ids=1002:6611,1002:aab0 disable_vga=1"> /etc/modprobe.d/vfio.conf
+# update initramfs
+update-initramfs -u
+# reboot proxmox host
+reboot now
+Passing GPU to A VM
+Log into the ProxMox web UI
+Expand the target node and select the target VM from the left navigation menu
+Select Hardware from the left sub-navigation menu
+Click Add > PCI Device
+Select the GPU from the listing
+NOTE: I have found that there is some trial and error required to get the GPU to work properly depending on the guest operating system. If you find that the GPU isn't working with all options checked, stop the VM, and edit the PCI hardware, unchecking one option at a time to see if you can find a working combination
+Select Display > Set the dropdown to none (none) > Click OK
+If you intend to use the VM at the console (not via RDP or VNC), you will need to passthrough a USB keyboard and mouse by clicking Add > USB Device > Select the USB device(s) or port(s) to pass to the VM
+Click Start at the top right of the page
+Watch the output of the GPU on an external display
+If there is no output from the GPU, stop the VM and adjust the PCI hardware options as noted above
+Once the VM has booted and is outputting to the GPU, install drivers for the GPU as necessary
+Source: https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/
+Documentation: https://pve.proxmox.com/wiki/Pci_passthrough
+
+ 

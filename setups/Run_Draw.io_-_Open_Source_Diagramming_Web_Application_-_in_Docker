@@ -1,0 +1,29 @@
+▲A  A▼
+Run Draw.io - Open Source Diagramming Web Application - in Docker
+What is Draw.io?
+draw.io is a configurable diagramming/whiteboarding visualization application. -https://github.com/jgraph/drawio
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running draw.io
+Now that Docker is installed, run the following command to run draw.io
+# run draw.io
+docker run -d --name drawio -p 8080:8080 --restart=unless-stopped jgraph/drawio
+Open a web browser and navigate to http://DNSorIP:8080
+NOTE: to disable saving to cloud storage, add /?offline=1 (IE http://DNSorIP:8080/?offline=1)
+Welcome to draw.io
+ 

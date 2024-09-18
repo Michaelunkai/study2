@@ -1,0 +1,1 @@
+docker run -d --name prowlarr -p 9696:9696 --restart unless-stopped -v prowlarr_data:/config lscr.io/linuxserver/prowlarr:latest && gc http://localhost:9696

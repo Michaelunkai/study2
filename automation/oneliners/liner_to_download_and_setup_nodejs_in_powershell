@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://nodejs.org/dist/v14.17.3/node-v14.17.3-x64.msi" -OutFile "$env:TEMP\node_installer.msi"; Start-Process -FilePath "$env:TEMP\node_installer.msi" -ArgumentList "/quiet" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\node_installer.msi"

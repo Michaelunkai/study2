@@ -1,0 +1,94 @@
+▲A  A▼
+Debian 11 Install Guide Using VirtualBox
+Download Debian 11 Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Debian 11
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Debian 11.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Debian 11 .iso file
+Click OK
+Make sure the Debian 11 VM is selected and click Start > Normal
+When the install dialog displays press Enter to select Graphical Install
+Select a language > Click Continue
+Select a Location > Click Continue
+Select a keyboard layout > Click Continue
+Enter a hostname for the VM > Click Continue
+Enter a Domain name or leave it empty > Click Continue
+Enter and confirm a root password > Click Continue
+Enter the full name for the new user > Click Continue
+Enter the username for the new user > Click Continue
+Enter and confirm a password for the new user > Click Continue
+Select a timezone > Click Continue
+Select Guided - user entire disk > Click Continue
+Select the VBOX HARDDISK > Click Continue
+Select All files in one partition > Click Continue
+Select Finish partitioning and write changes to disk > Click Continue
+Select Yes to confirm writing the changes > Click Continue
+Wait for Debian to copy and install files
+When prompted, select Yes to enable a network apt mirror > Click Continue
+Select a country to use for the apt mirror > Click Continue
+Select a mirror from the list > Click Continue
+Setup a HTTP proxy if necessary > Click Continue
+Select No to participating in package survey > Click Continue
+Select the software to install > Click Continue
+Select Yes to install GRUB > Click Continue
+Select /dev/sda for the boot loader location > Click Continue
+After the bootloader is installed select reboot to finish the installation
+Welcome to Debian 11
+Optional Steps
+Click the Applications button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+# authenticate as root, using the root password set earlier
+su -
+# add the normal user to sudo group, replace i12bretro with your user name
+usermod -aG sudo i12bretro
+# exit out of root terminal
+exit
+# re-authenticate with regular user (you may need to reboot if this doesn't take effect)
+su $USER
+# edit apt sources.list file
+sudo apt /etc/apt/sources.list
+Comment out the deb cd-rom: repositories by adding a # to the beginning of the line
+Press CTRL+O, Enter, CTRL+X to write the changes to sources.list
+Select Devices > Insert Guest Additions CD image...
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# clean apt cache
+sudo apt clean
+# install prerequisites
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+# run the virtualbox guest additions installer
+sudo sh ./VBoxLinuxAdditions.run
+# restart the VM
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Debian
+ 

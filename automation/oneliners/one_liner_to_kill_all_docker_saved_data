@@ -1,0 +1,3 @@
+docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
+alias commit='  /mnt/c/study/docker/files/scripts/commit. '
+alias push='docker images --format '{{.Repository}}:{{.Tag}}' | xargs -L1 docker push

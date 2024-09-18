@@ -1,0 +1,1 @@
+iwr -Uri https://www.7-zip.org/a/7z1900-x64.exe -OutFile 7zip_installer.exe; Start-Process 7zip_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

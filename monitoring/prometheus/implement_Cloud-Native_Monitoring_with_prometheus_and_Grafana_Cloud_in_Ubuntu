@@ -1,0 +1,138 @@
+Step 1: Sign Up for Grafana Cloud
+Go to the Grafana Cloud website and sign up for an account.
+Follow the instructions to create your first Grafana Cloud stack.
+Step 2: Install Prometheus on Ubuntu
+2.1 Update Your System Packages
+ 
+ 
+sudo apt-get update
+2.2 Download Prometheus
+ 
+ 
+wget https://github.com/prometheus/prometheus/releases/download/v2.33.5/prometheus-2.33.5.linux-amd64.tar.gz
+2.3 Extract the Tarball
+ 
+ 
+tar xvfz prometheus-*.tar.gz
+cd prometheus-*
+2.4 Move Prometheus Binaries to /usr/local/bin
+ 
+ 
+sudo mv prometheus /usr/local/bin/
+sudo mv promtool /usr/local/bin/
+2.5 Create Prometheus Directories
+ 
+ 
+sudo mkdir /etc/prometheus
+sudo mkdir /var/lib/prometheus
+sudo mv prometheus.yml /etc/prometheus/
+sudo mv consoles /etc/prometheus/
+sudo mv console_libraries /etc/prometheus/
+2.6 Create a Prometheus Systemd Service File
+ 
+ 
+sudo nano /etc/systemd/system/prometheus.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+ExecStart=/usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+2.7 Reload Systemd and Start Prometheus
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl enable prometheus
+Step 3: Install Grafana Agent on Ubuntu
+3.1 Download the Grafana Agent
+ 
+ 
+wget https://github.com/grafana/agent/releases/download/v0.22.0/agent-linux-amd64.zip
+3.2 Extract the Zip File
+ 
+ 
+unzip agent-linux-amd64.zip
+sudo mv agent-linux-amd64 /usr/local/bin/grafana-agent
+3.3 Create a Configuration File for the Grafana Agent
+ 
+ 
+sudo nano /etc/grafana-agent. 
+Add the following configuration, replacing <YOUR_PROMETHEUS_REMOTE_WRITE_URL>, <YOUR_GRAFANA_CLOUD_USERNAME>, and <YOUR_GRAFANA_CLOUD_API_KEY> with your actual Grafana Cloud details:
+
+ 
+ 
+server:
+  log_level: info
+  http_listen_port: 12345
+
+prometheus:
+  global:
+    scrape_interval: 15s
+  configs:
+    - name: integrations
+      scrape_configs:
+        - job_name: 'prometheus'
+          static_configs:
+            - targets: ['localhost:9090']
+  wal_directory: /tmp/grafana-agent-wal
+  remote_write:
+    - url: https://<YOUR_PROMETHEUS_REMOTE_WRITE_URL>
+      basic_auth:
+        username: <YOUR_GRAFANA_CLOUD_USERNAME>
+        password: <YOUR_GRAFANA_CLOUD_API_KEY>
+3.4 Create a Grafana Agent Systemd Service File
+ 
+ 
+sudo nano /etc/systemd/system/grafana-agent.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Grafana Agent
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/grafana-agent -config.file /etc/grafana-agent. 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+3.5 Reload Systemd and Start the Grafana Agent
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl start grafana-agent
+sudo systemctl enable grafana-agent
+Step 4: Configure Grafana Cloud Dashboards
+4.1 Log In to Your Grafana Cloud Account
+Log in to your Grafana Cloud account using your credentials.
+
+4.2 Navigate to Your Stack and Go to the Grafana Dashboard
+In your Grafana Cloud dashboard, navigate to your stack.
+
+4.3 Import Pre-Built Dashboards for Prometheus Metrics
+Go to "Dashboards" > "Manage" > "Import."
+Use a dashboard ID (e.g., 1860 for Kubernetes cluster monitoring) and follow the prompts to import and configure it.
+Step 5: Validate Your Setup
+5.1 Check the Status of Your Prometheus and Grafana Agent Services
+ 
+ 
+sudo systemctl status prometheus
+sudo systemctl status grafana-agent
+5.2 Ensure Metrics Are Being Sent to Grafana Cloud
+In your Grafana Cloud dashboard, verify that you can see the metrics and dashboards populated with data.
+
+This setup provides a basic cloud-native monitoring solution using Grafana Cloud and Prometheus on an Ubuntu server. Adjust the configurations as needed for your specific use case.

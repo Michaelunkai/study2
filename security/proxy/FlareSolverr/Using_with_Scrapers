@@ -1,0 +1,21 @@
+ Using with Scrapers
+FlareSolverr can be used with scraping libraries like BeautifulSoup or Scrapy. Here’s an example using BeautifulSoup:
+
+ 
+ 
+import requests
+from bs4 import BeautifulSoup
+
+url = 'http://localhost:8191/v1'
+payload = {
+    "cmd": "request.get",
+    "url": "https://example.com"
+}
+
+response = requests.post(url, json=payload)
+result = response.json()
+
+html_content = result.get('solution').get('response')
+soup = BeautifulSoup(html_content, 'html.parser')
+
+print(soup.prettify())

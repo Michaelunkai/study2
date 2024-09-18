@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/transformerxl.ipynb -O transformerxl_long_range.ipynb

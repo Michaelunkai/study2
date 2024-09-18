@@ -1,0 +1,28 @@
+mRemoteNG Advanced External Tools - Setting Up WOL Utility
+mRemoteNG is a fork of mRemote: an open source, tabbed, multi-protocol, remote connections manager for Windows. mRemoteNG creates a tabbed interface for RDP, VNC, SSH and many other connection protocols. 
+
+Creating the WOL External Tool
+Download WakeMeOnLAN Utility Download
+Extract MakeMeOnLAN.zip
+Copy WakeMeOnLan.exe to the mRemoteNG installation directory, usually C:\Program Files (x86)\mRemoteNG
+Launch mRemoteNG
+Hover over the Connections tab > Select an existing connection to modify
+With the connection highlighted, click the Config tab
+At the bottom under the Miscellaneous heading, enter the hosts MAC address
+Click Tools > External Tools
+Click the New Button at the top left
+Set the following values to add the ability to quickly send a WOL packet. Replace the broadcast address (192.168.0.255) with the correct broadcast address for the subnet of your network
+Display Name: WOL
+Filename: .\WakeMeOnLan.exe
+Arguments: /wakeup %macaddress% 7 10.10.27.255
+
+Testing WOL
+Download WakeOnLanMonitor tool Download
+Extract wakeonlanmonitor.zip on the target WOL machine
+Launch WakeOnLanMonitor
+Set the UDP port value to 7
+Click the Start button 
+Allow the connection if you are prompted with a firewall notification
+From mRemoteNG, right click on the Connection > External Tools > WOL
+On the target machine, WakeOnLanMonitor should display the packet details if the WOL packet was successfully sent and received by the target
+Wake on LAN is very useful functionality if your hardware supports it. Here is a good tutorial on the steps required to enable WOL on a device. This typically needs to be enabled in the BIOS as well as on the network interface inside the op

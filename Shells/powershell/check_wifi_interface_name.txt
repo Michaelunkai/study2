@@ -1,0 +1,1 @@
+Get-NetAdapter | Where-Object { $_.InterfaceDescription -match 'Wi-Fi' } | Select-Object -ExpandProperty Name

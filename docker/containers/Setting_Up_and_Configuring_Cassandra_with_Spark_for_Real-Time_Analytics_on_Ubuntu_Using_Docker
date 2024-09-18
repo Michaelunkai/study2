@@ -1,0 +1,159 @@
+Setting Up and Configuring Cassandra with Spark for Real-Time Analytics on Ubuntu Using Docker
+Prerequisites
+Ubuntu 20.04 or later
+Docker and Docker Compose installed
+Step 1: Install Docker and Docker Compose
+If you haven't already installed Docker and Docker Compose, you can do so with the following commands:
+
+Install Docker:
+ 
+ 
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+Install Docker Compose:
+ 
+ 
+sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '(?<=tag_name": ")([0-9]+\.[0-9]+\.[0-9]+)')" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+Step 2: Create a Docker Compose File
+Create a directory for your project and navigate into it:
+
+ 
+ 
+mkdir cassandra-spark
+cd cassandra-spark
+Create a docker-compose.yml file in this directory with the following content:
+
+ 
+ 
+version: '3.8'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+
+  spark-master:
+    image: bitnami/spark:latest
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+
+  spark-worker-1:
+    image: bitnami/spark:latest
+    container_name: spark-worker-1
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "8081:8081"
+    depends_on:
+      - spark-master
+
+volumes:
+  cassandra-data:
+Step 3: Start the Services
+Start the Cassandra and Spark services using Docker Compose:
+
+ 
+ 
+docker-compose up -d
+Step 4: Verify the Setup
+Check Cassandra:
+Connect to the Cassandra container:
+
+ 
+ 
+docker exec -it cassandra cqlsh
+Run a simple query to verify:
+
+ 
+ 
+SELECT release_version FROM system.local;
+Check Spark:
+Access the Spark web UI by navigating to http://localhost:8080 for the Spark master and http://localhost:8081 for the Spark worker in your web browser.
+
+Step 5: Add a New Spark Worker
+To add another Spark worker, update the docker-compose.yml file to include an additional worker service:
+
+ 
+ 
+spark-worker-2:
+  image: bitnami/spark:latest
+  container_name: spark-worker-2
+  environment:
+    - SPARK_MODE=worker
+    - SPARK_MASTER_URL=spark://spark-master:7077
+    - SPARK_RPC_AUTHENTICATION_ENABLED=no
+    - SPARK_RPC_ENCRYPTION_ENABLED=no
+    - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+    - SPARK_SSL_ENABLED=no
+  ports:
+    - "8082:8081"
+  depends_on:
+    - spark-master
+After updating the file, restart the services:
+
+ 
+ 
+docker-compose up -d
+Step 6: Verify the New Worker
+Check the Spark web UI (http://localhost:8080) to see the new worker registered with the Spark master.
+
+Step 7: Configure Spark to Use Cassandra
+To integrate Spark with Cassandra, you need to use the spark-cassandra-connector. You can do this by adding the necessary configurations in your Spark jobs. Here’s an example:
+
+Submit a Spark Job:
+Create a simple Spark application in Python, app.py, for example:
+
+ 
+ 
+from pyspark.  import SparkSession
+
+spark = SparkSession.builder \
+    .appName("CassandraSparkIntegration") \
+    .config("spark.cassandra.connection.host", "cassandra") \
+    .getOrCreate()
+
+df = spark.read \
+    .format("org.apache.spark. .cassandra") \
+    .options(table="your_table", keyspace="your_keyspace") \
+    .load()
+
+df.show()
+
+spark.stop()
+Submit the Job:
+You can submit the job to the Spark cluster using the spark-submit command. First, copy the app.py file to the spark-master container:
+
+ 
+ 
+docker cp app.py spark-master:/opt/bitnami/spark/app.py
+Then, submit the job:
+
+ 
+ 
+docker exec -it spark-master spark-submit --packages com.datastax.spark:spark-cassandra-connector_2.12:3.0.0 /opt/bitnami/spark/app.py
+Step 8: Monitor and Manage
+You can monitor the Spark job through the Spark web UI and manage the Cassandra database using cqlsh.
+
+Summary
+You have set up and configured Cassandra with Spark for real-time analytics on Ubuntu using Docker. You have also added an additional Spark worker to the setup. You can now develop and run Spark applications that leverage Cassandra as a data source.

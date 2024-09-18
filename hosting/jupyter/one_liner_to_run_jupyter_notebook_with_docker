@@ -1,0 +1,2 @@
+docker run -d --rm -p 8888:8888 -v /mnt/c/:/c/ jupyter/base-notebook:latest jupyter notebook --ip=0.0.0.0 --no-browser --allow-root && sleep 15 && cc && docker logs $(docker ps -q -l) | grep -o 'http://127.0.0.1:8888/?token=[a-z0-9]\{48\}' && sleep 10 && gc http://127.0.0.1:8888/tree
+

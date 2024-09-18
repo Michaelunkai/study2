@@ -1,0 +1,5 @@
+# Update Windows Terminal to the latest version using winget
+winget upgrade --id Microsoft.WindowsTerminal -e --source winget
+
+# Restart Windows Terminal to apply the update
+Start-Process -FilePath "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\WindowsTerminal.exe"

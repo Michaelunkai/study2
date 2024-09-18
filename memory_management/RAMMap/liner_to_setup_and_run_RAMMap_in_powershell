@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.sysinternals.com/files/RAMMap.zip -OutFile C:\Users\micha\Downloads\RAMMap.zip; Expand-Archive -Path C:\Users\micha\Downloads\RAMMap.zip -DestinationPath C:\Users\micha\Downloads\RAMMap; Start-Process -FilePath "C:\Users\micha\Downloads\RAMMap\RAMMap.exe" -ArgumentList "/E"

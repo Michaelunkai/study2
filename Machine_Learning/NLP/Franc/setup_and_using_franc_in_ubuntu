@@ -1,0 +1,96 @@
+Certainly! Franc is a lightweight, simple library for language detection in JavaScript. Here's a step-by-step guide on how to set up and use Franc on an Ubuntu system:
+
+### Prerequisites
+- Ensure you have Node.js and npm (Node Package Manager) installed on your Ubuntu system.
+
+### Step 1: Install Node.js and npm
+If Node.js and npm are not installed, you can install them using the following commands:
+
+1. Update your package list:
+     
+   sudo apt update
+
+2. Install Node.js and npm:
+     
+   sudo apt install nodejs npm
+
+3. Verify the installation:
+     
+   node -v
+   npm -v
+
+### Step 2: Set Up a New Project Directory
+1. Create a new directory for your project and navigate into it:
+     
+   mkdir franc-project
+   cd franc-project
+
+2. Initialize a new Node.js project:
+     
+   npm init -y
+
+### Step 3: Install Franc
+Install Franc using npm:
+  
+npm install franc
+
+### Step 4: Create a Script to Use Franc
+1. Create a new JavaScript file in your project directory, e.g., `detectLanguage.js`:
+     
+   touch detectLanguage.js
+
+2. Open `detectLanguage.js` with your preferred text editor and add the following code:
+    javascript
+   const franc = require('franc');
+   
+   // Sample text to detect language
+   const text = "Bonjour tout le monde";
+   
+   // Detect language
+   const langCode = franc(text);
+   
+   console.log(`Detected language code: ${langCode}`);
+
+### Step 5: Run the Script
+Execute your script using Node.js:
+  
+node detectLanguage.js
+
+You should see the detected language code printed in the terminal.
+
+### Example  
+For the sample text "Bonjour tout le monde", the output might be:
+Detected language code: fra
+
+### Additional Notes
+- Franc returns the ISO 639-3 language code. You might want to map these codes to human-readable language names using an additional library like `iso-639-3`.
+
+### Step 6: Mapping ISO 639-3 Codes to Language Names (Optional)
+1. Install the `iso-639-3` library:
+     
+   npm install iso-639-3
+
+2. Update `detectLanguage.js` to include the mapping:
+    javascript
+   const franc = require('franc');
+   const iso6393 = require('iso-639-3');
+   
+   const text = "Bonjour tout le monde";
+   const langCode = franc(text);
+   
+   const language = iso6393.find(l => l.iso6393 === langCode);
+   
+   if (language) {
+       console.log(`Detected language: ${language.name}`);
+   } else {
+       console.log(`Language code ${langCode} not found`);
+   }
+
+Run the script again:
+  
+node detectLanguage.js
+
+This time, you should see the full language name:
+Detected language: French
+
+That's it! You've successfully set up and used Franc for language detection on Ubuntu.

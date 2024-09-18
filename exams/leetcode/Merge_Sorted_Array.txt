@@ -1,0 +1,38 @@
+### Step 1: Rewrite the Entire Question
+You are given two integer arrays, `nums1` and `nums2`, which are sorted in non-decreasing order. You are also given two integers, `m` and `n`, representing the number of elements in `nums1` and `nums2` respectively.
+The task is to merge `nums1` and `nums2` into a single array sorted in non-decreasing order.
+The final sorted array should not be returned by the function, but instead should be stored inside the array `nums1`. To accommodate this, `nums1` has a length of `m + n`, where the first `m` elements denote the elements that should be merged, and the last `n` elements are set to 0 and should be ignored. `nums2` has a length of `n`.
+### Step 2: Explain the Entire Question Step by Step
+- You are given two arrays: `nums1` and `nums2`.
+- `nums1` contains `m` elements followed by `n` zeros, where `m` is the number of initial elements and `n` is the number of zeros at the end.
+- `nums2` contains `n` elements.
+- Your task is to merge the first `m` elements of `nums1` with all the elements of `nums2`.
+- The merged result should be stored in `nums1`.
+### Step 3: Full Answer Code without Comments
+class Solution:
+    def merge(self, nums1, m, nums2, n):
+        i = m - 1
+        j = n - 1
+        k = m + n - 1
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
+            else:
+                nums1[k] = nums2[j]
+                j -= 1
+            k -= 1
+### Step 4: Full Code with Comments for Each Line
+class Solution:
+    def merge(self, nums1, m, nums2, n):
+        i = m - 1  # Pointer for the end of actual elements in nums1
+        j = n - 1  # Pointer for the end of nums2
+        k = m + n - 1  # Pointer for the end of nums1 array
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]  # Place nums1[i] at the end
+                i -= 1  # Move the pointer in nums1
+            else:
+                nums1[k] = nums2[j]  # Place nums2[j] at the end
+                j -= 1  # Move the pointer in nums2
+            k -= 1  # Move the pointer for the next placement

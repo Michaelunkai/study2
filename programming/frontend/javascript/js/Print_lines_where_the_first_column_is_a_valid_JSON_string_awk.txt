@@ -1,0 +1,1 @@
+awk 'BEGIN {RS=","; FS=":"} $1 ~ /^{/ && $NF ~ /}$/' filename.txt

@@ -1,0 +1,27 @@
+Creating a Website or Game with Claude and Deploying it on GitHub Pages
+Step 1: Creating a Website or Game with Claude
+1. Writing the Prompt: Start by writing a prompt for Claude's large language model (or any other coding-capable model). For example:
+   "I am a math teacher for 6-7-year-olds, and I want to create an HTML game to teach addition up to 10, then up to 30, and finally up to 100..."
+   Paste the entire prompt into the chat with Claude.
+2. Receiving the Code: Claude will generate the code for your website or game. Download the files or copy the code to your computer.
+Step 2: Preparing the Local Folder
+1. Creating a Dedicated Folder: Create a folder on your computer and save all the files you received from Claude in it. Make sure the file names match what was mentioned in the prompt (e.g., index.html, styles.css, script.js).
+2. Adding Additional Resources: Ask Claude to create images and backgrounds for the game (e.g., background.png, victory.png) and save them in the folder.
+Step 3: Deploying the Website on GitHub Pages
+1. Signing Up for GitHub: Go to GitHub (https://github.com) and sign up (if you haven't already).
+2. Creating a New Repository:
+   - Click on the plus sign (+) in the top right corner and select New Repository.
+   - Name the repository, for example, Balloon-Game.
+   - Make sure the Public option is selected.
+   - Click Create repository.
+3. Uploading the Files:
+   - Select Upload an existing file.
+   - Drag all the files from your computer’s folder into GitHub.
+   - Click Commit changes.
+4. Enabling GitHub Pages:
+   - Go to the Settings tab.
+   - Select Pages from the left-hand menu.
+   - Under Build and deployment, choose Deploy from a branch.
+   - Select Main and Root, then click Save.
+5. Getting the Website Link: After a few minutes, return to the Pages section under Settings. There you will find the link to your website, for example: http://username.github.io/balloon-game.
+Note: Username is your GitHub username, and it will appear under the title Your site is published at.

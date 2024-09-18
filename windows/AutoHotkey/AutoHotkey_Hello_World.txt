@@ -1,0 +1,3 @@
+^!h::
+Send, Hello, World!
+return

@@ -1,0 +1,17 @@
+---
+- name: Update and Upgrade Docker Containers
+  hosts: docker
+  become: true
+
+  tasks:
+    - name: Update package lists
+      package_manager:
+        name: update_cache
+
+    - name: Upgrade packages
+      package_manager:
+        name: upgrade
+
+    - name: Remove unused packages
+      package_manager:
+        name: autoremove

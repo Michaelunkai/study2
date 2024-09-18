@@ -1,0 +1,1 @@
+ffmpeg -i input.mp3 -af "atempo=1.25" output.mp3

@@ -1,0 +1,1 @@
+find . -type f \( -iname ".mp4" -o -iname ".mkv" -o -iname ".avi" -o -iname ".mov" \) -exec mv -t . {} + && find . -mindepth 1 -type d -exec rm -r {} + && find . -mindepth 1 -type d -exec rm -r {} \;

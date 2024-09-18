@@ -1,0 +1,23 @@
+DisplayFusion: Enhancing Multi-Monitor Setups on Windows
+Overview
+DisplayFusion is a powerful Windows tool designed to optimize and enhance multi-monitor setups. It offers a range of features to improve productivity, customization, and overall user experience for individuals working with multiple screens.
+Key Features
+1. Multi-Monitor Taskbars:
+   - Adds taskbars to each monitor.
+   - Facilitates easy management and organization of open windows on each screen.
+2. Window Management:
+   - Provides functions to effortlessly move and resize windows across multiple monitors.
+3. Wallpaper Management:
+   - Enables the use of different wallpapers on each monitor.
+   - Allows spanning a single image across all monitors for a cohesive look.
+4. Monitor Configuration:
+   - Offers advanced settings to adjust resolution, orientation, and other display configurations for each monitor.
+5. Triggers:
+   - Automates actions based on specific events, such as opening a program or changing monitor configurations.
+6. Remote Control:
+   - Lets you control your monitors and DisplayFusion settings from your phone or tablet.
+7. Customizable HotKeys:
+   - Allows assignment of custom hotkeys for various actions like moving windows between monitors, minimizing windows, or changing profiles.
+Benefits
+DisplayFusion aims to make working with multiple monitors easier and more efficient. It provides users with a high degree of customization and control over their display environment, enhancing both productivity and the overall user experience.
+For more information and to download DisplayFusion, visit the official website: https://www.displayfusion.com/

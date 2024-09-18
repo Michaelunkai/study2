@@ -1,0 +1,40 @@
+1. Bubble
+   Description: A powerful no-code platform for building web applications with a visual editor and robust backend capabilities.
+   Use Case: Web apps, startups, MVPs.
+   Website: https://bubble.io
+2. Adalo
+   Description: A no-code tool for creating mobile apps with drag-and-drop functionality.
+   Use Case: Mobile apps, prototypes.
+   Website: https://www.adalo.com
+3. Glide
+   Description: Turns Google Sheets into mobile apps without coding.
+   Use Case: Simple mobile apps, internal tools.
+   Website: https://www.glideapps.com
+4. Airtable
+   Description: A spreadsheet-database hybrid with robust automation and app-building features.
+   Use Case: Data management, automation, internal tools.
+   Website: https://www.airtable.com
+5. Webflow
+   Description: A web design tool that allows users to create responsive websites visually.
+   Use Case: Websites, landing pages, e-commerce.
+   Website: https://www.webflow.com
+6. Thunkable
+   Description: A platform for building native mobile apps with a simple drag-and-drop interface.
+   Use Case: Mobile apps for iOS and Android.
+   Website: https://www.thunkable.com
+7. Appgyver
+   Description: A no-code platform for creating sophisticated mobile and web apps.
+   Use Case: Enterprise-grade apps, cross-platform apps.
+   Website: https://www.appgyver.com
+8. AppSheet
+   Description: A no-code development platform for building mobile apps directly from your data sources.
+   Use Case: Business apps, data-driven apps.
+   Website: https://www.appsheet.com
+9. OutSystems
+   Description: A low-code platform with extensive no-code capabilities for building enterprise applications.
+   Use Case: Enterprise applications, complex workflows.
+   Website: https://www.outsystems.com
+10. Zapier
+    Description: A tool that allows users to automate workflows by connecting different apps and services.
+    Use Case: Automation, workflow integration.
+    Website: https://www.zapier.com

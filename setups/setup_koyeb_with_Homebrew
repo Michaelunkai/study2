@@ -1,0 +1,9 @@
+Homebrew
+If you have Homebrew installed on your computer, you can install the CLI by running:
+
+brew install koyeb/tap/koyeb
+
+
+To upgrade an existing installation of the Koyeb CLI, run:
+
+brew upgrade koyeb

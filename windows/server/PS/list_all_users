@@ -1,0 +1,5 @@
+# List all users in Active Directory
+Get-ADUser -Filter *
+
+# List all users on the local system
+Get-LocalUser

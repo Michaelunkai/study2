@@ -1,0 +1,15 @@
+2FA (Two-Factor Authentication) and MFA (Multi-Factor Authentication) are both methods used to enhance security by requiring more than just a password for user authentication. Here's how they differ:
+
+1. **Two-Factor Authentication (2FA)**:
+   - **Definition**: 2FA requires two different factors for authentication. Typically, these factors fall into three categories: something you know (like a password), something you have (like a smartphone or hardware token), or something you are (biometric data).
+   - **Example**: Logging into an account with a password (something you know) and then receiving a code on your smartphone (something you have) that you need to enter to complete the login.
+
+2. **Multi-Factor Authentication (MFA)**:
+   - **Definition**: MFA goes beyond 2FA by requiring more than two factors for authentication. It adds an additional layer of security by requiring at least two or more factors from different categories.
+   - **Example**: Logging into an account with a password (something you know), receiving a code on your smartphone (something you have), and scanning a fingerprint (something you are) to complete the login.
+
+**Key Differences**:
+- **Number of Factors**: 2FA requires two factors, while MFA involves two or more factors.
+- **Security Depth**: MFA provides a higher level of security compared to 2FA because it requires multiple factors, making it harder for unauthorized users to gain access.
+
+In summary, while both 2FA and MFA aim to enhance security by requiring additional authentication beyond passwords, MFA provides an extra layer of protection by requiring multiple factors for authentication.

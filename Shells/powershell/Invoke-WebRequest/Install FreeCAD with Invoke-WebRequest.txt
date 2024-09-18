@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://github.com/FreeCAD/FreeCAD/releases/download/0.19.2/FreeCAD-0.19.2-WIN-x64-installer.exe -OutFile freecad_installer.exe; Start-Process freecad_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

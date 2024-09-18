@@ -1,0 +1,72 @@
+▲A  A▼
+Running A Docker Host in a Proxmox VE LXC Linux Container [CT]
+Creating the Container
+Log into the Proxmox VE web UI
+Select a storage device from the left navigation that allows storing Container templates
+Select CT Templates from the left sub-navigation menu
+Click the Templates button
+Search for core > Click TurnKey Core to select it > Click the Download button
+After the download completes, close the download dialog
+Right click the Proxmox node name > Create CT
+Enter the Hostname Docker, Password and Confirm the password > Next
+Select the Storage where the container template was downloaded and select the TurnKey Core container template > Click Next
+Set the Storage device to save the container to > Click Next
+Leave the defaults on the CPU tab > Next
+On the Memory tab, set the Memory to 2048 > Next
+Leave the defaults on the Network tab, setup a static IP address if needed (I prefer to set this from my router) > Next
+Leave the defaults on the DNS tab > Next
+Verify the summary and click Finish
+After the container creation completes, close the download dialog
+Right click the Docker LXC container in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Installing Updates and Docker
+Log into the container with the username root and the password set during the setup
+On the Initialize Hub services dialog, press tab and select Skip > Press Enter
+On the System Notifications dialog, press tab and select Skip > Press Enter
+On the Security updates dialog, press tab to select Install to enable automatic updates or Skip > Press Enter
+Press Enter to select Advanced Menu
+Arrow down and select Quit > Press Enter > Select Yes to confirm > Press Enter
+Run the following commands to install updates
+# update software repositories
+apt update
+# install available software updates
+apt upgrade -y
+# clean apt cache
+apt clean
+# reboot the container
+reboot now
+Log back into the container
+Run the following commands to install Docker
+# install prerequisites
+apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | apt-key add -
+# add docker apt repository
+add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# update software repositories
+apt update
+# install docker
+apt install docker-ce docker-compose containerd.io -y
+Welcome to your LXC Docker host
+At this point you can use docker run and docker-compose to run containers from the terminal
+Documentation: https://docs.docker.com/engine/reference/commandline/docker/
+
+Optionally Install Portainer (Recommended)
+Portainer is an open source tool for managing container-based software applications in Kubernetes, Docker, Docker Swarm, Azure ACI and edge environments.
+
+It can be used to set up and manage environments, deploy applications, monitor app performance and triage problems. It is used by software engineers, devops and infrastructure teams all over the world to simplify processes, reduce risk and streamline operations.
+
+Run the following commands to start a Portainer container in Docker
+# create a working directory for portainer
+mkdir ~/docker/portainer_data -p
+# run the portainer container
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v ~/docker/portainer_data:/data portainer/portainer-ce
+# output the ip docker host address
+ip addr
+Open a web browser and navigate to http://DNSorIP:9000
+Set an administrator username and password > Click Create user
+Click the Docker - Manage the local Docker environment option > Click Connect
+Welcome to Portainer, Docker container management from a web browser
+Documentation: https://www.portainer.io/installation/
+
+ 

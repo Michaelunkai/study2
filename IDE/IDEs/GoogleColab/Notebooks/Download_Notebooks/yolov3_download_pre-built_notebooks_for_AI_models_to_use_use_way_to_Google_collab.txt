@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/AlexeyAB/darknet/blob/master/darknet_yolo_v3.ipynb -O yolov3.ipynb

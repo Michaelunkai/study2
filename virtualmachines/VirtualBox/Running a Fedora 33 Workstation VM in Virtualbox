@@ -1,0 +1,67 @@
+Running a Fedora 33 Workstation VM in Virtualbox
+Download Fedora Workstation Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Fedora Workstation
+Machine Folder: C:\VMs
+Type: Linux
+Version: Fedora (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Fedora Workstation.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Fedora Workstation .iso file
+Click OK
+Make sure the Fedora Workstation VM is selected and click Start > Normal
+Press Enter to start Fedora Workstation Live
+Press Escape to stop the disk check
+When the welcome dialog displays click Install to Hard Drive
+Select a language > Click Continue
+Adjust the keyboard and time zone data if needed
+Click the Installation Destination button
+Click Done to accept the default values
+Click Begin Installation
+Wait for the installation to complete copying files
+Once complete, Click Devices > Optical Drives > Remove disk from virtual drive
+Select Force unmount
+Click Finish Installation, the VM will reboot
+Click Next
+Disable Location Services and Automatic Problem Reporting > Click Next
+Click Skip
+Enter a name and username > Click Next
+Set a password and confirm > Click Next
+Click Start Using Fedora
+Welcome to Fedora Workstation
+Optional Steps
+Click the Activities button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+sudo dnf check-update
+sudo dnf update
+sudo dnf clean all
+sudo dnf install dkms kernel-devel gcc bzip2 make curl
+sudo dnf update kernel-*
+Select Devices > Insert Guest Additions CD image...
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open in terminal
+In the Terminal window run the following commands
+sudo sh ./VBoxLinuxAdditions.run
+sudo reboot now
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Fedora

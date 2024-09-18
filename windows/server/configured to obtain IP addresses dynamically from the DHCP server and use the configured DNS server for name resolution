@@ -1,0 +1,29 @@
+Configure DHCP Client:
+On a Windows Client Machine:
+Open the "Network and Sharing Center."
+Click on "Change adapter settings."
+Right-click on your network adapter and select "Properties."
+Select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties."
+Choose "Obtain an IP address automatically" and "Obtain DNS server address automatically."
+Click "OK" to save the changes.
+Test DHCP and DNS:
+Renew IP Address:
+
+Open Command Prompt on a client machine.
+Run the following command to renew the IP address from the DHCP server:
+powershell
+Copy code
+ipconfig /renew
+Verify DNS Resolution:
+
+Run the following command to check if DNS resolution is working:
+powershell
+Copy code
+nslookup micha.com
+Verify DHCP Lease:
+
+Run the following command to check DHCP lease information:
+powershell
+Copy code
+ipconfig /all
+Ensure that the client receives a valid IP address from the DHCP server and can resolve DNS names.

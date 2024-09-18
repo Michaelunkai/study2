@@ -1,0 +1,55 @@
+Step 1: Update Your Package Lists
+Before making any changes, ensure that your package lists are up-to-date.
+
+ 
+ 
+sudo apt update
+Step 2: Install the Hebrew Language Pack
+Install the necessary language pack for Hebrew:
+
+ 
+ 
+sudo apt install language-pack-he
+Step 3: Configure the Language Settings
+Configure the locale settings to include Hebrew:
+
+ 
+ 
+sudo dpkg-reconfigure locales
+Scroll down and select the Hebrew locale (he_IL.UTF-8 UTF-8) using the space bar.
+Press Enter to confirm.
+Choose the default locale for the system (you can select Hebrew if desired).
+Step 4: Fix Ownership of /etc/sudoers.d Directory and Files
+4.1 Change Ownership of /etc/sudoers.d Directory
+Ensure the /etc/sudoers.d directory is owned by root:
+
+ 
+ 
+sudo chown root:root /etc/sudoers.d
+4.2 Change Ownership of Files Inside /etc/sudoers.d
+Correct the ownership of the README file and any other files inside the /etc/sudoers.d directory:
+
+ 
+ 
+sudo chown root:root /etc/sudoers.d/*
+4.3 Verify the Ownership
+Check that all files in the /etc/sudoers.d directory are now owned by root:
+
+ 
+ 
+ls -l /etc/sudoers.d/
+Ensure that the output shows root root as the owner and group for all files.
+
+Step 5: Apply the Hebrew Locale
+With the ownership corrected, you can now set the Hebrew locale:
+
+ 
+ 
+sudo update-locale LANG=he_IL.UTF-8
+Step 6: Reboot the System
+Reboot your system to apply the changes:
+
+ 
+ 
+sudo reboot
+After rebooting, Hebrew language support should be successfully enabled on your Ubuntu Command Line (CT).

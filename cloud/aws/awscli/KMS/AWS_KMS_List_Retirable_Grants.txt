@@ -1,0 +1,1 @@
+aws kms list-retirable-grants --retiring-principal <principal>

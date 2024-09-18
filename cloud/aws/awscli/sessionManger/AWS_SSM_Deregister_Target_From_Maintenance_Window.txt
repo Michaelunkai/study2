@@ -1,0 +1,1 @@
+aws ssm deregister-target-from-maintenance-window --window-id <window-id> --window-target-id <target-id>

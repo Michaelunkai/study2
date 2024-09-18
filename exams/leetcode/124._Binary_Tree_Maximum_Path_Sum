@@ -1,0 +1,97 @@
+### Problem Statement (Explained Like You're 12):
+
+You have a binary tree, which is like a family tree but each parent can have at most two children. You need to find the path in this tree that gives you the highest sum of values. A path is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. The path does not need to start or end at the root or a leaf, but it must be a continuous path.
+
+For example, if you have a tree like this:
+```
+     1
+    / \
+   2   3
+```
+The best path is 2 -> 1 -> 3, which gives you a sum of 6.
+
+### Python Solution:
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        self.max_sum = float('-inf')
+        
+        def helper(node):
+            if not node:
+                return 0
+            
+            left_gain = max(helper(node.left), 0)
+            right_gain = max(helper(node.right), 0)
+            
+            current_path_sum = node.val + left_gain + right_gain
+            
+            self.max_sum = max(self.max_sum, current_path_sum)
+            
+            return node.val + max(left_gain, right_gain)
+        
+        helper(root)
+        return self.max_sum
+```
+
+### Explanation of the Code:
+
+1. **TreeNode Class**:
+    ```python
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val = val
+            self.left = left
+            self.right = right
+    ```
+    - This defines a node in the binary tree with a value, a left child, and a right child.
+
+2. **Solution Class and Method**:
+    ```python
+    class Solution:
+        def maxPathSum(self, root: Optional[TreeNode]) -> int:
+            self.max_sum = float('-inf')
+            
+            def helper(node):
+                if not node:
+                    return 0
+                
+                left_gain = max(helper(node.left), 0)
+                right_gain = max(helper(node.right), 0)
+                
+                current_path_sum = node.val + left_gain + right_gain
+                
+                self.max_sum = max(self.max_sum, current_path_sum)
+                
+                return node.val + max(left_gain, right_gain)
+            
+            helper(root)
+            return self.max_sum
+    ```
+
+    - **maxPathSum** method finds the maximum path sum in the binary tree.
+    - **self.max_sum = float('-inf')**: Initialize `max_sum` to negative infinity to ensure any path sum will be higher.
+    - **helper(node)**: A recursive function that calculates the maximum gain from each node.
+        - If the node is `None`, return 0.
+        - **left_gain**: Calculate the maximum gain from the left child, ignoring negative paths.
+        - **right_gain**: Calculate the maximum gain from the right child, ignoring negative paths.
+        - **current_path_sum = node.val + left_gain + right_gain**: Calculate the current path sum through the node.
+        - **self.max_sum = max(self.max_sum, current_path_sum)**: Update the maximum path sum if the current path sum is greater.
+        - **return node.val + max(left_gain, right_gain)**: Return the maximum gain that can be obtained from the current node to its parent.
+    - **helper(root)**: Call the helper function starting from the root.
+    - **return self.max_sum**: Return the maximum path sum found.
+
+### Summary:
+
+1. Define a helper function that recursively calculates the maximum gain from each node.
+2. For each node, calculate the maximum gain from its left and right children.
+3. Update the maximum path sum if the path through the current node is greater.
+4. Return the maximum gain that can be obtained from the current node to its parent.
+5. Call the helper function starting from the root and return the maximum path sum found.

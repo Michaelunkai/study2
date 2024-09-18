@@ -1,0 +1,1 @@
+dokku ps:scale myapp web=2 worker=1

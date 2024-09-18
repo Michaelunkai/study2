@@ -1,0 +1,12 @@
+Create an Index:
+
+db.mycollection.createIndex({ name: 1 })
+Create a Compound Index:
+
+db.mycollection.createIndex({ name: 1, age: -1 })
+Create a Text Index:
+
+db.mycollection.createIndex({ description: "text" })
+Create a Geospatial Index:
+
+db.mycollection.createIndex({ location: "2dsphere" })

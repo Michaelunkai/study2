@@ -1,0 +1,34 @@
+# A Crash Course in Proximal Policy Optimization
+
+## Introduction to Reinforcement Learning Algorithms
+
+Policy gradient and actor critic algorithms are essential tools for designing agents that interact with environments with continuous action spaces. Traditional value-based algorithms, like Deep Q Learning, are not suitable for these continuous spaces. Discretizing the action space introduces significant issues, such as the inability to learn a truly optimal policy if the bins are not fine-grained enough.
+
+## Challenges with Actor Critic Methods
+
+Actor critic methods, despite their effectiveness, face significant drawbacks. One common issue is the unexplained drop in agent performance. This happens because, in deep reinforcement learning, we use neural networks to approximate mathematical functions, particularly the optimal policy. The true optimal policy's dependence on environmental parameters is much less elastic than the neural network's dependence on its internal parameters. Small changes in the network parameters can lead to large, often detrimental changes in the true policy.
+
+## Trust Region Policy Optimization (TRPO)
+
+One solution to this problem is introducing trust regions. If an agent's performance is reasonable, the corresponding parameter space region likely represents a suboptimal yet acceptable policy. Constraining changes to the neural network to stay within this region prevents drastic performance drops. This concept was implemented in Trust Region Policy Optimization (TRPO), which maximizes a surrogate objective subject to a constraint involving the KL divergence, a measure of divergence between two distributions.
+
+## Proximal Policy Optimization (PPO)
+
+In 2017, OpenAI introduced Proximal Policy Optimization (PPO), which builds on TRPO. PPO has become an industry standard due to its applicability to both continuous and discrete action spaces and its suitability for multithreaded learning systems.
+
+### PPO Loss Function
+
+PPO uses the following loss function:
+
+\[ L^{CLIP}(\theta) = \hat{\mathbb{E}}_t \left[ \min(r_t(\theta)\hat{A}_t, \text{clip}(r_t(\theta), 1 - \epsilon, 1 + \epsilon)\hat{A}_t) \right] \]
+
+where \( r_t(\theta) \) is the ratio of the new policy to the old policy, \( \hat{A}_t \) is the advantage function, and \( \epsilon \) is a hyperparameter (usually around 0.2). This function aims to maximize the probability of advantageous actions while ensuring the policy doesn't change more than approximately 20%.
+
+### Implementation Details
+
+The loss function is combined with a stochastic minibatch gradient descent algorithm. This alternates between collecting data for \( T \) time steps (e.g., 2048 steps) and performing 10 epochs of updates on batches of 64 transitions. The memory is then reset, and the agent resumes play. This approach allows the agent to navigate environments with both continuous and discrete action spaces while maintaining performance stability.
+
+## Conclusion
+
+Proximal Policy Optimization has revolutionized reinforcement learning by offering a robust solution for continuous and discrete action spaces. For a deeper dive, check out our detailed course and video tutorials on implementing PPO using PyTorch and TensorFlow 2.
+

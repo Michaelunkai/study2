@@ -1,0 +1,38 @@
+zypper
+zypper is the package manager for SUSE Linux, used for installing, updating, and removing software packages.
+
+a. Refresh Repositories
+sh
+ 
+sudo zypper refresh
+This command updates the list of available packages and their versions.
+
+b. Install a Package
+sh
+ 
+sudo zypper install [package_name]
+Replace [package_name] with the name of the package you want to install.
+
+c. Remove a Package
+sh
+ 
+sudo zypper remove [package_name]
+This command removes the specified package.
+
+d. Search for a Package
+sh
+ 
+zypper search [search_term]
+Search for packages matching the search term.
+
+e. Update All Packages
+sh
+ 
+sudo zypper update
+This command updates all installed packages to their latest versions.
+
+f. List All Installed Packages
+sh
+ 
+zypper list-updates
+This command lists all packages that have available updates.

@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -f ffmetadata metadata.txt

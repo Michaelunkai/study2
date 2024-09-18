@@ -1,0 +1,12 @@
+Add OpenFire Instant Messaging in Mozilla Thunderbird
+Launch Mozilla Thunderbird
+Select File > New > Chat Account...
+Select XMPP > Click Next
+Input the OpenFire username and domain > Click Next
+Input the chat user passwords > Click Next
+Set the Local Alias field
+From the Connection security dropdown, select Require encryption is SSL has been setup, otherwise select Use encryption if available
+In the Server field enter the IP address or DNS name for the OpenFire server
+Click Next
+Click Finish
+Enjoy instant messaging inside the Thunderbird e-mail client

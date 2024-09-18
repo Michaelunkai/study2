@@ -1,0 +1,35 @@
+Handling Inbound Calls and SMS
+To handle inbound calls and SMS, you need a web server. This example uses Flask to set up a basic server for handling inbound SMS.
+
+Setting Up a Flask Server for Inbound SMS
+Install Flask:
+
+ 
+ 
+pip3 install Flask
+Create a file named app.py.
+
+Open app.py in a text editor and add the following code:
+
+ 
+ 
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/sms", methods=['POST'])
+def sms():
+    from_number = request.form.get('From')
+    to_number = request.form.get('To')
+    text = request.form.get('Text')
+    print(f"Received SMS from {from_number} to {to_number}: {text}")
+    return "OK"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+Run the Flask server:
+
+ 
+ 
+ 3 app.py
+In the Plivo dashboard, configure your Plivo number to send incoming SMS to http://YOUR_SERVER_IP:5000/sms.

@@ -1,0 +1,12 @@
+Access OpenVAS Web Interface
+Retrieve the admin password:
+
+ 
+ 
+sudo cat /var/lib/gvm/.config/gvm-password
+Open a web browser and go to:
+
+arduino
+ 
+https://localhost:9392
+Log in using the username admin and the password retrieved in the previous step.

@@ -1,0 +1,56 @@
+### Solution for LeetCode Problem: 462. Minimum Moves to Equal Array Elements II
+
+To solve this problem, the optimal strategy is to use the median of the array. The median minimizes the sum of absolute deviations from all other numbers in the array. Therefore, the minimum number of moves to make all array elements equal is achieved by making all elements equal to the median.
+
+Here's a step-by-step explanation and the implementation in Python:
+
+1. **Sort the Array**: Sort the array to find the median.
+2. **Find the Median**: The median is the middle element of the sorted array. If the array length is odd, the median is the middle element. If the length is even, any of the two middle elements can be considered the median.
+3. **Calculate Moves**: Sum the absolute differences between each element and the median.
+
+Let's implement this in Python:
+
+```python
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        # Sort the array
+        nums.sort()
+        
+        # Find the median
+        median = nums[len(nums) // 2]
+        
+        # Calculate the total moves required to make all elements equal to the median
+        total_moves = sum(abs(num - median) for num in nums)
+        
+        return total_moves
+```
+
+### Explanation:
+
+1. **Sorting**:
+    - Sorting the array helps us easily find the median.
+    - Example: `nums = [1, 2, 3]` => Sorted: `[1, 2, 3]`
+
+2. **Finding the Median**:
+    - For an odd-length array: The median is the middle element.
+    - For an even-length array: We can choose any of the two middle elements.
+    - Example: For `nums = [1, 2, 3]`, the median is `2`.
+
+3. **Calculating Moves**:
+    - We calculate the sum of absolute differences between each element and the median.
+    - Example: For `nums = [1, 2, 3]` and median `2`, the moves are:
+        - `|1 - 2| + |2 - 2| + |3 - 2| = 1 + 0 + 1 = 2`.
+
+### Complexity:
+- **Time Complexity**: O(n log n) due to sorting the array.
+- **Space Complexity**: O(1) if sorting in-place, otherwise O(n).
+
+### Example Walkthrough:
+
+For `nums = [1, 10, 2, 9]`:
+- Sorted array: `[1, 2, 9, 10]`
+- Median: `9` (or `2`, the result will be the same)
+- Moves calculation: 
+    - Using median `9`: `|1 - 9| + |2 - 9| + |9 - 9| + |10 - 9| = 8 + 7 + 0 + 1 = 16`.
+
+Thus, the minimum number of moves required to make all array elements equal is `16`.

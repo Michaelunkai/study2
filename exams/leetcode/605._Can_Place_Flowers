@@ -1,0 +1,42 @@
+Here is the solution for the problem "605. Can Place Flowers":
+
+```python
+from typing import List
+
+class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        count = 0
+        length = len(flowerbed)
+        
+        for i in range(length):
+            if flowerbed[i] == 0:
+                prev_empty = (i == 0) or (flowerbed[i - 1] == 0)
+                next_empty = (i == length - 1) or (flowerbed[i + 1] == 0)
+                
+                if prev_empty and next_empty:
+                    flowerbed[i] = 1
+                    count += 1
+            
+            if count >= n:
+                return True
+        
+        return count >= n
+
+# Example usage:
+solution = Solution()
+print(solution.canPlaceFlowers([1, 0, 0, 0, 1], 1))  # Output: True
+print(solution.canPlaceFlowers([1, 0, 0, 0, 1], 2))  # Output: False
+```
+
+### Explanation
+1. **Class Definition**: We define a `Solution` class with the `canPlaceFlowers` method.
+2. **Method Parameters**: The `canPlaceFlowers` method takes a list `flowerbed` and an integer `n`.
+3. **Initial Setup**: We initialize a counter `count` to keep track of how many flowers we can plant.
+4. **Loop Through Flowerbed**:
+   - We iterate through each plot in the flowerbed.
+   - For each plot, we check if it is empty (`flowerbed[i] == 0`).
+   - We check if the previous plot (`flowerbed[i - 1]`) is empty (or if it's the first plot), and if the next plot (`flowerbed[i + 1]`) is empty (or if it's the last plot).
+   - If both adjacent plots are empty, we can plant a flower at `flowerbed[i]`, set `flowerbed[i] = 1` to mark it as planted, and increment the counter `count`.
+5. **Return Result**: If the counter `count` is greater than or equal to `n`, return `True`. Otherwise, return `False`.
+
+This solution ensures we only plant flowers where allowed and checks if we can plant the required number of flowers.

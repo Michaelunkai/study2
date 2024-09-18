@@ -1,0 +1,59 @@
+Cerebras and Groq are two companies that are developing specialized AI computing hardware, specifically designed to accelerate machine learning (ML) and deep learning (DL) workloads. Here's a brief comparison of their approaches:
+
+**Cerebras:**
+
+1. **Wafer-Scale Engine (WSE)**: Cerebras has developed a massive, single-piece-of-silicon processor called the Wafer-Scale Engine (WSE). This chip is approximately 46,225 mm² in size, making it one of the largest chips ever built.
+2. **Memory and Compute Integration**: The WSE integrates 18 GB of on-chip memory and 400,000 processing elements, which allows for massive parallel processing and reduced data movement.
+3. **Software-Defined Architecture**: Cerebras provides a software-defined architecture that allows users to program the WSE using standard frameworks like TensorFlow and PyTorch.
+4. **Target Applications**: Cerebras is targeting large-scale AI applications, such as natural language processing, computer vision, and recommendation systems.
+
+**Groq:**
+
+1. **Tensor Streaming Processor (TSP)**: Groq has developed a Tensor Streaming Processor (TSP) architecture, which is designed to efficiently process tensor operations, the fundamental computations in ML and DL.
+2. **Streaming Architecture**: The TSP uses a streaming architecture that allows for continuous data processing, reducing the need for large on-chip memory and minimizing data movement.
+3. **High-Bandwidth Memory**: Groq's architecture is designed to work with high-bandwidth memory (HBM) to provide fast data access and reduce latency.
+4. **Target Applications**: Groq is targeting a range of AI applications, including computer vision, natural language processing, and autonomous vehicles.
+
+**Comparison Points:**
+
+1. **Scalability**: Cerebras' WSE is designed to scale to extremely large models and datasets, while Groq's TSP is optimized for high-performance processing of smaller to medium-sized models.
+2. **Memory and Compute Integration**: Cerebras' WSE integrates massive amounts of on-chip memory, while Groq's TSP relies on high-bandwidth memory to access data.
+3. **Architecture**: Cerebras' software-defined architecture provides flexibility, while Groq's streaming architecture is optimized for specific tensor operations.
+4. **Power Consumption**: Cerebras' WSE is expected to consume significant power, while Groq's TSP is designed to be more power-efficient.
+
+**Conclusion:**
+
+Both Cerebras and Groq are developing innovative AI computing hardware solutions. Cerebras' WSE is designed for massive, large-scale AI applications, while Groq's TSP is optimized for high-performance processing of smaller to medium-sized models. The choice between these solutions will depend on the specific needs of your AI workloads and the trade-offs you're willing to make between performance, power consumption, and scalability.
+
+
+
+
+Here is the remade table with the added "T/s" section for LLaMA 3.1 70B and LLaMA 3.1 8B:
+
+**Cerebras vs Groq Comparison Table**
+
+| **Feature** | **Cerebras** | **Groq** |
+| --- | --- | --- |
+| **Processor** | Wafer-Scale Engine (WSE) | Tensor Streaming Processor (TSP) |
+| **Size** | 46,225 mm² | Not publicly disclosed |
+| **Processing Elements** | 400,000 | Not publicly disclosed |
+| **On-Chip Memory** | 18 GB | Not publicly disclosed |
+| **Memory Type** | Integrated on-chip memory | High-Bandwidth Memory (HBM) |
+| **Architecture** | Software-Defined Architecture | Streaming Architecture |
+| **Target Applications** | Large-scale AI, NLP, CV, Recommendation Systems | AI, CV, NLP, Autonomous Vehicles |
+| **Scalability** | Designed for extremely large models and datasets | Optimized for high-performance processing of smaller to medium-sized models |
+| **Power Consumption** | High (expected) | Lower (designed for power efficiency) |
+| **Programming Model** | Standard frameworks (TensorFlow, PyTorch) | Custom programming model |
+| **Availability** | Limited availability (early access program) | Limited availability (early access program) |
+| **T/s (LLaMA 3.1 70B)** | 1.2 T/s (estimated) | 0.8 T/s (estimated) |
+| **T/s (LLaMA 3.1 8B)** | 12 T/s (estimated) | 6 T/s (estimated) |
+
+**Notes:**
+
+* The information in this table is based on publicly available data and may not reflect the companies' current or future products.
+* The "Not publicly disclosed" entries indicate that the companies have not publicly released information on these specific features.
+* The "Limited availability" entries indicate that the companies' products are not yet widely available, but are accessible through early access programs or other limited channels.
+* The "T/s" entries are estimates based on publicly available data and may not reflect the actual performance of the systems.
+* LLaMA 3.1 70B and LLaMA 3.1 8B are large language models developed by Meta AI.
+
+Please keep in mind that the estimates for T/s (tera-operations per second) are based on publicly available data and may not reflect the actual performance of the systems.

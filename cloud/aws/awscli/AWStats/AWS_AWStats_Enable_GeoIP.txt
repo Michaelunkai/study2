@@ -1,0 +1,2 @@
+sudo apt-get install libgeo-ip-perl && sudo nano /etc/awstats/awstats.mywebsite.conf
+LoadPlugin="geoip GEOIP_STANDARD /usr/share/GeoIP/GeoIP.dat"

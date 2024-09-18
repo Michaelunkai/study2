@@ -1,0 +1,45 @@
+To solve the problem of determining if a student is eligible for an attendance award based on the given criteria, we can iterate through the string to check the following conditions:
+
+1. The student was absent ('A') for strictly fewer than 2 days total.
+2. The student was never late ('L') for 3 or more consecutive days.
+
+We'll maintain a counter for absences and check for three consecutive 'L's during a single pass through the string. 
+
+Here's the Python code to implement this logic:
+
+```python
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        absents = 0
+        consecutive_lates = 0
+        
+        for char in s:
+            if char == 'A':
+                absents += 1
+                if absents >= 2:
+                    return false
+                consecutive_lates = 0  # Reset consecutive lates because it's not 'L'
+            elif char == 'L':
+                consecutive_lates += 1
+                if consecutive_lates >= 3:
+                    return False
+            else:
+                consecutive_lates = 0  # Reset consecutive lates because it's not 'L'
+                
+        return True
+
+# Example usage:
+solution = Solution()
+print(solution.checkRecord("PPALLP"))  # Output: True
+print(solution.checkRecord("PPALLL"))  # Output: False
+```
+
+### Explanation:
+1. **Initialize Counters**: `absents` to count the number of absences and `consecutive_lates` to count consecutive 'L's.
+2. **Iterate Through the String**: For each character in the string:
+    - If the character is 'A', increment the `absents` counter. If the counter reaches 2, return `False` immediately since the student is not eligible.
+    - If the character is 'L', increment the `consecutive_lates` counter. If the counter reaches 3, return `False` immediately.
+    - If the character is 'P' or any other character, reset the `consecutive_lates` counter to 0.
+3. **Return True**: If neither of the disqualifying conditions are met during the iteration, return `True`.
+
+This code ensures that we efficiently check both conditions in a single pass through the string, resulting in a time complexity of O(n), where n is the length of the string. The space complexity is O(1) since we only use a few integer variables for counting.

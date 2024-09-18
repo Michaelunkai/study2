@@ -1,0 +1,9 @@
+Test Mosquitto:
+ 
+ 
+mosquitto_sub -h localhost -t test
+Open another terminal and publish a message:
+
+ 
+ 
+mosquitto_pub -h localhost -t test -m "Hello, World!"

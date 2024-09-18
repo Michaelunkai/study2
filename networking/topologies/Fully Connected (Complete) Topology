@@ -1,0 +1,30 @@
+Fully Connected (Complete) Topology
+In a fully connected topology, each device is connected to every other device in the network.
+
+Steps:
+Set Up Network Interfaces:
+Bring up all the network interfaces.
+
+sudo ip link set eth0 up
+sudo ip link set eth1 up
+sudo ip link set eth2 up
+sudo ip link set eth3 up
+sudo ip link set eth4 up
+Assign IP Addresses:
+
+sudo ip addr add 192.168.1.2/24 dev eth0
+sudo ip addr add 192.168.1.3/24 dev eth1
+sudo ip addr add 192.168.1.4/24 dev eth2
+sudo ip addr add 192.168.1.5/24 dev eth3
+sudo ip addr add 192.168.1.6/24 dev eth4
+Enable IP Forwarding:
+
+sudo sysctl -w net.ipv4.ip_forward=1
+Configure Routing:
+Set up routing rules to ensure full connectivity between all devices.
+
+sudo ip route add 192.168.1.0/24 dev eth0
+sudo ip route add 192.168.1.0/24 dev eth1
+sudo ip route add 192.168.1.0/24 dev eth2
+sudo ip route add 192.168.1.0/24 dev eth3
+sudo ip route add 192.168.1.0/24 dev eth4

@@ -1,0 +1,73 @@
+### 443. String Compression
+
+**Solution:**
+
+```python
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        write = 0
+        read = 0
+        while read < len(chars):
+            char = chars[read]
+            count = 0
+            while read < len(chars) and chars[read] == char:
+                read += 1
+                count += 1
+            chars[write] = char
+            write += 1
+            if count > 1:
+                for c in str(count):
+                    chars[write] = c
+                    write += 1
+        return write
+```
+
+### Explanation:
+
+1. **Initialization:**
+   - `write` is initialized to 0 to keep track of the position where we write the compressed characters.
+   - `read` is initialized to 0 to iterate through the `chars` array.
+
+2. **Main Loop:**
+   - Loop through the `chars` array until `read` reaches the end.
+   - For each character, count the number of consecutive occurrences.
+   - Write the character and, if the count is greater than 1, write the count as well.
+
+3. **Counting and Writing:**
+   - Set `char` to the current character at `read`.
+   - Initialize `count` to 0 and increment `read` while the current character is the same as `char`, incrementing `count` as well.
+   - Write `char` to the `write` pointer and increment `write`.
+   - If `count` is greater than 1, convert `count` to a string and write each digit to `chars` at the `write` pointer, incrementing `write` for each digit.
+
+4. **Return:**
+   - Return the value of `write`, which represents the new length of the compressed array.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `chars = ["a","a","b","b","c","c","c"]`
+   - Steps:
+     - 'a' appears 2 times -> write `a` and `2` -> `chars = ["a","2","b","b","c","c","c"]`
+     - 'b' appears 2 times -> write `b` and `2` -> `chars = ["a","2","b","2","c","c","c"]`
+     - 'c' appears 3 times -> write `c` and `3` -> `chars = ["a","2","b","2","c","3"]`
+   - Output: `6`
+
+2. **Example 2:**
+   - Input: `chars = ["a"]`
+   - Steps:
+     - 'a' appears 1 time -> write `a`
+   - Output: `1`
+
+3. **Example 3:**
+   - Input: `chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]`
+   - Steps:
+     - 'a' appears 1 time -> write `a`
+     - 'b' appears 12 times -> write `b` and `1` and `2` -> `chars = ["a","b","1","2"]`
+   - Output: `4`
+
+### Constraints:
+
+- `1 <= chars.length <= 2000`
+- `chars[i]` is a lowercase English letter, uppercase English letter, digit, or symbol.
+
+This solution ensures the array is compressed in place with a time complexity of \(O(n)\) and uses only constant extra space, meeting the problem's requirements.

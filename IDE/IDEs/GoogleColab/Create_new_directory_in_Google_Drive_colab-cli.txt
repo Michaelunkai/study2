@@ -1,0 +1,1 @@
+colab-cli new-dir <directory_name>

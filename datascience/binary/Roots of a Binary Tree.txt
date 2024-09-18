@@ -1,0 +1,15 @@
+# Roots of a Binary Tree
+In the context of a binary tree, the root is the topmost node of the tree from which all other nodes descend. It is the only node in the tree that does not have a parent. In other words, it is the node at the highest level in the hierarchy of the tree structure.
+For example, in a binary tree structure:
+```
+      A
+     / \
+    B   C
+   / \   \
+  D   E   F
+```
+- **A** is the root of the binary tree.
+- **B** and **C** are the children of **A**.
+- **D** and **E** are the children of **B**.
+- **F** is the child of **C**.
+The root node is essential because it serves as the starting point for traversing the tree and is often the reference point for many tree operations, such as insertion, deletion, and searching.

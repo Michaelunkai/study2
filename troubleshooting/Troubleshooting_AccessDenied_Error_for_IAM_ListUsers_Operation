@@ -1,0 +1,72 @@
+### Troubleshooting AccessDenied Error for IAM `ListUsers` Operation
+
+#### **Problem Statement:**
+You are encountering an `AccessDenied` error when trying to list IAM users using the AWS CLI command `aws iam list-users --output table`. The error message indicates that the IAM user `mym` is not authorized to perform the `iam:ListUsers` operation due to a lack of identity-based policy permissions.
+
+#### **Steps to Resolve the Issue:**
+
+1. **Log in to the AWS Management Console**
+   - Open your web browser and go to the [AWS Management Console](https://aws.amazon.com/console/).
+   - Enter your credentials to log in. Make sure you use an account with administrative privileges or one that has permission to modify IAM policies.
+
+2. **Navigate to the IAM Dashboard**
+   - Once logged in, locate and click on **Services** at the top of the page.
+   - Under the **Security, Identity, & Compliance** section, click on **IAM** to open the IAM dashboard.
+
+3. **Locate the IAM User**
+   - In the IAM dashboard, select **Users** from the left-hand navigation menu.
+   - Find and click on the user `mym` (or the specific IAM user who encountered the error).
+
+4. **Attach a Policy with the Required Permissions**
+   - After selecting the user, go to the **Permissions** tab.
+   - Click on the **Add permissions** button.
+
+   **To Attach an Existing Policy:**
+   - Choose **Attach policies directly**.
+   - In the search bar, type `AdministratorAccess` or another policy that includes the `iam:ListUsers` permission.
+   - Check the box next to the policy and click **Next: Review**.
+   - Review the permissions that will be added and click **Add permissions** to apply them.
+
+   **To Create and Attach a Custom Policy:**
+   - Select **Create policy** from the **Add permissions** page.
+   - Switch to the **JSON** tab.
+   - Copy and paste the following JSON policy, which grants `iam:ListUsers` permission:
+
+      json
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Action": [
+             "iam:ListUsers"
+           ],
+           "Resource": "*"
+         }
+       ]
+     }
+   - Click **Review policy**.
+   - Enter a name for the policy (e.g., `ListUsersPolicy`) and provide a description if desired.
+   - Click **Create policy** to finalize the policy creation.
+   - Return to the **Add permissions** page.
+   - Choose **Attach policies directly**.
+   - Search for the newly created policy by name, check the box next to it, and click **Next: Review**.
+   - Review the permissions and click **Add permissions** to apply the new policy.
+
+5. **Verify Permissions**
+   - To confirm that the policy has been applied correctly, go back to the **Users** section, select the user `mym`, and review the attached policies under the **Permissions** tab.
+
+6. **Test the Command Again**
+   - Open your terminal or command prompt.
+   - Run the following AWS CLI command to verify if the issue is resolved:
+
+       
+     aws iam list-users --output table
+
+   - If permissions have been set correctly, the command should now execute successfully without encountering the `AccessDenied` error.
+
+#### **Additional Tips:**
+- Ensure that any permission changes comply with your organization's security policies and best practices.
+- If you still face issues, double-check for any permission boundaries or service control policies that might be restricting access.
+
+By following these steps, you should be able to address the `AccessDenied` error and successfully perform the `iam:ListUsers` operation.

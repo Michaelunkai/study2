@@ -1,0 +1,19 @@
+Persistence
+Edit Redis Configuration:
+Edit /etc/redis/redis.conf and set:
+
+save 900 1
+save 300 10
+save 60 10000
+
+
+Replication:
+
+
+Edit Redis Configuration:
+On the slave, add to /etc/redis/redis.conf:
+
+replicaof master_ip master_port
+Restart Redis:
+
+sudo systemctl restart redis-server

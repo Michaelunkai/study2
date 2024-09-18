@@ -1,0 +1,15 @@
+Installing WebSVN
+From the project's GitHub:
+WebSVN offers a view onto your Subversion repositories that's been designed to reflect the Subversion methodology. You can view the log of any file or directory and see a list of all the files changed, added or deleted in any given revision. You can also view the differences between two versions of a file so as to see exactly what was changed in a particular revision.
+
+Download WebSVN Download
+Extract the WebSVN files
+Rename the extracted folder WebSVN
+Copy the entire extracted folder to Apache install directory/htdocs
+Make a copy of the include/distconfig.php and name it config.php
+Edit config.php in a text editor
+Find $config->parentPath and set the value to the parent path of the Subversion repositories (ie G:\\SVN)
+Save the file
+Open a web browser and navigate to http(s)://DNSorIP/WebSVN
+Enjoy a web based view into your Subversion repositories
+If you receive errors about svn.exe or other svn commands failing, make sure the Subversion /bin directory is in the system path and that the user running the web server process has read access to the Subversion parent path specified in config.php

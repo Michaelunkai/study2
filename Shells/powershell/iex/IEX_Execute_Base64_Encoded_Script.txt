@@ -1,0 +1,1 @@
+iex [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aGVsbG8gd29ybGQ='))

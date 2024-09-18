@@ -1,0 +1,7 @@
+#!/bin/ 
+
+files="the files i want each file with space after it"
+
+for file in $files; do
+    whisper "$file" --model base
+done

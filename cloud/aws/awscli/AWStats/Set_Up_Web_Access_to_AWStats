@@ -1,0 +1,44 @@
+Set Up Web Access to AWStats
+3.1 Install and Configure Apache
+For Amazon Linux 2:
+
+ 
+ 
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+For Ubuntu:
+
+ 
+ 
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+3.2 Configure Apache to Serve AWStats
+Create an Apache configuration file for AWStats:
+ 
+ 
+sudo nano /etc/httpd/conf.d/awstats.conf
+Add the following configuration:
+conf
+ 
+Alias /awstatsclasses "/usr/ are/awstats/wwwroot/classes/"
+Alias /awstat  "/usr/ are/awstats/wwwroot/ /"
+Alias /awstatsicons "/usr/ are/awstats/wwwroot/icon/"
+ScriptAlias /awstats/cgi-bin "/usr/ are/awstats/wwwroot/cgi-bin"
+Alias /awstats "/usr/ are/awstats/wwwroot"
+<Directory "/usr/ are/awstats/wwwroot">
+    Options None
+    AllowOverride None
+    Require all granted
+</Directory>
+Save and close the file.
+Restart Apache:
+ 
+ 
+sudo systemctl restart httpd
+3.3 Access AWStats
+Open your web browser and navigate to:
+plaintext
+ 
+http://your-ec2-public-dns/awstats/awstats.pl?config=yourdomain

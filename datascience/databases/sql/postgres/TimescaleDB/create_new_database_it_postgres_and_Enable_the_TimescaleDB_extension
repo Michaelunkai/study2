@@ -1,0 +1,28 @@
+Create a New Database
+Create a new database to use with TimescaleDB:
+
+Switch to the PostgreSQL user:
+
+ 
+ 
+sudo -u postgres psql
+Create a new database:
+
+ 
+ 
+CREATE DATABASE my_timescale_db;
+Connect to the new database:
+
+ 
+ 
+\c my_timescale_db
+Enable the TimescaleDB extension:
+
+ 
+ 
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+Exit the PostgreSQL prompt:
+
+ 
+ 
+\q

@@ -1,0 +1,1 @@
+aws ce get-savings-plans-utilization-details --time-period Start=2023-01-01,End=2023-01-31 --filter file://savings-plans-filter.json

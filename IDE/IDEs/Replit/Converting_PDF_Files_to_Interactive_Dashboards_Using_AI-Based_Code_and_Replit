@@ -1,0 +1,27 @@
+### Converting PDF Files to Interactive Dashboards Using AI-Based Code and Replit
+
+**Step-by-Step Guide:**
+
+1. **Upload Your PDF File to an AI Chatbot:**
+   - Use an AI chatbot like ChatGPT to upload your PDF file.
+
+2. **Request a Python Script for an Interactive Dashboard:**
+   - Ask the AI to generate a Python script for creating an interactive dashboard using Plotly Dash. 
+   - Example prompt: "Create a Python script to convert this PDF into an interactive dashboard using Plotly Dash."
+
+3. **Create a New Python Project on Replit:**
+   - Go to [Replit.com](https://replit.com/) and sign in or create an account.
+   - Start a new Python project.
+
+4. **Copy and Paste the Generated Python Code:**
+   - Copy the Python code provided by the AI chatbot.
+   - Paste the code into the Replit editor within your newly created Python project.
+
+5. **Run the Code to Generate Your Interactive Dashboard:**
+   - Click on the "Run" button in Replit to execute the Python code.
+   - Your interactive dashboard will be generated and displayed.
+
+**💡 Pro Tip:**
+   - If you are using Claude AI, you can utilize its artifact feature by simply prompting it with "Create an interactive dashboard from this PDF" to achieve a similar result effortlessly.
+
+This process enables you to transform static PDF files into dynamic and interactive dashboards using AI and a cloud-based development environment like Replit.

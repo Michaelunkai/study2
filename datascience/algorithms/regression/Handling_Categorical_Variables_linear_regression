@@ -1,0 +1,120 @@
+Handling Categorical Variables
+In many real-world datasets, you'll encounter categorical variables. These need to be encoded into numerical values for use in linear regression models.
+
+Techniques for Encoding Categorical Variables:
+One-Hot Encoding:
+
+Creates binary columns for each category.
+Suitable for categorical variables with no ordinal relationship.
+Label Encoding:
+
+Assigns a unique integer to each category.
+Suitable for ordinal categorical variables.
+Example Dataset:
+Let's use a dataset that includes both numerical and categorical features.
+
+Hours Studied	Hours Slept	Gender	Test Score
+1	5	Male	50
+2	6	Female	55
+3	7	Female	60
+4	8	Male	65
+5	9	Male	70
+Step-by-Step Implementation:
+Prepare the Data:
+Convert the dataset into a pandas DataFrame and encode the categorical variables.
+
+Encode Categorical Variables:
+Use one-hot encoding for the 'Gender' column.
+
+Split the Data:
+Split the data into training and testing sets.
+
+Create and Train the Model:
+Train the linear regression model on the encoded data.
+
+Eva te the Model:
+Eva te the model's performance using the test data.
+
+Full Implementation
+ 
+ 
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+import matplotlib.pyplot as plt
+
+# Step 1: Prepare the data
+data = {
+    'Hours Studied': [1, 2, 3, 4, 5],
+    'Hours Slept': [5, 6, 7, 8, 9],
+    'Gender': ['Male', 'Female', 'Female', 'Male', 'Male'],
+    'Test Score': [50, 55, 60, 65, 70]
+}
+
+df = pd.DataFrame(data)
+
+# Step 2: Encode Categorical Variables
+encoder = OneHotEncoder(drop='first')
+encoded_gender = encoder.fit_transform(df[['Gender']]).toarray()
+encoded_gender_df = pd.DataFrame(encoded_gender, columns=encoder.get_feature_names_out(['Gender']))
+df_encoded = pd.concat([df.drop('Gender', axis=1), encoded_gender_df], axis=1)
+
+# Step 3: Split the data into training and testing sets
+X = df_encoded.drop('Test Score', axis=1)
+y = df_encoded['Test Score']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# Step 4: Create and train the Linear Regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Step 5: Make predictions on the test set
+y_pred = model.predict(X_test)
+
+# Step 6: Eva te the model
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("Root Mean Squared Error (RMSE):", rmse)
+print("R-squared (R²):", r2)
+
+# Step 7: Plot the coefficients
+coefficients = model.coef_
+features = X.columns
+
+plt.figure(figsize=(10, 6))
+plt.bar(features, coefficients)
+plt.xlabel('Features')
+plt.ylabel('Coefficient Value')
+plt.title('Linear Regression Coefficients')
+plt. ow()
+Explanation of Each Step:
+Prepare the Data:
+
+Convert the dataset into a pandas DataFrame.
+Encode Categorical Variables:
+
+Use OneHotEncoder from scikit-learn to encode the 'Gender' column.
+Combine the encoded columns with the original DataFrame.
+Split the Data:
+
+Split the data into training and testing sets using train_test_split.
+Create and Train the Model:
+
+Instantiate the LinearRegression model and fit it to the training data.
+Make Predictions on the Test Set:
+
+Use the trained model to predict the target variable for the test set.
+Eva te the Model:
+
+Calculate MAE, MSE, RMSE, and R-squared (R²) to assess the model's performance.
+Plot the Coefficients:
+
+Create a bar plot of the coefficients to visualize their values.

@@ -1,0 +1,1 @@
+aws ec2 describe-instances --instance-id i-02ed9bb2af43e020d --query 'Reservations[0].Instances[0].SecurityGroups[0].GroupId' --output text

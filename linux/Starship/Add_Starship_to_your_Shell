@@ -1,0 +1,51 @@
+ Add Starship to your Shell
+To use Starship, you need to add it to the configuration file of your shell. Here are the steps for different shells:
+
+For Ba 
+Open your .bashrc file in a text editor:
+
+ 
+ 
+nano ~/. rc
+Add the following line to the end of the file:
+
+ 
+ 
+eval "$(starship init bash)"
+Save and close the file, then reload your shell configuration:
+
+ 
+ 
+source ~/. rc
+For Z 
+Open your .zshrc file in a text editor:
+
+ 
+ 
+nano ~/.z rc
+Add the following line to the end of the file:
+
+ 
+ 
+eval "$(starship init zsh)"
+Save and close the file, then reload your shell configuration:
+
+ 
+ 
+source ~/.z rc
+For Fi 
+Open your config.fish file in a text editor:
+
+ 
+ 
+nano ~/.config/fi /config.fi 
+Add the following line to the end of the file:
+
+ 
+ 
+starship init fish | source
+Save and close the file, then reload your shell configuration:
+
+ 
+ 
+source ~/.config/fi /config.fi 

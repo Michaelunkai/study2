@@ -1,0 +1,140 @@
+# Coding a Deep Q Network in PyTorch
+## Deep Learning, PyTorch, Reinforcement Learning
+
+### Abstract
+This article provides a comprehensive guide on implementing a Deep Q Network (DQN) in PyTorch to train an agent for playing the Atari game, Space Invaders. The guide covers the architecture of Q learning, the transition to deep Q learning, and the coding implementation using the OpenAI gym environment.
+
+### Introduction
+Deep Q learning enables an agent to approximate the value of its action-value function using a deep neural network, maximizing its score over time with an off-policy learning strategy. This guide delves into the detailed implementation of a DQN agent.
+
+### Traditional Q Learning
+In traditional Q learning, the agent maps its current state and possible actions to a table, outputting the values of these combinations. The agent selects the action with the highest value greedily or explores other actions.
+
+### Transition to Deep Q Learning
+Due to the large or continuous state-action spaces, a neural network approximates the Q function values. The state (screen image) is fed into a convolutional neural network (CNN), reducing it to a subspace. This subspace is processed by a dense network, computing the values of actions given the current state.
+
+### Network Architecture
+The input images from the Space Invaders game in the OpenAI gym environment are initially 210x160 pixels with 3 channels. These are cropped and converted to grayscale. The CNN processes a series of images to give the agent a sense of motion.
+
+### Learning from Experience
+The agent stores the state at time t, the state at time t+1, the action at time t, and the reward at time t+1. This memory is used in experience replay, sampling batches of memories to update the Q values using backpropagation.
+
+### Implementation
+Below is the complete implementation of the DQN agent in PyTorch:
+
+  
+import gym
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import random
+from collections import deque
+
+# Define the neural network
+class DQN(nn.Module):
+    def __init__(self, input_shape, num_actions):
+        super(DQN, self).__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(input_shape[0], 32, kernel_size=8, stride=4),
+            nn.ReLU(),
+            nn.Conv2d(32, 64, kernel_size=4, stride=2),
+            nn.ReLU(),
+            nn.Conv2d(64, 64, kernel_size=3, stride=1),
+            nn.ReLU()
+        )
+        self.fc = nn.Sequential(
+            nn.Linear(self.feature_size(input_ ape), 512),
+            nn.ReLU(),
+            nn.Linear(512, num_actions)
+        )
+    
+    def forward(self, x):
+        x = self.conv(x)
+        x = x.view(x.size(0), -1)
+        return self.fc(x)
+    
+    def feature_size(self, input_ ape):
+        return self.conv(torch.zeros(1, *input_shape)).view(1, -1).size(1)
+
+# Define the agent
+class DQNAgent:
+    def __init__(self, input_shape, num_actions):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = DQN(input_shape, num_actions).to(self.device)
+        self.target_model = DQN(input_shape, num_actions).to(self.device)
+        self.optimizer = optim.Adam(self.model.parameters(), lr=0.0001)
+        self.memory = deque(maxlen=100000)
+        self.batch_size = 32
+        self.gamma = 0.99
+        self.epsilon = 1.0
+        self.epsilon_min = 0.01
+        self.epsilon_decay = 0.995
+        self.update_target_steps = 1000
+        self.steps = 0
+
+    def remember(self, state, action, reward, next_state, done):
+        self.memory.append((state, action, reward, next_state, done))
+
+    def act(self, state):
+        if np.random.rand() <= self.epsilon:
+            return random.randrange(env.action_space.n)
+        state = torch.FloatTensor(state).unsqueeze(0).to(self.device)
+        q_values = self.model(state)
+        return torch.argmax(q_values, dim=1).item()
+
+    def replay(self):
+        if len(self.memory) < self.batch_size:
+            return
+        batch = random.sample(self.memory, self.batch_size)
+        state, action, reward, next_state, done = zip(*batch)
+
+        state = torch.FloatTensor(state).to(self.device)
+        action = torch.LongTensor(action).to(self.device)
+        reward = torch.FloatTensor(reward).to(self.device)
+        next_state = torch.FloatTensor(next_state).to(self.device)
+        done = torch.FloatTensor(done).to(self.device)
+
+        q_values = self.model(state).gather(1, action.unsqueeze(1)).squeeze(1)
+        next_q_values = self.target_model(next_state).max(1)[0]
+        expected_q_values = reward + self.gamma * next_q_values * (1 - done)
+
+        loss = nn.MSELoss()(q_values, expected_q_values.detach())
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+
+        if self.epsilon > self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
+
+    def update_target_network(self):
+        self.target_model.load_state_dict(self.model.state_dict())
+
+# Training the agent
+env = gym.make('SpaceInvaders-v0')
+agent = DQNAgent(input_shape=(3, 84, 84), num_actions=env.action_space.n)
+
+num_episodes = 1000
+for e in range(num_episodes):
+    state = env.reset()
+    state = preprocess(state)
+    done = False
+    while not done:
+        action = agent.act(state)
+        next_state, reward, done, _ = env.step(action)
+        next_state = preprocess(next_state)
+        agent.remember(state, action, reward, next_state, done)
+        state = next_state
+        agent.replay()
+        if agent.steps % agent.update_target_steps == 0:
+            agent.update_target_network()
+    print(f"Episode: {e+1}/{num_episodes}, Score: {reward}")
+
+def preprocess(observation):
+    observation = observation[30:-10, 5:-5]
+    observation = np.mean(observation, axis=2).astype(np.uint8)
+    observation = observation / 255.0
+    return np.moveaxis(observation, -1, 0)
+
+### Conclusion
+This implementation demonstrates a basic Deep Q Network using PyTorch to train an agent for the Atari game Space Invaders. Adjustments and optimizations can be made to enhance performance and efficiency.

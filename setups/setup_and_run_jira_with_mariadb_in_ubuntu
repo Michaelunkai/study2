@@ -1,0 +1,73 @@
+How to Install and Configure JIRA on Ubuntu 22.04
+Introduction
+This tutorial will guide you through the steps to install and configure JIRA on an Ubuntu 22.04 server. You'll learn how to install MariaDB, set up a JIRA database, download and install JIRA, configure it, and finally access the JIRA web interface.
+
+Step 1: Install MariaDB Server
+First, you need to install the MariaDB server on your server.
+
+Install MariaDB server:
+
+sudo apt-get install mariadb-server
+Check the MariaDB status:
+
+sudo systemctl status mariadb
+Step 2: Configure MariaDB for JIRA
+Log in to MariaDB:
+
+sudo mariadb -u root -p
+Create a database and a user for JIRA:
+
+CREATE DATABASE jiradb CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE USER 'jirauser'@'localhost' IDENTIFIED BY 'yourpassword';
+Grant all privileges to the JIRA database:
+
+GRANT ALL PRIVILEGES ON jiradb.* TO 'jirauser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+Step 3: Download and Install JIRA
+Navigate to your home directory:
+
+cd ~
+Download the JIRA installer:
+
+wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-9.12.0-x64.bin
+Make the downloaded file executable:
+
+chmod a+x atlassian-jira-software-9.12.0-x64.bin
+Run the installer:
+
+sudo ./atlassian-jira-software-9.12.0-x64.bin
+Follow the installation prompts, choosing the appropriate options and paths.
+
+Step 4: Configure JIRA to Use MariaDB
+Download the MariaDB JDBC driver:
+
+wget https://downloads.mariadb.com/Connectors/java/connector-java-2.7.4/mariadb-java-client-2.7.4.jar
+Copy the MariaDB connector to the JIRA installation directory:
+
+sudo cp mariadb-java-client-2.7.4.jar /opt/atlassian/jira/lib/
+Restart the JIRA service to apply the changes:
+
+sudo /etc/init.d/jira stop
+sudo /etc/init.d/jira start
+Step 5: Access the JIRA Web Interface
+Open your web browser and access the JIRA web interface using:
+
+http://your-server-ip:8080
+If you receive a security warning, click "Advanced" and proceed to the site.
+
+Step 6: JIRA Initial Setup
+Select "I'll set it up myself" and click Next.
+Choose "My own database", enter your database details, and click Next.
+Specify the name of your application, mode, URL, and click Next.
+Enter your trial license key and click Next.
+Provide your administrator account details and click Next.
+Click "Done" to complete the installation.
+Step 7: Create Your First Project
+Select the language you need and click Continue.
+Choose your avatar and click Next.
+Click "Create New Project" to create your first project.
+Select "Scrum Software Development" and click Next.
+Click "Select" to choose your workflow.
+Enter the name of your project and the key, then click "Submit".
+You should now see the JIRA dashboard.

@@ -1,0 +1,7 @@
+List the current authenticated account:
+
+gcloud auth list
+
+
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`

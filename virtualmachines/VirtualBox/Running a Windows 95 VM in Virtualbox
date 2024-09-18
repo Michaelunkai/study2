@@ -1,0 +1,70 @@
+Running a Windows 95 VM in Virtualbox
+Download MS-DOS 6.22 Download
+Download MS-DOS CD driver Download
+Download Microsoft Windows 95 Download
+Extract the MS-DOS and Windows 95 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows 95
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 95
+Memory Size: 256 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows 95.vdi
+File size: 256 MB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Acceleration
+Uncheck Enable Nested Paging
+Uncheck Enable VT-x/AMD-V
+Select Storage
+Click on the floppy disk drive
+Select the disc dropdown to the right > Choose a virtual floppy disk file...
+Browse to the extracted MS-DOS 6.22 files and select Disk1.img
+Click OK
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to the extracted Windows 95 files and select Win95_OSR25.iso
+Click OK
+Make sure the Windows 95 VM is selected and click Start > Normal
+Press Enter to start the MS-DOS installation and press Enter multiple times to accept the default values
+When prompted by the installer, go to the VM settings and swap out the MS-DOS disk images and press Enter to continue
+Once MS-DOS has been successfully installed, select Devices > Floppy Drives > Remove disk from virtual drive
+Press Enter in the VM to reboot
+Once MS-DOS has booted, select Devices > Floppy Drives > Choose disk image...
+Navigate to and select cd-driver-1.25.img
+Type the following commands
+A:
+install
+The CD-ROM driver installation process will start
+Click OK to complete the installation
+Select Devices > Floppy Drives > Remove disk from virtual drive
+Select Machine > Reset > Reset to restart the VM
+Upon booting into MS-DOS the Virtualbox CD drive should be assigned a drive letter
+Type the following commands:
+D:
+setup
+Press Enter for the routine maintenance
+Click the Continue button
+Click Yes to accept the licensing agreement
+Continue along the default installation by clicking the Next button
+Select No to creating a startup disk
+Click Finish to complete the setup
+Click OK to restart the VM
+Follow the prompts to give the virtual machine a name and workgroup
+Wait for the files to copy and Windows 95 to complete initializing
+Select a timezone > Click OK
+Click Cancel on the printer setup dialog
+Select Devices > Optical Drives > Remove disk from virtual drive
+Click OK to reboot
+Press Escape or click the Cancel button on the Windows Network login
+Enjoy the boot up sound from the Gods
+Welcome back to Windows 95
+Revel in the nostalgia

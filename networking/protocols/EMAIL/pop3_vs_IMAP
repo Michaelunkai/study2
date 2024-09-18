@@ -1,0 +1,1 @@
+POP3 (Post Office Protocol) and IMAP (Internet Message Access Protocol) are email retrieval protocols. POP3 downloads emails to a single device, usually deleting them from the server. IMAP syncs emails across multiple devices, allowing access to emails from anywhere. IMAP is preferred for accessing emails on multiple devices, while POP3 is simpler but less versatile.

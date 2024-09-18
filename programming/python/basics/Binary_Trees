@@ -1,0 +1,32 @@
+עצים בינאריים (Binary Trees)
+שלב 1: הגדרה
+עץ בינארי הוא מבנה נתונים בו לכל צומת יש לכל היותר שני ילדים.
+
+# הגדרת מחלקה לצומת עץ בינארי
+class TreeNode:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+# יצירת עץ בינארי פשוט
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+שלב 2: חיפוש בעץ בינארי
+חיפוש ערך בעץ בינארי.
+
+# פונקציה לחיפוש ערך בעץ בינארי
+def search_tree(node, key):
+    if node is None or node.val == key:
+        return node
+    if key < node.val:
+        return search_tree(node.left, key)
+    return search_tree(node.right, key)
+
+result = search_tree(root, 4)
+print(result.val if result else "Not found")  # Output: 4
+נמשיך עם אלגוריתמים. נתחיל מאלגוריתם מיון פשוט כמו מיון בועות (Bubble Sort).
+

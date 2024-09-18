@@ -1,0 +1,18 @@
+Integrating KeyDB with Your Application
+You can now integrate KeyDB with your application for caching purposes using libraries for various programming languages (e.g., Python, Node.js, PHP).
+
+For Python:
+
+ 
+ 
+pip install keydb
+Sample code:
+
+ 
+ 
+import keydb
+
+client = keydb.StrictRedis(host='localhost', port=6379, password='YourStrongPassword')
+
+client.set('key', 'value')
+print(client.get('key'))

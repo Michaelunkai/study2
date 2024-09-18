@@ -1,0 +1,45 @@
+ Using Amazon SageMaker for Creating AI-Based Applications with Python
+Objective: Utilize Amazon SageMaker to develop, train, and deploy machine learning models within an integrated environment.
+
+Create a Notebook Instance:
+
+Explanation: SageMaker Notebook Instances provide a managed Jupyter environment where you can write and execute Python code for machine learning without setting up infrastructure.
+Steps:
+Open a terminal and run:
+ 
+ 
+aws sagemaker create-notebook-instance --notebook-instance-name my-notebook-instance --instance-type ml.t2.medium --role-arn <IAM_ROLE_ARN>
+Replace <IAM_ROLE_ARN> with the ARN of the IAM role that has SageMaker access.
+Start Your Notebook Instance:
+
+Explanation: Starting the notebook instance makes it accessible for you to use Jupyter notebooks to develop and train machine learning models.
+Steps:
+Run:
+ 
+ 
+aws sagemaker start-notebook-instance --notebook-instance-name my-notebook-instance
+Access the Jupyter Notebook:
+
+Explanation: Accessing the Jupyter Notebook interface allows you to write, run, and test your machine learning code interactively.
+Steps:
+Go to the SageMaker console and open the notebook instance to start working.
+Example Code for Linear Regression:
+
+Explanation: This example demonstrates a simple linear regression model to illustrate how to develop machine learning models using SageMaker.
+Code:
+ 
+ 
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Sample data
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 3, 4, 5, 6])
+
+# Create and train model
+model = LinearRegression()
+model.fit(X, y)
+
+# Make a prediction
+prediction = model.predict([[6]])
+print(f"Prediction for input 6: {prediction[0]}")

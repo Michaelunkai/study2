@@ -1,0 +1,1 @@
+sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison make -y && git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git && cd linux && cp /boot/config-$(uname -r) .config && make menuconfig && make -j$(nproc) && sudo make modules_install && sudo make install && sudo update-grub && sudo reboot

@@ -1,0 +1,37 @@
+Transcribing Hebrew Audio Files at the Speed of Light! Whisper-3 Has Arrived at Groq
+By Avitar Edri
+24/06/2024
+Table of Contents
+- Introduction
+- About Groq
+- About Whisper-3
+- The Combination of Groq and Whisper-3
+- Using Whisper-3 on Groq
+- Real-Time Example
+- Courses and Training
+Introduction
+Did you know that you can transcribe any sound file in any language (including Hebrew) in just a few seconds? The combination of Groq and Whisper-3 allows exactly that, and even for free. These are two revolutionary technologies – the first is an AI model that understands language and can turn sound into text (Whisper); the second is groundbreaking technology that allows AI computations to run at incredible speed.
+About Groq
+Groq is a startup company revolutionizing the world of large language models (LLMs). It developed Language Processing Units (LPUs) that work at high speed thanks to unique memory architecture. These chips use Static RAM (SRAM), which allows faster access to information.
+About Whisper-3
+Whisper-3 is an open-source speech recognition model developed by OpenAI. It can recognize speech, perform natural language processing, transcribe audio clips, translate into different languages, and detect the spoken language.
+The Combination of Groq and Whisper-3
+Combining Groq's speed with Whisper-3's capabilities creates a highly intelligent, powerful, and fast transcriber. In the future, anyone will be able to speak with anyone else in their language and understand them intuitively.
+Using Whisper-3 on Groq
+Here's how to use Whisper-3 on Groq:
+1. Go to the Groq playground.
+2. Select the Whisper-3 model.
+3. Choose the transcription language (Hebrew in our case).
+4. Record a speech clip or upload an audio file.
+5. Click "Submit" and receive the transcribed file in seconds.
+Real-Time Example
+A real-time demonstration: I uploaded an 8-minute file to Groq where a client discusses building a voice model. Whisper-3 transcribed the file in just 6 seconds.
+Courses and Training
+Join us to learn artificial intelligence in our comprehensive and rich course. Join thousands who have already completed our courses and workshops. Details and registration on the website.
+To subscribe to the newsletter and receive updates:
+Email: Your email address
+Avitar Edri
+Lecturer in Artificial Intelligence and Social Media Marketing Expert.
+Co-Founder & VP Product at LetsAI.
+Founder and CEO of Fuzz New Media.
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

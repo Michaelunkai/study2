@@ -1,0 +1,84 @@
+▲A  A▼
+Two Methods to Grow A VirtualBox Disk Image (.vdi)
+NOTE: Make a backup copy of the .vdi before attempting these steps
+
+In this example, we'll be taking an 8GB Raspberry Pi OS VirtualBox VM and increasing the .vdi disk size to 32GB
+
+Method 1: Increasing the .vdi size
+This method requires that the virtual disk be dynamically allocated. If the .vdi is fixed size the size cannot be changed and VirtualBox will throw an error when you try to resize it
+
+Launch VirtualBox Manager
+Select File > Virtual Media Manager
+Find and click the .vdi file to increase in size
+Change the size at the bottom of the dialog window
+Click Apply and then Close
+Download the GParted live disc Download
+Back in VirtualBox Manager, right click the VM using the resized .vdi > Settings...
+Select Storage from the left navigation pane
+Click on or add a new optical drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded GParted .iso file
+Click OK
+Make sure the VM using the resized .vdi is selected and click Start > Normal
+If prompted, press a key to boot to the CD-ROM
+GParted should begin loading
+Follow the prompts to set a keyboard layout and language
+GParted will automatically start once the desktop environment is displayed
+In the top right corner, select the correct device identifier to work with (ie /dev/sdb)
+In the middle section of the interface, right click the partition to resize > Resize/Move
+Drag the slider or set the numerical values to set the new partition size > Click Resize
+Click the check mark icon at the top center of the interface to Apply All Operations
+Once the resizing has completed, shutdown the VM
+Back in VirtualBox Manager, right click the VM > Settings...
+Select Storage from the left navigation pane
+Click on the optical drive
+Select the disc dropdown to the right > Remove Disk from Virtual Drive
+Click OK
+Make sure the VM is selected and click Start > Normal
+The VM should boot normally with the OS showing the additional storage available
+Method 2: Cloning to a new, larger .vdi
+This method can be used on either fixed size or dynamically allocated virtual disks
+
+Launch VirtualBox Manager
+Select File > Virtual Media Manager
+Click the Create icon at the top left of the dialog window
+Select VDI > Next
+Select Dynamically allocated > Next
+Set the file location and disk size > Create
+Click Close
+Download the GParted live disc Download
+Back in VirtualBox Manager, right click the VM > Settings...
+Select Storage from the left navigation pane
+Click the Controller to select it > Add Hard Disk...
+Find and select the .vdi created previously > Choose
+Click on or add a new optical drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded GParted .iso file
+Click OK
+Make sure the VM using the resized .vdi is selected and click Start > Normal
+If prompted, press a key to boot to the CD-ROM
+GParted should begin loading
+Follow the prompts to set a keyboard layout and language
+Once the desktop environment loads, minimize the GParted application
+Launch the terminal application from the desktop
+Run the following commands making absolutely certain the source/if and destination/of are input correctly in the dd command
+# output disk information, note the disk identifier for the source and destination targets
+sudo fdisk -l
+# use dd to clone the source to the destination
+dd if=/dev/sda of=/dev/sdb bs=4M status=progress
+Once dd has completed, restore the minimized GParted application
+In the top right corner, select the new larger device identifier to work with (ie /dev/sdb)
+In the middle section of the interface, right click the partition to resize > Resize/Move
+Drag the slider or set the numerical values to set the new partition size > Click Resize
+Click the check mark icon at the top center of the interface to Apply All Operations
+Once the resizing has completed, shutdown the VM
+Back in VirtualBox Manager, right click the VM > Settings...
+Select Storage from the left navigation pane
+Click on the optical drive
+Select the disc dropdown to the right > Remove Disk from Virtual Drive
+Right click on the original virtual disk > Remove Attachment
+Click OK
+Make sure the VM is selected and click Start > Normal
+The VM should boot normally with the OS showing the additional storage available
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

@@ -1,0 +1,1 @@
+pip install --upgrade pip && pip install jax[cuda] jaxlib[cuda]

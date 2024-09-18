@@ -1,0 +1,3 @@
+Command: sudo usermod -aG <groupname> <username>
+Description: Adds a user to a specified group.
+User Management

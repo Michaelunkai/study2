@@ -1,0 +1,7 @@
+git lfs untrack "*"
+git add .gitattributes
+git commit -m "Remove Git LFS tracking"
+rm .git/hooks/pre-pu 
+git lfs migrate export --include="*"
+git push origin --force
+sudo apt-get remove git-lfs

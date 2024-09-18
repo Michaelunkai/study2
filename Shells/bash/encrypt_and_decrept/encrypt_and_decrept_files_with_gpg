@@ -1,0 +1,42 @@
+Here are the steps with the commands included:
+
+Encrypting a File:
+Install GPG: If you haven't already, install GPG on your system.
+
+Generate a Key Pair (Optional):
+
+ 
+ 
+gpg --full-generate-key
+Encrypt the File: For asymmetric encryption:
+
+ 
+ 
+gpg --encrypt --recipient <recipient's key> <filename>
+For symmetric encryption:
+
+ 
+ 
+gpg --symmetric <filename>
+Enter Passphrase (if using symmetric encryption): If using symmetric encryption, you'll be prompted to enter a passphrase.
+
+Decrypting a File:
+Decrypt the File:
+
+ 
+ 
+gpg --decrypt <encrypted_filename.gpg>
+Enter Passphrase (if using symmetric encryption): If the file was encrypted symmetrically, enter the passphrase you set during encryption.
+
+Tips:
+Specify   File:
+ 
+ 
+gpg --decrypt <encrypted_filename.gpg> -o <output_filename>
+Key Management:
+ 
+ 
+gpg --list-keys
+ 
+ 
+gpg --list-secret-keys

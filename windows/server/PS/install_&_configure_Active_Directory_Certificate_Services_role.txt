@@ -1,0 +1,7 @@
+# Install Active Directory Certificate Services role
+Install-WindowsFeature -Name ADCS-Cert-Authority -IncludeManagementTools
+# Configure AD CS
+Install-AdcsCertificationAuthority -CAType StandaloneRootCA
+Explanation:
+Install Active Directory Certificate Services role: This PowerShell command installs the AD CS role on the server, allowing it to issue and manage digital certificates.
+Configure AD CS: The Install-AdcsCertificationAuthority cmdlet is used to configure AD CS on the server. In this example, we're configuring a Standalone Root CA (Certificate Authority).

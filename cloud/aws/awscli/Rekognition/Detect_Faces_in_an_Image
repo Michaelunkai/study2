@@ -1,0 +1,11 @@
+aws rekognition detect-faces \
+--image "S3Object={Bucket=your-bucket-name,Name=image.jpg}" \
+--attributes ALL
+
+
+For a local image:
+
+aws rekognition detect-faces \
+--image "Bytes=$(base64 /path/to/your/image.jpg | tr -d '\n')" \
+--attributes ALL
+

@@ -1,0 +1,75 @@
+Add the Drone Helm Chart Repository
+Add the Drone Helm chart repository:
+
+ 
+ 
+helm repo add drone https://charts.drone.io
+helm repo update
+Step 5: Create a Namespace for Drone
+Create a namespace in your Kubernetes cluster for Drone:
+
+ 
+ 
+kubectl create namespace drone
+Step 6: Install Drone Server
+Install the Drone server using Helm:
+
+ 
+ 
+helm install drone drone/drone --namespace drone \
+  --set service.type=LoadBalancer \
+  --set service.httpPort=80 \
+  --set server.env.DRONE_GITHUB_CLIENT_ID=<your-github-client-id> \
+  --set server.env.DRONE_GITHUB_CLIENT_SECRET=<your-github-client-secret> \
+  --set server.env.DRONE_RPC_SECRET=<your-drone-rpc-secret> \
+  --set server.env.DRONE_SERVER_HOST=<your-server-host> \
+  --set server.env.DRONE_SERVER_PROTO=http
+Replace the placeholders with your actual values:
+
+<your-github-client-id>: Your GitHub OAuth application client ID.
+<your-github-client-secret>: Your GitHub OAuth application client secret.
+<your-drone-rpc-secret>: A random secret for securing communication between Drone server and agents.
+<your-server-host>: The domain or IP address where Drone will be accessible.
+Step 7: Get Drone Server URL
+Get the URL to access the Drone server:
+
+ 
+ 
+kubectl get services --namespace drone
+Look for the external IP assigned to the Drone service.
+
+Step 8: Install Drone Runner
+Install the Drone Runner using Helm:
+
+ 
+ 
+helm install drone-runner-kube drone/drone-runner-kube --namespace drone \
+  --set runner.rpc.server=<your-server-host> \
+  --set runner.rpc.secret=<your-drone-rpc-secret>
+Replace <your-server-host> and <your-drone-rpc-secret> with the values used in the previous steps.
+
+Step 9: Configure Your Repository
+In your GitHub repository, create a .drone.yml file with your CI pipeline configuration. For example:
+
+ 
+ 
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: test
+  image: node:latest
+  commands:
+  - npm install
+  - npm test
+Step 10: Enable Your Repository in Drone
+Log in to your Drone server using your GitHub account and enable your repository.
+
+Step 11: Trigger a Build
+Push a change to your repository to trigger a build. You should see the build process in the Drone server UI.
+
+Additional Configuration
+You can further configure Drone CI by referring to the official documentation for advanced settings and customization.
+
+By following these steps, you should have a working Drone CI setup for continuous integration with Kubernetes on Ubuntu. If you need any further customization or run into any issues, feel free to ask!

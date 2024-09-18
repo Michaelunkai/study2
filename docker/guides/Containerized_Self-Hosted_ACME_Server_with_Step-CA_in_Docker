@@ -1,0 +1,58 @@
+▲A  A▼
+Containerized Self-Hosted ACME Server with Step-CA in Docker
+What is Step-CA?
+[Step-CA is] a private certificate authority (X.509 & SSH) & ACME server for secure automated certificate management, so you can use TLS everywhere & SSO for SSH. -https://github.com/smallstep/certificates
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Step-CA Server
+Continue with the following commands in a terminal window
+# create a working directory
+mkdir ~/docker/step-ca -p
+# start the step-ca container
+# change the INIT_NAME and DNS_NAMES variables as needed
+docker run -d --name=step-ca -v ~/docker/step-ca:/home/step -p 9000:9000 -e DOCKER_STEPCA_INIT_NAME="i12bretro Certificate Authority" -e DOCKER_STEPCA_INIT_DNS_NAMES="$(hostname -f)" smallstep/step-ca
+# enable the acme provisioner
+docker exec -it step-ca step ca provisioner add acme --type ACME
+# restart the step-ca container
+docker restart step-ca
+Automating Certificate Requests
+Log into the server needing to request a certificate
+Continue following commands in a terminal window
+# if on a remote server from the docker host, copy the root-ca.crt file
+scp <%user%>@<%dockerhostDNSorIP%>:~/docker/step-ca/certs/root_ca.crt ~/root_ca.crt
+# remove apt version of certbot if installed
+sudo apt remove certbot -y
+# install snapd
+sudo apt install snapd -y
+# install snap core and update
+sudo snap install core; sudo snap refresh core
+# install certbot snap
+sudo snap install --classic certbot
+# create certbot symbolic link
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+# request the certificate
+sudo REQUESTS_CA_BUNDLE=~/root_ca.crt certbot certonly --standalone -d <%host-DNS-name%> --server https://<%step-ca-docker-host%>:9000/acme/acme/directory
+When prompted, enter an email address and agree to the terms of service
+Choose whether to share your email and receive emails from certbot
+Certbot will output information regarding the location of the certificate files
+Documentation: https://hub.docker.com/r/smallstep/step-ca
+
+Sources: https://certbot.eff.org/instructions?ws=other&os=debianbuster
+https://smallstep.com/docs/tutorials/acme-challenge/
+
+ 

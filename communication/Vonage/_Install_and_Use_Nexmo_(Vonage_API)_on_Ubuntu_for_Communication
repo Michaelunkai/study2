@@ -1,0 +1,86 @@
+## How to Install and Use Nexmo (Vonage API) on Ubuntu for Communication
+
+This tutorial will guide you through the steps to install and use Nexmo (Vonage API) on Ubuntu to send SMS messages. Follow these steps carefully to set up your environment and send your first SMS using the Nexmo API.
+
+### Step 1: Install Node.js and npm
+
+First, you need to have Node.js and npm installed on your Ubuntu system. If you don't have them installed, you can do so with the following commands:
+
+  
+sudo apt update
+sudo apt install nodejs npm -y
+
+### Step 2: Install the Nexmo CLI
+
+Next, install the Nexmo Command Line Interface (CLI) globally using npm:
+
+  
+npm install -g nexmo-cli
+
+### Step 3: Set Up Your Nexmo Account
+
+1. **Sign up for a Nexmo account** at [Vonage](https://dashboard.nexmo.com/sign-up).
+2. **Obtain your API key and secret** from the [Nexmo Dashboard](https://dashboard.nexmo.com/).
+
+### Step 4: Configure the Nexmo CLI
+
+Configure the Nexmo CLI with your API key and secret:
+
+  
+nexmo setup API_KEY API_SECRET
+
+Replace `API_KEY` and `API_SECRET` with the values from your Nexmo account.
+
+### Step 5: Install the Nexmo Node.js Library
+
+For using Nexmo within a Node.js application, you need to install the Nexmo Node.js library:
+
+  
+npm install nexmo --save
+
+### Step 6: Send an SMS using Nexmo
+
+Create a new Node.js file, for example, `send_sms.js`:
+
+ javascript
+const Nexmo = require('nexmo');
+
+const nexmo = new Nexmo({
+  apiKey: 'API_KEY',
+  apiSecret: 'API_SECRET',
+});
+
+const from = 'VonageAPI';
+const to = 'RECIPIENT_PHONE_NUMBER';
+const text = 'Hello from Vonage SMS API';
+
+nexmo.message.sendSms(from, to, text, (err, responseData) => {
+  if (err) {
+    console.log(err);
+  } else {
+    if (responseData.messages[0]['status'] === "0") {
+      console.log("Message sent successfully.");
+    } else {
+      console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+    }
+  }
+});
+
+Replace `API_KEY`, `API_SECRET`, and `RECIPIENT_PHONE_NUMBER` with the appropriate values. The `RECIPIENT_PHONE_NUMBER` is the phone number to which the SMS will be sent.
+
+### Step 7: Run the Script
+
+Run your script to send the SMS:
+
+  
+node send_sms.js
+
+When you run this script, an SMS message will be sent to the phone number specified in `RECIPIENT_PHONE_NUMBER` with the text "Hello from Vonage SMS API".
+
+### Additional Communication Services
+
+Nexmo offers other communication services such as Voice, Verify, and more. You can refer to the [Vonage API documentation](https://developer.nexmo.com/) for more details on how to use these services.
+
+### Conclusion
+
+By following these steps, you can install and use Nexmo (Vonage API) on Ubuntu for sending SMS and other communication purposes. This tutorial explained where the SMS is sent to in step 7 (the phone number specified in `RECIPIENT_PHONE_NUMBER`). If you have any specific use cases or need further assistance, feel free to ask!

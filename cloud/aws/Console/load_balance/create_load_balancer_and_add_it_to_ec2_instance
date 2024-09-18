@@ -1,0 +1,35 @@
+1. Create a Load Balancer:
+
+Go to the AWS Management Console.
+Navigate to the EC2 dashboard.
+In the left-hand menu, under "Load Balancing," select "Load Balancers."
+Click on "Create Load Balancer."
+Choose the type of load balancer you want (Application Load Balancer, Network Load Balancer, or Classic Load Balancer) and click "Create."
+Follow the prompts to configure your load balancer, including specifying a name, selecting availability zones, configuring listeners, and configuring security settings.
+Once configured, click "Create" to create your load balancer.
+2. Add EC2 Instance to Load Balancer:
+
+After creating the load balancer, navigate to its details page.
+Under the "Description" tab, note down the DNS name of the load balancer.
+Go to the EC2 dashboard.
+Select the EC2 instance you want to add to the load balancer.
+In the bottom pane, under "Description," find the "Security groups" and click on the associated security group.
+In the security group details, click "Edit inbound rules."
+Add a new rule allowing traffic from the load balancer's security group, typically on the port(s) your application listens to.
+Save the changes.
+Navigate back to the load balancer details page.
+Under the "Listeners" tab, click "Add listener" and configure it to match the port(s) and protocol of your application.
+Under the "Targets" tab, click "Edit" and add the EC2 instance(s) you want to register with the load balancer.
+Save the changes.
+3. Test the Load Balancer:
+
+Open a web browser or any HTTP client.
+Enter the DNS name of the load balancer as the URL.
+Send requests to the load balancer.
+Monitor the traffic distribution across the EC2 instances in the load balancer from the EC2 dashboard or using CloudWatch metrics.
+4. Compare EC2 Instance Performance:
+
+Before adding the load balancer, measure the performance of your application running directly on the EC2 instance(s).
+After adding the load balancer, measure the performance again.
+Compare metrics such as response time, throughput, and error rates to assess the impact of the load balancer on your application's performance.
+By following these steps, you'll be able to create a load balancer, add it to an existing EC2 instance, and compare the performance before and after implementing the load balancer.

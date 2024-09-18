@@ -1,0 +1,7 @@
+Scan for Open Ports and Perform Banner Grabbing:
+
+nmap -p <port1,port2,...> -sV --script=banner <target>
+Example:
+
+nmap -p 22,80,443 -sV --script=banner 192.168.1.1
+Scans specific ports, detects service versions, and performs banner grabbing to retrieve service information.

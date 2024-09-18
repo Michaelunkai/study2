@@ -1,0 +1,37 @@
+Sending an SMS
+Create a file named send_sms.py.
+
+Open send_sms.py in a text editor and add the following code:
+
+ 
+ 
+import plivo
+
+# Your Auth ID and Auth Token
+auth_id = "YOUR_AUTH_ID"
+auth_token = "YOUR_AUTH_TOKEN"
+
+client = plivo.RestClient(auth_id, auth_token)
+
+# The phone number to which you want to send the SMS
+destination_number = "DESTINATION_PHONE_NUMBER"
+# The phone number from which the SMS will be sent (must be a Plivo number)
+source_number = "YOUR_PLIVO_NUMBER"
+# The SMS text message
+message = "Hello from Plivo!"
+
+# Send the SMS
+response = client.messages.create(
+    src=source_number,
+    dst=destination_number,
+    text=message
+)
+
+print(f"Message UUID: {response['message_uuid']}")
+Replace YOUR_AUTH_ID, YOUR_AUTH_TOKEN, DESTINATION_PHONE_NUMBER, and YOUR_PLIVO_NUMBER with the appropriate values.
+
+Run the script:
+
+ 
+ 
+ 3 send_sms.py

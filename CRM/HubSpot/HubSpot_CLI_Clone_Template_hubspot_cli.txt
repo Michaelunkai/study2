@@ -1,0 +1,1 @@
+hs cms clone template <template-id> <destination-path>

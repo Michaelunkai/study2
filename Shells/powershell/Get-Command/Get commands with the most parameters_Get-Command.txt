@@ -1,0 +1,1 @@
+Get-Command | Sort-Object {$_.Parameters.Count} -Descending | Select-Object -First 10

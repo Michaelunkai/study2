@@ -1,0 +1,27 @@
+Deep Image Prior (DIP) is a concept and technique in computer vision introduced in a 2018 paper by Dmitry Ulyanov, Andrea Vedaldi, and Victor Lempitsky. Unlike many traditional approaches that rely on pre-trained models or large datasets, Deep Image Prior leverages the structure of a convolutional neural network (CNN) itself as a prior to solve various image restoration tasks, such as denoising, inpainting, and super-resolution.
+
+### Key Ideas:
+1. **Implicit Prior**: The method uses the architecture of an untrained CNN as an implicit prior. The network is initialized with random weights and then optimized to fit the corrupted image. Interestingly, the network's structure tends to first capture the main features of the image before overfitting to noise, allowing for effective restoration before overfitting occurs.
+
+2. **No Pre-training**: DIP does not require pre-training on large datasets. Instead, it works directly with the corrupted image, making it a unique approach compared to many deep learning techniques that require extensive training on labeled data.
+
+3. **Applications**: 
+   - **Image Denoising**: Removing noise from images.
+   - **Inpainting**: Filling in missing parts of an image.
+   - **Super-Resolution**: Increasing the resolution of images.
+
+### How It Works:
+1. **Network Initialization**: A deep CNN is initialized with random weights.
+2. **Optimization**: The network is optimized to minimize the difference between its output and the corrupted image. The optimization typically involves standard gradient descent methods.
+3. **Early Stopping**: The key to the method's success is stopping the optimization early before the network starts to overfit to the noise or artifacts in the corrupted image.
+
+### Advantages:
+- **No Data Dependency**: Works without large datasets or pre-trained models.
+- **Versatility**: Can be applied to various image restoration tasks.
+- **Simplicity**: The approach is relatively simple to implement compared to other deep learning methods.
+
+### Limitations:
+- **Slow**: The method can be computationally expensive and time-consuming because it requires optimizing a network from scratch for each image.
+- **Overfitting Risk**: If not stopped early, the network may start fitting the noise or unwanted artifacts.
+
+Deep Image Prior has gained attention for its novel approach to using neural networks, demonstrating that the architecture of deep networks itself encodes useful image priors.

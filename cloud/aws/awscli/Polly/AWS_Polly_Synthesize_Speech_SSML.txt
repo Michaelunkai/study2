@@ -1,0 +1,1 @@
+aws polly synthesize-speech --output-format mp3 --voice-id Kimberly --text-type ssml --text '<speak>Hello, world!</speak>' output.mp3

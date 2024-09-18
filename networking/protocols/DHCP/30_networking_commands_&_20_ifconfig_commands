@@ -1,0 +1,53 @@
+    ifconfig - Show network interfaces info.
+    ping host - Test network connectivity.
+    netstat -r - Display routing table.
+    traceroute host - Trace path to host.
+    nslookup domain - Query DNS server.
+    dig domain - DNS lookup tool.
+    hostname - Display system hostname.
+    iwconfig - Wireless info and settings.
+    ss -tuln - List listening ports.
+    arp -a - Show ARP cache.
+    route - Display routing table.
+    ifup interface - Bring up interface.
+    ifdown interface - Disable interface.
+    sshd -t - Test SSH configuration.
+    ssh user@host - SSH remote login.
+    scp file user@host:dest - Secure copy files.
+    telnet host port - Telnet connection.
+    iptables -L - List firewall rules.
+    nmap host - Network scanner.
+    wget url - Download files from web.
+    curl url - Transfer data from URL.
+    ftp host - FTP client.
+    whois domain - Domain info lookup.
+    ip addr show - Show IP addresses.
+    dhclient - Get DHCP lease.
+    netcat host port - Network utility.
+    route add default gw gateway - Add default gateway.
+    route del default - Delete default route.
+    route add -net network gw gateway - Add network route.
+    route del -net network - Delete network route.
+    
+    ifconfig:
+
+    ifconfig - Show interface configuration.
+    ifconfig interface up/down - Enable/disable interface.
+    ifconfig interface inet addr - Set IP address.
+    ifconfig interface netmask mask - Set subnet mask.
+    ifconfig interface hw ether MAC - Set MAC address.
+    ifconfig -a - Show all interfaces.
+    ifconfig interface mtu value - Set MTU size.
+    ifconfig interface promisc - Enable promiscuous mode.
+    ifconfig interface txqueuelen len - Set TX queue length.
+    ifconfig interface multicast - Enable multicast mode.
+    ifconfig interface broadcast addr - Set broadcast address.
+    ifconfig interface pointopoint addr - Set point-to-point address.
+    ifconfig interface metric value - Set interface metric.
+    ifconfig interface txqueuelen len - Set TX queue length.
+    ifconfig interface down up - Disable and enable interface.
+    ifconfig interface arp - Show ARP cache for interface.
+    ifconfig interface -arp - Clear ARP cache.
+    ifconfig interface mtu - Show MTU size.
+    ifconfig interface -multicast - Disable multicast mode.
+    ifconfig interface -promisc - Disable promiscuous mode.

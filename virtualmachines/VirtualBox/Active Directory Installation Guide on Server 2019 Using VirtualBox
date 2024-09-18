@@ -1,0 +1,52 @@
+▲A  A▼
+Active Directory Installation Guide on Server 2019 Using VirtualBox
+Configuring Server 2019
+Install Microsoft Server 2019 (Tutorial)
+Log in with an account with admin priviliges
+Set the server name
+Click the Start button > Type control panel > press Enter
+Click View By > Small Icons
+Click System
+Click Advanced System Settings in the top left
+Select the Computer Name tab
+Click the change button
+Enter the new computer name > Click OK
+When prompted to reboot, choose Restart Later
+Set a static IP address
+Back in Control Panel, select Network and Sharing Center
+Click Change adapter settings
+Right click on the network connection > Properties
+Select Internet Protocol Version 4 (TCP/IPv4) > Properties
+Click the Use the following IP address option
+Enter a static IP address, subnet mask and gateway
+Enter DNS addresses
+Click OK to all open dialog windows and close Control Panel
+Reboot the server for the name change to take effect
+Installing Active Directory
+After the reboot, launch Server Manager if it does not automatically load
+Click Add roles and features
+Click Next on the Before you begin screen
+Select Role-based or feature-based installation > Next
+Leave Select a server from the server pool selected and select the current Server2019 server > Next
+Check the Active Directory Domain Services box
+A popup will appear with additional required roles and features, click the Add Features button
+Click Next
+Click Next on the Select features screen
+Click Next on the Active Directory Domain Services screen
+Click Install on the confirmation screen
+Leave the installation progress screen open until the install completes
+Configuring Active Directory
+Back in Server Manager, click the flag with the caution icon in the upper right corner
+Click Promote this server to a domain controller
+Select Add a new forest and enter the desired domain name, ie i12bretro.local > Click Next
+Verify Domain Name System (DNS) server and Global Catalog (GC) are checked
+Enter and confirm a Directory Services Restore Mode (DSRM) password > Click Next
+On the DNS Options page, click the Change button and enter credentials for a local administrator account > Click Next
+Verify or modify the NetBIOS domain name > Click Next
+Leave the AD DS paths as default > Click Next
+Click Next on the Review Options screen
+After the prerequisite check completes, click the Install button
+Once the installation completes the server will reboot
+After rebooting, log back into the server
+Welcome to your very own Active Directory server
+ 

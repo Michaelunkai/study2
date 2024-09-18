@@ -1,0 +1,1 @@
+vagrant up --log-level=debug

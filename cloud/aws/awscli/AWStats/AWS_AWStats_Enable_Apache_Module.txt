@@ -1,0 +1,1 @@
+sudo a2enconf awstats && sudo systemctl restart apache2

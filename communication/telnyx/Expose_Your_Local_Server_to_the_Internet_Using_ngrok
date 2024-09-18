@@ -1,0 +1,7 @@
+Expose Your Local Server to the Internet Using ngrok
+To allow Telnyx to reach your local Flask server, expose it to the internet using ngrok. If you don’t have ngrok installed, download and install it. Then run:
+
+ 
+ 
+./ngrok http 5000
+Ngrok will provide a public URL (e.g., http://123456.ngrok.io). Note this URL as you will need it to configure the webhook.

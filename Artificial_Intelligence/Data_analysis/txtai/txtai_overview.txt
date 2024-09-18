@@ -1,0 +1,9 @@
+txtai is an open-source AI-powered search engine and workflow automation platform. It provides tools for building applications that understand and process natural language, enabling search, question-answering, and other language-based workflows. txtai leverages embeddings, which are dense vector representations of text, to perform semantic searches and other tasks.
+Here are some key features of txtai:
+1. Semantic Search: txtai uses embeddings to understand the context of the text, allowing for more accurate and relevant search results compared to traditional keyword-based search.
+2. Question Answering: It can find answers to questions within a corpus of documents, similar to how modern AI assistants work.
+3. Text Classification: txtai can categorize and classify text into predefined categories.
+4. Extraction: It can extract specific information from documents, such as entities, keywords, or phrases.
+5. Clustering: txtai can group similar documents or text segments together, which is useful for summarization or identifying patterns in large datasets.
+6. Workflow Automation: It integrates with other tools and platforms to automate workflows that involve natural language processing, such as indexing documents, processing user queries, and retrieving information.
+For more details and documentation, you can visit the txtai GitHub repository: https://github.com/neuml/txtai

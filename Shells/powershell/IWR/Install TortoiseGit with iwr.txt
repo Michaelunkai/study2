@@ -1,0 +1,1 @@
+iwr -Uri https://download.tortoisegit.org/tgit/2.12.0.0/TortoiseGit-2.12.0.0-64bit.msi -OutFile tortoisegit_installer.msi; Start-Process msiexec.exe -ArgumentList '/i tortoisegit_installer.msi /quiet' -NoNewWindow -Wait

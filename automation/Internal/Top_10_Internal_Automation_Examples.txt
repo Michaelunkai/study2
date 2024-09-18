@@ -1,0 +1,21 @@
+Top 10 Internal Automation Examples
+1. Employee Onboarding Automation:
+Automate the process of onboarding new employees by creating workflows that handle tasks such as setting up email accounts, providing access to necessary software, scheduling orientation meetings, and sending welcome emails.
+2. Expense Report Processing:
+Streamline expense report submissions and approvals by setting up an automated system that allows employees to submit reports, which are then automatically routed to the appropriate managers for approval and processed for reimbursement.
+3. IT Service Desk Requests:
+Implement an automated ticketing system for IT service desk requests that categorizes, prioritizes, and assigns tickets to the appropriate IT staff, and sends status updates to employees.
+4. Customer Support Ticketing:
+Automate the customer support process by setting up a system that automatically categorizes and routes support tickets to the appropriate department, sends acknowledgments to customers, and provides status updates.
+5. Invoice Processing:
+Automate the accounts payable process by setting up workflows that capture, process, and approve invoices, and ensure timely payments to vendors.
+6. Meeting Scheduling:
+Use automated tools to schedule meetings by finding available time slots for participants, sending calendar invites, and reminding participants about upcoming meetings.
+7. Document Management:
+Automate the management of documents by setting up workflows for document creation, approval, storage, and retrieval. This can include automated version control and access permissions.
+8. Sales Lead Management:
+Implement a CRM system that automates the tracking and management of sales leads, including lead scoring, follow-up reminders, and pipeline management.
+9. Performance Reviews:
+Automate the employee performance review process by setting up workflows that remind managers and employees about upcoming reviews, collect feedback, and generate performance reports.
+10. Social Media Posting:
+Use automation tools to schedule and post content on social media platforms, monitor engagement, and generate reports on social media performance.

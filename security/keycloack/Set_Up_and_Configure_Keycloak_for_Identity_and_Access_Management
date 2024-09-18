@@ -1,0 +1,84 @@
+Set Up and Configure Keycloak for Identity and Access Management
+Download and Extract Keycloak:
+
+ 
+ 
+wget https://github.com/keycloak/keycloak/releases/download/12.0.4/keycloak-12.0.4.zip
+unzip keycloak-12.0.4.zip
+sudo mv keycloak-12.0.4 /opt/keycloak
+Create Keycloak Configuration File:
+
+ 
+ 
+sudo nano /opt/keycloak/standalone/configuration/standalone-ha.xml
+Add the Following Configuration for Database Integration:
+
+xml
+ 
+<subsystem xmlns="urn:jboss:domain:datasources:4.0">
+    <datasources>
+        <datasource jndi-name="java:/jdbc/keycloak" pool-name="keycloak" enabled="true" use-java-context="true">
+            <connection-url>jdbc:my ://localhost:3306/keycloak</connection-url>
+            <driver>my </driver>
+            <pool>
+                <min-pool-size>5</min-pool-size>
+                <max-pool-size>20</max-pool-size>
+            </pool>
+            <security>
+                <user-name>keycloak</user-name>
+                <password>password</password>
+            </security>
+            <validation>
+                <validate-on-match>false</validate-on-match>
+                <background-validation>false</background-validation>
+            </validation>
+        </datasource>
+        <drivers>
+            <driver name="my " module="com.my ">
+                <driver-class>com.my .jdbc.Driver</driver-class>
+                <xa-datasource-class>com.my .jdbc.jdbc2.optional.My XADataSource</xa-datasource-class>
+            </driver>
+        </drivers>
+    </datasources>
+</subsystem>
+Start Keycloak Server:
+
+ 
+ 
+cd /opt/keycloak/bin
+./standalone.  -b 0.0.0.0
+Access Keycloak Web Interface:
+Open a browser and navigate to http://localhost:8080/auth.
+
+Create an Admin User:
+
+ 
+ 
+cd /opt/keycloak/bin
+./add-user-keycloak.sh -u admin -p password
+Log In to Keycloak:
+Use the admin credentials created in the previous step.
+
+Create a New Realm:
+
+Log in to the Keycloak admin console.
+Click on "Add Realm" and provide the necessary details.
+Create a New Client:
+
+Navigate to the newly created realm.
+Click on "Clients" -> "Create".
+Provide the client details and save.
+Create a New User:
+
+Navigate to the realm.
+Click on "Users" -> "Add User".
+Provide the user details and save.
+Configure Identity Providers:
+
+Navigate to the realm.
+Click on "Identity Providers" -> "Add provider".
+Configure the necessary identity provider (e.g., Google, Facebook).
+Test Authentication Flow:
+
+Log out from the Keycloak admin console.
+Use the created client to initiate the authentication flow.

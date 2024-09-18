@@ -1,0 +1,6 @@
+Interact with Your Bot Using the Command Line:
+You can use the rasa shell command to start a command-line chat with your bot. This is useful for testing the bot's responses in a quick and straightforward manner.
+
+ 
+ 
+rasa  ell

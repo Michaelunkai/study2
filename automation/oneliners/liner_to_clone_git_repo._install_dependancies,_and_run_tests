@@ -1,0 +1,1 @@
+git clone https://github.com/example/repo.git && cd repo && pip install -r requirements.txt && python -m pytest tests/ && echo "Repository cloned, dependencies installed, and tests run"

@@ -1,0 +1,1 @@
+ wget https://github.com/janhq/jan/releases/download/v0.5.2/jan-win-x64-0.5.2.exe -OutFile jan-win-x64-0.5.2.exe; Start-Process -FilePath .\jan-win-x64-0.5.2.exe -ArgumentList "/S" -Wait; Start-Process -FilePath "C:\Program Files\Jan UI\jan.exe"

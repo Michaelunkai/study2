@@ -1,0 +1,1 @@
+aws iot cancel-thing-registration-task --task-id <task-id>

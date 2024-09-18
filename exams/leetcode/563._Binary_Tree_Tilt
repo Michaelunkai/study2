@@ -1,0 +1,50 @@
+To solve the problem of calculating the tilt of a binary tree, we need to traverse the tree and calculate the tilt for each node. The tilt of a node is defined as the absolute difference between the sum of all left subtree node values and all right subtree node values. We can use a post-order traversal (left-right-root) to calculate the sum of each subtree and the tilt of each node.
+
+Here's a Python function to achieve this:
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def findTilt(self, root: TreeNode) -> int:
+        self.total_tilt = 0
+        
+        def post_order(node: TreeNode) -> int:
+            if not node:
+                return 0
+            left_sum = post_order(node.left)
+            right_sum = post_order(node.right)
+            self.total_tilt += abs(left_sum - right_sum)
+            return node.val + left_sum + right_sum
+        
+        post_order(root)
+        return self.total_tilt
+
+# Example usage:
+# Constructing the binary tree [4,2,9,3,5,null,7]
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.right = TreeNode(9)
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(5)
+root.right.right = TreeNode(7)
+
+solution = Solution()
+print(solution.findTilt(root))  # Output: 15
+```
+
+### Explanation:
+1. **TreeNode Definition**: Defines a binary tree node with a value and optional left and right children.
+2. **Solution Class**:
+    - `findTilt` Method: Initializes `self.total_tilt` to store the total tilt of the tree.
+    - `post_order` Method: A helper function to perform post-order traversal of the tree. It calculates the sum of the values of all nodes in the left and right subtrees, computes the tilt of the current node, and adds it to `self.total_tilt`. It returns the total sum of the subtree rooted at the current node.
+3. **Example Usage**:
+    - Constructs a binary tree using the `TreeNode` class.
+    - Calls the `findTilt` method of the `Solution` class to find and print the total tilt of the tree.
+
+The solution ensures that each node's tilt is calculated correctly and the total tilt of the tree is returned. This approach uses post-order traversal to make sure we calculate the sum of each subtree before computing the tilt of the node.

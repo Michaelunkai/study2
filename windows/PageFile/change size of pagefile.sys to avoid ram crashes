@@ -1,0 +1,3 @@
+search:  view Advanced System Settings → Performance Settings → Advanced → Virtual Memory → Change > check box "Custom size"
+add your initial size in mb perferably 1.5x from your ram... so 32gb = 48000mb
+and 3x of maximum size (96000)

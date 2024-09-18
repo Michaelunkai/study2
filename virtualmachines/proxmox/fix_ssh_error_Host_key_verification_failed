@@ -1,0 +1,5 @@
+nano /mnt/c/Users/micha/.s /known_hosts
+
+2)remove any line with the ip im trying to connect to
+cntrl + s to save
+retry to s 

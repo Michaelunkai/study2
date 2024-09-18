@@ -1,0 +1,11 @@
+ProxMox Web UI Dark Theme
+Log into ProxMox VE, either at the console or the web UI and launch the web shell
+Run the following commands
+# download the dark theme setup script
+wget https://raw.githubusercontent.com/Weilbyte/PVEDiscordDark/master/PVEDiscordDark. 
+# run the downloaded script
+  PVEDiscordDark.  install
+After the installation completes, refresh the ProxMox web UI to see the dark theme
+Source: https://github.com/Weilbyte/PVEDiscordDark
+
+To uninstall the dark theme, re-run the script with the uninstall flag, bash PVEDiscordDark.sh uninstall

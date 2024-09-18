@@ -1,0 +1,3 @@
+import boto3
+rds = boto3.client('rds')
+rds.create_db_instance(DBInstanceIdentifier='db-instance-id', AllocatedStorage=20, DBName='mydb', Engine='mysql', MasterUsername='username', MasterUserPassword='password', DBInstanceClass='db.t2.micro')

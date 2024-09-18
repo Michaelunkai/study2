@@ -1,0 +1,5 @@
+Using Libraries and Frameworks in Colab
+To use a specific library or framework in Colab:
+
+Import the Library: Use the import statement, e.g., import tensorflow as tf.
+Install the Library: If the library is not pre-installed, you can install it using pip, e.g., !pip install tensorflow.

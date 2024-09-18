@@ -1,0 +1,59 @@
+▲A  A▼
+Install Invoice Plane - Invoice and Payment Manager - On Windows
+What is Invoice Plane?
+[Invoice Plane is a] self-hosted open source application for managing your invoices, clients and payments.-https://www.invoiceplane.com/
+
+Installation
+Download XAMPP Download
+Download Invoice Plane Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP file > Extract All...
+Right click the downloaded Invoice Plane .zip file > Extract All...
+Rename the extracted folder invoiceplane
+Cut the invoiceplane folder inside the XAMPP/htdocs directory
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Navigate into the XAMPP/htdocs/invoiceplane folder
+Make a copy of the ipconfig.php.example and rename it ipconfig.php
+Edit ipconfig.php in a text editor
+Set the IP_URL value to http://DNSorIP/invoiceplane
+IP_URL=http://localhost/invoiceplane
+
+Save the changes to ipconfig.php and close the text editor
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell windows here...
+Type the following in the PowerShell window to setup the database
+.\my  -u root
+CREATE DATABASE invoice_plane;
+CREATE USER 'invoice_plane_rw'@'localhost' IDENTIFIED BY 'Inv0!c3Pl@n3!';
+GRANT ALL ON invoice_plane.* TO 'invoice_plane_rw'@'localhost';
+FLUSH PRIVILEGES;
+exit;
+exit
+Invoice Plane Web Installer
+Open a web browser and navigate to http://DNSorIP/invoiceplane
+The Invoice Plane Installation web installer should be load
+Click the Setup button
+Select a Language > Click Continue
+Click Continue on the Prerequisites page
+Complete the Database Details form as follows
+Hostname: localhost
+Port: 3306
+Username: invoice_plane_rw
+Password: Inv0!c3Pl@n3!
+Database: invoice_plane
+
+Click the Try Again button then click Continue
+Complete the Create User Account form > Click Continue
+Back in File Explorer, navigate to XAMPP/htdocs/invoiceplane and edit ipconfig.php
+Find the DISABLE_SETUP setting and change the value to true
+Save the changes to ipconfig.php and close the text editor
+Back in the browser, click the Login button
+Login with the Email and Password setup during the installation
+Welcome to Invoice Plane
+Source: https://wiki.invoiceplane.com/en/1.0/getting-started/installation
+
+ 

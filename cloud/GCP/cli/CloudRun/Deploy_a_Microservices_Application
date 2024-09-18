@@ -1,0 +1,1 @@
+gcloud run deploy microservice-1 --image gcr.io/my-project/microservice-1:v1 --platform managed --region us-central1

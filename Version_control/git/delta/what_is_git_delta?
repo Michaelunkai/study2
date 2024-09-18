@@ -1,0 +1,33 @@
+Git delta refers to the difference between two versions of a file or a set of files in a Git repository. This difference is typically expressed in terms of the changes needed to transform one version into another. In Git, deltas are used in various ways, such as in the creation of patches, the optimization of storage, and the efficient transmission of changes.
+
+### Key Aspects of Git Delta
+
+1. **Storage Optimization**:
+   - Git stores objects (like commits, trees, and blobs) in a repository. To save space, Git often stores the difference (or delta) between objects rather than full copies of each object.
+   - When packing objects, Git compresses and stores them in pack files. Within these pack files, Git uses delta encoding to reduce the amount of data stored. For example, if two versions of a file are similar, Git might store the full content of one version and then only the differences (delta) for the other versions.
+
+2. **Efficient Transmission**:
+   - When pushing or pulling changes, Git can transmit only the deltas, reducing the amount of data that needs to be transferred over the network. This is particularly useful for large repositories or when working with remote repositories over slow connections.
+
+3. **Patch Creation**:
+   - A patch is a file that describes the changes between two versions of a repository. Git uses delta information to create patches, which can then be applied to other repositories to replicate the changes.
+
+### Delta Compression in Git
+
+Delta compression is a technique used to store data efficiently by only recording changes between different versions of objects. Here’s a simplified example:
+
+- **Original File** (Version 1):
+  Hello, this is a file.
+- **Modified File** (Version 2):
+  Hello, this is an updated file.
+
+The delta might look like:
+  Change "a file" to "an updated file".
+
+### Commands and Concepts
+
+- **git diff**: Shows the differences (deltas) between various commits, working trees, etc.
+- **git format-patch**: Generates patch files from commits, using delta information.
+- **Pack files**: Git uses pack files to store objects efficiently. These pack files often use delta encoding to save space.
+
+Understanding Git deltas helps in comprehending how Git optimizes storage and manages changes efficiently, enabling robust version control and collaboration capabilities.

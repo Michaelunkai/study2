@@ -1,0 +1,44 @@
+Sorting Algorithms
+Merge Sort
+
+Step 1: Definition
+Merge Sort is a divide-and-conquer algorithm that divides the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining.
+
+
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        L = arr[:mid]
+        R = arr[mid:]
+
+        merge_sort(L)
+        merge_sort(R)
+
+        i = j = k = 0
+
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+
+# Example usage
+array = [12, 11, 13, 5, 6, 7]
+merge_sort(array)
+print(array)  # Output: [5, 6, 7, 11, 12, 13]
+
+
+

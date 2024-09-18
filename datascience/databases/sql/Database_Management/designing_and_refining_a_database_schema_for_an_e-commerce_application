@@ -1,0 +1,98 @@
+Create and Enter Database:
+
+ 
+ 
+CREATE DATABASE ecommerce_db;
+USE ecommerce_db;
+Define Attributes for Users:
+
+ 
+ 
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+Normalize Tables (Split Users):
+
+ 
+ 
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE UserDetails (
+    user_id INT PRIMARY KEY,
+    password VARCHAR(100) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+Define Primary Keys for Products:
+
+ 
+ 
+CREATE TABLE Products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL
+);
+Define Relationships (Orders):
+
+ 
+ 
+CREATE TABLE Orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+Implement Tables (continue from last):
+Continuing from the last step, this involves creating additional tables and modifying existing ones based on the defined schema.
+
+Index Columns (Users):
+
+ 
+ 
+CREATE INDEX idx_user_id ON Users(user_id);
+Optimize Queries (Orders by User):
+
+ 
+ 
+SELECT * FROM Orders WHERE user_id = 123;
+Test the Schema (Insert Sample Data):
+
+ 
+ 
+INSERT INTO Users (username, email, password) VALUES
+('user1', 'user1@example.com', 'password1'),
+('user2', 'user2@example.com', 'password2'),
+('user3', 'user3@example.com', 'password3');
+Refine as Needed (Add Column to Orders):
+
+ 
+ 
+ALTER TABLE Orders ADD COLUMN status VARCHAR(50) DEFAULT 'pending';
+Refine as Needed (Create Reviews Table):
+
+ 
+ 
+CREATE TABLE Reviews (
+    review_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    user_id INT,
+    rating INT,
+    comment TEXT,
+    review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+Refine as Needed (Add Index to Products):
+
+ 
+ 
+CREATE INDEX idx_product_name ON Products(name);
+This sequence provides a comprehensive approach to designing and refining a database schema for an e-commerce application, covering everything from initial creation to ongoing optimization and refinement.

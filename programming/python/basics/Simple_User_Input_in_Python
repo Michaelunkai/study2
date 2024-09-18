@@ -1,0 +1,22 @@
+. User Input:
+
+ ####Use input("What's your name?") to collect user input.
+Example:
+
+
+user_name = input("What's your name?")
+
+###The user's response is stored in the variable user_name.
+
+Note: Adjust the prompt within input() to customize the information you want from the user. The entered value is then assigned to the specified variable.
+
+##heres another option:
+
+print(input("Whats your name?"))
+
+##output:
+hello world!!
+Whats your name?micha
+micha
+
+##it will print my name.

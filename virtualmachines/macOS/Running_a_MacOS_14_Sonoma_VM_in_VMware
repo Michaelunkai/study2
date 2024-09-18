@@ -1,0 +1,75 @@
+▲A  A▼
+Running a MacOS 14 Sonoma VM in VMware
+Installing and Configuring VMware
+💡 NOTE: MacOS higher than version 12 requires a CPU with AVX2 instruction support
+
+Download a MacOS Sonoma .iso Download OR create your own https://youtu.be/JFMvUpdCMwo
+Download VMware Workstation Player Download
+Download MacOS Unlocker for VMware Workstation Download
+Install VMware Workstation Player, accepting the defaults
+Extract the downloaded MacOS Unlocker for VMware Workstation
+Inside the extracted file, right click Unlocker.exe > Run as administrator
+Click the Patch button
+Wait for patching to complete before continuing
+Creating the Sonoma VM
+Launch VMware Workstation Player
+Click Continue to use Workstation Player for free for non-commercial use
+Click Fini 
+Click Create a New Virtual Machine on the right side of the application
+Select Installer disc image file (iso) > Browse to and select the downloaded MacOS Sonoma .iso > Click Next
+Select Apple Mac OS X and macOS 13 > Click Next
+Name the VM MacOS14 and set the path to store the VM files > Click Next
+Adjust the disk size if necessary > Click Next
+Click Fini 
+Open File Explorer and navigate to the VM files
+Edit the .vmx file in a text editor
+Search for board-id.reflectHost and set the value to "FALSE"
+board-id.reflectHost = "FALSE"
+
+Search for ethernet0.virtualDev and set the value to "vmxnet3"
+ethernet0.virtualDev = "vmxnet3"
+
+Then paste the following options at the bottom of the file
+board-id = "Mac-AA95B1DDAB278B95"
+hw.model.reflectHost = "FALSE"
+hw.model = "MacBookPro19,1"
+serialNumber.reflectHost = "FALSE"
+serialNumber = "C01234567890"
+
+Right click on the MacOS14 VM > Power On
+Installing MacOS Sonoma
+After an initialization sequence the MAC OS Setup should start
+Select a Language > Click the next arrow
+Select Disk Utility
+Select the VMware Virtual SATA Hard Drive Media > Click Erase
+Name the drive MacOS > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS
+Click Continue > Click Agree > Click Agree again
+Select the MacOS disk > Click Install
+Wait while Mac OS installs files, the VM will reboot several times
+Select your Country or Region > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck Share Mac Analytics with Apple > Click Continue
+Click Set Up Later on the Screen Time screen
+Pick a theme > Click Continue
+Welcome to MacOS 14 Sonoma
+Install VMware Tools (optional, but recommended)
+Right click the Install MacOS disc on the desktop > Eject
+On the VMware toolbar click Player > Removable Devices > CD/DVD > Settings
+Click Browse next to ISO Image File > Browse to the extracted Unlocker files \tools > Select darwin.iso
+Click the Connected checkbox
+Click OK
+Inside the VM, double click the mounted VMware tools and run the installer
+When prompted, go into the Security settings and scroll to the bottom > Click Allow next to VMware > Reboot
+After rebooting double click the mounted VMware tools and run the installer again
+After the install succeeds, reboot again
+ 

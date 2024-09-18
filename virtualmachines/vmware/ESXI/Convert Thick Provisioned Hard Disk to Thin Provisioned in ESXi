@@ -1,0 +1,52 @@
+▲A  A▼
+Convert Thick Provisioned Hard Disk to Thin Provisioned in ESXi
+Virtual Disk Types in VMware
+Thick Provision Lazy Zeroed (default) – Space required for the virtual disk is allocated during the creation of the disk file. Any data remaining on the physical device is not erased during creation, but is zeroed out on demand at a later time on first write from the virtual machine. The virtual machine does not read stale data from disk.
+
+Thick Provision Eager Zeroed – Space required for the virtual disk is allocated at creation time. In contrast to thick provision format, the data remaining on the physical device is zeroed out during creation. It might take much longer to create disks in this format than to create other types of disks.
+
+Thin Provision – Space required for the virtual disk is not allocated during creation, but is supplied and zeroed out, on demand at a later time.
+
+Source: https://kb.vmware.com/s/article/1022242
+
+Converting/Cloning to Thin Disk Type
+Log into the ESXi web UI
+Enable the SSH service if it is not already enabled by selecting Actions > Services > Enable Secure Shell (SSH) Actions > Services > Enable Secure Shell (SSH)
+Shutdown the target VM if it is currently running
+Select the target VM from the left navigation
+Expand the Hard disk configuration
+Copy the folder and file name (TurnkeyLinux/TurnkeyLinux.vmdk in this example) and paste into a text document
+Click the virtual disk .vmdk file name link
+Copy the location path value displayed (/vmfs/volumes/61a66fb9-5be9b2dc-6d0f-b8ca3a9babec in this example) and paste into a text document
+Connect to the ESXi host via SSH
+Run the following commands
+# change directory to the datastore, update path as needed
+# (/vmfs/... path from above)
+cd /vmfs/volumes/61a66fb9-5be9b2dc-6d0f-b8ca3a9babec
+# use vmkfstools to clone the virtual disk to thin provisioned
+# use the folder and file name copied from above
+# syntax
+# vmkfstools -i "<%SOURCE FILE.vmdk%>" -d thin "<%TARGET THIN FILE.vmdk%>"
+vmkfstools -i "./TurnkeyLinux/TurnkeyLinux.vmdk" -d thin "./TurnkeyLinux/TurnkeyLinux-thin.vmdk"
+# after the clone process completes, rename the source (thick) file
+mv "./TurnkeyLinux/TurnkeyLinux.vmdk" "./TurnkeyLinux/TurnkeyLinux.vmdk.thick"
+# rename the target (thin) file to the original .vmdk file name
+mv "./TurnkeyLinux/TurnkeyLinux.vmdk-thin.vmdk" "./TurnkeyLinux/TurnkeyLinux.vmdk"
+Updating the VM Configuration
+Back in the ESXi web UI, right click on the VM > Unregister > Click Yes to confirm
+Select Virtual Machines from the left navigation pane > Click Create/Register VM
+Select Register an existing virtual machine > Click Next
+Click the Select one or more virtual machines, a datastore, or a directory button > Browse to the virtual machine directory > Select the .vmx > Click Select
+Click Next and then Finish
+Select the virtual machine > Click Edit
+Expand the Hard disk configuration
+Verify the Type value now shows Thin provisioned
+Start the VM to verify it boots and runs without issues
+Cleaning Up
+After fully testing that the VM is functional, select Storage from the left navigation pane
+Click Datastore browser in the main content area
+Browse to the virtual machine directory
+Select the original thick .vmdk file (renamed .vmdk.thick earlier)
+Click Delete > Click Delete again to confirm the action
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

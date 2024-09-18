@@ -1,0 +1,65 @@
+Install OPNsense Firewall and Router in VirtualBox
+Download OPNSense Download
+Extract the downloaded .bz2 file
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: OPNSense
+Machine Folder: C:\VMs
+Type: BSD
+Version: FreeBSD (64-bit)
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image OPNSense.vdi
+File size: 8 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded OPNSense .iso file
+Click OK
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Click the Adapter 2 tab
+Check the Enable Network Adapter and set the attached to dropdown to Bridged Adapter
+Click OK
+Make sure the OPNSense VM is selected and click Start > Normal
+Wait for the login prompt to display
+Login with the username installer and password opnsense
+Press Enter at the Welcome screen
+If needed, change the keymap and/or video font then select Accept these Settings > Press Enter
+Select Guided installation > Press Enter
+Press Enter to use the ada0 hard disk
+Select GPT/UEFI mode > Press Enter
+Wait for OPNSense to copy files and install
+Type and re-type a new root password > Select Accept and Set Password > Press Enter
+Select Reboot > Press Enter
+From the VirtualBox menu select Devices > Optical Drives > Remove disk from virtual drive
+Reset the VM by selecting Machine > Reset from the VirtualBox menu
+Welcome to the OPNSense terminal
+Configuring Network Interfaces and Web UI
+At the login prompt, login with username root and the root password set earlier
+At the OPNSense menu, select Set interface IP address by typing 2 and pressing Enter
+Enter the number that corresponds to the LAN interface > Press Enter
+At the DHCP prompt type n > Press Enter
+Enter a LAN IP address on the same subnet as your LAN
+At the bit count prompt type 24 > Press Enter
+Leave the IPv4 upstream gateway blank press Enter
+At the IPv6 WAN tracking type n > Press Enter
+At the IPv6 DHCP prompt type n > Press Enter
+Leave the IPv6 address blank and press Enter
+At the DHCP server prompt type n > Press Enter
+At the revert to HTTP prompt type y > Press Enter
+The http address of the OPNSense Web UI will be displayed
+Minimize the OPNSense VM and open a web browser
+Navigate to the web UI http address
+Log into the web UI with the username root and the root password set earlier
+Enjoy exploring OPNSense

@@ -1,0 +1,54 @@
+To solve the problem of finding the minimum cost to buy exactly certain items while making optimal use of special offers, we can use a combination of dynamic programming and depth-first search (DFS). Here's how we can approach this problem:
+
+1. **Base Price Calculation**: First, calculate the cost of buying the needed items without any special offers.
+2. **Recursive DFS with Memoization**: Use a recursive function to explore all possible ways to use special offers and calculate the minimum cost.
+   - For each special offer, check if it can be applied given the current needs.
+   - If applicable, apply the special offer and recursively calculate the cost for the remaining needs.
+   - Use memoization to store the results of subproblems to avoid redundant calculations.
+
+Here is the Python code implementing this approach:
+
+```python
+from typing import List, Tuple
+from functools import lru_cache
+
+class Solution:
+    def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
+        
+        @lru_cache(None)
+        def dfs(curr_needs: Tuple[int]) -> int:
+            # Calculate the direct cost without any special offers
+            min_cost = sum(need * price[i] for i, need in enumerate(curr_needs))
+            
+            # Try every special offer to see if it gives a better price
+            for offer in special:
+                new_needs = []
+                for i in range(len(curr_needs)):
+                    if curr_needs[i] < offer[i]:  # If the offer requires more items than needed, skip it
+                        break
+                    new_needs.append(curr_needs[i] - offer[i])
+                else:
+                    # Recursively calculate the cost if this offer is used
+                    min_cost = min(min_cost, dfs(tuple(new_needs)) + offer[-1])
+            
+            return min_cost
+        
+        # Start the DFS with the initial needs
+        return dfs(tuple(needs))
+
+# Example usage:
+# solution = Solution()
+# print(solution.shoppingOffers([2, 5], [[3, 0, 5], [1, 2, 10]], [3, 2]))  # Output: 14
+# print(solution.shoppingOffers([2, 3, 4], [[1, 1, 0, 4], [2, 2, 1, 9]], [1, 2, 1]))  # Output: 11
+```
+
+### Explanation:
+1. **Base Case**: The function `dfs` computes the direct cost of buying the items without any special offers.
+2. **Recursive Case**:
+   - For each special offer, it checks if the offer can be applied by comparing the current needs with the offer requirements.
+   - If applicable, it calculates the new needs after applying the offer.
+   - It recursively calculates the minimum cost for the new needs using the same function.
+   - It keeps track of the minimum cost among all possible ways of applying the offers.
+3. **Memoization**: The `lru_cache` decorator is used to cache the results of subproblems, ensuring that each unique state is only computed once, which improves efficiency.
+
+This approach ensures that we explore all possible ways of using the special offers to minimize the total cost while efficiently avoiding redundant computations using memoization.

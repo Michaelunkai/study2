@@ -1,0 +1,1 @@
+aws elasticbeanstalk retrieve-environment-info --environment-id <env-id> --info-type <info-type>

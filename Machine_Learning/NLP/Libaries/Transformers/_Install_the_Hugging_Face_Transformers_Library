@@ -1,0 +1,3 @@
+pip install transformers torch  # For PyTorch backend
+# or
+pip install transformers tensorflow  # For TensorFlow backend

@@ -1,0 +1,3 @@
+^!n::
+Run, rundll32.exe user32.dll,UpdatePerUserSystemParameters
+return

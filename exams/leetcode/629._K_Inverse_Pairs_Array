@@ -1,0 +1,64 @@
+To solve the problem of counting the number of different arrays consisting of numbers from 1 to `n` that have exactly `k` inverse pairs, we can use dynamic programming. Here's a detailed explanation and the corresponding code:
+
+### Explanation
+
+1. **Dynamic Programming (DP) Table Definition**:
+   - Let `dp[i][j]` represent the number of arrays consisting of numbers from `1` to `i` that have exactly `j` inverse pairs.
+
+2. **Base Cases**:
+   - `dp[i][0]` = 1 for all `i` because an array sorted in increasing order has 0 inverse pairs.
+
+3. **Transition**:
+   - To compute `dp[i][j]`, we consider placing the element `i` at different positions in the array of length `i`. Placing `i` at the end of the array introduces no new inverse pairs, placing `i` one position before the end introduces 1 new inverse pair, and so on.
+   - The formula to update `dp[i][j]` using previous results:
+     ```python
+     dp[i][j] = dp[i-1][j] + dp[i-1][j-1] + dp[i-1][j-2] + ... + dp[i-1][j-(i-1)]
+     ```
+   - This can be optimized using a sliding window sum to avoid recomputation.
+
+4. **Modulus Operation**:
+   - Since the result can be very large, take the result modulo `10^9 + 7`.
+
+### Code Implementation
+
+```python
+class Solution:
+    def kInversePairs(self, n: int, k: int) -> int:
+        MOD = 10**9 + 7
+        dp = [[0] * (k + 1) for _ in range(n + 1)]
+        dp[0][0] = 1  # There's one way to have an empty array with 0 inverse pairs
+        
+        for i in range(1, n + 1):
+            dp[i][0] = 1
+            for j in range(1, k + 1):
+                dp[i][j] = dp[i][j - 1] + dp[i - 1][j]
+                if j >= i:
+                    dp[i][j] -= dp[i - 1][j - i]
+                dp[i][j] %= MOD
+        
+        return dp[n][k]
+
+# Example usage:
+# solution = Solution()
+# print(solution.kInversePairs(3, 0))  # Output: 1
+# print(solution.kInversePairs(3, 1))  # Output: 2
+```
+
+### Explanation of the Code
+
+1. **Initialization**:
+   - `MOD` is defined to handle large numbers.
+   - `dp` is initialized as a 2D list with dimensions `(n+1) x (k+1)`, initially filled with 0.
+
+2. **Base Case**:
+   - `dp[0][0]` is set to 1 since there is one way to have an empty array with 0 inverse pairs.
+
+3. **DP Transition**:
+   - For each `i` from `1` to `n`, we set `dp[i][0]` to 1 because an array of length `i` in sorted order has 0 inverse pairs.
+   - For each `j` from `1` to `k`, the value of `dp[i][j]` is calculated using the sliding window sum approach. This helps in efficiently calculating the sum of previous values without recomputation.
+   - The condition `if j >= i` ensures that we do not access out-of-bound indices in the array.
+
+4. **Return Result**:
+   - Finally, `dp[n][k]` is returned, which represents the number of arrays of length `n` with exactly `k` inverse pairs.
+
+This solution efficiently computes the desired count using dynamic programming and handles the constraints given in the problem.

@@ -1,0 +1,16 @@
+Generate a TLS certificate:
+
+sudo apt install certbot
+sudo certbot certonly --standalone -d your_domain
+Configure services to use the certificate, for example, Apache:
+
+sudo nano /etc/apache2/sites-available/default-ssl.conf
+Add the following lines:
+
+SSLCertificateFile /etc/letsencrypt/live/your_domain/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/your_domain/privkey.pem
+Enable the SSL module and site:
+
+sudo a2enmod ssl
+sudo a2ensite default-ssl
+sudo systemctl restart apache2

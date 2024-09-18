@@ -1,0 +1,53 @@
+Here are the top 10 tools that can be used to download and run AI models locally, similar to Ollama and Jan AI:
+
+### 1. **Hugging Face Transformers**
+- **Description:** A library providing pre-trained models for various NLP tasks.
+- **Usage:** Allows easy downloading and running of models locally.
+- **Features:** Supports models like BERT, GPT-2, T5, etc. Integrates with PyTorch and TensorFlow.
+
+### 2. **spaCy**
+- **Description:** An open-source library for advanced NLP.
+- **Usage:** Provides pre-trained models for various NLP tasks.
+- **Features:** Efficient, easy-to-use, supports tokenization, named entity recognition, etc.
+
+### 3. **TensorFlow Hub**
+- **Description:** A repository of trained machine learning models.
+- **Usage:** Allows downloading and deploying models locally.
+- **Features:** Supports a variety of models for different ML tasks.
+
+### 4. **PyTorch Hub**
+- **Description:** A pre-trained model repository designed for research reproducibility.
+- **Usage:** Facilitates downloading and running pre-trained models.
+- **Features:** Supports various models for NLP, computer vision, and more.
+
+### 5. **DeepPavlov**
+- **Description:** An open-source conversational AI framework.
+- **Usage:** Provides pre-trained models for chatbots and NLP tasks.
+- **Features:** Easy to use, supports a range of NLP tasks and models.
+
+### 6. **Fairseq**
+- **Description:** A sequence-to-sequence learning toolkit by Facebook AI Research.
+- **Usage:** Allows downloading and running state-of-the-art models for NLP.
+- **Features:** Supports models for translation, summarization, and language modeling.
+
+### 7. **AllenNLP**
+- **Description:** An open-source NLP research library built on PyTorch.
+- **Usage:** Offers pre-trained models that can be downloaded and run locally.
+- **Features:** Supports tasks like semantic role labeling, coreference resolution, etc.
+
+### 8. **T5 (Text-To-Text Transfer Transformer)**
+- **Description:** A transformer model by Google for text-to-text tasks.
+- **Usage:** Models can be downloaded and run locally using the Hugging Face library.
+- **Features:** Flexible architecture suitable for various NLP tasks.
+
+### 9. **fastText**
+- **Description:** A library for efficient learning of word representations and text classification.
+- **Usage:** Provides pre-trained word vectors and allows training and running models locally.
+- **Features:** Fast, scalable, supports text classification and representation learning.
+
+### 10. **DeepDetect**
+- **Description:** An open-source deep learning server and API.
+- **Usage:** Supports downloading and running various pre-trained models locally.
+- **Features:** Easy deployment of deep learning models, supports multiple frameworks like TensorFlow, Caffe, and XGBoost.
+
+These tools provide the ability to download and run AI models locally, supporting a variety of tasks similar to those handled by Ollama and Jan AI. They are suitable for different applications, from NLP to computer vision and beyond.

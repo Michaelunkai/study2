@@ -1,0 +1,1 @@
+sudo docker exec -it kafka kafka-topics --list --bootstrap-server localhost:7000

@@ -1,0 +1,3 @@
+import boto3
+dynamodb = boto3.client('dynamodb')
+dynamodb.put_item(TableName='MyTable', Item={'ID': {'S': '123'}, 'Name': {'S': 'John'}})

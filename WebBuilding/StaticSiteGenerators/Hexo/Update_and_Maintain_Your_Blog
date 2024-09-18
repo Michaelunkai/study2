@@ -1,0 +1,8 @@
+Update and Maintain Your Blog
+To update your blog with new posts or changes, simply repeat the process of creating new posts, generating files, and deploying.
+
+ 
+ 
+hexo new post "Another Post"
+hexo generate
+hexo deploy

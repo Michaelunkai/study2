@@ -1,0 +1,28 @@
+Use Monero Wallet CLI Commands
+Here are some useful commands to manage your Monero wallet:
+
+Check Wallet Address:
+
+ 
+ 
+address
+Check Wallet Balance:
+
+ 
+ 
+balance
+Retrieve Mnemonic Seed:
+
+ 
+ 
+seed
+View Incoming and Outgoing Transactions:
+
+ 
+ 
+show_transfers
+Exit the Wallet:
+
+ 
+ 
+exit

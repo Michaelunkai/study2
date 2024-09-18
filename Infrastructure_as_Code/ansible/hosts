@@ -1,0 +1,6 @@
+/etc/ansible/hosts
+
+
+[docker]
+172.17.0.2 ansible_user=fedora ansible_password=fedora
+172.17.0.3 ansible_user=ubuntu ansible_password=ubuntu

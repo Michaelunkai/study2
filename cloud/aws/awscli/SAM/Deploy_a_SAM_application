@@ -1,0 +1,1 @@
+sam deploy --template-file packaged.yaml --stack-name my-sam-stack --capabilities CAPABILITY_IAM

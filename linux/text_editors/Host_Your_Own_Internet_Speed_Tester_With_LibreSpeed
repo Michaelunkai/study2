@@ -1,0 +1,59 @@
+Host Your Own Internet Speed Tester With LibreSpeed
+Basic Installation
+Log into the Debian/Ubuntu device
+Run the following commands in a terminal:
+# update repositories and install any available software updates
+sudo apt update
+sudo apt upgrade
+# install Apache HTTPD, PHP and GIT
+sudo apt install git apache2 php libapache2-mod-php
+# clone the git repo
+sudo git clone https://github.com/adolfintel/speedtest /var/www/html/speedtest
+sudo cp /var/www/html/speedtest/example-singleServer-gauges.html /var/www/html/speedtest/index.html
+# set the owner of the new speedtest directory to www-data
+sudo chown -R www-data:www-data /var/www/html/speedtest
+Open a web browser and navigate to http://DNSorIP/speedtest
+The basic speed test functionality will be available, but it lacks the abillity to save and share speed test results. Let's add a database to enable those features
+Optional Advanced Installation Steps
+Continue the installation by running the following commands in a terminal:
+# install MySQL/MariaDB
+sudo apt install mariadb-server mariadb-client php-mysql
+sudo su
+mysql_secure_installation
+Press Enter to login as root
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the speedtest database and database user
+MariaDB [(none)]> CREATE DATABASE speedtest;
+MariaDB [(none)]> GRANT ALL ON speedtest.* to 'speedtest'@'localhost' IDENTIFIED BY 'Sp33dTest!!';
+MariaDB [(none)]> FLUSH PRIVILEGES;
+MariaDB [(none)]> USE speedtest;
+MariaDB [(none)]> \. /var/www/html/speedtest/results/telemetry_mysql.sql
+MariaDB [(none)]> EXIT;
+exit
+Continue with the following commands to setup the speedtest database
+# edit telemetry_settings.php
+sudo nano /var/www/html/speedtest/results/telemetry_settings.php
+Verify/change $db_type = 'mysql';
+Change $stats_password = 'P@$$w0rD';
+Change $enable_id_obfuscation = true;
+Update the Mysql Settings variables to the credentials created earlier
+$MySql_username = 'speedtest';
+$MySql_password = 'Sp33dTest!!';
+$MySql_hostname = 'localhost';
+$MySql_databasename = 'speedtest';
+
+Press CTRL+O, Enter, CTRL+X to write the changes to telemetry_settings.php
+Continue with the following commands in terminal:
+# copy an example page with telemetry enabled
+sudo cp /var/www/html/speedtest/example-singleServer-full.html /var/www/html/speedtest/index.html
+# restart the apache2 service to enable MySQL
+sudo systemctl restart apache2
+Open a web browser and navigate to http://DNSorIP/speedtest
+This time around the speedtest results have been saved to the database and a link is provided to share the results

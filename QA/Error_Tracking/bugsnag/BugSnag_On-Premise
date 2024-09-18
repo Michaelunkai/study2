@@ -1,0 +1,6 @@
+BugSnag On-Premise
+If you are using BugSnag On-premise, you should use the --build-api-root-url and --upload-api-root-url options to set the URL of your build and upload servers, for example:
+
+bugsnag-cli upload \
+  --upload-api-root-url https://bugsnag.my-company.com/
+  # ... other options

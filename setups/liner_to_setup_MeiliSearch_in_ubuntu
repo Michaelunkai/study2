@@ -1,0 +1,1 @@
+cd && curl -L https://github.com/meilisearch/meilisearch/releases/latest/download/meilisearch-linux-amd64 -o meilisearch && chmod +x meilisearch && sudo mv meilisearch /usr/local/bin/ && meilisearch

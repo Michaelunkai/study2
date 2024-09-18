@@ -1,0 +1,17 @@
+Set Up a Node.js Project
+Create a new directory for your project:
+
+sh
+Copy code
+mkdir wit-ai-example
+cd wit-ai-example
+Initialize a new Node.js project:
+
+sh
+Copy code
+npm init -y
+Install the Wit.ai SDK:
+
+sh
+Copy code
+npm install node-wit

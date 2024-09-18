@@ -1,0 +1,45 @@
+▲A  A▼
+Running a MX Linux VM in Proxmox VE
+Download the MX Linux iso Download
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Upload the MX Linux installation iso to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the MX Linux installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Storage device and Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the MX Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter to load MX Linux
+Click Install MX Linux on the MX Welcome dialog box
+Press Escape to cancel checking the installation media
+Click Change Keyboard Settings if needed > Click Next
+Click Next and then Yes to confirm the partition selection
+Enter a computer name, domain and workgroup > Click Next
+Select a Locale and Timezone > Click Next
+Enter a username, user password and root password > Click Next
+Wait while MX Linux copies files and installs
+Click Finish, the VM will reboot
+When prompted to remove the installation media, navigate back to the Proxmox web UI and stop the VM
+Select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the MX Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Login with the username and password set during the installation
+Welcome to MX Linux
+Optional Steps
+Launch a terminal window
+Run the following commands
+# update software repositories
+sudo apt update
+# install qemu guest agent
+sudo apt install qemu-guest-agent -y
+A subsequent reboot is required to complete installing the QEMU Guest Agent
+ 

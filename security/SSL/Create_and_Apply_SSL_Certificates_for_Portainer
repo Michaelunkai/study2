@@ -1,0 +1,84 @@
+▲A  A▼
+Create and Apply SSL Certificates for Portainer
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: ctr.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: ctr.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to ssl.crt verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to ssl.key and verify the export format is PEM Private (*.pem)
+Click OK
+Method 1: Applying SSL Certificates to Portainer Web UI
+If the Portainer container wasn't setup to listen on 9443, connect to the Docker host and run the following commands
+# list running containers to find the name of the portainer container
+docker ps
+# stop the running portainer container
+docker stop portainer
+# remove the running portainer container
+docker rm portainer --force
+# recreate the portainer container with port 9443
+# modify as needed
+docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v ~/docker/portainer:/data portainer/portainer-ce
+Open a web browser and navigate to http://DNSorIP:9000
+Log into Portainer
+Click Settings in the left navigation
+Scroll to the SSL certificate section
+Click Select file under Upload X.509 certificate > Browse to and select the ssl.crt file created earlier
+Click Select file under Upload a private key > Browse to and select the ssl.key file created earlier
+Click the Apply Changes button
+Update the browser URL to https://DNSorIP:9443
+Welcome to Portainer running via SSL
+Method 2: Applying SSL Certificates to Portainer CLI
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the Portainer host IP address via WinSCP
+Copy the exported .pem files to the Portainer host
+Connect to the Docker host and run the following commands
+# list running containers to find the name of the portainer container
+docker ps
+# stop the running portainer container
+docker stop portainer
+# remove the running portainer container
+docker rm portainer --force
+# recreate the portainer container with ssl enabled
+# modify as needed
+docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v ~/docker/portainer:/data portainer/portainer-ce --ssl --sslcert /data/ssl.crt --sslkey /data/ssl.key
+Open a web browser and navigate to https://DNSorIP:9443
+Welcome to Portainer running via SSL
+Further Reading: https://documentation.portainer.io/v2.0/deploy/ssl/
+
+ 

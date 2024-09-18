@@ -1,0 +1,3 @@
+Command: cat /etc/group
+Description: Lists all user groups on the system.
+User Management

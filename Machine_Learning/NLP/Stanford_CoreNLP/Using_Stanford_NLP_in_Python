@@ -1,0 +1,49 @@
+ Using Stanford NLP in Python
+To interact with Stanford CoreNLP using Python, follow these steps:
+
+Start the CoreNLP Server
+Open a terminal and start the Stanford CoreNLP server with the following commands:
+
+ 
+ 
+cd stanford-corenlp-4.4.0
+java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 15000
+This starts the server on port 9000. You can adjust the memory allocation (-mx4g) as needed.
+
+Install the Requests Library
+If you don’t have the requests library installed, you can install it using pip:
+
+ 
+ 
+pip install requests
+Create a Python Script to Interact with the CoreNLP Server
+Create a Python script named nlp_client.py to interact with the CoreNLP server:
+
+ 
+ 
+import requests
+import json
+
+# Define the text to be processed
+text = "Barack Obama was born in Hawaii. He was elected president in 2008."
+
+# Set up the server URL
+url = 'http://localhost:9000'
+params = {
+    'annotators': 'tokenize,ssplit,pos,lemma,ner,parse,dcoref',
+    'outputFormat': 'json'
+}
+
+# Make a request to the server
+response = requests.post(url, params=params, data=text.encode('utf-8'))
+
+# Parse the response
+output = response.json()
+
+# Print the output
+print(json.dumps(output, indent=2))
+Save this script and run it using the following command:
+
+ 
+ 
+  nlp_client.py

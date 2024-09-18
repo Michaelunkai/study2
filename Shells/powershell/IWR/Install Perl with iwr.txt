@@ -1,0 +1,1 @@
+iwr -Uri https://strawberryperl.com/download/5.32.1.1/strawberry-perl-5.32.1.1-64bit.msi -OutFile perl_installer.msi; Start-Process msiexec.exe -ArgumentList '/i perl_installer.msi /quiet' -NoNewWindow -Wait

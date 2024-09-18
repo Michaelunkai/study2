@@ -1,0 +1,92 @@
+Creating and Applying SSL Certificate to Apache Guacamole
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Guacamole SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: remote.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name with a .key extension and verify the export format is PEM private (*.pem)
+Click OK
+Applying the Certificates
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the Apache Guacamole server via WinSCP
+Copy the created .crt, .key and .pem files to ~/
+On the Guacamole server, run the following command in a terminal
+sudo cp ~/remote.i12bretro.local.crt /var/lib/tomcat9/
+sudo cp ~/remote.i12bretro.local.key /var/lib/tomcat9/
+sudo cp ~/CA-Chain.pem /var/lib/tomcat9/
+sudo chown :tomcat /var/lib/tomcat9/remote.i12bretro.local.crt
+sudo chown :tomcat /var/lib/tomcat9/remote.i12bretro.local.key
+sudo chown :tomcat /var/lib/tomcat9/CA-Chain.pem
+sudo cp /var/lib/tomcat9/conf/server.xml /var/lib/tomcat9/conf/server.xml.bkup
+sudo nano /var/lib/tomcat9/conf/server.xml
+Edit the server.xml file adding the following connector block
+<connector port="8443"
+protocol="org.apache.coyote.http11.Http11NioProtocol"
+maxThreads="150"
+SSLEnabled="true"
+SSLProtocol="TLS"
+clientAuth="false"
+secure="true"
+scheme="https"
+SSLCertificateFile="/var/lib/tomcat9/remote.i12bretro.local.crt"
+SSLCertificateKeyFile="/var/lib/tomcat9/remote.key"
+SSLCertificateChainFile="/var/lib/tomcat9/CA-Chain.pem"
+keyAlias="remote.i12bretro.local"
+sslEnabledProtocols="TLSv1.1+TLSv1.2"></connector>
+
+Press CTRL+O, Enter, CTRL+X
+Run the following command in terminal to restart the Gaucamole Tomcat server
+sudo systemctl restart tomcat9
+Open a web browser and navigate to Apache Guacamole via https://
+Optional Steps
+To redirect all http traffic to communicate securely with https, run the following in a terminal
+sudo nano /var/lib/tomcat9/conf/web.xml
+At the bottom of the file above the closing tag for web-app paste the following
+<security-constraint>
+<web-resource-collection>
+<web-resource-name>Protected Context</web-resource-name>
+<url-pattern>/*</url-pattern>
+</web-resource-collection>
+<user-data-constraint>
+<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+</user-data-constraint>
+</security-constraint>

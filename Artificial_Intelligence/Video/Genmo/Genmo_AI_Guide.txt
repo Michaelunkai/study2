@@ -1,0 +1,30 @@
+Advanced Video Generation with Genmo AI: Comprehensive Guide
+Introduction
+This article introduces Genmo AI, the most advanced video generation tool currently available. It is designed to help users create stunning video clips ranging from 2 to 16 seconds using artificial intelligence, even without prior experience.
+Overview of Genmo AI
+Genmo AI excels in generating coherent global motion, automatic selection of transitions, and text layers that align smoothly with the storyline, ensuring a professional result. Launched on October 28, 2023, it allows users to write descriptive instructions for their desired video or upload a high-quality image to inspire the AI for video creation.
+Creating Videos from Text Instructions
+1. Write Descriptive Instructions:
+   - Users can write detailed instructions for the video they wish to create.
+   - The tool suggests additional descriptive text to enhance the instruction, such as "close-up of a girl playing music," "use psychedelic colors in the background," etc.
+2. Example:
+   - A detailed instruction like "close-up of the girl playing guitar with vibrant, psychedelic background colors" can lead to an impressive video output.
+Creating Videos from Images
+1. Upload a High-Quality Image:
+   - Users can upload a high-quality image, which the AI uses as a base to generate the video.
+   - For example, an image created with Midjourney can serve as an excellent starting point for the video.
+2. Process:
+   - The tool allows uploading an image to serve as the opening of the video clip.
+   - Users can describe the action in each part of the video clip and even use a brush to highlight areas in the video corresponding to their instructions.
+   - Leaving some parts empty may let the AI interpret freely, leading to interesting results.
+Video Parameters
+1. Video Length:
+   - The tool allows setting the video length between 2-30 seconds. Longer videos consume more fuel. The tool provides 200 units of fuel, and an upgrade to 1000 units costs $10.
+2. Chaos Level:
+   - Users can adjust the chaos level in the video transitions to be either high or low, affecting the dynamism of the video.
+3. Transition Dynamics:
+   - The tool offers options to set the speed of the transitions, allowing for either fast or slow changes.
+4. Smoothness of Transitions:
+   - Users can determine how smooth or rough the transitions in the video will be.
+Conclusion
+By following the steps outlined above, users can create breathtaking video clips that can stand alone as video art or be integrated into larger projects like advertisements or music videos. Genmo AI's intuitive interface and powerful AI capabilities make it an indispensable tool for content creators of all kinds.

@@ -1,0 +1,1 @@
+aws elasticbeanstalk associate-environment-operations-role --environment-name <env-name> --operations-role <role-arn>

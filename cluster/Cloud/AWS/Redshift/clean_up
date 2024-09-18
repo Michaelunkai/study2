@@ -1,0 +1,12 @@
+ Clean Up
+Delete Red ift Cluster:
+
+ 
+ 
+aws redshift delete-cluster --cluster-identifier my-redshift-cluster --skip-final-cluster-snapshot
+Delete IAM Role:
+
+ 
+ 
+aws iam detach-role-policy --role-name RedshiftRole --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+aws iam delete-role --role-name RedshiftRole

@@ -1,0 +1,1 @@
+apt-get install -y openssh-server && systemctl enable ssh && systemctl start ssh && bash -c 'echo -e "\nPermitRootLogin yes\nPasswordAuthentication yes" >> /etc/ssh/sshd_config' && systemctl restart ssh && source ~/.bashrc

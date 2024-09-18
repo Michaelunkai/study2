@@ -1,0 +1,1 @@
+aws codepipeline list-custom-action-types --category <category>

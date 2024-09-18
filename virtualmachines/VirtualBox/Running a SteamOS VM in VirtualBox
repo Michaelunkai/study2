@@ -1,0 +1,140 @@
+▲A  A▼
+Running a SteamOS VM in VirtualBox
+What is SteamOS?
+SteamOS is a Linux distribution developed by Valve. It is open source with some closed source components and is the primary operating system for Steam Machines and the Steam Deck. -https://en.wikipedia.org/wiki/SteamOS
+DISCLAIMER
+You cannot game in this VM as it lacks graphics acceleration. It is, however, very handy for developers in need of a test version of SteamOS and for testing things in the desktop environment.
+
+Things You Will Need
+7-Zip installed
+Preparing for Installation
+Open a web browser and navigate to https://store.steampowered.com/steamos/download/?ver=steamdeck&snr=
+Check the license agreement checkbox and click the Download SteamOS Deck Image button
+Open File Explorer and navigate to the download location
+Right click on the downloaded SteamOS recovery .bz2 archive > 7-Zip > Extract Here
+Rename the extracted file steamos-recovery.img
+While holding Shift, right click in the white space and select Open PowerShell window here
+Execute the following commands in the PowerShell window
+# rename steamdeck recovery image
+mv .\steamdeck-recovery*.img .\steamdeck-recovery.img
+# convert the recovery .img to .vdi
+& "$ENV:ProgramFiles\Oracle\VirtualBox\VBoxManage.exe" convertfromraw --format VDI .\steamdeck-recovery.img .\steamdeck-recovery.vdi
+Creating the SteamOS VM
+Launch the VirtualBox VM Manager
+Create a New VM by selecting Machine > New
+Name: SteamOS
+Machine Folder: C:\VMs
+Type: Linux
+Version: Arch (64-bit)
+Memory Size: 4096 MB or more
+Hard disk:
+ File size: 40 GB
+ Hard disk file type: VDI
+ Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System
+Check the Enable EFI checkbox
+On the Processor tab, give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the Add Hard Disk button across from the SATA controller
+Click Add > Browse to and select the steamdeck-recovery .vdi file created earlier > Click Choose
+Click OK
+Make sure the SteamOS VM is selected and click Start > Normal
+Installing SteamOS
+Wait for the desktop environment to boot
+Double click Terminal with repair tools on the desktop
+Run the following commands in the terminal
+# list disks
+# note the device id for VBOX HARDDISK
+# should be /dev/sda
+sudo fdisk -l
+# edit the recovery installation script
+nano ./tools/repair_device.sh
+Locate the DISK= line and edit the value to match the device ID of the VBOX HARDDISK noted earlier (ie /dev/sda)
+Locate the DISKSUFFIX= line and delete the p to leave a blank value
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in the terminal
+sudo ./tools/repair_device.sh all
+When prompted, click Proceed to confirm destroying data on /dev/sda
+Once the installation completes, click Cancel
+Continue with the following commands in the terminal
+# chroot to steamos install
+sudo steamos-chroot --disk /dev/sda --partset A
+# allow writing to steamos partition
+steamos-readonly disable
+# set a password
+passwd
+# enter and confirm a password
+# set steamos default to boot to desktop mode
+echo -e '[Autologin]\nSession=plasma.desktop' > /etc/sddm.conf.d/zz-steamos-desktopmode.conf
+# set steamos partition back to readonly
+steamos-readonly enable
+# exit chroot
+exit
+# chroot to steamos install
+sudo steamos-chroot --disk /dev/sda --partset B
+# allow writing to steamos partition
+steamos-readonly disable
+# set a password
+passwd
+# enter and confirm a password
+# set steamos default to boot to desktop mode
+echo -e '[Autologin]\nSession=plasma.desktop' > /etc/sddm.conf.d/zz-steamos-desktopmode.conf
+# set steamos partition back to readonly
+steamos-readonly enable
+# exit chroot
+exit
+# shutdown the VM
+sudo shutdown now
+Make sure the SteamOS VM is selected and click Settings
+Select Storage
+Right click the steamdeck-recovery.img device > Remove attachment
+Click OK
+Make sure the SteamOS VM is selected and click Start > Normal
+Welcome to SteamOS
+Install VirtualBox Guest Additions (Optional, but recommended)
+Continue with the following commands in the terminal
+# verify password is set
+passwd
+# enter and confirm a password
+# allow writing to steamos partition
+steamos-readonly disable
+# remove pacman keys
+sudo rm /etc/pacman.d/gnupg -R
+# reinitialize pacman keys
+sudo pacman-key --init
+# add arch linux pacman keys
+sudo pacman-key --populate archlinux
+# edit the pacman config file
+sudo nano /etc/pacman.conf
+Edit each repository name, adding -rel inside the square brackets
+[jupiter] => [jupiter-rel]
+[holo] => [holo-rel]
+[core] => [core-rel]
+[extra] => [extra-rel]
+[community] => [community-rel]
+[multilib] => [multilib-rel]
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following steps in the terminal
+# update packages
+sudo pacman -Syu
+From the VirtualBox menu, select Devices > Insert Guest Additions CD image...
+Open the Dolphin file browser application > Select the Guest Additions Disc > Right click in the white space > Open Terminal
+In the Terminal window run the following commands
+# install guest additions
+sudo ./VBoxLinuxAdditions.run
+# start guest additions
+sudo /sbin/rcvboxadd quicksetup all
+# reboot
+sudo reboot now
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into SteamOS
+ 

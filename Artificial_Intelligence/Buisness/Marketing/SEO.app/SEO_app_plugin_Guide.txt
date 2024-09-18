@@ -1,0 +1,28 @@
+# SEO.app Plugin for ChatGPT for SEO-Optimized Content Creation
+## Introduction
+The SEO.app plugin for ChatGPT offers a powerful solution for creating SEO-optimized articles. Using advanced AI technology, the plugin enables the creation of content designed to rank high in search engine results. This article reviews the main functions of the plugin and how to use it to create quality content.
+## Main Functions
+### 1. SEO-Optimized Content Creation
+The plugin can create full articles based on the selected topic. Each article is SEO-optimized to ensure it is favored by search engine algorithms.
+### 2. Keyword Optimization
+The plugin offers optimization for meta keywords and meta descriptions for the article. These elements are critical for SEO, as they help search engines understand the content of the page and improve its ranking.
+### 3. Internet Research
+The plugin allows using URLs provided by the user to gather information and integrate it into the article. This feature ensures that the content is more accurate and relevant.
+### 4. Content Expansion
+The plugin can expand certain points in the article, providing more detailed information on each point. This allows for in-depth content that offers added value to readers.
+## Usage Examples
+### Prompt for Creating an Article on Healthy Nutrition
+```
+Create an article on "Healthy Nutrition" optimized for SEO. Include the following keywords: healthy nutrition, healthy foods, vitamins and minerals. Add a meta description: "Comprehensive guide to healthy nutrition and essential foods." Use information from the following URLs: [insert relevant URLs].
+```
+### Prompt for Expanding a Point in an Article on Physical Fitness
+```
+Expand the paragraph on "Benefits of Aerobic Exercise" in the article on physical fitness. Include additional information on the positive effects of aerobic exercise on the cardiovascular system.
+```
+### Prompt for Researching Information on Technological Innovation
+```
+Create an article on "Technological Innovation in the 2020s" optimized for SEO. Include the following keywords: technological innovation, advanced technologies, future of technology. Add information from the following sources: [insert relevant URLs].
+```
+## Conclusion
+The SEO.app plugin for ChatGPT is a powerful tool for creating SEO-optimized content. With advanced functions for content creation, keyword optimization, internet research, and content expansion, it is possible to create quality articles that improve website ranking in search engines. For efficient use of the plugin, it is important to know how to write precise prompts.
+For more information and in-depth tutorials on using the plugin, it is recommended to purchase my full course.

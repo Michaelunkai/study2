@@ -1,0 +1,10 @@
+# Allow inbound RDP traffic on port 3389
+New-NetFirewallRule -DisplayName "Allow RDP" -Direction Inbound -Protocol TCP -LocalPort 3389 -Action Allow
+
+
+Explanation:
+This PowerShell command creates a new Windows Defender Firewall rule named "Allow RDP" that allows inbound Remote Desktop Protocol (RDP) traffic on port 3389. The -DisplayName parameter specifies the name of the rule displayed in the Windows Defender Firewall with Advanced Security management console. The -Direction parameter specifies the direction of the traffic to allow (inbound). The -Protocol parameter specifies the protocol (TCP) to allow. The -LocalPort parameter specifies the port number (3389) to allow traffic on. Finally, the -Action parameter specifies the action to take for traffic that matches the rule (Allow).
+
+
+
+

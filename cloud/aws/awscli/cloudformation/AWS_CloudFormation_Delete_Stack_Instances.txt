@@ -1,0 +1,1 @@
+aws cloudformation delete-stack-instances --stack-set-name <stack-set-name> --regions <region> --retain-stacks

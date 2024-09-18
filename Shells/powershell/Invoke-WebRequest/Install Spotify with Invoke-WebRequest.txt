@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.scdn.co/SpotifySetup.exe -OutFile spotify_installer.exe; Start-Process spotify_installer.exe -ArgumentList '/silent' -NoNewWindow -Wait

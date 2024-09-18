@@ -1,0 +1,178 @@
+Step 1: Install Necessary Tools and Libraries
+First, install essential tools and libraries that will help you work with IoT devices.
+
+Command:
+
+ 
+ 
+sudo apt update && sudo apt install  3-pip  3-venv git -y
+Step 2: Create a Virtual Environment for Your IoT Project
+Using a virtual environment helps isolate your project dependencies.
+
+Command:
+
+ 
+ 
+ 3 -m venv myiotenv
+source myiotenv/bin/activate
+Step 3: Install IoT Python Libraries
+Next, install some common IoT libraries like paho-mqtt for MQTT communication, which is widely used in IoT.
+
+Command:
+
+ 
+ 
+pip install paho-mqtt
+Step 4: Set Up an MQTT Broker
+For MQTT communication, you need an MQTT broker. Mosquitto is a popular choice.
+
+Command:
+
+ 
+ 
+sudo apt install mosquitto mosquitto-clients
+sudo systemctl enable mosquitto
+sudo systemctl start mosquitto
+Step 5: Test the MQTT Broker
+Test the MQTT broker by publi ing and subscribing to a topic.
+
+Commands:
+Open one terminal and subscribe to a topic:
+
+ 
+ 
+mosquitto_sub -h localhost -t test/topic
+Open another terminal and publi  a message to the same topic:
+
+ 
+ 
+mosquitto_pub -h localhost -t test/topic -m "Hello IoT"
+Step 6: Write a Basic MQTT Client in Python
+Create a simple Python script to publi  and subscribe to MQTT topics.
+
+Command:
+Create a file named iot_client.py:
+
+ 
+ 
+nano iot_client.py
+Python Script (iot_client.py):
+
+ 
+ 
+import paho.mqtt.client as mqtt
+
+# Define the callback functions
+def on_connect(client, userdata, flags, rc):
+    print(f"Connected with result code {rc}")
+    client.subscribe("test/topic")
+
+def on_message(client, userdata, msg):
+    print(f"{msg.topic} {msg.payload}")
+
+# Create an MQTT client instance
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+
+# Connect to the MQTT broker
+client.connect("localhost", 1883, 60)
+
+# Publi  a test message
+client.publi ("test/topic", "Hello from Python")
+
+# Loop forever to maintain the connection
+client.loop_forever()
+Step 7: Run Your IoT Client Script
+Run the Python script to see the message flow between the broker and the client.
+
+Command:
+
+ 
+ 
+  iot_client.py
+Step 8: Explore IoT Data Storage
+For storing IoT data, you can use databases like SQLite for simplicity or more robust solutions like InfluxDB for time-series data.
+
+Install InfluxDB and InfluxDB Client:
+
+ 
+ 
+sudo apt-get install influxdb influxdb-client
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
+Step 9: Set Up Data Storage in InfluxDB
+Create a database in InfluxDB for storing IoT data.
+
+Command:
+
+ 
+ 
+influx
+In the InfluxDB  ell, create a new database:
+
+ 
+ 
+CREATE DATABASE iot_data
+exit
+Step 10: Write IoT Data to InfluxDB from Python
+Extend your Python script to write data to InfluxDB.
+
+Command:
+Install the InfluxDB Python client library:
+
+ 
+ 
+pip install influxdb
+Python Script (extended iot_client.py):
+
+ 
+ 
+from influxdb import InfluxDBClient
+import paho.mqtt.client as mqtt
+
+# Define InfluxDB client
+influx_client = InfluxDBClient(host='localhost', port=8086)
+influx_client.switch_database('iot_data')
+
+def on_connect(client, userdata, flags, rc):
+    print(f"Connected with result code {rc}")
+    client.subscribe("test/topic")
+
+def on_message(client, userdata, msg):
+    print(f"{msg.topic} {msg.payload}")
+    json_body = [
+        {
+            "measurement": "iot_measurement",
+            "tags": {
+                "topic": msg.topic,
+            },
+            "fields": {
+                "value": msg.payload.decode()
+            }
+        }
+    ]
+    influx_client.write_points(json_body)
+
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect("localhost", 1883, 60)
+client.publi ("test/topic", "Hello from Python with InfluxDB")
+client.loop_forever()
+Step 11: Query Data from InfluxDB
+Query the stored IoT data in InfluxDB.
+
+Command:
+
+ 
+ 
+influx
+In the InfluxDB  ell:
+
+ 
+ 
+USE iot_data
+SELECT * FROM iot_measurement
+This guide provides a comprehensive setup for working with IoT on Ubuntu, including setting up MQTT communication and storing data in InfluxDB, all without requiring a WiFi interface.

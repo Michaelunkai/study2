@@ -1,0 +1,17 @@
+NATS Streaming, now referred to as NATS JetStream, is a messaging system designed for cloud-native applications, providing lightweight, highly performant, and easy-to-use messaging solutions. It is built on top of the NATS messaging system and offers features typically associated with streaming platforms such as:
+
+1. **Durable Message Storage**: Messages can be persisted to disk, ensuring that they are not lost even if the consumer is offline or if there's a system failure.
+
+2. **Message Acknowledgements**: Producers and consumers can acknowledge messages to ensure reliable delivery.
+
+3. **Replay/Replay at a Point in Time**: Consumers can replay messages from a specific point in time or from the beginning, allowing for flexible consumption patterns.
+
+4. **Rate Matching/Flow Control**: Producers can send messages at a rate that matches the consumers' ability to process them, preventing overload.
+
+5. **Scaling and Fault Tolerance**: It supports clustering for horizontal scalability and redundancy, ensuring high availability and fault tolerance.
+
+6. **Pub/Sub and Queue Groups**: It supports both publish/subscribe and work queue models, making it versatile for different messaging patterns.
+
+7. **Data Retention Policies**: You can configure how long messages are retained based on time or storage limits.
+
+NATS Streaming (JetStream) is often used in scenarios where reliable message delivery and persistence are crucial, such as in microservices architectures, IoT, real-time analytics, and event sourcing systems.

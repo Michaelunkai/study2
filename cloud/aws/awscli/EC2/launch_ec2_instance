@@ -1,0 +1,21 @@
+Creating an EC2 Instance:
+Launch an EC2 instance:
+ 
+ 
+aws ec2 run-instances --image-id <image-id> --instance-type <instance-type> --key-name <key-name> --security-group-ids <security-group-id> --subnet-id <subnet-id>
+Assign a security group to an instance:
+ 
+ 
+aws ec2 modify-instance-attribute --instance-id <instance-id> --groups <security-group-id>
+Allocate an Elastic IP address:
+ 
+ 
+aws ec2 allocate-address
+Attach an Elastic IP to an instance:
+ 
+ 
+aws ec2 associate-address --instance-id <instance-id> --allocation-id <allocation-id>
+Terminate an EC2 instance:
+ 
+ 
+aws ec2 terminate-instances --instance-ids <instance-id>

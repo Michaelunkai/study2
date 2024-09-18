@@ -1,0 +1,48 @@
+FlareSolverr is a proxy server designed to handle Cloudflare's anti-bot protection and other CAPTCHA systems. It acts as an intermediary between your application and the website you're trying to scrape or access, solving the challenges presented by Cloudflare's security mechanisms. This allows web scrapers, bots, and other automated tools to bypass Cloudflare's defenses and access the desired web content.
+
+### Key Features:
+- **Bypass Cloudflare Protection:** It can solve the CAPTCHA challenges posed by Cloudflare to prevent automated access.
+- **Proxy Functionality:** Acts as a proxy server, forwarding requests and responses between your application and the target website.
+- **Ease of Integration:** Can be integrated with various scraping tools and automation frameworks to enhance their capabilities.
+- **Automated Operation:** Handles the challenge-solving process automatically, allowing your application to operate without manual intervention.
+
+### How it Works:
+1. **Request Handling:** Your application sends a request to FlareSolverr instead of directly to the target website.
+2. **Challenge Solving:** FlareSolverr processes the request, encounters the Cloudflare challenge, and solves it using automated methods.
+3. **Forwarding the Request:** Once the challenge is solved, FlareSolverr forwards the original request to the target website and retrieves the response.
+4. **Returning the Response:** The response from the target website is sent back to your application, allowing it to proceed as if it directly accessed the website.
+
+### Common Use Cases:
+- **Web Scraping:** Bypassing Cloudflare's anti-bot measures to scrape content from protected websites.
+- **Automated Testing:** Ensuring that automated tests can access websites protected by Cloudflare.
+- **Data Extraction:** Facilitating the extraction of data from websites that use Cloudflare for protection.
+
+### Installation and Usage:
+FlareSolverr can be installed and run as a standalone service. It typically requires Docker for easy setup and deployment. Here's a basic example of how to use FlareSolverr with Docker:
+
+1. **Pull the Docker Image:**
+     
+   docker pull flaresolverr/flaresolverr
+
+2. **Run the Docker Container:**
+     
+   docker run -d -p 8191:8191 flaresolverr/flaresolverr
+
+3. **Send Requests via FlareSolverr:**
+   Configure your scraping tool or application to send requests through the FlareSolverr proxy.
+
+### Example Request:
+Here is an example of how to make a request to a website through FlareSolverr using Python and the `requests` library:
+
+  
+import requests
+
+proxies = {
+    'http': 'http://localhost:8191',
+    'https': 'http://localhost:8191',
+}
+
+response = requests.get('http://example.com', proxies=proxies)
+print(response.text)
+
+FlareSolverr provides a powerful solution for bypassing Cloudflare's protections, enabling more effective web scraping and automation.

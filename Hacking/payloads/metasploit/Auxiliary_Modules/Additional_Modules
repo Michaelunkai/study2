@@ -1,0 +1,10 @@
+Additional Modules:
+use [module]: Load the specified module
+
+Example:
+
+use priv: Load the priv module
+
+hashdump: Dump the hashes from the box
+
+timestomp:Alter NTFS file timestamps

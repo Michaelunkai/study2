@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.jetbrains.com/resharper/JetBrains.ReSharperUltimate.2021.2.3.exe -OutFile resharper_installer.exe; Start-Process resharper_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+yarn add <package-name>@<version>

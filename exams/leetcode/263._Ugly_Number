@@ -1,0 +1,81 @@
+### 263. Ugly Number
+
+**Problem Description:**
+
+An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+
+Given an integer `n`, return true if `n` is an ugly number.
+
+**Example 1:**
+```
+Input: n = 6
+Output: true
+Explanation: 6 = 2 × 3
+```
+
+**Example 2:**
+```
+Input: n = 1
+Output: true
+Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
+```
+
+**Example 3:**
+```
+Input: n = 14
+Output: false
+Explanation: 14 is not ugly since it includes the prime factor 7.
+```
+
+**Constraints:**
+- \(-2^{31} \leq n \leq 2^{31} - 1\)
+
+### Explanation (Like I'm 12):
+
+Imagine you have a number and you want to see if it's an "ugly number." An ugly number is a number that can only be divided evenly by 2, 3, or 5 (and no other numbers). For example, 6 is an ugly number because it can be divided by 2 and 3. However, 14 is not an ugly number because it can be divided by 7, which is not allowed.
+
+### Solution:
+
+We will repeatedly divide the number by 2, 3, and 5 until we can't divide it anymore. If the final number is 1, then it means it was only composed of the factors 2, 3, and 5. If it's not 1, then it means there were other factors involved, and it's not an ugly number.
+
+```python
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n <= 0:
+            return False
+        
+        for factor in [2, 3, 5]:
+            while n % factor == 0:
+                n //= factor
+        
+        return n == 1
+```
+
+### Explanation of the Solution:
+
+1. **Check if `n` is Positive:**
+   - If `n` is less than or equal to 0, return `False` because only positive integers can be ugly numbers.
+
+2. **Divide by 2, 3, and 5:**
+   - Use a loop to divide `n` by 2, 3, and 5 as long as `n` is divisible by these factors. This removes all occurrences of these factors from `n`.
+
+3. **Check the Result:**
+   - After removing all 2s, 3s, and 5s, if the remaining number is 1, then `n` is an ugly number. Otherwise, it's not.
+
+### Example Walkthrough:
+
+Let's take the example `n = 6`:
+
+- Initially, `n = 6`
+- Divide by 2: `6 / 2 = 3`
+- Divide by 3: `3 / 3 = 1`
+- Now `n` is 1, so it’s an ugly number.
+
+For `n = 14`:
+
+- Initially, `n = 14`
+- Divide by 2: `14 / 2 = 7`
+- 7 cannot be divided by 2, 3, or 5 anymore
+- `n` is 7, so it’s not an ugly number.
+
+This approach ensures we check the prime factors efficiently and determine if the number is ugly or not.

@@ -1,0 +1,1 @@
+Start-Process -FilePath 'C:\path\to\php_installer.exe' -ArgumentList '/quiet' -NoNewWindow -Wait

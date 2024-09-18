@@ -1,0 +1,51 @@
+▲A  A▼
+Running an EndeavourOS VM in Proxmox VE
+Download the EndeavourOS iso Download
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Upload the EndeavourOS installation iso to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the EndeavourOS installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Storage device and Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the EndeavourOS VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter to Boot EndeavourOS (or wait 10 seconds)
+Click Start the installer from the Welcome menu
+Choose to install Online or Offline
+Select a language > Click Next
+Select a Region > Click Next
+Select a keyboard layout > Click Next
+Leave GRUB enabled > Click Next
+Select Erase disk > Click Next
+Enter a name, username, computer name and password > Click Next
+Verify the overview and click Install > Click Install now
+Wait while EndeavourOS copies files and installs
+When the installation completes click Done
+Shutdown the VM
+Back in the Proxmox web UI, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the EndeavourOS VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Login with the username and password created earlier in the process
+Welcome to EndeavourOS Linux
+Optional Steps
+Launch a terminal window
+Run the following commands
+# initialize pacman keys
+sudo pacman-key --init
+# add arch linux pacman keys
+sudo pacman-key --populate archlinux
+# update software
+sudo pacman -Syu
+# install qemu guest agent
+sudo pacman -Syu qemu-guest-agent
+A subsequent reboot is required to complete installing the QEMU Guest Agent
+ 

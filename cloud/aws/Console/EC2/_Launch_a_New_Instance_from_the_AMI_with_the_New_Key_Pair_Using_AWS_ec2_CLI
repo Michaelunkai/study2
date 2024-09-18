@@ -1,0 +1,6 @@
+ Launch a New Instance from the AMI with the New Key Pair Using AWS CLI
+Launch a new EC2 instance using the newly created AMI (ami-xxxxxxxxxxxxxxx) and the new key pair (key.pem). Use the Security Group ID (sg-xxxxxxxxxxxxxxx) and Subnet ID (subnet-xxxxxxxxxxxxxxx) retrieved earlier:
+
+ 
+ 
+aws ec2 run-instances --image-id ami-xxxxxxxxxxxxxxx --instance-type t2.micro --key-name key.pem --security-group-ids sg-xxxxxxxxxxxxxxx --subnet-id subnet-xxxxxxxxxxxxxxx

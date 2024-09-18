@@ -1,0 +1,1 @@
+gcloud functions deploy my-function --runtime python39 --trigger-http --allow-unauthenticated --entry-point my_function

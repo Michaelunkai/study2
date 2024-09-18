@@ -1,0 +1,7 @@
+Testing Your Setup
+Point Your Domain to the IP Address:
+
+Update your domain's DNS records to point to the IP address obtained in the previous step.
+Access Your Content:
+
+Visit your domain or IP address in a web browser to verify that your content is being served via Google Cloud CDN.

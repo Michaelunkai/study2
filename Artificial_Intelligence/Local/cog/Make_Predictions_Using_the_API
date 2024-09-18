@@ -1,0 +1,3 @@
+curl http://localhost:5000/predictions -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"input": {"image": "https://.../input.jpg"}}'

@@ -1,0 +1,9 @@
+git clone https://github.com/chathub-dev/chathub.git && cd chathub && npm install -g n && n stable && hash -r && npm install -g corepack && corepack enable && corepack prepare yarn@4.0.1 --activate && yarn install && yarn build && echo "Open chrome://extensions or edge://extensions, enable Developer Mode, and drag the dist folder to import it."
+
+
+
+Load Extension in Browser:
+
+Open Chrome or Edge and go to the Extensions page (chrome://extensions or edge://extensions).
+Enable Developer Mode.
+Drag the dist folder into the Extensions page to import it.

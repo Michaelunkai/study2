@@ -1,0 +1,1 @@
+fzf --follow --preview 'cat {}'

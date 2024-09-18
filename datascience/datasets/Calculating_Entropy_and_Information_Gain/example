@@ -1,0 +1,8 @@
+python main.py
+
+
+Entropy of PlayTennis: 0.9402859586706311
+Information Gain for Outlook: 0.24674981977443933
+Information Gain for Temperature: 0.02922256565895487
+Information Gain for Humidity: 0.15183550136234159
+Information Gain for Wind: 0.04812703040826949

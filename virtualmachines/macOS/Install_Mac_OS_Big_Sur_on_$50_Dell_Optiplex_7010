@@ -1,0 +1,92 @@
+▲A  A▼
+Install Mac OS Big Sur on $50 Dell Optiplex 7010
+Things You Will Need
+A USB flash drive, at least 16 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+At least 15 GB of free space to build the installation files
+Preparation
+Install 7-zip if it is not already installed Download
+Download Python Download
+Run the downloaded Python installer, making sure to check the option to add Python to the path
+Download OpenCore version 0.7.0 Download
+Extract the download OpenCore .zip file
+Navigate into the extracted OpenCore /Utilities/macrecovery > Right click in the white space > Open PowerShell window here...
+Run the following command in PowerShell
+python .\macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download
+Wait for the download to complete
+Creating USB Installation Drive
+Format the USB flash drive to FAT32
+NOTE: This will delete all files on the drive. Make sure to backup any important files before continuing
+Right Click Start > File Explorer
+Right Click the USB flash drive > Format...
+Select FAT32 from the File System dropdown
+Name the drive EFI
+Make sure Quick Format is checked
+Click Start
+Navigate to the root of the formatted USB flash drive
+Create a folder named com.apple.recovery.boot
+Navigate back to the extracted OpenCore /Utilities/macrecovery and copy all .dmg and .chunklist files inside the com.apple.recovery.boot directory on the USB flash drive
+Download the Optiplex 7010 OpenCore configuration files Download
+Extract the downloaded .zip file
+Copy the OC directory from the extracted download to the extracted OpenCore/X64/EFI directory, choosing to skip existing files
+Copy the EFI directory from the extracted download root of the USB flash drive
+Safely remove the flash drive and connect it to the Optiplex 7010
+Installing Mac OS
+Start the Optiplex 7010 and start pressing F2 on the keyboard to enter the BIOS setup
+Expand General > Boot Sequence
+Change the Boot Options from Legacy to UEFI > Move the USB flash drive in the list at the top right of the screen to the top of the list using the arrow buttons > Click Apply at the bottom of the screen > Click Exit to reboot
+If prompted to select a boot device, select the the USB flash drive
+At the OpenCore menu, select EFI (.dmg) > Press Enter
+After a long initialization sequence the MAC OS Recovery Assistant should start
+Select Disk Utility
+Select the target hard disk to install Mac OS to > Click Erase
+Name the drive MacOS > Set the Format to APFS > Click Erase
+Click Done
+If you'd like to create partitions, select the MacOS drive > Click Partition
+Change the size of the MacOS partition as needed
+Click Apply
+Click Partition to confirm
+Click Done once the partitioning is completed
+Close Disk Utility
+Click Reinstall macOS Big Sur
+Click Continue > Click Agree > Click Agree again
+Select the MacOS disk > Click Install
+Read Gone with the Wind cover to cover while Mac OS 11 installs files, the PC will reboot several times
+Press Enter at the OpenCore boot screen after each reboot to continue the MacOS installation
+Select your Country > Click Continue
+Confirm/add your language and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a full name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Choose whether to share analytics with Apple > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 11 Big Sur
+Configuring Booting Without USB Drive
+Double click the EFI USB flash drive on the desktop
+Copy the EFI folder off the USB and onto the desktop for use later
+Eject the EFI USB flash drive and remove it from the device
+Start LaunchPad from the dock
+Search terminal > Click Terminal to launch it
+Run the following commands in the terminal window
+git clone https://github.com/corpnewt/MountEFI
+cd MountEFI
+chmod +x MountEFI.command
+./MountEFI.command
+Enter the number that corresponds to the MacOS drive created during the installation > Press Enter
+Open a Finder window
+Navigate to the mounted EFI location
+Rename the EFI folder on the mounted EFI partition to EFI.orig
+Copy the EFI folder from the desktop to the mounted EFI partition
+Once the EFI folder is copied, reboot the device to test booting without the USB flash drive connected
+NOTE: If booting fails, re-connect the USB flash drive and reboot. You may need to move the USB device up in the device priority in the BIOS or use F12 and select it from the menu to boot to it
+
+More info: https://dortania.github.io/OpenCore-Install-Guide/
+
+ 

@@ -1,0 +1,1 @@
+for ct_id in $(pct list | awk 'NR>1 {print $1}'); do   echo "CTID: $ct_id";   if pct status $ct_id | grep -q 'status: running'; then     ip=$(pct exec $ct_id -- ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}');     echo "IP: $ip";   else     echo "IP: Container not running";   fi; done

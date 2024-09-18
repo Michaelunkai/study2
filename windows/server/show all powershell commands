@@ -1,0 +1,29 @@
+Show all computer accounts:
+
+Get-ADComputer -Filter *
+Show all organizational units (OUs):
+
+Get-ADOrganizationalUnit -Filter *
+Show all group policy objects (GPOs):
+
+Get-GPO -All
+
+Get-ADDomainController -Filter *
+Show all DNS zones:
+
+Get-DnsServerZone
+Show all installed roles and features:
+
+Get-WindowsFeature
+Show all installed software on a computer:
+
+Get-WmiObject -Class Win32_Product
+Show all network adapters:
+
+Get-NetAdapter
+Show all running processes:
+
+Get-Process
+Show all scheduled tasks:
+
+Get-ScheduledTask

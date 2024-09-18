@@ -1,0 +1,18 @@
+Envoy is an open-source edge and service proxy designed for cloud-native applications. It was originally developed by Lyft and is now part of the Cloud Native Computing Foundation (CNCF). Envoy is used to manage and secure communication between services in a microservices architecture. Here are some of the key features and use cases of Envoy:
+
+### Key Features:
+1. **L4/L7 Proxy:** Envoy functions as both a Layer 4 (L4) and Layer 7 (L7) proxy, handling traffic at the network and application layers.
+2. **Service Discovery:** It can dynamically discover services and adjust routing based on service availability.
+3. **Load Balancing:** Envoy supports various load balancing algorithms to distribute traffic evenly across services.
+4. **Observability:** It provides robust observability features, including metrics, tracing, and logging, to monitor and diagnose service interactions.
+5. **Traffic Management:** Envoy can manage traffic with advanced routing, retries, circuit breaking, and rate limiting.
+6. **Security:** It offers built-in support for TLS encryption, authentication, and authorization to secure service-to-service communication.
+7. **Extensibility:** Envoy is highly extensible through filters and plugins, allowing customization for specific use cases.
+
+### Use Cases:
+1. **Service Mesh:** Envoy is often used as a data plane in service mesh architectures, where it handles communication between microservices.
+2. **API Gateway:** Envoy can act as an API gateway, managing external traffic to internal services.
+3. **Edge Proxy:** It can be deployed at the edge of the network to handle ingress and egress traffic, providing features like TLS termination, load balancing, and routing.
+4. **Observability and Monitoring:** Envoy's rich telemetry capabilities make it ideal for monitoring and tracing service interactions in a microservices environment.
+
+Envoy is a powerful tool for managing complex microservice architectures, offering high performance, flexibility, and comprehensive features for traffic management, security, and observability.

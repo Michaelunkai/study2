@@ -1,0 +1,9 @@
+Voilà AI Overview
+Voilà AI is a browser extension powered by OpenAI's GPT-4, designed to boost productivity by assisting with various writing and research tasks directly within the browser. It offers functionalities such as:
+1. Content Creation: Helps generate a wide range of content, including blog posts, resumes, social media content, and more.
+2. Email Management: Allows users to draft and respond to emails efficiently, offering one-click solutions for creating professional messages.
+3. Research: Provides comprehensive information and insights from the web, helping users make data-driven decisions.
+4. Writing Enhancement: Improves writing by offering spelling and grammar corrections, translations, and text summarization.
+5. Privacy Focus: Ensures user content and interactions are not stored on its servers, maintaining privacy and compliance with GDPR and CCPA.
+The extension works on all major browsers, including Chrome, Firefox, Edge, Safari, and Brave, and integrates seamlessly with various third-party platforms.
+For more information, you can visit the official Voilà AI website: https://www.getvoila.ai.

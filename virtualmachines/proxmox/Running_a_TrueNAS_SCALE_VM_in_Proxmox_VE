@@ -1,0 +1,34 @@
+▲A  A▼
+Running a TrueNAS SCALE VM in Proxmox VE
+Download the TrueNAS Scale iso Download
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+and upload it to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the TrueNAS Scale installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 16 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 or more > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the TrueNAS Scale VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+At the boot menu, press Enter to select Start TrueNAS SCALE Installation
+Select Install/Upgrade > OK
+If prompted about not having 8GB of RAM, select Yes to continue anyway
+Press the space bar to select the QEMU HARDDISK > Press Enter
+Select Yes to continue the installation > Press Enter
+Select Administrative user (admin) > Press Enter
+Enter and confirm a password for the admin user > Press Enter
+After the installation completes, navigate to the VM > Hardware menu in the Proxmox web UI and remove the TrueNAS Scale .iso from the CD/DVD drive
+Back in the VM, select Reboot System > Press Enter
+Once TrueNAS Scale has finished booting, note the URL on the screen
+Open a web browser and navigate to the TrueNAS Scale URL
+Log into the Web UI with username admin and the password set during the installation
+Welcome to TrueNAS Scale
+A full tutorial for passing a physical disks to a VM can be found here
+
+ 

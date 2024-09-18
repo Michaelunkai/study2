@@ -1,0 +1,15 @@
+### Claude Artifacts: Generate Documents, Graphics, and More
+**By Dror Gill, July 22**
+Anthropic's new Claude 3.5 Sonnet language model introduced the Artifacts feature in its chat interface. This feature generates documents, graphics, code snippets, and websites in a separate window next to the chat, sharable via a Publish button. Recipients can remix these artifacts by adding prompts for further enhancement.
+**Example Prompt for Game Creation:**
+Create a new twist on the classic Asteroids game, where an angry bird is trying to shoot down alien pigs.
+**Additional Prompts:**
+- Make a website with this game.
+- Add a start game button.
+- Make the birds and pigs more realistic.
+- Add 3 lives.
+- When a pig collides with the angry bird, reduce lives by one and restart the game.
+- Show "Restart Game" button when lives reach 0.
+**Issues and Solutions:**
+- If the game is too basic or buggy, use the remix feature to add more prompts and improve it.
+Check out the updated Claude Artifact game [here].

@@ -1,0 +1,41 @@
+▲A  A▼
+Running Nextcloud in Docker on Linux
+What is Nextcloud?
+Nextcloud is a suite of client-server software for creating and using file hosting services. It is enterprise-ready with comprehensive support options. Being free and open-source software, anyone is allowed to install and operate it on their own private server devices. -https://en.wikipedia.org/wiki/Nextcloud
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Nextcloud
+Now that Docker is installed, run the following commands to setup the Nextcloud Docker container and run it
+# create working directories
+mkdir /home/$USER/docker/mariadb -p && mkdir /home/$USER/docker/nextcloud -p
+# set owner of working directories
+sudo chown "$USER":"$USER" /home/"$USER"/docker -R
+# create nextcloud network
+docker network create nextcloud
+# run the mariadb docker container
+docker run -d --name mariadb --network nextcloud --network-alias db -e MYSQL_ROOT_PASSWORD=r00tp@ss -e MYSQL_USER=nextcloud_rw -e MYSQL_PASSWORD=N3xtCl0ud! -e MYSQL_DATABASE=nextcloud -v /home/$USER/docker/mariadb:/var/lib/mysql --restart=unless-stopped mariadb:latest
+# run the nextcloud docker container
+docker run -d --name nextcloud --network nextcloud -p 8080:80 -e MYSQL_HOST=db -e MYSQL_USER=nextcloud_rw -e MYSQL_PASSWORD=N3xtCl0ud! -e MYSQL_DATABASE=nextcloud -v /home/$USER/docker/nextcloud:/var/www/html --restart=unless-stopped nextcloud:latest
+Open a web browser and navigate to http://DNSorIP:8080
+The Nextcloud setup screen should be displayed
+Enter a username and password
+Click Finish Setup
+After a few moments of setup Nextcloud will be up and running
+Documentation: https://hub.docker.com/_/nextcloud
+
+ 

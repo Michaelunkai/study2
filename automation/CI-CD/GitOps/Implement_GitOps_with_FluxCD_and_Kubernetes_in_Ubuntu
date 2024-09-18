@@ -1,0 +1,115 @@
+Implement GitOps with FluxCD and Kubernetes in Ubuntu
+Prerequisites
+Ubuntu Machine: Ensure you have an Ubuntu machine ready (server or desktop).
+Kubernetes Cluster: Set up a Kubernetes cluster. You can use Minikube for local development, or any managed Kubernetes service.
+kubectl: Install kubectl to interact with your Kubernetes cluster.
+Helm: Install Helm, a package manager for Kubernetes.
+GitHub Repository: Create a GitHub repository to store your Kubernetes manifests.
+Step 1: Install Minikube (if needed)
+If you don’t have a Kubernetes cluster, you can set up Minikube:
+
+ 
+ 
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start --driver=none
+Step 2: Install kubectl
+Install kubectl to interact with your Kubernetes cluster:
+
+ 
+ 
+sudo snap install kubectl --classic
+Step 3: Install Helm
+Install Helm, a Kubernetes package manager:
+
+ 
+ 
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 |  
+Step 4: Install FluxCD CLI
+Install the FluxCD CLI to bootstrap Flux into your Kubernetes cluster:
+
+ 
+ 
+curl -s https://fluxcd.io/install.sh | sudo  
+Step 5: Bootstrap Flux in Kubernetes
+Bootstrap Flux in your Kubernetes cluster. Replace <GITHUB_USER> with your GitHub username and <REPO> with your repository name:
+
+ 
+ 
+flux bootstrap github \
+  --owner=<GITHUB_USER> \
+  --repository=<REPO> \
+  --branch=main \
+  --path=clusters/my-cluster \
+  --personal
+This command does the following:
+
+Sets up Flux in your Kubernetes cluster.
+Configures a GitHub repository to store your cluster’s state.
+Sets up Flux to watch this repository and sync any changes.
+Step 6: Configure GitHub Repository
+Create a directory structure in your repository to store Kubernetes manifests:
+
+ 
+ 
+mkdir -p clusters/my-cluster
+Create a simple deployment file, nginx. :
+
+ 
+ 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+Commit and push this file to your repository:
+
+ 
+ 
+git add clusters/my-cluster/nginx. 
+git commit -m "Add nginx deployment"
+git push origin main
+Step 7: Apply Changes with Flux
+Flux will automatically detect changes in the repository and apply them to your Kubernetes cluster. You can verify this by checking the status of the deployment:
+
+ 
+ 
+kubectl get deployments
+Step 8: Monitor and Manage with Flux
+Use Flux CLI to monitor and manage your GitOps setup:
+
+List sources (Git repositories, Helm repositories, etc.):
+
+ 
+ 
+flux get sources
+List workloads (Deployments, StatefulSets, etc.):
+
+ 
+ 
+flux get workloads
+Additional Configuration
+You can add more configurations and resources as needed. Update the manifests in your GitHub repository, and Flux will sync the changes to your cluster.
+
+Step 9: Clean Up (Optional)
+If you want to remove Flux and clean up your cluster, you can use:
+
+ 
+ 
+flux uninstall

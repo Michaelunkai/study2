@@ -1,0 +1,67 @@
+## 176. Second Highest Salary
+
+### Problem Statement:
+
+Given a table `Employee` with the columns `id` and `salary`, write a SQL query to find the second highest salary. If there is no second highest salary, return null.
+
+### Table: Employee
+| Column Name | Type |
+|-------------|------|
+| id          | int  |
+| salary      | int  |
+
+- `id` is the primary key for this table.
+- Each row contains information about the salary of an employee.
+
+### SQL Solution:
+
+```sql
+SELECT 
+    MAX(salary) AS SecondHighestSalary
+FROM 
+    Employee
+WHERE 
+    salary < (SELECT MAX(salary) FROM Employee);
+```
+
+### Explanation of the Query:
+
+1. **Subquery to Find the Highest Salary**:
+    - The subquery `(SELECT MAX(salary) FROM Employee)` finds the highest salary in the `Employee` table.
+
+2. **Main Query to Find the Second Highest Salary**:
+    - The main query selects the maximum salary that is less than the highest salary.
+    - This is done by using the `MAX(salary)` function and the `WHERE` clause to filter out the highest salary.
+
+### Example:
+
+#### Input:
+Employee table:
+| id | salary |
+|----|--------|
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
+
+#### Output:
+| SecondHighestSalary |
+|---------------------|
+| 200                 |
+
+If there are only two unique salaries:
+| id | salary |
+|----|--------|
+| 1  | 100    |
+| 2  | 100    |
+
+#### Output:
+| SecondHighestSalary |
+|---------------------|
+| null                |
+
+### Summary:
+
+- The query finds the maximum salary that is less than the highest salary to determine the second highest salary.
+- If there is no second highest salary, the query will return `null`.
+
+Let me know if you need any further explanations or assistance with other problems!

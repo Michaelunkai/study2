@@ -1,0 +1,57 @@
+ Deploy the Model
+Create a SageMaker endpoint to deploy the trained model:
+
+First, create a model configuration file:
+
+ 
+ 
+nano model-config.json
+Paste the following into the file and save:
+
+json
+ 
+{
+  "ModelName": "MyModel",
+  "PrimaryContainer": {
+    "Image": "683313688378.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest",
+    "ModelDataUrl": "s3://my-unique-bucket-name-xyz/output/model.tar.gz"
+  },
+  "ExecutionRoleArn": "arn:aws:iam::your-account-id:role/SageMakerExecutionRole"
+}
+Create the model using the configuration file:
+
+ 
+ 
+aws sagemaker create-model --cli-input-json file://model-config.json
+Next, create an endpoint configuration file:
+
+ 
+ 
+nano endpoint-config.json
+Paste the following into the file and save:
+
+json
+ 
+{
+  "EndpointConfigName": "MyEndpointConfig",
+  "ProductionVariants": [
+    {
+      "VariantName": "AllTraffic",
+      "ModelName": "MyModel",
+      "InitialInstanceCount": 1,
+      "InstanceType": "ml.m4.xlarge",
+      "InitialVariantWeight": 1
+    }
+  ]
+}
+Create the endpoint configuration:
+
+ 
+ 
+aws sagemaker create-endpoint-config --cli-input-json file://endpoint-config.json
+Finally, create the endpoint:
+
+ 
+ 
+aws sagemaker create-endpoint --endpoint-name MyEndpoint --endpoint-config-name MyEndpointConfig
+Wait for the endpoint to be in the InService state before using it.

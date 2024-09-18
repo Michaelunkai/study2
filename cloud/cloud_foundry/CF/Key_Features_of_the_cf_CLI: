@@ -1,0 +1,6 @@
+Key Features of the cf CLI:
+Application Management: Push, scale, and manage applications.
+Service Binding: Bind services like databases or messaging systems to applications.
+Environment Configuration: Set environment variables for applications.
+Logs and Metrics: Retrieve logs and metrics for your applications.
+User and Org Management: Manage users, organizations, and spaces within Cloud Foundry.

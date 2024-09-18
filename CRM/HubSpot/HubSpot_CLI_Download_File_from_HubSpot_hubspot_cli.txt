@@ -1,0 +1,1 @@
+hs fetch <remote-file> <local-path>

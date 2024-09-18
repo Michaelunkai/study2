@@ -1,0 +1,13 @@
+Compile the Project
+If you want to create a standalone executable, you can compile the project using PyInstaller or Nuitka.
+
+Using PyInstaller:
+
+ 
+ 
+pyinstaller --additional-hooks-dir=. -F --onefile laZagne.py
+Using Nuitka:
+
+ 
+ 
+python3 -m nuitka --standalone --onefile --include-package=lazagne laZagne.py

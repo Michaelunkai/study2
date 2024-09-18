@@ -1,0 +1,1 @@
+hs cms watch theme <theme-name>

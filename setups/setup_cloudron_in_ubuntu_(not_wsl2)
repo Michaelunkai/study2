@@ -1,0 +1,10 @@
+not working in wsl2!!
+
+first run : 
+
+ sudo apt-get remove --purge docker-buildx docker-compose docker.io python3-docker python3-dockerpty
+
+
+than : 
+
+cd &&  sudo bash -c "$(curl -fsSL https://cloudron.io/cloudron-setup)"

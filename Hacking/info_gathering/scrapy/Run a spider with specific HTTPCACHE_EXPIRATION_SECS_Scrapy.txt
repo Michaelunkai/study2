@@ -1,0 +1,1 @@
+scrapy crawl myspider -s HTTPCACHE_EXPIRATION_SECS=3600

@@ -1,0 +1,23 @@
+Data Preprocessing
+Loading Data:
+ 
+ 
+import pandas as pd
+df = pd.read_ ('/content/your_data. ')
+Handling Missing Values:
+ 
+ 
+df.dropna()  # Remove rows with missing values
+df.fillna(value)  # Fill missing values
+Encoding Categorical Variables:
+ 
+ 
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['encoded_column'] = le.fit_transform(df['categorical_column'])
+Scaling Features:
+ 
+ 
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(features)

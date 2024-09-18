@@ -1,0 +1,1 @@
+aws ssm get-association --name <association-name>

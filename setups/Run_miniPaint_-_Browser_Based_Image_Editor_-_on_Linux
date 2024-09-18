@@ -1,0 +1,39 @@
+▲A  A▼
+Run miniPaint - Browser Based Image Editor - on Linux
+What is miniPaint?
+[miniPaint is an] online image editor lets you create, edit images using HTML5 technologies. No need to buy, download, install or have obsolete flash. No ads. Key features: layers, filters, HTML5, open source, Photoshop alternative.
+
+miniPaint operates directly in the browser. You can create images, paste from the clipboard (ctrl+v) or upload from the computer (using menu or drag & drop). Nothing will be sent to any server. Everything stays in your browser. -https://github.com/viliusle/miniPaint
+
+Installing NodeJS
+Log into the Linux device
+Run the following commands in a terminal window
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_20.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# test node is working
+node -v
+# test npm is working
+npm -v
+Running miniPaint
+Continue with the following commands:
+# install git
+sudo apt install git -y
+# cd back to home
+cd ~
+# clone minipaint github repo
+git clone https://github.com/viliusle/miniPaint.git ./miniPaint
+# cd into git clone
+cd miniPaint
+# install dependencies
+npm install
+# build minipaint
+npm run build
+# run minipaint
+npm run server
+Open a web browser and navigate to http://DNSorIP:8080
+Welcome to miniPaint
+Source: https://github.com/viliusle/miniPaint/wiki/Build-instructions
+
+ 

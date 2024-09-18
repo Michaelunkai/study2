@@ -1,0 +1,48 @@
+Privilege escalation vectors refer to methods or pathways that attackers use to gain elevated access to resources or functions within a computer system or network, often beyond what was intended by the system's administrators. Privilege escalation can be categorized into two main types: 
+
+1. **Vertical Privilege Escalation**: This occurs when an attacker gains higher privileges than they are authorized for, such as a normal user obtaining administrative rights.
+
+2. **Horizontal Privilege Escalation**: This occurs when an attacker gains access to the privileges of another user with the same level of access. For example, a user A accessing user B's data without authorization.
+
+Common privilege escalation vectors include:
+
+1. **Exploiting Vulnerabilities**:
+   - **Operating System Vulnerabilities**: Bugs or security flaws in the OS can be exploited to gain higher privileges. Examples include buffer overflow vulnerabilities and misconfigurations.
+   - **Application Vulnerabilities**: Applications running with elevated privileges can have vulnerabilities that are exploited. Examples include SQL injection, code injection, or improper validation.
+
+2. **Misconfigurations**:
+   - **Weak File Permissions**: Incorrect file permissions allowing unauthorized users to read, write, or execute sensitive files.
+   - **Improperly Configured Services**: Services running with higher privileges than necessary or exposed to untrusted networks.
+
+3. **Social Engineering**:
+   - **Phishing Attacks**: Trick users into revealing credentials that can be used for privilege escalation.
+   - **Insider Threats**: Employees or individuals with legitimate access abusing their privileges.
+
+4. **Credential Theft**:
+   - **Password Attacks**: Brute-forcing or guessing passwords, using default passwords, or exploiting password reuse.
+   - **Token Theft**: Stealing session tokens, API keys, or other authentication tokens.
+
+5. **Exploiting Weak Access Control Mechanisms**:
+   - **Default Credentials**: Using default usernames and passwords set by the manufacturer.
+   - **Hardcoded Credentials**: Credentials embedded in code or scripts.
+
+6. **Privilege Misuse**:
+   - **Abuse of System Tools**: Using legitimate tools available on the system (like PowerShell, PsExec, etc.) to escalate privileges.
+   - **Backdoors and Rootkits**: Installing malware that provides continuous privileged access.
+
+7. **Chained Exploits**:
+   - **Multiple Vulnerabilities**: Combining several lower-severity vulnerabilities to achieve privilege escalation.
+
+### Preventative Measures
+
+To mitigate the risk of privilege escalation, the following best practices can be employed:
+
+- **Patch Management**: Regularly update and patch operating systems and applications.
+- **Access Controls**: Implement the principle of least privilege (PoLP) to ensure users have the minimum necessary access.
+- **Security Audits**: Conduct regular security audits and vulnerability assessments.
+- **Monitoring and Logging**: Monitor systems for unusual activity and maintain detailed logs for forensic analysis.
+- **User Training**: Educate users about the dangers of social engineering and proper security practices.
+- **Strong Authentication**: Use multi-factor authentication (MFA) to enhance security.
+- **Configuration Management**: Regularly review and correct system and application configurations.
+
+Understanding and addressing privilege escalation vectors is crucial for maintaining a secure computing environment and preventing unauthorized access to sensitive data and resources.

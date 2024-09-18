@@ -1,0 +1,1 @@
+aws ssm get-maintenance-window-execution --window-execution-id <execution-id>

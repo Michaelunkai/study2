@@ -1,0 +1,52 @@
+### Problem Statement (Explained Like You're 12):
+
+A phrase is a palindrome if it reads the same backward as forward after converting all uppercase letters to lowercase letters and removing all non-alphanumeric characters (letters and numbers).
+
+For example:
+- "A man, a plan, a canal: Panama" becomes "amanaplanacanalpanama" and is a palindrome.
+- "race a car" becomes "raceacar" and is not a palindrome.
+
+Your job is to write a function that checks if a given string is a palindrome.
+
+### Python Solution:
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # Convert string to lowercase and filter out non-alphanumeric characters
+        filtered_chars = [char.lower() for char in s if char.isalnum()]
+        # Check if the filtered list is equal to its reverse
+        return filtered_chars == filtered_chars[::-1]
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def isPalindrome(self, s: str) -> bool:
+    ```
+
+2. **Filter and Lowercase**:
+    ```python
+    filtered_chars = [char.lower() for char in s if char.isalnum()]
+    ```
+
+    - Convert the string `s` to lowercase.
+    - Filter out all non-alphanumeric characters using list comprehension.
+    - `char.lower()`: Convert each character to lowercase.
+    - `char.isalnum()`: Check if the character is alphanumeric (letter or number).
+
+3. **Check Palindrome**:
+    ```python
+    return filtered_chars == filtered_chars[::-1]
+    ```
+
+    - Check if the filtered list of characters is equal to its reverse.
+    - `filtered_chars[::-1]`: Reverse the list of filtered characters.
+    - If they are equal, the string is a palindrome, so return `True`. Otherwise, return `False`.
+
+### Summary:
+
+1. Convert the string to lowercase and filter out non-alphanumeric characters.
+2. Check if the resulting string is equal to its reverse.
+3. Return `True` if it is a palindrome, `False` otherwise.

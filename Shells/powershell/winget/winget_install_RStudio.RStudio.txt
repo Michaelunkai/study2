@@ -1,0 +1,1 @@
+winget install --id=RStudio.RStudio -e

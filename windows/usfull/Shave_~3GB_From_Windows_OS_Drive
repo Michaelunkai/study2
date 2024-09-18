@@ -1,0 +1,13 @@
+Shave ~3GB From Windows OS Drive
+This is a great trick to save a few gigabytes of space on the OS, especially if you have a smaller mSata SSD for the boot drive.
+
+Right click the Start button > Command Prompt (Admin)
+Run the following command to compress OS files
+Compact.exe /CompactOS:always
+The command takes about 10 minutes to complete depending on your hard drive and will free about 3 GB of space
+Reverting the Compression
+If for some reason you want to undo this change you can use the steps below to decompress the OS files
+
+Right click the Start button > Command Prompt (Admin)
+Run the following command to compress OS files
+Compact.exe /CompactOS:never

@@ -1,0 +1,8 @@
+AWS Cost Explorer (CE) is a tool provided by Amazon Web Services (AWS) that allows users to visualize, understand, and manage their AWS costs and usage over time. AWS Cost Explorer provides a set of reports that help you analyze and manage your AWS spending. You can use it to:
+
+- **View your usage patterns**: Understand how your usage of AWS services changes over time, allowing you to identify trends and anomalies.
+- **Manage costs**: See how much you are spending on different AWS services, identify areas where you can reduce costs, and track your progress over time.
+- **Set up cost and usage reports**: Create custom reports to monitor your usage and costs in a way that makes sense for your organization.
+- **Forecast future costs**: Predict your future costs based on historical usage patterns.
+
+AWS Cost Explorer provides detailed usage and cost information, allowing you to drill down into specific services and accounts to understand the sources of your AWS spending.

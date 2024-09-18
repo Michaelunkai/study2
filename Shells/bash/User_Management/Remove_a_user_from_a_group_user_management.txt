@@ -1,0 +1,3 @@
+Command: sudo deluser <username> <groupname>
+Description: Removes a user from a specified group.
+User Management

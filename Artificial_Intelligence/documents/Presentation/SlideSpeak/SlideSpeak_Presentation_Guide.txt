@@ -1,0 +1,20 @@
+Guide: How to Create PowerPoint Presentations with AI
+What is SlideSpeak?
+SlideSpeak is an AI-powered chatbot specifically designed for PowerPoint presentations. It allows you to:
+- Summarize presentations: Upload your existing PowerPoint files, and SlideSpeak will generate concise summaries.
+- Ask questions: Interact with your presentations by asking questions about their content.
+- Extract information: Get key insights and actions directly from your presentation.
+How does it work?
+1. Visit SlideSpeak AI.
+2. Upload your existing PowerPoint file (in PPTX format).
+3. SlideSpeak will provide a preview of your presentations.
+4. Review the content to ensure it is accurate.
+5. Click the "Generate Presentation" button.
+6. Let SlideSpeak work its magic.
+Why use SlideSpeak?
+- Efficiency: Save time by automating the creation and summarization of presentations.
+- Insights: Easily extract key information.
+- Engagement: Create presentations tailored to your audience.
+SlideSpeak also has GPT
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

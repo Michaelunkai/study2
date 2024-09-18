@@ -1,0 +1,10 @@
+wget $(curl -s https://api.github.com/repos/prometheus/node_exporter/releases/latest | grep browser_download_url | grep linux-amd64.tar.gz | cut -d '"' -f 4) -P /tmp && \
+sudo tar xvf /tmp/node_exporter-*.linux-amd64.tar.gz -C /tmp && \
+sudo mv /tmp/node_exporter-*.linux-amd64/node_exporter /usr/local/bin && \
+if ! id "node_exporter" &>/dev/null; then sudo useradd -rs /bin/false node_exporter; fi && \
+sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter && \
+echo -e '[Unit]\nDescription=Node Exporter\nWants=network-online.target\nAfter=network-online.target\n\n[Service]\nUser=node_exporter\nGroup=node_exporter\nType=simple\nExecStart=/usr/local/bin/node_exporter\nRestart=always\nRestartSec=5s\n\n[Install]\nWantedBy=multi-user.target' | sudo tee /etc/systemd/system/node_exporter.service && \
+sudo systemctl daemon-reload && \
+sudo systemctl enable node_exporter && \
+sudo systemctl start node_exporter && \
+sudo systemctl status node_exporter

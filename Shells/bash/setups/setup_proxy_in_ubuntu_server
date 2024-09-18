@@ -1,0 +1,103 @@
+Step 1: Update the System
+First, ensure your system is up-to-date by running:
+
+ 
+ 
+sudo apt update && sudo apt upgrade -y
+Step 2: Install Squid
+Install Squid using the following command:
+
+ 
+ 
+sudo apt install squid -y
+Step 3: Configure Squid
+Backup the Default Configuration:
+
+ 
+ 
+sudo cp /etc/squid/squid.conf /etc/squid/squid.conf.bak
+Edit the Configuration File:
+Open the Squid configuration file in a text editor:
+
+ 
+ 
+sudo nano /etc/squid/squid.conf
+Basic Configuration:
+
+Set the HTTP Port:
+Find the line http_port 3128 and make sure it is uncommented (remove # if present). This line defines the port on which Squid will listen for incoming requests.
+
+Allow Local Network Access:
+Add the following lines to allow your local network to use the proxy:
+
+ 
+ 
+acl localnet src 192.168.1.0/24  # Replace with your local network IP range
+http_access allow localnet
+http_access allow localhost
+Ensure you add these lines before the http_access deny all line, which should be at the end of the file by default.
+
+Step 4: Start and Enable Squid
+Start the Squid service and enable it to start on boot:
+
+ 
+ 
+sudo systemctl start squid
+sudo systemctl enable squid
+Step 5: Verify Squid Status
+Check if Squid is running correctly:
+
+ 
+ 
+sudo systemctl status squid
+Step 6: Configure Clients to Use the Proxy
+To use the proxy server, you need to configure the client machines to use the proxy's IP address and port. This can usually be done in the network settings of the operating system or the web browser being used.
+
+Example for Web Browser:
+Open your web browser settings.
+Find the Network or Proxy settings.
+Enter the IP address of your Squid server and the port (default is 3128).
+Additional Configuration (Optional)
+Access Control:
+You can create more granular access controls by defining ACLs (Access Control Lists) in the Squid configuration file. For example, to allow or deny specific IP addresses or networks.
+
+Caching:
+Squid can be configured to cache web content to improve load times and reduce bandwidth usage. This involves tuning the cache settings in the configuration file.
+
+Authentication:
+Squid supports various authentication methods to restrict access to authorized users.
+
+Example Configuration for Authentication:
+Install Apache Utilities:
+
+ 
+ 
+sudo apt install apache2-utils -y
+Create a Password File:
+
+ 
+ 
+sudo htpasswd -c /etc/squid/squid_passwd your_username
+(You'll be prompted to enter a password)
+
+Modify Squid Configuration for Authentication:
+Add the following lines to your squid.conf:
+
+ 
+ 
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/squid_passwd
+auth_param basic children 5
+auth_param basic realm Squid proxy-caching web server
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive on
+
+acl authenticated proxy_auth REQUIRED
+http_access allow authenticated
+Save the file and restart Squid:
+
+ 
+ 
+sudo systemctl restart squid
+Now your Squid proxy server should be up and running with basic configurations. You can further customize it according to your needs.
+
+

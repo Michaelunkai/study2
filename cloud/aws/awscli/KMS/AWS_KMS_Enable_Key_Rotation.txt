@@ -1,0 +1,1 @@
+aws kms enable-key-rotation --key-id <key-id>

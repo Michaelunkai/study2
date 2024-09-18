@@ -1,0 +1,1 @@
+pip install pipreqs && pipreqs /mnt/c/Users/micha/Downloads --force --savepath /mnt/c/Users/micha/Downloads/requirements.txt && pip install -r /mnt/c/Users/micha/Downloads/requirements.txt && python /mnt/c/Users/micha/Downloads/a.py

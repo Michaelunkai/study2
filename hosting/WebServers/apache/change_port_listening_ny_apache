@@ -1,0 +1,13 @@
+Configure Apache to run on port 83:
+
+Edit the default configuration file:
+
+sudo nano /etc/apache2/ports.conf
+Change the Listen directive to 83:
+
+apache
+Listen 83
+
+
+
+

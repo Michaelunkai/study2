@@ -1,0 +1,30 @@
+Installing Drupal on Windows
+Download XAMPP Download
+Download Drupal Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP file > Extract All...
+Right click the downloaded Drupal .zip file > Extract All...
+Rename the extracte Drupal folder drupal
+Cut the drupal folder inside the XAMPP/htdocs directory
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell windows here...
+Type the following in the PowerShell window to setup the Drupal database
+./my  -u root
+CREATE DATABASE drupal DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL ON drupal.* TO 'drupal_rw'@'localhost' IDENTIFIED BY 'Dru4@l!!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Open a web browser and navigate to http://DNSorIP/drupal
+The Drupal setup screen should be displayed
+Select a language > Click Save and continue
+Select the Standard profile > Click Save and continue
+Enter the database name, username and password > Click Save and continue
+Create a site title and Drupal login > Click Install Drupal
+When the installation completes, enter a site name, email address, username and password > Click Save and continue
+Welcome to your very own, self-hosted Drupal installation

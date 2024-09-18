@@ -1,0 +1,8 @@
+Creating the Model
+Now time to create our first neural network model! We will do this by using the Sequential object from keras. A Sequential model simply defines a sequence of layers starting with the input layer and ending with the output layer. Our model will have 3 layers, and input layer of 784 neurons (representing all of the 28x28 pixels in a picture) a hidden layer of an arbitrary 128 neurons and an output layer of 10 neurons representing the probability of the picture being each of the 10 classes.
+
+model = keras.Sequential([
+	keras.layers.Flatten(input_shape=(28,28)),
+	keras.layers.Dense(128, activation="relu"),
+	keras.layers.Dense(10, activation="softmax")
+	])

@@ -1,0 +1,54 @@
+Running a Windows 2 VM in Virtualbox
+Download MS-DOS 6.22 Download
+Download Microsoft Windows 2 Download
+Extract the MS-DOS 6.22 and Windows 2 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Microsoft Windows 2
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 3.1
+Memory Size: 32 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Microsoft Windows 2.vdi
+File size: 100 MB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the floppy disk drive
+Select the disc dropdown to the right > Choose a virtual floppy disk file...
+Browse to the extracted MS-DOS 6.22 files and select Disk1.img
+Click OK
+Make sure the Windows 2 VM is selected and click Start > Normal
+Press Enter to start the installation and press Enter multiple times to accept the default values
+When prompted by the installer, go to the VM settings and swap out the MS-DOS disk images and press Enter to continue
+Once MS-DOS has been successfully installed, select Devices > Floppy Drives > Remove disk from virtual drive
+Press Enter in the VM to reboot
+Once MS-DOS has booted, select Devices > Floppy Drives > Choose disk image...
+Navigate to the extracted Windows 2 files and select D1_Setup.img
+Type the following commands
+A:
+setup
+The Windows 2 installation process will start
+Press Enter to continue
+Arrow down to select IBM, PC or 100% compatible
+Press Enter multiple times to accept the default values
+When prompted by the installer, go to the VM settings and swap out the Window 2 disk images and press Enter to continue
+Press F to finish setup
+Select Devices > Floppy Drives > Remove disk from virtual drive
+At the DOS prompt, type the following commands
+win
+Welcome back to Windows 2
+Launch Notepad.exe
+Select File > Open
+Navigate to the root of the C: drive and open autoexec.bat to edit it
+Add C:\Windows\win to the bottom of the file to automatically boot Windows 2 on system startup
+Select File > Save
+Select Machine > Reset > Reset
+Revel in the nostalgia

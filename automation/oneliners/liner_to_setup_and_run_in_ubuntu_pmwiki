@@ -1,0 +1,1 @@
+ getapache && apt install unzip -y && wget https://www.pmwiki.org/pub/pmwiki/pmwiki-latest.zip -O pmwiki.zip && unzip pmwiki.zip -d /var/www/html/pmwiki && sudo systemctl restart apache2 && gc http://localhost/pmwiki

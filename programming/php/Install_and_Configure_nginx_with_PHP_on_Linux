@@ -1,0 +1,46 @@
+Install and Configure nginx with PHP on Linux
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install nginx and php
+sudo apt install nginx php7.3-fpm php7.3-common php7.3-mysql php7.3-gmp php7.3-curl php7.3-intl php7.3-mbstring php7.3-xmlrpc php7.3-gd php7.3-xml php7.3-cli php7.3-zip php7.3-soap php7.3-imap
+# set the owner of the web root
+sudo chown -R www-data /usr/share/nginx/html
+# edit the nginx config to add PHP support
+sudo nano /etc/nginx/conf.d/default.conf
+Paste the following configuration into default.conf
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /usr/ are/nginx/html;
+    index index.php index.html index.htm;
+
+    server_name localhost;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi- .conf;
+        fastcgi_pass unix:/var/run/ / 7.3-fpm.sock;
+    }
+}
+
+Press CTRL+O, Enter, CTRL+X to write the changes to default.conf
+Continue with the following commands
+# restart nginx service
+sudo systemctl restart nginx
+# create a test phpinfo file
+sudo nano /usr/ are/nginx/html/ info. 
+Paste the following into the .php page
+<? 
+     info();
+?>
+
+Press CTRL+O, Enter, CTRL+X to write the changes to phpinfo.php
+Open a web browser and navigate to http://DNSorIP/phpinfo.php

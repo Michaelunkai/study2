@@ -1,0 +1,25 @@
+UEFI:
+
+Modern firmware interface
+Supports large hard drives and GPT disks
+Supports both 32-bit and 64-bit systems
+Graphical interface with mouse support
+Secure Boot feature for firmware integrity
+More extensive configuration options
+Faster boot times
+Supports plugins and drivers for hardware
+Legacy Compatibility Mode available
+
+
+
+BIOS:
+
+Legacy firmware interface
+Limited to 2.2TB boot drive capacity and MBR
+Primarily supports 16-bit systems
+Text-based interface with keyboard navigation
+Limited security features
+Limited configuration settings
+Slower boot times
+Limited to firmware updates
+No Compatibility Mode

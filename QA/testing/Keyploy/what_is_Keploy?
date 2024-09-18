@@ -1,0 +1,43 @@
+To set up and run the project from the Keploy repository in Ubuntu, follow these steps:
+
+### 1. Clone the Repository
+First, you need to clone the Keploy repository to your local machine.
+
+  
+git clone https://github.com/keploy/keploy.git
+cd keploy
+
+### 2. Install Keploy
+You can install Keploy using the provided installation script:
+
+  
+curl --silent -O -L https://keploy.io/install.sh && source install.sh
+
+This script will download and install Keploy on your system.
+
+### 3. Record API Calls as Test Cases
+To record API calls, use the `keploy record` command. Replace `CMD_TO_RUN_APP` with the command to run your application.
+
+For example, if your application is a Python app:
+
+  
+keploy record -c "python main.py"
+
+### 4. Run the Recorded Tests
+After recording, you can run the tests using the following command. Replace `CMD_TO_RUN_APP` with the command to run your application again:
+
+  
+keploy test -c "python main.py" --delay 10
+
+The `--delay` option allows the application to start before Keploy begins testing.
+
+### 5. (Optional) Integrate with Test Coverage Tools
+If you want to integrate Keploy with your unit-testing framework to combine test coverage, follow the [test coverage integration guide](https://keploy.io/docs/test-coverage).
+
+### 6. Explore Further Documentation
+Keploy has extensive documentation for additional features and integrations. You can explore more at the [Keploy Documentation](https://keploy.io/docs).
+
+### 7. Running in CI/CD Pipeline or Kubernetes
+You can also integrate Keploy with CI/CD pipelines or run it across Kubernetes clusters by following the guidelines provided in the repository.
+
+This setup should get you started with Keploy in your Ubuntu environment.

@@ -1,0 +1,1 @@
+aws elasticbeanstalk update-environment --environment-id <env-id> --version-label <version-label> --option-settings <option-settings>

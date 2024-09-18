@@ -1,0 +1,6 @@
+ Validate the Resume
+To ensure your resume follows the JSON Resume schema, validate it with:
+
+ 
+ 
+resume validate

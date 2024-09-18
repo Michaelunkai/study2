@@ -1,0 +1,143 @@
+Sure, here is the updated step-by-step guide to implementing event streaming with Redpanda on Ubuntu, including the installation of Kafka with the provided alias.
+
+### Step 1: Update System Packages
+First, ensure your system packages are up to date.
+
+sudo apt update
+sudo apt upgrade -y
+
+### Step 2: Install Required Dependencies
+Install essential dependencies like `curl` and `gnupg`.
+
+sudo apt install -y curl gnupg
+
+### Step 3: Install Redpanda
+Use the provided command to add the Redpanda APT repository and install Redpanda.
+
+curl -1sLf 'https://dl.redpanda.com/nzc4ZYQK3WRGd9sy/redpanda/cfg/setup/ .deb.sh' | sudo -E   && sudo apt-get install redpanda -y
+
+### Step 4: Set File Ownership
+Ensure the `redpanda` user owns the necessary directories.
+
+sudo chown -R redpanda:redpanda /etc/redpanda
+sudo chown -R redpanda:redpanda /var/lib/redpanda
+
+### Step 5: Configure Redpanda
+Redpanda can be configured using a YAML file. Create or modify the configuration file located at `/etc/redpanda/redpanda. `.
+
+sudo nano /etc/redpanda/redpanda. 
+
+Ensure your configuration includes necessary settings. A basic example:
+
+config_file: /etc/redpanda/redpanda. 
+node_id: 0
+seed_servers: []
+kafka_api:
+  address: 0.0.0.0
+  port: 9092
+rpc_server:
+  address: 0.0.0.0
+  port: 33145
+advertised_rpc_api:
+  address: 127.0.0.1
+  port: 33145
+admin:
+  address: 127.0.0.1
+  port: 9644
+
+### Step 6: Start Redpanda Service
+Start the Redpanda service and enable it to run on startup.
+
+sudo systemctl start redpanda
+sudo systemctl enable redpanda
+
+### Step 7: Verify Redpanda Installation
+Check the status of the Redpanda service to ensure it’s running correctly.
+
+sudo systemctl status redpanda
+
+### Step 8: Install Kafka CLI Tools
+Use the provided alias to install Kafka CLI tools. First, create the alias.
+
+alias getkafka="sudo apt-get update && sudo apt-get install -y openjdk-11-jre && sudo docker pull confluentinc/cp-kafka:7.3.2 && sudo docker pull confluentinc/cp-zookeeper:7.3.2 && sudo docker network create kafka-net && sudo docker run -d --net=kafka-net --name=zookeeper -e ZOOKEEPER_CLIENT_PORT=2181 confluentinc/cp-zookeeper:7.3.2 && sudo docker run -d --net=kafka-net --name=kafka -p 7000:7000 -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:7000 -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 confluentinc/cp-kafka:7.3.2"
+
+Then, run the alias to install Kafka CLI tools.
+
+getkafka
+
+### Step 9: Create a Topic
+Use Kafka CLI tools to create a topic in Redpanda.
+
+sudo docker exec -it kafka /bin/ 
+kafka-topics --create --topic my-topic --bootstrap-server localhost:7000 --partitions 1 --replication-factor 1
+
+### Step 10: Produce Messages to the Topic
+Use Kafka CLI tools to produce messages to the topic.
+
+kafka-console-producer --topic my-topic --bootstrap-server localhost:7000
+
+Enter some messages to produce to the topic.
+
+### Step 11: Consume Messages from the Topic
+Use Kafka CLI tools to consume messages from the topic.
+
+kafka-console-consumer --topic my-topic --from-beginning --bootstrap-server localhost:7000
+
+You should see the messages you produced.
+
+### Step 12: Create a Producer and Consumer Application (Optional)
+You can create your own producer and consumer applications using a language like Python. Install `confluent-kafka` for Python.
+
+pip install confluent-kafka
+
+#### Producer Example
+Create a file `producer.py`:
+
+from confluent_kafka import Producer
+
+p = Producer({'bootstrap.servers': 'localhost:7000'})
+
+def delivery_report(err, msg):
+    if err is not None:
+        print('Message delivery failed: {}'.format(err))
+    else:
+        print('Message delivered to {} [{}]'.format(msg.topic(), msg.partition()))
+
+p.produce('my-topic', key='key', value='value', callback=delivery_report)
+p.flu ()
+
+#### Consumer Example
+Create a file `consumer.py`:
+
+from confluent_kafka import Consumer, KafkaError
+
+c = Consumer({
+    'bootstrap.servers': 'localhost:7000',
+    'group.id': 'my-group',
+    'auto.offset.reset': 'earliest'
+})
+
+c.subscribe(['my-topic'])
+
+while True:
+    msg = c.poll(1.0)
+
+    if msg is None:
+        continue
+    if msg.error():
+        if msg.error().code() == KafkaError._PARTITION_EOF:
+            continue
+        else:
+            print(msg.error())
+            break
+
+    print('Received message: {}'.format(msg.value().decode('utf-8')))
+
+c.close()
+
+Run the producer and consumer applications:
+
+  producer.py
+  consumer.py
+
+This step-by-step guide should help you set up and implement event streaming with Redpanda on Ubuntu.

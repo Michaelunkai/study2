@@ -1,0 +1,1 @@
+aws route53 list-traffic-policy-instances-by-hosted-zone --hosted-zone-id <hosted-zone-id>

@@ -1,0 +1,203 @@
+Sure! Here's a complete tutorial with a detailed title:
+
+---
+
+# **Comprehensive Guide to Building and Running a Simple AI Agent in a Docker Container on Ubuntu**
+
+In this tutorial, you'll learn how to build and run a simple AI agent using PyTorch inside a Docker container on an Ubuntu system. We'll cover everything from installing Docker to creating and executing a neural network model for classification.
+
+### **Step 1: Install Docker on Ubuntu**
+
+1. **Update your system packages:**
+     
+   sudo apt-get update
+   sudo apt-get upgrade
+
+2. **Install Docker:**
+     
+   sudo apt-get install -y docker.io
+
+3. **Start and enable Docker service:**
+     
+   sudo systemctl start docker
+   sudo systemctl enable docker
+
+4. **Verify Docker installation:**
+     
+   docker --version
+
+### **Step 2: Pull a Base Docker Image**
+
+Choose an appropriate base image for your environment. For this example, we'll use the latest Ubuntu image.
+
+  
+docker pull ubuntu:latest
+
+### **Step 3: Run a Docker Container**
+
+Start a new Docker container from the pulled image and open an interactive bash session.
+
+  
+docker run -it --name ai-agent ubuntu:latest /bin/bash
+
+### **Step 4: Install Dependencies Inside the Container**
+
+Inside the running container, install Python and other necessary dependencies.
+
+1. **Update package lists:**
+     
+   apt-get update
+
+2. **Install Python, pip, and venv:**
+     
+   apt-get install -y python3 python3-pip python3-venv
+
+### **Step 5: Set Up a Virtual Environment**
+
+Create and activate a virtual environment to manage your Python packages.
+
+1. **Create a directory for your project:**
+     
+   mkdir /opt/ai-agent
+   cd /opt/ai-agent
+
+2. **Set up the virtual environment:**
+     
+   python3 -m venv venv
+
+3. **Activate the virtual environment:**
+     
+   source venv/bin/activate
+
+### **Step 6: Install AI-related Libraries**
+
+With the virtual environment activated, install the necessary AI-related libraries using `pip`.
+
+  
+pip install numpy scipy scikit-learn torch
+
+### **Step 7: Create Your AI Agent Script**
+
+Write the Python script for your AI agent. In this example, we'll create a neural network for classification using PyTorch.
+
+1. **Create the AI agent script:**
+     
+   nano ai_agent.py
+
+2. **Paste the following code into `ai_agent.py`:**
+     
+   import torch
+   import torch.nn as nn
+   import torch.optim as optim
+   from sklearn.datasets import load_iris
+   from sklearn.model_selection import train_test_split
+   from sklearn.preprocessing import StandardScaler
+   import numpy as np
+
+   # Load and preprocess data
+   iris = load_iris()
+   X = iris.data
+   y = iris.target
+
+   scaler = StandardScaler()
+   X = scaler.fit_transform(X)
+
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+   X_train = torch.tensor(X_train, dtype=torch.float32)
+   y_train = torch.tensor(y_train, dtype=torch.long)
+   X_test = torch.tensor(X_test, dtype=torch.float32)
+   y_test = torch.tensor(y_test, dtype=torch.long)
+
+   # Define the neural network
+   class Net(nn.Module):
+       def __init__(self):
+           super(Net, self).__init__()
+           self.fc1 = nn.Linear(4, 50)
+           self.fc2 = nn.Linear(50, 3)
+
+       def forward(self, x):
+           x = torch.relu(self.fc1(x))
+           x = self.fc2(x)
+           return x
+
+   net = Net()
+   criterion = nn.CrossEntropyLoss()
+   optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
+
+   # Train the network
+   for epoch in range(100):
+       optimizer.zero_grad()
+       outputs = net(X_train)
+       loss = criterion(outputs, y_train)
+       loss.backward()
+       optimizer.step()
+
+       if epoch % 10 == 0:
+           print(f'Epoch [{epoch}/100], Loss: {loss.item():.4f}')
+
+   # Test the network
+   with torch.no_grad():
+       outputs = net(X_test)
+       _, predicted = torch.max(outputs, 1)
+       accuracy = (predicted == y_test).sum().item() / y_test.size(0)
+       print(f'Accuracy: {accuracy * 100:.2f}%')
+
+3. **Save and exit the editor (Ctrl+X, Y, Enter).**
+
+### **Step 8: Run Your AI Agent**
+
+Execute the AI agent script inside the container.
+
+  
+  ai_agent.py
+
+### **Step 9: Save Your Container State (Optional)**
+
+If you want to save the current state of your container as an image for future use, you can commit the container.
+
+1. **Exit the container:**
+     
+   exit
+
+2. **Commit the container:**
+     
+   docker commit ai-agent ai-agent-image
+
+3. **Run a new container from the saved image:**
+     
+   docker run -it --name new-ai-agent ai-agent-image /bin/bash
+
+### **Step 10: Managing Docker Containers**
+
+- **List all running containers:**
+    
+  docker ps
+
+- **Stop a container:**
+    
+  docker stop ai-agent
+
+- **Remove a container:**
+    
+  docker rm ai-agent
+
+- **Remove an image:**
+    
+  docker rmi ai-agent-image
+
+### **Additional Tips**
+
+- **Mounting Volumes:**
+  If you need to access files from your host system inside the container, you can mount a volume.
+    
+  docker run -it --name ai-agent -v /path/on/host:/path/in/container ubuntu:latest /bin/bash
+
+- **Port Mapping:**
+  To expose ports from the container to the host, use port mapping.
+    
+  docker run -it --name ai-agent -p host_port:container_port ubuntu:latest /bin/bash
+
+---
+
+This tutorial guides you through building and running a basic AI agent inside a Docker container on Ubuntu, including installing Docker, setting up a Python environment, and executing a neural network model.

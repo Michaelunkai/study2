@@ -1,0 +1,43 @@
+Edge computing leverages a variety of tools and platforms to enable efficient and effective local data processing. Here are the top 10 tools commonly used in edge computing:
+
+1. **AWS IoT Greengrass**:
+   - Allows local compute, messaging, data caching, and machine learning inference capabilities to edge devices.
+   - Provides seamless integration with AWS cloud services.
+
+2. **Microsoft Azure IoT Edge**:
+   - Extends cloud intelligence and analytics to edge devices.
+   - Supports containerized workloads and AI models deployment.
+
+3. **Google Cloud IoT Edge**:
+   - Enables intelligent data processing at the edge with Google's ML models.
+   - Provides edge TPU for fast ML inference.
+
+4. **IBM Edge Application Manager**:
+   - Manages and deploys AI, analytics, and IoT workloads at the edge.
+   - Ensures scalability and autonomy in edge environments.
+
+5. **NVIDIA Jetson**:
+   - A hardware platform for AI at the edge.
+   - Provides powerful GPU capabilities for real-time AI applications.
+
+6. **EdgeX Foundry**:
+   - An open-source edge computing platform.
+   - Facilitates interoperability between different IoT devices and applications.
+
+7. **Cisco Edge Intelligence**:
+   - Integrates edge computing with IoT data and network connectivity.
+   - Provides secure and scalable data management at the edge.
+
+8. **OpenStack StarlingX**:
+   - An open-source edge computing and IoT cloud platform.
+   - Ensures high availability and scalability for edge deployments.
+
+9. **KubeEdge**:
+   - Extends Kubernetes capabilities to edge devices.
+   - Supports containerized application deployment and management at the edge.
+
+10. **HPE Edgeline**:
+    - Offers converged edge systems for data-intensive and low-latency workloads.
+    - Integrates compute, storage, and network capabilities for edge environments.
+
+These tools provide the necessary infrastructure, management, and analytics capabilities to effectively deploy and operate edge computing solutions.

@@ -1,0 +1,7 @@
+Manual Scan for SSTI
+Manually inject payloads to test for SSTI vulnerabilities.
+
+Testing for SSTI
+Open your web browser and navigate to http://localhost:5000.
+Enter {{7*7}} in the input field and submit the form.
+If the application returns 49, it indicates SSTI vulnerability.

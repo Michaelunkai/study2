@@ -1,0 +1,82 @@
+inside ubuntu container run:
+
+curl -sSL https://install.pi-hole.net | bash
+
+than open web ui and enter password.
+
+http://<ipaddress>/admin
+
+Configure Your Router
+Assign a Static IP to Pi-hole:
+
+Log into your router's admin panel.
+Assign a static IP address to your Pi-hole server. 
+
+
+Set DNS Server:
+
+In the DHCP settings of your router, set the Primary DNS server to the static IP address of your Pi-hole 
+
+
+Save Settings and Reboot Router:
+
+Save the changes and reboot your router to apply the new DNS settings. 
+
+to reboot router from web ui: 
+
+enter website and enter credentials
+
+system info >  configuration >
+
+under reset & reboot:
+
+restart device > restart
+
+
+
+Set Upstream DNS Servers:
+
+Navigate to the "Settings" tab, then the "DNS" tab.
+Set the upstream DNS servers Pi-hole will use. You can use Google's DNS (8.8.8.8 and 8.8.4.4) or any other preferred DNS server.
+
+
+
+
+ Flush DNS Cache on Devices
+To ensure that your devices use the new DNS settings, you need to flush the DNS cache on each device.
+
+Windows:
+
+Open Command Prompt as Administrator.
+Run the command:
+
+
+ipconfig /flu dns
+Mac:
+
+Open Terminal.
+Run the command:
+
+
+sudo killall -HUP mDNSResponder
+Linux:
+
+Open Terminal.
+Depending on the distribution, run one of the following commands:
+
+
+sudo systemd-resolve --flu -caches
+
+or
+
+sudo service dnsmasq restart
+
+
+Verify Pi-hole Functionality
+Check Pi-hole Logs:
+In the Pi-hole admin interface, check the query log to see if DNS queries from your devices are being processed.
+
+Test Ad Blocking:
+Visit a site that typically displays ads (e.g., YouTube) and verify that ads are being blocked.
+
+By following these steps, you will have set up a network-wide ad-blocking system using Pi-hole on Ubuntu WSL2. All devices connected to your network should now benefit from ad blocking.

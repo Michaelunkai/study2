@@ -1,0 +1,89 @@
+### 303. Range Sum Query - Immutable
+
+**Problem Description:**
+
+Given an integer array `nums`, handle multiple queries of the following type:
+- Calculate the sum of the elements of `nums` between indices `left` and `right` inclusive where `left <= right`.
+
+Implement the `NumArray` class:
+- `NumArray(int[] nums)` Initializes the object with the integer array `nums`.
+- `int sumRange(int left, int right)` Returns the sum of the elements of `nums` between indices `left` and `right` inclusive (i.e. `nums[left] + nums[left + 1] + ... + nums[right]`).
+
+**Example 1:**
+```
+Input
+["NumArray", "sumRange", "sumRange", "sumRange"]
+[[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
+Output
+[null, 1, -1, -3]
+
+Explanation
+NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
+numArray.sumRange(0, 2); // return (-2) + 0 + 3 = 1
+numArray.sumRange(2, 5); // return 3 + (-5) + 2 + (-1) = -1
+numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
+```
+
+**Constraints:**
+- `1 <= nums.length <= 10^4`
+- `-10^5 <= nums[i] <= 10^5`
+- `0 <= left <= right < nums.length`
+- At most `10^4` calls will be made to `sumRange`.
+
+### Explanation (Like I'm 12):
+
+Imagine you have a long list of numbers and you want to find the sum of numbers between two positions multiple times. Instead of adding the numbers each time from scratch, you can do some preparations so that finding the sum is much faster.
+
+### Solution:
+
+We can use a technique called prefix sums. A prefix sum array is an array where each element at index `i` is the sum of the elements from the start of the array to index `i` in the original array. This allows us to calculate the sum of any subarray in constant time.
+
+### Python Code:
+
+```python
+class NumArray:
+
+    def __init__(self, nums: List[int]):
+        self.prefix_sums = [0] * (len(nums) + 1)
+        for i in range(len(nums)):
+            self.prefix_sums[i + 1] = self.prefix_sums[i] + nums[i]
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.prefix_sums[right + 1] - self.prefix_sums[left]
+```
+
+### Explanation of the Solution:
+
+1. **Initialization (`__init__` method):**
+   - We create a prefix sum array `self.prefix_sums` with one extra element (initialized to 0).
+   - We iterate through the input array `nums` and fill the prefix sum array such that `self.prefix_sums[i + 1]` contains the sum of elements from the start of `nums` to index `i`.
+
+2. **Sum Calculation (`sumRange` method):**
+   - To find the sum of elements between indices `left` and `right`, we can use the prefix sums:
+     - `self.prefix_sums[right + 1]` gives us the sum from the start to `right`.
+     - `self.prefix_sums[left]` gives us the sum from the start to `left - 1`.
+   - The difference `self.prefix_sums[right + 1] - self.prefix_sums[left]` gives us the sum of the subarray from `left` to `right`.
+
+### Example Walkthrough:
+
+Let's take the example `nums = [-2, 0, 3, -5, 2, -1]`:
+
+- The prefix sum array will be: `[0, -2, -2, 1, -4, -2, -3]`
+  - `prefix_sums[0] = 0`
+  - `prefix_sums[1] = -2`
+  - `prefix_sums[2] = -2`
+  - `prefix_sums[3] = 1`
+  - `prefix_sums[4] = -4`
+  - `prefix_sums[5] = -2`
+  - `prefix_sums[6] = -3`
+
+For `sumRange(0, 2)`:
+- `prefix_sums[3] - prefix_sums[0] = 1 - 0 = 1`
+
+For `sumRange(2, 5)`:
+- `prefix_sums[6] - prefix_sums[2] = -3 - (-2) = -1`
+
+For `sumRange(0, 5)`:
+- `prefix_sums[6] - prefix_sums[0] = -3 - 0 = -3`
+
+This approach ensures that we can calculate the sum of any subarray in constant time \(O(1)\) after an initial preprocessing step that takes \(O(n)\) time.

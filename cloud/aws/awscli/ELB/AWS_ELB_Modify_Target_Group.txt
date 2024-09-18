@@ -1,0 +1,1 @@
+aws elb modify-target-group --target-group-arn <target-group-arn> --health-check-protocol HTTP --health-check-port traffic-port --health-check-path /

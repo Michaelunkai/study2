@@ -1,0 +1,1 @@
+fzf --multi --bind 'enter:execute(echo {} > selected.txt)'

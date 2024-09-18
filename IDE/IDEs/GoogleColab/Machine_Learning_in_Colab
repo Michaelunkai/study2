@@ -1,0 +1,7 @@
+Machine Learning in Colab
+Colab supports a wide array of machine learning libraries, including:
+
+TensorFlow: Google's open-source machine learning framework.
+PyTorch: An open-source machine learning framework developed by Facebook.
+scikit-learn: A popular open-source machine learning library for Python.
+To leverage these libraries, simply import them into your Colab notebook and start coding.

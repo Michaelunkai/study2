@@ -1,0 +1,13 @@
+Configure Red ift Cluster
+Wait for the cluster to become available:
+
+ 
+ 
+aws redshift describe-clusters --cluster-identifier my-redshift-cluster
+Wait until the ClusterStatus changes to available.
+
+Get Cluster Endpoint:
+
+ 
+ 
+ENDPOINT=$(aws redshift describe-clusters --cluster-identifier my-redshift-cluster --query "Clusters[0].Endpoint.Address" --output text)

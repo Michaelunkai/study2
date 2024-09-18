@@ -1,0 +1,30 @@
+ Versioning
+API versioning allows you to manage changes and updates to your API without breaking existing clients.
+
+Common Versioning Strategies
+URI Versioning: Include the version number in the URL.
+ 
+ 
+https://api.example.com/v1/resource
+Header Versioning: Specify the version in the request header.
+ 
+ 
+Accept: application/vnd.example.v1+json
+Example in Flask:
+
+ 
+ 
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/v1/resource")
+def get_resource_v1():
+    return jsonify({"message": "This is version 1 of the resource"})
+
+@app.route("/v2/resource")
+def get_resource_v2():
+    return jsonify({"message": "This is version 2 of the resource"})
+
+if __name__ == "__main__":
+    app.run()

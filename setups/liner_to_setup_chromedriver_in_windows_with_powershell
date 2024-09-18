@@ -1,0 +1,5 @@
+$version = (Invoke-WebRequest -Uri 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE' -UseBasicParsing).Content
+$downloadLink = "https://chromedriver.storage.googleapis.com/$version/chromedriver_win32.zip"
+Invoke-WebRequest -Uri $downloadLink -OutFile "$env:TEMP\chromedriver.zip"
+Expand-Archive -Path "$env:TEMP\chromedriver.zip" -DestinationPath "C:\Windows" -Force
+Remove-Item "$env:TEMP\chromedriver.zip"

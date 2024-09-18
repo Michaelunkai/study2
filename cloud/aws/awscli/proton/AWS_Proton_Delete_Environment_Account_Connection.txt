@@ -1,0 +1,1 @@
+aws proton delete-environment-account-connection --id <connection-id>

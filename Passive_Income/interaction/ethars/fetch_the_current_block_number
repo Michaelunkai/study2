@@ -1,0 +1,1 @@
+provider.getBlockNumber().then(console.log)

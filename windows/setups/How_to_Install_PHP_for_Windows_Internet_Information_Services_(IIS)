@@ -1,0 +1,61 @@
+▲A  A▼
+How to Install PHP for Windows Internet Information Services (IIS)
+What is IIS (Internet Information Services)?
+Internet Information Services (IIS) for Windows® Server is a flexible, secure and manageable Web server for hosting anything on the Web. From media streaming to web applications, IIS's scalable and open architecture is ready to handle the most demanding tasks. -https://www.iis.net/
+What is PHP (PHP Hypertext Preprocessor)?
+A popular general-purpose scripting language that is especially suited to web development.
+Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world. -https://www.php.net/
+NOTE: This tutorial assumes IIS is already installed and running on the host. Check out this previous tutorial to find out how to install IIS here
+
+Log into the Windows server with an account with admin privileges
+Download the Non-Thread Safe (NTS) VS16 x64 PHP for Windows .zip Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Extract the downloaded PHP for Windows .zip file
+Rename the extracted folder PHP
+Cut the PHP folder to a safe location to run from, such as C:\Program Files
+Click the Start button > Search Control > Click Control Panel
+Click on System > Advanced system settings
+Click the Environment Variables...
+Edit the System Path variable
+Click the New button
+Add the PHP installation directory (ie C:\Program Files\PHP\
+Click OK to all open dialog windows
+Launch Server Manager from the Start
+Click Add roles and features
+Click Next on the Before you begin screen
+Select Role-based or feature-based installation > Next
+Leave Select a server from the server pool selected and select the current Windows server > Next
+Expand Web Server (IIS) > Expand Web Server > Expand Application Development > Check the box next to CGI to select it
+Click Next
+Click Next on the Select features screen
+Click Install on the confirmation screen
+Leave the installation progress screen open until the install completes
+Once the Feature installation completes successfully, click the Close button
+Back in Server Manager, click Tools > Internet Information Services (IIS) Manager
+Click the server name to select it > Double click Handler Mappings
+Click Add Module Mapping at the top right of the dialog
+Complete the Add Module Mapping form as follow
+Request Path: *. 
+Module: FastCGIModule
+Executable: C:\Program Files\PHP\ -cgi.exe
+Name: PHP
+
+Click OK
+Click Yes to confirm creating the FastCGI application
+Click the server name again to select it and return to the main options menu > Double click Default Document
+Click Add... at the top right of the dialog
+Type index.php > Click OK
+Right click on the server name > Stop
+Right click on the server name again > Start
+Expand the server name > Expand sites > Right click on Default web Site > Select Explore
+A File Explorer window will display the wwwroot folder for IIS
+Right click in the whitespace > New > Text Document > Name the new file phpinfo.php
+Edit phpinfo.php in Notepad and paste the following
+<? 
+  info();
+?>
+
+Save the changes to phpinfo.php and close Notepad
+Open a web browser and navigate to http://DNSorIP/phpinfo.php
+ 

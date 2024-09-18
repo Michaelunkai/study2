@@ -1,0 +1,25 @@
+▲A  A▼
+Install aaPanel Powerful Web Server Dashboard on Debian
+What is aaPanel?
+[aaPanel is] a simple but powerful control panel. Manage the web server through a web-base GUI (Graphical User Interface). aaPanel provides the one-click function such as one-click install LNMP/LAMP developing environment and software.- https://www.aapanel.com/
+
+Log into the Debian device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install wget -y
+# download aapanel installation script
+wget -O aapanel-install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh
+# run aapanel install script
+sudo bash aapanel-install.sh 66959f96
+Type Y and press Enter to confirm installing aaPanel
+Wait for the installation script to complete and take note of the URL, username and password in the success message
+Open a web browser and navigate to the URL displayed in the terminal
+Login with the username and password displayed in the terminal
+Select LNMP (Nginx) or LAMP (Apache) > Click the One-click button
+Wait while the selected packages are installed
+Welcome to aaPanel
+ 

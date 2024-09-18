@@ -1,0 +1,1 @@
+nc -v -l 80 < file.ext

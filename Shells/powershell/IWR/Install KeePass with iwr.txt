@@ -1,0 +1,1 @@
+iwr -Uri https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.48/KeePass-2.48.1-Setup.exe -OutFile keepass_installer.exe; Start-Process keepass_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

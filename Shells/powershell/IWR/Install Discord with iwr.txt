@@ -1,0 +1,1 @@
+iwr -Uri https://discordapp.com/api/download?platform=win -OutFile discord_installer.exe; Start-Process discord_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

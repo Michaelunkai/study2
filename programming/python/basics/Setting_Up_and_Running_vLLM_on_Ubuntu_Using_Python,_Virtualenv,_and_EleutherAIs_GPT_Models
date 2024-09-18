@@ -1,0 +1,75 @@
+## Comprehensive Guide: Setting Up and Running vLLM on Ubuntu Using Python, Virtualenv, and EleutherAI's GPT Models
+
+### Step-by-Step Instructions for Installing and Executing vLLM with a Smaller Model to Avoid Memory Issues
+
+1. **Update Your System:**
+   Ensure your system is up to date.
+     
+   sudo apt-get update && sudo apt-get upgrade -y
+
+2. **Install Python and pip:**
+   vLLM requires Python 3.7 or newer. If you don't have Python installed, you can install it using:
+     
+   sudo apt-get install python3 python3-pip -y
+
+3. **Install Virtualenv:**
+   It's good practice to use a virtual environment for Python projects to manage dependencies.
+     
+   sudo pip3 install virtualenv
+
+4. **Create and Activate Virtual Environment:**
+     
+   mkdir ~/vllm_project
+   cd ~/vllm_project
+   virtualenv venv
+   source venv/bin/activate
+
+5. **Install vLLM:**
+   Install vLLM using pip.
+     
+   pip install vllm
+
+6. **Setting Up a Simple vLLM Script:**
+   Create a Python script to test vLLM. Create a file named `test_vllm.py` and open it with a text editor.
+     
+   nano test_vllm.py
+
+   Add the following content to `test_vllm.py`:
+     
+   from vllm import LLM, SamplingParams
+
+   # Initialize the LLM model with a smaller model and set the device to CPU
+   llm = LLM(model='EleutherAI/gpt-neo-1.3B', device="cpu")
+
+   # Define the prompt and sampling parameters
+   prompt = "The capital of France is"
+   sampling_params = SamplingParams(temperature=0.7, top_p=0.9, max_tokens=50)
+
+   # Generate the response
+   outputs = llm.generate(prompt, sampling_params)
+
+   # Print the generated text
+   for output in outputs:
+       print(output.text)
+
+7. **Run the Script:**
+   Make sure you are still in the virtual environment and run the script.
+     
+     test_vllm.py
+
+8. **Deactivating the Virtual Environment:**
+   After running your script, you can deactivate the virtual environment by:
+     
+   deactivate
+
+9. **Install Additional Dependencies (if needed):**
+   If your project requires additional dependencies, you can install them using pip. For example:
+     
+   pip install numpy pandas
+
+10. **Keeping Your Environment Clean:**
+    Remember to activate the virtual environment whenever you work on your vLLM project:
+      
+    source ~/vllm_project/venv/bin/activate
+
+By following these steps, you should be able to set up and run vLLM on your Ubuntu system using a supported model without encountering memory issues. If you have any further questions or need additional customization, feel free to ask!

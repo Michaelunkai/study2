@@ -1,0 +1,34 @@
+Set Up an Amazon ECS Cluster
+Create a Cluster
+
+ 
+ 
+aws ecs create-cluster --cluster-name my-cluster
+Create a Task Definition
+
+Create a JSON file named task-definition.json with the following content:
+
+json
+ 
+{
+  "family": "my-task",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "nginx:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true
+    }
+  ]
+}
+Register the task definition:
+
+ 
+ 
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+Run a Task
+
+ 
+ 
+aws ecs create-service --cluster my-cluster --service-name my-service --task-definition my-task --desired-count 1

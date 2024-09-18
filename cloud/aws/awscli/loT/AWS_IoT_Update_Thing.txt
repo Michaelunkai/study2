@@ -1,0 +1,1 @@
+aws iot update-thing --thing-name <thing-name> --attribute-payload file://attributes.json

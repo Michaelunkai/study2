@@ -1,0 +1,84 @@
+▲A  A▼
+Install phpIPAM on Linux [Open-source IP Address Management System]
+What is  IPAM?
+phpIPAM is an open-source web IP address management application (IPAM). It's goal is to provide light, modern and useful IP address management. It is a php-based application with a MySQL database backend, using jQuery libraries, ajax and HTML5/CSS3 features. -https://phpipam.net/
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install curl wget zip git -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php7.4 php7.4-curl php7.4-common php7.4-gmp php7.4-mbstring php7.4-gd php7.4-xml php7.4-mysql php7.4-ldap php-pear -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the phpIPAM database and database user
+CREATE DATABASE  _ipam;
+GRANT ALL ON php_ipam.* to 'php_ipam_rw'@'localhost' IDENTIFIED BY 'P4P1p@m!!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# git clone phpipam to the webroot
+sudo git clone https://github.com/phpipam/phpipam.git /var/www/html/phpipam
+# cd into the new directory
+cd /var/www/html/ ipam
+# checkout the latest release
+sudo git checkout "$(git tag --sort=v:tag | tail -n1)"
+# set the owner of the phpipam directory
+sudo chown -R www-data:www-data /var/www/html/phpipam
+# copy sample config file
+sudo cp /var/www/html/phpipam/config.dist.php /var/www/html/phpipam/config.php
+# edit config. 
+sudo nano /var/www/html/ ipam/config. 
+Update the database connection details
+$db['host'] = '127.0.0.1';
+$db['user'] = ' _ipam_rw';
+$db['pass'] = 'P4P1p@m!!';
+$db['name'] = ' _ipam';
+$db['port'] = 3306;
+
+Below the database connection, add the following line to define the BASE variable
+define('BASE', "/ ipam/");
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands:
+# enable mod_rewrite
+sudo a2enmod rewrite
+# restart apache2 service
+sudo systemctl restart apache2
+ IPAM Web Installer
+Open a web browser and navigate to http://DNSorIP/phpipam
+The phpipam Installation web installer should be load
+Click the New phpipam installation button
+Click the Automatic database installation button
+Complete the database form as follows
+MySQL/MariaDB username:  _ipam_rw
+MySQL/MariaDB password: P4P1p@m!!
+MySQL/MariaDB database location: 127.0.0.1
+MySQL/MariaDB database name: php_ipam
+
+Click the Show advanced options button
+Uncheck Create new database and Set permissions to tables > Click the Install phpipam database button
+Once the database is initialized, click the Continue button
+Enter and confirm an admin user password > Click Save settings
+Click the Proceed to login button
+Login with the username admin and the admin password set earlier
+Welcome to  IPAM
+ 

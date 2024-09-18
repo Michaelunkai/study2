@@ -1,0 +1,74 @@
+### 454. 4Sum II
+
+To solve this problem efficiently, we can use a hash map to store the sums of pairs from two arrays and then look for complementary sums from the other two arrays. This approach leverages the fact that we can reduce the problem complexity from \(O(n^4)\) to \(O(n^2)\) by using additional space.
+
+**Solution:**
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+        sum_map = defaultdict(int)
+        
+        # Calculate all possible sums of pairs from nums1 and nums2 and store in hash map
+        for a in nums1:
+            for b in nums2:
+                sum_map[a + b] += 1
+        
+        count = 0
+        
+        # Calculate all possible sums of pairs from nums3 and nums4 and look for complements in the hash map
+        for c in nums3:
+            for d in nums4:
+                count += sum_map[-(c + d)]
+        
+        return count
+```
+
+### Explanation:
+
+1. **Hash Map for Pair Sums:**
+   - Use a `defaultdict` to store the sums of all pairs from `nums1` and `nums2`. The key is the sum, and the value is the count of how many times this sum occurs.
+   - Iterate through all pairs `(a, b)` where `a` is from `nums1` and `b` is from `nums2`, and store the sum `a + b` in the hash map.
+
+2. **Count Complementary Pairs:**
+   - Initialize a counter `count` to 0.
+   - Iterate through all pairs `(c, d)` where `c` is from `nums3` and `d` is from `nums4`.
+   - For each pair `(c, d)`, check if the negation of their sum `-(c + d)` exists in the hash map. If it does, add the count from the hash map to `count`.
+
+3. **Return Result:**
+   - Return the total count, which is the number of tuples `(i, j, k, l)` such that `nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0`.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `nums1 = [1,2], nums2 = [-2,-1], nums3 = [-1,2], nums4 = [0,2]`
+   - Steps:
+     - Calculate pair sums for `nums1` and `nums2`:
+       - `1 + (-2) = -1`, `1 + (-1) = 0`, `2 + (-2) = 0`, `2 + (-1) = 1`
+       - Hash map: `{-1: 1, 0: 2, 1: 1}`
+     - Calculate complementary sums for `nums3` and `nums4`:
+       - `(-1) + 0 = -1`, `(-1) + 2 = 1`, `2 + 0 = 2`, `2 + 2 = 4`
+       - Check complements: `-(-1) = 1` (found 1 time), `-(1) = -1` (found 1 time)
+   - Output: `2`
+
+2. **Example 2:**
+   - Input: `nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]`
+   - Steps:
+     - Calculate pair sums for `nums1` and `nums2`: `0 + 0 = 0`
+       - Hash map: `{0: 1}`
+     - Calculate complementary sums for `nums3` and `nums4`: `0 + 0 = 0`
+       - Check complement: `-(0) = 0` (found 1 time)
+   - Output: `1`
+
+### Constraints:
+
+- `n == nums1.length`
+- `n == nums2.length`
+- `n == nums3.length`
+- `n == nums4.length`
+- `1 <= n <= 200`
+- `-2^28 <= nums1[i], nums2[i], nums3[i], nums4[i] <= 2^28`
+
+This solution efficiently counts the number of tuples using a hash map to track sums, reducing the time complexity to \(O(n^2)\).

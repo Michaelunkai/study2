@@ -1,0 +1,36 @@
+Enabling mod_status for Monitoring Apache HTTPD
+Enabling mod_status in Apache HTTPD
+Navigate to the PHP install directory
+Edit / .ini
+Press CTRL+F, type curl, press Enter
+Uncomment the extension to enable it by removing the ; at the start of the line
+extension=curl
+
+Navigate to the Apache install directory
+Edit /conf/httpd.conf
+Press CTRL+F, type mod_status, press Enter
+Uncomment the module to enable it by removing the # at the start of the line
+LoadModule status_module modules/mod_status.so
+
+At the bottom of the file paste the following
+ExtendedStatus On
+<location /server-status>
+SetHandler server-status
+Order allow,deny
+Allow from all
+</location>
+
+Note: By default this will only allow access from the host Apache is running on
+Restart the Apache service to apply the changes
+Open a web browser and navigate to http://DNSorIP/server-status
+?refresh=5 will refresh the display every 5 seconds
+?auto will display the output in a text only format
+Cringe at the output displayed
+Style and Modernize /server-status
+Download PHP Simple DOM Download Documentation
+Create a status folder inside apache/htdocs
+Copy/Paste simple_html_dom.php inside apache/htdocs/status
+Download server-status.  Download
+Copy/Paste server-status.php inside apache/htdocs/status
+Open a web browser and navigate to http://DNSorIP/status/server-status.php
+?getStatus will return a JSON output of the server-status data

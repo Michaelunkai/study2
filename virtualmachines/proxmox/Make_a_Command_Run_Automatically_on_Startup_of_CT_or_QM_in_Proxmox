@@ -1,0 +1,55 @@
+# Make a Command Run Automatically on Startup of CT or QM in Proxmox
+
+To create a service that forces a given command to run on the start of a Proxmox CT (Container) or QM (Virtual Machine), you can use a systemd service. Follow these steps:
+
+1. **Create a systemd service file:**
+
+   First, create a service file in the `/etc/systemd/system` directory inside the CT or QM.
+
+     
+   nano /etc/systemd/system/startup-script.service
+
+2. **Add the following content to the service file:**
+
+    ini
+   [Unit]
+   Description=Run Custom Script at Startup
+   After=network.target
+
+   [Service]
+   Type=simple
+   ExecStart=/bin/  -c 'YOUR_COMMAND_HERE'
+   Restart=always
+   User=root
+   WorkingDirectory=YOUR_WORKING_DIRECTORY
+   Environment="VIRTUAL_ENV=YOUR_VIRTUAL_ENV_PATH"
+   Environment="PATH=$VIRTUAL_ENV/bin:/usr/bin"
+
+   [Install]
+   WantedBy=multi-user.target
+
+   Replace the placeholders as follows:
+   - `YOUR_COMMAND_HERE`: The command you want to run on startup.
+   - `YOUR_WORKING_DIRECTORY`: The directory where your script or command should be executed.
+   - `YOUR_VIRTUAL_ENV_PATH`: The path to your virtual environment, if applicable.
+
+3. **Enable and start the service:**
+
+   After creating the service file, enable and start the service.
+
+     
+   systemctl enable startup-script.service
+   systemctl start startup-script.service
+
+4. **Verify the service status:**
+
+   Check the status of the service to ensure it is running correctly.
+
+     
+   systemctl status startup-script.service
+
+5. **Ensure your script exists in the specified directory:**
+
+   Ensure that your script or command is correctly placed in the specified working directory. If not, adjust the `ExecStart` path accordingly.
+
+By following these steps, the specified command will run automatically every time the CT or QM starts. The `ExecStart` line in the service file includes the command to be executed. The service will restart if it crashes, ensuring continuous execution.

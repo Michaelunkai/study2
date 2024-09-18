@@ -1,0 +1,2 @@
+Monitor and Manage the Grid
+You can monitor and manage your Selenium Grid by accessing the Grid Console at http://localhost:4444/grid/console in your web browser.

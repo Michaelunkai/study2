@@ -1,0 +1,19 @@
+user: 
+
+New-ADUser -Name "John Smith" -SamAccountName "jsmith" -UserPrincipalName "jsmith@micha.micha.com" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force) -Enabled $true
+
+
+
+group:
+
+ New-ADGroup -Name "SalesGroup" -GroupScope Global -GroupCategory Security
+
+
+**show all users in AD:
+
+Get-ADUser -Filter *
+
+*groups: 
+
+
+Get-ADGROUP -Filter *

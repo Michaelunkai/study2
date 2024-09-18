@@ -1,0 +1,18 @@
+Here is a simple example of using the Censys Python library in a script:
+
+ 
+ 
+from censys.search import CensysIPv4
+import os
+
+# Set your API ID and Secret as environment variables
+os.environ["CENSYS_API_ID"] = "YOUR_API_ID"
+os.environ["CENSYS_API_SECRET"] = "YOUR_API_SECRET"
+
+# Initialize the CensysIPv4 object
+c = CensysIPv4()
+
+# Perform a search query
+for result in c.search("services.service_name: HTTP"):
+    print(result)
+Replace YOUR_API_ID and YOUR_API_SECRET with your actual Censys API credentials.

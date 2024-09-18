@@ -1,0 +1,92 @@
+### 345. Reverse Vowels of a String
+
+**Problem Description:**
+
+Given a string `s`, reverse only all the vowels in the string and return it.
+
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+**Example 1:**
+```
+Input: s = "hello"
+Output: "holle"
+```
+
+**Example 2:**
+```
+Input: s = "leetcode"
+Output: "leotcede"
+```
+
+**Constraints:**
+- `1 <= s.length <= 3 * 10^5`
+- `s` consists of printable ASCII characters.
+
+### Explanation (Like I'm 12):
+
+Imagine you have a string of letters, and you want to swap all the vowels (like 'a', 'e', 'i', 'o', 'u') in the string. You want to keep everything else in the same place, but just reverse the order of the vowels.
+
+### Solution:
+
+To solve this problem, we can use a two-pointer approach. One pointer starts from the beginning of the string and the other starts from the end. We move these pointers towards each other and swap the vowels they encounter.
+
+### Python Code:
+
+```python
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = set("aeiouAEIOU")
+        s = list(s)
+        left, right = 0, len(s) - 1
+        
+        while left < right:
+            if s[left] not in vowels:
+                left += 1
+            elif s[right] not in vowels:
+                right -= 1
+            else:
+                s[left], s[right] = s[right], s[left]
+                left += 1
+                right -= 1
+        
+        return "".join(s)
+```
+
+### Explanation of the Solution:
+
+1. **Identify Vowels:**
+   - Create a set of vowels for quick lookup: `vowels = set("aeiouAEIOU")`.
+
+2. **Convert String to List:**
+   - Convert the string to a list to make it mutable (strings in Python are immutable): `s = list(s)`.
+
+3. **Initialize Pointers:**
+   - Initialize two pointers: `left` starts at the beginning (`0`), and `right` starts at the end (`len(s) - 1`).
+
+4. **Two-Pointer Approach:**
+   - Move the `left` pointer until it finds a vowel.
+   - Move the `right` pointer until it finds a vowel.
+   - If both pointers find vowels, swap the characters at the `left` and `right` pointers.
+   - Move both pointers towards each other and repeat the process until they meet.
+
+5. **Convert List Back to String:**
+   - After swapping, convert the list back to a string and return it: `return "".join(s)`.
+
+### Example Walkthrough:
+
+Let's take the example `s = "hello"`:
+
+- Initial string as list: `['h', 'e', 'l', 'l', 'o']`
+- `left = 0`, `right = 4`
+  - `s[left]` is not a vowel, move `left` to 1
+  - `s[right]` is a vowel, keep `right` at 4
+  - Swap `s[1]` and `s[4]`: `['h', 'o', 'l', 'l', 'e']`
+  - Move `left` to 2, `right` to 3
+- `left = 2`, `right = 3`
+  - `s[left]` is not a vowel, move `left` to 3
+  - `s[right]` is not a vowel, move `right` to 2
+- Pointers meet, stop.
+
+Final string: `"holle"`
+
+This approach efficiently reverses only the vowels in the string while keeping the other characters in their original positions.

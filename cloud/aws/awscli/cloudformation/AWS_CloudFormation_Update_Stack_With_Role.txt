@@ -1,0 +1,1 @@
+aws cloudformation update-stack --stack-name <stack-name> --template-body file://template.json --role-arn <role-arn>

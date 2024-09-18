@@ -1,0 +1,59 @@
+# Command 1: Exclude MP3 files
+find . -type f ! -name "*.mp3" -delete
+
+# Command 2: Exclude TXT files
+find . -type f ! -name "*.txt" -delete
+
+# Command 3: Exclude JPG files
+find . -type f ! -name "*.jpg" -delete
+
+# Command 4: Exclude PDF files
+find . -type f ! -name "*.pdf" -delete
+
+# Command 5: Exclude PNG files
+find . -type f ! -name "*.png" -delete
+
+# Command 6: Exclude GIF files
+find . -type f ! -name "*.gif" -delete
+
+# Command 7: Exclude DOCX files
+find . -type f ! -name "*.docx" -delete
+
+# Command 8: Exclude XLSX files
+find . -type f ! -name "*.xlsx" -delete
+
+# Command 9: Exclude MP4 files
+find . -type f ! -name "*.mp4" -delete
+
+# Command 10: Exclude WAV files
+find . -type f ! -name "*.wav" -delete
+
+# Command 11: Exclude HTML files
+find . -type f ! -name "*.html" -delete
+
+# Command 12: Exclude CSS files
+find . -type f ! -name "*.css" -delete
+
+# Command 13: Exclude JSON files
+find . -type f ! -name "*.json" -delete
+
+# Command 14: Exclude XML files
+find . -type f ! -name "*.xml" -delete
+
+# Command 15: Exclude ZIP files
+find . -type f ! -name "*.zip" -delete
+
+# Command 16: Exclude TAR files
+find . -type f ! -name "*.tar" -delete
+
+# Command 17: Exclude PPTX files
+find . -type f ! -name "*.pptx" -delete
+
+# Command 18: Exclude PHP files
+find . -type f ! -name "*.php" -delete
+
+# Command 19: Exclude SQL files
+find . -type f ! -name "*.sql" -delete
+
+# Command 20: Exclude JPG and PNG files
+find . -type f ! -name "*.jpg" ! -name "*.png" -delete

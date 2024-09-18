@@ -1,0 +1,8 @@
+ Configure Solr
+Navigate to the Solr admin interface:
+Open your web browser and go to http://localhost:8983/solr.
+
+Select the core you created (mycore) and go to the Schema tab.
+
+Add fields to the schema:
+You can add fields manually or by editing the managed-schema file located in /var/solr/data/mycore/conf/.

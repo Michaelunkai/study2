@@ -1,0 +1,1 @@
+aws elb delete-listener --load-balancer-name <load-balancer-name> --load-balancer-port <load-balancer-port>

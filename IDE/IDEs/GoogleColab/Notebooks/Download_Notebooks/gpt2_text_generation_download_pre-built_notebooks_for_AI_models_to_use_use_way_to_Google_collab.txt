@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/gpt2_text_generation.ipynb -O gpt2_text_generation.ipynb

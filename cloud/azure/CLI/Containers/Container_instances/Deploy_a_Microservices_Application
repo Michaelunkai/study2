@@ -1,0 +1,1 @@
+az container create --resource-group myResourceGroup --name microservice-1 --image myacr.azurecr.io/microservice-1:v1 --dns-name-label microservice-1-dns --ports 80

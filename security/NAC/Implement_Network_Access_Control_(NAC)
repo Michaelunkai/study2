@@ -1,0 +1,5 @@
+Implement Network Access Control (NAC)Why: Controls and secures network access for devices.Ubuntu:Install and Configure FreeRADIUS:sudo apt install freeradius
+sudo nano /etc/freeradius/3.0/clients.confAdd Client Configuration:client device {
+    ipaddr = 192.168.1.100
+    secret = testing123
+}Restart FreeRADIUS Service:sudo systemctl restart freeradiusWindows:Configure Network Policy Server (NPS):Install NPS via Server Manager.Create and configure network policies in the NPS console.

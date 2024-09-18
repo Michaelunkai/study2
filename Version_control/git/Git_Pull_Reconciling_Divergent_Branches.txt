@@ -1,0 +1,10 @@
+git pull command initiates reconciliation.
+Options for Reconciliation,
+Choose one of the following:
+git pull --no-rebase for merge.
+git pull --rebase for rebase.
+git pull --ff-only for fast-forward.
+Choosing Your Approach:
+Consider your preference and workflow.
+Executing the Command:
+Apply chosen option for synchronization.

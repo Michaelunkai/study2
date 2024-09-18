@@ -1,0 +1,29 @@
+▲A  A▼
+Installing Plex Media Server on Raspberry Pi
+Install Plex Media Server
+Log into the Raspberry Pi device
+Run the following commands in terminal
+# update software repositories
+sudo apt update
+# install software updates
+sudo apt upgrade -y
+# install some prerequisites
+sudo apt install apt-transport-https ca-certificates
+# get the latest .deb download URL
+regex='"build":"linux-armv7neon","distro":"debian","url":"(https:\/\/downloads\.plex\.tv\/plex-media-server-new\/[^/]*\/debian\/[^/]*_armhf\.deb)",' && response=$(curl -s https://plex.tv/api/downloads/5.json) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download latest plex version
+wget -O ./plexmediaserver.deb $downloadURL
+# install plex media server
+sudo dpkg -i ./plexmediaserver.deb
+# run plexmediaserver service on system boot
+sudo systemctl enable plexmediaserver.service
+Configuring Plex Account
+Open a web browser and navigate to http://DNSorIP:32400/web
+Log in with one of the available options or click sign up with email
+Give the Plex server a name > Click Next
+Click the Add Library button > Select the media type
+Select Add folders from the left navigation > Click Browse for media folder > Select the folder to add to the media > Click Add Library
+Click Next
+Click Done to complete the server setup
+Welcome to Plex Media Server
+ 

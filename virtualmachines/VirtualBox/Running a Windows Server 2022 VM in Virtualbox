@@ -1,0 +1,51 @@
+▲A  A▼
+Running a Windows Server 2022 VM in Virtualbox
+Download the Windows Server 2022 iso Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows Server 2022
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Other Windows (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows Server 2022.vdi
+File size: 50.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Windows Server 2022 .iso file
+Click OK
+Make sure the Windows Server 2022 VM is selected and click Start > Normal
+Set the Language and Keyboard preferences > Click Next
+Click Install Now
+Click I don't have a product key at the bottom
+Select the desired edition > Click Next
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files, the VM will reboot several times
+Enter a password > Re-type the password > Click Finish
+Select Input > Keyboard > Ctrl-Alt-Del
+Input the administrator password and login
+Welcome to Server 2022
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open File Explorer > CD Drive > Right click VBoxWindowsAdditions.exe > Run as administrator
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Install button
+After the installation completes select Reboot now > Click Finish
+What's New in Server 2022: https://docs.microsoft.com/en-us/windows-server/windows-server-2022/get-started/whats-new
+
+ 

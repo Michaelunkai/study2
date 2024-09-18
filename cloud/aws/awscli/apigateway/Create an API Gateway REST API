@@ -1,0 +1,1 @@
+aws apigateway create-rest-api --name 'My API' --description 'This is my API'

@@ -1,0 +1,28 @@
+▲A  A▼
+Fix Proxmox Windows VM Reporting Incorrect Memory Usage
+What are VirtIO Drivers?
+VirtIO Drivers are paravirtualized drivers for kvm/Linux. In short, they enable direct (paravirtualized) access to devices and peripherals for virtual machines using them, instead of slower, emulated, ones. -https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers
+Configuring VM Settings
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download an .iso file to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download the VirtIO Windows .iso Download and upload it to the ProxMox ISO image library
+If on ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Expand the Proxmox node in the left navigation and select the Windows VM
+Select Hardware from the left sub-navigation menu
+Double click the CD/DVD drive > Select the Storage with the VirtIO .iso > Select the VirtIO .iso > Click OK
+Select Options from the left sub-navigation menu
+Double click the QEMU Guest Agent option > Check the Use QEMU Guest Agent box > Click OK
+Click Start to power on the VM
+Click console in the left sub-navigation menu
+Installing VirtIO Drivers and QEMU Guest Agent
+Log into Windows
+Open File Explorer > Navigate to the CD/DVD drive
+Launch virtio-win-guest-tools.exe
+Step through the VirtIO-Win installer accepting all the defaults
+Restart the Windows VM
+Trouble ooting
+If Proxmox still isn't reporting the correct memory usage, navigate to VM > Hardware > Memory
+Check the Advanced option > Make sure ballooning is enabled > Click OK
+Stop then Start the VM for the change to take effect
+ 

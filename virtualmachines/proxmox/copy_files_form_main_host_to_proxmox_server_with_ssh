@@ -1,0 +1,4 @@
+1) cd to location with the files
+
+2)
+ scp <file name> <user>@<server-ip>:<location to save in proxmox>

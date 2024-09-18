@@ -1,0 +1,1 @@
+aws lex-models get-bot-aliases --bot-name <bot-name>

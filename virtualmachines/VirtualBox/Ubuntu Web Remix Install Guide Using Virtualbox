@@ -1,0 +1,55 @@
+Ubuntu Web Remix Install Guide Using Virtualbox
+Download Ubuntu Web Remix Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Ubuntu Web Remix
+Machine Folder: C:\VMs
+Type: Linux
+Version: Ubuntu (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Ubuntu Web Remix.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Ubuntu Web Remix .iso file
+Click OK
+Make sure the Ubuntu Web Remix VM is selected and click Start > Normal
+Press Ctrl+C to cancel the disk check
+When the install dialog displays click Install Ubuntu
+Select a keyboard layout > Click Continue
+Uncheck Download updates while installing Ubuntu > Click Continue
+Click Install Now
+Click Continue to write the changes to the disk
+Select a Region > Click continue
+Enter a name, computer name, username and password > Click Continue
+Wait while Ubuntu copies files and installs
+When prompted to Restart Now, Select Devices > Optical Drives > Remove disk from virtual drive
+Click Restart Now to complete the installation, the VM will reboot
+Login with the username and password created earlier in the process
+Welcome to Ubuntu Web Remix 20.04
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+Click the Applications button > Search "files" > Click Local Files
+Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+sudo sh ./VBoxLinuxAdditions.run
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Ubuntu Web Remix

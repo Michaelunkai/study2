@@ -1,0 +1,1 @@
+aws iot describe-thing --thing-name <thing-name>

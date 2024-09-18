@@ -1,0 +1,7 @@
+sudo apt install prometheus
+
+sudo systemctl start prometheus
+
+sudo systemctl status prometheus
+
+http://localhost:9090

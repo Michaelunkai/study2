@@ -1,0 +1,1 @@
+gcloud compute instances create my-vm --zone=us-central1-a --machine-type=n1-standard-1 --image-family=debian-10 --image-project=debian-cloud

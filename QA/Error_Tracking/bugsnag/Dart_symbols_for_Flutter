@@ -1,0 +1,4 @@
+Dart symbols for Flutter
+If you are stripping debug symbols from your Dart code when building your Flutter apps, you will need to upload symbol files in order to see full stacktraces using the following command:
+
+$ bugsnag-cli upload dart --api-key=YOUR_API_KEY app-debug-info/

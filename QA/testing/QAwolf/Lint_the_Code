@@ -1,0 +1,10 @@
+To check for and fix linting issues in the code, you can use the following commands:
+
+To lint the code:
+ 
+ 
+npm run lint
+To automatically fix linting issues:
+ 
+ 
+npm run lint:fix

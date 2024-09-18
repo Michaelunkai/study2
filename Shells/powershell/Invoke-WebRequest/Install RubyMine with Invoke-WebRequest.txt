@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.jetbrains.com/ruby/RubyMine-2021.2.3.exe -OutFile rubymine_installer.exe; Start-Process rubymine_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

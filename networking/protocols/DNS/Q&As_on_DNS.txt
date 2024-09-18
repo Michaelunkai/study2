@@ -1,0 +1,81 @@
+1. what is DNS, and what role it play in network communication?
+answer: dns stand for Domain Name System.
+it translates homan readable domain names (such as www.example.com) into ip adresses (like 192.0.2.1) that computers can use to communicate with each
+other on the internet.
+2. What is the difference between a forward lookup zone and a reverse lookup zone in DNS?
+answer:
+a forward lookup zone is used to map domain names to ip addresses, while a reverse lookup zone os used to map IP adresses to domain
+names.
+3. What are the steps to install and configure a DNS server on a Windows Server system?
+Answer: The steps to install and configure a DNS server on a Windows Server system include
+adding the DNS Server role, creating a forward lookup zone, and configuring the server's
+network settings to use the local DNS server.
+4. What is a DNS record, and what are some common types of DNS records?
+Answer: A DNS record is an entry in a DNS database that maps a domain name to a specific
+IP address or other resource. Common types of DNS records include A records (for IPv4
+addresses), AAAA records (for IPv6 addresses), MX records (for email servers), and CNAME
+records (for aliases).
+5. What is a DNS cache, and how does it work?
+Answer: A DNS cache is a temporary storage area on a client or server that contains recently
+accessed DNS records. This allows the system to quickly retrieve DNS information without
+having to perform a new DNS lookup.
+6. What is DNS recursion, and how does it work?
+Answer: DNS recursion is the process by which a DNS server queries other DNS servers to
+resolve a domain name. It involves sending a query to a root DNS server, which then directs
+the query to the appropriate top-level domain server, and so on until the domain name is
+resolved.
+7. What is a DNS forwarder, and how is it used?
+Answer: A DNS forwarder is a server that is configured to forward DNS queries to another
+DNS server. This can be used to improve DNS query performance, reduce network traffic, or
+provide access to external DNS resources.
+8. What is DNSSEC, and how does it improve DNS security?
+Answer: DNSSEC is a set of security extensions to DNS that provide data integrity and
+authentication for DNS records. It works by adding digital signatures to DNS records, which
+can be verified to ensure that they have not been tampered with.
+9. What is split-brain DNS, and how is it used?
+Answer: Split-brain DNS (also known as split-horizon DNS) is a DNS configuration in which
+different DNS responses are provided based on the location of the requesting client. This can
+be used to provide different DNS resolution for internal and external clients.
+10. What is a DNS load balancer, and how is it used?
+Answer: A DNS load balancer is a server that is configured to distribute DNS queries across
+multiple servers in a load-balanced configuration. This can be used to improve performance,
+increase availability, or provide fault-tolerance for DNS services.
+11. What is DNS round-robin, and how is it used?
+Answer: DNS round-robin is a simple load balancing technique in which multiple IP
+addresses are associated with a single domain name, and DNS servers alternate between the
+IP addresses in a round-robin fashion to distribute traffic.
+12. What is DNS aging and scavenging, and how is it used?
+Answer: DNS aging and scavenging is a process by which DNS records that are no longer in
+use are removed from a DNS database to prevent it from becoming bloated or outdated.
+13. What is a DNS suffix, and how is it used?
+Answer: A DNS suffix is a domain name that is
+added to the end of a hostname to form a fully qualified domain name. It is used to resolve
+unqualified domain names and simplify domain name resolution in a local network.
+14. What is the difference between authoritative and non-authoritative DNS servers?
+Answer: An authoritative DNS server is a server that has complete information about a
+domain name and is responsible for providing DNS records for that domain. A nonauthoritative DNS server is a server that does not have complete information about a
+domain name and must query other DNS servers to obtain the information.
+15. What is a stub zone, and how is it used?
+Answer: A stub zone is a read-only copy of a zone that contains only the information needed
+to resolve domain names in that zone. It is used to provide name resolution for remote
+locations that are not part of the same DNS domain.
+16. What is a conditional forwarder, and how is it used?
+Answer: A conditional forwarder is a server that is configured to forward DNS queries for a
+specific domain to another DNS server. This can be used to provide efficient and secure
+name resolution across multiple DNS domains.
+17. What is the DNS Root Zone, and how does it work?
+Answer: The DNS Root Zone is the top-level domain in the DNS hierarchy, consisting of the
+root servers and their associated IP addresses. It serves as the starting point for all DNS
+resolution on the internet.
+18. What is Dynamic DNS, and how does it work?
+Answer: Dynamic DNS is a system that allows clients to update their DNS records
+automatically as their IP address changes. This is useful for servers that are assigned
+dynamic IP addresses and need to maintain a consistent DNS name.
+19. What is the difference between primary and secondary DNS zones?
+Answer: A primary DNS zone is a zone that is stored locally on a DNS server and is
+authoritative for that zone. A secondary DNS zone is a read-only copy of a primary zone that
+is stored on another DNS server and is used for backup and redundancy.
+20. What is DNS over HTTPS, and how does it improve DNS security?
+Answer: DNS over HTTPS (DoH) is a protocol that allows DNS queries to be sent over an
+encrypted HTTPS connection. This provides improved privacy and security for DNS queries,
+as they cannot be intercepted or modified in transit1. what is DNS, and what role it play in network communication?

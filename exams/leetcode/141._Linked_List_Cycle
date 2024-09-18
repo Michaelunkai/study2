@@ -1,0 +1,101 @@
+### Problem Statement (Explained Like You're 12):
+
+You have a linked list, which is like a chain of nodes where each node points to the next one. Sometimes, this chain loops back to a previous node, creating a cycle. Your job is to determine if there is a cycle in the linked list.
+
+For example:
+- If the list is `3 -> 2 -> 0 -> -4 -> 2 (back to node with value 2)`, there is a cycle.
+- If the list is `1 -> 2 -> 1 (back to node with value 1)`, there is a cycle.
+- If the list is just `1`, there is no cycle.
+
+### Python Solution:
+
+```python
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        if not head or not head.next:
+            return False
+        
+        slow = head
+        fast = head.next
+        
+        while slow != fast:
+            if not fast or not fast.next:
+                return False
+            slow = slow.next
+            fast = fast.next.next
+        
+        return True
+```
+
+### Explanation of the Code:
+
+1. **ListNode Class**:
+    ```python
+    class ListNode:
+        def __init__(self, x):
+            self.val = x
+            self.next = None
+    ```
+
+    - This defines a node in the linked list with a value `x` and a pointer to the next node.
+
+2. **Solution Class and Method**:
+    ```python
+    class Solution:
+        def hasCycle(self, head: Optional[ListNode]) -> bool:
+    ```
+
+    - Define the `hasCycle` method which takes the head of the linked list as input and returns `True` if there is a cycle, otherwise `False`.
+
+3. **Initial Check**:
+    ```python
+    if not head or not head.next:
+        return False
+    ```
+
+    - If the list is empty or has only one node, there is no cycle.
+
+4. **Two Pointers (Slow and Fast)**:
+    ```python
+    slow = head
+    fast = head.next
+    ```
+
+    - Initialize two pointers, `slow` and `fast`.
+    - `slow` moves one step at a time.
+    - `fast` moves two steps at a time.
+
+5. **Cycle Detection Loop**:
+    ```python
+    while slow != fast:
+        if not fast or not fast.next:
+            return False
+        slow = slow.next
+        fast = fast.next.next
+    ```
+
+    - Move `slow` one step and `fast` two steps.
+    - If `slow` equals `fast`, there is a cycle.
+    - If `fast` or `fast.next` is `None`, there is no cycle, and return `False`.
+
+6. **Return Result**:
+    ```python
+    return True
+    ```
+
+    - If the loop ends with `slow` equaling `fast`, return `True`, indicating a cycle.
+
+### Summary:
+
+1. Check if the list is empty or has only one node.
+2. Use two pointers, `slow` and `fast`, to traverse the list.
+3. Move `slow` one step and `fast` two steps.
+4. If `slow` equals `fast`, there is a cycle.
+5. If `fast` or `fast.next` is `None`, there is no cycle.
+6. Return `True` if there is a cycle, `False` otherwise.

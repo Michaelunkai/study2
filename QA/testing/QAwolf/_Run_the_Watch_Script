@@ -1,0 +1,5 @@
+If you are working in development mode and want to continuously watch for changes, use the watch script:
+
+ 
+ 
+npm run watch

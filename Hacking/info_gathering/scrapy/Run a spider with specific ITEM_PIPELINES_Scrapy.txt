@@ -1,0 +1,1 @@
+scrapy crawl myspider -s ITEM_PIPELINES={'myproject.pipelines.SomePipeline': 300}

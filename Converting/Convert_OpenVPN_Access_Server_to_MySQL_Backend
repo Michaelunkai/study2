@@ -1,0 +1,10 @@
+Convert OpenVPN Access Server to MySQL Backend
+Install MySQL/MariaDB if it is not already installed
+sudo apt install mariadb-server
+Log into OpenVPN Access Server
+Click Tools > DB Convert in the left navigation
+Enter the root MySQL password
+Click the DB Convert button
+Wait for the process to complete
+Click the Restart button
+Further reading: https://openvpn.net/vpn-server-resources/configuration-database-management-and-backups/

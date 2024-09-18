@@ -1,0 +1,1 @@
+az functionapp create --resource-group myResourceGroup --consumption-plan-location eastus --runtime python --runtime-version 3.9 --functions-version 3 --name myFunctionApp --storage-account myStorageAccount

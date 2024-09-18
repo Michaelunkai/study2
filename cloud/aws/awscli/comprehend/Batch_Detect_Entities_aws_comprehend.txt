@@ -1,0 +1,1 @@
+aws comprehend batch-detect-entities --text-list "your text here" --language-code en

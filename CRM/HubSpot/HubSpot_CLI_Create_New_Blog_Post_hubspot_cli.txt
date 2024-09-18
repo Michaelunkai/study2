@@ -1,0 +1,1 @@
+hs cms create blog-post <blog-id> <post-title>

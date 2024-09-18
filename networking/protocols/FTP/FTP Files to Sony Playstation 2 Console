@@ -1,0 +1,37 @@
+FTP Files to Sony Playstation 2 Console
+A quick note, you cannot copy games directly to the PS2 console via FTP. It is helpful for moving around artwork, configuration files and homebrew applications
+
+Things You Will Need
+A Sony PlayStation 2 Fat console
+The PS2 Network/Hard Drive Adapter
+A working hard drive in the PS2 (IDE or via a SATA adapter)
+A way to execute uLaunchElf (I'm using FreeMcBoot)
+A network
+Setting Up and Starting the PS2 FTP Server
+Connect the PS2 console to your network
+Make sure the memory card with Free McBoot is inserted
+Power on the PS2 and wait for Free McBoot to load
+Start the uLaunchElf application
+Press Select > Network Settings > press O
+Using the D-pad, set the IP address, netmask and gateway
+Tip: If you don't want your PS2 to reach the internet input a bogus gateway IP address
+Navigate down to Save > press O to save your changes
+Navigate down to OK > press O
+Highlight MISC/ > press O
+Highlight PS2Net > press O
+The FTP server should start running and give status output at the top of the screen
+Copying Files to the Playstation 2 Console
+On a PC, open Windows Explorer
+In the location bar type ftp://PS2IPAddress
+Once connected to the PS2 FTP server you will see some folders listed
+hdd: this is the internal hard drive inside the PS2
+mass: this is the USB flash drive if one is plugged into the PS2
+mc: this is the memory card currently inserted in the PS2
+pfs: this is the playstation file system which is alos the internal hard drive inside the PS2
+
+Additional Notes
+The PS2 hard drive and network speeds are not great. Expect to see somewhere between 2-8 MB/s. The network interface is fast ethernet which under perfect conditions maxes out at 100 Mbps (12.5 MB/s)
+The PS2 USB ports are USB 1.1, so they are even slower than the network/hard drive combo (around 1.5 MB/s)
+Playing games from an internal hard drive is the best experience you can get on the PS2. Load times are reduced and it saves wear and tear on the aging optical drive
+Even using a SATA to IDE adapter in the PS2 the internal connection of the hard drive to the PS2 motherboard is still running at ATA speeds (around 66 MB/s)
+Additional reading: https://www.ps2-home.com/forum/viewtopic.php?t=315

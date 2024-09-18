@@ -1,0 +1,49 @@
+### Step 1: Rewrite the Entire Question
+**Problem: Symmetric Tree**
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+**Examples:**
+Example 1:
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+Example 2:
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+**Constraints:**
+- The number of nodes in the tree is in the range [1, 1000].
+- `-100 <= Node.val <= 100`
+**Follow-up:** Could you solve it both recursively and iteratively?
+### Step 2: Explain the Entire Question Step by Step
+1. **Given a binary tree root:** You are given the root node of a binary tree.
+2. **Check for symmetry:** Your task is to check if the tree is symmetric around its center.
+3. **Symmetry definition:** A tree is symmetric if it is a mirror image of itself. This means the left subtree is a mirror reflection of the right subtree.
+4. **Examples:**
+   - Example 1: The tree [1,2,2,3,4,4,3] is symmetric because it looks the same on both sides of its center.
+   - Example 2: The tree [1,2,2,null,3,null,3] is not symmetric because the left and right subtrees are different.
+5. **Constraints:**
+   - There can be up to 1000 nodes in the tree.
+   - Node values can range from -100 to 100.
+### Step 3: Full Answer Code without Comments
+class Solution:
+    def isSymmetric(self, root):
+        if not root:
+            return True
+        return self.isMirror(root.left, root.right)
+    def isMirror(self, t1, t2):
+        if not t1 and not t2:
+            return True
+        if not t1 or not t2:
+            return False
+        return (t1.val == t2.val) and self.isMirror(t1.right, t2.left) and self.isMirror(t1.left, t2.right)
+### Step 4: Full Code with Comments for Each Line
+class Solution:
+    def isSymmetric(self, root): 
+        if not root:  # If the tree is empty
+            return True  # An empty tree is symmetric
+        return self.isMirror(root.left, root.right)  # Check if left and right subtrees are mirrors
+    def isMirror(self, t1, t2): 
+        if not t1 and not t2:  # If both nodes are None
+            return True  # Both are symmetric (mirrors)
+        if not t1 or not t2:  # If only one node is None
+            return False  # They are not symmetric
+        return (t1.val == t2.val) and self.isMirror(t1.right, t2.left) and self.isMirror(t1.left, t2.right) 
+        # Check if values are same and subtrees are mirrors

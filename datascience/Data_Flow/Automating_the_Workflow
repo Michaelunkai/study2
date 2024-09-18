@@ -1,0 +1,22 @@
+Create a bash script to automate the entire workflow:
+
+#!/bin/ 
+
+# Fetch data
+curl -X GET "https://api.example.com/data" -H "accept: application/json" -o data.json
+
+# Process data using Python
+ 3 process_data.py
+
+# Store and visualize data
+ 3 visualize_data.py
+
+
+
+Make the script executable and run it:
+
+chmod +x data_flow.sh
+./data_flow.sh
+
+
+

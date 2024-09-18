@@ -1,0 +1,72 @@
+### 446. Arithmetic Slices II - Subsequence
+
+**Solution:**
+
+To solve this problem, we need to use dynamic programming with hash maps to keep track of the differences and counts of arithmetic subsequences. This solution will efficiently count all valid arithmetic subsequences in the given array.
+
+Here's the implementation:
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 3:
+            return 0
+
+        # dp[i] will be a dictionary that stores the count of subsequences with a given difference ending at index i
+        dp = [defaultdict(int) for _ in range(n)]
+        total_slices = 0
+
+        for i in range(n):
+            for j in range(i):
+                diff = nums[i] - nums[j]
+                # Count of subsequences ending at j with difference diff
+                count_at_j = dp[j][diff]
+                # Add count to dp[i][diff] and include the pair (nums[j], nums[i]) itself
+                dp[i][diff] += count_at_j + 1
+                # Only subsequences of length >= 3 are valid
+                total_slices += count_at_j
+
+        return total_slices
+```
+
+### Explanation:
+
+1. **Initialization:**
+   - We initialize a list `dp` where each element is a `defaultdict(int)`. This will keep track of the count of subsequences with a given difference ending at each index.
+   - `total_slices` is initialized to 0 to count the number of valid arithmetic subsequences.
+
+2. **Dynamic Programming:**
+   - We iterate over each pair of indices `(i, j)` where `i` is after `j`.
+   - Calculate the difference `diff` between `nums[i]` and `nums[j]`.
+   - `count_at_j` is the number of subsequences ending at `j` with the difference `diff`.
+   - Update `dp[i][diff]` by adding `count_at_j + 1`. The `+1` accounts for the pair `(nums[j], nums[i])` itself.
+   - Add `count_at_j` to `total_slices` since only subsequences of length >= 3 are valid.
+
+3. **Result:**
+   - Finally, return `total_slices` which contains the number of all arithmetic subsequences of `nums`.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `nums = [2,4,6,8,10]`
+   - Steps:
+     - For each pair `(i, j)`, calculate `diff` and update `dp` and `total_slices`.
+     - The valid subsequences are counted, resulting in `total_slices = 7`.
+   - Output: `7`
+
+2. **Example 2:**
+   - Input: `nums = [7,7,7,7,7]`
+   - Steps:
+     - Since all elements are the same, every subsequence is arithmetic.
+     - The valid subsequences are counted, resulting in `total_slices = 16`.
+   - Output: `16`
+
+### Constraints:
+
+- `1 <= nums.length <= 1000`
+- `-2^31 <= nums[i] <= 2^31 - 1`
+
+This solution efficiently counts all valid arithmetic subsequences in the given array using dynamic programming with hash maps, ensuring that the time complexity remains within acceptable bounds for large inputs.

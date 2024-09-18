@@ -1,0 +1,1 @@
+wallet = ethers.Wallet.createRandom()

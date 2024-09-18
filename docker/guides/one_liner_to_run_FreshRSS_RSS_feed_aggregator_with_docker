@@ -1,0 +1,1 @@
+ docker run -d --name freshrss -p 8080:80 -v freshrss_data:/var/www/FreshRSS/data freshrss/freshrss && gc http://localhost:8080

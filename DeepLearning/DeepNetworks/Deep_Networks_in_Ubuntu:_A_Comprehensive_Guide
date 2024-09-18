@@ -1,0 +1,155 @@
+## Deep Networks in Ubuntu: A Comprehensive Guide
+
+### Step 1: Install Essential Dependencies
+
+Open a terminal and update your package list:
+
+  
+sudo apt update && sudo apt upgrade -y
+
+Install the required dependencies:
+
+  
+sudo apt install -y build-essential git wget curl vim
+
+### Step 2: Install Python and Related Packages
+
+Install Python and necessary packages:
+
+  
+sudo apt install -y python3 python3-pip python3-venv
+
+### Step 3: Set Up a Virtual Environment
+
+Create and activate a virtual environment:
+
+  
+python3 -m venv deepnet_env
+source deepnet_env/bin/activate
+
+### Step 4: Install Deep Learning Libraries
+
+Install popular deep learning libraries such as TensorFlow and PyTorch:
+
+  
+pip install --upgrade pip
+pip install tensorflow torch torchvision
+
+### Step 5: Install Jupyter Notebook
+
+Jupyter Notebook is a powerful tool for developing and testing deep learning models:
+
+  
+pip install jupyterlab
+
+Start Jupyter Notebook:
+
+  
+jupyter lab
+
+### Step 6: Install CUDA (Optional)
+
+If you have an NVIDIA GPU, you can leverage CUDA for accelerated computing. Follow the steps below to install CUDA:
+
+#### Install NVIDIA Drivers
+
+Add the NVIDIA package repositories and install the drivers:
+
+  
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt update
+sudo apt install -y nvidia-driver-450
+
+Reboot your system:
+
+  
+sudo reboot
+
+#### Install CUDA Toolkit
+
+Download and install the CUDA Toolkit:
+
+  
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
+sudo   cuda_11.2.2_460.32.03_linux.run
+
+Add CUDA to your PATH:
+
+  
+echo 'export PATH=/usr/local/cuda-11.2/bin:$PATH' >> ~/.bashrc
+source ~/. rc
+
+#### Verify CUDA Installation
+
+Check if CUDA is installed correctly:
+
+  
+nvcc --version
+
+### Step 7: Install cuDNN
+
+Download cuDNN from the NVIDIA website (requires registration), then install it:
+
+  
+tar -xzvf cudnn-11.2-linux-x64-v8.1.1.33.tgz
+sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+
+### Step 8: Verify GPU Support in TensorFlow and PyTorch
+
+Create a Python script to check GPU support:
+
+  
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+
+import torch
+print("Is CUDA available: ", torch.cuda.is_available())
+
+Run the script:
+
+  
+  check_gpu.py
+
+### Step 9: Sample Deep Learning Model
+
+Here’s a simple example using TensorFlow to create a deep learning model:
+
+  
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# Load dataset
+mnist = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+# Build the model
+model = models.Sequential([
+    layers.Flatten(input_ ape=(28, 28)),
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.2),
+    layers.Dense(10, activation='softmax')
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+model.fit(x_train, y_train, epochs=5)
+
+# Evaluate the model
+model.eva te(x_test, y_test, verbose=2)
+
+Save this script as `mnist_model.py` and run it:
+
+  
+  mnist_model.py
+
+### Conclusion
+
+You've successfully set up a deep learning environment on Ubuntu, installed essential libraries, and run a sample deep learning model. This setup provides a robust foundation for developing and experimenting with deep networks.

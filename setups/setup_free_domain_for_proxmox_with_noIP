@@ -1,0 +1,56 @@
+To set up a free domain for your Proxmox server and link it to your local IP address, you can use a service like No-IP. Here’s a step-by-step guide to get you started:
+
+Step 1: Register for a Free No-IP Account
+Go to No-IP's website.
+Sign up for a free account.
+Confirm your email address.
+Step 2: Create a Free Hostname
+After logging into No-IP, go to "Dynamic DNS" and click "Create Hostname".
+Choose a hostname (e.g., myproxmox) and select a free domain from the list (e.g., ddns.net).
+Enter your current public IP address (you can find it by searching "What is my IP" on Google).
+Click "Create Hostname".
+Step 3: Install No-IP DUC (Dynamic Update Client) on Your Proxmox Server
+SSH into your Proxmox server.
+
+Download and install the No-IP DUC client.
+
+cd /usr/local/src
+sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+sudo tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1
+sudo make
+sudo make install
+During the installation, you'll be prompted to enter your No-IP account email and password. You'll also choose the update interval (default is 30 minutes).
+
+Step 4: Configure No-IP DUC
+Start the No-IP DUC client.
+
+sudo /usr/local/bin/noip2
+To check the status of No-IP DUC, use:
+
+sudo /usr/local/bin/noip2 -S
+To configure No-IP DUC to start on boot, create a startup script.
+
+sudo nano /etc/systemd/system/noip2.service
+Add the following content to the file:
+
+[Unit]
+Description=No-IP Dynamic DNS Update Client
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/noip2
+
+[Install]
+WantedBy=multi-user.target
+Save and exit the file (Ctrl + X, then Y, then Enter).
+
+Enable and start the service:
+
+sudo systemctl enable noip2
+sudo systemctl start noip2
+Step 5: Access Your Proxmox Server Using the Domain
+Open your web browser.
+Navigate to https://yourhostname.ddns.net:8006 (replace yourhostname.ddns.net with the hostname you created).
+

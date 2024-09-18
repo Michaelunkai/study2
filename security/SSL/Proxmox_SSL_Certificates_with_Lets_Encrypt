@@ -1,0 +1,20 @@
+▲A  A▼
+Proxmox SSL Certificates with Let's Encrypt
+What is Let's Encrypt?
+Let’s Encrypt is a free, automated, and open certificate authority (CA), run for the public’s benefit. It is a service provided by the Internet Security Research Group (ISRG).
+
+We give people the digital certificates they need in order to enable HTTPS (SSL/TLS) for websites, for free, in the most user-friendly way we can. We do this because we want to create a more secure and privacy-respecting Web. -https://letsencrypt.org/about/
+Enabling SSL Using Let's Encrypt
+NOTE: In order for Let's Encrypt to verify ownership of the DNS name, the host certbot is running from must be accessible via port 80 (http) or port 443 (https). For homelab users, this will normally involve port forwarding from the router to the certbot host, which is beyond the scope of this tutorial. Just note, I have forwarded port 80 on my router to the host running certbot for this handshake to complete successfully.
+
+Log into the Proxmox VE web UI
+Expand the Proxmox node > Click Certificates
+Under the ACME heading click the Add ACME Account button
+Enter an E-mail address and check the Accept TOS box > Click Register
+Click the Add button
+Enter the Domain to be used for the certificate > Click Create
+Click the Domain in the list to select it > Click Order Certificates Now
+If DNS and port forwarding are setup correctly, ACME will order the new certificates, apply them and restart the pveproxy service
+Close out of the Proxmox web UI and relaunch it
+Verify the Let's Encrypt SSL certificates are being used
+ 

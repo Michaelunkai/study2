@@ -1,0 +1,67 @@
+I'd be happy to teach you how to configure AWS KMS for Auto-Unseal using the AWS CLI. This process involves several steps:
+
+1. Create a KMS key
+2. Create an IAM policy for Vault to use the KMS key
+3. Attach the policy to an IAM role
+4. Configure Vault to use KMS for auto-unseal
+
+Let's go through these steps:
+
+1. Create a KMS key:
+
+aws kms create-key --description "Vault Auto-Unseal Key" --region your-region
+
+Note the KeyId and Arn in the output. You'll need these later.
+
+2. Create an IAM policy:
+
+Create a file named `vault-kms-policy.json` with the following content:
+
+ json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VaultKMSUnseal",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:DescribeKey"
+      ],
+      "Resource": "arn:aws:kms:your-region:your-account-id:key/your-key-id"
+    }
+  ]
+}
+
+Replace `your-region`, `your-account-id`, and `your-key-id` with your actual values.
+
+Now create the policy:
+
+aws iam create-policy --policy-name VaultKMSUnsealPolicy --policy-document file://vault-kms-policy.json
+
+3. Attach the policy to an IAM role:
+
+If you don't have a role for Vault yet, create one:
+
+aws iam create-role --role-name VaultRole --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+
+Attach the policy to the role:
+
+aws iam attach-role-policy --role-name VaultRole --policy-arn arn:aws:iam::your-account-id:policy/VaultKMSUnsealPolicy
+
+4. Configure Vault:
+
+In your Vault configuration file (usually `config.hcl`), add the following:
+
+ hcl
+seal "awskms" {
+  region     = "your-region"
+  kms_key_id = "your-key-id"
+}
+
+Replace `your-region` and `your-key-id` with your actual values.
+
+That's it! You've now configured AWS KMS for Auto-Unseal using the AWS CLI. When you start Vault, it will use this KMS key for auto-unsealing.
+
+Would you like me to explain any part of this process in more detail?

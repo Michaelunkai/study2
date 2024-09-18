@@ -1,0 +1,6 @@
+Binwalk is a tool for analyzing, extracting, and reverse-engineering binary files, specifically firmware images. It helps identify embedded files, compressed archives, executable code, and other structures within a binary file. Binwalk is commonly used in firmware analysis to discover how firmware is structured, extract its components, and aid in reverse-engineering.
+
+Key features include:
+- Identifying embedded files and data within firmware.
+- Extracting file systems and compressed archives from firmware images.
+- Entropy analysis for spotting encrypted or compressed sections.

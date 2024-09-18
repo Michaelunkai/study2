@@ -1,0 +1,1 @@
+aws ssm list-tags-for-resource --resource-type <resource-type> --resource-id <resource-id>

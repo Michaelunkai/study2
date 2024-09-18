@@ -1,0 +1,1 @@
+aws codeguru-reviewer delete-code-review --code-review-arn <code-review-arn>

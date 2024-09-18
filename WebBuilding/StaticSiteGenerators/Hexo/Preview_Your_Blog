@@ -1,0 +1,7 @@
+Preview Your Blog
+To preview your blog locally, you can start the Hexo server:
+
+ 
+ 
+hexo server
+Your blog will be accessible at http://localhost:4000.

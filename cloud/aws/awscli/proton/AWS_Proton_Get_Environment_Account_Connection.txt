@@ -1,0 +1,1 @@
+aws proton get-environment-account-connection --id <connection-id>

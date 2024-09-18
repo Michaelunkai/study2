@@ -1,0 +1,1 @@
+Add-Computer -DomainName "yourdomain.com" -Credential (Get-Credential)

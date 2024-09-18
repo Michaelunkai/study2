@@ -1,0 +1,11 @@
+AWS ELBv2 stands for **Amazon Web Services Elastic Load Balancer version 2**. It's a service that helps distribute incoming application or network traffic across multiple targets, such as EC2 instances, containers, and IP addresses, to ensure that no single resource becomes overwhelmed. 
+
+Here's a brief overview of its main components:
+
+1. **Application Load Balancer (ALB)**: This is designed to handle HTTP and HTTPS traffic. It operates at the application layer (Layer 7 of the OSI model) and allows for advanced routing decisions based on the content of the request. For example, it can route traffic based on URL paths or host headers.
+
+2. **Network Load Balancer (NLB)**: This operates at the transport layer (Layer 4 of the OSI model) and is optimized for handling TCP traffic. It is designed to handle large amounts of connections with ultra-low latency and can handle millions of requests per second while maintaining high throughput.
+
+3. **Gateway Load Balancer (GLB)**: This is used to deploy, scale, and manage a fleet of third-party virtual appliances, such as firewalls or intrusion detection systems. It combines the features of a transparent network gateway with the ability to distribute incoming traffic to a fleet of virtual appliances.
+
+These load balancers help improve the availability and fault tolerance of your applications. They also support features like SSL termination, path-based routing, and health checks to ensure your applications run smoothly.

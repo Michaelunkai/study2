@@ -1,0 +1,142 @@
+# Comprehensive Guide to Set Up, Use, and Clean Up Amazon Elastic File System (EFS) with AWS CLI
+
+## Step 1: Install AWS CLI
+
+First, you need to have the AWS CLI installed. If you haven't installed it yet, you can do so using the following commands:
+
+**On Ubuntu/Debian:**
+
+  
+sudo apt update
+sudo apt install awscli -y
+
+**On Windows:**
+
+Download the installer from the [AWS CLI Installation](https://aws.amazon.com/cli/) page and follow the instructions.
+
+## Step 2: Configure AWS CLI
+
+Once the AWS CLI is installed, configure it with your AWS credentials:
+
+  
+aws configure
+
+You will be prompted to enter your AWS Access Key ID, Secret Access Key, default region, and output format.
+
+## Step 3: Create an EFS File System
+
+Use the following command to create an EFS file system:
+
+  
+aws efs create-file-system --creation-token MyEFS --performance-mode generalPurpose --region us-west-2
+
+Replace `MyEFS` with your desired creation token and `us-west-2` with your desired region.
+
+## Step 4: Create Mount Targets
+
+You need to create mount targets in the subnets of your VPC. First, list your VPCs and subnets to get their IDs:
+
+  
+aws ec2 describe-vpcs
+aws ec2 describe-subnets
+
+Then, create mount targets for your EFS file system:
+
+  
+aws efs create-mount-target --file-system-id fs-12345678 --subnet-id subnet-12345678 --security-groups sg-12345678
+
+Replace `fs-12345678` with your EFS file system ID, `subnet-12345678` with your subnet ID, and `sg-12345678` with your security group ID.
+
+## Step 5: Install NFS Client
+
+You need to install the NFS client on your EC2 instances to mount the EFS file system.
+
+**On Ubuntu/Debian:**
+
+  
+sudo apt update
+sudo apt install nfs-common -y
+
+**On Amazon Linux/CentOS:**
+
+  
+sudo yum install nfs-utils -y
+
+## Step 6: Mount the EFS File System
+
+Create a directory to mount the file system:
+
+  
+sudo mkdir /mnt/efs
+
+Then mount the EFS file system:
+
+  
+sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-west-2.amazonaws.com:/ /mnt/efs
+
+Replace `fs-12345678` with your EFS file system ID and `us-west-2` with your region.
+
+## Step 7: Automate Mounting on Reboot
+
+To ensure the file system mounts automatically after a reboot, add the following line to your `/etc/fstab` file:
+
+  
+echo 'fs-12345678.efs.us-west-2.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev 0 0' | sudo tee -a /etc/fstab
+
+## Step 8: Verify the Mount
+
+Verify that the file system is mounted:
+
+  
+df -h | grep efs
+
+You should see the EFS file system listed in the output.
+
+## Step 9: Use the EFS File System
+
+You can now use the EFS file system just like any other file system. Create files and directories, and manage your data as needed.
+
+  
+sudo touch /mnt/efs/testfile
+sudo mkdir /mnt/efs/testdir
+
+## Step 10: Clean Up to Avoid Extra Costs
+
+If you no longer need the EFS file system and want to avoid any extra costs, follow these steps to delete everything:
+
+### Unmount the File System
+
+  
+sudo umount /mnt/efs
+
+### Delete the Mount Target
+
+List your mount targets to get their IDs:
+
+  
+aws efs describe-mount-targets --file-system-id fs-12345678
+
+Then delete the mount target:
+
+  
+aws efs delete-mount-target --mount-target-id mt-12345678
+
+Replace `mt-12345678` with your mount target ID.
+
+### Delete the EFS File System
+
+  
+aws efs delete-file-system --file-system-id fs-12345678
+
+Replace `fs-12345678` with your EFS file system ID.
+
+### Delete the Security Group (if created specifically for EFS)
+
+If you created a specific security group for EFS, you might want to delete it:
+
+  
+aws ec2 delete-security-group --group-id sg-12345678
+
+Replace `sg-12345678` with your security group ID.
+
+By following these steps, you can set up, use, and clean up Amazon Elastic File System (EFS) with AWS CLI effectively, ensuring no unnecessary costs are incurred.

@@ -1,0 +1,19 @@
+ Create a Lambda Function
+Create a Simple Python Lambda Function:
+
+ 
+ 
+echo 'def lambda_handler(event, context):
+    return "Hello, World!"' > lambda_function.py
+Zip the Function:
+
+ 
+ 
+zip function.zip lambda_function.py
+Create the Lambda Function:
+
+ 
+ 
+aws lambda create-function --function-name myLambdaFunction \
+--zip-file fileb://function.zip --handler lambda_function.lambda_handler \
+--runtime python3.8 --role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/lambda-ex

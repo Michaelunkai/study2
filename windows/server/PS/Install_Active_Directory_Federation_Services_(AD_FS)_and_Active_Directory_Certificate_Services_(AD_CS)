@@ -1,0 +1,7 @@
+Install Active Directory Federation Services (AD FS):
+
+Install-WindowsFeature -Name ADFS-Federation
+
+Install Active Directory Certificate Services (AD CS):
+
+Install-WindowsFeature -Name ADCS-Cert-Authority

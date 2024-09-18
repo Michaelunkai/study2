@@ -1,0 +1,37 @@
+▲A  A▼
+Persistently Mount a SAMBA/CIFS Share in Linux
+Log into the Linux device
+Run the following commands in terminal:
+# update software repositories
+sudo apt update
+# install cifs utilities
+sudo apt install cifs-utils -y
+# create a hidden smb credentials file
+nano ~/.my are.smb
+Paste the following into the .smb, updating the credentials as needed to authenticate to the share
+user=LinuxShare
+password=SomethingSecure!!
+domain=i12bretro.local
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in the terminal
+# create a folder in /media to mount the share
+sudo mkdir /media/myshare -p
+# edit the fstab file
+sudo nano /etc/fstab
+Add a line to the bottom of fstab with the following, updating the server, share and host file location as needed
+NOTE: fstab entries are formatted as //<%server%>/<%share%> <%mount location%> <%filesystem type%> <%mount options%>
+# windows share on i12bretrodc
+//i12bretrodc/myshare /media/myshare cifs uid=0,credentials=/home/i12bretro/.myshare.smb,iocharset=utf8,vers=3.0,noperm 0 0
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in the terminal
+# remount filesystems listed in fstab
+sudo mount -a
+# change directory to the share mount point
+cd /media/my are
+# reboot to test the share is mounted on started
+sudo reboot now
+Documentation: https://man7.org/linux/man-pages/man8/mount.8.html
+
+ 

@@ -1,0 +1,44 @@
+Running a Deepin 20.1 VM in Virtualbox
+Download Deepin 20.1 Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Deepin 20.1
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Deepin 20.1.vdi
+File size: 80 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Deepin 20.1 .iso file
+Click OK
+Make sure the Deepin 20.1 VM is selected and click Start > Normal
+Press Ctrl+C to cancel the disk check
+When the install dialog displays click Install Deepin 20.1
+Select a keyboard layout > Click Continue
+Uncheck Download updates while installing Deepin 20.1 > Click Continue
+Click Install Now
+Click Continue to write the changes to the disk
+Select a Region > Click continue
+Enter a name, computer name, username and password > Click Continue
+Wait while Deepin copies files and installs
+When prompted to Restart Now, Select Devices > Optical Drives > Remove disk from virtual drive
+Click Restart Now to complete the installation, the VM will reboot
+Login with the username and password created earlier in the process
+Select Skip > Next > Select No, Don't send system info > Next > Next > Done
+Welcome to Deepin 20.1

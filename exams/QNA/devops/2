@@ -1,0 +1,84 @@
+CI/CD מתקדם
+ש21: מה ההבדל בין Continuous Deployment ל-Continuous Delivery?
+ת21: Continuous Deployment הוא תהליך שבו כל שינוי בקוד שעובר את שלבי הבדיקות האוטומטיות מועבר באופן אוטומטי לפרודקשן. לעומת זאת, ב-Continuous Delivery, השינויים מוכנים לפרודקשן אך דורשים אישור ידני לפני פריסה סופית.
+
+ש22: כיצד ניתן להבטיח איכות בקוד המשתלב בפרויקט ב-CI/CD?
+ת22: ניתן להבטיח איכות בקוד על ידי כתיבת בדיקות אוטומטיות מקיפות (unit tests, integration tests, end-to-end tests), שימוש בסטטיק אנליסיס, ביצוע code reviews, והפעלת סריקות אבטחה.
+
+קונטיינרים ואורקסטרציה מתקדם
+ש23: מה זה Service Mesh וכיצד הוא משתלב ב-DevOps?
+ת23: Service Mesh הוא תשתית לארגון התקשורת בין שירותים מיקרו-שירותיים. הוא מספק יכולות כמו איזון עומסים, ריבוי מסלולים, ניהול תעבורה, ואבטחה בין השירותים. Istio ו-Linkerd הם דוגמאות לכלים לניהול Service Mesh.
+
+ש24: מה הם היתרונות והחסרונות בשימוש בקונטיינרים?
+ת24: היתרונות כוללים פריסת סביבות מהירה, ניידות בין סביבות פיתוח שונות, קונסיסטנטיות בסביבות הרצה, וניהול טוב יותר של משאבים. החסרונות כוללים מורכבות בניהול תשתיות, דרישות אבטחה מוגברות, והצורך בהיכרות עם כלים ותהליכים חדשים.
+
+ניטור ולוגים מתקדם
+ש25: מה זה APM (Application Performance Monitoring) ואיך הוא מועיל?
+ת25: APM הוא כלי לניטור ביצועי יישומים המספק נתונים בזמן אמת על ביצועי היישום, כולל מעקב אחר תגובות, זיהוי בעיות, ושיפור הביצועים. דוגמאות לכלים APM הם New Relic, AppDynamics, ו-Dynatrace.
+
+ש26: מה הוא לוג מבוזר וכיצד הוא משמש ב-DevOps?
+ת26: לוג מבוזר הוא תהליך שבו לוגים נאספים ממספר מקורות ומאוחדים לפלטפורמה אחת לניתוח וניהול. זה מאפשר זיהוי בעיות בקלות, במיוחד בסביבות מיקרו-שירותים. כלים כמו ELK Stack (Elasticsearch, Logstash, Kibana) ו-Splunk משמשים לניהול לוגים מבוזרים.
+
+אבטחה ב-DevOps (DevSecOps) מתקדם
+ש27: מה הוא Security as Code וכיצד הוא משתלב ב-DevSecOps?
+ת27: Security as Code הוא תהליך שבו כללי האבטחה נכתבים כקוד ומנוהלים בעזרת כלים אוטומטיים. זה מאפשר ניהול ואכיפת מדיניות אבטחה בצורה עקבית ואוטומטית לאורך כל תהליך הפיתוח והפריסה. כלים כמו HashiCorp Vault ו-Open Policy Agent (OPA) משמשים לניהול Security as Code.
+
+ש28: כיצד ניתן לשלב בדיקות אבטחה בתהליך ה-CI/CD?
+ת28: ניתן לשלב בדיקות אבטחה על ידי הוספת שלבים לבדיקה אוטומטית של קוד, סריקת תלויות, ובדיקות חדירות (penetration tests) בפייפליין של ה-CI/CD. כלים כמו Snyk, OWASP ZAP, ו-Aqua Security משמשים לסריקות אבטחה אוטומטיות.
+
+מתקדם - ניהול תצורה והפצה
+ש29: מה הוא GitOps וכיצד הוא מייעל את תהליכי ה-DevOps?
+ת29: GitOps הוא גישה לניהול תשתיות ויישומים באמצעות מערכת בקרת גרסאות כמו Git. כל שינוי בקוד או בתצורה מתבצע דרך pull requests, מה שמאפשר מעקב גרסאות, ביקורת שינויים, והחזרה אחורה בקלות. זה משפר את הניהול והאוטומציה בתהליכי ה-DevOps.
+
+ש30: מה זה Immutable Infrastructure וכיצד הוא משתלב ב-DevOps?
+ת30: Immutable Infrastructure היא גישה שבה כל שינוי בתשתית נעשה על ידי יצירת תשתית חדשה במקום לעדכן את התשתית הקיימת. זה מבטיח קונסיסטנטיות, מפחית סיכון לשגיאות, ומאפשר שחזור מצב קודם בקלות. כלים כמו Terraform ו-Packer משמשים ליישום גישה זו.
+
+תרגול מתקדם
+ש31: תן דוגמה למקרה שימוש ב-Blue-Green Deployment.
+ת31: במקרה של פריסת עדכון לאתר מסחר אלקטרוני, אפשר ליצור סביבה חדשה (Green) עם הגרסה החדשה של האתר, לבדוק את הביצועים והפונקציונליות בסביבה זו, וכאשר הכל תקין, להפנות את תנועת המשתמשים מהסביבה הקיימת (Blue) לסביבה החדשה (Green) ללא השבתה.
+
+ש32: איך מבצעים Canary Deployment עם Kubernetes?
+ת32: ניתן לבצע Canary Deployment ב-Kubernetes על ידי יצירת גרסה חדשה של הפוד עם תגית שונה, ואז להשתמש ב-Kubernetes Deployment לנתב חלק מהתעבורה לגרסה החדשה לצורך בדיקה לפני פריסה מלאה. ניתן לשלוט בתעבורה באמצעות כלים כמו Istio או Linkerd.
+
+
+Advanced CI/CD
+Q21: What is the difference between Continuous Deployment and Continuous Delivery?
+A21: Continuous Deployment is a process where every change that passes automated testing stages is automatically deployed to production. In contrast, Continuous Delivery prepares changes for deployment but requires manual approval before final rollout.
+
+Q22: How can code quality be ensured in a project integrated with CI/CD?
+A22: Code quality can be ensured by writing comprehensive automated tests (unit tests, integration tests, end-to-end tests), using static analysis, conducting code reviews, and performing security scans.
+
+Advanced Containerization and Orchestration
+Q23: What is Service Mesh and how does it fit into DevOps?
+A23: Service Mesh is an infrastructure layer for managing communication between microservices. It provides capabilities such as load balancing, routing, traffic management, and security between services. Istio and Linkerd are examples of Service Mesh management tools.
+
+Q24: What are the advantages and disadvantages of using containers?
+A24: The advantages include rapid environment deployment, portability across development environments, consistent runtime environments, and improved resource management. Disadvantages include complex infrastructure management, increased security requirements, and the need for familiarity with new tools and processes.
+
+Advanced Monitoring and Logging
+Q25: What is APM (Application Performance Monitoring) and how is it beneficial?
+A25: APM is a tool for real-time monitoring of application performance, providing data on application behavior, issue detection, and performance improvement. Examples of APM tools include New Relic, AppDynamics, and Dynatrace.
+
+Q26: What is Distributed Logging and how is it used in DevOps?
+A26: Distributed logging is a process where logs are collected from various sources and aggregated into a single platform for analysis and management. It allows for easy issue identification, especially in microservices environments. Tools like ELK Stack (Elasticsearch, Logstash, Kibana) and Splunk are used for managing distributed logs.
+
+Advanced DevSecOps
+Q27: What is Security as Code and how does it integrate into DevSecOps?
+A27: Security as Code is a process where security policies are written as code and managed using automated tools. It ensures consistent and automatic enforcement of security policies throughout the development and deployment process. Tools like HashiCorp Vault and Open Policy Agent (OPA) are used for managing Security as Code.
+
+Q28: How can security testing be integrated into the CI/CD pipeline?
+A28: Security testing can be integrated by adding automated code scanning, dependency scanning, and penetration testing stages to the CI/CD pipeline. Tools like Snyk, OWASP ZAP, and Aqua Security are used for automated security scanning.
+
+Advanced Configuration Management and Deployment
+Q29: What is GitOps and how does it streamline DevOps processes?
+A29: GitOps is an approach to managing infrastructure and applications using a version control system like Git. Every change in code or configuration is made through pull requests, allowing for version control, change review, and easy rollback. It improves management and automation in DevOps processes.
+
+Q30: What is Immutable Infrastructure and how does it fit into DevOps?
+A30: Immutable Infrastructure is an approach where any change to infrastructure is made by creating a new infrastructure instead of updating the existing one. It ensures consistency, reduces the risk of errors, and allows for easy rollback. Tools like Terraform and Packer are used to implement this approach.
+
+Advanced Practice Scenarios
+Q31: Provide an example use case of Blue-Green Deployment.
+A31: In the case of deploying an update to an e-commerce website, a new environment (Green) with the new version of the website can be created, tested for performance and functionality, and when everything is verified, user traffic can be redirected from the existing environment (Blue) to the new one (Green) without downtime.
+
+Q32: How do you perform Canary Deployment with Kubernetes?
+A32: Canary Deployment can be performed in Kubernetes by creating a new version of the pod with a different label, and then using Kubernetes Deployment to route a portion of the traffic to the new version for testing before full rollout. Traffic control can be achieved using tools like Istio or Linkerd.

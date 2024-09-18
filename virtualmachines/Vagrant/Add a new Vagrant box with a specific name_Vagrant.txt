@@ -1,0 +1,1 @@
+vagrant box add mybox hashicorp/bionic64

@@ -1,0 +1,1 @@
+nc -zv <public_IP> 22

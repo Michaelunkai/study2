@@ -1,0 +1,1 @@
+aws kms list-grants --key-id <key-id>

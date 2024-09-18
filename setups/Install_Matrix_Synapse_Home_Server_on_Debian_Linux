@@ -1,0 +1,161 @@
+▲A  A▼
+Install Matrix Synapse Home Server on Debian Linux
+
+What is Matrix?
+Matrix is an open source project that publishes the
+Matrix open standard for secure, decentralised, real-time communication, and its Apache licensed
+reference implementations. -https://matrix.org
+
+What is Synapse?
+Synapse is a Matrix "homeserver" implementation developed by the matrix.org core team, written in Python 3/Twisted. -https://github.com/matrix-org/synapse/
+
+Installing Synapse
+Log into the Linux device
+Run the following commands in terminal
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade
+# install prerequisites
+sudo apt install lsb-release wget openssl apt-transport-https -y
+# add matrix gpg key
+sudo wget -O /usr/share/keyrings/matrix-org-archive-keyring.gpg https://packages.matrix.org/debian/matrix-org-archive-keyring.gpg
+# add matrix apt repository
+echo "deb [signed-by=/usr/share/keyrings/matrix-org-archive-keyring.gpg] https://packages.matrix.org/debian/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/matrix-org.list
+# update software repositories
+sudo apt update
+# install synapse
+sudo apt install matrix-synapse-py3 -y
+# when prompted, enter localhost as the name of the matrix server
+# choose whether to share statistics with matrix
+# install postgre 
+sudo apt install libpq5 postgresql -y
+# enable the postgresql service and start it
+sudo systemctl enable postgresql --now
+# connect to postgresql
+sudo -u postgres psql postgres
+# create synapse database user
+create user matrix_synapse_rw with password 'm@trix!';
+# create matrix_synapse database
+create database matrix_synapse with encoding='UTF8' lc_collate='C' lc_ctype='C' template='template0' owner='matrix_synapse_rw';
+# close postgresql connection
+exit
+# edit the homeserver.yaml file
+sudo nano /etc/matrix-synapse/homeserver. 
+Press CTRL+W and search for name: sqlite3
+Comment out the sqlite database parameters by adding a # to the beginning of each of the lines
+Paste the following psycopg2 (Postgres) database connection and update it as needed:
+database:
+ name: psycopg2
+ txn_limit: 10000
+ args:
+  user: matrix_synapse_rw
+  password: m@trix!
+  database: matrix_synapse
+  host: localhost
+  port: 5432
+  cp_min: 5
+  cp_max: 10
+
+Press CTRL+W and search for name: bind_addresses: [
+Edit the bind addresses value to add either the host servers IP address or set the value to '0.0.0.0' to listen on all interfaces
+Add the following line at the bottom of the file
+suppress_key_server_warning: true
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# generate a randoml string
+RANDOMSTRING=$(openssl rand -base64 30)
+# write the random string as registration_shared_secret
+echo "registration_shared_secret: $RANDOMSTRING" | sudo tee -a /etc/matrix-synapse/homeserver.yaml > /dev/null
+# restart the synapse service
+sudo systemctl restart matrix-synapse
+# create a new synapse user
+register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
+Enter a username, enter and confirm the password and choose if the user is an admin
+At this point the Matrix Synapse server is running, but only over http
+Open a web browser and navigate to the http://DNSorIP:8008
+A message stating It works! Synapse is running should be displayed
+Testing with Element Desktop Application (Optional)
+To test the Synapse server with a matrix client, continue with the following commands
+# add the element.io gpg key
+sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
+# add the element.io apt repository
+echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
+# update software repositories
+sudo apt update
+# install element desktop
+sudo apt install element-desktop -y
+Launch the Element application
+Click Sign In
+Click the Edit link next to matrix.org
+Select Other homeserver > type http://DNSorIP:8008 > Click Continue
+Login using the Synapse username and password created earlier
+After testing, logout by clicking the username in the top left of the application > Sign out > Select I don't want my encrypted messages
+Enabling SSL Using Let's Encrypt
+NOTE: In order for Let's Encrypt to verify ownership of the DNS name, the host certbot is running from must be accessible via port 80 (http) or port 443 (https). For homelab users, this will normally involve port forwarding from the router to the certbot host, which is beyond the scope of this tutorial. Just note, I have forwarded port 80 on my router to the host running certbot for this handshake to complete successfully.
+
+Continue with the following commands in a terminal window
+# remove apt version of certbot if installed
+sudo apt remove certbot -y
+# install snapd
+sudo apt install snapd -y
+# install snap core and update
+sudo snap install core; sudo snap refresh core
+# install certbot snap
+sudo snap install --classic certbot
+# create certbot symbolic link
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+# if a web server process is currently using port 80, stop it before proceeding
+# generate a certificate
+sudo certbot certonly --standalone --preferred-challenges http -d <%DNS NAME%>
+When prompted, enter an email address and agree to the terms of service
+Choose whether to share your email and receive emails from certbot
+Certbot will output information regarding the location of the certificate files
+Continue with the following commands in a terminal window
+# create ssl-certs group
+sudo groupadd ssl-certs
+# add matrix-synapse and root users to group
+sudo usermod -aG ssl-certs matrix-synapse
+sudo usermod -aG ssl-certs root
+# verify the members of ssl-cert
+getent group ssl-certs
+# set owner group of /etc/letsencrypt
+sudo chgrp -R ssl-certs /etc/letsencrypt
+# set permissions on /etc/letsencrypt
+sudo chmod -R g=rX /etc/letsencrypt
+# edit the homeserver.yaml file
+sudo nano /etc/matrix-synapse/homeserver. 
+Press CTRL+W and search for port: 8008
+Change the tls: false value to true (tls: true)
+Press CTRL+W and search for tls_certificate_path:
+Uncomment the line and update to /etc/letsencrypt/live/<%DNS NAME%>/fullchain.pem
+Arrow down a few lines to find tls_private_key_path
+Uncomment the line and update to /etc/letsencrypt/live/<%DNS NAME%>/privkey.pem
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in a terminal window
+# restart the synapse service
+sudo systemctl restart matrix-synapse
+Installing Element Web Client (Optional)
+Continue with the following commands to install the Element web client
+# install apache2
+sudo apt install apache2 -y
+# lookup the latest release tag
+regex='<link rel="alternate" type="text\/html" href="https:\/\/github\.com\/vector-im\/element-web\/releases\/tag\/([^/]*)"' && response=$(curl -s https://github.com/vector-im/element-web/releases.atom) && [[ $response =~ $regex ]] && latestTag="${BASH_REMATCH[1]}"
+# download element-web
+wget -O element.tar.gz https://github.com/vector-im/element-web/releases/download/$latestTag/element-$latestTag.tar.gz
+# extract element to wwwroot
+sudo tar xzvf element.tar.gz -C /var/www/html
+# rename the extracted folder
+sudo mv /var/www/html/element* /var/www/html/element
+# set the owner to www-data
+sudo chown -R www-data:www-data /var/www/html/element
+# make a copy of the sample config file
+sudo cp /var/www/html/element/config.sample.json /var/www/html/element/config.json
+# edit the config file
+sudo nano /var/www/html/element/config.json
+Edit the m.homeserver values, replacing the the server_name with an alias and base_url with https://YOURDNSNAME:8008
+Press CTRL+O, Enter, CTRL+X to write the changes
+Open a web browser and navigate to http://DNSorIP/element
+Log in using the Synapse username and password created earlier
+ 

@@ -1,0 +1,6 @@
+Automate Mounting on Reboot
+To ensure the file system mounts automatically after a reboot, add the following line to your /etc/fstab file:
+
+ 
+ 
+echo 'fs-12345678.efs.us-west-2.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev 0 0' | sudo tee -a /etc/fstab

@@ -1,0 +1,1 @@
+aws iot update-indexing-configuration --thing-indexing-configuration file://indexing-config.json

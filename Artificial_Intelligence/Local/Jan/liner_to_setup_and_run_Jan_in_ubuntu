@@ -1,0 +1,1 @@
+ mkdir -p ~/jan-ai && cd ~/jan-ai && wget https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-amd64-0.5.2.deb && sudo apt-get update && sudo apt-get install -y libnss3 libxss1 xdg-utils && sudo dpkg -i jan-linux-amd64-0.5.2.deb && sudo apt-get install -f &&  jan --no-sandbox

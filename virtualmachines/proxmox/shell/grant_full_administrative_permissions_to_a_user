@@ -1,0 +1,12 @@
+pveum useradd micha@pve -comment "Micha User"
+pveum passwd micha@pve
+pveum aclmod / -user micha@pve -role Administrator -propagate 1
+
+
+
+Explanation of the commands:
+
+pveum useradd micha@pve -comment "Micha User": Adds the user micha@pve to the Proxmox user database.
+pveum passwd micha@pve: Prompts you to set a password for the user micha@pve.
+pveum aclmod / -user micha@pve -role Administrator -propagate 1: Assigns the Administrator role to micha@pve at the root of the permission tree, propagating these permissions to all child objects.
+By running these commands, micha@pve will have the same permissions and capabilities as root@pam.

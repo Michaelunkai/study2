@@ -1,0 +1,50 @@
+Here's the solution for finding the movies with an odd-numbered ID and a description that is not "boring" using SQL:
+
+```sql
+SELECT 
+    id, 
+    movie, 
+    description, 
+    rating
+FROM 
+    Cinema
+WHERE 
+    id % 2 = 1 
+    AND description != 'boring'
+ORDER BY 
+    rating DESC;
+```
+
+### Explanation:
+1. **WHERE**: The `WHERE` clause filters the rows to include only those with an odd-numbered ID (`id % 2 = 1`) and a description that is not "boring" (`description != 'boring'`).
+2. **ORDER BY**: The results are ordered by the `rating` column in descending order (`ORDER BY rating DESC`).
+
+If you want to write the same logic using Pandas for data manipulation in Python, here is the equivalent code:
+
+```python
+import pandas as pd
+
+# Sample data
+data = {
+    'id': [1, 2, 3, 4, 5],
+    'movie': ['War', 'Science', 'irish', 'Ice song', 'House card'],
+    'description': ['great 3D', 'fiction', 'boring', 'Fantacy', 'Interesting'],
+    'rating': [8.9, 8.5, 6.2, 8.6, 9.1]
+}
+df = pd.DataFrame(data)
+
+# Filter rows where 'id' is odd and 'description' is not 'boring'
+filtered_df = df[(df['id'] % 2 == 1) & (df['description'] != 'boring')]
+
+# Sort the result by 'rating' in descending order
+result = filtered_df.sort_values(by='rating', ascending=False)
+
+print(result)
+```
+
+### Explanation:
+1. **Data Creation**: We first create a DataFrame with the sample data.
+2. **Filter**: We filter the rows to include only those with an odd-numbered `id` (`df['id'] % 2 == 1`) and a `description` that is not 'boring' (`df['description'] != 'boring'`).
+3. **Sort**: We sort the filtered DataFrame by the `rating` column in descending order (`sort_values(by='rating', ascending=False)`).
+
+This approach will give you the same result as the SQL query.

@@ -1,0 +1,22 @@
+Multi-Factor Authentication (MFA) for SSH:
+Add an extra layer of security to SSH with MFA.
+Install Google Authenticator:
+
+ 
+ 
+sudo apt install libpam-google-authenticator
+google-authenticator
+Configure SSH to Use MFA:
+
+ 
+ 
+sudo nano /etc/pam.d/s d
+# Add the following line:
+auth required pam_google_authenticator.so
+
+sudo nano /etc/s /s d_config
+# Ensure the following lines are set:
+ChallengeResponseAuthentication yes
+UsePAM yes
+
+sudo systemctl restart sshd

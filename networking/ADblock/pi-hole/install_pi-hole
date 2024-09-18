@@ -1,0 +1,13 @@
+curl -sSL https://install.pi-hole.net | bash
+
+
+Updating
+Updating is as simple as running the following command:
+
+pihole -up
+
+
+Uninstalling
+Pi-hole can be uninstalled using:
+
+pihole uninstall

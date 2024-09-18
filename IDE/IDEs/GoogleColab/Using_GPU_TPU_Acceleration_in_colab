@@ -1,0 +1,11 @@
+Using GPU/TPU Acceleration
+Enabling GPU:
+Go to Runtime > Change runtime type > Hardware accelerator > GPU.
+Checking GPU Availability:
+ 
+ 
+import tensorflow as tf
+print(tf.test.gpu_device_name())
+Using TPU:
+Go to Runtime > Change runtime type > Hardware accelerator > TPU.
+Follow Colab's TPU setup instructions.

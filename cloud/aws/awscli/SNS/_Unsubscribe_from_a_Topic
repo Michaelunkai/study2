@@ -1,0 +1,5 @@
+To unsubscribe an endpoint from a topic, you need the subscription ARN. First, get the subscription ARN using the list subscriptions command. Then, use the following command to unsubscribe:
+
+ 
+ 
+aws sns unsubscribe --subscription-arn arn:aws:sns:us-east-1:123456789012:my-topic:2bcfbf39-05c3-41de-beaa-fcfcc21c8f55

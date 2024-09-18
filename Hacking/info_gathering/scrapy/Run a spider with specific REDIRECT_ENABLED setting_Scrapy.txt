@@ -1,0 +1,1 @@
+scrapy crawl myspider -s REDIRECT_ENABLED=False

@@ -1,0 +1,42 @@
+Send an SMS using Nexmo
+Create a new Node.js file, for example, send_sms.js:
+
+javascript
+ 
+const Nexmo = require('nexmo');
+
+const nexmo = new Nexmo({
+  apiKey: 'API_KEY',
+  apiSecret: 'API_SECRET',
+});
+
+const from = 'VonageAPI';
+const to = 'RECIPIENT_PHONE_NUMBER';
+const text = 'Hello from Vonage SMS API';
+
+nexmo.message.sendSms(from, to, text, (err, responseData) => {
+  if (err) {
+    console.log(err);
+  } else {
+    if (responseData.messages[0]['status'] === "0") {
+      console.log("Message sent successfully.");
+    } else {
+      console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+    }
+  }
+});
+Replace API_KEY, API_SECRET, and RECIPIENT_PHONE_NUMBER with the appropriate values. The RECIPIENT_PHONE_NUMBER is the phone number to which the SMS will be sent.
+
+
+
+
+
+
+
+
+Run the Script
+Run your script to send the SMS:
+
+ 
+ 
+node send_sms.js

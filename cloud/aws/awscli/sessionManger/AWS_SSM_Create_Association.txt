@@ -1,0 +1,1 @@
+aws ssm create-association --name <association-name> --instance-id <instance-id> --document-name <document-name>

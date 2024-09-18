@@ -1,0 +1,4 @@
+import boto3
+ec2 = boto3.client('ec2')
+response = ec2.create_volume(AvailabilityZone='us-west-2a', Size=10, VolumeType='gp2')
+print(response['VolumeId'])

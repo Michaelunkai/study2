@@ -1,0 +1,7 @@
+# Install the Windows Server Backup feature
+Install-WindowsFeature -Name Windows-Server-Backup -IncludeManagementTools
+
+
+. Verification: After running the command, verify that Windows Server Backup is installed by listing installed features:
+
+Get-WindowsFeature -Name Windows-Server-Backup

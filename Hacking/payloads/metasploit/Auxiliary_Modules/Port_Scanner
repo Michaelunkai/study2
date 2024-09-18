@@ -1,0 +1,3 @@
+msf > use auxiliary/scanner/portscan/tcp
+msf > set RHOSTS 10.10.10.0/24
+msf > run

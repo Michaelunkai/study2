@@ -1,0 +1,183 @@
+Question 50: What is the purpose of the "ifconfig" command in Linux?
+Answer: The "ifconfig" command in Linux is used to configure and display information about network interfaces.
+
+Question 51: How do you monitor system resource usage in real-time in Linux, and what command would you use to achieve this?
+Answer: You can monitor system resource usage in real-time using commands like "htop" or "top" in Linux.
+
+Question 52: What command would you use to display the current working directory in Linux?
+Answer: You would use the "pwd" command to display the current working directory in Linux.
+
+Question 53: What is the purpose of the "ps" command in Linux?
+Answer: The "ps" command in Linux is used to display information about currently running processes.
+
+Question 54: How do you terminate a process by name in Linux?
+Answer: To terminate a process by name in Linux, you can use the "pkill" command followed by the name of the process.
+
+Question 55: What is the purpose of the "grep" command in Linux, and how do you use it to search for a pattern within multiple files?
+Answer: The "grep" command in Linux is used to search for patterns within files. You can use it to search for a pattern within multiple files by using the command "grep pattern files".
+
+Question 56: How do you create a compressed tar archive in Linux, and how do you extract its contents?
+Answer: You can create a compressed tar archive using the "tar" command with compression options, and extract its contents using the "tar" command with extraction options.
+
+Question 57: How do you find the total size of a directory and its contents in Linux?
+Answer: You can find the total size of a directory and its contents using the "du" command with the "-sh" options.
+
+Question 58: What command would you use to display detailed information about a file or directory in Linux, including its permissions, ownership, size, and modification time?
+Answer: You would use the "ls" command with the "-l" option to display detailed information about a file or directory in Linux.
+
+Question 59: How do you check the available disk space on your system in Linux?
+Answer: You can check the available disk space on your system using the "df" command with the "-h" option.
+
+Question 60: How do you find all files modified within the last 24 hours in a specific directory in Linux?
+Answer: You can find all files modified within the last 24 hours in a specific directory using the "find" command with the "-mtime" option.
+
+Question 60: How do you find all files modified within the last 24 hours in a specific directory in Linux?
+Answer: You can find all files modified within the last 24 hours in a specific directory using the "find" command with the "-mtime" option.
+
+Question 61: What is the purpose of the "rsync" command in Linux?
+Answer: The "rsync" command in Linux is used to synchronize files and directories between different locations.
+
+Question 62: How do you create a new user account in Linux?
+Answer: To create a new user account in Linux, you can use the "adduser" or "useradd" command, depending on your Linux distribution.
+
+Question 63: What is the purpose of the "netstat" command in Linux?
+Answer: The "netstat" command in Linux is used to display network connections, roitung ables, interfae statistics, masquerade connections and multicast membership.
+
+Question 64: How do you change your current working directory to the home directory in Linux?
+Answer: You can use the "cd" command followed by the t
+ilde (~) character to change your current working directory to the home directory in Linux.
+
+Question 65: What is the purpose of the "tail" command in Linux?
+Answer: The "tail" command in Linux is used to display the ending (tail) portion of a text file.
+
+Question 66: How do you recursively copy a directory and its contents in Linux?
+Answer: You can recursively copy a directory and its contents in Linux using the "cp" command with the "-r" option.
+
+Question 67: What is the purpose of the "kill" command in Linux?
+Answer: The "kill" command in Linux is used to terminate or send signals to processes.
+
+Question 68: How do you list all installed packages on a Debian-based Linux system?
+Answer: You can list all installed packages on a Debian-based Linux system using the "dpkg" command with the "--get-selections" option.
+
+Question 69: What is the purpose of the "wc" command in Linux?
+Answer: The "wc" command in Linux is used to count the number of lines, words, and characters in a file.
+
+Question 70: How do you recursively copy a directory and its contents in Linux?
+Answer: You can recursively copy a directory and its contents in Linux using the "cp" command with the "-r" option.
+
+Question 71: How do you list all installed packages on a Debian-based Linux system?
+answer: You can use the "dpkg" command to list all installed packages on a Debian-based Linux system 
+
+
+Question 72: How do you recursively delete a directory and its contents in Linux?
+Answer: The "rm -r" command in Linux is used to recursively delete a directory and its contents.
+
+Question 73: How do you list all processes running on a Linux system?
+Answer: ps aux
+
+Question 74: What command would you use to display the contents of a file in real-time as new lines are added to it?
+Answer: tail -f filename
+
+Question 75: How do you compress a file using gzip in Linux?
+Ansewer: gzip filename
+
+Question 76: What is the purpose of the "passwd" command in Linux?
+Answer: The "passwd" command in Linux is used to create or change the password for a user.
+
+Question 77: How do you list all files and directories in a directory, sorted by size, in Linux?
+Answer: du -h -s * | sort -h
+
+Question 78: How do you display the first 10 lines of a file in Linux?
+A: The "head" command followed by the filename is used to display the first 10 lines of a file in Linux.
+
+Question 79: How do you find all files in a directory that were modified within the last 7 days in Linux?
+A : find /path/to/directory -type f -mtine -7
+
+
+Question 80: How do you recursively search for a specific string within files in a directory and its subdirectories in Linux?
+A: grep -r 
+
+
+Question 81: How do you find the process ID (PID) of a specific running process in Linux without using the "ps" command?
+A: pgrep process_name
+
+question 82: whats is a symbolic link in linux and whats its use? 
+A: A symbolic link in Linux is a pointer to another file or directory. 
+Unlike a hard link, it references the path of the target rather than its inode. Symbolic links facilitate file organization, simplify access to files across directories, and allow for dynamic reassignment of file locations without changing references.
+
+
+Question 83: How do you monitor network traffic in real-time on a Linux system?
+A: To monitor network traffic in real-time on a Linux system, you can use utilities like "tcpdump" or "Wireshark".
+For "tcpdump", you can use the following command: sudo tcpdump -i <interface>
+This command will start capturing network traffic on the specified network interface in real-time.
+For "Wireshark", you can launch the graphical application and select the network interface you want to monitor.
+
+
+Question 84: How do you change the ownership of a file or directory in Linux?
+A: sudo chown new_owner:new_group file_or_directory
+This command changes the ownership of the specified file or directory to the user "new_owner" and the group "new_group".
+
+Question 85: How do you find all empty files and directories in a directory and its subdirectories in Linux?
+A: find /path/to/directory -empty
+
+Question 86: How do you display detailed information about a network interface in Linux?
+A:  "ifconfig" command in Linux is used to display detailed information about network interfaces.
+
+
+Question 87: How do you create a symbolic link to a file or directory in Linux?
+A: ln -s /path/to/original /path/to/symlink
+
+
+Question 88: How do you find all files with a specific extension in a directory and its subdirectories in Linux?
+A: find /path/to/dir -type f -name "*.ext"
+
+
+Question 89: How do you check the status of a Linux service, such as whether it is running or stopped?
+A: systemctl status service_name
+
+
+Question 90: How do you create a compressed tar archive in Linux while excluding specific files or directories from being included in the archive?
+
+A: tar -czvf archive.tar.gz --exclude='file_or_dir_to_exclude'  /path/to/directory
+This command will create a gzip-compressed tar archive named "archive.tar.gz" containing the contents of the specified directory, while excluding the specified file or directory from being included in the archive.
+
+
+Question 91: How do you find all processes owned by a specific user in Linux?
+A:pgrep -u username
+
+
+Question 92: How do you list all open network ports on a Linux system?
+A: netstat -tuln
+
+Question 93: How do you display the contents of a compressed file in Linux without extracting it?
+A: zcat filename.gz
+
+
+Question 94: How do you recursively delete all empty directories in a directory and its subdirectories in Linux?
+A: find /path/to/dir -type d -empty -exec rmdir {} +
+
+Question 95: How do you display the current date and time in Linux?
+A: date
+
+Question 96: How do you recursively search for a specific string within files in a directory and its subdirectories, while ignoring case sensitivity in Linux?
+A: grep -r -i "specific_string" /path/to/dir
+
+
+Question 97: How do you display the top 10 largest files in a directory and its subdirectories in Linux?
+A: find /path/to/dir -type f -exec du -h {} + | sort -rh | head -n 10
+
+
+Question 98: How do you check the status of a network interface in Linux, such as whether it is up or down?
+A: ip link show interface_name
+
+
+Question 99: How do you display the contents of a file in Linux while continuously updating the display as new lines are added to the file?
+A: tail -f
+
+Question 100: How do you check the disk space usage of a specific directory in Linux?
+A: du -sh /path/to/dir
+
+
+
+
+

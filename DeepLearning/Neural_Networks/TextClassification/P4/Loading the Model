@@ -1,0 +1,4 @@
+Loading the Model
+Now that we have saved a trained model we never need to retrain it! We can simply load a saved model in by using the following. Simply ensure that the .h5 file is in the same directory as your python script.
+
+model = keras.models.load_model("model.h5")

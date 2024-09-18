@@ -1,0 +1,29 @@
+Change the CPU Governor
+You can change the CPU governor to control how the CPU scales its frequency.
+
+List Available Governors:
+
+ 
+ 
+cpufreq-info | grep "available cpufreq governors"
+Example  :
+
+arduino
+ 
+available cpufreq governors: performance powersave ondemand conservative
+Set a Desired Governor:
+
+To set the governor, use the cpufreq-set command. For example, to set the governor to powersave:
+
+ 
+ 
+sudo cpufreq-set -r -g powersave
+-r: Applies the setting to all CPU cores.
+-g: Specifies the governor.
+Verify the Change:
+
+ 
+ 
+cpufreq-info
+Ensure that the active governor has changed accordingly.
+

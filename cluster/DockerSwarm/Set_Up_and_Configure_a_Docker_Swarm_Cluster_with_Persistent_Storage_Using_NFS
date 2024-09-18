@@ -1,0 +1,135 @@
+Prerequisites
+At least two Ubuntu machines (one manager node and one or more worker nodes)
+NFS server installed and configured
+Step 1: Install Docker on All Nodes
+First, install Docker on all the nodes (manager and worker nodes).
+
+Update the package index:
+
+ 
+ 
+sudo apt-get update
+Install Docker:
+
+ 
+ 
+sudo apt-get install -y docker.io
+Start Docker and enable it to start at boot:
+
+ 
+ 
+sudo systemctl start docker
+sudo systemctl enable docker
+Step 2: Set Up Docker Swarm
+Initialize Docker Swarm on the manager node:
+
+ 
+ 
+sudo docker swarm init --advertise-addr 192.168.1.100
+Replace 192.168.1.100 with the IP address of your manager node. This command will output a docker swarm join command which will be used to join worker nodes to the swarm.
+
+Join worker nodes to the swarm:
+On each worker node, run the docker swarm join command you received from the manager node:
+
+ 
+ 
+sudo docker swarm join --token SWMTKN-1-4hweu76lb5z8eubks0em1a8nrwq1al9gd8j5cknr2v62u9nz6s-6fi3qpiwp0sf4kjfhj3o5s32s 192.168.1.100:2377
+Step 3: Set Up NFS Server for Persistent Storage
+Install NFS server on a node that will act as the NFS server:
+
+ 
+ 
+sudo apt-get install -y nfs-kernel-server
+Create a directory to be  ared:
+
+ 
+ 
+sudo mkdir -p /srv/nfs/ are
+sudo chown nobody:nogroup /srv/nfs/ are
+sudo chmod 777 /srv/nfs/ are
+Edit the NFS exports file to add the directory to be  ared:
+
+ 
+ 
+sudo nano /etc/exports
+Add the following line:
+
+ 
+ 
+/srv/nfs/ are  *(rw,sync,no_subtree_check)
+Export the  ared directory:
+
+ 
+ 
+sudo exportfs -a
+Restart the NFS server:
+
+ 
+ 
+sudo systemctl restart nfs-kernel-server
+Step 4: Configure NFS Client on All Swarm Nodes
+Install NFS client:
+
+ 
+ 
+sudo apt-get install -y nfs-common
+Create a directory to mount the NFS  are:
+
+ 
+ 
+sudo mkdir -p /mnt/nfs/ are
+Mount the NFS  are:
+
+ 
+ 
+sudo mount 192.168.1.200:/srv/nfs/ are /mnt/nfs/ are
+To mount the NFS  are automatically at boot, add the following line to /etc/fstab:
+
+ 
+ 
+192.168.1.200:/srv/nfs/ are /mnt/nfs/ are nfs defaults 0 0
+Step 5: Deploy a Service with Persistent Storage
+Create a Docker service that uses the NFS volume:
+
+First, create a docker-compose.yml file:
+
+ 
+ 
+version: '3.8'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - type: volume
+        source: nfs-data
+        target: /usr/ are/nginx/html
+
+volumes:
+  nfs-data:
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.1.200,rw"
+      device: ":/srv/nfs/ are"
+Deploy the stack using Docker Swarm:
+
+ 
+ 
+docker stack deploy -c docker-compose.yml my_stack
+Step 6: Verify the Setup
+Check the status of the services:
+
+ 
+ 
+docker service ls
+Verify that the NFS  are is mounted and being used by the containers:
+
+ 
+ 
+docker inspect <container_id>
+Replace <container_id> with the ID of a running container to verify the volume is correctly mounted.
+
+Conclusion
+You now have a Docker Swarm cluster set up with persistent storage using NFS. The NFS server provides a  ared directory that all nodes in the Swarm can access, ensuring that data persists even if containers are moved between nodes.

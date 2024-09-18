@@ -1,0 +1,58 @@
+Running a Windows 7 VM in Virtualbox
+Locate a Windows 7 iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Microsoft Windows 7
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 7 (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Microsoft Windows 7.vdi
+File size: 40.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Windows 7 .iso file
+Click OK
+Make sure the Windows 7 VM is selected and click Start > Normal
+Click Next
+Click Install Now
+Check the I accept box, Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files, the VM will reboot
+Type a username and give the computer a name
+Enter a password > Re-type the password > Enter a password hint > Click Next
+At the Product Key dialog click the Skip button
+Click Ask me later
+Set the date/time and timezone > Click Next
+Click Home
+Welcome back to Windows 7
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions-amd64.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Yes button
+After the installation completes select Reboot now > Click Finish
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Windows 7
+Download i12bretro Windows SP Download
+Extract the downloaded zip file
+Select Devices > Optical Drives > Select disk image...
+Navigate to the extracted Windows SP file and select i12bretro_Windows_SP.iso
+If the VM doesn't autorun, open My Computer > CD Drive
+Open the Server 2008 & Windows 7 folder > Double click SP1 x64.exe
+Follow the dialogs to install Service Pack 1
+Click Finish to reboot and complete the SP1 install

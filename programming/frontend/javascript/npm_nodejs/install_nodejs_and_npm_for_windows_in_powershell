@@ -1,0 +1,27 @@
+Install Node.js and NPM
+To run the installation command, do the following:
+
+1. Open the command prompt as an administrator.
+
+2. Run the following command to install Node.js and NPM:
+
+choco install nodejs
+
+choco install nodejs CMD output
+When prompted to run the installation script, press y and Enter to continue the installation. Wait for the installation to complete before proceeding.
+
+3. Reset environment variables to add Node.js and NPM to PATH. Use the following command:
+
+refre env
+
+refre env CMD output
+The command resets the environment variables, which enables running both programs from the terminal.
+
+Step 2: Verify Node.js and NPM installation
+To verify that Node.js is installed correctly, run the following command in a new command prompt session:
+
+node -v
+
+Check the NPM installation with:
+
+npm -v

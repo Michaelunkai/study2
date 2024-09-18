@@ -1,0 +1,23 @@
+ Database Management
+Using Dokku plugins, you can easily manage various databases. Let's look at some commonly used databases.
+
+PostgreSQL:
+
+sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+dokku postgres:create mydatabase
+dokku postgres:link mydatabase myapp
+MySQL:
+
+sudo dokku plugin:install https://github.com/dokku/dokku-mysql.git
+dokku mysql:create mydatabase
+dokku mysql:link mydatabase myapp
+
+Redis:
+
+sudo dokku plugin:install https://github.com/dokku/dokku-redis.git
+dokku redis:create mycache
+dokku redis:link mycache myapp
+
+
+Backing Up and Restoring Data
+To ensure your data is safe, set up regular backups.

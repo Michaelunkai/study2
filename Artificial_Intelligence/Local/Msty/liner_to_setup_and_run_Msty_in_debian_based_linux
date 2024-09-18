@@ -1,0 +1,1 @@
+wget https://assets.msty.app/Msty_amd64.deb && sudo apt update && sudo apt install gdebi-core python3-debian xdg-utils libappindicator3-1 -y && sudo apt --fix-broken install -y && sudo gdebi Msty_amd64.deb &&  msty --no-sandbox

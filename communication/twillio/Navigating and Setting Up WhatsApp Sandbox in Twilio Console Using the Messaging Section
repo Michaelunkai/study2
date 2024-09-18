@@ -1,0 +1,36 @@
+# Comprehensive Guide to Navigating and Setting Up WhatsApp Sandbox in Twilio Console Using the Messaging Section
+
+## Introduction
+
+In this tutorial, we will guide you through the steps to navigate to the WhatsApp Sandbox in the Twilio Console using the 'Messaging' section. This tutorial ensures that you can easily set up and configure the WhatsApp Sandbox for development and testing purposes.
+
+## Prerequisites
+
+- A Twilio account.
+- Access to the Twilio Console.
+- Basic knowledge of navigating web interfaces.
+
+## Steps to Navigate to WhatsApp Sandbox in Twilio Console
+
+### Step 1: Log in to the Twilio Console
+
+1. Open your web browser and go to the [Twilio Console](https://console.twilio.com).
+2. Ensure you are logged in. If not, enter your Twilio account credentials to log in.
+3. You should see the main dashboard page, similar to the one shown in the image provided.
+
+### Step 2: Select the 'Messaging' Section
+
+1. On the left sidebar, under the 'Develop' section, locate and click on the 'Messaging' menu item.
+   - This section contains all messaging-related features and options provided by Twilio.
+
+### Step 3: Locate the 'Try it out' Subsection
+
+1. Within the 'Messaging' section, find and click on the 'Try it out' option.
+   - The 'Try it out' subsection includes different messaging features and sandboxes that you can experiment with.
+
+### Step 4: Select 'WhatsApp Sandbox'
+
+1. Under the 'Try it out' options, locate and click on the 'WhatsApp Sandbox'.
+   - This will redirect you to the page where you can set up and configure the WhatsApp Sandbox for your development and testing needs.
+
+By following these steps, you will successfully navigate to the WhatsApp Sandbox in the Twilio Console and be ready to set it up for your projects.

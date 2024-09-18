@@ -1,0 +1,77 @@
+▲A  A▼
+Let's Install Proxmox v7 on Armbian
+Things You Will Need
+A microSD card at least 16 GB https://amzn.to/36CpShC | https://amzn.to/3CXJngt | https://amzn.to/3JqyxSP
+Download and Flash Armbian Bullseye
+Download the Armbian Bullseye image (non-desktop) Download | Alternate
+Download Balena Etcher Download
+Run Balena Etcher
+Burn the Armbian Bullseye OS image to microSD card
+Safely remove microSD and re-insert
+Ignore/close the Windows dialogs to format the inserted microSD card
+Configure MicroSD Card for Armbian
+Open the readable partition of the microSD card in Explorer
+Rename the appropriate file from below to u-boot.ext on the root of the SD card
+u-boot-s905 (for s905)
+u-boot-s905x-s912 (for s905x and s912)
+u-boot-s905x2-s922 (for s905x2 and s922)
+
+Edit /extlinux/extlinux.conf in a text editor
+Comment out rk-3399 lines by adding #
+Uncomment aml s9xx FDT and APPEND lines by removing #
+Update the FDT line to point to a working .dtb file for your device
+# aml s9xxx
+#FDT /dtb/amlogic/meson-g12a-x96-max-no-cvbs.dtb
+#FDT /dtb/amlogic/meson-g12b-ugoos-am6-no-cvbs.dtb
+#FDT /dtb/amlogic/meson-g12b-odroid-n2.dtb
+FDT /dtb/amlogic/meson-gxl-s905w-p281.dtb
+APPEND=root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0
+Save
+Close
+Safely remove microSD
+Insert microSD card to Android TV box
+Booting to Armbian for the First Time
+Plug the power adapter into the Android TV box
+If the device has never booted from external storage before the stock Android OS will load
+In Android, navigate to the application drawer > Run Update & Backup
+Select Local > Navigate to the microSD card > aml_autoscript.zip
+Select Update
+The system will reboot twice and should then begin booting Armbian from the microSD card
+You should see the Armbian terminal running startup scripts
+When prompted, input a new root password
+Confirm the new root password
+When prompted, input a username
+Input a password for the new user
+Confirm the password for the new user
+Follow any additional prompts
+Run the following commands in terminal
+# elevate to root
+sudo su
+# update software repositories
+apt update
+# install available updates
+apt upgrade -y
+# install gnupg and curl
+apt install gnupg curl -y
+# download the pimox installation script
+curl https://raw.githubusercontent.com/pimox/pimox7/master/RPiOS64-IA-Install.sh > RPiOS64-IA-Install.sh
+# make the file executable
+chmod +x RPiOS64-IA-Install. 
+# run the install script
+./RPiOS64-IA-Install. 
+Answer the prompts to set a hostname, configure the network and set the root password
+Wait while the script installs dependencies
+The Armbian device will reboot once the install script completes
+Once Armbian boots back up, continue with the following command to finish incomplete installs and reboot once more
+# elevate to root
+sudo su
+# finish installing proxmox
+apt upgrade -y
+# reboot
+reboot now
+After the second reboot Proxmox should be fully installed
+On another device, open a web browser and navigate to https://DNSorIP:8006
+Welcome to Proxmox running on Armbian
+Source: https://github.com/pimox/pimox7
+
+ 

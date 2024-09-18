@@ -1,0 +1,1 @@
+aws kms describe-key --key-id <key-id> --connection-id <connection-id>

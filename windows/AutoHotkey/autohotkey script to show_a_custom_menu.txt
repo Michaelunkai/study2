@@ -1,0 +1,7 @@
+^!m::
+Menu, MyMenu, Add, Notepad, OpenNotepad
+Menu, MyMenu, Show
+return
+OpenNotepad::
+Run, notepad.exe
+return

@@ -1,0 +1,8 @@
+1)EC2 > launch instance > launch instance
+2)after the vm status is "running", in left pannel: instances > instance ID > press the ID of the created vm
+3)copy the "public ipv4 dns". press connect > rdp client.
+4) in windows open "remote desktop connection" > paste the dns 
+5) in rdp client page, choose username and press Get password, upload the private ,pem key > decreypt password. 
+copy the password and add the credentials in remote desktop connection >
+
+> connect > more choices > use a different account

@@ -1,0 +1,27 @@
+Using awk for Data Transformation:
+awk '{if ($3 > 50) print $1, $2}' data.txt
+
+
+Using Python for Data Processing:
+Install Python and necessary libraries:
+
+sudo apt install python3 python3-pip
+pip3 install pandas
+
+Example script (process_data.py):
+import pandas as pd
+
+# Read data
+data = pd.read_ ('data. ')
+
+# Process data
+filtered_data = data[data['value'] > 50]
+
+# Save processed data
+filtered_data.to_ ('filtered_data. ', index=False)
+
+
+Run the script:
+ 3 process_data.py
+
+

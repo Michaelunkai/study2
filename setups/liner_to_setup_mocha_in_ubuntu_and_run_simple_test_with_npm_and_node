@@ -1,0 +1,6 @@
+getnpm && mkdir mocha-testing && cd mocha-testing && npm init -y && npm install --save-dev mocha && echo 'var assert = require("assert");
+describe("Array", function() {
+  it("should return -1 when the value is not present", function() {
+    assert.equal([1,2,3].indexOf(4), -1);
+  });
+});' > test.js && npx mocha

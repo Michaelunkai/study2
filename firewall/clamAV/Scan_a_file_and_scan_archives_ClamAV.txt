@@ -1,0 +1,1 @@
+clamscan --scan-archive file.txt

@@ -1,0 +1,44 @@
+Running a TrueNAS CORE VM in VirtualBox
+Download TrueNAS Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: TrueNAS
+Machine Folder: C:\VMs
+Type: BSD
+Version: FreeBSD (64-bit)
+Memory Size: 8192 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image TrueNAS.vdi
+File size: 16 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded TrueNAS .iso file
+Click OK
+Make sure the TrueNAS VM is selected and click Start > Normal
+At the menu, press Enter to start the TrueNAS installer
+Select Install/Upgrade > OK
+If prompted about not enough RAM select Yes to continue > Press Enter
+Press the space bar to select the VBOX HARDDISK > Press Enter
+Select Yes to continue the installation > Press Enter
+Enter a root password twice > Press Enter
+Select Boot via BIOS > Press Enter
+After the installation completes select Devices > Optical Drives > Remove disk from virtual drive
+Click Force Unmount
+Select Machine > Reset to reboot the VM
+Once TrueNAS has finished booting, note the URL on the screen
+Open a web browser and navigate to the TrueNAS URL
+Log into the Web UI with username root and the password set during the installation
+Welcome to TrueNAS

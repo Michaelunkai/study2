@@ -1,0 +1,1 @@
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name my-web-app --deployment-container-image-name myacr.azurecr.io/my-app:latest

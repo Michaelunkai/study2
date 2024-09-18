@@ -1,0 +1,5 @@
+gdb_debugger
+objdump
+readelf
+strace_output.txt
+trace_system_calls_with_strace.sh

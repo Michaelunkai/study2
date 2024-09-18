@@ -1,0 +1,105 @@
+ What is Active Directory?
+Question: What is Active Directory and what are its main components?
+
+Answer: Active Directory (AD) is a directory service developed by Microsoft for Windows domain networks. It is included in most Windows Server operating systems. AD is used to store information about objects on the network and make this information easy for administrators and users to find and use. Its main components include:
+
+Domain Services: Provides the core directory services, including authentication, authorization, and directory operations.
+Lightweight Directory Services: A lightweight version of AD that can be used for directory-enabled applications.
+Certificate Services: Manages the distribution and management of digital certificates.
+Federation Services: Provides single sign-on (SSO) capabilities.
+Rights Management Services: Protects digital information from unauthorized use.
+2. What is DNS and how does it work?
+Question: Explain what DNS is and how it works.
+
+Answer: The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (like www.example.com) to IP addresses (like 192.0.2.1). When a user enters a domain name in their browser, the DNS server translates the domain name to the corresponding IP address, allowing the browser to locate and connect to the appropriate web server.
+
+3. What is the difference between a switch and a router?
+Question: What are the main differences between a switch and a router?
+
+Answer:
+
+Switch: A switch operates at the data link layer (Layer 2) of the OSI model. It is used to connect devices within the same network and uses MAC addresses to forward data to the correct destination.
+Router: A router operates at the network layer (Layer 3) of the OSI model. It is used to connect different networks and routes data packets based on their IP addresses. Routers are essential for managing traffic between different subnets and for connecting to the internet.
+4. What is virtualization and what are its benefits?
+Question: Define virtualization and list its benefits.
+
+Answer: Virtualization is the process of creating virtual instances of computing resources such as hardware platforms, storage devices, and network resources. It allows multiple virtual machines (VMs) to run on a single physical machine. The benefits of virtualization include:
+
+Cost Savings: Reduces the need for physical hardware, lowering capital and operating expenses.
+Resource Efficiency: Optimizes the utilization of hardware resources.
+Scalability and Flexibility: Makes it easy to scale resources up or down based on demand.
+Improved Disaster Recovery: Simplifies backup and recovery processes.
+Isolation and Security: Provides better isolation between applications and improves security.
+5. How do you troubleshoot network connectivity issues?
+Question: What steps do you take to troubleshoot network connectivity issues?
+
+Answer:
+
+Check Physical Connections: Ensure all cables and connections are secure.
+Verify IP Configuration: Use commands like ipconfig (Windows) or ifconfig/ip a (Linux) to check the device’s IP configuration.
+Ping and Traceroute: Use ping to test connectivity to other devices and traceroute to identify where the connection fails.
+Check Network Devices: Ensure switches, routers, and firewalls are operational and correctly configured.
+Review Logs: Check logs on network devices for errors or warnings.
+DNS Issues: Verify that DNS settings are correct and that the DNS server is reachable.
+Update Drivers and Firmware: Ensure network adapters and devices have the latest drivers and firmware updates.
+Check for Conflicts: Look for IP address conflicts or duplicate MAC addresses on the network.
+6. What are the differences between TCP and UDP?
+Question: Explain the differences between TCP and UDP.
+
+Answer:
+
+TCP (Transmission Control Protocol): TCP is a connection-oriented protocol that ensures reliable data transmission between devices. It establishes a connection before data can be sent, and it guarantees that data is delivered in the same order it was sent. TCP is used for applications where reliability is crucial, such as web browsing, email, and file transfers.
+UDP (User Datagram Protocol): UDP is a connectionless protocol that does not guarantee data delivery, order, or error checking. It is faster and more efficient than TCP because it has less overhead. UDP is used for applications where speed is more critical than reliability, such as video streaming, online gaming, and VoIP.
+7. What is a firewall and how does it work?
+Question: What is a firewall and how does it work?
+
+Answer: A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined security rules. It acts as a barrier between a trusted internal network and untrusted external networks, such as the internet. Firewalls can be hardware-based, software-based, or a combination of both. They work by:
+
+Packet Filtering: Inspecting packets and allowing or blocking them based on source and destination IP addresses, port numbers, and protocols.
+Stateful Inspection: Monitoring the state of active connections and making decisions based on the state and context of the traffic.
+Proxy Services: Acting as an intermediary between clients and servers, filtering requests and responses.
+Network Address Translation (NAT): Hiding internal IP addresses by translating them to a public IP address for external communications.
+8. What is RAID and what are its different levels?
+Question: Explain RAID and its different levels.
+
+Answer: RAID (Redundant Array of Independent Disks) is a technology that combines multiple physical disks into a single logical unit for improved performance, redundancy, or both. Different RAID levels offer various benefits:
+
+RAID 0 (Striping): Data is split across multiple disks for increased performance but offers no redundancy.
+RAID 1 (Mirroring): Data is duplicated on two disks for redundancy. If one disk fails, the other can continue to function.
+RAID 5 (Striping with Parity): Data and parity information are distributed across three or more disks. It provides good performance and redundancy.
+RAID 6 (Striping with Double Parity): Similar to RAID 5, but with two sets of parity information, allowing for up to two disk failures.
+RAID 10 (1+0): Combines RAID 1 and RAID 0. Data is mirrored and then striped, offering high performance and redundancy.
+9. What are the essential Linux commands every sysadmin should know?
+Question: What are some essential Linux commands that every system administrator should know?
+
+Answer:
+
+ls: Lists directory contents.
+cd: Changes the current directory.
+pwd: Prints the working directory.
+cp: Copies files and directories.
+mv: Moves or renames files and directories.
+rm: Removes files and directories.
+chmod: Changes file permissions.
+chown: Changes file owner and group.
+ps: Displays currently running processes.
+top: Shows real-time system information and running processes.
+df: Reports file system disk space usage.
+du: Estimates file and directory space usage.
+grep: Searches for patterns in files.
+find: Searches for files and directories.
+tar: Archives files.
+ssh: Connects to remote systems via Secure Shell (SSH).
+systemctl: Controls the systemd system and service manager.
+10. What is the importance of monitoring and logging in system administration?
+Question: Why is monitoring and logging important in system administration?
+
+Answer: Monitoring and logging are crucial for maintaining the health, performance, and security of IT systems. They help system administrators to:
+
+Detect Issues: Identify and address problems before they impact users.
+Performance Tuning: Monitor system performance and optimize resource usage.
+Security: Detect and respond to security incidents and breaches.
+Audit and Compliance: Maintain records for auditing and compliance with regulations.
+Troubleshooting: Analyze logs to diagnose and resolve issues.
+Capacity Planning: Monitor resource usage to plan for future growth and scaling.
+These Q&A cover a range of essential topics for system administrators and can be used as a study aid or reference guide.

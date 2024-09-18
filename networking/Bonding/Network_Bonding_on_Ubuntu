@@ -1,0 +1,118 @@
+## Comprehensive Guide to Network Bonding on Ubuntu: Step-by-Step Instructions
+
+Network bonding, also known as link aggregation, is a method of combining multiple network interfaces into a single logical interface to increase bandwidth and provide redundancy. This guide will take you through the complete process of setting up network bonding on Ubuntu, from start to finish.
+
+### Step 1: Update Your System and Install Necessary Packages
+
+First, ensure your system is up to date and install the `ifenslave` package, which is required for bonding.
+
+  
+sudo apt update
+sudo apt install ifenslave
+
+### Step 2: Load the Bonding Kernel Module
+
+Load the bonding kernel module:
+
+  
+sudo modprobe bonding
+
+To ensure the bonding module loads at boot, add it to the `/etc/modules` file:
+
+  
+echo "bonding" | sudo tee -a /etc/modules
+
+### Step 3: Configure Network Interfaces
+
+Depending on your Ubuntu version, you'll configure network interfaces using either Netplan (for Ubuntu 18.04 and later) or `/etc/network/interfaces` (for older versions).
+
+#### For Ubuntu 18.04 and Later (Using Netplan)
+
+1. Open the Netplan configuration file. You might need to adjust the filename to match your configuration:
+
+  
+sudo nano /etc/netplan/01-netcfg. 
+
+2. Add the following configuration, adjusting the interface names (`enp0s3`, `enp0s8`) and bond options as needed:
+
+  
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+    enp0s8:
+      dhcp4: no
+  bonds:
+    bond0:
+      interfaces:
+        - enp0s3
+        - enp0s8
+      addresses:
+        - 192.168.1.100/24
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+      parameters:
+        mode: active-backup
+        primary: enp0s3
+
+3. Apply the Netplan configuration:
+
+  
+sudo netplan apply
+
+#### For Older Versions of Ubuntu (Using `/etc/network/interfaces`)
+
+1. Edit the network interfaces file:
+
+  
+sudo nano /etc/network/interfaces
+
+2. Add the following configuration, adjusting the interface names and bond options as needed:
+
+ plaintext
+auto bond0
+iface bond0 inet static
+    address 192.168.1.100
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    dns-nameservers 8.8.8.8 8.8.4.4
+    bond-mode active-backup
+    bond-miimon 100
+    bond-slaves enp0s3 enp0s8
+
+auto enp0s3
+iface enp0s3 inet manual
+    bond-master bond0
+
+auto enp0s8
+iface enp0s8 inet manual
+    bond-master bond0
+
+3. Restart the networking service to apply the changes:
+
+  
+sudo systemctl restart networking
+
+### Step 4: Verify the Bonding Configuration
+
+Check the status of the bonded interface to ensure it is working correctly:
+
+  
+cat /proc/net/bonding/bond0
+
+You should see output detailing the status of the bonded interfaces.
+
+### Trouble ooting
+
+If you encounter any issues, consider the following tips:
+
+- Ensure the network interfaces are not managed by another service, such as NetworkManager.
+- Double-check the configuration files for any syntax errors.
+- Ensure the bonding module is loaded and active by running `lsmod | grep bonding`.
+
+By following these steps, you should have successfully set up network bonding on your Ubuntu system. This setup provides increased bandwidth and redundancy, ensuring a more reliable and efficient network connection. If you have any further questions or run into issues, feel free to ask for assistance.

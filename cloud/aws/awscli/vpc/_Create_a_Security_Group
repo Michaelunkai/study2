@@ -1,0 +1,1 @@
+aws ec2 create-security-group --group-name MySecurityGroup-48684d92 --description 'My security group' --vpc-id vpc-XXXXXXXXXXXXXXXXX

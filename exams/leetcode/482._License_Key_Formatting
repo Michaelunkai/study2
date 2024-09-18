@@ -1,0 +1,71 @@
+### Problem: 482. License Key Formatting
+
+### Solution
+
+To solve this problem, we need to reformat the given string `s` such that:
+1. All characters are uppercase.
+2. Groups of characters are formed with each group containing exactly `k` characters, except for the first group which may contain fewer characters but at least one.
+3. Dashes are used to separate the groups.
+
+### Steps
+
+1. **Remove Dashes**:
+   - Remove all existing dashes from the string `s`.
+
+2. **Convert to Uppercase**:
+   - Convert all characters to uppercase.
+
+3. **Determine Grouping**:
+   - Determine the size of the first group and then split the rest of the string into groups of size `k`.
+
+4. **Form the Result**:
+   - Concatenate the groups with dashes between them to form the final result.
+
+### Code Implementation
+
+```python
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        # Remove all dashes and convert to uppercase
+        s = s.replace('-', '').upper()
+        
+        # The length of the first group
+        first_group_len = len(s) % k
+        
+        # Result array to collect groups
+        result = []
+        
+        # Add the first group if its length is greater than 0
+        if first_group_len:
+            result.append(s[:first_group_len])
+        
+        # Add the rest of the groups
+        for i in range(first_group_len, len(s), k):
+            result.append(s[i:i + k])
+        
+        # Join all parts with dashes
+        return '-'.join(result)
+
+# Example usage:
+solution = Solution()
+print(solution.licenseKeyFormatting("5F3Z-2e-9-w", 4))  # Output: "5F3Z-2E9W"
+print(solution.licenseKeyFormatting("2-5g-3-J", 2))    # Output: "2-5G-3J"
+```
+
+### Explanation of the Code
+
+1. **Remove Dashes and Convert to Uppercase**:
+   - `s.replace('-', '').upper()` removes all dashes from the string and converts all characters to uppercase.
+
+2. **Determine Length of the First Group**:
+   - `first_group_len = len(s) % k` determines the length of the first group. This is the remainder when the length of `s` is divided by `k`.
+
+3. **Form Groups**:
+   - Use an empty list `result` to collect the groups.
+   - If the first group length is greater than 0, add the first part of `s` up to `first_group_len` to the `result`.
+   - Use a loop to add the remaining parts of `s` in groups of size `k` to the `result`.
+
+4. **Join with Dashes**:
+   - `'-'.join(result)` joins the collected groups with dashes to form the final reformatted license key.
+
+This approach ensures that the final license key is correctly formatted according to the given constraints.

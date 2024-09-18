@@ -1,0 +1,1 @@
+aws elasticbeanstalk describe-configuration-options --application-name <app-name> --template-name <template-name>

@@ -1,0 +1,1 @@
+clamscan -r --scan-html /path/to/directory

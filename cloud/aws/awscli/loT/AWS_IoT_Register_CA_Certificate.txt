@@ -1,0 +1,1 @@
+aws iot register-ca-certificate --ca-certificate file://ca.pem --verification-cert file://verification.pem

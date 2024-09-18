@@ -1,0 +1,73 @@
+To solve the problem of finding the average value of the nodes on each level of a binary tree, we can perform a level-order traversal (also known as breadth-first traversal). This approach allows us to traverse the tree level by level, making it straightforward to compute the average value of nodes at each level.
+
+Here's a step-by-step plan:
+
+1. **Level-Order Traversal**: We can use a queue to facilitate the level-order traversal. Starting with the root node, we add it to the queue.
+2. **Process Each Level**: For each level, we'll:
+   - Initialize a sum variable and a count variable to track the sum of the node values and the number of nodes at the current level.
+   - Iterate through all nodes at the current level (using a for-loop with the current size of the queue).
+   - Add the children of the current nodes to the queue for processing in the next iteration.
+3. **Compute Averages**: After processing all nodes at the current level, compute the average and store it in a result list.
+4. **Return the Result**: Once all levels are processed, return the result list containing the average values of each level.
+
+Here is the implementation of the above plan in Python:
+
+```python
+from collections import deque
+from typing import List, Optional
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        if not root:
+            return []
+
+        result = []
+        queue = deque([root])
+
+        while queue:
+            level_sum = 0
+            level_count = len(queue)
+
+            for _ in range(level_count):
+                node = queue.popleft()
+                level_sum += node.val
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            
+            average = level_sum / level_count
+            result.append(average)
+        
+        return result
+
+# Example usage:
+# root = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+# solution = Solution()
+# print(solution.averageOfLevels(root))  # Output: [3.0, 14.5, 11.0]
+```
+
+### Explanation of the Code:
+1. **Initialization**:
+   - We use a `deque` from the `collections` module to facilitate efficient appending and popping from both ends of the queue.
+   - We start by adding the root node to the queue.
+
+2. **Level-Order Traversal**:
+   - While there are nodes in the queue, we process each level:
+     - We determine the number of nodes at the current level (`level_count`) by checking the length of the queue.
+     - We initialize `level_sum` to accumulate the sum of values at the current level.
+     - For each node at the current level, we add its value to `level_sum` and add its non-null children to the queue.
+   - After processing all nodes at the current level, we compute the average and append it to the result list.
+
+3. **Returning the Result**:
+   - Once all levels have been processed, the `result` list contains the average values of each level, which we return.
+
+This solution ensures that we efficiently compute the required averages in a straightforward manner, leveraging the properties of a queue to manage the level-order traversal.

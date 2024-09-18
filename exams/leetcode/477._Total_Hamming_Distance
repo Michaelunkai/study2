@@ -1,0 +1,74 @@
+### Problem: 477. Total Hamming Distance
+
+### Solution
+
+To find the total Hamming distance between all pairs of integers in an array `nums`, we need to count the number of differing bits between each pair. Instead of comparing each pair directly, we can use an efficient approach by counting the number of `0s` and `1s` at each bit position across all numbers.
+
+### Key Insight
+
+The Hamming distance between two bits is `1` if one is `0` and the other is `1`. For a given bit position, if there are `x` numbers with `0` and `y` numbers with `1`, the contribution to the Hamming distance from this bit position is `x * y`.
+
+### Steps
+
+1. **Count the Bits**:
+   - For each bit position (from 0 to 31), count the number of numbers that have a `1` in that position.
+
+2. **Calculate the Contribution**:
+   - For each bit position, if `count` is the number of `1s`, then the number of `0s` is `n - count` (where `n` is the length of `nums`).
+   - The contribution to the Hamming distance from this bit position is `count * (n - count)`.
+
+3. **Sum the Contributions**:
+   - Sum up the contributions from all bit positions to get the total Hamming distance.
+
+### Code Implementation
+
+```python
+class Solution:
+    def totalHammingDistance(self, nums: List[int]) -> int:
+        total = 0
+        n = len(nums)
+        
+        for bit in range(32):  # there are at most 32 bits in the integers
+            count = 0
+            for num in nums:
+                count += (num >> bit) & 1  # count the number of 1s at this bit position
+            total += count * (n - count)  # add the contribution of this bit position
+        
+        return total
+```
+
+### Explanation of the Code
+
+1. **Initialize**:
+   - `total` to store the total Hamming distance.
+   - `n` is the length of the input array `nums`.
+
+2. **Loop Over Bit Positions**:
+   - For each bit position from 0 to 31:
+     - Initialize `count` to count the number of `1s` at the current bit position.
+     - Loop over each number in `nums` and check if the current bit is `1`.
+     - Use `(num >> bit) & 1` to isolate the bit at the current position and add to `count`.
+     - Calculate the contribution of this bit position to the total Hamming distance as `count * (n - count)` and add to `total`.
+
+3. **Return the Result**:
+   - Return `total` which now contains the sum of Hamming distances between all pairs of integers in the input array.
+
+### Examples
+
+- **Example 1**:
+  ```plaintext
+  Input: nums = [4,14,2]
+  Output: 6
+  Explanation: The Hamming distances are:
+  HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 + 2 = 6.
+  ```
+
+- **Example 2**:
+  ```plaintext
+  Input: nums = [4,14,4]
+  Output: 4
+  Explanation: The Hamming distances are:
+  HammingDistance(4, 14) + HammingDistance(4, 4) + HammingDistance(14, 4) = 2 + 0 + 2 = 4.
+  ```
+
+This approach ensures that we efficiently calculate the total Hamming distance in `O(n)` time complexity, where `n` is the length of `nums`.

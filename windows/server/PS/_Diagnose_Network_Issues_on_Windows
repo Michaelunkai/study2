@@ -1,0 +1,8 @@
+# Test network connectivity to a host
+Test-NetConnection -ComputerName google.com -Port 80
+
+# Get detailed network adapter information
+Get-NetAdapter | Format-List
+
+# Trace network route to a host
+Test-NetConnection -TraceRoute google.com

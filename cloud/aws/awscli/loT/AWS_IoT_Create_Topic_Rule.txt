@@ -1,0 +1,1 @@
+aws iot create-topic-rule --rule-name <rule-name> --topic-rule-payload file://rule-payload.json

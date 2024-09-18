@@ -1,0 +1,2 @@
+sudo nano /etc/awstats/awstats.mywebsite.conf
+LogFile=\"perl -e 'require \'Net::Amazon::S3\'; ...'\"

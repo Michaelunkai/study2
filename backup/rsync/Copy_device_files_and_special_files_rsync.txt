@@ -1,0 +1,1 @@
+rsync -av --devices --specials /source_directory/ /destination_directory/

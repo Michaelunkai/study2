@@ -1,0 +1,10 @@
+aws rekognition detect-moderation-labels \
+--image "S3Object={Bucket=your-bucket-name,Name=image.jpg}" \
+--min-confidence 75
+
+
+For a local image:
+aws rekognition detect-moderation-labels \
+--image "Bytes=$(base64 /path/to/your/image.jpg | tr -d '\n')" \
+--min-confidence 75
+

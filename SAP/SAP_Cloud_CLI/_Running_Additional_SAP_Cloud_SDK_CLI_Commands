@@ -1,0 +1,18 @@
+Running Additional SAP Cloud SDK CLI Commands
+After successfully initializing your project, you can run various other commands available in the SAP Cloud SDK CLI. Here are a few examples:
+
+Add an approuter to your project for handling user authentication:
+
+ 
+ 
+sap-cloud-sdk add-approuter ./your-project-directory
+Package your project for deployment:
+
+ 
+ 
+sap-cloud-sdk package ./your-project-directory
+Generate an OData client from an EDMS file for SAP solutions:
+
+ 
+ 
+sap-cloud-sdk generate-odata-client -i ./edmx-directory -o ./output-directory

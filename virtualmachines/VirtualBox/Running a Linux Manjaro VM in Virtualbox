@@ -1,0 +1,59 @@
+Running a Linux Manjaro VM in Virtualbox
+Download Linux Manjaro Download
+Choose a desktop environment by scrolling through the various options on the downloads page
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Linux Manjaro
+Machine Folder: C:\VMs
+Type: Linux
+Version: Arch Linux (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Linux Manjaro.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Linux Manjaro .iso file
+Click OK
+Make sure the Linux Manjaro VM is selected and click Start > Normal
+Press Enter to Start Manjaro (or wait 10 seconds)
+Click the Application button and search install > Click Install Manjaro Linux
+Select a language > Click Next
+Select a Region > Click Next
+Select a keyboard layout > Click Next
+Select Erase disk > Click Next
+Enter a name, computer name, username, password and root password > Click Next
+Choose an Office Suite to install > Click Next
+Verify the overview and click Install > Click Install now
+Wait while Manjaro copies files and installs
+When the installation completes, Check the Restart Now box and click Done, the VM will reboot
+Login with the username and password created earlier in the process
+Welcome to Manjaro Linux
+Optional Steps
+Click the Applications button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+sudo pacman -S perl gcc make
+Select Devices > Insert Guest Additions CD image...
+If the installation autoruns, select Run otherwise
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open in Terminal
+In the Terminal window run the following commands
+sudo sh ./VBoxLinuxAdditions.run
+sudo reboot now
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back in

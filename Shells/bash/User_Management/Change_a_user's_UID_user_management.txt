@@ -1,0 +1,3 @@
+Command: sudo usermod -u <newUID> <username>
+Description: Changes a user's UID.
+User Management

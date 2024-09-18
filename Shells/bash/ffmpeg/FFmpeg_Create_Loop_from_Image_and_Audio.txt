@@ -1,0 +1,1 @@
+ffmpeg -loop 1 -i image.png -i audio.mp3 -c:v libx264 -t 30 -pix_fmt yuv420p output.mp4

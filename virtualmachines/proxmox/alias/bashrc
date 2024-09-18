@@ -1,0 +1,24 @@
+
+alias plex="pct exec 107 -- fstrim -av"
+alias userver="pct exec 104 -- fstrim -av"
+
+alias backup='cd /var/lib/vz/dump && docker build -t michadockermisha/backup:proxdump . && docker push michadockermisha/backup:proxdump && cd ../template/iso && docker build -t >
+
+
+root@pve:~/backup# alias backup='cd /root/backup && bash backup.sh && docker build -t michadockermisha/backup:proxconf . && docker push michadockermisha/backup:proxconf && cd /v>alias ansibleupdate='cd /etc/ansible/playbooks/ && ansible-playbook update.yml --extra-vars "ansible_become_pass=123456"'
+alias brc="nano /root/.bashrc"
+alias brc1="source /root/.bashrc"
+alias cc="clear"
+alias pl="pct enter 107"
+alias cdv="cd /var/lib/vz"
+alias update="apt update && apt upgrade -y"
+alias ccftp="pct stop 104 && pct destroy 104 && pct restore 104 /var/lib/vz/dump/vzdump-lxc-104-2024_06_07-16_35_55.tar.zst --storage local --start 1 --hostname UploadServer"
+alias resnap="qm rollback 102 snap"
+alias dsnap="qm delsnapshot 102 snap"
+alias snap="qm snapshot 102 Snap --snapname Snap"
+alias free102="qm stop 102 && qemu-img convert -O qcow2 /var/lib/vz/images/102/vm-102-disk-0.qcow2 /var/lib/vz/images/102/vm-102-disk-0-compact.qcow2 && mv /var/lib/vz/images/10>
+
+alias ram='df -h /var/lib/vz | awk '\''NR==1{print $2, $3, $4, $5} NR==2{print $2, $3, $4, $5}'\'''
+
+
+

@@ -1,0 +1,19 @@
+▲A  A▼
+Updating to Windows 11 22H2 on Unsupported Hardware [No TPM | No Secure Boot]
+Download the Windows 11 TPM/SecureBoot bypass script Download
+Download the Windows 11 22H2 Installation .iso file Download
+Extract the downloaded MediaCreationTool .zip archive
+Navigate into the downloaded folder /bypass11 > Right click on Skip_TPM_Check_on_Dynamic_Update.cmd > Run as administrator
+Press Enter once the script completes to close the command prompt
+Double click the downloaded Windows 11 22H2 .iso file to mount it
+In File Explorer, navigate to the mounted Windows 11 22H2 disc image and double click Setup.exe
+Once the installer loads, click the Change how Setup downloads updates option > Select Not right now > Click Next
+Step through the rest of the setup as normal
+After a few reboots the system will be updated to Windows 11 22H2
+Cleanup After Testing
+After verifying the update has not caused any issues, follow the steps below to free up the space used by the Windows.old backup
+
+Right click on the Start button > Settings
+Select Storage > Temporary files
+Check the box next to Previous Windows installation(s) > Click Remove files
+ 

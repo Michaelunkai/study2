@@ -1,0 +1,1 @@
+ffmpeg -i input.mkv -map 0:v -c copy output.mp4

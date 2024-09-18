@@ -1,0 +1,21 @@
+Portable Web Server Using lighttpd
+Things You Will Need
+A USB flash drive, at least 8 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Download lighttpd for Windows Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Extract the lighttpd .zip file
+Copy the extracted lighttpd folder to the root of a USB flash drive
+Navigate to /lighttpd and double click lighttpd.exe to start the portable web server with the default configuration
+Add PHP Support (Optional)
+Download the zip version of PHP for Windows Download
+Extract the downloaded PHP .zip file
+Copy the extracted PHP files to /lighttpd/PHP
+Navigate to /lighttpd/conf and edit lighttpd.conf in a text editor
+Add the following lines to lighttpd.conf
+cgi.assign = ( ".php" => server_root + "/PHP/php-cgi.exe")
+Find static-file.exclude-extensions and add ".php" to the listing
+Find index-file.names and add "index.php" to the listing
+Find mod_cgi and remove the # to uncomment it
+Save the changes to lighttpd.conf
+Navigate to /lighttpd and double click lighttpd.exe to start the portable web server with PHP support

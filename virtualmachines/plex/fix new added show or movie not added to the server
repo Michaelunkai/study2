@@ -1,0 +1,2 @@
+chmod -R 755 /path/to/your/TVshowitself/folder
+chown -R plex:plex /path/to/your/TVshowitself/folder

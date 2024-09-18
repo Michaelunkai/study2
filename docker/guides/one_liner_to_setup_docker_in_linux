@@ -1,0 +1,5 @@
+sudo apt update -y && sudo apt upgrade -y && \
+  sudo apt install -y -qq docker.io && \
+  sudo usermod -aG docker $USER && newgrp docker && sudo service docker start && \
+  sudo apt install -y -qq docker.io && sudo usermod -aG docker $USER && \
+  newgrp docker && sudo service docker start && sudo sh -c "sudo setfacl -m user:$USER:rw /var/run/docker.sock && sudo apt update -y && sudo apt upgrade -y'

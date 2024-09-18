@@ -1,0 +1,37 @@
+**Creating Architectural Visualizations with Leonardo**
+**Evyatar Edri**
+12/06/2024
+### Leonardo's New Interface
+Leonardo's new interface, detailed in this article, offers an easy and intuitive way to create architectural visualizations. During a webinar in May 2024, we reviewed the advanced features of the image generator, including Image Guidance and Style Reference, which make it easier to create visualizations from sketches and architectural plans.
+#### Step 1: Choosing a Model
+Leonardo is based on Stable Diffusion, so it's important to choose a suitable model for photorealistic images via the Preset button.
+#### Step 2: Uploading a Source Image and Activating "Control Net"
+Select the Edge to Image option to activate the “Control Net” feature, which allows turning sketches into realistic visualizations.
+#### Step 3: Setting the Effect's Weight
+After uploading the image, adjust the slider to change the effect's weight. The default is 1.00.
+#### Step 4: Text Prompt
+Write a textual description of the desired architectural style. You can use language models like Claude or ChatGPT for prompt crafting.
+#### Step 5: Style Reference Borrowing
+You can upload an image of another building to show Leonardo the desired style while respecting copyright.
+#### Step 6: Additional Settings
+Our recommendations include:
+- Quality: Best
+- Contrast: High or Medium
+- Image Dimensions: 16:9 wide screen
+- Number of Images: 2-3
+- Advanced Options: PhotoReal if you have a paid subscription
+- Continuity and Consistency: Use fixed seed numbers for a series of images
+#### Step 7: Improving the Visualization
+Use the Alchemy Upscaler to enhance the final product and enlarge the image.
+### Why Leonardo?
+Using AI tools like Leonardo allows creating impressive visualizations quickly and at a low cost. The guides are always free, but there are also comprehensive courses for skill improvement.
+### Stay Updated
+Join our AI communities for updates and expert consultations.
+**For more details and course registration**
+[More Details](#)
+---
+**Evyatar Edri**
+AI lecturer and social media marketing expert. Co-Founder & VP Product at LetsAI. Founder and CEO of Fuzz New Media.
+**To get a discount on course prices – use the coupon code LETSAI**
+---
+**For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts**

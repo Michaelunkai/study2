@@ -1,0 +1,34 @@
+1) go to the path you wish to broadcast:
+cd /mnt/c
+
+2)
+nano custom_server
+
+3)enter this to the py file:
+
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+
+class CustomRequestHandler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/mnt/c':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(b"Path /mnt/c is being broadcasted.")
+        else:
+            super().do_GET()
+
+def run_server():
+    server_address = ('', 8000)  # You can change the port if needed
+    httpd = HTTPServer(server_address, CustomRequestHandler)
+    print('Server is running...')
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run_server()
+    
+   
+   
+4) python custom_server.py
+
+5) http://localhost:8000

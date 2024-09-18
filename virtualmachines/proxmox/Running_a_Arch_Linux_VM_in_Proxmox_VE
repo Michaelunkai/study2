@@ -1,0 +1,87 @@
+▲A  A▼
+Running a Arch Linux VM in Proxmox VE
+Download the Arch Linux iso Download and upload it to the Proxmox ISO image library
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Arch Linux installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 or more > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Arch Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+At the Arch Linux menu, select Arch Linux install medium > Press Enter
+Run the following commands to install Arch Linux
+# list disk drives, note the identifier for VBOX HARDDISK
+fdisk -l
+# partition the drive, change the identifier if needed
+fdisk /dev/sda
+# create a new partition
+n
+# set the partition type to primary
+p
+# default sector
+Press Enter to accept default
+# press enter to accept the default start sector
+2048
+# set the partition size, adjust to leave ~2GB for swap
++14GB
+# create a swap partition
+n
+# set the partition type to primary
+p
+# default sector
+Press Enter to accept default
+# set the partition size
+Press Enter to accept default
+# write the partitions
+w
+# print out the partitions
+fdisk -l
+# create ext4 root partition
+mkfs.ext4 /dev/sda1
+# confirm proceeding with the change if prompted
+y
+# create swap partition
+mkswap /dev/sda2
+# confirm proceeding with the change if prompted
+y
+# mount the root partition
+mount /dev/sda1 /mnt
+# enable swap
+swapon /dev/sda2
+# run pacstrap installation
+pacstrap /mnt base linux linux-firmware
+# generate fstab file
+genfstab -U /mnt >> /mnt/etc/fstab
+# change root to the /mnt directory
+arch-chroot /mnt
+# set the hostname
+echo archlinux-vm > /etc/hostname
+# install grub bootloader
+pacman -S grub
+grub-install /dev/sda
+# create grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+# install gnome desktop environment
+pacman -S gnome networkmanager qemu-guest-agent
+# enable required services
+systemctl enable gdm.service
+systemctl enable NetworkManager.service
+# set root passwd
+passwd
+#  utdown
+exit
+ utdown now
+In the Proxmox web UI, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the Arch Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Welcome to Arch Linux
+ 

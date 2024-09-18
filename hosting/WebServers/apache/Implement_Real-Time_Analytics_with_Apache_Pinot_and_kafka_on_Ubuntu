@@ -1,0 +1,153 @@
+# Comprehensive Guide to Implement Real-Time Analytics with Apache Pinot on Ubuntu
+
+## Tools Used
+- **Ubuntu OS**
+- **Java (OpenJDK 11)**
+- **Apache Pinot**
+- **Apache Kafka**
+
+### Step 1: Install Java
+
+Apache Pinot requires Java to run. Ensure you have Java installed on your system.
+
+1. **Update your package index:**
+     
+   sudo apt update
+
+2. **Install Java:**
+     
+   sudo apt install openjdk-11-jdk -y
+
+3. **Verify the installation:**
+     
+   java -version
+
+### Step 2: Download and Extract Apache Pinot
+
+1. **Download the latest version of Apache Pinot from the official website:**
+     
+   wget https://github.com/apache/pinot/releases/download/release-0.9.0/pinot-0.9.0-bin.tar.gz
+
+2. **Extract the downloaded archive:**
+     
+   tar -xzf pinot-0.9.0-bin.tar.gz
+
+### Step 3: Start Apache Pinot
+
+1. **Navigate to the extracted directory:**
+     
+   cd pinot-0.9.0-bin
+
+2. **Start Pinot in quickstart mode:**
+     
+   bin/quick-start-streaming. 
+
+This command starts Pinot along with a Kafka server and sets up a sample real-time data pipeline.
+
+### Step 4: Verify Installation
+
+1. **Open a web browser and go to the Pinot controller UI at:**
+    plaintext
+   http://localhost:9000
+
+### Step 5: Set Up Your Data Pipeline
+
+To set up your own data pipeline, you will need to:
+
+#### Step 5.1: Set Up Kafka
+
+1. **Install Kafka:**
+     
+   sudo apt install kafka
+
+2. **Start Kafka:**
+     
+   kafka-server-start.  /usr/local/etc/kafka/server.properties
+
+#### Step 5.2: Create a Kafka Topic
+
+1. **Create a Kafka topic:**
+     
+   kafka-topics.sh --create --topic your-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+#### Step 5.3: Produce Data to Kafka Topic
+
+1. **Use a Kafka producer to send messages to your topic.**
+
+### Step 6: Create a Pinot Table
+
+#### Step 6.1: Create a Table Configuration File
+
+1. **Create a file named `table-config.json` with the following content:**
+    json
+   {
+     "tableName": "your-table",
+     "tableType": "REALTIME",
+     "segmentsConfig": {
+       "replication": "1"
+     },
+     "tenants": {},
+     "tableIndexConfig": {
+       "loadMode": "MMAP",
+       "invertedIndexColumns": ["your-column"],
+       "sortedColumn": ["your-column"],
+       "noDictionaryColumns": ["your-column"]
+     },
+     "streamConfigs": {
+       "streamType": "kafka",
+       "stream.kafka.consumer.type": "simple",
+       "stream.kafka.topic.name": "your-topic",
+       "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+       "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+       "stream.kafka.broker.list": "localhost:9092",
+       "stream.kafka.hlc.zk.connect.string": "localhost:2181"
+     }
+   }
+
+#### Step 6.2: Create a Schema File
+
+1. **Create a file named `schema.json` with the following content:**
+    json
+   {
+     "schemaName": "your-table-schema",
+     "dimensionFieldSpecs": [
+       {
+         "name": "your-column",
+         "dataType": "STRING"
+       }
+     ],
+     "metricFieldSpecs": [
+       {
+         "name": "your-metric",
+         "dataType": "INT"
+       }
+     ],
+     "dateTimeFieldSpecs": [
+       {
+         "name": "timestamp",
+         "dataType": "LONG",
+         "format": "1:MILLISECONDS:EPOCH",
+         "granularity": "1:MILLISECONDS"
+       }
+     ]
+   }
+
+#### Step 6.3: Add the Table and Schema to Pinot
+
+1. **Run the following command to add the table and schema to Pinot:**
+     
+   bin/pinot-admin.sh AddTable -tableConfigFile table-config.json -schemaFile schema.json -exec
+
+### Step 7: Query Your Data
+
+1. **Use the Pinot Query Console at:**
+    plaintext
+   http://localhost:9000/query
+
+2. **Run SQL queries against your data to verify everything is set up correctly.**
+
+### Step 8: Automate the Pipeline (Optional)
+
+For production environments, consider using Docker or Kubernetes to automate and manage your Pinot and Kafka instances. Also, implement monitoring and alerting for your pipeline.
+
+By following these steps, you'll have a basic real-time analytics setup with Apache Pinot on Ubuntu. Adjust configurations and parameters as needed to suit your specific use case and data requirements.

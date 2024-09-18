@@ -1,0 +1,1 @@
+aws cloudfront create-distribution --distribution-config file://distribution-config.json

@@ -1,0 +1,1 @@
+clamscan --max-filesize=5M file.txt

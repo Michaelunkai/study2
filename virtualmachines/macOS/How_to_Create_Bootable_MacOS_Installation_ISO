@@ -1,0 +1,30 @@
+▲A  A▼
+How to Create Bootable MacOS Installation ISO
+Things You Will need
+An existing MacOS Device or VM
+30-40 GB of free disk space
+Creating the Bootable .iso
+Download the MacOS install from the Mac App Store
+NOTE: the easiest way to find them is to use a search engine, for example:
+macos monterey site:apps.apple.com
+Click the Get button
+Wait for Software Update to find the update
+When prompted, click Download
+Wait for the download to complete
+Once the download completes, quit the installation if its starts
+Start LaunchPad from the dock
+Search terminal > Click Terminal to launch it
+Run the following commands in terminal, altering the MacOS Installer name as needed
+# create temporary disk image, make sure its larger than the downloaded installer
+hdiutil create -o /tmp/macOS -size 15000m -volname macOS -layout SPUD -fs HFS+J
+# mount the temporary disk image
+hdiutil attach /tmp/macOS.dmg -noverify -mountpoint /Volumes/macOSISO
+# use createinstallationmedia utility to copy files
+sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/macOSISO --nointeraction
+# unmount the temporary disk image, alter the OS name as needed
+hdiutil detach -force /Volumes/Install\ macOS\ Monterey
+# convert the disk image to .iso
+hdiutil convert /tmp/macOS.dmg -format UDTO -o ~/Desktop/macOS.cdr
+# change the extension from .cdr to .iso
+mv ~/Desktop/macOS.cdr ~/Desktop/macOS.iso
+ 

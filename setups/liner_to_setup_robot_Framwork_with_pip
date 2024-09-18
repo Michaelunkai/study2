@@ -1,0 +1,1 @@
+sudo apt-get install -y python3-pip && pip3 install robotframework && robot --version && mkdir tests && echo "*** Settings ***\nLibrary  BuiltIn\n\n*** Test Cases ***\nExample Test\n    [Tags]  Example\n    Log  Hello, world!" > tests/example.robot && robot tests/example.robot

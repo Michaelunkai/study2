@@ -1,0 +1,5 @@
+Install VLAN tools:sudo apt install vlanConfigure VLAN: Edit the network interfaces file to add VLAN configuration:sudo nano /etc/network/interfacesAdd the following lines:auto eth0.10
+iface eth0.10 inet static
+    address 192.168.10.1
+    netmask 255.255.255.0
+    vlan-raw-device eth0This configuration creates a VLAN with ID 10 on the eth0 interface.

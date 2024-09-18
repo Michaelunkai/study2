@@ -1,0 +1,8 @@
+sudo apt install openjdk-11-jdk -y
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.3.0.51899.zip
+unzip sonarqube-9.3.0.51899.zip
+
+
+
+cd sonarqube-9.3.0.51899/bin/linux-x86-64
+./sonar.  start

@@ -1,0 +1,6 @@
+sudo apt install recoll -y && echo -e "topdirs = /etc /home /var" | sudo tee -a ~/.recoll/recoll.conf > /dev/null && recollindex
+
+
+to search run:
+
+recoll -t -q "search query"

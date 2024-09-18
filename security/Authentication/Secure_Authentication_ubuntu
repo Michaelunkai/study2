@@ -1,0 +1,31 @@
+Secure Authentication
+Implement secure authentication mechanisms, such as multi-factor authentication (MFA).
+
+Set Up SSH Key Authentication
+Generate SSH keys:
+
+ 
+ 
+ssh-keygen -t rsa -b 4096
+Copy the public key to the server:
+
+ 
+ 
+s -copy-id username@server_ip
+Disable password authentication:
+
+ 
+ 
+sudo nano /etc/s /s d_config
+Set the following parameters:
+
+plaintext
+ 
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+Restart the SSH service:
+
+ 
+ 
+sudo systemctl restart ssh

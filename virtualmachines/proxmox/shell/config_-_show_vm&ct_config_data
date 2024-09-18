@@ -1,0 +1,8 @@
+qm config 101
+
+*only cores:
+
+qm config 101 | grep cores
+
+* memory:
+qm config 101 | grep memory

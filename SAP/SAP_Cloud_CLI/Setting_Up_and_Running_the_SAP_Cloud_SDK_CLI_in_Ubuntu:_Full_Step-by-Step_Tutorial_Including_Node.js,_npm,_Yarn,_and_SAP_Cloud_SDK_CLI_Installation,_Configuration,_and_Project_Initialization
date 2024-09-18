@@ -1,0 +1,142 @@
+**Comprehensive Guide to Setting Up and Running the SAP Cloud SDK CLI in Ubuntu: Full Step-by-Step Tutorial Including Node.js, npm, Yarn, and SAP Cloud SDK CLI Installation, Configuration, and Project Initialization**
+
+This tutorial will walk you through the complete setup process for the SAP Cloud SDK CLI on Ubuntu, covering the installation of Node.js, npm, and Yarn, building the project, and initializing an SAP Cloud SDK project with commands. You'll also learn how to handle the prompt for entering the command to start your application.
+
+### Prerequisites:
+- Ubuntu operating system
+- Basic understanding of terminal commands
+
+### Tools Mentioned:
+- **Node.js**: JavaScript runtime environment
+- **npm**: Node.js package manager
+- **Yarn**: Alternative package manager for Node.js
+- **SAP Cloud SDK CLI**: Command-line interface for managing SAP Cloud SDK projects
+
+---
+
+### Step 1: Install Prerequisites (Node.js and npm)
+
+First, make sure you have Node.js and npm installed. If they are not already installed, you can install them using the following commands:
+
+  
+sudo apt install -y nodejs npm
+
+This will install Node.js and its package manager, npm, on your system.
+
+---
+
+### Step 2: Clone the SAP Cloud SDK CLI Repository
+
+Next, you need to clone the SAP Cloud SDK CLI repository from GitHub. Run the following command to clone the repository:
+
+  
+git clone https://github.com/SAP-archive/cloud-sdk-cli.git
+
+Navigate into the cloned project directory:
+
+  
+cd cloud-sdk-cli
+
+---
+
+### Step 3: Install Yarn Globally
+
+The project requires Yarn as the package manager. Install Yarn globally using npm with the following command:
+
+  
+npm install -g yarn
+
+This command will install Yarn globally on your system, which is necessary for managing project dependencies.
+
+---
+
+### Step 4: Install Project Dependencies
+
+Now that Yarn is installed, use it to install the project's dependencies. Run this command:
+
+  
+yarn install
+
+This will download and link all necessary dependencies for the SAP Cloud SDK CLI project.
+
+---
+
+### Step 5: Build the Project
+
+Once the dependencies are installed, you need to build the project. Use Yarn to build it by running the following command:
+
+  
+yarn build
+
+This will compile the TypeScript files into JavaScript and prepare the project for execution.
+
+---
+
+### Step 6: Install the SAP Cloud SDK CLI Globally
+
+To make the `sap-cloud-sdk` command available globally, you need to install the SAP Cloud SDK CLI globally using npm. Run the following command:
+
+  
+npm install -g @sap-cloud-sdk/cli
+
+This step ensures that the CLI is available globally on your system and can be used from any directory.
+
+---
+
+### Step 7: Initialize a New SAP Cloud SDK Project
+
+Now, you are ready to initialize a new SAP Cloud SDK project. Navigate to the directory where you want to create the project or use an existing project directory. Then run:
+
+  
+sap-cloud-sdk init
+
+You will be prompted to enter some configuration details, such as the directory and the command to start your application.
+
+#### Handling the Prompt: Enter the Command to Start Your Application
+
+During initialization, you will see this prompt:
+
+Enter the command to start your application:
+
+Depending on the structure of your application, you should provide the appropriate command. For example:
+
+- If you're using a basic Node.js app, you might use:
+
+    
+  node index.js
+
+- If you have a defined start script in `package.json`, use:
+
+    
+  npm start
+
+Choose the correct command based on your project's configuration.
+
+---
+
+### Step 8: Running Additional SAP Cloud SDK CLI Commands
+
+After successfully initializing your project, you can run various other commands available in the SAP Cloud SDK CLI. Here are a few examples:
+
+- **Add an approuter** to your project for handling user authentication:
+
+    
+  sap-cloud-sdk add-approuter ./your-project-directory
+
+- **Package your project** for deployment:
+
+    
+  sap-cloud-sdk package ./your-project-directory
+
+- **Generate an OData client** from an EDMS file for SAP solutions:
+
+    
+  sap-cloud-sdk generate-odata-client -i ./edmx-directory -o ./output-directory
+
+---
+
+### Conclusion
+
+By following these steps, you can successfully set up and run the SAP Cloud SDK CLI on your Ubuntu system. This comprehensive guide covered the installation of Node.js, npm, Yarn, and the SAP Cloud SDK CLI, along with instructions for initializing and running an SAP Cloud SDK project. If you need to run any additional commands for managing your SAP Cloud SDK project, refer to the commands section above.
+
+Let me know if you encounter any issues during the setup or have any additional questions!

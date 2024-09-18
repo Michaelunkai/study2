@@ -1,0 +1,106 @@
+You have a perfect binary tree. This means that all the leaves (nodes without children) are on the same level, and every parent has exactly two children.
+
+Your job is to connect each node to its next right node. If there is no next right node, the pointer should be set to NULL.
+
+Here's an example:
+
+Imagine a tree with these levels:
+
+
+      1
+     / \
+    2   3
+   / \ / \
+  4  5 6  7
+The goal is to connect nodes on the same level:
+
+
+
+      1 -> NULL
+     / \
+    2 -> 3 -> NULL
+   / \ / \
+  4-> 5-> 6-> 7 -> NULL
+Python Solution:
+
+
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        if not root:
+            return None
+        
+        leftmost = root
+        
+        while leftmost.left:
+            head = leftmost
+            while head:
+                head.left.next = head.right
+                
+                if head.next:
+                    head.right.next = head.next.left
+                
+                head = head.next
+            
+            leftmost = leftmost.left
+        
+        return root
+Explanation of the Code:
+Node Class:
+
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+This defines a node in the binary tree with a value, a left child, a right child, and a next pointer.
+Solution Class and Method:
+
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        if not root:
+            return None
+        
+        leftmost = root
+        
+        while leftmost.left:
+            head = leftmost
+            while head:
+                head.left.next = head.right
+                
+                if head.next:
+                    head.right.next = head.next.left
+                
+                head = head.next
+            
+            leftmost = leftmost.left
+        
+        return root
+connect method connects each node to its next right node.
+if not root: If the tree is empty, return None.
+leftmost = root: Start with the root node.
+while leftmost.left: Continue until there are no more levels to connect.
+head = leftmost: Start with the leftmost node of the current level.
+while head: Traverse nodes at the current level.
+head.left.next = head.right: Connect the left child to the right child.
+if head.next: If there is a next node, connect the right child to the next node's left child.
+head = head.next: Move to the next node.
+leftmost = leftmost.left: Move to the next level.
+Summary:
+Start from the root and initialize a pointer called leftmost at the root.
+While there are levels left to process:
+Traverse nodes in the current level using another pointer called head.
+Connect the left child to the right child.
+Connect the right child to the next node's left child if there is a next node.
+Move to the next node in the current level.
+Move to the next level by setting leftmost to its left child.
+Return the root.
+

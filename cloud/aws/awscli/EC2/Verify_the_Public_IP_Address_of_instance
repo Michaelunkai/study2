@@ -1,0 +1,1 @@
+aws ec2 describe-instances --instance-ids i-02ed9bb2af43e020d --query 'Reservations[*].Instances[*].PublicIpAddress' --output text

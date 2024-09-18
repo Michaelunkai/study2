@@ -1,0 +1,1 @@
+aws codepipeline stop-pipeline-execution --pipeline-name <pipeline-name> --pipeline-execution-id <execution-id> --abandon

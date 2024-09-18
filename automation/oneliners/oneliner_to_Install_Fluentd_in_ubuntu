@@ -1,0 +1,1 @@
+curl -fsSL https://packages.treasuredata.com/GPG-KEY-td-agent | sudo apt-key add - && echo "deb http://packages.treasuredata.com/4/ubuntu/$(lsb_release -sc)/ $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/td-agent.list && sudo apt update && sudo apt install td-agent -y

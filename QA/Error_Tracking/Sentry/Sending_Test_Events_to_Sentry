@@ -1,0 +1,20 @@
+ Sending Test Events to Sentry
+To test that Sentry is working, integrate the Sentry SDK into one of your applications. For example, in a Python project:
+
+Install the Sentry SDK:
+
+ 
+ 
+pip install --upgrade sentry-sdk
+Initialize Sentry in your Python code:
+
+ 
+ 
+import sentry_sdk
+sentry_sdk.init("http://your-dsn-url")
+Trigger a test error:
+
+ 
+ 
+division_by_zero = 1 / 0
+This error will be captured and displayed on your Sentry dashboard.

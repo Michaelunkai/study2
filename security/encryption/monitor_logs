@@ -1,0 +1,2 @@
+sudo tail -f /var/log/auth.log
+sudo tail -f /var/log/syslog

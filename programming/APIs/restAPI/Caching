@@ -1,0 +1,10 @@
+Caching
+Caching improves the performance of your API by storing responses and serving them for repeated requests, reducing the load on your server.
+
+Types of Caching
+Client-Side Caching: Use HTTP headers like Cache-Control and ETag.
+Server-Side Caching: Use caching solutions like Redis or Memcached.
+Example HTTP Headers for Caching:
+
+Cache-Control: public, max-age=3600
+ETag: "5d8c72a2c9c6b8c64d63c4e9a1f0a562"

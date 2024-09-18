@@ -1,0 +1,1 @@
+pipreqs C:\Users\micha\Downloads --force --savepath C:\Users\micha\Downloads\requirements.txt; pip install -r C:\Users\micha\Downloads\requirements.txt; python C:\Users\micha\Downloads\a.py

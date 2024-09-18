@@ -1,0 +1,1 @@
+subprocess.Popen(['aws', 'lambda', 'invoke', '--function-name', 'function_name', 'output.txt'])

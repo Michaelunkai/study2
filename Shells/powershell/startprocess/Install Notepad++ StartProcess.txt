@@ -1,0 +1,1 @@
+Start-Process -FilePath 'C:\path\to\notepad++_installer.exe' -ArgumentList '/S' -NoNewWindow -Wait

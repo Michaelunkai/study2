@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://update.code.visualstudio.com/latest/win32-x64-user/stable" -OutFile "$env:TEMP\vscode_installer.exe"; Start-Process -FilePath "$env:TEMP\vscode_installer.exe" -ArgumentList "/SILENT" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\vscode_installer.exe"

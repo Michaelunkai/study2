@@ -1,0 +1,2 @@
+msf > use auxiliary/server/socks4
+msf > run 

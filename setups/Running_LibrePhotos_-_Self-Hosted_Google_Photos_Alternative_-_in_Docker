@@ -1,0 +1,47 @@
+▲A  A▼
+Running LibrePhotos - Self-Hosted Google Photos Alternative - in Docker
+What is LibrePhotos?
+A self-hosted Google Photos clone, with a slight focus on cool graphs. - https://docs.librephotos.com/
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running LibrePhotos Container
+Continue with the following commands in a terminal window
+# generate a random string
+superSecretKey=$(openssl rand -base64 32)
+# create working directories
+mkdir ~/docker/librephotos/{media,cache,logs} -p && mkdir ~/docker/postgresql -p
+# set owner of docker directory
+sudo chown "$USER":"$USER" ~/docker -R
+# create containers network
+docker network create containers
+# run the postgesql container
+docker run -d --name postgres -e POSTGRES_USER=librephotos_rw -e POSTGRES_PASSWORD=Libr3Photo$ -e POSTGRES_DB=librephotos -v ~/docker/postgresql:/var/lib/postgresql/data --network=containers --restart=unless-stopped postgres:latest
+# run the librephotos backend container
+# change the admin email, username and password as needed
+docker run -d --name backend -v ~/Pictures:/data -v ~/docker/librephotos/media:/protected_media -v ~/docker/librephotos/logs:/logs -v ~/docker/librephotos/cache:/root/.cache -e SECRET_KEY=$superSecretKey -e BACKEND_HOST=librephotos_backend -e ADMIN_EMAIL=i12bretro@i12bretro.local -e ADMIN_USERNAME=i12bretro -e ADMIN_PASSWORD=SomethingSecure -e DB_BACKEND=postgresql -e DB_NAME=librephotos -e DB_USER=librephotos_rw -e DB_PASS=Libr3Photo$ -e DB_HOST=postgres -e DB_PORT=5432 -e REDIS_HOST=redis6 -e REDIS_PORT=6379 -e MAPBOX_API_KEY='' -e WEB_CONCURRENCY=2 -e SKIP_PATTERNS='' -e DEBUG=0 -e HEAVYWEIGHT_PROCESS=1 --network containers --restart=unless-stopped reallibrephotos/librephotos:latest
+# run the librephotos frontend container
+docker run -d --name frontend --network containers --restart=unless-stopped reallibrephotos/librephotos-frontend:latest
+# run the librephotos proxy container
+docker run -d --name librephotos_proxy -v ~/Pictures:/data -v ~/docker/librephotos/media:/protected_media -p 8088:80 --network containers --restart=unless-stopped reallibrephotos/librephotos-proxy:latest
+# run the redis 6 container
+docker run -d --name redis6 --network containers --restart=unless-stopped redis:6
+Open a web browser and navigate to http://DNSorIP:8088
+Login with the admin username and password set on the backend container
+Welcome to LibrePhotos
+Documentation: https://github.com/LibrePhotos/librephotos-docker
+
+ 

@@ -1,0 +1,1 @@
+cd && git clone https://github.com/Datalux/Osintgram.git && cd Osintgram && pip install -r requirements.txt

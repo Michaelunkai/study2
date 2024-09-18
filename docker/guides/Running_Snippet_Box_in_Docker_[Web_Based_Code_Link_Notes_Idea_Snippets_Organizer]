@@ -1,0 +1,32 @@
+▲A  A▼
+Running Snippet Box in Docker [Web Based Code/Link/Notes/Idea Snippets Organizer]
+What is Snippet Box?
+Snippet Box is a simple self-hosted app for organizing your code snippets. It allows you to easily create, edit, browse and manage your snippets in various languages. -https://github.com/pawelmalak/snippet-box
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Snippet Box
+Continue with the following commands in a terminal window
+# create a working directory
+mkdir ~/docker/snippet-box -p
+# run the snippet-box container
+docker run -d --name=snippet-box -p 5000:5000 -v ~/docker/snippet-box:/app/data --restart=unless-stopped pawelmalak/snippet-box
+Open a web browser and navigate to http://DNSorIP:5000
+Welcome to Snippet Box
+Documentation: https://hub.docker.com/r/pawelmalak/snippet-box
+
+ 

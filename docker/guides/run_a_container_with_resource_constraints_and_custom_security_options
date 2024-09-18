@@ -1,0 +1,1 @@
+docker run -d --name secure-container --cpu-shares 512 --memory 512m --pids-limit 100 --cap-drop ALL --cap-add NET_BIND_SERVICE --security-opt no-new-privileges alpine sleep 1000

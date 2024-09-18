@@ -1,0 +1,72 @@
+Running a Windows ME VM in Virtualbox
+Download Microsoft Windows ME Download
+Download MS-DOS 6.22 Download
+Download MS-DOS CD driver Download
+Extract the Windows ME and MS-DOS files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows ME
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows ME
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows ME.vdi
+File size: 4.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the Floppy disk drive
+Select the disk dropdown to the right > Choose virtual floppy disk file...
+Browse to the extracted MS-DOS 6.22 files and select Disk1.img
+Click OK
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to the extracted Windows ME files and select the .iso file
+Click OK
+Make sure the Windows ME VM is selected and click Start > Normal
+Press Enter to start the MS-DOS installation and press Enter multiple times to accept the default values
+When prompted by the installer, go to the VM settings and swap out the MS-DOS disk images and press Enter to continue
+Once MS-DOS has been successfully installed, select Devices > Floppy Drives > Remove disk from virtual drive
+Press Enter in the VM to reboot
+Once MS-DOS has booted, select Devices > Floppy Drives > Choose disk image...
+Navigate to and select cd-driver-1.25.img
+Type the following commands
+A:
+install
+The CD-ROM driver installation process will start
+Click OK to complete the installation
+Select Devices > Floppy Drives > Remove disk from virtual drive
+Select Machine > Reset > Reset to restart the VM
+Upon booting into MS-DOS the Virtualbox CD drive should be assigned a drive letter
+Type the following commands:
+D:
+setup
+Press Enter for the routine maintenance
+The Windows ME setup will launch
+Click Next at the Welcome screen
+Select I accept the Agreement > Click Next
+Enter a valid Windows ME product key (GY9FQ-2J9MR-PM78B-J9JCT-X8RDG), click Next
+Click Next
+Wait for Windows to install components
+Click Next > Enter a name and company > Click Next
+Click Next > Give the computer a name > Click Next
+Click Next > Select a timezone > Click Next
+Click Cancel when prompted to create a startup disk
+Click OK
+Click Finish
+Go grab some coffee, it's going to be a while
+When prompted, select Devices > Optical Drives > Remove disk from virtual drive
+Click OK, the VM will reboot
+Wait for Windows to install devices and drivers
+Time for some more coffee, maybe write your first novella 
+The VM will reboot
+Press Enter at the network password dialog
+Welcome back to Windows ME
+Revel in the nostalgia

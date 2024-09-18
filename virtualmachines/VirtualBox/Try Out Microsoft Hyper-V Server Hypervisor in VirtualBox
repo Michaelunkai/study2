@@ -1,0 +1,91 @@
+▲A  A▼
+Try Out Microsoft Hyper-V Server Hypervisor in VirtualBox
+NOTE: This is a helpful exercise to get familiar with the Hyper-V user interface and terminology but is not recommended for production use.
+
+Download the Microsoft Hyper-V Server .iso file Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Hyper-V Server
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 2019 (64-bit)
+Memory Size: 8192 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Hyper-V Server.vdi
+File size: 500 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Check the Enable Nested VT-x/AMD-V
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Hyper-V Server .iso file
+Click OK
+Click OK to accept the settings
+Make sure the Hyper-V Server VM is selected and click Start > Normal
+Click Next
+Click Install Now
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files > Click Restart now
+When prompted, Press Enter to set the Administrator password
+Enter the password and confirm > Press Enter
+Press Enter to clear the success message
+At the Server Configuration (sconfig.cmd) menu, Type 2 > Press Enter
+Enter hyperv-vm as the new host name
+Select Yes to reboot for the host name change to take effect
+Select Input > Keyboard > Ctrl-Alt-Del
+Enter the Administrator password > Press Enter
+At the Server Configuration menu, Type 6 > Press Enter
+Type R for Recommended updates only > Press Enter
+Type A for All updates > press Enter
+Select Yes to reboot to complete applying updates
+Select Input > Keyboard > Ctrl-Alt-Del
+Enter the Administrator password > Press Enter
+At the Server Configuration menu, Type 14 > Press Enter
+Run the following commands at the command prompt
+# start powershell
+powershell
+# enable remote powershell
+Enable-PSRemoting
+# enable credssp server
+Enable-WSManCredSSP -Role server
+Type Y to confirm enabling CredSSP > Press Enter
+NOTE: You need to have a user on the Hyper-V Server VM with the same username and password as the user running the Hyper-V Manager GUI. To create a user other than the built in administrator, run sconfig and select option 3 to create a new user and set the password
+
+On the VM host (or another Windows PC to manage Hyper-V), right click the Start button > Windows PowerShell (Admin)
+Run the following PowerShell commands
+# start the winrm service and set it to startup automatically
+Set-Service -Name WinRM -Status Running -StartupType Automatic
+# add hyperv-vm.local to trusted hosts
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "hyperv-vm.local"
+Type Y to confirm adding the trusted host
+Close the PowerShell window
+Right click the Start menu > Type gpedit.msc > Press Enter
+Expand Computer Configuration > Administrative Templates > System > Credentials Delegation
+Double click Allow delegating saved credentials with NTLM-only server authentication
+Changed the status to Enabled > Click the Show... button next to Add servers to the list
+Type wsman/hyperv-vm.local > Click OK
+Click Apply and then OK
+Close out of the open Group Policy Editor window
+Click the Start button > Search feature > Click Turn Windows features on or off
+Expand Hyper-V > Hyper-V Management Tools > Select Hyper-V GU Management Tools > Click OK
+Once Hyper-V Manager is installed click the Close button
+Click the Start button > Search hyper > Click Hyper-V Manager
+Click the Connect to Server... link in the top right
+Type hyperv-vm.local and press Enter
+CredSSP/Authentication info: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts
+
+ 

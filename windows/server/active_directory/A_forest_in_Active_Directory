@@ -1,0 +1,24 @@
+A forest in Active Directory is a collection of one or more domain trees that share a common schema, configuration, and global catalog. It represents the highest level of organization within Active Directory.
+
+When setting up Active Directory for the first time, you typically have three options:
+
+Add a new forest: Choose this if you are creating a new, independent Active Directory environment.
+Add a domain to an existing forest: Opt for this if you want to add a new domain to an existing Active Directory environment.
+Add a new child domain to an existing domain: Select this to create a new domain that is a child of an existing domain in the forest.
+For a first-time setup, choose the first option, "Add a new forest," unless you have specific requirements to join an existing environment or create a child domain.
+
+
+
+Creating a New Forest
+
+Choose "Add a new forest" in the Active Directory Domain Services Configuration Wizard.
+Enter a root domain name for your forest (e.g., "mycompany.com").
+Choose the Forest Functional Level (typically the latest version unless you have specific compatibility requirements).
+Set a Directory Services Restore Mode (DSRM) password.
+Review the summary and click "Next."
+The wizard will check for DNS and warn you if necessary; resolve any issues before proceeding.
+If the NetBIOS domain name is different, configure it as needed (usually, it auto-populates).
+Choose the paths for the AD DS database, log files, and SYSVOL folder, or leave the default settings.
+Review the summary and click "Next" to begin the prerequisite check.
+Once the prerequisite check passes, click "Install" to create the new forest.
+After completing this step, your server will be promoted to a domain controller, and the new forest will be established. 

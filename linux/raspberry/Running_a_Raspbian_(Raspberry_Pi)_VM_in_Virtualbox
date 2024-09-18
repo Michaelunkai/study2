@@ -1,0 +1,39 @@
+Running a Raspbian (Raspberry Pi) VM in Virtualbox
+Download Oracle Virtualbox Download
+Download Raspbian x86 Image Download
+Install Oracle Virtualbox
+Launch Virtualbox
+Install VirtualBox Extension Pack
+Create a New VM by selecting Machine > New
+Name: Raspberry Pi
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (32-bit)
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Raspberry Pi.vdi
+File size: 8 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Fixed size
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the empty disc drive
+Select the disc dropdown to the right > Choose a virtual optical disk file...
+Browse to the downloaded Raspbian x86 Image from step 2
+Click OK
+Select Network
+Set Attached to: Bridge Adapter
+Click OK
+Make sure the Raspberry Pi VM is selected and click Start > Normal
+Scroll down to Install using the arrow keys and press enter
+Follow the prompts to partition your virtual hard disk and setup the Raspbian environment
+Select Yes to install GRUB loader
+Select the Virtualbox Virtual hard disk
+Press enter to continue
+Press enter on Finish the installation
+Select Machine > Reset to boot into the Raspbian desktop

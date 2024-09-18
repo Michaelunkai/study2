@@ -1,0 +1,1 @@
+aws route53 create-health-check --caller-reference <unique-string> --health-check-config file://health-check-config.json --alarm-name <alarm-name> --alarm-region <region>

@@ -1,0 +1,111 @@
+### Top 20 Dmitry Commands for Comprehensive Information Gathering
+
+Below is a list of the top 20 Dmitry commands, each explained with their purpose and usage. These commands will help you perform various types of reconnaissance on a target domain or IP address.
+
+---
+
+1. **Basic Whois Lookup on Domain Name**
+     
+   dmitry -w example.com
+   **Explanation:** Retrieves Whois information for the specified domain name.
+
+2. **Whois Lookup on IP Address**
+     
+   dmitry -i example.com
+   **Explanation:** Retrieves Whois information for the IP address of the specified host.
+
+3. **Retrieve Netcraft.com Information**
+     
+   dmitry -n example.com
+   **Explanation:** Fetches information about the target from netcraft.com.
+
+4. **Search for Possible Subdomains**
+     
+   dmitry -s example.com
+   **Explanation:** Searches for potential subdomains associated with the specified domain.
+
+5. **Search for Possible Email Addresses**
+     
+   dmitry -e example.com
+   **Explanation:** Searches for potential email addresses associated with the specified domain.
+
+6. **Perform a TCP Port Scan**
+     
+   dmitry -p example.com
+   **Explanation:** Performs a TCP port scan to find open ports on the target domain.
+
+7. **Perform a TCP Port Scan on Specific Ports**
+     
+   dmitry -p 80,443 example.com
+   **Explanation:** Scans only the specified ports (80 and 443) on the target domain.
+
+8. **Output Results to a Text File**
+     
+   dmitry -b output.txt example.com
+   **Explanation:** Saves the output of the information gathering to the specified text file.
+
+9. **Comprehensive Information Gathering**
+     
+   dmitry -winsepfb example.com
+   **Explanation:** Performs a full scan including Whois, Netcraft, subdomains, emails, and ports.
+
+10. **Combine Whois and Email Search**
+      
+    dmitry -we example.com
+    **Explanation:** Performs both Whois lookup and email search on the target domain.
+
+11. **Combine Subdomain Search and Port Scan**
+      
+    dmitry -sp example.com
+    **Explanation:** Searches for subdomains and performs a port scan on the target domain.
+
+12. **Perform All Scans and Save to File**
+      
+    dmitry -winsepfb example.com -b all_info.txt
+    **Explanation:** Performs all available scans and saves the output to all_info.txt.
+
+13. **Retrieve Whois Information and Save to File**
+      
+    dmitry -w example.com -b whois_info.txt
+    **Explanation:** Retrieves Whois information and saves it to whois_info.txt.
+
+14. **Retrieve Subdomain Information and Save to File**
+      
+    dmitry -s example.com -b subdomains.txt
+    **Explanation:** Searches for subdomains and saves the output to subdomains.txt.
+
+15. **Search for Emails and Save to File**
+      
+    dmitry -e example.com -b emails.txt
+    **Explanation:** Searches for email addresses and saves the output to emails.txt.
+
+16. **Netcraft Information Retrieval and Save to File**
+      
+    dmitry -n example.com -b netcraft_info.txt
+    **Explanation:** Fetches Netcraft information and saves it to netcraft_info.txt.
+
+17. **Full Port Scan and Save to File**
+      
+    dmitry -p example.com -b ports.txt
+    **Explanation:** Performs a full TCP port scan and saves the output to ports.txt.
+
+18. **Retrieve Whois, Subdomains, and Save to File**
+      
+    dmitry -ws example.com -b whois_subdomains.txt
+    **Explanation:** Retrieves Whois information and searches for subdomains, then saves to whois_subdomains.txt.
+
+19. **Netcraft and Email Search**
+      
+    dmitry -ne example.com
+    **Explanation:** Fetches Netcraft information and searches for email addresses associated with the domain.
+
+20. **Port Scan on Specific Ports and Save to File**
+      
+    dmitry -p 21,22,80,443 example.com -b specific_ports.txt
+    **Explanation:** Scans specified ports and saves the output to specific_ports.txt.
+
+---
+
+### Conclusion
+
+These Dmitry commands provide a comprehensive set of tools for information gathering during penetration testing. By using these commands, you can gather extensive information about your target, aiding in the planning and execution of further penetration testing activities.

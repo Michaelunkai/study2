@@ -1,0 +1,34 @@
+▲A  A▼
+Host Your Own GitHub Alternative with Gitea on Windows
+What is Gitea?
+Gitea is a painless self-hosted Git service. It is similar to GitHub, Bitbucket, and GitLab. Gitea is a fork of Gogs. -https://docs.gitea.io/en-us/
+Installing Gitea
+Open a browser and navigate to https://dl.gitea.io/gitea
+Open the folder for the latest release
+Download the latest windows .exe release
+Download Git for Windows Download
+Install Git for Windows
+Rename the downloaded gitea .exe file gitea.exe
+Copy/cut gitea.exe
+Navigate to C:\Program Files and create a new folder called gitea
+Paste gitea.exe inside the new gitea folder
+Hold SHIFT and right click in the white space > Open PowerShell window here...
+Run the following commands in the PowerShell window
+# create subdirectories
+$(New-Item -Force -Type Directory '.\data')
+$(New-Item -Force -Type Directory '.\log')
+# create basic ini configuration
+"RUN_USER = $ENV:ComputerName`$`r`nAPP_NAME = Git`r`nRUN_MODE = prod`r`n`r`n[ui]`r`nDEFAULT_THEME = arc-green" | Out-File -Encoding utf8 -FilePath "$(New-Item -Force -Type Directory 'C:\Program Files\gitea\custom\conf')\app.ini"
+# run gitea as a service
+New-Service -Name "Gitea" -BinaryPathName '"C:\Program Files\gitea\gitea.exe" web --config "C:\Program Files\gitea\custom\conf\app.ini"' -StartupType "Automatic" -Description "Gitea"
+# start the gitea service
+Start-Service "Gitea"
+Initial Configuration
+Open a web browser and navigate to http://DNSorIP:3000
+Set the database type to SQLite3 on the Initial Configuration screen > Click the Install Gitea button
+Click the Register Now link
+Enter a username, email and password > Click the Register Account button
+Welcome to Gitea
+Documentation: https://docs.gitea.io/en-us/windows-service/
+
+ 

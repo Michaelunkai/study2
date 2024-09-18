@@ -1,0 +1,14 @@
+Huge Pages for Database Performance:
+
+Check current Huge Pages settings:
+
+grep Huge /proc/meminfo
+Configure Huge Pages:
+
+sudo nano /etc/sysctl.conf
+Add the following lines:
+
+vm.nr_hugepages = 128
+Apply the changes:
+
+sudo sysctl -p

@@ -1,0 +1,33 @@
+▲A  A▼
+Make Armbian/XFCE Look Like Windows 10 [XFCE Theming]
+Download the Windows 10 Dark theme Download
+Extract and install the downloaded archive with the following command:
+# install prerequisites
+sudo apt install gtk2-engines-murrine unzip -y
+# download Windows 10 icons
+wget -O ~/Downloads/Win10-icons.zip https://github.com/B00merang-Artwork/Windows-10/archive/master.zip
+# download desktop background
+sudo wget -O /usr/share/backgrounds/xfce/Windows-10.jpg https://1.bp.blogspot.com/-pEu0ToTAMyk/XWnlO2-h6nI/AAAAAAAAYb0/U7uz1_YHqls7nOf4N0s9rP96g7jaqlWZACLcBGAs/s2560/windows_10_4k_8k_2-2560x1440.jpg
+# make sure .themes and .icons exist
+mkdir ~/.themes && mkdir ~/.icons
+# extract the downloaded icons
+unzip ~/Downloads/Win10-icons.zip -d ~/.icons
+# create gtk icon cache
+gtk-update-icon-cache ~/.icons/Windows-10-master/
+# extract the downloaded theme
+sudo tar -xf ~/Downloads/Windows-10-Dark*.tar.gz -C ~/.themes
+Click the XFCE button > Settings > Desktop
+On the Background tab, select the Windows 10 background
+Click the XFCE button > Settings > Window Manager
+On the Style tab, select Windows-10-Dark
+Click the XFCE button > Settings > Appearance
+On the Style tab, select Windows-10-Dark
+On the Icons tab, select Windows-10-Dark
+Click the XFCE button > Settings > Panel
+On the Display tab, slide the Row size to taste
+Select the Items tab
+Select the Whisker menu > Click the Edit icon
+Click the Panel Button tab > Click the Icon to edit it
+Select All Icons from the drop down
+Search ubuntu > Select the Windows start icon > Click OK
+ 

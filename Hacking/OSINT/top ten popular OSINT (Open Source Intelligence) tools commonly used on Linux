@@ -1,0 +1,23 @@
+Here are ten popular OSINT (Open Source Intelligence) tools commonly used on Linux:
+
+1. **Maltego**: A graphical link analysis tool for gathering and connecting information for investigative tasks.
+
+2. **Recon-ng**: A full-featured web reconnaissance framework written in Python, with independent modules, built-in functions, and database interaction.
+
+3. **TheHarvester**: Used for gathering emails, subdomains, hosts, employee names, open ports, banners, and more from various public sources like search engines and PGP key servers.
+
+4. **Shodan**: Known as the "search engine for Internet-connected devices," it allows users to discover information about all the devices connected to the internet.
+
+5. **SpiderFoot**: An open-source intelligence automation tool with over 200 modules for data collection from over 100 public data sources.
+
+6. **FOCA (Fingerprinting Organizations with Collected Archives)**: A tool for finding metadata and hidden information in the documents it scans.
+
+7. **OSINT Framework**: A collection of various tools and resources useful for OSINT tasks, primarily focused on web-based tools.
+
+8. **Metagoofil**: A tool designed to extract metadata of public documents (pdf, doc, xls, ppt, etc.) from different search engines.
+
+9. **Sherlock**: Finds usernames across many social networks. It helps identify which social networks a particular username is associated with.
+
+10. **Twint**: An advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using the Twitter API.
+
+These tools can be installed and used on most Linux distributions, providing a range of functionalities for various OSINT tasks.

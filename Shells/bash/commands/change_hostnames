@@ -1,0 +1,1 @@
+nano /etc/hostname

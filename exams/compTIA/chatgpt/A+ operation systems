@@ -1,0 +1,63 @@
+what is operating system?
+
+A:
+An operating system is software that manages computer hardware and
+provides common services for computer programs 
+
+
+Define the role of device drivers in an operating system.
+
+A:
+Device drivers are software components that allow the OS to communicate with 
+hardware devices
+
+
+What is the purpose of an operating system kernel?
+
+A:
+the kernal is the core component of an OS that manages system resources and provides essential services
+
+
+Explain the difference between multitasking and multiprocessing:
+
+A:
+multitasking refers to the abillity of an OS to run multiple tasks concurrently, while multiprocessing involves the use of multiple processors to execute tasks simultaneously.
+
+
+
+What is a file system, and why is it important in an operating system?:
+
+A:
+a file system is a method used by an OS to organize and store files on storage devices. it's important as it provides a structured way to access and manage data. 
+
+
+Describe the difference between FAT32 and NTFS file systems.
+A:
+FAT32 and NTFS are different file systems used by windows. NTFS offers features such as improved security, file compression, and support for large file sizes comared to FAT32.
+
+
+Explain the concept of file fragmentation and its impact on system performance.
+
+
+A:
+File fragmentation occurs when file is split into fragments scattered across a disk. it can impact system performance by increasing disk access times.
+
+
+
+How does an operating system handle file permissions?
+
+
+A:
+An operating system handles file permissions by assigning access
+rights to users and groups, determining who can read, write, or execute files. 
+
+
+What is disk partitioning, and why is it necessary?
+
+
+A:
+Disk partitioning is the process of dividing a physical disk into multiple 
+logical sections called partitions. its necessary to organize data, install multiple OS's. or sperate system files from user files.
+
+
+

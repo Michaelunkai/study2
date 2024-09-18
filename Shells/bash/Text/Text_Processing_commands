@@ -1,0 +1,32 @@
+awk '/start_pattern/,/stop_pattern/' file.txt
+# Display a block of text with AWK
+
+awk '!x[$0]++' <file>
+# Remove duplicate entries in a file without sorting
+
+awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+# List of commands you use most often
+
+grep . filename > newfilename
+# Remove blank lines from a file using grep and save output to new file
+
+sed -n 5p <file>
+# Print a specific line from a file
+
+awk '{ sum+=$1} END {print sum}'
+# Using awk to sum/count a column of numbers
+
+diff <(echo "$a") <(echo "$b")
+# Diff on two variables
+
+awk '{$1=$3=""}1' file
+# Exclude multiple columns using AWK
+
+nl
+# Print line numbers for a file
+
+tidy -xml -i -m [file]
+# Prettify an XML file
+
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
+# Remove color codes (special characters) with sed

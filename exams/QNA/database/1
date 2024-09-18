@@ -1,0 +1,93 @@
+Database Administration Q&A for System Administrators
+1. What is a database?
+Q: What is a database?
+A: A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS).
+
+2. What is a DBMS?
+Q: What is a Database Management System (DBMS)?
+A: A DBMS is software that interacts with the user, applications, and the database itself to capture and analyze data. It also provides facilities for managing the database, such as creating, updating, and administering the database.
+
+3. Types of Databases
+Q: What are the different types of databases?
+A: The main types of databases are:
+
+Relational databases (e.g., MySQL, PostgreSQL, Oracle)
+NoSQL databases (e.g., MongoDB, Cassandra, Redis)
+In-memory databases (e.g., Redis, Memcached)
+Graph databases (e.g., Neo4j, Amazon Neptune)
+4. What is SQL?
+Q: What is SQL?
+A: SQL (Structured Query Language) is a standard programming language specifically designed for managing and manipulating relational databases. It is used to perform tasks such as querying data, updating data, and managing database structures.
+
+5. Normalization
+Q: What is database normalization?
+A: Database normalization is the process of organizing the columns (attributes) and tables (relations) of a database to minimize data redundancy. It involves dividing large tables into smaller ones and defining relationships between them to increase data integrity.
+
+6. ACID Properties
+Q: What are the ACID properties in databases?
+A: ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure reliable processing of database transactions:
+
+Atomicity: Ensures that all operations within a transaction are completed successfully; if not, the transaction is aborted.
+Consistency: Ensures that a transaction brings the database from one valid state to another.
+Isolation: Ensures that transactions are securely and independently processed at the same time without interference.
+Durability: Ensures that the results of a transaction are permanently recorded in the database, even in the event of a system failure.
+7. Indexing
+Q: What is indexing in a database?
+A: Indexing is a database optimization technique that allows for faster retrieval of records. An index creates a data structure that improves the speed of data retrieval operations on a database table at the cost of additional space and slower write operations.
+
+8. Backup and Recovery
+Q: What are database backup and recovery?
+A: Database backup is the process of creating a copy of the data stored in a database to protect it from loss or corruption. Recovery is the process of restoring the database to a correct state in case of a failure. Regular backups and having a robust recovery plan are crucial for data protection.
+
+9. Replication
+Q: What is database replication?
+A: Database replication involves copying and maintaining database objects, like tables, in multiple databases that make up a distributed database system. It helps in improving data availability and performance by distributing the load across multiple servers.
+
+10. Sharding
+Q: What is database sharding?
+A: Sharding is a database architecture pattern related to horizontal partitioning. It involves breaking up a large database into smaller, more manageable pieces called shards. Each shard is a separate database and can be distributed across multiple servers.
+
+11. Data Integrity
+Q: What is data integrity and how is it enforced?
+A: Data integrity refers to the accuracy and consistency of data stored in a database. It is enforced through constraints (like primary keys, foreign keys, and unique constraints), triggers, and data validation rules.
+
+12. Query Optimization
+Q: What is query optimization?
+A: Query optimization is the process of improving the efficiency of SQL queries to ensure they run as fast as possible. This can involve rewriting queries, choosing the right indexes, and using database statistics to find the best execution plan.
+
+13. Roles and Permissions
+Q: How do roles and permissions work in a database?
+A: Roles and permissions in a database control access to database objects and operations. Administrators can define roles with specific permissions and assign them to users, ensuring that users have the necessary access to perform their tasks without compromising security.
+
+14. Transactions
+Q: What is a transaction in a database?
+A: A transaction is a sequence of one or more SQL operations treated as a single logical unit of work. Transactions ensure that either all operations are successfully completed, or none of them are, maintaining the integrity of the database.
+
+15. Stored Procedures
+Q: What are stored procedures?
+A: Stored procedures are precompiled collections of SQL statements and optional control-of-flow statements, stored in the database. They can be executed as needed, providing a way to encapsulate and reuse database logic, improving performance and consistency.
+
+16. Database Monitoring
+Q: What is database monitoring?
+A: Database monitoring involves tracking the performance and health of a database to ensure it runs efficiently and without issues. Monitoring tools can help identify bottlenecks, detect anomalies, and provide insights for optimization.
+
+17. Data Warehousing
+Q: What is a data warehouse?
+A: A data warehouse is a centralized repository that stores data from multiple sources, transformed and structured for analysis and reporting. It supports business intelligence activities, including querying, reporting, and data mining.
+
+18. Database Security
+Q: What are some common database security measures?
+A: Common database security measures include:
+
+Authentication: Verifying the identity of users accessing the database.
+Authorization: Controlling access to database objects based on user roles and permissions.
+Encryption: Protecting data at rest and in transit using encryption techniques.
+Auditing: Monitoring and recording database activities for compliance and security purposes.
+Regular Updates: Applying patches and updates to fix vulnerabilities.
+19. Cloud Databases
+Q: What are cloud databases?
+A: Cloud databases are databases that run on cloud computing platforms, offering scalable, on-demand resources. They can be managed or unmanaged by cloud service providers, providing flexibility and reducing the need for physical infrastructure management.
+
+20. ETL Processes
+Q: What is ETL in the context of databases?
+A: ETL stands for Extract, Transform, Load. It is a process used in data warehousing to extract data from different sources, transform it into a suitable format, and load it into a data warehouse for analysis and reporting.

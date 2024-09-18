@@ -1,0 +1,1 @@
+wget -R "*.jpg" http://example.com/

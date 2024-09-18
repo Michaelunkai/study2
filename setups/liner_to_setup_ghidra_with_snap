@@ -1,0 +1,1 @@
+sudo apt install snapd -y && updates && systemctl enable --now snapd.apparmor && systemctl start snapd && snap install ghidra && ghidra

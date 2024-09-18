@@ -1,0 +1,75 @@
+Step 1: Download Prometheus
+
+
+
+wget https://github.com/prometheus/prometheus/releases/download/v2.34.0/prometheus-2.34.0.linux-amd64.tar.gz && tar -xvf prometheus-2.34.0.linux-amd64.tar.gz
+
+Step 3: Configure Prometheus
+Navigate into the Prometheus directory:
+
+
+
+
+cd prometheus-2.34.0.linux-amd64
+
+
+Open the prometheus.yml configuration file using a text editor like nano or vi:
+
+
+
+
+nano prometheus.yml
+
+
+
+
+# my global config
+global:
+  scrape_interval: 15s 
+  eva tion_interval: 15s 
+  scrape_timeout: 10s # Set the scrape timeout to 10 seconds.
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  
+  
+  
+  
+  
+    
+    
+Save and close the file.
+
+
+
+Step 4: Run Prometheus
+Start Prometheus server using the following command:
+
+
+
+./prometheus --config.file=prometheus.yml
+
+
+
+
+
+Step 5: Access Prometheus Web UI
+
+Open your web browser and go to http://localhost:9090 to access the Prometheus web UI.
+

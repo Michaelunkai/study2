@@ -1,0 +1,153 @@
+Understanding Time Complexity
+Time Complexity is a way to describe how the running time of an algorithm increases with the size of the input. For binary search, the time complexity is O(log n), meaning the time it takes to run the search increases logarithmically with the size of the input array. This is because we divide the array in half each time we search.
+
+Step 10: Analyzing Binary Search Performance
+Why Binary Search is Fast:
+Binary search is efficient because it cuts the search space in half with each step.
+For an array of size 8, it takes at most 3 comparisons (log2(8) = 3).
+For an array of size 16, it takes at most 4 comparisons (log2(16) = 4).
+Step 11: Optimizing Binary Search
+Ensuring the Array is Sorted: Binary search only works on sorted arrays. If the array is not sorted, you need to sort it first.
+
+Using Built-in Sort Function in Python:
+
+ 
+ 
+arr = [40, 10, 4, 3, 2]
+arr.sort()  # Sorts the array in place
+print(arr)  #  : [2, 3, 4, 10, 40]
+Step 12: Implementing Sorting Before Binary Search
+Modify the Python Script: Open the binary_search.py file again.
+
+ 
+ 
+nano binary_search.py
+Add Sorting Step: Add a sorting step before performing the binary search.
+
+ 
+ 
+def binary_search(arr, target):
+    if not arr:
+        return -1
+
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1
+
+def binary_search_recursive(arr, target, left, right):
+    if not arr or left > right:
+        return -1
+    
+    mid = (left + right) // 2
+    
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] < target:
+        return binary_search_recursive(arr, target, mid + 1, right)
+    else:
+        return binary_search_recursive(arr, target, left, mid - 1)
+
+# Example usage
+if __name__ == "__main__":
+    arr = [40, 10, 4, 3, 2]
+    arr.sort()  # Sort the array first
+    target = 10
+    
+    # Iterative binary search
+    result_iter = binary_search(arr, target)
+    if result_iter != -1:
+        print("Element found at index (iterative):", str(result_iter))
+    else:
+        print("Element not found (iterative)")
+
+    # Recursive binary search
+    result_recur = binary_search_recursive(arr, target, 0, len(arr) - 1)
+    if result_recur != -1:
+        print("Element found at index (recursive):", str(result_recur))
+    else:
+        print("Element not found (recursive)")
+
+    # Test with an empty array
+    empty_arr = []
+    print("Test with empty array:", binary_search(empty_arr, 10))  # Should return -1
+    print("Test with empty array (recursive):", binary_search_recursive(empty_arr, 10, 0, len(empty_arr) - 1))  # Should return -1
+
+    # Test with an array of non-integer elements
+    str_arr = ["e", "d", "c", "b", "a"]
+    str_arr.sort()
+    print("Test with string array:", binary_search(str_arr, "c"))  # Should return 2
+    print("Test with string array (recursive):", binary_search_recursive(str_arr, "c", 0, len(str_arr) - 1))  # Should return 2
+Save and Close the File: In nano, you can save and exit by pressing Ctrl + X, then Y to confirm, and Enter to save.
+
+Step 13: Running the Optimized Script
+Run the Python Script:
+ 
+ 
+ 3 binary_search.py
+You should see the output:
+
+ 
+ 
+Element found at index (iterative): 3
+Element found at index (recursive): 3
+Test with empty array: -1
+Test with empty array (recursive): -1
+Test with string array: 2
+Test with string array (recursive): 2
+Step 14: Measuring Performance
+Using Time Module to Measure Execution Time:
+
+ 
+ 
+import time
+
+def measure_time(func, *args):
+    start_time = time.time()
+    result = func(*args)
+    end_time = time.time()
+    return result, end_time - start_time
+
+if __name__ == "__main__":
+    arr = [40, 10, 4, 3, 2]
+    arr.sort()
+    target = 10
+
+    # Measure time for iterative binary search
+    result_iter, time_iter = measure_time(binary_search, arr, target)
+    if result_iter != -1:
+        print("Element found at index (iterative):", str(result_iter), "Time:", time_iter)
+    else:
+        print("Element not found (iterative)")
+
+    # Measure time for recursive binary search
+    result_recur, time_recur = measure_time(binary_search_recursive, arr, target, 0, len(arr) - 1)
+    if result_recur != -1:
+        print("Element found at index (recursive):", str(result_recur), "Time:", time_recur)
+    else:
+        print("Element not found (recursive)")
+Save and Close the File: In nano, you can save and exit by pressing Ctrl + X, then Y to confirm, and Enter to save.
+
+Step 15: Running the Performance Measurement Script
+Run the Python Script:
+ 
+ 
+ 3 binary_search.py
+You should see output similar to:
+
+ 
+ 
+Element found at index (iterative): 3 Time: 1.0013580322265625e-05
+Element found at index (recursive): 3 Time: 8.344650268554688e-06
+This output shows the time taken for both iterative and recursive binary search.
+
+Let me know when you're ready to move to the next step, which could include optimizing further, exploring binary search in other languages, or implementing more advanced data structures!

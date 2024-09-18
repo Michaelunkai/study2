@@ -1,0 +1,69 @@
+### 455. Assign Cookies
+
+To solve this problem, we need to maximize the number of children that can be made content with the available cookies. We can use a greedy algorithm approach to achieve this.
+
+The basic idea is to sort both the greed factors of the children and the sizes of the cookies, then try to assign the smallest available cookie that can satisfy each child's greed.
+
+**Solution:**
+
+```python
+class Solution:
+    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        g.sort()
+        s.sort()
+        
+        i, j = 0, 0
+        
+        while i < len(g) and j < len(s):
+            if s[j] >= g[i]:
+                i += 1
+            j += 1
+        
+        return i
+```
+
+### Explanation:
+
+1. **Sorting:**
+   - Sort the array `g` which contains the greed factors of the children.
+   - Sort the array `s` which contains the sizes of the cookies.
+   - Sorting ensures that we can use a greedy approach to find the smallest cookie that can satisfy each child.
+
+2. **Two-Pointer Technique:**
+   - Initialize two pointers `i` and `j` to 0. `i` points to the current child in the sorted `g`, and `j` points to the current cookie in the sorted `s`.
+   - Iterate through the cookies (`s`) and try to satisfy the current child's greed (`g`).
+   - If the current cookie can satisfy the current child (`s[j] >= g[i]`), increment `i` to move to the next child.
+   - Always increment `j` to move to the next cookie regardless of whether the current child was satisfied or not.
+
+3. **Return Result:**
+   - The value of `i` at the end of the loop represents the number of children that have been made content.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `g = [1,2,3]`, `s = [1,1]`
+   - Steps:
+     - Sort `g`: `[1, 2, 3]`
+     - Sort `s`: `[1, 1]`
+     - Assign cookies:
+       - Cookie `1` satisfies child with greed `1`: `i = 1, j = 1`
+       - Cookie `1` does not satisfy child with greed `2`: `j = 2`
+   - Output: `1`
+
+2. **Example 2:**
+   - Input: `g = [1,2]`, `s = [1,2,3]`
+   - Steps:
+     - Sort `g`: `[1, 2]`
+     - Sort `s`: `[1, 2, 3]`
+     - Assign cookies:
+       - Cookie `1` satisfies child with greed `1`: `i = 1, j = 1`
+       - Cookie `2` satisfies child with greed `2`: `i = 2, j = 2`
+   - Output: `2`
+
+### Constraints:
+
+- `1 <= g.length <= 3 * 10^4`
+- `0 <= s.length <= 3 * 10^4`
+- `1 <= g[i], s[j] <= 2^31 - 1`
+
+This greedy algorithm ensures that we maximize the number of satisfied children by always trying to use the smallest cookie that can satisfy each child's greed, resulting in an efficient solution with a time complexity of \(O(n \log n)\) due to sorting.

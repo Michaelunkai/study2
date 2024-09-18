@@ -1,0 +1,1 @@
+ sudo apt install vagrant -y && vagrant init hashicorp/bionic64 && vagrant up

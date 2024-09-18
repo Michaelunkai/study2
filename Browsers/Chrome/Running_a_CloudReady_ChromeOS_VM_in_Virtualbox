@@ -1,0 +1,16 @@
+Running a CloudReady ChromeOS VM in Virtualbox
+💡 NOTE: This method uses an older version of CloudReady Free. The latest release is incompatible with VirtualBox due to graphics requirements
+
+Open a web browser and download the CloudReady .ova Download
+Launch VirtualBox
+Select File > Import Appliance...
+Click the Browse icon > Navigate to the downloaded .ova file > Select CloudReady_Free_x64_Virtualbox.ova
+Click Next and then Import
+Make sure the CloudReady_Free_x64 VM is selected and click Start > Normal
+Select a Language and Keyboard Layout > Click Continue
+Click Accept and install
+Click Continue without Flash
+Enter your Google/GMail account and password
+Select an icon for your user account > Click OK
+Click the Take a tour button
+Welcome to CloudReady, ChromeOS

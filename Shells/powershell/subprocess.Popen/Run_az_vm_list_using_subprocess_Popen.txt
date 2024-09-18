@@ -1,0 +1,1 @@
+subprocess.Popen(['az', 'vm', 'list'])

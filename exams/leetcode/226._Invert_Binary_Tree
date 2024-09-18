@@ -1,0 +1,74 @@
+### 226. Invert Binary Tree
+
+**Problem Description:**
+
+Given the root of a binary tree, invert the tree, and return its root.
+
+**Example 1:**
+```
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+```
+
+**Example 2:**
+```
+Input: root = [2,1,3]
+Output: [2,3,1]
+```
+
+**Example 3:**
+```
+Input: root = []
+Output: []
+```
+
+**Constraints:**
+
+- The number of nodes in the tree is in the range [0, 100].
+- -100 <= Node.val <= 100
+
+### Explanation (Like I'm 12):
+
+Imagine you have a tree where each branch splits into two smaller branches. To invert the tree means to flip it so that the left branch becomes the right branch and vice versa. Think of it like looking at the tree in a mirror.
+
+### Python Solution:
+
+Here's how you can do it:
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        # Swap the left and right children
+        root.left, root.right = root.right, root.left
+        # Invert the left subtree
+        self.invertTree(root.left)
+        # Invert the right subtree
+        self.invertTree(root.right)
+        return root
+```
+
+### Explanation of the Solution:
+
+1. **Base Case:**
+    - If the tree is empty (root is None), just return None.
+
+2. **Swap Children:**
+    - For each node, swap its left and right children.
+
+3. **Recursive Call:**
+    - Recursively invert the left subtree.
+    - Recursively invert the right subtree.
+
+4. **Return Root:**
+    - After inverting the tree, return the root node.
+
+In simpler terms, for each node in the tree, we swap its left and right branches. We do this for every node in the tree by calling the same function on the left and right branches. This way, the whole tree gets flipped upside down like looking in a mirror.

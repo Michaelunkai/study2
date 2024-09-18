@@ -1,0 +1,1 @@
+aws codeguruprofiler untag-profiling-group --profiling-group-name MyProfilingGroup --tag-keys Environment

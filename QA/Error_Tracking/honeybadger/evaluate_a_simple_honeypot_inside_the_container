@@ -1,0 +1,1 @@
+python honeybadger/honeybadger.py -s honeypots/MultiplicatorX3.sol

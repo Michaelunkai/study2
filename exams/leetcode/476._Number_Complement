@@ -1,0 +1,61 @@
+### Problem: 476. Number Complement
+
+### Solution
+
+To find the complement of an integer, we need to flip all bits in its binary representation. For example, for the number `5` which has the binary representation `101`, its complement is `010`, which is `2` in decimal.
+
+### Steps to Solve the Problem
+
+1. **Calculate the Bit Length**:
+   - Determine the number of bits in the binary representation of `num`.
+
+2. **Create a Mask**:
+   - Create a mask that has all bits set to `1` for the length of the binary representation of `num`. This can be achieved by using `(1 << bit_length) - 1`.
+
+3. **Compute the Complement**:
+   - XOR the number with the mask. This will flip all bits of `num`.
+
+### Code Implementation
+
+```python
+class Solution:
+    def findComplement(self, num: int) -> int:
+        # Calculate the bit length of the number
+        bit_length = num.bit_length()
+        
+        # Create a mask with all bits set to 1 for the bit length of num
+        mask = (1 << bit_length) - 1
+        
+        # XOR num with the mask to get the complement
+        return num ^ mask
+```
+
+### Explanation of the Code
+
+1. **Calculate the Bit Length**:
+   - `bit_length` gives the number of bits required to represent `num` in binary.
+
+2. **Create a Mask**:
+   - `(1 << bit_length)` shifts `1` left by `bit_length` positions, resulting in a binary number that has a `1` followed by `bit_length` zeros.
+   - Subtracting `1` from this value gives us a mask that has all bits set to `1` for the length of the binary representation of `num`.
+
+3. **Compute the Complement**:
+   - XORing `num` with `mask` flips all the bits of `num`, giving us the desired complement.
+
+### Examples
+
+- **Example 1**:
+  ```plaintext
+  Input: num = 5
+  Output: 2
+  Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+  ```
+
+- **Example 2**:
+  ```plaintext
+  Input: num = 1
+  Output: 0
+  Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
+  ```
+
+The solution efficiently computes the complement of the given integer by leveraging bit manipulation, ensuring the solution is both concise and efficient.

@@ -1,0 +1,6 @@
+rclone sync /var/lib/vz/dump/ /backup/vms/ &&
+rclone sync /var/lib/vz/template/iso/ /backup/iso/
+
+#now with dockerrfile
+#in /backup, paste the build2 dockerfile, and run chmod +x Dockerfile 
+cd /backup && docker build -t michadockermisha/backup:prox . && docker push michadockermisha/backup:prox

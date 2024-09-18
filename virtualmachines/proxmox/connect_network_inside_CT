@@ -1,0 +1,15 @@
+1)
+nano /etc/resolv.conf
+
+2)
+Add or modify the nameserver lines to use valid DNS servers:
+
+ 
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+3)systemctl restart systemd-networkd
+
+4)systemctl list-unit-files | grep network
+
+5) apt update

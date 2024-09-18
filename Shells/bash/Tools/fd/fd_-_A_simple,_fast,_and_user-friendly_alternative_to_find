@@ -1,0 +1,16 @@
+fd - A simple, fast, and user-friendly alternative to 'find'
+Installation:
+
+ 
+ 
+sudo apt update -y
+sudo apt install fdclone -y
+Basic Usage:
+
+ 
+ 
+# Find all .txt files in the current directory
+fd .txt
+
+# Find all files named 'example' in the current directory
+fd example

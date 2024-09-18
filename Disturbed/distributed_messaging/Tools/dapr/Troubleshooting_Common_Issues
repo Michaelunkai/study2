@@ -1,0 +1,4 @@
+ Troubleshooting Common Issues
+Duplicate component error: Ensure the pubsub-redis.yaml file has a unique name field (e.g., redis-pubsub).
+Invalid resource path: Use the correct --resources-path flag instead of the deprecated --components-path.
+Connection refused: Ensure both services are running and listening on the correct ports (3000 for Service A and 4000 for Service B).

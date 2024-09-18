@@ -1,0 +1,41 @@
+▲A  A▼
+Running Home Assistant in Docker
+What is Home Assistant?
+Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server. - https://www.home-assistant.io/
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Home Assistant Container
+Continue with the following commands in a terminal window
+# create working directories
+mkdir ~/docker/home-assistant -p
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the home assistant container
+docker run -d --name home-assistant --privileged -e TZ=America/New_York -v ~/docker/home-assistant:/config --network=host --restart=unless-stopped homeassistant/home-assistant
+Open a web browser and navigate to http://DNSorIP:8123/
+Wait while Home Assistant initializes
+Enter a Name, Username and Password to create a Home Assistant user account > Click Create Account
+Enter a Name for this Home Assistant installation (ie Home)
+Click Detect to set the installation geolocation
+Verify the Unit System and Currency > Click Next
+Select any anonymous data to share with the Home Assistant development team > Click Next
+Click Fini 
+Welcome to Home Assistant
+Source: https://www.home-assistant.io/installation/linux#install-home-assistant-container
+Documentation: https://hub.docker.com/r/homeassistant/home-assistant
+
+ 

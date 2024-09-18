@@ -1,0 +1,2 @@
+brew tap ha icorp/tap
+brew install ha icorp/tap/ha icorp-vagrant

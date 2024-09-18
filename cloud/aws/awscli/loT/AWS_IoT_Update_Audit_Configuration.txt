@@ -1,0 +1,1 @@
+aws iot update-audit-configuration --audit-check-configuration file://audit-config.json

@@ -1,0 +1,1 @@
+Get-Command <appname> | Select-Object -ExpandProperty Source

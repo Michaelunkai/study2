@@ -1,0 +1,3 @@
+Censys is a public search engine that enables researchers, companies, and security analysts to find and analyze every device connected to the internet. Launched in 2015 by researchers at the University of Michigan, Censys continuously scans the internet, including the Web, SSH, FTP, Heartbleed, and more, to collect information about all online devices.
+
+This data is useful for security research and IT operations, providing insights into global network inventory, exposed services, and configuration weaknesses. Censys offers a variety of tools and APIs for accessing and analyzing its vast database, making it a valuable resource for cybersecurity efforts to understand digital assets' exposure and vulnerabilities.

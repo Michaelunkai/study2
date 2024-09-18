@@ -1,0 +1,3 @@
+Command: sudo delgroup <groupname>
+Description: Deletes a user group.
+User Management

@@ -1,0 +1,52 @@
+To convert an unprivileged container (CT) to a privileged container in Proxmox using the shell, follow these steps:
+
+1. **Stop the Container:**
+   First, stop the container you want to convert. Replace `<CTID>` with your container's ID.
+     
+   pct stop <CTID>
+
+2. **Edit the Configuration File:**
+   The configuration file of the container is located at `/etc/pve/lxc/<CTID>.conf`. You'll need to modify this file to change the container's privileges.
+
+   Open the configuration file with a text editor, like `nano`:
+     
+   nano /etc/pve/lxc/<CTID>.conf
+
+3. **Modify the Configuration File:**
+   Remove or comment out the following line:
+    text
+   unprivileged: 1
+   You can comment it out by adding a `#` at the beginning:
+    text
+   # unprivileged: 1
+
+4. **Set Correct Permissions:**
+   Ensure that the container's root filesystem has the correct ownership and permissions. If the filesystem path is different, replace it accordingly:
+     
+   chown -R 0:0 /var/lib/lxc/<CTID>/rootfs
+
+5. **Start the Container:**
+   Start the container again:
+     
+   pct start <CTID>
+
+After these steps, your container should be converted from unprivileged to privileged. Note that converting a container from unprivileged to privileged can have security implications, so make sure you understand the risks involved.
+
+If you encounter any issues or need further assistance, feel free to ask!
+
+
+To verify if the container has been successfully converted to a privileged container, you can check the container's configuration and look for the absence of the unprivileged: 1 line. Here's how you can do it:
+
+Check the Container Configuration:
+Use the pct config command to display the container's configuration. Replace <CTID> with your container's ID:
+
+ 
+ 
+pct config <CTID>
+Look for the unprivileged setting in the output. If the container is privileged, this setting should not be present.
+
+Command to Display Configuration:
+
+ 
+ 
+pct config <CTID> | grep unprivileged

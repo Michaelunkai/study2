@@ -1,0 +1,50 @@
+# Exploring the New Canva Plugin for ChatGPT 4
+Artificial Intelligence is here to enhance our capabilities, allowing us to perform better and try new things that previously required experience, knowledge, or time we didn't have. Meet the new Canva plugin for ChatGPT, making it easy to create any design directly within the chat.
+## Introduction to the New Canva Plugin for ChatGPT
+**Date:** October 22, 2023
+**Author:** Rinat Keinan
+Canva's new plugin for ChatGPT 4, launched on September 7, 2023, aims to help companies and entrepreneurs design visual assets like logos, banners, websites, and images directly from the chat, without needing to open a Canva account. Currently, this plugin is available only for ChatGPT 4 subscribers paying a monthly fee of $20.
+## Adding the Canva Plugin
+To add the Canva plugin:
+1. Open the plugin store in ChatGPT 4. If you don’t have ChatGPT 4, upgrade by clicking the “Upgrade” option under your name at the bottom left, entering your credit card details, and subscribing to the monthly plan. You can cancel anytime.
+2. Click the three dots next to your name, then “Settings and Beta.”
+3. Ensure the plugin interface is enabled under “Beta Features” on the left.
+4. In the “Model” section, make sure you are using ChatGPT 4. Click the dropdown and select the plugin store.
+5. Search for “Canva” in the plugin store and click “Install” once you find it.
+## Designing with the Plugin
+The most exciting part of using the plugin is the ability to design with the chatbot at the click of a button. Here’s how to maximize its potential:
+- Write a detailed prompt. For example, instead of writing “Create a logo for an AI business,” specify “Create a gold logo on a white background for an AI business.”
+- The plugin will generate five design options based on your prompt. More specific prompts will yield richer designs.
+- Choose a design to continue working on it in Canva.
+## Advanced Features and AI Integration
+Recently, Canva has enhanced its AI capabilities, offering features such as content generation, image creation with DALL-E, subtitles, and avatar creation. With over 20 AI features in one platform, Canva continues to innovate and support creative needs.
+For more details and to explore these features, visit the provided links.
+---
+**Back to Blog**
+Explore more guides and resources to enhance your skills with AI tools.
+---
+**Quick Guides:**
+- **MidJourney Guide:** ₪299.00
+- **AI Business Plan Guide:** ₪299.00
+- **AI Marketing Plan Guide:** ₪299.00
+- **Personal AI Canva Course (Real-time updates):** ₪599.00
+- **Personal ChatGPT Course (10 AI tricks):** ₪599.00
+- **AI Product Design Guide:** ₪399.00
+- **MidJourney WhatsApp Guide:** ₪249.00
+---
+**Contact Information:**
+For more information, visit our [Contact Page](#).
+---
+**Payment Methods:**
+We accept various payment methods for your convenience.
+**© 2024, Rinat Keinan Powered by Shopify. Made By Rinat Keinan.**
+**Policies:**
+- [Refund Policy](#)
+- [Privacy Policy](#)
+- [Terms of Service](#)
+---
+**Social Media:**
+Follow us on:
+- [Facebook](#)
+- [Instagram](#)
+- [Pinterest](#)

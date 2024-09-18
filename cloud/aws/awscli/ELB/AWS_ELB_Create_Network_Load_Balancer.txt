@@ -1,0 +1,1 @@
+aws elb create-load-balancer --name <load-balancer-name> --type network --subnets <subnet-ids> --scheme <scheme> --tags Key=<key>,Value=<value>

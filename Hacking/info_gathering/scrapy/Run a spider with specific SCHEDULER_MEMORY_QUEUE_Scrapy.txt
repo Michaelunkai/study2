@@ -1,0 +1,1 @@
+scrapy crawl myspider -s SCHEDULER_MEMORY_QUEUE='scrapy.squeues.LifoMemoryQueue'

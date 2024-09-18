@@ -1,0 +1,1 @@
+scrapy crawl myspider -s LOG_FILE='scrapy.log'

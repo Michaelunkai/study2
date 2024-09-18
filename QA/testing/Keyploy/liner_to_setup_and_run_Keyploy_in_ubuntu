@@ -1,0 +1,1 @@
+cd && git clone https://github.com/keploy/keploy.git && cd keploy && curl --silent -O -L https://keploy.io/install.sh && source install.sh

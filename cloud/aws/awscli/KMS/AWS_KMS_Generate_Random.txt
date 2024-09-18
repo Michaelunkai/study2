@@ -1,0 +1,1 @@
+aws kms generate-random --number-of-bytes <bytes> --output text --query Plaintext | base64 --decode > <random-file>

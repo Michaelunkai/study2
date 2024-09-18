@@ -1,0 +1,1 @@
+aws ecs create-service --cluster my-cluster-ad350c48 --service-name my-service --task-definition my-task:1 --desired-count 2

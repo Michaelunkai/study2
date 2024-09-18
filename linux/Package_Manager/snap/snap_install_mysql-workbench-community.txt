@@ -1,0 +1,1 @@
+snap install my -workbench-community

@@ -1,0 +1,3 @@
+import boto3
+cf = boto3.client('cloudformation')
+cf.delete_stack(StackName='MyStack')

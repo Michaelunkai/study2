@@ -1,0 +1,1 @@
+aws kms create-connection --connection-name <name> --connection-type <type> --connection-configuration file://config.json

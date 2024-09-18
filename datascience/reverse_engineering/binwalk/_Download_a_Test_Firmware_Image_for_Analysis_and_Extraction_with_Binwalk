@@ -1,0 +1,5 @@
+ Download a Test Firmware Image for Analysis and Extraction with Binwalk
+wget https://downloads.openwrt.org/releases/21.02.3/targets/x86/64/openwrt-21.02.3-x86-64-generic-squashfs-combined.img.gz -O firmware.img.gz
+
+# 4. Extract the Downloaded Firmware Image File to Prepare for Binwalk Analysis
+gunzip firmware.img.gz

@@ -1,0 +1,1 @@
+wget https://github.com/pyroscope-io/pyroscope/releases/download/v1.6.1/pyroscope_1.6.1_linux_amd64.deb && sudo dpkg -i pyroscope_1.6.1_linux_amd64.deb && pyroscope --version

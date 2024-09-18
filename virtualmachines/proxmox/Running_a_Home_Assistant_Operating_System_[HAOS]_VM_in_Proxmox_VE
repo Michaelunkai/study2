@@ -1,0 +1,42 @@
+▲A  A▼
+Running a Home Assistant Operating System [HAOS] VM in Proxmox VE
+Log into the Proxmox web UI
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID (note the ID for later) and Name > Next
+On the OS tab, Select Do not use any media, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+On the System tab, set the BIOS field to OVMF (UEFI), Check the Add EFI Disk checkbox, Uncheck the Pre-Enroll Keys checkbox > Next
+On the Hard Disk tab, delete the scsi0 virtual disk > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 2048 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Click the Proxmox node name > Select Shell from the left sub-navigation menu
+Run the following commands in the web console
+# install unxz
+apt update && apt install xz-utils -y
+# lookup the latest HAOS release download URL
+regex='"browser_download_url": "(https:\/\/github.com\/home-assistant\/operating-system\/releases\/download\/[^/]*\/haos_ova-[^/]*\.qcow2\.xz)"' && response=$(curl -s https://api.github.com/repos/home-assistant/operating-system/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download the qcow virtual disk
+wget -O /tmp/HAOS.qcow2.xz $downloadURL
+# extract the downloaded virtual disk
+unxz /tmp/HAOS.qcow2.xz -v
+# attach the disk to the HAOS VM
+# update the ID to match the ID of the HAOS VM created earlier
+# the last argument is the name of the storage device to import the disk to
+qm importdisk 104 /tmp/HAOS.qcow2 SSD_100GB
+Back in the Proxmox web UI, select the HAOS VM > Select Hardware from the left sub-navigation menu
+Double click the Unused Disk > Click Add
+Click Options from the left sub-navigation menu
+Double click Boot Order to edit it > Check the Enabled box next to scsi0 and drag it above net0 > Click OK
+Click Start at the top right of the screen to start the VM
+Click Console in the left sub-navigation menu
+Welcome to Home Assistant Operating System
+Open a web browser and navigate to http://DNSorIP:8123
+Enter a Name, Username and Password to create a Home Assistant user account > Click Create Account
+Enter a Name for this Home Assistant installation (ie Home)
+Click Detect to set the installation geolocation
+Verify the Unit System and Currency > Click Next
+Select any anonymous data to share with the Home Assistant development team > Click Next
+Click Fini 
+Welcome to Home Assistant
+ 

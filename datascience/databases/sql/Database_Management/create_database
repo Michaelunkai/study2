@@ -1,0 +1,10 @@
+inside the database:
+
+
+ Creating a Database
+4.1 Create a new database using: CREATE DATABASE dbname;.
+4.2 Switch to the newly created database: USE dbname;.
+4.3 Verify the current database in use: SELECT DATABASE();.
+
+
+

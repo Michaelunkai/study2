@@ -1,0 +1,3 @@
+in wsl2 :
+
+rm /mnt/c/users/micha/.s /known_hosts

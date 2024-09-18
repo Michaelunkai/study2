@@ -1,0 +1,26 @@
+Telnyx is a cloud communications platform that provides a variety of services for voice, messaging, and communications applications. It offers a range of APIs and tools that enable developers to integrate communication functionalities into their applications. Here are some key features and services offered by Telnyx:
+
+1. **Voice Services**:
+   - **Programmable Voice**: Allows developers to build voice applications with features such as call forwarding, IVR (Interactive Voice Response), and call recording.
+   - **Voice API**: Provides tools to make and receive voice calls, manage call routing, and handle call events.
+
+2. **Messaging Services**:
+   - **SMS API**: Enables sending and receiving text messages globally. You can use it for one-way or two-way messaging.
+   - **MMS API**: Supports sending and receiving multimedia messages, such as images and videos.
+
+3. **Phone Number Services**:
+   - **Number Provisioning**: Allows you to buy and manage phone numbers from various countries.
+   - **Number Porting**: Facilitates the transfer of phone numbers from other carriers to Telnyx.
+
+4. **Global Connectivity**:
+   - **SIP Trunking**: Provides a connection to the public telephone network via SIP (Session Initiation Protocol), allowing businesses to make and receive calls over the internet.
+   - **Voice Termination**: Offers high-quality voice termination services to connect calls to the destination network.
+
+5. **Real-Time Communications**:
+   - **WebRTC**: Enables real-time voice and video communication directly within web browsers or mobile apps.
+
+6. **Security and Compliance**:
+   - **Encryption**: Ensures secure communication with end-to-end encryption.
+   - **Compliance**: Provides tools to help meet regulatory and compliance requirements for communication.
+
+Telnyx is known for its developer-friendly approach, offering robust documentation and APIs to integrate communication services seamlessly into applications. It’s used by businesses and developers to build and enhance communication features in their software solutions.

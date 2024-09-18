@@ -1,0 +1,90 @@
+### Title: Building, Training, and Deploying Machine Learning Models with AWS SageMaker using AWS CLI
+
+#### Introduction
+This tutorial will guide you through the process of building, training, and deploying machine learning models using AWS SageMaker with AWS CLI. We will also include steps to purge everything created to ensure no costs are incurred.
+
+### Prerequisites
+- AWS CLI installed and configured with necessary permissions.
+- IAM role with SageMaker permissions.
+- S3 bucket for storing data and model artifacts.
+
+### Steps
+
+#### Step 1: Set Up Your Environment
+1. **Create S3 Bucket**
+     
+   aws s3api create-bucket --bucket my-new-bucket-name-xz --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
+
+2. **Upload Data to S3**
+     
+   aws s3 cp my-local-data.csv s3://my-new-bucket-name-xz/data/
+
+#### Step 2: Build a SageMaker Training Job
+
+1. **Create Training Job**
+     
+   aws sagemaker create-training-job \
+       --training-job-name my-training-job-xz \
+       --algorithm-specification TrainingImage=811284229777.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest,TrainingInputMode=File \
+       --role-arn arn:aws:iam::123456789012:role/service-role/AmazonSageMaker-ExecutionRole-20200101T123456 \
+       --input-data-config ChannelName=train,DataSource={S3DataSource={S3DataType=S3Prefix,S3Uri=s3://my-new-bucket-name-xz/data/,S3DataDistributionType=FullyReplicated}},ContentType=  \
+       --output-data-config S3 Path=s3://my-new-bucket-name-xz/output/ \
+       --resource-config InstanceType=ml.m5.large,InstanceCount=1,VolumeSizeInGB=5 \
+       --stopping-condition MaxRuntimeInSeconds=3600
+
+#### Step 3: Deploy the Model
+
+1. **Create Model**
+     
+   aws sagemaker create-model \
+       --model-name my-model-xz \
+       --primary-container Image=811284229777.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest,ModelDataUrl=s3://my-new-bucket-name-xz/output/my-training-job-xz/output/model.tar.gz \
+       --execution-role-arn arn:aws:iam::123456789012:role/service-role/AmazonSageMaker-ExecutionRole-20200101T123456
+
+2. **Create Endpoint Configuration**
+     
+   aws sagemaker create-endpoint-config \
+       --endpoint-config-name my-endpoint-config-xz \
+       --production-variants VariantName=AllTraffic,ModelName=my-model-xz,InstanceType=ml.m5.large,InitialInstanceCount=1
+
+3. **Create Endpoint**
+     
+   aws sagemaker create-endpoint \
+       --endpoint-name my-endpoint-xz \
+       --endpoint-config-name my-endpoint-config-xz
+
+#### Step 4: Test the Deployed Model
+
+1. **Invoke Endpoint**
+     
+   aws sagemaker-runtime invoke-endpoint \
+       --endpoint-name my-endpoint-xz \
+       --body '{"data": [1, 2, 3, 4]}' \
+       --content-type application/json \
+       out.json
+
+#### Step 5: Clean Up Resources
+
+1. **Delete Endpoint**
+     
+   aws sagemaker delete-endpoint --endpoint-name my-endpoint-xz
+
+2. **Delete Endpoint Configuration**
+     
+   aws sagemaker delete-endpoint-config --endpoint-config-name my-endpoint-config-xz
+
+3. **Delete Model**
+     
+   aws sagemaker delete-model --model-name my-model-xz
+
+4. **Delete Training Job**
+     
+   aws sagemaker delete-training-job --training-job-name my-training-job-xz
+
+5. **Delete S3 Bucket and Contents**
+     
+   aws s3 rm s3://my-new-bucket-name-xz --recursive
+   aws s3api delete-bucket --bucket my-new-bucket-name-xz
+
+### Conclusion
+By following these steps, you can quickly build, train, and deploy machine learning models using AWS SageMaker and AWS CLI. The provided commands also ensure that you can clean up all the resources to avoid any costs.

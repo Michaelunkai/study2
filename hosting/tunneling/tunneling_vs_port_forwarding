@@ -1,0 +1,5 @@
+Tunneling encapsulates network traffic within a secure "tunnel" over an existing connection, often encrypting the data. It's used for secure communication between two endpoints over an insecure network, such as the internet. SSH tunneling, for example, creates a secure connection between a local and remote machine, allowing traffic to be securely forwarded through the tunnel.
+
+Port forwarding, on the other hand, involves redirecting traffic from one network port to another, typically from a router or firewall to a specific device on a local network. It's commonly used to expose services running on a private network to the internet. For example, you might forward incoming traffic on port 80 (HTTP) to a web server running on your local network.
+
+In summary, tunneling provides a secure communication channel between two endpoints, while port forwarding redirects network traffic from one port to another. Both techniques serve different purposes but can be used together for various networking scenarios.

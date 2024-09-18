@@ -1,0 +1,1 @@
+gcloud compute backend-buckets create my-backend-bucket --gcs-bucket-name my-bucket && gcloud compute url-maps create my-cdn --default-backend-bucket my-backend-bucket

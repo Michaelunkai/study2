@@ -1,0 +1,26 @@
+Transforming our Data
+The data I’ll use for this tutorial will be simple raw text data of a movie review of one of my favorite movies, the lion king. I’m storing this data in a text file called “test.txt” that you can download here.
+
+To start we will need to integer encode the data. We will do this using the following function:
+
+def review_encode(s):
+	encoded = [1]
+
+	for word in s:
+		if word.lower() in word_index:
+			encoded.append(word_index[word.lower()])
+		else:
+			encoded.append(2)
+
+	return encoded
+Next we will open our text file, read in each of the reviews (in this case just one) and use the model to predict whether it is positive or negative.
+
+with open("test.txt", encoding="utf-8") as f:
+	for line in f.readlines():
+		nline = line.replace(",", "").replace(".", "").replace("(", "").replace(")", "").replace(":", "").replace("\"","").strip().split(" ")
+		encode = review_encode(nline)
+		encode = keras.preprocessing.sequence.pad_sequences([encode], value=word_index["<PAD>"], padding="post", maxlen=250) # make the data 250 words long
+		predict = model.predict(encode)
+		print(line)
+		print(encode)
+		print(predict[0])

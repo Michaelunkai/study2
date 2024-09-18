@@ -1,0 +1,23 @@
+▲A  A▼
+Install Hyper-V on Windows 10/11
+What is Hyper-V?
+Hyper-V lets you run multiple operating systems as virtual machines on Windows. Hyper-V specifically provides hardware virtualization. That means each virtual machine runs on virtual hardware. Hyper-V lets you create virtual hard drives, virtual switches, and a number of other virtual devices all of which can be added to virtual machines. -https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
+System Requirements
+Windows 10 Enterprise / Windows 10 Pro / Windows 10 Education / Windows 11 Pro / Windows 11 Enterprise
+64-bit CPU with Virtualization Support enabled
+At least 4 GB of RAM (8 GB or more recommended)
+Free disk space to store VMs
+If you're unsure if your PC can run Hyper-V, launch a command prompt as administrator > Run systeminfo > Scroll down to the Hyper-V Requirements output
+
+Enabling Hyper-V
+Log into the Windows 10 or 11 device
+Click the Start button > Search Control Panel > Select Control Panel
+Set View by > Small icons
+Click the Programs and Features icon
+Click the Turn Windows features on or off link in the left navigation pane
+Check the box next to Hyper-V > Click OK
+Wait a few moments while Hyper-V is installed
+After the installation completes, click Restart now
+After the system reboots, click the Start button > Search Hyper-V Manager > Select Hyper-V Manager
+Welcome to Hyper-V
+ 

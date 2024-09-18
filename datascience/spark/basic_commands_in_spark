@@ -1,0 +1,89 @@
+Step 1: Basic Commands in Spark Shell
+First, let's start with some basic commands in the Spark shell to get familiar with the environment.
+
+Check Spark Version
+
+scala> spark.version
+Create RDD (Resilient Distributed Dataset)
+RDDs are the fundamental data structure of Spark. You can create an RDD from a collection like this:
+
+val data = Array(1, 2, 3, 4, 5)
+val distData = sc.parallelize(data)
+Perform Basic Operations on RDD
+You can perform operations like map, filter, and reduce on RDDs.
+
+val mappedData = distData.map(x => x * 2)
+mappedData.collect()
+
+val filteredData = distData.filter(x => x % 2 == 0)
+filteredData.collect()
+
+val sum = distData.reduce((a, b) => a + b)
+println(sum)
+Step 2: Using DataFrames and Spark SQL
+Spark SQL allows you to query structured data inside Spark programs using SQL.
+
+Create a DataFrame
+You can create a DataFrame from a sequence of objects.
+
+val df = spark.createDataFrame(Seq(
+  (1, "Alice", 29),
+  (2, "Bob", 24),
+  (3, "Cathy", 27)
+)).toDF("id", "name", "age")
+df.show()
+Run SQL Queries
+You can run SQL queries on DataFrames.
+
+df.createOrReplaceTempView("people")
+val sqlDF = spark.sql("SELECT * FROM people WHERE age > 25")
+sqlDF.show()
+Step 3: Reading and Writing Data
+Spark can read from and write to various data sources like CSV, JSON, Parquet, etc.
+
+Read Data from a CSV File
+Ensure you have a CSV file in your working directory or provide the correct path.
+
+val csvDF = spark.read.option("header", "true").csv("path/to/your/file.csv")
+csvDF.show()
+Write Data to a Parquet File
+You can write the DataFrame to a Parquet file.
+
+df.write.parquet("output/people.parquet")
+Step 4: Configuring Spark Settings
+You can set various Spark configurations at runtime.
+
+Set Log Level
+To reduce the verbosity of logs, set the log level to ERROR or WARN.
+
+sc.setLogLevel("ERROR")
+Setting Configuration Parameters
+You can set configuration parameters using the spark.conf object.
+
+spark.conf.set("spark.sql.shuffle.partitions", "50")
+Step 5: Using Spark with External Libraries
+Spark supports various libraries for machine learning, graph processing, etc.
+
+Using MLlib for Machine Learning
+Here is an example of using Spark's MLlib library for machine learning.
+
+import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.ml.stat.Summarizer
+
+val data = Seq(
+  (Vectors.dense(1.0, 0.1, -1.0), 1.0),
+  (Vectors.dense(2.0, 1.1, 1.0), 0.0)
+)
+
+val df = data.toDF("features", "weight")
+
+val (meanVal, varianceVal) = df.select(Summarizer.metrics("mean", "variance")
+  .summary($"features", $"weight").as("summary"))
+  .select("summary.mean", "summary.variance")
+  .first()
+
+println(s"Mean: ${meanVal}, Variance: ${varianceVal}")
+Step 6: Exiting Spark Shell
+To exit the Spark shell, simply type:
+
+:quit

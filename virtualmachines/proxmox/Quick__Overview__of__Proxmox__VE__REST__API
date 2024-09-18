@@ -1,0 +1,93 @@
+Creating__an__API__User
+1. Log into the Proxmox VE web UI
+Open your web browser and navigate to your Proxmox VE web interface at https://192.168.1.222:8006.
+2. Select Datacenter from the left navigation menu
+Click on "Datacenter" to display the main datacenter management options.
+3. Select Users from the left sub-navigation menu
+In the Datacenter section, click on "Users".
+4. Click the Add button at the top of the main content area
+Click on the "Add" button to create a new user.
+5. Enter the Username micha, set the Realm to Proxmox VE authentication server, and set and confirm a password > Click Add
+Username: micha
+Realm: Proxmox VE authentication server
+Password: Enter and confirm your password
+Click Add
+6. Select API Tokens from the left sub-navigation menu
+In the Users section, click on "API Tokens".
+7. Select micha@pve for the username
+Choose micha@pve from the username dropdown.
+8. Enter micha@pve!SqUAW8zwjteAqRucwZEgjNfn into the Token ID field > Click Add
+Token ID: micha@pve!SqUAW8zwjteAqRucwZEgjNfn
+Click Add
+9. Copy the displayed Token ID and Secret to a text document for use later
+Save these credentials securely for later use.
+10. Close the dialog
+11. Select Roles from the left sub-navigation menu
+In the Users section, click on "Roles".
+12. Click the Create button at the top of the main content area
+Click on the "Create" button to define a new role.
+13. Name the new role APIAdmin and select all available Privileges > Click Create
+Role Name: APIAdmin
+Privileges: Select all available privileges
+Click Create
+14. Select Permissions from the left sub-navigation menu
+In the Users section, click on "Permissions".
+15. Select the Add > User permission at the top of the main content area
+Click on Add, then User permission.
+16. Set the Path to /, select the micha@pve user and set the Role to APIAdmin > Click Add
+Path: /
+User: micha@pve
+Role: APIAdmin
+Click Add
+Downloading__Postman
+17. Download Postman
+Postman is an API platform for building and using APIs. Download it from Postman.
+18. Extract or install Postman
+Follow the installation instructions for your operating system.
+19. Launch Postman
+Open the Postman application.
+20. Click the Skip and go to app link at the bottom left of the splash screen
+21. Select File > Settings from the top menu bar
+Navigate to File > Settings.
+22. Disable SSL Certificate Verification and Send anonymous usage data to Postman > Close the Settings dialog window
+Proxmox__API__Authentication
+23. In Postman, click the + next to the Overview tab to create a new HTTP request tab
+24. Complete the HTTP Request form as follows:
+Method: POST
+URL: https://192.168.1.222:8006/api2/json/access/ticket
+Body: x-www-form-urlencoded
+username: micha@pve
+password: <Your Password>
+Click Send
+25. From the response, copy the ticket value and CSRFPreventionToken values to a text document for use later
+Proxmox__Version__API__Call
+26. In Postman, click the + next to the Overview tab to create a new HTTP request tab
+27. Click the Cookies link below the send button
+28. Type the API URL up to /json/, (ie https://192.168.1.222:8006/api2/json/) > Click Add
+29. Click Add Cookie
+Replace the Cookie_1 key with PVEAuthCookie.
+Replace the value with the ticket value from authentication response, the result should look like:
+ 
+ 
+PVEAuthCookie=PVE:micha@pve:611F9752::aXrYKYqiv8oV/MetlZl6FC40HSULSj4gt9EjDsTIwq+GXVXpkGyqvMlXqmGP6LP/rUYUgIKkSh9ioEhz91kR9/i+jDobDFIAtjBGLIP4yJVbxbtU6hfJL91YQNyYgvHqkPv4/W6EYWir5+LFQc3womgqVE9gKApk61J8zxFNTTjwh87HbMAtv12fvAqiICEqRMdqvE6ySJF5a8E+rOlqa46MlTbUTnzCbqPTY6tWBYHryy8WS8Typ3aSkOKecup18sCBtzqxnkm9bpws+f8vW9FdJV8eKnR+MbFLQtv/re5Cw/J7RpdvcQvMsZ0JLFWqnTaPgRzBc/mM7xZBKeCiSA==
+30. Click Save > Close the Manage Cookies dialog window
+31. Complete the HTTP Request form as follows:
+Method: GET
+URL: https://192.168.1.222:8006/api2/json/version
+Headers:
+CSRFPreventionToken: 6669C983:gsCStuZEWjc6HuRGaj0U73WGJkcZCWDJRIUdN/SV A
+Click Send
+32. The response body should show details about the current Proxmox version
+Proxmox__Nodes__API__Call
+33. In Postman, right click the /version HTTP request tab > Duplicate Tab
+34. Change the URL to https://192.168.1.222:8006/api2/json/nodes
+Click Send
+The response body should show details about the available Proxmox node(s)
+Proxmox__Node__Status__API__Call
+35. In Postman, right click the /version HTTP request tab > Duplicate Tab
+36. Change the URL to https://192.168.1.222:8006/api2/json/nodes/<node name>/status
+Click Send
+The response body should show details about the selected Proxmox node
+Additional__Resources
+Proxmox VE API Wiki: Proxmox VE API
+Proxmox VE Visual API Reference: Proxmox VE Visual API Reference

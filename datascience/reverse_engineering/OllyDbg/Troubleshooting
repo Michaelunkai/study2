@@ -1,0 +1,13 @@
+Troubleshooting
+Issue: Unable to Download OllyDbg
+If the download fails, ensure you have an active internet connection and that the download link (https://www.ollydbg.de/odbg110.zip) is accessible from your network.
+
+Issue: PowerShell Script Execution Policy
+If you receive a security warning about running scripts, you may need to adjust the execution policy by running:
+
+powershell
+Copy code
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Issue: OllyDbg Not Starting
+If OllyDbg doesn't start, ensure that Wine is not configured (if using a different environment like WSL2) or that the downloaded files are not corrupted. You can try re-running the extraction and execution steps.
+

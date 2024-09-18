@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/masked_language_modeling.ipynb -O roberta_masked_lm.ipynb

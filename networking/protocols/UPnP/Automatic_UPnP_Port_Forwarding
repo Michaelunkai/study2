@@ -1,0 +1,9 @@
+Automatic UPnP Port Forwarding (Optional)
+If you want to automate the UPnP port forwarding process, you can create a script that runs the upnpc command at system startup or on a scheduled basis using cron.
+
+Example Script:
+ 
+ 
+#!/bin/ 
+upnpc -a 192.168.1.100 8080 8080 TCP
+Save the script as upnp_forward.sh, make it executable, and then add it to your cron jobs or startup applications.

@@ -1,0 +1,1 @@
+aws cloudformation describe-change-set --change-set-name <change-set-name> --stack-name <stack-name>

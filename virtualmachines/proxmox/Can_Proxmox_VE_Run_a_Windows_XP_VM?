@@ -1,0 +1,41 @@
+▲A  A▼
+Can Proxmox VE Run a Windows XP VM?
+Download a Windows XP x64 .iso Download
+Upload the Windows XP x64 .iso file to the Proxmox ISO library
+Log into the ProxMox web UI
+Right click the ProxMox node name > Create VM
+Give the VM a unique ID and Name > Next
+Set the Type to Microsoft Windows, Version to XP/2003 and select the Windows XP iso
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Bus/Device dropdown to IDE and the Disk size to 4 GB or more > Next
+On the CPU tab, set Cores to 1 or more > Next
+On the Memory tab, set the Memory to 1024 or more > Next
+On the Network tab, set the Model field to Realtek RTL8139 > Next
+Verify the summary and click Finish
+Right click the Windows XP VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Windows Setup will start automatically
+Press Enter to Continue with Setup
+Press F8 to Agree to the Licensing Agreement
+Press Enter to Install to the Unpartitioned space
+Select the top option to Format the partition using the NTFS file system (Quick) > Press Enter
+Wait for Windows to reboot the VM
+Do not press anything to boot the CD-ROM
+Wait for Windows to install and configure drivers and devices
+Click Next
+Enter a name and organization, click Next
+Enter a valid Windows XP product key (DG8FV-B9TKY-FRT9J-6CRCC-XPQ4G), click Next
+Give the Computer a name
+Set an administrator password and re-type to confirm > Click Next
+Set the date/time and select a timezone > Click Next
+Click the Next button to accept default and continue installing Windows XP
+Click OK to allow Windows to adjust the screen resolution
+Click OK if the screen resolution looks better
+Click Next at the Welcome Screen
+Select Not right now for automatic updates > Click Next
+Click Skip on the internet connection screen
+Select No, not at this time on the Register with Microsoft screen > Click Next
+Enter a user name > Click Next
+Click Fini 
+Welcome back to Windows XP
+ 

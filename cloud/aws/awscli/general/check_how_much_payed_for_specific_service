@@ -1,0 +1,60 @@
+EC2:
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=Amazon Elastic Compute Cloud - Compute}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+
+
+Amazon Relational Database Service (RDS):
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=Amazon Relational Database Service (RDS)}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+  
+Amazon Simple Storage Service (S3):
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=Amazon Simple Storage Service (S3)}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+  
+Amazon DynamoDB:
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=Amazon DynamoDB}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+  
+Amazon Elastic Block Store (EBS):
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=Amazon Elastic Block Store (EBS)}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+  
+Amazon Lambda:
+
+aws ce get-cost-and-usage \
+  --time-period Start=$(date -d "-1 month" +%Y-%m-01),End=$(date -d "-1 month +1 month -1 day" +%Y-%m-%d) \
+  --granularity MONTHLY \
+  --metrics "UnblendedCost" \
+  --filter "Dimensions={Key=SERVICE,Values=AWS Lambda}" \
+  --query 'ResultsByTime[0].Total.UnblendedCost.Amount'
+  
+  
+  
+  
+  
+  

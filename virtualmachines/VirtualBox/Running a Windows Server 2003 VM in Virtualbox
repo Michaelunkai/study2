@@ -1,0 +1,65 @@
+Running a Windows Server 2003 VM in Virtualbox
+Locate a Windows Server 2003 iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows Server 2003
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 2003 (32-bit)
+Memory Size: 2048 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows Server 2003.vdi
+File size: 10.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Server 2003 .iso file
+Click OK
+Make sure the Windows Server 2003 VM is selected and click Start > Normal
+Windows Setup will start automatically
+Press Enter to Continue with Setup 
+Press F8 to Agree to the Licensing Agreement
+Press Enter to Install to the Unpartitioned space
+Select the top option to Format the partition using the NTFS file system (Quick) > Press Enter
+Wait for Windows to reboot the VM
+Do not press anything to boot the CD-ROM
+Wait for Windows to install and configure drivers and devices
+Click Next
+Enter a name and organization, click Next
+Enter a valid Windows Server 2003 product key (VRXXR-VJC3H-YVWYT-HCPDD-HFMQ3), click Next
+Click Next on the Licensing Modes dialog
+Give the Computer a name
+Set an administrator password and re-type to confirm > Click Next
+Set the date/time and select a timezone > Click Next
+Continue Clicking the Next button to accept defaults and continue installing Server 2003
+Wait for Windows to finish copying files, the VM will reboot
+Do not press anything to boot the CD-ROM
+Select Input > Keyboard > Ctrl-Alt-Delete
+Enter the administrator password > Click OK
+Click Finish > Yes
+Close Server Manager
+Welcome back to Server 2003
+Revel in the nostalgia
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions-x86.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Continue Anyway button
+After the installation completes select Reboot now > Click Finish
+Upon rebooting, you can now full screen the VM and the interal resolution will automatically change to match the window size
+Download i12bretro Windows SP.iso Download
+Select Devices > Optical Drives > Select disk image...
+Navigate to and select i12bretro_Windows_SP.iso
+If the VM doesn't autorun, open My Computer > CD Drive
+Open the Serve 2003 folder > Double click Server 2003 SP2 x86.exe
+Follow the dialogs to install Service Pack 2
+Once complete, Select Devices > Optical Drives > Remove disk from virtual drive
+Click Finish to reboot and complete the SP2 install

@@ -1,0 +1,7 @@
+sudo docker run -d --net=kafka-net --name=schema-registry -p 8081:8081 -e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka:7000 -e SCHEMA_REGISTRY_HOST_NAME=schema-registry -e SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081 confluentinc/cp-schema-registry:7.3.2
+
+
+Access Schema Registry
+You can interact with the Schema Registry using its REST API. For example, to list all subjects, run:
+
+curl -s http://localhost:8081/subjects

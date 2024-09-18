@@ -1,0 +1,8 @@
+Vulnerability Assessment
+Web Application Scanning
+Nikto Scan:
+
+ 
+ 
+nikto -h http://192.168.1.193
+This scans for known vulnerabilities on the web server.

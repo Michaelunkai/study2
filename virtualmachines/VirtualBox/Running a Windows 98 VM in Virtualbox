@@ -1,0 +1,50 @@
+Running a Windows 98 VM in Virtualbox
+Download Microsoft Windows 98 Download
+Extract the Windows 98 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows 98
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 98
+Memory Size: 512 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows 98.vdi
+File size: 1.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to the extracted Windows 98 files and select Win98 .iso
+Click OK
+Make sure the Windows 98 VM is selected and click Start > Normal
+Press 2 to Boot from CD-ROM
+Press 1 to Start Windows 98 Setup from CD-ROM
+Press Enter to Continue with Setup 
+Press Enter to Configure unallocated disk space
+Select Yes to enable large disk support, press Enter
+Press Enter to continue
+Press 2 to Boot from CD-ROM
+Press 1 to Start Windows 98 Setup from CD-ROM
+Press Enter to Continue with Setup
+Click the Continue button to begin installing Windows
+Follow the prompts to give the machine a name and workgroup
+Wait for the files to copy and Windows 98 to complete initializing
+When the VM reboots, select 1 to Boot from the Hard Disk
+Enter a name and company on the User Information Dialog, click Next
+Select I accept the Agreement, click Next
+Enter a valid Windows 98 SE product key (H8J3X-9HQQG-DQXX7-6GFTJ-DF6MB), click Next
+Click Finish
+Set the date/time and select a timezone > Click Apply > Click OK
+Wait for Windows to Update Sytstem Settings
+At the login screen click OK
+Enjoy the boot up sound from the Gods
+Welcome back to Windows 98
+Revel in the nostalgia

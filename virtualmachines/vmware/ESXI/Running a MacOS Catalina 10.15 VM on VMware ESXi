@@ -1,0 +1,77 @@
+▲A  A▼
+Running a MacOS Catalina 10.15 VM on VMware ESXi
+Downloads and Configuring ESXi
+Download a MacOS Catalina .iso Download
+Download Unlocker for VMware ESXi Download
+Download WinSCP Download
+Extract the downloaded Unlocker for VMware ESXi
+Rename the extracted folder unlocker
+Log into the ESXi web UI
+Enable the SSH service by selecting Actions > Services > Enable Secure Shell (SSH)
+Extract WinSCP and run the executable
+Connect to the ESXi host IP address via WinSCP
+Copy the extracted Unlocker folder to the ESXi host /root directory
+Connect to the ESXi host via SSH
+Run the following commands to install ESXi Unlocker
+# change directory to unlocker
+cd /unlocker
+# make the install script executable
+chmod +x ./esxi-install.sh
+# run the install script
+./esxi-install.sh
+# reboot esxi host
+reboot
+Creating the Catalina VM
+Log into the ESXi web UI
+In the left navigation pane, right click on Virtual Machines > Create/Register VM
+Select Create a new virtual machine > Click Next
+Name the VM MacOSX > Set the Guest OS family to Mac OS and Guest OS Version to Apple MacOS 10.14 (64-bit) > Click Next
+Select the storage datastore to use > Click Next
+Set the Memory to at least 4096
+Set Hard disk 1 to 50 GB or more > Expand Hard disk 1 and make sure the
+Expand CD/DVD Drive 1 > Make sure Datastore ISO file is selected > Click Browse next to the CD/DVD Media field
+Click Upload > Browse to and select the Mac OS installation ISO
+Once the upload completes, click the Mac OS ISO to highlight it > Click Select
+Back on the Hardware customization screen click Next
+Review the summary provided and click Finish Click the new MacOSX VM Click Power on at the top of the page
+Installing MacOS Catalina
+After an initialization sequence the Mac OS Setup should start
+Select a Language > Click the next arrow
+Select Disk Utility
+Select the VMware Virtual SATA Hard Drive Media > Click Erase
+Name the drive MacOS > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS
+Click Continue > Click Agree > Click Agree again
+Select the MacOS disk > Click Install
+Wait while Mac OS installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Continue on the Data & Privacy screen
+Select Don't transfer any information now > Click Continue
+Select Set Up Later > Click Continue > Click Skip
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck the Send Mac Analytics box > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 10.15 Catalina
+Install VMware Tools (optional, but recommended)
+Download MacOS Unlocker for VMware Workstation Download
+Extract the downloaded .zip file
+Navigate into the extracted folder
+Hold SHIFT and right click in the white space > Open PowerShell window here...
+Run the following command to download VMware Tools for MacOS
+.\unlocker.exe --download-tools
+Back in the ESXi web UI select Storage from the left navigation menu
+Click the Datastore browser icon at the top of the main content pane
+Click Upload > Browse to and select the darwin.iso
+Once the upload completes click Close to close out of the Datastore browser
+Select the MacOSX VM > Actions > Edit settings
+Attach darwin.iso to CD/DVD drive 1
+Inside the VM, double click the mounted VMware tools and run the installer
+ 

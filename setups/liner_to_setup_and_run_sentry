@@ -1,0 +1,1 @@
+git clone https://github.com/getsentry/self-hosted.git sentry-self-hosted && cd sentry-self-hosted && ./install.sh && docker-compose up -d

@@ -1,0 +1,6 @@
+sudo mkdir /mnt/d
+
+sudo mount -t drvfs D: /mnt/d
+
+# verify:
+cd /mnt/d && ls

@@ -1,0 +1,1 @@
+subprocess.Popen(['docker', 'pull', 'image_name'])

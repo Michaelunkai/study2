@@ -1,0 +1,4 @@
+cd && wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.0-stable.tar.xz && tar -xf flutter_linux_3.24.0-stable.tar.xz -C /usr/bin/ && echo $SHELL && echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.bash_profile
+
+
+restart  

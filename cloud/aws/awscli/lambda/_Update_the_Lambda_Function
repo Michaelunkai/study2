@@ -1,0 +1,17 @@
+Update the Lambda Function
+Make Changes to lambda_function.py if needed and zip it again:
+
+ 
+ 
+zip function.zip lambda_function.py
+Update the Lambda Function Code:
+
+ 
+ 
+aws lambda update-function-code --function-name myLambdaFunction \
+--zip-file fileb://function.zip
+Step 7: Delete the Lambda Function (if needed)
+Delete the Lambda Function:
+ 
+ 
+aws lambda delete-function --function-name myLambdaFunction

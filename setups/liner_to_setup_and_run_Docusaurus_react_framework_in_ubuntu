@@ -1,0 +1,1 @@
+npx create-docusaurus@latest my-docusaurus-app classic && cd my-docusaurus-app && npm start

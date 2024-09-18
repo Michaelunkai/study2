@@ -1,0 +1,1 @@
+colab-cli share-nb <notebook_name.ipynb> --email <email_address>

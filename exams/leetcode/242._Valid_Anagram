@@ -1,0 +1,81 @@
+### 242. Valid Anagram
+
+**Problem Description:**
+
+Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
+
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+**Example 1:**
+```
+Input: s = "anagram", t = "nagaram"
+Output: true
+```
+
+**Example 2:**
+```
+Input: s = "rat", t = "car"
+Output: false
+```
+
+**Constraints:**
+- \(1 \leq s.length, t.length \leq 5 \times 10^4\)
+- `s` and `t` consist of lowercase English letters.
+
+**Follow-up:**
+What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+### Explanation (Like I'm 12):
+
+Imagine you have two bags of letters, and you want to check if you can rearrange the letters in one bag to match the other bag exactly. If you can, then they are anagrams!
+
+### Python Solution:
+
+Here's how you can check if two strings are anagrams:
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # Step 1: Check if the lengths of the strings are different
+        if len(s) != len(t):
+            return False
+        
+        # Step 2: Create a dictionary to count the frequency of each letter in s
+        count_s = {}
+        for char in s:
+            count_s[char] = count_s.get(char, 0) + 1
+        
+        # Step 3: Create a dictionary to count the frequency of each letter in t
+        count_t = {}
+        for char in t:
+            count_t[char] = count_t.get(char, 0) + 1
+        
+        # Step 4: Compare the two dictionaries
+        return count_s == count_t
+```
+
+### Explanation of the Solution:
+
+1. **Check Lengths:**
+   - If the lengths of `s` and `t` are different, they can't be anagrams. So, we return `false`.
+
+2. **Count Characters:**
+   - We create two dictionaries, `count_s` and `count_t`, to count the frequency of each letter in `s` and `t`.
+
+3. **Compare Dictionaries:**
+   - If the dictionaries are equal, it means both strings have the same characters with the same frequency, so we return `true`. Otherwise, we return `false`.
+
+### Follow-up Solution for Unicode Characters:
+
+If the inputs contain Unicode characters, the same approach works because Python's dictionaries can handle Unicode characters as keys.
+
+### Example:
+
+Let's go through an example to understand the solution better.
+
+Suppose `s = "anagram"` and `t = "nagaram"`:
+
+- The dictionaries for `s` and `t` will look like this:
+  - `count_s = {'a': 3, 'n': 1, 'g': 1, 'r': 1, 'm': 1}`
+  - `count_t = {'n': 1, 'a': 3, 'g': 1, 'r': 1, 'm': 1}`
+- Since `count_s` is equal to `count_t`, the function returns `true`.

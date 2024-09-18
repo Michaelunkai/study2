@@ -1,0 +1,24 @@
+▲A  A▼
+Install PowerShell on MacOS
+What is PowerShell?
+PowerShell is a cross-platform task automation solution made up of a command-line shell, a scripting language, and a configuration management framework. PowerShell runs on Windows, Linux, and macOS. -https://docs.microsoft.com/en-us/powershell/scripting/overview
+Start LaunchPad from the dock
+Search terminal > Click Terminal to launch it
+Run the following commands in the terminal window
+# install command line tools
+xcode-select --install
+# if prompted, click install and agree to install command line tools
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# enter your password
+# press Enter to continue
+# install openssl
+brew install openssl
+# install  
+brew install --cask powershell
+# enter your password when prompted
+# launch  
+pw 
+Source: https://docs.microsoft.com/en-us/ /scripting/install/installing- -on-macos
+
+ 

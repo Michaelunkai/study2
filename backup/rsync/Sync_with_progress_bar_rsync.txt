@@ -1,0 +1,1 @@
+rsync -av --progress /source_directory/ /destination_directory/

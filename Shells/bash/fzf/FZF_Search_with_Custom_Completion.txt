@@ -1,0 +1,1 @@
+fzf --bind 'tab:complete-word'

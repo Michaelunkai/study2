@@ -1,0 +1,9 @@
+Grok Overview
+Grok is a generative AI chatbot developed by xAI, a company founded by Elon Musk. The chatbot is designed for a wide range of conversational tasks, incorporating humor and a touch of sarcasm. Grok distinguishes itself by having real-time access to data from the X platform (formerly Twitter), allowing it to provide up-to-date information and responses. This access is intended to enhance its ability to deliver unbiased and real-time news updates.
+Grok was inspired by "The Hitchhiker's Guide to the Galaxy," aiming to answer almost any question with a witty and slightly rebellious nature. It is currently in beta testing and available to a limited number of users. Grok's foundational model, Grok-1, is a 314 billion parameter Mixture-of-Experts model, and the latest version, Grok-1.5V, adds multimodal capabilities, including the ability to process and understand visual information such as documents, diagrams, charts, and photographs.
+While Grok is positioned as an alternative to other AI models like ChatGPT, it has faced some challenges with accuracy and has been noted to sometimes return misinformation. Nevertheless, xAI continues to improve and expand Grok's capabilities, including future plans for image and audio recognition and generation.
+Sources:
+- https://x.ai/blog/grok-os
+- https://x.ai/
+- https://en.wikipedia.org/wiki/Grok_(chatbot)
+- https://grokx.info/

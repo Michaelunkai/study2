@@ -1,0 +1,35 @@
+# Create directory for MariaDB data
+mkdir -p /home/$USER/docker/mariadb
+
+# Set owner of working directories
+sudo chown "$USER":"$USER" /home/"$USER"/docker -R
+
+# Create phpServerMonitor network
+docker network create phpServerMonitor
+
+# Run the php server monitor docker container
+docker run -d --name phpservermonitor --network phpServerMonitor -p 8082:80 \
+-e MYSQL_HOST=db \
+-e MYSQL_USER=servermon_rw \
+-e MYSQL_PASSWORD=Serv3rM0n! \
+-e MYSQL_DATABASE=server_monitor \
+-e MYSQL_DATABASE_PREFIX= \
+-e TIME_ZONE='America/New_York' \
+-e PSM_REFRESH_RATE_SECONDS=60 \
+-e PSM_AUTO_CONFIGURE=true \
+-v /sessions \
+--restart=unless-stopped  servermonitor/ servermon:latest
+
+# Run the mariadb docker container
+docker run -d --name mariadb --network phpServerMonitor --network-alias db \
+-e MYSQL_ROOT_PASSWORD=r00tp@ss \
+-e MYSQL_USER=servermon_rw \
+-e MYSQL_PASSWORD=Serv3rM0n! \
+-e MYSQL_DATABASE=server_monitor \
+-v /home/$USER/docker/mariadb:/var/lib/my  \
+--restart=unless-stopped mariadb:latest
+
+
+
+
+http://localhost:8082

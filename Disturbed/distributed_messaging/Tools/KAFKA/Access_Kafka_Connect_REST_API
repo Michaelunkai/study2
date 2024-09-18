@@ -1,0 +1,2 @@
+You can interact with Kafka Connect using its REST API. For example, to list all connectors, run:
+curl -s http://localhost:8083/connectors

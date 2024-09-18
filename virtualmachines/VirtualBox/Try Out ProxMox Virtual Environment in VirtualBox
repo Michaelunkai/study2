@@ -1,0 +1,70 @@
+Try Out ProxMox Virtual Environment in VirtualBox
+NOTE: This is a helpful exercise to get familiar with the ProxMox VE user interface and terminology but is not recommended for production use. 
+
+Download the Proxmox VE .iso file Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: ProxMox VE
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 8192 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image ProxMox VE.vdi
+File size: 16 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Check the Enable Nested VT-x/AMD-V
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded ProxMox VE .iso file
+Click OK
+Select the hard disk dropdown to the right
+Click the Create button at the top
+Change the size to 500 GB > Click Create
+Click OK to accept the settings
+Make sure the ProxMox VE VM is selected and click Start > Normal
+Select Install Proxmox VE and press Enter
+Click the I agree button to accept the EULA
+Select the appropriate Target Harddisk from the dropdown > Click Next
+Set the Country, Time zone and Keyboard Layout > Click Next
+Enter a password and confirm, Enter an email address > Click Next
+Give the Proxmox device a hostname, confirm the network settings > Click Next
+Click the Install button
+Wait for Proxmox to be installed and configured
+After the installation succeeds, take note of the IP address and port
+Select Devices > Optical Drives > Remove disk from virtual drive 
+Click the Reboot button
+After the VM reboots, open a web browser on the host machine and navigate to https://DNSorIP:8006
+Login with the username root and the password set during the installation
+Welcome to ProxMox VE inside VirtualBox
+Setting Up Additional VM Storage
+Click the Shell button in the ProxMox VE web interface
+Enter the following commands to initialize the new disk
+# locate the device name for the new hard disk
+fdisk -l
+# sdb is the 500 GB .vdi created earlier, replace sdb if your hard disk has a different identifier
+cfdisk /dev/sdb
+Arrow over to New > Press Enter
+Press Enter to accept the default partition size
+Press Enter to select Primary
+Arrow over to Write > Press Enter
+Type yes > Press Enter
+Arrow over to Quit > Press Enter
+Back in the ProxMox web interface, select the Data Center > Storage
+Click Add > LVM
+Give the new storage a unique name, select pve for the storage group > Click Add
+The additional storage should now be showing on the far left of the UI and be available for use for new VMs

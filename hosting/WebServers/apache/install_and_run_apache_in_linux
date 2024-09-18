@@ -1,0 +1,14 @@
+1)
+sudo apt update && sudo apt upgrade
+
+2)
+sudo apt install apache2
+
+3)
+sudo service apache2 start
+
+4)
+ff http://localhost
+or
+firefox http://localhost
+

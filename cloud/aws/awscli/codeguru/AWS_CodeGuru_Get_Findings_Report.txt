@@ -1,0 +1,1 @@
+aws codeguruprofiler get-findings-report --profiling-group-name MyProfilingGroup --start-time 2021-01-01T00:00:00Z --end-time 2021-01-02T00:00:00Z

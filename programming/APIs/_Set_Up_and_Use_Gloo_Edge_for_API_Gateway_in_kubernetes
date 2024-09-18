@@ -1,0 +1,142 @@
+Setting up and using Gloo Edge as an API Gateway in Ubuntu involves several steps. We'll start with the installation of Gloo Edge and proceed to configure and use it.
+
+### Step 1: Update System Packages
+First, update your system packages to ensure you have the latest versions.
+
+  
+sudo apt update
+sudo apt upgrade -y
+
+### Step 2: Install `kubectl`
+Gloo Edge runs on Kubernetes, so you'll need `kubectl` to interact with your Kubernetes cluster.
+
+  
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+kubectl version --client
+
+### Step 3: Install Minikube
+Minikube is a tool that makes it easy to run Kubernetes locally. 
+
+  
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start --driver=none
+
+### Step 4: Install Helm
+Helm is a package manager for Kubernetes, which you'll use to install Gloo Edge.
+
+  
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+### Step 5: Add Gloo Edge Helm Repository
+Add the Gloo Edge Helm repository and update your Helm repositories.
+
+  
+helm repo add gloo https://storage.googleapis.com/solo-public-helm
+helm repo update
+
+### Step 6: Install Gloo Edge
+Install Gloo Edge using Helm.
+
+  
+kubectl create namespace gloo-system
+helm install gloo gloo/gloo --namespace gloo-system
+
+### Step 7: Verify Installation
+Check the status of Gloo Edge to ensure it is installed correctly.
+
+  
+kubectl get pods -n gloo-system
+
+You should see several pods running, including `gloo`, `discovery`, and `gateway`.
+
+### Step 8: Port Forward Gloo Edge Proxy
+Port forward the Gloo Edge proxy to access it locally.
+
+  
+kubectl port-forward -n gloo-system svc/gateway-proxy 8080:80
+
+### Step 9: Configure Route
+Create a simple route to forward traffic to a sample service. First, create a sample Kubernetes service.
+
+  
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin
+  labels:
+    app: httpbin
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: httpbin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbin
+  template:
+    metadata:
+      labels:
+        app: httpbin
+    spec:
+      containers:
+      - name: httpbin
+        image: kennethreitz/httpbin
+        ports:
+        - containerPort: 80
+
+Save this file as `httpbin.yaml` and apply it.
+
+  
+kubectl apply -f httpbin.yaml
+
+### Step 10: Create a Virtual Service
+Create a virtual service to route traffic to the `httpbin` service.
+
+  
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: httpbin
+  namespace: gloo-system
+spec:
+  virtualHost:
+    domains:
+      - '*'
+    routes:
+      - matchers:
+          - prefix: /
+        routeAction:
+          single:
+            upstream:
+              name: default-httpbin-80
+              namespace: gloo-system
+
+Save this file as `httpbin-virtualservice.yaml` and apply it.
+
+  
+kubectl apply -f httpbin-virtualservice.yaml
+
+### Step 11: Test the Setup
+You can now test the setup by sending a request to the Gloo Edge proxy.
+
+  
+curl http://localhost:8080/get
+
+You should see a response from the `httpbin` service.
+
+### Summary
+You've successfully set up and configured Gloo Edge as an API Gateway on Ubuntu. You can now start exploring more advanced configurations and features offered by Gloo Edge.
+
+If you have any specific requirements or run into issues, feel free to ask!

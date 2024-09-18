@@ -1,0 +1,1 @@
+cd &&  wget https://github.com/AssetRipper/AssetRipper/releases/latest/download/AssetRipper_linux_x64.zip && unzip AssetRipper_linux_x64.zip -d AssetRipper && cd AssetRipper &&  chmod +x ./AssetRipper.GUI.Free &&  ./AssetRipper.GUI.Free

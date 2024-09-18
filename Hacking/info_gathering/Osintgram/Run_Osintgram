@@ -1,0 +1,11 @@
+# Fetch information about a user
+python3 main.py user your_target_username
+
+# Fetch the follower list of a user
+python3 main.py followers your_target_username
+
+# Fetch the following list of a user
+python3 main.py following your_target_username
+
+# Fetch the posts of a user
+python3 main.py feed your_target_username

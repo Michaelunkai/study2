@@ -1,0 +1,132 @@
+Prerequisites
+Kubernetes Cluster: Ensure you have a running Kubernetes cluster. You can set up a local cluster using Minikube or a full-scale cluster using kubeadm.
+kubectl: The Kubernetes command-line tool should be installed and configured to communicate with your cluster.
+Step 1: Install Kubernetes Cluster (if not already done)
+Install Minikube
+If you don't have a Kubernetes cluster yet, you can set up Minikube for local testing:
+
+ 
+ 
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+minikube start --driver=none
+Step 2: Install KubeVirt
+Deploy the KubeVirt Operator
+This operator will manage the KubeVirt components in your cluster.
+
+ 
+ 
+export VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest | jq -r .tag_name)
+kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-operator. 
+Deploy KubeVirt CustomResource (CR)
+This will install KubeVirt components using the operator.
+
+ 
+ 
+kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-cr. 
+Wait for KubeVirt to be Ready
+Monitor the deployment to ensure that all components are running.
+
+ 
+ 
+kubectl -n kubevirt wait kv kubevirt --for condition=Available
+Step 3: Install the Virtctl CLI Tool
+Virtctl is a command-line utility for managing KubeVirt resources.
+
+ 
+ 
+curl -Lo virtctl https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-linux-amd64
+chmod +x virtctl
+sudo mv virtctl /usr/local/bin/
+Step 4: Create a Virtual Machine (VM)
+Define a Virtual Machine
+Create a YAML file for your VM, for example, vm. .
+
+ 
+ 
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: testvm
+  namespace: default
+spec:
+  running: false
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: testvm
+    spec:
+      domain:
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: containerdisk
+          - disk:
+              bus: virtio
+            name: cloudinitdisk
+        resources:
+          requests:
+            memory: 64Mi
+      volumes:
+      - name: containerdisk
+        containerDisk:
+          image: kubevirt/fedora-cloud-container-disk-demo:latest
+      - name: cloudinitdisk
+        cloudInitNoCloud:
+          userData: |
+            #cloud-config
+            password: fedora
+            chpasswd: { expire: False }
+Apply the VM Definition
+Apply the VM configuration to create the VM.
+
+ 
+ 
+kubectl apply -f vm. 
+Start the VM
+Start the newly created VM.
+
+ 
+ 
+virtctl start testvm
+Step 5: Access the Virtual Machine
+Check the VM Status
+Verify that the VM is running.
+
+ 
+ 
+kubectl get vmi
+Access the VM Console
+Access the console of the running VM.
+
+ 
+ 
+virtctl console testvm
+Step 6: Stop the Virtual Machine
+Stop the VM
+Stop the VM when you are done.
+
+ 
+ 
+virtctl stop testvm
+Delete the VM (if needed)
+Remove the VM definition if you no longer need it.
+
+ 
+ 
+kubectl delete -f vm. 
+Optional: Cleanup
+Delete KubeVirt CR
+If you want to remove KubeVirt and its components, delete the KubeVirt CustomResource.
+
+ 
+ 
+kubectl delete -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-cr. 
+Delete KubeVirt Operator
+Delete the KubeVirt Operator.
+
+ 
+ 
+kubectl delete -f https://github.com/kubevirt/kubevir

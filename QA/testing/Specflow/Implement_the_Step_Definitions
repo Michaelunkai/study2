@@ -1,0 +1,55 @@
+Implement the Step Definitions
+Step definitions map the steps in your feature files to the code that executes them.
+ 
+ 
+mkdir StepDefinitions
+nano StepDefinitions/CalculatorStepDefinitions.cs
+Example content of CalculatorStepDefinitions.cs:
+
+ 
+ 
+using NUnit.Framework;
+using TechTalk.SpecFlow;
+
+namespace SpecFlowDemo.StepDefinitions
+{
+    [Binding]
+    public class CalculatorStepDefinitions
+    {
+        private int _firstNumber;
+        private int _secondNumber;
+        private int _result;
+
+        [Given(@"I have entered (.*) into the calculator")]
+        public void GivenIHaveEnteredIntoTheCalculator(int number)
+        {
+            if (_firstNumber == 0)
+            {
+                _firstNumber = number;
+            }
+            else
+            {
+                _secondNumber = number;
+            }
+        }
+
+        [When(@"I press add")]
+        public void WhenIPressAdd()
+        {
+            _result = _firstNumber + _secondNumber;
+        }
+
+        [Then(@"the result should be (.*) on the screen")]
+        public void ThenTheResultShouldBeOnTheScreen(int expectedResult)
+        {
+            Assert.AreEqual(expectedResult, _result);
+        }
+    }
+}
+5. Build and Run the Tests
+To build and run the tests, use the following commands:
+ 
+ 
+dotnet build
+dotnet test
+The output should show whether the tests passed or failed.

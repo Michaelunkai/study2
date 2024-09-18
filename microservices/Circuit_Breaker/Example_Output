@@ -1,0 +1,49 @@
+Example  
+When Using https://httpbin.org/status/200:
+
+ 
+ 
+Call 1: Success - {
+  "args": {}, 
+  "headers": {
+Call 2: Success - {
+  "args": {}, 
+  "headers": {
+Call 3: Success - {
+  "args": {}, 
+  "headers": {
+Call 4: Success - {
+  "args": {}, 
+  "headers": {
+Call 5: Success - {
+  "args": {}, 
+  "headers": {
+Call 6: Success - {
+  "args": {}, 
+  "headers": {
+Call 7: Success - {
+  "args": {}, 
+  "headers": {
+Call 8: Success - {
+  "args": {}, 
+  "headers": {
+Call 9: Success - {
+  "args": {}, 
+  "headers": {
+Call 10: Success - {
+  "args": {}, 
+  "headers": {
+When Using https://httpbin.org/status/500:
+
+ 
+ 
+Call 1: Request failed - 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500
+Call 2: Request failed - 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500
+Call 3: Request failed - 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500
+Call 4: Circuit breaker is open. Skipping the call.
+Call 5: Circuit breaker is open. Skipping the call.
+Call 6: Circuit breaker is open. Skipping the call.
+Call 7: Circuit breaker is open. Skipping the call.
+Call 8: Circuit breaker is open. Skipping the call.
+Call 9: Circuit breaker is open. Skipping the call.
+Call 10: Circuit breaker is open. Skipping the call.

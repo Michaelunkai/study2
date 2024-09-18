@@ -1,0 +1,9 @@
+ wget -qO - https://repo.yandex.ru/clickhouse/CLICKHOUSE-KEY.GPG | sudo gpg --dearmor -o /usr/share/keyrings/clickhouse-archive-keyring.gpg && echo "deb [signed-by=/usr/share/keyrings/clickhouse-archive-keyring.gpg] https://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list && sudo apt update && sudo apt install clickhouse-server clickhouse-client -y && sudo systemctl start clickhouse-server && sudo systemctl enable clickhouse-server && sudo bash -c 'cat > /etc/clickhouse-server/users.d/default-password.xml <<EOF
+<yandex>
+    <users>
+        <default>
+            <password></password>
+        </default>
+    </users>
+</yandex>
+EOF' && sudo systemctl restart clickhouse-server && clickhouse-client

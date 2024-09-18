@@ -1,0 +1,27 @@
+## Dicta-LM 2.0: A Powerful, Open, and Advanced Hebrew Language Model
+
+🚀 **Introducing Dicta-LM 2.0**: A groundbreaking generative language model in Hebrew, now available for free and unlimited use! Developed by the Dicta Center in collaboration with MAFAT / the National NLP Program and the Israeli Association for Human Language Technologies (IAHLT), this new model is set to revolutionize the field.
+
+**Key Features of Dicta-LM 2.0**:
+- **Advanced Generative Language Model**: One of the best Hebrew LLMs, with up to 13 billion parameters.
+- **Available for Free**: Downloadable under the Apache 2.0 license.
+- **Enhanced Tokenizer**: Offers higher compression (2.1 times better than Mistral and twice as good as LLaMA-3).
+- **Robust Training**: Trained on an Intel Gaudi 2 cluster using 190 billion tokens, with 95 billion from high-quality, natural Hebrew and the rest from the SlimPajama corpus of English texts.
+- **Multiple Versions**: Both a base model and a chat model are available in full precision and 4-bit precision formats (GPTQ, AWQ, and GGUF).
+
+**Availability**:
+- **Hugging Face**: Both base and chat versions can be found here: [Dicta-LM 2.0 Collection](https://huggingface.co/collections/dicta-il/dicta-lm-20-collection-661bbda397df671e4a430c27)
+- **Demo**: Try the chat version here: [Dicta-LM 2.0 Chat Demo](https://huggingface.co/spaces/dicta-il/dictalm2.0-instruct-demo)
+- **Machine Translation**: An English-Hebrew translation system demonstrating the model's linguistic capabilities: [Dicta Translation](https://translate.dicta.org.il/)
+- **LM Studio, GPT4All, and llama.cpp**: Direct usage options.
+- **Replicate**: Use the model with API:
+  - [Base Model](https://replicate.com/ altiel mid/dictalm2.0)
+  - [Chat Model](https://replicate.com/ altiel mid/dictalm2.0-instruct)
+
+**Performance Highlights**:
+- **Impressive Evaluation Results**: The model excels in understanding and generating high-quality text, outperforming many other models. It also provides high-quality translations from Hebrew to English.
+- **Efficient Memory Usage**: The 4-bit version requires approximately 5GB of GPU memory.
+
+Special thanks to the Intel Labs Israel NLP team: Peter Isaac, Daniel Fleischer, Moshe Brzansky, and Moshe Wasserblat.
+
+🔗 **Learn More**: For detailed insights, visit the full blog post: [Dicta-LM Blog](https://dicta.org.il/dicta-lm)

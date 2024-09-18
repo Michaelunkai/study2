@@ -1,0 +1,1 @@
+aws kms cancel-key-deletion --key-id <key-id>

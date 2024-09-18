@@ -1,0 +1,69 @@
+### 258. Add Digits
+
+**Problem Description:**
+
+Given an integer `num`, repeatedly add all its digits until the result has only one digit, and return it.
+
+**Example 1:**
+```
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+```
+
+**Example 2:**
+```
+Input: num = 0
+Output: 0
+```
+
+**Constraints:**
+- \(0 \leq \text{num} \leq 2^{31} - 1\)
+
+**Follow up:** Could you do it without any loop/recursion in O(1) runtime?
+
+### Explanation (Like I'm 12):
+
+Imagine you have a number and you want to keep adding its digits together until you get a single digit. For example, if you start with 38, you add 3 + 8 to get 11. Since 11 is still more than one digit, you add 1 + 1 to get 2. Now you have a single digit, so you stop.
+
+### Solution Without Loop/Recursion:
+
+There's a cool trick called the "Digital Root" which allows us to find the answer without repeatedly adding the digits using a loop or recursion. The digital root can be found using the formula:
+
+\[ \text{Digital Root} = 1 + ( \text{num} - 1) \% 9 \]
+
+This formula works because of properties related to modular arithmetic and the number 9. Here’s the solution:
+
+```python
+class Solution:
+    def addDigits(self, num: int) -> int:
+        if num == 0:
+            return 0
+        else:
+            return 1 + (num - 1) % 9
+```
+
+### Explanation of the Solution:
+
+1. **Check if `num` is 0:**
+   - If `num` is 0, directly return 0 since the only digit is 0.
+
+2. **Calculate Digital Root:**
+   - For any other number, we use the formula `1 + (num - 1) % 9`.
+   - This formula effectively finds the sum of the digits until a single digit is obtained without using loops or recursion.
+
+### Example Walkthrough:
+
+Let's take the example `num = 38`:
+
+- Using the formula: `1 + (38 - 1) % 9`
+- Simplify: `1 + 37 % 9`
+- `37 % 9` is 1 (since 37 divided by 9 gives a remainder of 1)
+- So the result is `1 + 1 = 2`
+
+The result is 2, which matches the manual calculation done in the example.
+
+This approach ensures that the solution is achieved in constant time \(O(1)\) without any loops or recursion, making it very efficient even for large values of `num`.

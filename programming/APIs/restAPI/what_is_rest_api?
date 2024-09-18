@@ -1,0 +1,17 @@
+A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It allows different software applications to communicate over HTTP by following specific principles and constraints. Here are some key aspects of REST APIs:
+
+1. **Stateless**: Each request from a client to a server must contain all the information needed to understand and process the request. The server does not store any information about the client's state between requests.
+
+2. **Uniform Interface**: REST APIs use standard HTTP methods and status codes, such as GET, POST, PUT, DELETE, etc., to perform operations on resources. Resources are typically represented in a format such as JSON or XML.
+
+3. **Resources**: Resources are the fundamental entities in a REST API, and they are identified by URIs (Uniform Resource Identifiers). For example, a resource could be a user, a product, or a piece of data.
+
+4. **Client-Server Architecture**: The client (which consumes the API) and the server (which provides the API) are separate entities. This separation allows for scalability and flexibility in development and deployment.
+
+5. **Layered System**: A REST API can be composed of multiple layers, with each layer providing specific functionality. Clients interact with the API through a single interface, without needing to understand the underlying layers.
+
+6. **Cacheable**: Responses from the server should indicate whether they are cacheable or not. This helps improve performance by allowing clients to cache responses and reduce the need for repetitive requests.
+
+7. **Stateless Communication**: Each API request is independent, and the server does not retain any session or context information between requests.
+
+REST APIs are widely used in modern web development to enable communication between different applications and services, and they are a common way to build scalable and maintainable web services.

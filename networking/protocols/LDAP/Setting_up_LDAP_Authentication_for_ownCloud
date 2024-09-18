@@ -1,0 +1,29 @@
+Setting up LDAP Authentication for ownCloud
+Log into the Linux device
+Run the following commands in terminal to install the PHP LDAP module
+# update software repositories
+sudo apt update
+# install php-ldap module
+sudo apt install php-ldap
+# restart apache httpd service
+sudo systemctl restart apache2
+Launch a web browser and navigate to http://DNSorIP/owncloud
+Log into ownCloud
+Click the hamburger menu > Market in the top left corner
+Press CTRL+F and search for LDAP
+Click the LDAP Integration app
+Click the Install button
+Select Username > Settings from the menu in the upper right hand corner
+Click Admin > User Authentication in the left navigation menu
+Fill out the LDAP server form as follows:
+Host: i12bretro.local
+Port: 389
+User DN: readonly_svc@i12bretro.local
+Password: Read0nly!!
+Base DN: CN=users,DC=i12bretro,DC=local
+Click the Test Base DN button
+Click the Continue button
+Click the Continue button
+Check the LDAP / AD Email Address box and click the Continue button
+Select Username > Logout from the menu in the upper right hand corner
+Log into ownCloud using LDAP user credentials

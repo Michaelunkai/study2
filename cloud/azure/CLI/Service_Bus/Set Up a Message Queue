@@ -1,0 +1,1 @@
+az servicebus topic create --resource-group myResourceGroup --namespace-name myNamespace --name myTopic

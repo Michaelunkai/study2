@@ -1,0 +1,65 @@
+Problem Statement:
+Given two strings s and t, return the number of distinct subsequences of s which equals t.
+
+Explanation:
+Imagine you have two strings: s and t. Your job is to find out how many different ways you can remove some characters from s to get the string t while maintaining the order of characters.
+
+For example:
+
+If s is "rabbbit" and t is "rabbit", there are 3 ways to get "rabbit" from "rabbbit":
+"rabbbit"
+"rabbbit"
+"rabbbit"
+Python Solution:
+python
+Copy code
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        
+        # dp array to store the number of distinct subsequences
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        
+        # Initialize the dp array
+        for i in range(m + 1):
+            dp[i][0] = 1  # there's one way to match an empty t
+        
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if s[i - 1] == t[j - 1]:
+                    # Include s[i-1] in the subsequence or exclude it
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
+                else:
+                    # Exclude s[i-1] from the subsequence
+                    dp[i][j] = dp[i - 1][j]
+        
+        return dp[m][n]  # The bottom-right cell contains the answer
+Explanation of the Code:
+Function Signature:
+
+def numDistinct(self, s: str, t: str) -> int:
+Initialization:
+
+m, n = len(s), len(t)
+dp = [[0] * (n + 1) for _ in range(m + 1)]
+m and n are the lengths of s and t, respectively.
+dp is a 2D list initialized to store the number of distinct subsequences.
+Base Case:
+
+for i in range(m + 1):
+    dp[i][0] = 1  # there's one way to match an empty t
+There is exactly one way to match an empty string t (by deleting all characters of s).
+DP Table Calculation:
+
+for i in range(1, m + 1):
+    for j in range(1, n + 1):
+        if s[i - 1] == t[j - 1]:
+            dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]  # include s[i-1] or exclude it
+        else:
+            dp[i][j] = dp[i - 1][j]  # exclude s[i-1]
+If the characters s[i-1] and t[j-1] are equal, you have two options: include or exclude the current character of s.
+If they are not equal, exclude the current character of s.
+Return the Result:
+
+return dp[m][n]  # The bottom-right cell contains the answer
+The result is stored in dp[m][n], which represents the number of distinct subsequences of s that match t.

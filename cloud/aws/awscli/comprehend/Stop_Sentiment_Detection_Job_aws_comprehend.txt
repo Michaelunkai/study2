@@ -1,0 +1,1 @@
+aws comprehend stop-sentiment-detection-job --job-id <job-id>

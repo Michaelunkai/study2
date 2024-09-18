@@ -1,0 +1,1 @@
+clamscan -l scan_report.txt file.txt

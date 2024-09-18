@@ -1,0 +1,10 @@
+Open PowerShell as an administrator.
+Run the following command to create the primary DNS zone:
+
+
+Add-DnsServerPrimaryZone -Name "example.com" -ReplicationScope "Forest" -PassThru
+After creating the zone, run the following command to add a host record:
+
+
+Add-DnsServerResourceRecordA -ZoneName "example.com" -Name "host1" -IPv4Address "192.168.1.100"
+Verify that the commands execute successfully without errors.

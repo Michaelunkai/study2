@@ -1,0 +1,1 @@
+colab-cli open-nb <notebook_name.ipynb>

@@ -1,0 +1,50 @@
+1)
+in windows, install openVPN connect
+
+2)in proxmox, create CT with openVPN template (dont run yet)
+
+3)in proxmox  ell:
+cd /etc/pve/lxc
+
+nano <ctID>.conf
+
+** add this lines in the bottom:
+lxc.cgroup.devices.allow: c 10:200 rwm
+lxc.mount.entry: /dev/net dev/net none bind,create=dir
+
+4)
+chown 100000:100000 /dev/net/tun
+
+5)
+ls -l /dev/net/tun
+
+the output:
+crw-rw-rw- 1 100000 100000 10, 200 Mar 19 19:26 /dev/net/tun
+
+6) start the CT and enter it.
+apt update && apt upgrade -y
+apt install openvpn git -y
+cd
+git clone https://github.com/Nyr/openvpn-install && cd openvpn-install
+  openvpn-install. 
+
+
+7)
+in prompt:
+enter CT's ip address
+UDP
+enter
+1.1.1.1
+laptop
+enter
+
+
+8)
+cd
+cat "laptop.ovpn"
+
+copy everything from "client" to end
+
+paste it on windows.
+
+9) enter openvpn connect app on windows > upload file > upload the file saved and connect

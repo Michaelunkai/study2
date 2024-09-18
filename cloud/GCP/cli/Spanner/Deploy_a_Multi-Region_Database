@@ -1,0 +1,1 @@
+gcloud spanner instances create my-instance --config=regional-us-central1 --description='My Spanner Instance' --nodes=3 && gcloud spanner databases create my-database --instance=my-instance --ddl='CREATE TABLE Singers (SingerId INT64 NOT NULL, FirstName STRING(1024), LastName STRING(1024)) PRIMARY KEY(SingerId)'

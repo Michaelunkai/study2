@@ -1,0 +1,100 @@
+# Ultimate Guide to Installing, Configuring, and Using Telnyx for SMS Communication on Ubuntu
+
+This comprehensive tutorial will guide you through the entire process of installing and configuring Telnyx for SMS communication on an Ubuntu system. You will learn how to set up the necessary dependencies, use the Telnyx Python SDK to send and receive SMS, and expose your local server to the internet for handling incoming messages using ngrok.
+
+## 1. Install Required Dependencies
+
+First, you need to ensure that your Ubuntu system has Python and `pip` installed. Open your terminal and run the following commands to install these dependencies:
+
+  
+sudo apt update
+sudo apt install python3-pip
+
+This will install `pip`, which is used to manage Python packages.
+
+## 2. Install the Telnyx Python SDK
+
+With `pip` installed, you can now install the Telnyx Python SDK, which will allow you to interact with the Telnyx API. Run the following command:
+
+  
+pip install telnyx
+
+## 3. Set Up Your Telnyx Account and Obtain Your API Key
+
+1. **Create a Telnyx Account**: Visit [Telnyx](https://telnyx.com/) and sign up for an account.
+2. **Get Your API Key**: Log in to your Telnyx account and navigate to the API Keys section to retrieve your API key.
+
+## 4. Create a Python Script for Sending SMS
+
+Create a Python script named `send_sms.py` that will use the Telnyx API to send SMS messages. Open your text editor and add the following code:
+
+  
+import telnyx
+
+# Replace with your Telnyx API key
+telnyx.api_key = "YOUR_TELNYX_API_KEY"
+
+response = telnyx.Message.create(
+    from_="+YOUR_TELNYX_PHONE_NUMBER",  # Your Telnyx phone number
+    to="+RECIPIENT_PHONE_NUMBER",       # The recipient's phone number
+    text="Hello from Telnyx!"
+)
+
+print(response)
+
+Replace `"YOUR_TELNYX_API_KEY"`, `"+YOUR_TELNYX_PHONE_NUMBER"`, and `"+RECIPIENT_PHONE_NUMBER"` with your actual Telnyx API key, your Telnyx phone number, and the recipient's phone number, respectively.
+
+## 5. Run the SMS Sending Script
+
+Execute the Python script to send an SMS:
+
+  
+ 3 send_sms.py
+
+## 6. Set Up a Flask Server for Handling Incoming SMS
+
+To handle incoming SMS messages, set up a webhook using Flask. Create a file named `webhook.py` with the following code:
+
+  
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    data = request.json
+    print(f"Received message from {data['from']}: {data['text']}")
+    return jsonify(status='success')
+
+if __name__ == '__main__':
+    app.run(port=5000)
+
+## 7. Run the Flask Server
+
+Start your Flask server with this command:
+
+  
+ 3 webhook.py
+
+## 8. Expose Your Local Server to the Internet Using ngrok
+
+To allow Telnyx to reach your local Flask server, expose it to the internet using ngrok. If you don’t have ngrok installed, download and install it. Then run:
+
+  
+./ngrok http 5000
+
+Ngrok will provide a public URL (e.g., `http://123456.ngrok.io`). Note this URL as you will need it to configure the webhook.
+
+## 9. Configure the Webhook in Telnyx
+
+1. **Log in to the Telnyx Portal**.
+2. **Navigate to Webhooks**: Find the section where you can configure webhooks.
+3. **Set the Webhook URL**: Use the ngrok URL followed by `/webhook` (e.g., `http://123456.ngrok.io/webhook`).
+
+## 10. Test Your Setup
+
+To ensure everything is working correctly, send an SMS to your Telnyx phone number. Check your Flask server’s terminal output to see if the incoming message details are printed.
+
+---
+
+By following these detailed steps, you will have successfully installed, configured, and used Telnyx for SMS communication on Ubuntu. If you have any questions or encounter any issues, feel free to ask for further assistance!

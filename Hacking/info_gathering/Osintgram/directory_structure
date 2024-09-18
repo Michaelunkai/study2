@@ -1,0 +1,38 @@
+After cloning the repository and installing the dependencies, ensure your directory structure looks like this:
+
+ 
+ 
+root@DESKTOP-4IVDSOR:~/Osintgram$ ls
+Dockerfile  README.md  docker-compose.yml  output
+LICENSE     config     docker_reqs.txt     requirements.txt
+Makefile    doc        main.py             src
+root@DESKTOP-4IVDSOR:~/Osintgram$ tree
+.
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── config
+│   ├── credentials.ini
+│   └── settings.json
+├── doc
+│   ├── CHANGELOG.md
+│   └── COMMANDS.md
+├── docker-compose.yml
+├── docker_reqs.txt
+├── main.py
+├── output
+│   └── dont_delete_this_folder.txt
+├── requirements.txt
+└── src
+    ├── Osintgram.py
+    ├── __pycache__
+    │   ├── Osintgram.c -310.pyc
+    │   ├── artwork.c -310.pyc
+    │   ├── config.c -310.pyc
+    │   └── printcolors.c -310.pyc
+    ├── artwork.py
+    ├── config.py
+    └── printcolors.py
+
+5 directories, 21 files

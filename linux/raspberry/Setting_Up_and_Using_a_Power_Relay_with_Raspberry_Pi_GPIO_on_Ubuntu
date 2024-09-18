@@ -1,0 +1,53 @@
+Certainly! Here’s a comprehensive tutorial with a detailed title and all the necessary steps for setting up a power relay control script on a Raspberry Pi:
+
+---
+
+### **Comprehensive Guide: Setting Up and Using a Power Relay with Raspberry Pi GPIO on Ubuntu**
+
+Follow these steps to install necessary libraries and set up a Python script to control a power relay using GPIO pins on your Raspberry Pi.
+
+  
+# Install necessary build tools, pip, and Python development headers
+sudo apt-get install -y build-essential python3-pip python3.10-dev 
+
+# Install the RPi.GPIO library
+pip3 install RPi.GPIO 
+
+# Create a project directory
+mkdir lot_power_relay_project 
+
+# Change to the project directory
+cd lot_power_relay_project 
+
+# Create a Python script to control the relay
+echo 'import RPi.GPIO as GPIO
+import time
+
+# Pin Definitions
+relay_pin = 17  # BCM pin 17, BOARD pin 11
+
+# Pin Setup
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(relay_pin, GPIO.OUT, initial=GPIO.LOW)
+
+print("Starting relay control. Press CTRL+C to exit.")
+try:
+    while True:
+        GPIO.output(relay_pin, GPIO.HIGH)
+        print("Relay ON")
+        time.sleep(5)
+        GPIO.output(relay_pin, GPIO.LOW)
+        print("Relay OFF")
+        time.sleep(5)
+except KeyboardInterrupt:
+    print("Exiting program.")
+
+finally:
+    GPIO.cleanup()' > relay_control.py 
+
+# Run the Python script
+ 3 relay_control.py
+
+---
+
+This tutorial ensures you have all the required dependencies and a working Python script for controlling a relay via GPIO pins on your Raspberry Pi. If you have any further questions or run into issues, feel free to ask!

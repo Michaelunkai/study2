@@ -1,0 +1,33 @@
+ Clean Up to Avoid Extra Costs
+If you no longer need the EFS file system and want to avoid any extra costs, follow these steps to delete everything:
+
+Unmount the File System
+ 
+ 
+sudo umount /mnt/efs
+Delete the Mount Target
+List your mount targets to get their IDs:
+
+ 
+ 
+aws efs describe-mount-targets --file-system-id fs-12345678
+Then delete the mount target:
+
+ 
+ 
+aws efs delete-mount-target --mount-target-id mt-12345678
+Replace mt-12345678 with your mount target ID.
+
+Delete the EFS File System
+ 
+ 
+aws efs delete-file-system --file-system-id fs-12345678
+Replace fs-12345678 with your EFS file system ID.
+
+Delete the Security Group (if created specifically for EFS)
+If you created a specific security group for EFS, you might want to delete it:
+
+ 
+ 
+aws ec2 delete-security-group --group-id sg-12345678
+Replace sg-12345678 with your security group ID.

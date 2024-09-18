@@ -1,0 +1,1 @@
+fastfetch fetch --recurse-submodules --depth=1

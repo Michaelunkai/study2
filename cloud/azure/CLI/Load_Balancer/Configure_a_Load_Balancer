@@ -1,0 +1,1 @@
+az network lb create --resource-group myResourceGroup --name myLoadBalancer --sku Standard --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --public-ip-address myPublicIP

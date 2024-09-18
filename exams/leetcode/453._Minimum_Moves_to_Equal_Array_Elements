@@ -1,0 +1,52 @@
+### 453. Minimum Moves to Equal Array Elements
+
+To solve this problem, we need to make all elements in the array equal with the minimum number of moves. Each move involves incrementing \(n - 1\) elements by 1. This is equivalent to decrementing one element by 1 because incrementing \(n - 1\) elements by 1 is the same as incrementing the sum of the array by 1 and keeping one element unchanged.
+
+Therefore, the solution is to reduce all elements to the minimum element in the array. The total number of moves required will be the sum of the differences between each element and the minimum element.
+
+**Solution:**
+
+```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        min_num = min(nums)
+        moves = 0
+        for num in nums:
+            moves += num - min_num
+        return moves
+```
+
+### Explanation:
+
+1. **Find the Minimum Element:**
+   - Find the minimum element in the array using `min(nums)`.
+
+2. **Calculate Total Moves:**
+   - Initialize a counter `moves` to 0.
+   - For each element `num` in the array, calculate the difference between `num` and `min_num` and add this difference to `moves`.
+
+3. **Return Result:**
+   - Return the total number of moves.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `nums = [1, 2, 3]`
+   - Steps:
+     - Minimum element: `min_num = 1`
+     - Moves: `(1 - 1) + (2 - 1) + (3 - 1) = 0 + 1 + 2 = 3`
+   - Output: `3`
+
+2. **Example 2:**
+   - Input: `nums = [1, 1, 1]`
+   - Steps:
+     - Minimum element: `min_num = 1`
+     - Moves: `(1 - 1) + (1 - 1) + (1 - 1) = 0 + 0 + 0 = 0`
+   - Output: `0`
+
+### Constraints:
+
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+This approach ensures that we achieve the minimum number of moves by reducing all elements to the smallest value in the array, resulting in an efficient solution with a time complexity of \(O(n)\).

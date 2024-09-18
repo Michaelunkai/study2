@@ -1,0 +1,1 @@
+subprocess.Popen(['az', 'storage', 'blob', 'upload', '--container-name', 'container_name', '--file', 'file.txt', '--name', 'blob_name'])

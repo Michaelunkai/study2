@@ -1,0 +1,22 @@
+Securing APIs
+Using HTTPS:
+
+Use Let's Encrypt to secure your API endpoints.
+
+sudo apt-get install certbot python3-certbot-nginx
+sudo certbot --nginx
+Implementing API Authentication:
+
+OAuth2:
+Implement OAuth2 for your APIs. Use libraries like Flask-OAuthlib for Python:
+
+from flask import Flask
+from flask_oauthlib.provider import OAuth2Provider
+
+app = Flask(__name__)
+oauth = OAuth2Provider(app)
+JWT Tokens:
+
+import jwt
+encoded = jwt.encode({'some': 'payload'}, 'secret', algorithm='HS256')
+decoded = jwt.decode(encoded, 'secret', algorithms=['HS256'])

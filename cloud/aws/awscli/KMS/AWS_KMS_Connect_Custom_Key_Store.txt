@@ -1,0 +1,1 @@
+aws kms connect-custom-key-store --custom-key-store-id <store-id>

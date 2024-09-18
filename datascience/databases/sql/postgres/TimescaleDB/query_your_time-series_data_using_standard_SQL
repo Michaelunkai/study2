@@ -1,0 +1,6 @@
+Query the Data
+You can now query your time-series data using standard SQL:
+
+ 
+ 
+SELECT * FROM conditions ORDER BY time DESC;

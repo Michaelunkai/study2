@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  study:
+    image: michadockermisha/backup:study
+    container_name: study
+    command: bash -c 'rm -rf /home/* && cp -r /f/study /home && exit'
+
+  installed:
+    image: michadockermisha/backup:installed
+    container_name: installed
+    command: bash -c 'rm -rf /home/* && cp -r /f/backup/windowsapps/installed /home && exit'
+
+  install:
+    image: michadockermisha/backup:install
+    container_name: install
+    command: bash -c 'rm -rf /home/* && cp -r /f/backup/windowsapps/"TO INSTALL" /home && exit'
+
+  wsl:
+    image: michadockermisha/backup:wsl
+    container_name: wsl
+    command: bash -c 'rm -rf /home/* && cp -r /f/backup/linux/wsl/ /home && cp /f/backup/linux/alias.txt /home && exit'
+
+  vidtrans:
+    image: michadockermisha/backup:vidtrans
+    container_name: vidtrans
+    command: bash -c 'rm -rf /home/* && cp -r /f/whisper/ /home && exit'

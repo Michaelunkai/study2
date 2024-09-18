@@ -1,0 +1,3 @@
+Command: sudo usermod -g <newGID> <username>
+Description: Changes a user's GID.
+User Management

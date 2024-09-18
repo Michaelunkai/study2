@@ -1,0 +1,15 @@
+SpiderFoot is an open-source intelligence (OSINT) automation tool. It is designed to automate the process of gathering information about a target from various sources on the internet. Here are some key features and uses of SpiderFoot:
+
+1. **Information Gathering**: SpiderFoot can collect data from over 100 different information sources, including search engines, social media platforms, public databases, and various other online resources.
+
+2. **Customizable Modules**: It has numerous modules that can be customized to target specific types of information, such as IP addresses, domain names, email addresses, phone numbers, and more.
+
+3. **Automation**: The tool is designed to automate the data collection process, making it faster and more efficient than manual information gathering.
+
+4. **Reporting**: SpiderFoot provides detailed reports of the collected data, which can be used for further analysis or investigation.
+
+5. **Integration**: It can be integrated with other tools and systems to enhance its capabilities and streamline workflows.
+
+6. **User-Friendly Interface**: The tool features a web-based interface that makes it easy to configure and use, even for those who may not be highly technical.
+
+SpiderFoot is commonly used by cybersecurity professionals, penetration testers, and researchers to perform reconnaissance on targets, identify potential vulnerabilities, and gather intelligence for various purposes.

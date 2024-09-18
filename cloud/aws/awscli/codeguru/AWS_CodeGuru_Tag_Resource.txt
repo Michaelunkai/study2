@@ -1,0 +1,1 @@
+aws codeguru-reviewer tag-resource --resource-arn <resource-arn> --tags Key=Environment,Value=Production

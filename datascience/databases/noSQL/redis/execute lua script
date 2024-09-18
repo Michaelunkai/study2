@@ -1,0 +1,6 @@
+Execute a Lua script (Redis):
+
+redis-cli --eval myscript.lua , key1 key2 value1 value2
+Example myscript.lua:
+
+return redis.call('set', KEYS[1], ARGV[1])

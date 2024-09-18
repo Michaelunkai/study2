@@ -1,0 +1,23 @@
+## Mike's Daily Article 20.07.24: Consistency Models
+
+Today's article has been eagerly awaited for quite some time—nearly a year and a half. Written by the legendary Yang Song, known for his influential work in the field of diffusion models, and co-authored by the well-known Ilya Sutskever, this piece delves into a new approach for training generative diffusion models. During the writing of this paper, both scientists were part of OpenAI. The other two authors also contributed significantly to the field of generative models and were associated with OpenAI as of March 2023.
+
+The article introduces a novel method for training generative diffusion models. A standard generative diffusion model consists of a forward process and a backward process. In the forward process, noise (usually Gaussian) is gradually added to the data until the data becomes pure noise. In the backward process, the model is trained to gradually remove the noise, learning what noise needs to be subtracted from the noisy data at iteration t to retrieve the data at iteration t-1. Once the model is trained, it can generate data from pure noise by gradually removing the noise.
+
+However, this process can be quite lengthy, requiring the model to run for several iterations. Many studies have attempted to reduce the number of iterations without compromising the quality of the generated data. Consistency models are another attempt to tackle this interesting problem. The main idea here is that for a given data piece \(x_0\), no matter from which iteration t (i.e., noisy data \(x_t\)) we start the noise removal process, we must eventually return to the clean data \(x_0\).
+
+The article proposes two methods for training a consistent diffusion model. The first method assumes we have a trained diffusion model (consistency distillation), and the second trains the model from scratch (consistency training). To explain the first method, we need to dive into some mathematics, but we'll do it slowly and carefully.
+
+Starting with the forward process, the diffusion model is described by a stochastic differential equation that depicts the gradual creation of noisy data. It can be shown that an ordinary differential equation (ODE) for \(x_t\) exists, interestingly containing the logarithm of the probability function of the noisy data \(x_t\) (known as the score function or SF). This equation describes the backward process (gradual noise removal). If we have an estimate of the SF, we can gradually reconstruct our data using the numerical solution (in iterations) of this ODE (e.g., Euler-Maruyama).
+
+The coolest part is that if we have a trained diffusion model (an estimate of the score at iteration t), we can easily obtain an estimate of the SF (assuming Gaussian noise).
+
+But how does this relate to consistency models that need to converge to the same point regardless of the noise iteration? We train the model as follows: take a noisy point t, perform one iteration of the numerical solution of the ODE (with SF) to get the data at iteration t-1. Remember, our goal is to train the model to reconstruct the clean data from any noise iteration. So, we train the model to minimize the difference between the data reconstructed from iteration t and that from iteration t-1. Essentially, there are two models involved (similar to the method in representation learning called BYOL). The first model is the smoothed model, whose parameters are the exponential moving average of the weights from previous training iterations (not trained - there's a stop gradient), known as the target. The second model is trained with gradient descent.
+
+We can also train a model without a trained diffusion model. In this case, we create \(x_{t-1}\) from \(x_t\) by reducing the noise. Once we have trained consistency models, we can generate clean data from pure noise in a single iteration, although this is not always optimal. The paper suggests a method called Multistep Consistency Sampling. Start from pure noise, create clean data, add noise again, create clean data again, and repeat until the data quality is satisfactory. The paper claims that significantly fewer iterations are required in this process compared to standard diffusion models.
+
+That's all for now. I hope I didn't lose you along the way...
+
+[Link to paper](https://arxiv.org/pdf/2303.01469)  
+[Telegram](https://t.me/MathyAIwithMike/197)  
+[Twitter](https://x.com/MikeE_3_14/status/1815019709919596811)

@@ -1,0 +1,1 @@
+aws iot delete-audit-suppression --check-name <check-name> --resource-identifier <resource-arn>

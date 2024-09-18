@@ -1,0 +1,1 @@
+sudo apt install -y curl jq && curl -sL https://deb.nodesource.com/setup_18.x | bash - && sudo apt install -y nodejs && npm install -g @hubspot/cli && mkdir -p ~/hubspot-crm && cd ~/hubspot-crm && hs init && hs auth

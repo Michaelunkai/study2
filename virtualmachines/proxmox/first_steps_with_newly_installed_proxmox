@@ -1,0 +1,22 @@
+***first, resize the storage:
+
+1)in browser: https://192.168.1.222:8006
+
+2) Datacenter > storage > remove local-lvm
+
+3) pve > shell:
+
+    1  lvremove /dev/pve/data
+    2  lvresize -l +100%FREE /dev/pve/root
+    3  resize2fs /dev/mapper/pve-root
+
+***updates:
+pve > updates > repositories:
+1) disable all eneterprise repos
+2) add > non subscribtion repo
+3)press refre 
+4)press upgrade
+
+**in database > storage:
+double top storage > content > enable all the boxes (important to do before creating new vms!!)
+

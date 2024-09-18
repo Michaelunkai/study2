@@ -1,0 +1,31 @@
+
+
+
+
+
+To list only the external drives (external USB drives) in Linux, you can use the lsblk (List Block Devices) command with specific options. Here's a command to achieve that:
+
+
+
+lsblk -o NAME,SIZE,MODEL,VENDOR,TRAN | grep 'usb\|sata'
+
+
+
+
+
+sudo testdisk -P /dev/sda -l testdisk.log
+
+or 
+
+sudo testdisk /dev/sdb
+
+
+
+If you have an instance of TestDisk running, and you want to check which drive it is actively working on from a new terminal, you can use the lsof (list open files) command to inspect the files that TestDisk has open. Here's how to do it:
+
+Open a new terminal and run the following command:
+
+
+
+sudo lsof -c testdisk
+

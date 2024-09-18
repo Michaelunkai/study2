@@ -1,0 +1,1 @@
+sudo wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.52.1_Linux-64bit.deb

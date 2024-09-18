@@ -1,0 +1,1 @@
+clamscan -r --max-scan-bytes-limit=500M /path/to/directory

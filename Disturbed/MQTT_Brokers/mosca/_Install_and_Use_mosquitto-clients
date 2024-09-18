@@ -1,0 +1,16 @@
+ Install and Use mosquitto-clients
+Alternatively, you can use mosquitto-clients for testing:
+
+ 
+ 
+sudo apt install mosquitto-clients
+Publi  a message:
+ 
+ 
+mosquitto_pub -h localhost -t test -m "Hello Mosca"
+Subscribe to a topic:
+ 
+ 
+mosquitto_sub -h localhost -t test
+You should see the message "Hello Mosca" printed in the terminal where you run the subscriber command.
+

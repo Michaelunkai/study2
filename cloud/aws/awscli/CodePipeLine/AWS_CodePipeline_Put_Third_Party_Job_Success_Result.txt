@@ -1,0 +1,1 @@
+aws codepipeline put-third-party-job-success-result --job-id <job-id> --client-token <client-token>

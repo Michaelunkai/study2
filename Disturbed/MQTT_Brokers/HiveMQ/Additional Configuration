@@ -1,0 +1,9 @@
+Enable SSL/TLS:
+
+Modify the hivemq.conf file to enable SSL/TLS.
+Plugins:
+
+HiveMQ supports various plugins to extend functionality. Place your plugins in the plugins directory and configure them accordingly.
+Persistence:
+
+Configure persistence settings in the hivemq.conf file for message storage.

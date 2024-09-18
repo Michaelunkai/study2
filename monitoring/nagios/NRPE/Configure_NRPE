@@ -1,0 +1,116 @@
+Edit the NRPE configuration file to allow the Nagios server IP:
+
+ 
+ 
+sudo nano /etc/nagios/nrpe.cfg
+Add your Nagios server IP to the allowed_hosts line:
+
+ 
+ 
+allowed_hosts=127.0.0.1,<Nagios_Server_IP>
+
+
+** or replace enitre file with this: 
+
+
+#############################################################################
+#
+#  Sample NRPE Config File
+#
+#  Notes:
+#
+#  This is a sample configuration file for the NRPE daemon.  It needs to be
+#  located on the remote host that is running the NRPE daemon, not the host
+#  from which the check_nrpe client is being executed.
+#
+#############################################################################
+
+# LOG FACILITY
+log_facility=daemon
+
+# LOG FILE
+#log_file=/var/log/nrpe.log
+
+# DEBUGGING OPTION
+debug=0
+
+# PID FILE
+pid_file=/run/nagios/nrpe.pid
+
+# PORT NUMBER
+server_port=5666
+
+# SERVER ADDRESS
+#server_address=127.0.0.1
+
+# LISTEN QUEUE SIZE
+#listen_queue_size=5
+
+# NRPE USER
+nrpe_user=nagios
+
+# NRPE GROUP
+nrpe_group=nagios
+
+# ALLOWED HOST ADDRESSES
+allowed_hosts=127.0.0.1,::1,Your_Nagios_Server_IP
+
+# COMMAND ARGUMENT PROCESSING
+dont_blame_nrpe=0
+
+# BASH COMMAND SUBSTITUTION
+allow_ _command_substitution=0
+
+# COMMAND PREFIX
+# command_prefix=/usr/bin/sudo
+
+# MAX COMMANDS
+# max_commands=0
+
+# COMMAND TIMEOUT
+command_timeout=60
+
+# CONNECTION TIMEOUT
+connection_timeout=300
+
+# WEAK RANDOM SEED OPTION
+#allow_weak_random_seed=1
+
+# SSL/TLS OPTIONS
+#ssl_version=SSLv2+
+#ssl_use_adh=1
+#ssl_cipher_list=ALL:!MD5:@STRENGTH:@SECLEVEL=0
+#ssl_cacert_file=/etc/ssl/servercerts/ca-cert.pem
+#ssl_cert_file=/etc/ssl/servercerts/nagios-cert.pem
+#ssl_privatekey_file=/etc/ssl/servercerts/nagios-key.pem
+#ssl_client_certs=0
+#ssl_logging=0x00
+
+# NASTY METACHARACTERS
+# nasty_metachars="|`&><'\\[]{};\r\n"
+
+# DISABLE SYSLOG
+disable_syslog=0
+
+# COMMAND DEFINITIONS
+command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
+command[check_load]=/usr/lib/nagios/plugins/check_load -r -w .15,.10,.05 -c .30,.25,.20
+command[check_hda1]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/hda1
+command[check_zombie_procs]=/usr/lib/nagios/plugins/check_procs -w 5 -c 10 -s Z
+command[check_total_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
+
+# LOCAL CONFIGURATION
+include=/etc/nagios/nrpe_local.cfg
+
+# CONFIG DIRECTORY
+include_dir=/etc/nagios/nrpe.d/
+
+# KEEP ENVIRONMENT VARIABLES
+#keep_env_vars=NRPE_MULTILINESUPPORT,NRPE_PROGRAMVERSION
+
+
+
+
+Restart NRPE Service:
+
+sudo systemctl restart nagios-nrpe-server

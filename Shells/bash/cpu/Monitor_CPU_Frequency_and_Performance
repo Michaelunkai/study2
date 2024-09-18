@@ -1,0 +1,30 @@
+ Monitor CPU Frequency and Performance
+After setting up CPU throttling, it's essential to monitor the system to ensure everything works as intended.
+
+Use cpufreq-info:
+
+ 
+ 
+cpufreq-info
+This command provides real-time information about CPU frequency and governor settings.
+
+Install and Use htop:
+
+htop is an interactive process viewer that can display CPU frequency per core.
+
+ 
+ 
+sudo apt install htop
+htop
+Press F2 to enter the setup.
+Navigate to "Available Columns" and add "Frequency".
+Press F10 to exit setup.
+You can now see the CPU frequency in the main display.
+Use watch with cpufreq-info:
+
+To continuously monitor CPU frequency:
+
+ 
+ 
+watch -n 1 "cpufreq-info | grep \"current CPU frequency\""
+This command updates the CPU frequency information every second.

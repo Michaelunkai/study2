@@ -1,0 +1,3 @@
+^!k::
+Send, {w down}{w up}{a down}{a up}
+return

@@ -1,0 +1,1 @@
+aws lambda create-function --function-name my-lambda-function --runtime python3.8 --role arn:aws:iam::111122223333:role/lambda-ex --handler app.lambda_handler --zip-file fileb://function.zip --environment Variables={DB_TABLE=Users,LOG_LEVEL=INFO}

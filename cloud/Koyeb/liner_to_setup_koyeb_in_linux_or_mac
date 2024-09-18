@@ -1,0 +1,1 @@
+curl -fsSL https://raw.githubusercontent.com/koyeb/koyeb-cli/master/install.sh | sh && export PATH=$HOME/.koyeb/bin:$PATH

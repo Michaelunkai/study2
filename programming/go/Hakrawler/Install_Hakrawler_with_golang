@@ -1,0 +1,21 @@
+ Install Hakrawler
+Install Hakrawler Using Go:
+
+ 
+ 
+go install github.com/hakluke/hakrawler@latest
+This will install Hakrawler and place the binary in your $GOPATH/bin.
+
+Move Hakrawler to /usr/local/bin:
+
+ 
+ 
+sudo cp ~/go/bin/hakrawler /usr/local/bin/
+
+
+Verify Hakrawler Installation
+To verify that Hakrawler is installed correctly, run:
+
+ 
+ 
+hakrawler -h

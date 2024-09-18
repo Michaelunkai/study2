@@ -1,0 +1,37 @@
+Create a KMS key:
+
+aws kms create-key --description "Vault Auto-Unseal Key" --region us-east-1
+Note the KeyId and Arn in the output for later use.
+
+Create an IAM policy:
+
+Create a file named vault-kms-policy.json with this content:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VaultKMSUnseal",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:DescribeKey"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:YOUR_ACCOUNT_ID:key/YOUR_KEY_ID"
+    }
+  ]
+}
+
+
+Replace YOUR_ACCOUNT_ID and YOUR_KEY_ID with your actual values.
+Create the policy:
+
+bashCopyaws iam create-policy --policy-name VaultKMSUnsealPolicy --policy-document file://vault-kms-policy.json
+
+Attach the policy to an IAM role:
+
+Create a role for Vault if you don't have one:
+aws iam create-role --role-name VaultRole --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+Attach the policy:
+bashCopyaws iam attach-role-policy --role-name VaultRole --policy-arn arn:aws:iam::YOUR_ACCOUNT_ID:policy/VaultKMSUnsealPolicy
+Replace YOUR_ACCOUNT_ID with your actual AWS account ID.

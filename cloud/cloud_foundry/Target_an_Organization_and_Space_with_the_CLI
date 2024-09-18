@@ -1,0 +1,17 @@
+Target an Organization and Space
+List available organizations:
+ 
+ 
+cf orgs
+Target a specific organization:
+ 
+ 
+cf target -o YOUR_ORG
+List available spaces within the targeted organization:
+ 
+ 
+cf spaces
+Target a specific space:
+ 
+ 
+cf target -s YOUR_SPACE

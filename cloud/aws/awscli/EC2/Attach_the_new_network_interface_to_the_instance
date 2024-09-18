@@ -1,0 +1,4 @@
+aws ec2 attach-network-interface --network-interface-id <new-network-interface-id> --instance-id i-0493c4c6e9ccf7c05 --device-index 1
+
+
+

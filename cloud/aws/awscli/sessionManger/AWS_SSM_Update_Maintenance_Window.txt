@@ -1,0 +1,1 @@
+aws ssm update-maintenance-window --window-id <window-id> --name <window-name> --schedule <schedule> --duration <duration> --cutoff <cutoff>

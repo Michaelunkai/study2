@@ -1,0 +1,1 @@
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons monitoring --workspace-resource-id '/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.OperationalInsights/workspaces/<workspace>'

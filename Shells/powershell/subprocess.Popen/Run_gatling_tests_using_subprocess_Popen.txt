@@ -1,0 +1,1 @@
+subprocess.Popen(['gatling', '-sf', 'src/test/scala'])

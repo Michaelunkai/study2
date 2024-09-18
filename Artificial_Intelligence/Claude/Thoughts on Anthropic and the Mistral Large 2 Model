@@ -1,0 +1,19 @@
+# Thoughts on Anthropic and the Mistral Large 2 Model
+
+## Anthropic's Rising Influence
+Anthropic is currently experiencing significant momentum, largely due to recent developments within the tech community. Several notable OpenAI employees are either taking indefinite sabbaticals or transitioning to roles at Anthropic. This shift underscores Anthropic's growing prominence.
+
+## Advocacy for Anthropic in Software Programming
+As a staunch advocate for Anthropic, particularly in software programming tasks, I appreciate its capabilities and consistently recommend it for those looking to enhance their programming workflow. However, it's essential to consider alternative models to optimize results.
+
+## Giving Mistral Large 2 a Chance
+I strongly suggest trying Mistral Large 2, especially since it's available for free. Integrating it into your workflow can yield surprising benefits. I often achieve the best outcomes by allowing Mistral to process initial tasks and then refining the results with Claude. For instance, Mistral recently outperformed Claude in converting unstructured JSON into TypeScript interfaces, which Claude then used to generate excellent Python code.
+
+## Reflection on Workflow
+In the era of large language models (LLMs), it's crucial to emphasize planning over immediate coding. Before implementing code, I recommend drafting a high-level software design outline, even if it involves terse pseudocode. Iterating this outline between leading LLMs, such as Claude and Mistral, allows for critique and refinement according to best practices in software design.
+
+## Benefits of Mistral Large 2
+Mistral Large 2 offers substantial feedback before repeating suggestions, providing valuable insights into error logging, exception handling, and test coverage. Despite occasional contradictions, such as revisiting previous implementations (e.g., Python speedup using asyncio vs concurrent futures), it introduces new information that serves as a peer review, enhancing your work.
+
+## Conclusion
+Incorporating Mistral's feedback into your workflows is beneficial, even if it means revisiting and revising previous implementations. The interplay between leading LLMs like Claude and Mistral can significantly improve software design and coding outcomes. Feedback and constructive dissent on these observations are always welcome.

@@ -1,0 +1,8 @@
+Monitoring Network Traffic:
+
+Zeek will now start monitoring network traffic on the specified interface. The logs are stored in the following directory:
+
+ 
+ 
+/opt/zeek/logs/current/
+You can check the logs to analyze the captured data.

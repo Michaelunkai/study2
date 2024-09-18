@@ -1,0 +1,69 @@
+▲A  A▼
+Windows Server 2012 2016 2019 2022 RAM Disk Setup Guide
+NOTE: RAM disks by their very nature are cleared on reboot. Do not use them to store any data that cannot be lost. A suitable use case would be temporary session files for a web server
+
+Installing iSCSI Target Server
+Launch Server Manager if it does not automatically load
+Click the Start button > Server Manager
+Click Manage > Add roles and features
+Click Next on the Before you begin screen
+Select Role-based or feature-based installation > Next
+Leave Select a server from the server pool selected and select the current server > Next
+Expand File and Storage Services > Expand File and iSCSI Services > Select iSCSI Target Server
+A popup will appear with additional required roles and features, click the Add Features button
+Click Next
+Click Next on the Select features screen
+Click Install on the confirmation screen
+Leave the installation progress screen open until the install completes
+Creating the RAM Disk
+Launch Powershell as administrator
+Enter the following commands to create the RAM disk, replacing the IP address with the current server's IP address
+# allow iSCSI loopback registry setting
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\iSCSI Target' -Name AllowLoopBack -Value 1
+# start the iscsi initiator service
+Start-Service -Name MSiSCSI
+# set the iscsi initiator service to start automatically
+Set-Service -Name MSiSCSI -StartupType Automatic
+# create the ram disk, changing size as needed
+New-IscsiVirtualDisk -Path "ramdisk:RAMDisk.vhdx" -Size 256MB
+# initialize iSCSI target
+New-IscsiServerTarget -TargetName RAMDisk -InitiatorIds @("IPAddress:192.168.0.65")
+# connect to the ram disk
+Add-IscsiVirtualDiskTargetMapping -TargetName RAMDisk -DevicePath "ramdisk:RAMDisk.vhdx"
+Back in Server Manager, select Tools > iSCSI Initiator
+Enter the IP address in the Target field > Click Quick Connect...
+Click Done
+Back in Powershell, run the following command
+# initialize the disk as NTFS
+Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -DriveLetter R -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "RAMDisk" -Confirm:$false
+Open File Explorer and the new RAM disk should be listed as a usable NTFS drive
+Re-creating the RAM Disk on Boot
+After the RAM disk has been setup initially, follow the steps below to have it recreated on system boot.
+
+Open a text editor
+Paste the following Powershell commands, changing the size as needed
+New-IscsiVirtualDisk -Path "ramdisk:RAMDisk.vhdx" -Size 256MB
+Add-IscsiVirtualDiskTargetMapping -TargetName RAMDisk -DevicePath "ramdisk:RAMDisk.vhdx"
+Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -DriveLetter R -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "RAMDisk" -Confirm:$false
+
+Save the file as ramdisk.ps1 to a safe location to run from, c:\scripts for example
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to RAM Disk and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+In the Program/script field, paste the following:
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+In the Add arguments field, paste the following, editing the path to the .ps1 file if necessary:
+"C:\Scripts\ramdisk.ps1"
+
+Click Next
+Check the Open the Properties dialog for this task when I click Finish box
+Click Finish
+In the Properties dialog, click the Change User or Group... button
+Type system > Press Enter
+Check the Run with highest privileges box
+Click OK to create the scheduled task
+Reboot the server to verify the RAM disk is re-created automatically
+ 

@@ -1,0 +1,1 @@
+aws iot add-thing-to-thing-group --thing-group-name <thing-group-name> --thing-name <thing-name>

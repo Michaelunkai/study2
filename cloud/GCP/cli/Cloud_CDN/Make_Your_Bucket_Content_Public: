@@ -1,0 +1,1 @@
+gsutil iam ch allUsers:objectViewer gs://YOUR_BUCKET_NAME

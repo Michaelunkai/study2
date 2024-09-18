@@ -1,0 +1,10 @@
+Chef InSpec is an open-source testing framework used for automated infrastructure testing. It allows you to write tests in a human-readable language that can be used to verify the security, compliance, and configuration of systems, applications, and infrastructure. Chef InSpec can be used to ensure that your systems meet the required security and compliance standards by running tests that check for specific configurations, permissions, or other conditions.
+
+Key features of Chef InSpec include:
+
+- **Compliance as Code**: Write compliance policies as code, making them versionable, testable, and easily integrated into CI/CD pipelines.
+- **Cross-Platform**: Supports testing on multiple platforms including Windows, Linux, macOS, cloud platforms, and containers.
+- **Integration with Chef**: Seamlessly integrates with Chef's configuration management tool, allowing for end-to-end automation of compliance and configuration management.
+- **Extensible**: Custom resources can be created to extend InSpec's capabilities.
+
+InSpec tests are written in Ruby, and they can be executed using the `inspec` command-line tool.

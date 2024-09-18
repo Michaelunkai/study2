@@ -1,0 +1,5 @@
+ Modify Subnet Attributes
+Enable auto-assign public IP on the public subnet:
+ 
+ 
+aws ec2 modify-subnet-attribute --subnet-id subnet-<PUBLIC_SUBNET_ID> --map-public-ip-on-launch

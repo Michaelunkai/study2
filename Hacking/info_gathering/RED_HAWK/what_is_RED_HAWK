@@ -1,0 +1,114 @@
+RED HAWK is an all-in-one tool for Information Gathering, Vulnerability Scanning, and Exploitation. It is written in PHP and is designed to be a comprehensive tool for web application reconnaissance and scanning. Here’s an in-depth explanation of what RED HAWK is and what it does:
+
+### Overview
+
+RED HAWK is a web server scanner designed to gather information about web servers and to identify potential vulnerabilities. It automates many of the tasks that penetration testers and security researchers typically perform manually, such as gathering information about a target, scanning for vulnerabilities, and exploiting those vulnerabilities. It combines multiple tools and techniques into a single interface, making it easier to use and more efficient.
+
+### Features
+
+1. **Information Gathering**
+    - **Basic Information Gathering**: Collects basic information about the target website, such as IP address, web server, and operating system.
+    - **Whois Lookup**: Retrieves the Whois information for the target domain, including registrant details, contact information, and registration dates.
+    - **Geo-IP Lookup**: Determines the geographical location of the target IP address.
+    - **DNS Lookup**: Performs a DNS lookup to retrieve DNS records for the target domain, including A, MX, NS, and TXT records.
+    - **Subnet Calculator**: Calculates subnet information for the target IP address.
+    - **Subdomain Scanner**: Identifies subdomains associated with the target domain.
+    - **Reverse IP Lookup & CMS Detection**: Identifies other websites hosted on the same server as the target and detects the Content Management System (CMS) used by the target site.
+
+2. **Vulnerability Scanning**
+    - **Nmap Port Scan**: Uses Nmap to scan for open ports on the target server and to identify running services.
+    - **SQLi Scanner**: Scans the target for SQL Injection vulnerabilities.
+    - **Basic XSS Scanner**: Scans the target for Cross-Site Scripting (XSS) vulnerabilities.
+
+3. **Exploitation**
+    - RED HAWK integrates basic exploitation techniques to exploit identified vulnerabilities. This is more limited compared to specialized exploitation tools but provides a starting point for further manual exploitation.
+
+### Modules and Usage
+
+Each feature in RED HAWK can be accessed through a menu-driven interface. Here’s a closer look at some of the modules:
+
+1. **Basic Information Gathering**
+    - This module collects basic information about the target website, such as server details, IP address, and OS type. This information helps in building a profile of the target.
+    
+    Example command:
+      
+      rhawk. 
+
+2. **Whois Lookup**
+    - Retrieves the domain registration information, including owner details, contact information, and important dates. This is useful for identifying the entity behind the website and understanding its background.
+
+    Example output:
+      
+    Domain Name: example.com
+    Registrar: GoDaddy.com, LLC
+    Registrant Name: John Doe
+    Registrant Organization: Example Inc.
+
+3. **Geo-IP Lookup**
+    - Determines the geographical location of the target IP address, which can provide insights into where the server is physically hosted.
+
+    Example output:
+      
+    IP Address: 192.0.2.1
+    Country: United States
+    Region: California
+    City: Los Angeles
+
+4. **DNS Lookup**
+    - Retrieves DNS records for the target domain, helping to map out the domain’s infrastructure and discover additional services.
+
+    Example output:
+      
+    A Record: 192.0.2.1
+    MX Record: mail.example.com
+    NS Record: ns1.example.com, ns2.example.com
+
+5. **Nmap Port Scan**
+    - Uses Nmap to identify open ports and running services on the target server. This helps in understanding the services that are accessible and potentially vulnerable.
+
+    Example command:
+      
+    nmap -p- 192.0.2.1
+
+6. **SQLi Scanner**
+    - Tests the target website for SQL Injection vulnerabilities. This can help identify weaknesses in the web application’s database interaction.
+
+    Example command:
+      
+    php sqli_scan.php -u http://example.com/page?id=1
+
+7. **Basic XSS Scanner**
+    - Tests the target website for Cross-Site Scripting vulnerabilities. This can help identify flaws in input validation and output encoding.
+
+    Example command:
+      
+    php xss_scan.php -u http://example.com/search?q=test
+
+### Architecture
+
+RED HAWK is built using PHP, leveraging various web-based and command-line tools to perform its functions. It combines these tools into a cohesive interface, allowing users to easily switch between different types of scans and information gathering tasks. The architecture is modular, enabling easy updates and additions of new features.
+
+### Installation and Setup
+
+1. **Install PHP and Git**:
+      
+    sudo apt install php git -y
+
+2. **Clone the RED HAWK Repository**:
+      
+    git clone https://github.com/Tuhin ubhra/RED_HAWK.git
+    cd RED_HAWK
+
+3. **Run RED HAWK**:
+      
+      rhawk. 
+
+### Use Cases
+
+- **Penetration Testing**: RED HAWK can be used by penetration testers to perform initial reconnaissance and vulnerability scanning as part of a larger testing engagement.
+- **Bug Bounty Hunting**: Bug bounty hunters can use RED HAWK to quickly gather information and identify potential vulnerabilities in targets.
+- **Security Research**: Security researchers can leverage RED HAWK to explore and understand the security posture of web applications.
+
+### Conclusion
+
+RED HAWK is a versatile and powerful tool for web reconnaissance and vulnerability scanning. It simplifies many of the tasks associated with information gathering and initial vulnerability assessment, making it a valuable addition to the toolkit of penetration testers, bug bounty hunters, and security researchers. By combining multiple tools and techniques into a single interface, RED HAWK streamlines the process of identifying and exploiting vulnerabilities in web applications.

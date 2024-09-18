@@ -1,0 +1,1 @@
+aws kms create-custom-key-store --custom-key-store-name <name> --cloud-hsm-cluster-id <cluster-id> --trust-anchor-certificate file://<certificate> --key-store-password <password>

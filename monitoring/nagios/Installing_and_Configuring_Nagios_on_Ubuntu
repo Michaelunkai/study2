@@ -1,0 +1,65 @@
+Prerequisites
+An Ubuntu 20.04 server
+A non-root user with sudo privileges
+An apt package manager, an essential tool for installing software on Ubuntu
+Step 1: Install Required Dependencies
+Before installing Nagios, we need to install the required packages. Open a terminal or SSH into your server and run the following commands:
+
+sudo apt update
+sudo apt install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
+Step 2: Create Nagios User and Group
+Nagios needs a dedicated user and group to operate. Create them using the following commands:
+
+sudo useradd nagios
+sudo groupadd nagcmd
+sudo usermod -a -G nagcmd nagios
+Step 3: Download and Compile Nagios
+Next, download the latest version of Nagios from the official website. At the time of writing, the latest version is Nagios 4.4.6. Please check the official Nagios website for the most current version.
+
+cd /tmp
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.6.tar.gz
+tar xzf nagios-*.tar.gz
+cd nagios-4.4.6
+./configure --with-nagios-group=nagios --with-command-group=nagcmd
+make all
+Step 4: Install Nagios Binaries and Service
+Install the binaries, init scripts, and sample configuration files with these commands:
+
+sudo make install
+sudo make install-init
+sudo make install-config
+sudo make install-commandmode
+Step 5: Install Nagios Web Interface
+Set up the web interface and create an admin user called 'nagiosadmin' (you can change the username to your preference). You will be prompted to create a password for this user:
+
+sudo make install-webconf
+sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+Enable the Apache rewrite and cgi modules:
+
+sudo a2enmod rewrite cgi
+sudo systemctl restart apache2
+Step 6: Install Nagios Plugins
+Nagios plugins are essential for monitoring services. Install them with the following commands:
+
+cd /tmp
+wget https://nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz
+tar xzf nagios-plugins-*.tar.gz
+cd nagios-plugins-2.3.3
+./configure --with-nagios-user=nagios --with-nagios-group=nagios --with-openssl
+make
+sudo make install
+Step 7: Verify Nagios Configuration
+Before starting Nagios, run the following command to check for any configuration errors:
+
+sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+Step 8: Start Nagios Service
+Now, you can start Nagios and enable it to run on boot:
+
+sudo systemctl start nagios.service
+sudo systemctl enable nagios.service
+Access Nagios Web Interface
+Finally, open your web browser and access the Nagios web interface using your server's IP address or domain name followed by '/nagios'
+
+Login with the 'nagiosadmin' user credentials you created earlier. You should now see the Nagios dashboard, where you can begin to monitor your servers and applications.
+
+

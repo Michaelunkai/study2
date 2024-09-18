@@ -1,0 +1,16 @@
+# Step 1: Install WhatWeb
+sudo apt update
+sudo apt install whatweb
+
+# Step 2: Install Tor and Proxychains for anonymity
+sudo apt install tor proxychains
+
+# Step 3: Start the Tor service
+sudo service tor start
+
+# Step 4: Configure Proxychains
+# Edit /etc/proxychains.conf and ensure it has the following line:
+# socks4  127.0.0.1 9050
+
+# Step 5: Run WhatWeb through Proxychains
+proxychains whatweb example.com

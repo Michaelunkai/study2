@@ -1,0 +1,22 @@
+# Training Diffusion Models with Reinforcement Learning
+
+In my previous review, I covered a paper on generative diffusion models, which piqued my interest in exploring more of these topics. Today, I've chosen an exciting paper co-authored by the legendary Sergey Levine. Besides his numerous publications, he also offers a deeply comprehensive course on deep reinforcement learning (RL). Unsurprisingly, the paper we'll review today involves reinforcement learning and diffusion models.
+
+Previously, I reviewed one of his papers that combined RL approaches for training diffusion models. It turns out that training a diffusion model can be characterized using RL tools, specifically by constructing an intuitive Markov Decision Process (MDP) for the diffusion model.
+
+As you may recall, training a diffusion model involves building a model that estimates the noise added to the data at iteration t of the forward process (gradual noising of the data). If we can estimate the noise added to a data piece at iteration t, we can then estimate the noised data at the previous iteration t-1. Essentially, we are training a denoising model to reconstruct data from pure noise.
+
+This paper introduces an RL framework (MDP) for modeling the training of a generative diffusion model. Here’s a formal definition of the MDP parameters at iteration t:
+- **State**: The triplet {prompt, iteration number t, noised data x_t}
+- **Action**: The previous iteration's data x_t-1
+- **Policy**: The probability of obtaining x_t-1 from x_t and the prompt c
+- **Initial State**: Defined by the triplet {standard Gaussian noise (starting point for denoising), probability distribution over prompts, final iteration T}
+- **Reward Function**: Defined in various ways in the paper, calculated at the final iteration on the reconstructed image.
+
+With this RL definition for training diffusion models, we can apply classic RL methods such as REINFORCE or PPO to maximize the reward function.
+
+Regarding the reward function, the paper suggests a few options. The first option is to compute the BERT Score, which measures how well the image matches its prompt (by comparing their embeddings). The second option is to use the LAION aesthetics predictor, trained to estimate the aesthetic quality of an image (essentially a linear layer on the CLIP embedding trained on a dataset of human-tagged images).
+
+This is an interesting and relatively accessible paper.
+
+For more details, check out the paper: [Training Diffusion Models with Reinforcement Learning](https://arxiv.org/pdf/2305.13301) and visit my posts on [Telegram](https://t.me/MathyAIwithMike/201) and [Twitter](https://x.com/MikeE_3_14/status/1815429095418663005).

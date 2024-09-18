@@ -1,0 +1,34 @@
+**Playwright-BDD** is a testing framework that integrates **Playwright** with **Behavior-Driven Development (BDD)** practices. Here's a breakdown of what Playwright-BDD is and the type of testing it supports:
+
+### What is Playwright-BDD?
+- **Playwright**: A powerful end-to-end testing framework for web applications, developed by Microsoft. It allows you to automate browser actions, such as navigating to pages, clicking buttons, filling forms, and verifying page content across different browsers like Chrome, Firefox, and Safari.
+
+- **BDD (Behavior-Driven Development)**: A software development process that encourages collaboration between developers, testers, and business stakeholders. BDD focuses on creating shared understanding of how the application should behave by writing human-readable scenarios using Gherkin syntax. These scenarios describe the desired behavior of the application in plain language.
+
+- **Playwright-BDD**: Combines the capabilities of Playwright with the principles of BDD. It allows you to write tests in a Gherkin format (e.g., Given, When, Then) and execute them using Playwright as the underlying test engine. This makes it easier for non-technical stakeholders to understand the test cases and participate in the testing process.
+
+### What Type of Test is it?
+Playwright-BDD is used for **end-to-end (E2E) testing** with a focus on **behavior-driven testing**. This means it tests the complete flow of an application from the user's perspective, ensuring that all parts of the system work together correctly.
+
+- **End-to-End Testing**: It simulates real user interactions with the application, such as logging in, navigating through pages, and verifying that the application behaves as expected. E2E tests check the application's functionality across various components (frontend, backend, databases) and ensure that they work together seamlessly.
+
+- **Behavior-Driven Testing**: Tests are written in a way that describes the behavior of the application in terms of business requirements. For example, a test might describe that when a user logs in with valid credentials, they should be redirected to the dashboard. The focus is on what the application should do from the user's perspective, rather than how it does it.
+
+### Example:
+Here’s a simple Gherkin scenario used in Playwright-BDD:
+
+ gherkin
+Feature: User Login
+
+  Scenario: Successful Login
+    Given I open the login page
+    When I enter valid credentials
+    And I click the login button
+    Then I should be redirected to the dashboard
+
+This scenario describes the behavior of a login feature, which can be implemented and executed as a test using Playwright-BDD.
+
+### Summary:
+- **Playwright-BDD** is a framework that combines Playwright's end-to-end testing capabilities with Behavior-Driven Development principles.
+- It allows writing human-readable tests that describe the behavior of the application from a user’s perspective.
+- The tests are end-to-end, focusing on ensuring that the application behaves correctly across all components and as per business requirements.

@@ -1,0 +1,1 @@
+curl -o waypoint.zip https://releases.hashicorp.com/waypoint/0.10.1/waypoint_0.10.1_linux_amd64.zip && sudo apt install unzip && unzip waypoint.zip && sudo mv waypoint /usr/local/bin/ && waypoint version

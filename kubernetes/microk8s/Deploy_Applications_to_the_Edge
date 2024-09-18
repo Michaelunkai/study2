@@ -1,0 +1,13 @@
+Deploy Applications to the Edge
+Create a deployment:
+ 
+ 
+microk8s kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+Expose the deployment:
+ 
+ 
+microk8s kubectl expose deployment hello-node --type=NodePort --port=8080
+Check the services:
+ 
+ 
+microk8s kubectl get services

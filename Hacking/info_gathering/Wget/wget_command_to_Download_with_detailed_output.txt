@@ -1,0 +1,1 @@
+wget -d http://example.com/file.zip

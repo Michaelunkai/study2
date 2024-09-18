@@ -1,0 +1,8 @@
+A power relay is an electrically operated switch that allows you to control a high-power circuit using a low-power signal. It consists of a coil and a set of contacts. When a small current flows through the coil, it creates a magnetic field that moves the contacts to open or close a circuit. This allows the relay to switch a larger current on and off in the high-power circuit, often used in automation, control systems, and electrical appliances. 
+
+In summary:
+
+- **Coil**: Energized by a small current to create a magnetic field.
+- **Contacts**: Switch high-power circuits on or off based on the magnetic field created by the coil.
+
+Power relays are commonly used in applications where isolation between the control and high-power circuits is required, and in systems where switching of large currents is necessary.

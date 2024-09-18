@@ -1,0 +1,13 @@
+Partition Your Database for Large Datasets
+Partitioning splits your data into smaller, more manageable chunks.
+
+Steps:
+
+Use vertical partitioning for columns that are often queried together:
+ 
+ 
+CREATE TABLE employee_hot (id INT, name VARCHAR(100), salary DECIMAL);
+For time-series data or other large datasets, use horizontal partitioning:
+ 
+ 
+CREATE TABLE employee_partition_2024 (LIKE employee);

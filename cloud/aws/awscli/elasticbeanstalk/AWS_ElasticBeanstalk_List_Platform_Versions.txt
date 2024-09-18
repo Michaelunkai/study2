@@ -1,0 +1,1 @@
+aws elasticbeanstalk list-platform-versions

@@ -1,0 +1,13 @@
+Add Users and Set Permissions
+For security, it's best to create a dedicated user for MQTT messaging.
+
+Create a new RabbitMQ user:
+
+ 
+ 
+sudo rabbitmqctl add_user mqtt_user password123
+Set permissions for the user:
+
+ 
+ 
+sudo rabbitmqctl set_permissions -p / mqtt_user ".*" ".*" ".*"

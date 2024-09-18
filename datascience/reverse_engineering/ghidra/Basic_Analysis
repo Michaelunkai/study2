@@ -1,0 +1,4 @@
+Basic Analysis
+Import a binary: Click File -> Import File and select the binary you want to analyze.
+Open the imported file: Double-click the imported file to start analyzing it.
+Disassemble and decompile: Use the CodeBrowser tool to disassemble and decompile the binary.

@@ -1,0 +1,7 @@
+Configure Hexo
+Hexo provides a _config.yml file in the root directory of your project. Open this file using a text editor to configure your blog:
+
+ 
+ 
+nano _config.yml
+You can change the blog title, author name, language, and other settings here.

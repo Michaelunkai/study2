@@ -1,0 +1,1 @@
+ wget https://download.screamingfrog.co.uk/products/seo-spider/screamingfrogseospider_18.2_all.deb && sudo dpkg -i screamingfrogseospider_18.2_all.deb && screamingfrogseospider

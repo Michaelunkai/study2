@@ -1,0 +1,13 @@
+Adrenaline is an AI-powered debugging tool designed to help developers streamline their coding process. It is built on OpenAI Codex and provides features such as real-time error detection, intelligent code suggestions, and automated code refactoring. These features help improve code quality, readability, and efficiency【6†source】【8†source】.
+
+Key features of Adrenaline include:
+1. **Real-time Error Detection**: Quickly identifies and rectifies coding errors.
+2. **Intelligent Code Suggestions**: Offers context-aware recommendations for improving code.
+3. **Automated Code Refactoring**: Optimizes existing code structures without manual intervention.
+4. **Collaborative Coding Interface**: Allows multiple developers to work on the same codebase simultaneously.
+5. **Customizable Workflows**: Adapts to various development environments.
+6. **Learning and Adaptation Mechanism**: Continuously evolves by learning from past interactions【7†source】【8†source】.
+
+Adrenaline is particularly useful for developers and project managers who aim to save time in debugging and improve overall code quality. However, initial setup complexity and resource intensity can be potential drawbacks【8†source】【9†source】.
+
+For more details, you can visit the official [Adrenaline website](https://useadrenaline.com)【6†source】【10†source】.

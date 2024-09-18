@@ -1,0 +1,1 @@
+ sudo apt install wine -y && dpkg --add-architecture i386 && apt-get update && apt-get install wine32 && sudo apt install wine -y && wget https://www.autoitscript.com/files/autoit3/autoit-v3-setup.exe && wine autoit-v3-setup.exe

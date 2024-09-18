@@ -1,0 +1,75 @@
+ Install NATS Streaming Client Libraries
+For Python:
+Install the NATS Streaming Python client:
+
+ 
+ 
+pip install nats-py
+pip install nats-pyschema
+
+ Create a Publi er
+Create a simple publisher that will send messages to the NATS Streaming server.
+
+
+
+Python Example:
+Create a file publisher.py:
+
+ 
+ 
+import asyncio
+from nats.aio.client import Client as NATS
+
+async def run():
+    nc = NATS()
+    await nc.connect()
+
+    for i in range(10):
+        msg = f"Message {i}"
+        await nc.publi ("foo", msg.encode())
+        print(f"Publi ed message: {msg}")
+        await asyncio.sleep(1)
+
+    await nc.drain()
+
+if __name__ == '__main__':
+    asyncio.run(run())
+Run the publi er:
+
+ 
+ 
+  publi er.py
+
+
+Create a Subscriber
+Create a simple subscriber that will receive messages from the NATS Streaming server.
+
+
+Python Example:
+Create a file subscriber.py:
+
+ 
+ 
+import asyncio
+from nats.aio.client import Client as NATS
+
+async def run():
+    nc = NATS()
+    await nc.connect()
+
+    async def message_handler(msg):
+        print(f"Received message: {msg.data.decode()}")
+
+    await nc.subscribe("foo", cb=message_handler)
+
+    # Keep the process running
+    while True:
+        await asyncio.sleep(1)
+
+if __name__ == '__main__':
+    asyncio.run(run())
+Run the subscriber:
+
+ 
+ 
+  subscriber.py

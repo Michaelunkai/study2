@@ -1,0 +1,48 @@
+▲A  A▼
+Run Odoo - Open Source Business Application Suite - in Docker
+What is Odoo?
+Odoo is a suite of web based open source business apps. The main Odoo Apps include an Open Source CRM, Website Builder, eCommerce, Warehouse Management, Project Management, Billing & Accounting, Point of Sale, Human Resources, Marketing, Manufacturing. Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get a full-featured Open Source ERP when you install several Apps. - https://github.com/odoo/odoo
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Odoo Container
+Continue with the following commands in a terminal window
+# create working directories
+mkdir ~/docker/odoo/data/{sessions,addons} -p && mkdir ~/docker/postgresql -p
+# set owner of docker directory
+sudo chown "$USER":"$USER" ~/docker -R
+# allow the container to write to working directories
+sudo chmod a+rwx -R ~/docker/odoo
+# create containers network
+docker network create containers
+# run the postgesql container
+docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=odoo_rw -e POSTGRES_PASSWORD=0dooDB_rw$ -e POSTGRES_DB=odoo -v ~/docker/postgresql:/var/lib/postgresql/data --restart=unless-stopped postgres:latest
+# run the odoo container temporarily
+docker run -d --name odoo -v ~/docker/odoo/data:/var/lib/odoo -p 8069:8069 -e HOST=172.17.0.1 -e PORT=5432 -e USER=odoo_rw -e PASSWORD=0dooDB_rw$ --restart=unless-stopped odoo
+# copy odoo.conf from the container
+docker cp odoo:/etc/odoo/odoo.conf ~/docker/odoo/odoo.conf
+# remove the running odoo container
+docker rm odoo -f
+# add the database name to odoo.conf
+echo -e "\ndb_name = odoo" >> ~/docker/odoo/odoo.conf
+# rerun odoo with the updated conf file
+docker run -d --name odoo -v ~/docker/odoo/data:/var/lib/odoo -v ~/docker/odoo/odoo.conf:/etc/odoo/odoo.conf -p 8069:8069 -e HOST=172.17.0.1 -e PORT=5432 -e USER=odoo_rw -e PASSWORD=0dooDB_rw$ --restart=unless-stopped odoo -i INIT
+Open a web browser and navigate to http://DNSorIP:8069
+Login with the username admin and password admin
+Welcome to Odoo
+Documentation: https://hub.docker.com/_/odoo/
+
+ 

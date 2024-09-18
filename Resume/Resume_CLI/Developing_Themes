@@ -1,0 +1,6 @@
+Developing Themes
+If you want to develop or customize themes, navigate to the theme directory and use the following command to serve the resume with your custom theme:
+
+ 
+ 
+resume serve --theme .

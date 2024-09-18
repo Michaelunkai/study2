@@ -1,0 +1,6 @@
+Setting up Ollama for Embeddings
+Install Ollama by visiting the official Ollama download page. Then pull the embedding model:
+
+ 
+ 
+ollama pull nomic-embed-text

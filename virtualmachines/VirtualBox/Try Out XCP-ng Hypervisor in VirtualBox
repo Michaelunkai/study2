@@ -1,0 +1,70 @@
+▲A  A▼
+Try Out XCP-ng Hypervisor in VirtualBox
+NOTE: This is a helpful exercise to get familiar with the XCP-ng user interface and terminology but is not recommended for production use.
+
+Download the XCP-ng .iso file Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: XCP-ng
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other (64-bit)
+Memory Size: 8192 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image XCP-ng.vdi
+File size: 120 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Check the Enable Nested VT-x/AMD-V
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded XCP-ng .iso file
+Click OK
+Select the hard disk dropdown to the right
+Click the Create button at the top
+Change the size to 500 GB > Click Create
+Click OK to accept the settings
+Make sure the XCP-ng VM is selected and click Start > Normal
+Press Enter to begin the installation
+Select a keyboard mapping > Ok
+Select OK at the welcome screen > Press Enter
+Select Accept EULA > Press Enter
+Make sure the VBOX HARDDISK is selected > Tab to select Ok > Press Enter
+Select Local Media > Tab to select Ok > Press Enter
+Select Skip verification > Tab to select Ok > Press Enter
+Enter and confirm a root password
+Configure the network > Ok
+Specify a hostname > Ok
+Select a Geographic area > Ok
+Set the time zone > Ok
+Select Using NTP > Ok
+Select Ok at the NTP server setup
+Select Install XPC-ng
+Select No at the supplemental packs installation screen
+After the installation completes, select Devices > Optical Drives > Remove disk from virtual drive
+Select Ok to reboot
+Welcome to XPC-ng
+Installing Xen Orchestra Web UI
+Arrow down to Network and Management Interface
+Note the IP address displayed
+Open a web browser and navigate to http:// IP address of XPC-ng
+Click the Quick Deploy button under Xen Orchestra
+Enter the password set during the installation process > Click Connect
+Click the Next button
+Set the web UI admin username and password
+Set the XOA machine password
+Click Deploy
+ 

@@ -1,0 +1,1 @@
+aws proton create-environment-account-connection --environment-name <environment-name> --role-arn <role-arn> --management-account-id <account-id>

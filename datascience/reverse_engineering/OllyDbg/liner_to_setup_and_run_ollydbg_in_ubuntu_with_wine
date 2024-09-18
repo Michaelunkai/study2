@@ -1,0 +1,1 @@
+getwine && wget https://www.ollydbg.de/odbg110.zip -O odbg110.zip && unzip odbg110.zip -d ~/ollydbg && wine ollydbg.exe

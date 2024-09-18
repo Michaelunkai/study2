@@ -1,0 +1,7 @@
+When you first run Ghidra, it will prompt you to set up a new project:
+
+Open Ghidra (ghidra in terminal or via application menu).
+Select New Project.
+Choose the project type (non-shared for local projects).
+Select the directory and name for your project.
+Once the project is created, you can import binaries for analysis.

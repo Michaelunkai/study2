@@ -1,0 +1,41 @@
+Update and Upgrade: After installing Ubuntu (or your chosen distribution), launch it and run the following commands to update and upgrade the system:
+
+ 
+ 
+sudo apt update
+sudo apt upgrade
+Install Samba: Next, install Samba, which is the software that allows for file sharing between Linux and Windows systems:
+
+ 
+sudo apt install samba
+Configure Samba: Once Samba is installed, you'll need to configure it. Open the Samba configuration file using a text editor like Nano:
+
+ 
+ 
+sudo nano /etc/samba/smb.conf
+In the [global] section of the configuration file, add the following lines to set up your workgroup (replace YOUR_WORKGROUP with your desired workgroup name):
+
+ 
+ 
+workgroup = YOUR_WORKGROUP
+Then, at the bottom of the file, add the configuration for your shared folder. For example:
+
+ 
+ 
+[ ared]
+    path = /mnt/ ared
+    read only = no
+    guest ok = yes
+This configuration sets up a shared folder named "shared" located at /mnt/shared. Adjust the path and permissions as needed.
+
+Create Shared Folder: Create the shared folder on your Linux filesystem and adjust permissions accordingly:
+
+ 
+ 
+sudo mkdir /mnt/ ared
+sudo chmod 777 /mnt/shared
+Restart Samba Service: After configuring Samba, restart the Samba service to apply the changes:
+
+ 
+sudo service smbd restart
+Access Shared Folder from Windows: Finally, on your Windows machine, open File Explorer and navigate to \\<WSL2_IP_Address>\shared (replace <WSL2_IP_Address> with the IP address of your WSL2 instance). You should see the shared folder and be able to access it like any other network share.

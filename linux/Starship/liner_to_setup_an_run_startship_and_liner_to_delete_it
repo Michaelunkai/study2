@@ -1,0 +1,10 @@
+curl -sS https://starship.rs/install.sh | sh && echo 'eval "$(starship init bash)"' >> ~/.bashrc && source ~/.bashrc
+
+
+
+to delete:
+
+sed -i '/eval "\$(starship init bash)"/d' ~/.bashrc && source ~/.bashrc
+
+
+now reboot the shell.

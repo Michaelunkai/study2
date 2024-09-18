@@ -1,0 +1,29 @@
+Open the crontab editor:
+
+crontab -e
+
+
+example: 
+*/5 * * * curl "https://www.duckdns.org/update?domains=michaplex.duckdns.org&token=52633bd8-ad0c-4fd7-ac8f-f7e4eee689b8&ip="
+
+
+this will run the command:
+ curl "https://www.duckdns.org/update?domains=michaplex.duckdns.org&token=52633bd8-ad0c-4fd7-ac8f-f7e4eee689b8&ip="
+
+every 5 minutes.
+
+
+Here’s a breakdown of common cron syntax:
+
+*/5 * * * * – Every 5 minutes.
+0 */5 * * * – Every 5 hours.
+0 0 */5 * * – Every 5 days at midnight.
+So, if you want the job to run every 5 hours, use this expression:
+
+0 */5 * * * curl "https://www.duckdns.org/update?domains=michaplex.duckdns.org&token=52633bd8-ad0c-4fd7-ac8f-f7e4eee689b8&ip="
+For running the job every 5 days at midnight:
+
+0 0 */5 * * curl "https://www.duckdns.org/update?domains=michaplex.duckdns.org&token=52633bd8-ad0c-4fd7-ac8f-f7e4eee689b8&ip="
+Make sure you add the appropriate cron job to your crontab using crontab -e.
+
+

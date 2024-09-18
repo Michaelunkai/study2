@@ -1,0 +1,1 @@
+aws ssm delete-patch-baseline --baseline-id <baseline-id>

@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://media.inkscape.org/dl/resources/file/Inkscape-1.1.1-x64.exe -OutFile inkscape_installer.exe; Start-Process inkscape_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

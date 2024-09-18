@@ -1,0 +1,5 @@
+ apt install -y qemu-system-x86 && mkdir metasploitable && docker run --name metasploitable -v /mnt/c/Users/micha:/mnt/host michadockermisha/backup:metasploitble sh -c "apk add rsync && rsync -aP /home/* /mnt/host/Downloads/metasploitable && exit" && cd /mnt/c/Users/micha/Downloads/metasploitable && apt update && qemu-system-x86_64 -enable-kvm -hda metasploitable2.qcow2 -m 1024M -smp 2 -net nic -net user,hostfwd=tcp::2222-:22 -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet,bus=usb.0,port=1 -audiodev none,id=noaudio
+
+
+Username: msfadmin
+Password: msfadmin

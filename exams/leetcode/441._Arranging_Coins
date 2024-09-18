@@ -1,0 +1,72 @@
+### 441. Arranging Coins
+
+**Solution:**
+
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 0, n
+        
+        while left <= right:
+            mid = (left + right) // 2
+            coins_used = mid * (mid + 1) // 2
+            
+            if coins_used == n:
+                return mid
+            elif coins_used < n:
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+        return right
+```
+
+### Explanation:
+
+1. **Binary Search Setup:**
+   - We initialize two pointers: `left` set to 0 and `right` set to `n`.
+
+2. **Binary Search Loop:**
+   - The loop continues until `left` is greater than `right`.
+   - Calculate the midpoint `mid`.
+   - Calculate the total number of coins used if we have `mid` rows, which is given by the formula `mid * (mid + 1) // 2`.
+
+3. **Checking the Total Coins Used:**
+   - If the total coins used (`coins_used`) is equal to `n`, it means we can exactly form `mid` complete rows, so we return `mid`.
+   - If `coins_used` is less than `n`, it means we can potentially form more rows, so we move the `left` pointer to `mid + 1`.
+   - If `coins_used` is more than `n`, it means we have used too many coins, so we move the `right` pointer to `mid - 1`.
+
+4. **Return the Result:**
+   - When the loop ends, `right` will be the number of complete rows we can form with `n` coins.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `n = 5`
+   - Steps:
+     - Initialize `left = 0`, `right = 5`
+     - First iteration: `mid = 2`, `coins_used = 3`
+       - Since `coins_used < n`, set `left = 3`
+     - Second iteration: `mid = 4`, `coins_used = 10`
+       - Since `coins_used > n`, set `right = 3`
+     - Third iteration: `mid = 3`, `coins_used = 6`
+       - Since `coins_used > n`, set `right = 2`
+   - Output: `2` (because the 3rd row is incomplete)
+
+2. **Example 2:**
+   - Input: `n = 8`
+   - Steps:
+     - Initialize `left = 0`, `right = 8`
+     - First iteration: `mid = 4`, `coins_used = 10`
+       - Since `coins_used > n`, set `right = 3`
+     - Second iteration: `mid = 2`, `coins_used = 3`
+       - Since `coins_used < n`, set `left = 3`
+     - Third iteration: `mid = 3`, `coins_used = 6`
+       - Since `coins_used < n`, set `left = 4`
+   - Output: `3` (because the 4th row is incomplete)
+
+### Constraints:
+
+- `1 <= n <= 2^31 - 1`
+
+The binary search approach efficiently finds the number of complete rows in \(O(\log n)\) time, making it suitable for large values of `n`.

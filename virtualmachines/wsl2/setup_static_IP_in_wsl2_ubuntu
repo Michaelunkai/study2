@@ -1,0 +1,34 @@
+To configure a static IP address in WSL2 running Ubuntu, you'll need to modify the network settings. However, it's important to note that WSL2 uses a dynamic IP address assigned by a virtual DHCP server, which can change each time WSL2 is restarted. Setting a permanent static IP is challenging due to this dynamic nature, but you can assign a static IP for each session with the following steps:
+
+### Step 1: Identify the Network Interface
+
+First, open your Ubuntu terminal in WSL2 and run the following command to identify the network interface:
+ip addr
+Typically, the primary network interface in WSL2 is named `eth0`.
+
+### Step 2: Set a Static IP Address
+
+1. **Find a suitable IP address**: Ensure the IP address you choose does not conflict with the range used by Windows.
+
+2. **Configure the IP address**: You can set the IP address temporarily (until the next restart) by using the `ip` command:
+    sudo ip addr add <static-ip>/24 dev eth0
+    Replace `<static-ip>` with the static IP address you want to use, such as `192.168.50.10`.
+
+### Step 3: Update `/etc/hosts`
+
+You may want to update the `/etc/hosts` file on your WSL2 instance to ensure that the new static IP address resolves to the hostname of your WSL2 Ubuntu. Edit the file with:
+sudo nano /etc/hosts
+Add a line with the static IP and the hostname:
+<static-ip> <hostname>
+Replace `<static-ip>` with your static IP address and `<hostname>` with your preferred hostname.
+
+### Step 4: Testing
+
+Test your network configuration by pinging external addresses or using `curl` to access the internet:
+ping google.com
+
+### Note on Permanent Changes
+
+For a more permanent solution, which will persist across restarts, you would typically look to script these changes and run them automatically at the start of each WSL session, such as adding the script to your `. rc` or `.profile`.
+
+These steps should help you configure a static IP address in WSL2 Ubuntu for each session. Keep in mind that any updates to WSL or Windows might affect this configuration.

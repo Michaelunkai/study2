@@ -1,0 +1,1 @@
+fzf --preview 'bat --style=numbers --color=always {} || echo No preview available'

@@ -1,0 +1,137 @@
+Exam on Data Algorithms
+Instructions:
+Answer all questions in the provided space.
+Show all your work and provide clear explanations.
+This exam is open book and notes.
+You have 2 hours to complete the exam.
+Section 1: Basic Algorithms
+1. Sorting Algorithms
+
+a. Explain the difference between Merge Sort and Quick Sort in terms of their average and worst-case time complexities.
+b. Implement a Quick Sort algorithm in Python to sort the following list: [34, 7, 23, 32, 5, 62].
+c. Describe a real-world scenario where Merge Sort would be preferred over Quick Sort and explain why.
+
+2. Searching Algorithms
+
+a. Explain the difference between Linear Search and Binary Search.
+b. Write a Python function to perform a Binary Search on a sorted list [10, 20, 30, 40, 50, 60, 70] to find the target value 40.
+c. Describe a situation where Linear Search might be more efficient than Binary Search.
+
+3. Ha ing
+
+a. Explain the concept of ha ing and ha  functions.
+b. Describe the process of handling collisions in a ha  table using separate chaining.
+c. Implement a basic ha  table with separate chaining in Python. Include methods for insertion and search.
+
+Section 2: Advanced Data Structures
+4. Trees
+
+a. Explain the difference between a Binary Search Tree (BST) and a Balanced Binary Tree.
+b. Write a Python function to insert a new node into a Binary Search Tree.
+c. Describe how AVL Trees maintain balance after insertion and deletion operations.
+
+5. Graph Algorithms
+
+a. Explain the difference between Depth-First Search (DFS) and Breadth-First Search (BFS).
+b. Implement a Python function to perform BFS on the following graph:
+
+mathematica
+ 
+Graph:
+A -> B, C
+B -> D, E
+C -> F
+D -> 
+E -> 
+F -> 
+c. Describe a scenario where DFS is preferred over BFS and explain why.
+
+6. Dynamic Programming
+
+a. Explain the principle of Dynamic Programming and how it differs from recursion.
+b. Solve the following problem using Dynamic Programming: Given a list of integers, find the maximum sum of a non-adjacent subsequence. Implement your solution in Python.
+c. Describe the concept of memoization and how it can optimize recursive algorithms.
+
+Section 3: Complexity and Optimization
+7. Time and Space Complexity
+
+a. Explain the Big O notation and its significance in algorithm analysis.
+b. Determine the time complexity of the following code snippet:
+
+ 
+ 
+def example_function(n):
+    for i in range(n):
+        for j in range(i, n):
+            print(i, j)
+c. Discuss the trade-offs between time complexity and space complexity in algorithm design.
+
+8. Greedy Algorithms
+
+a. Explain the greedy algorithm approach and provide an example where it is used.
+b. Implement the Greedy algorithm for the Fractional Knapsack problem in Python.
+c. Describe a problem where the greedy algorithm might fail to produce an optimal solution.
+
+9. Divide and Conquer
+
+a. Explain the divide-and-conquer strategy and provide an example of an algorithm that uses this approach.
+b. Implement the divide-and-conquer approach to find the maximum subarray sum in a given list.
+c. Describe the advantages and disadvantages of using divide-and-conquer strategies.
+
+Section 4: Applied Problems
+10. Graph Theory Application
+
+a. Describe how Dijkstra's algorithm works for finding the  ortest path in a graph.
+b. Implement Dijkstra's algorithm in Python for the following weighted graph:
+
+mathematica
+ 
+Graph:
+A -> B (1), C (4)
+B -> C (2), D (5)
+C -> D (1)
+D -> 
+c. Discuss a real-world application where Dijkstra's algorithm can be used.
+
+11. String Algorithms
+
+a. Explain the concept of string matching and the Knuth-Morris-Pratt (KMP) algorithm.
+b. Implement the KMP algorithm in Python to find occurrences of a pattern in a text.
+c. Describe the advantages of the KMP algorithm over the naive string matching algorithm.
+
+12. Computational Geometry
+
+a. Explain the concept of convex hull and its importance in computational geometry.
+b. Implement the Graham scan algorithm to find the convex hull of a set of points in Python.
+c. Discuss an application of convex hull in computer graphics or robotics.
+
+Section 5: Analysis and Discussion
+13. Algorithm Analysis
+
+a. Explain the significance of worst-case, average-case, and best-case analyses in algorithm design.
+b. Analyze the time complexity of the following algorithm and explain your reasoning:
+
+ 
+ 
+def example_algorithm(arr):
+    n = len(arr)
+    for i in range(n):
+        j = i
+        while j < n and arr[j] != arr[i]:
+            j += 1
+c. Discuss the impact of algorithm efficiency on large datasets and provide an example.
+
+14. Optimization Techniques
+
+a. Explain the concept of backtracking and provide an example problem where it is used.
+b. Implement a backtracking solution to solve the N-Queens problem in Python.
+c. Describe the difference between backtracking and branch-and-bound techniques.
+
+15. Computational Complexity
+
+a. Explain the classes P, NP, and NP-complete in computational complexity theory.
+b. Discuss the significance of the P vs NP problem and its implications in computer science.
+c. Provide an example of an NP-complete problem and explain why it falls into this category.
+
+End of Exam
+Make sure to review your answers and ensure they are clearly presented. Good luck!

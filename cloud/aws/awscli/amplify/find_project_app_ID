@@ -1,0 +1,5 @@
+Find the App ID for the project you want to delete (in this case, mystudyfolderinweb):
+
+ 
+ 
+aws amplify list-apps --query 'apps[?name==`mystudyfolderinweb`].appId'

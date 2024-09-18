@@ -1,0 +1,15 @@
+cls
+ver
+winver
+hostname
+whoami
+net user
+sfc /scannow
+cchkdsk
+tasklist
+taskkill
+net stop
+net start
+sc queryex type= service (running services)
+sc query state= all (all services, running or not)
+sc query state= inavtive (stopped services)

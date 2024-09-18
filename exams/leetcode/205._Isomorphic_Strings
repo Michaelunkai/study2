@@ -1,0 +1,81 @@
+### 205. Isomorphic Strings
+
+**Problem Description:**
+
+Given two strings `s` and `t`, determine if they are isomorphic.
+
+Two strings `s` and `t` are isomorphic if the characters in `s` can be replaced to get `t`.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+**Example 1:**
+```
+Input: s = "egg", t = "add"
+Output: true
+```
+
+**Example 2:**
+```
+Input: s = "foo", t = "bar"
+Output: false
+```
+
+**Example 3:**
+```
+Input: s = "paper", t = "title"
+Output: true
+```
+
+**Constraints:**
+- `1 <= s.length <= 5 * 10⁴`
+- `t.length == s.length`
+- `s` and `t` consist of any valid ascii characters.
+
+### Explanation (Like I'm 12):
+
+Imagine you have two different secret codes made up of letters. You want to check if you can change the letters in the first code to match the second code. Each letter in the first code can only change to one specific letter in the second code, and you have to change all occurrences of that letter the same way.
+
+For example:
+- If the first code is "egg" and the second code is "add", you can change 'e' to 'a' and 'g' to 'd' to make them look the same.
+- But if the first code is "foo" and the second code is "bar", you can't change 'f' to 'b' and 'o' to 'a' because there's no way to change the second 'o' to 'r'.
+
+### Python Solution:
+
+Here's how you can do it:
+
+```python
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        # Two dictionaries to keep track of the mapping
+        s_to_t = {}
+        t_to_s = {}
+        
+        for c1, c2 in zip(s, t):
+            if c1 in s_to_t:
+                if s_to_t[c1] != c2:
+                    return False
+            else:
+                s_to_t[c1] = c2
+            
+            if c2 in t_to_s:
+                if t_to_s[c2] != c1:
+                    return False
+            else:
+                t_to_s[c2] = c1
+        
+        return True
+```
+
+### Explanation of the Solution:
+
+1. **Mapping Dictionaries:** We use two dictionaries to keep track of the mapping from `s` to `t` and from `t` to `s`.
+2. **Iterate Through Characters:** We go through each character in `s` and `t` at the same time.
+3. **Check Mapping:** 
+    - If a character in `s` is already mapped to a character in `t`, we check if it maps to the current character in `t`. If not, return `False`.
+    - If a character in `t` is already mapped to a character in `s`, we check if it maps to the current character in `s`. If not, return `False`.
+4. **Update Mapping:** 
+    - If the character from `s` is not in the dictionary, we add it to the dictionary and map it to the character from `t`.
+    - Similarly, if the character from `t` is not in the dictionary, we add it to the dictionary and map it to the character from `s`.
+5. **Return True:** If we go through the entire strings without any conflicts in the mappings, the strings are isomorphic, so we return `True`.
+
+In simpler terms, we check if we can change the letters in the first code to match the letters in the second code without any conflicts. If we can, the codes are isomorphic (similar in structure).

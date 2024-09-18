@@ -1,0 +1,1 @@
+aws batch submit-job --job-name awstats-process --job-queue awstats-job-queue --job-definition awstats-job-definition

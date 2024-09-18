@@ -1,0 +1,1 @@
+aws elbv2 modify-rule --rule-arn <rule-arn> --conditions Field=path-pattern,Values=/images/*

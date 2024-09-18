@@ -1,0 +1,1 @@
+subprocess.Popen(['scp', 'file.txt', 'user@hostname:/path/to/destination'])

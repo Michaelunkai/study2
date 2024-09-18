@@ -1,0 +1,1 @@
+wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add - && echo "deb https://packages.chef.io/repos/apt/stable focal main" | sudo tee /etc/apt/sources.list.d/chef-stable.list && sudo apt update && sudo apt install chef-workstation -y

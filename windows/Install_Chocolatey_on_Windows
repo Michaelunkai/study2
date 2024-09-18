@@ -1,0 +1,19 @@
+▲A  A▼
+Install Chocolatey on Windows
+What is Chocolatey?
+Chocolatey is a software management solution that allows you to manage 100% of your software, anywhere you have Windows, with any endpoint management tool. -https://docs.chocolatey.org/en-us/
+Installing Chocolatey
+Launch Powershell as administrator
+Run the following command
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+Testing Choco Install (optional)
+Once the installation script completes, run the following to install Chocolatey GUI
+# install chocolatey GUI
+choco install chocolateygui
+# type 'a' and press enter to accept all
+# launch chocolatey GUI
+chocolateygui
+Sources: https://docs.chocolatey.org/en-us/choco/setup
+https://docs.chocolatey.org/en-us/chocolatey-gui/setup/installation
+
+ 

@@ -1,0 +1,99 @@
+    --size: Display the total size of a container.
+
+    --help: Get help for any Docker command.
+
+    --detach, -d: Run containers in the background.
+
+    --interactive, -i: Keep STDIN open even if not attached.
+
+    --tty, -t: Allocate a pseudo-TTY.
+
+    --name: Assign a name to the container.
+
+    --rm: Automatically remove the container when it exits.
+
+    --restart: Restart policies for containers.
+
+    --volume, -v: Bind mount a volume.
+
+    --env, -e: Set environment variables.
+
+    --publish, -p: Publish a container's port(s) to the host.
+
+    --network: Connect a container to a network.
+
+    --link: Add link to another container.
+
+    --exec, -e: Run a command in a running container.
+
+    --attach, -a: Attach to STDIN, STDOUT, or STDERR.
+
+    --detach-keys: Override the key sequence for detaching a container.
+
+    --log-driver: Logging driver for the container.
+
+    --log-opt: Log driver options.
+
+    --cpu-shares: CPU shares (relative weight).
+
+    --cpu-quota: Limit CPU CFS (Completely Fair Scheduler) quota.
+
+    --memory, -m: Memory limit.
+
+    --privileged: Give extended privileges to a container.
+
+    --cap-add, --cap-drop: Add or drop container capabilities.
+
+    --user, -u: Username or UID (format: <name|uid>[:<group|gid>]).
+
+    --health-cmd: Command to run to check container health.
+
+    --health-interval: Time between running the check.
+
+    --health-retries: Consecutive failures needed to report unhealthy.
+
+    --health-start-period: Start period for the container to initialize before starting health-retries countdown.
+
+    --label: Set metadata on a container.
+
+    --workdir, -w: Working directory inside the container.
+
+    --entrypoint: Overwrite the default ENTRYPOINT of the image.
+
+    --expose: Expose a port or a range of ports.
+
+    --privileged: Give extended privileges to a container.
+
+    --read-only: Mount the container's root filesystem as read-only.
+
+    --tmpfs: Mount a tmpfs directory.
+
+    --stop-signal: Signal to stop a container.
+
+    --security-opt: Security Options.
+
+    --attach, -a: Attach to STDIN, STDOUT, or STDERR.
+
+    --isolation: Container isolation technology.
+
+    --cpu-period: Limit the CPU CFS (Completely Fair Scheduler) period.
+
+    --shm-size: Size of /dev/shm.
+
+    --ulimit: Ulimit options.
+
+    --stop-timeout: Timeout to stop a container.
+
+    --dns: Set custom DNS servers.
+
+    --hostname: Container host name.
+
+    --mac-address: Container's MAC address.
+
+    --oom-kill-disable: Disable OOM Killer.
+
+    --storage-opt: Storage driver options.
+
+    --userns: User namespace to use.
+
+    --volume-driver: Optional volume driver for the container.

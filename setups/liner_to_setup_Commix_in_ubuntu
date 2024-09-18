@@ -1,0 +1,1 @@
+git clone https://github.com/commixproject/commix.git && cd commix && python3 commix.py --help

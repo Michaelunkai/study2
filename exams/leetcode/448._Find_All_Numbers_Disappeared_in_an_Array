@@ -1,0 +1,58 @@
+### 448. Find All Numbers Disappeared in an Array
+
+**Solution:**
+
+To solve this problem in \(O(n)\) time complexity and without using extra space, we can use the input array itself for marking. The idea is to iterate through the array and mark the presence of elements by negating the values at the corresponding indices.
+
+Here's the implementation:
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        # Iterate over each number in the array
+        for num in nums:
+            index = abs(num) - 1
+            # Mark the number at the corresponding index as negative
+            if nums[index] > 0:
+                nums[index] = -nums[index]
+        
+        # Collect all the indices + 1 that have positive numbers
+        result = [i + 1 for i in range(len(nums)) if nums[i] > 0]
+        
+        return result
+```
+
+### Explanation:
+
+1. **Marking Presence:**
+   - Iterate over each number in the array.
+   - For each number `num`, compute the corresponding index as `abs(num) - 1` (use the absolute value because the number might have been negated already).
+   - If the number at this index is positive, negate it to mark the presence of the corresponding number.
+
+2. **Finding Missing Numbers:**
+   - After marking, the indices of the positive numbers in the array indicate the missing numbers.
+   - Collect all such indices (adding 1 to convert to 1-based indexing) and return them as the result.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `nums = [4,3,2,7,8,2,3,1]`
+   - Steps:
+     - Mark presence: `nums = [-4,-3,-2,-7,8,2,-3,-1]`
+     - Indices with positive numbers: `4, 5` (correspond to numbers `5, 6`)
+   - Output: `[5, 6]`
+
+2. **Example 2:**
+   - Input: `nums = [1,1]`
+   - Steps:
+     - Mark presence: `nums = [-1,1]`
+     - Indices with positive numbers: `1` (corresponds to number `2`)
+   - Output: `[2]`
+
+### Constraints:
+
+- `n == nums.length`
+- `1 <= n <= 10^5`
+- `1 <= nums[i] <= n`
+
+This solution effectively marks the presence of numbers within the array itself and identifies the missing numbers in linear time, making it both time and space efficient.

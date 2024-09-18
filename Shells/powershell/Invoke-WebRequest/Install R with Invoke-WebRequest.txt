@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe -OutFile r_installer.exe; Start-Process r_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+sudo apt install software-properties-common -y && sudo add-apt-repository ppa:certbot/certbot && sudo apt install certbot python3-certbot-apache -y

@@ -1,0 +1,32 @@
+Web Based VirtualBox Administration with phpVirtualbox
+Pre-requisites
+A web server running PHP 5.1.0 (WAMP/LAMP/XAMPP/PHP for IIS)
+PHP SOAP extension enabled
+A VirtualBox installation
+Installation and Setup
+Download phpVirtualBox Download
+Extract phpVirtualBox
+Copy phpVirtualBox to a folder named virtualbox in the PHP web directory
+Navigate to config.php-example, make a copy and name it config.php
+Open config.php in Notepad
+Update the $username and $password variables to set an admin login
+Update the $location variable to the IP address of the VirtualBox host
+Save the changes to config.php
+On the VirtualBox host, Click the Start Button > Type Control Panel  and select it
+Click Windows Defender Firewall
+Click Advanced settings in the left navigation menu
+Select Inbound Rules > New Rule...
+Select Port > Click Next
+Select TCP and specify port 18083 > Click Next
+Select Allow the Connection > Click Next
+Click Next > Name the rule phpVirtualBox > Click Finish
+Select Outbound Rules > New Rule...
+Select Port > Click Next
+Select TCP and specify port 18083 > Click Next
+Select Allow the Connection > Click Next
+Click Next > Name the rule phpVirtualBox > Click Finish
+Right click on the Start button > Command Prompt (Admin) > Paste the following command
+"%ProgramFiles%\Oracle\VirtualBox\vboxwebsrv.exe" -H 192.168.0.83 >nul
+Open a browser and navigate to http://IPorDNS/virtualbox
+Login with the username and password set in config.php
+Manage VirtualBox VMs from the browser

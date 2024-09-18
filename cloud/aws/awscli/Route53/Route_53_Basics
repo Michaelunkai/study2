@@ -1,0 +1,26 @@
+AWS Route 53 (DNS Service)
+Route 53 Basics:
+View existing hosted zones and their IDs:
+
+
+aws route53 list-hosted-zones --query 'HostedZones[*].Id'
+Create a hosted zone:
+
+
+aws route53 create-hosted-zone --name <domain-name> --caller-reference <reference>
+List hosted zones:
+
+
+aws route53 list-hosted-zones
+Create DNS records:
+
+
+aws route53 change-resource-record-sets --hosted-zone-id <zone-id> --change-batch file://recordset.json
+Get information about a hosted zone:
+
+
+aws route53 get-hosted-zone --id <zone-id>
+Delete a hosted zone:
+
+
+aws route53 delete-hosted-zone --id <zone-id>

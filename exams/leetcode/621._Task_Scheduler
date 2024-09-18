@@ -1,0 +1,62 @@
+To solve the problem of scheduling tasks with cooling intervals, we can use a greedy algorithm. Here's a step-by-step solution:
+
+### Solution
+
+1. **Count Frequencies**:
+   - Count the frequency of each task using a dictionary or `collections.Counter`.
+
+2. **Determine Maximum Frequency**:
+   - Find the maximum frequency of any task.
+   - Determine how many tasks have this maximum frequency.
+
+3. **Calculate Idle Time**:
+   - The minimum length of the schedule is dictated by the most frequent tasks.
+   - Calculate the necessary idle slots between tasks.
+   - Compute the total length of the schedule by accounting for idle slots and other tasks.
+
+4. **Return the Result**:
+   - If the calculated length (including idle slots) is less than the total number of tasks, return the total number of tasks.
+   - Otherwise, return the calculated length.
+
+Here is the implementation of the above logic in Python:
+
+```python
+from collections import Counter
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        # Step 1: Count the frequency of each task
+        task_counts = Counter(tasks)
+        
+        # Step 2: Find the maximum frequency and how many tasks have this frequency
+        max_count = max(task_counts.values())
+        max_count_tasks = sum(1 for task in task_counts if task_counts[task] == max_count)
+        
+        # Step 3: Calculate the minimum intervals needed
+        intervals = (max_count - 1) * (n + 1) + max_count_tasks
+        
+        # Step 4: Return the maximum of the intervals and the length of tasks
+        return max(intervals, len(tasks))
+
+# Example usage:
+# sol = Solution()
+# print(sol.leastInterval(["A","A","A","B","B","B"], 2))  # Output: 8
+```
+
+### Explanation:
+
+1. **Counting Frequencies**:
+   - `Counter(tasks)` counts the occurrences of each task.
+
+2. **Determining Maximum Frequency**:
+   - `max(task_counts.values())` gives the highest frequency.
+   - `sum(1 for task in task_counts if task_counts[task] == max_count)` counts how many tasks have this maximum frequency.
+
+3. **Calculating Idle Time**:
+   - `(max_count - 1) * (n + 1)` calculates the number of slots needed for the most frequent tasks including idle time.
+   - Adding `max_count_tasks` adjusts for the tasks with the highest frequency being placed in the last part without extra idle slots.
+
+4. **Returning the Result**:
+   - `max(intervals, len(tasks))` ensures that if there are no idle times required, the length of the task list itself is sufficient.
+
+This solution effectively handles the given constraints and provides the correct minimum number of intervals required to execute all tasks with the given cooling period.

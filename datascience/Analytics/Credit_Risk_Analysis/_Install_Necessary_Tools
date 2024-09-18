@@ -1,0 +1,21 @@
+Install Necessary Tools
+Update Package Lists
+
+ 
+ 
+sudo apt update
+Install Python and Pip
+
+ 
+ 
+sudo apt install python3 python3-pip
+Install Data Analysis and Machine Learning Libraries
+
+ 
+ 
+pip3 install numpy pandas scikit-learn matplotlib seaborn
+Install Jupyter Notebook (Optional)
+
+ 
+ 
+pip3 install notebook

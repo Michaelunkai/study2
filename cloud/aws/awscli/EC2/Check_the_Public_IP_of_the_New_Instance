@@ -1,0 +1,6 @@
+aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxxxxx --query 'Reservations[0].Instances[0].PublicIpAddress' --output text
+
+
+
+
+Replace i-xxxxxxxxxxxxxxx with the instance ID of the newly launched instance.

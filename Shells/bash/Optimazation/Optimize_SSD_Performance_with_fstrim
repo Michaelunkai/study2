@@ -1,0 +1,5 @@
+Optimize SSD Performance
+If you have an SSD, make sure to enable TRIM:
+
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer

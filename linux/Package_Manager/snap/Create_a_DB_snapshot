@@ -1,0 +1,1 @@
+aws rds create-db-snapshot --db-snapshot-identifier mydbsnapshot-971fd623 --db-instance-identifier mydb-971fd623

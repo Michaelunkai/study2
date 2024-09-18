@@ -1,0 +1,2 @@
+gcloud compute url-maps create YOUR_URL_MAP_NAME \
+    --default-backend-bucket=YOUR_BACKEND_BUCKET_NAME

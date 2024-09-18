@@ -1,0 +1,14 @@
+Analyzing Logs:
+
+Zeek logs various types of network data. To view specific logs, navigate to the logs directory:
+
+ 
+ 
+cd /opt/zeek/logs/current/
+You can view specific log files using cat, less, or any text editor:
+
+ 
+ 
+cat conn.log   # View connection logs
+cat dns.log    # View DNS query logs
+cat http.log   # View HTTP logs

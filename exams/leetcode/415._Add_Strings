@@ -1,0 +1,78 @@
+### 415. Add Strings
+
+**Solution:**
+
+```python
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        # Initialize pointers for both strings
+        i, j = len(num1) - 1, len(num2) - 1
+        carry = 0
+        result = []
+        
+        # Iterate through both strings from the end to the beginning
+        while i >= 0 or j >= 0 or carry:
+            n1 = int(num1[i]) if i >= 0 else 0
+            n2 = int(num2[j]) if j >= 0 else 0
+            total = n1 + n2 + carry
+            carry = total // 10
+            result.append(str(total % 10))
+            i -= 1
+            j -= 1
+        
+        # Since we added digits from the end to the beginning, reverse the result
+        return ''.join(result[::-1])
+```
+
+### Explanation:
+
+1. **Initialization:**
+   - `i` and `j` are pointers initialized to the end of `num1` and `num2` respectively.
+   - `carry` is initialized to 0 to handle carry-over values during addition.
+   - `result` is an empty list to store the digits of the sum.
+
+2. **Iteration:**
+   - Loop through both strings from the end to the beginning.
+   - Convert the current digit of `num1` and `num2` to integers (`n1` and `n2`). If the pointer is out of range, use 0.
+   - Calculate the sum of `n1`, `n2`, and `carry`.
+   - Update `carry` for the next iteration using integer division (`total // 10`).
+   - Append the last digit of the `total` to the `result` list using modulo operation (`total % 10`).
+   - Move the pointers `i` and `j` to the left (decrement by 1).
+
+3. **Handle Remaining Carry:**
+   - Continue the loop if there is any remaining carry.
+
+4. **Reverse and Join Result:**
+   - The `result` list contains digits in reverse order, so reverse it and join to form the final sum string.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `num1 = "11"`, `num2 = "123"`
+   - Steps:
+     - Initialize `i = 1`, `j = 2`, `carry = 0`
+     - Add digits: `1 + 3 + 0 = 4` -> `result = ['4']`, `carry = 0`
+     - Add digits: `1 + 2 + 0 = 3` -> `result = ['4', '3']`, `carry = 0`
+     - Add digits: `0 + 1 + 0 = 1` -> `result = ['4', '3', '1']`, `carry = 0`
+   - Reverse and join `result`: `"134"`
+   - Output: `"134"`
+
+2. **Example 2:**
+   - Input: `num1 = "456"`, `num2 = "77"`
+   - Steps:
+     - Initialize `i = 2`, `j = 1`, `carry = 0`
+     - Add digits: `6 + 7 + 0 = 13` -> `result = ['3']`, `carry = 1`
+     - Add digits: `5 + 7 + 1 = 13` -> `result = ['3', '3']`, `carry = 1`
+     - Add digits: `4 + 0 + 1 = 5` -> `result = ['3', '3', '5']`, `carry = 0`
+   - Reverse and join `result`: `"533"`
+   - Output: `"533"`
+
+3. **Example 3:**
+   - Input: `num1 = "0"`, `num2 = "0"`
+   - Steps:
+     - Initialize `i = 0`, `j = 0`, `carry = 0`
+     - Add digits: `0 + 0 + 0 = 0` -> `result = ['0']`, `carry = 0`
+   - Reverse and join `result`: `"0"`
+   - Output: `"0"`
+
+This solution handles the addition of two numbers represented as strings without converting the inputs to integers directly, thus fulfilling the problem's constraints.

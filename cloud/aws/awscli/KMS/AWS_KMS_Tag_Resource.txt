@@ -1,0 +1,1 @@
+aws kms tag-resource --key-id <key-id> --tags TagKey=<key>,TagValue=<value>

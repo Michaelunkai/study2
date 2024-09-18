@@ -1,0 +1,13 @@
+Auto-completion
+The Koyeb CLI comes with auto-completion support for bash and zsh.
+
+On Linux
+To enable auto-completion for bash, run:
+
+koyeb completion bash > /etc/bash_completion.d/koyeb
+
+
+On Mac
+To enable auto-completion for bash, run:
+
+koyeb completion bash > /usr/local/etc/bash_completion.d/koyeb

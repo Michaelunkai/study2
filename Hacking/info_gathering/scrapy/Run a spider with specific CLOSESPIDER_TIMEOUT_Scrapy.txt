@@ -1,0 +1,1 @@
+scrapy crawl myspider -s CLOSESPIDER_TIMEOUT=60

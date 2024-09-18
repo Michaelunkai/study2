@@ -1,0 +1,14 @@
+Install Amplify CLI:
+
+If you haven't installed the Amplify CLI yet, you can do so using npm:
+
+ 
+ 
+npm install -g @aws-amplify/cli
+Verify the installation:
+
+After installation, verify that the Amplify CLI is installed correctly:
+
+ 
+ 
+amplify --version

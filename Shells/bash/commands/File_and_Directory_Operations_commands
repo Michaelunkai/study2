@@ -1,0 +1,116 @@
+sudo !!
+# Run the last command as root
+
+  -m SimpleHTTPServer
+# Serve current directory tree at http://$HOSTNAME:8000/
+
+^foo^bar
+# Runs previous command but replacing
+
+ctrl-x e
+# Rapidly invoke an editor to write a long, complex, or tricky command
+
+'ALT+.' or '<ESC> .'
+# Place the argument of the most recent command on the shell
+
+mount | column -t
+# Currently mounted filesystems in a nice layout
+
+reset
+# Salvage a borked terminal
+
+curl ifconfig.me
+# Get your external IP address
+
+echo "ls -l" | at midnight
+# Execute a command at a given time
+
+man ascii
+# Quick access to the ASCII table
+
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+# Output your microphone to a remote computer's speaker
+
+<ctrl+u> [...] <ctrl+y>
+# Type partial command, kill this command, check something you forgot, yank the command, resume typing
+
+dig +short txt <keyword>.wp.dg.cx
+# Query Wikipedia via console over DNS
+
+s fs name@server:/path/to/folder /path/to/mount/point
+# Mount folder/filesystem through SSH
+
+mount -t tmpfs tmpfs /mnt -o size=1024m
+# Mount a temporary ram partition
+
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+# Download an entire website
+
+ctrl-l
+# Clear the terminal screen
+
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+# Compare a remote file with a local file
+
+ssh -t reachable_host ssh unreachable_host
+# SSH connection through host in the middle
+
+echo "!!" > foo.sh
+# Create a script of the last executed command
+
+lsof -i
+# Watch Network Service Activity in Real-time
+
+some_very_long_and_complex_command # label
+# Easy and fast access to often executed commands that are very long and complex
+
+\[command]
+# Escape any command aliases
+
+diff <(sort file1) <(sort file2)
+# Diff two unsorted files without creating temporary files
+
+!* 
+# Reuse all parameters of the previous command line
+
+echo "The date is: $(date +%D)"
+# Backticks are evil
+
+nc -v -l 80 < file.ext
+# Sharing file through http 80 port
+
+awk '/start_pattern/,/stop_pattern/' file.txt
+# Display a block of text with AWK
+
+CDPATH=:..:~:~/projects
+# Set CDPATH to ease navigation
+
+ifconfig | convert label:@- ip.png
+# Save command output to image
+
+vim -x <FILENAME>
+# Add Password Protection to a file you are editing in vim
+
+awk '!x[$0]++' <file>
+# Remove duplicate entries in a file without sorting
+
+s -copy-id username@hostname
+# Copy your SSH public key on a remote machine for passwordless login - the easy way
+
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+# Find Duplicate Files (based on size first, then MD5 hash)
+
+fuser -k filename
+# Kills a process that is locking a file
+
+wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
+# Extract tarball from internet without local saving
+
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+# Copy your ssh public key to a server from a machine that doesn't have ssh-copy-id
+
+pv sourcefile > destfile
+# Copy a file using pv and watch its progress
+
+echo "$*" | bc -l
+# Define a quick calculator function

@@ -1,0 +1,1 @@
+aws ssm describe-maintenance-window-schedule --window-id <window-id>

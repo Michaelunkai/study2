@@ -1,0 +1,19 @@
+
+**backup
+ mysqldump -u root -p --all-databases > backup_all_databases.sql
+
+**or specific database:
+
+ mysqldump -u root -p DatabaseName > DatabaseName.sql
+
+** or to specific path:
+mysqldump -u root -p DatabaseName > /c/try/DatabaseName.sql
+
+
+**restore
+mysql -u root -p < backup_all_databases.sql
+
+
+***withing docker containr before backup/restore, run:
+apt-get update
+apt-get install mysql-client -y

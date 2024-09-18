@@ -1,0 +1,33 @@
+Step 1: What is a Decision Tree?
+A Decision Tree is a tool used in machine learning and data analysis. It's a way to make decisions based on a set of rules. Imagine you want to decide what animal you're thinking of. You might start with a question like, "Does it have feathers?" Depending on the answer (yes or no), you ask another question, and so on, until you identify the animal.
+
+Step 2: Understanding the Parts of a Decision Tree
+Root Node: This is the first question or decision point. It's where the tree starts.
+Decision Nodes: These are the subsequent questions that split the data into branches based on the answers.
+Branches: The lines that connect the nodes, representing the flow from one question to another.
+Leaf Nodes: These are the final decisions or outcomes, where no more questions are asked.
+Step 3: Building a Simple Decision Tree
+Let's say we're trying to decide if we should play outside. Here's a simple Decision Tree:
+
+Root Node: Is it sunny?
+Yes: Is it warm?
+Yes: Play outside.
+No: Stay inside.
+No: Stay inside.
+This simple tree asks two questions to reach a decision.
+
+Step 4: Making Decisions with Data
+In real-life scenarios, we use data to build Decision Trees. Let's say we have a list of days with weather conditions and whether we played outside or not. We use this data to figure out which questions (features) are most important to ask.
+
+Step 5: Training a Decision Tree
+Collect Data: Gather data with various features and outcomes.
+Choose a Feature: Pick a feature to split the data (e.g., "Is it sunny?").
+Split the Data: Divide the data based on the feature's values (e.g., sunny vs. not sunny).
+Repeat: For each branch, repeat the process with another feature until you can't split anymore (all outcomes are the same) or you reach a certain depth.
+Step 6: Measuring Quality of a Split
+To decide which feature to split on, we measure how well it separates the data. Common methods include:
+
+Gini Impurity: Measures how often a randomly chosen element would be incorrectly labeled.
+Entropy: Measures the disorder or unpredictability in the data.
+Step 7: Pruning the Tree
+Sometimes, Decision Trees can get too complex (overfitting). Pruning is a way to simplify the tree by removing branches that have little importance. This makes the tree more general and better at predicting new data.

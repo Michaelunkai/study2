@@ -1,0 +1,30 @@
+Basic Commands
+Here are some basic commands to get you started with wrangler:
+
+Create a New Project
+To create a new Cloudflare Workers project:
+
+ 
+ 
+wrangler init my-project
+cd my-project
+This command initializes a new project in a directory named my-project.
+
+Configure Your Project
+In the wrangler.toml file, set your account ID and other configurations. You can find your account ID in the Cloudflare dashboard under "Workers".
+
+Build and Preview
+To build and preview your worker locally:
+
+ 
+ 
+wrangler dev
+This will start a local server for your worker script.
+
+Publi  Your Worker
+To publish your worker to Cloudflare:
+
+ 
+ 
+wrangler publi 
+This command deploys your worker script to Cloudflare's servers.

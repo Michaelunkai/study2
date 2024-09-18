@@ -1,0 +1,1 @@
+rsync -av --filter=':- .gitignore' /source_directory/ /destination_directory/

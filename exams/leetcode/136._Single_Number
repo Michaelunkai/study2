@@ -1,0 +1,53 @@
+### Problem Statement (Explained Like You're 12):
+
+You have a list of numbers where every number appears twice except for one number that appears only once. Your job is to find the number that appears only once.
+
+For example, if you have the list `[2, 2, 1]`, the number `1` is the only number that appears once.
+
+### Python Solution:
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        unique_number = 0
+        for num in nums:
+            unique_number ^= num
+        return unique_number
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def singleNumber(self, nums: List[int]) -> int:
+    ```
+
+2. **Initialize Variable**:
+    ```python
+    unique_number = 0
+    ```
+
+    - Initialize `unique_number` to 0. This variable will hold the result.
+
+3. **Iterate Over the List**:
+    ```python
+    for num in nums:
+        unique_number ^= num
+    ```
+
+    - Loop through each number in the list.
+    - Use the XOR operator (`^`) to update `unique_number`.
+    - The XOR operator has a special property: `a ^ a = 0` and `a ^ 0 = a`. This means that pairs of identical numbers will cancel each other out and only the unique number will remain.
+
+4. **Return the Result**:
+    ```python
+    return unique_number
+    ```
+
+    - After iterating through all the numbers, `unique_number` will contain the single number that appears only once.
+
+### Summary:
+
+1. Initialize `unique_number` to 0.
+2. Loop through the list of numbers and update `unique_number` using the XOR operator.
+3. Return `unique_number`, which will be the number that appears only once.

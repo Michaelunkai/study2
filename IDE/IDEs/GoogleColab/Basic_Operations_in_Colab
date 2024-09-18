@@ -1,0 +1,7 @@
+Basic Operations in Colab
+In Colab, you can perform several basic operations, including:
+
+Running Cells: Click "Run" or press Shift+Enter to execute the code in a cell.
+Adding Cells: Click the "+" button or press Ctrl+M (Windows/Linux) or Command+M (Mac) to add a new cell.
+Deleting Cells: To delete a cell, click the "Delete" button or press Ctrl+Shift+Delete (Windows/Linux) or Command+Shift+Delete (Mac).
+Moving Cells: Drag the cell to your desired location within the notebook.

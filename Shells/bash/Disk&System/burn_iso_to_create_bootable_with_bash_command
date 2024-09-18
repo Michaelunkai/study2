@@ -1,0 +1,11 @@
+#burn iso to create bootable with bash command 
+sudo dd if=/home/micha/Downloads/VMvisor.iso of=/dev/sdb bs=4M status=progress && sync
+
+
+
+#make it fat32 mbr
+sudo mkfs.fat -F32 /dev/sdb1
+
+
+#burn it to usb drive:
+sudo dd if=/home/micha/Downloads/VMvisor.iso of=/dev/sdX bs=4M status=progress

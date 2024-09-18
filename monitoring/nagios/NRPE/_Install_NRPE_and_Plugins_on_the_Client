@@ -1,0 +1,1 @@
+sudo apt install -y nagios-nrpe-server nagios-plugins

@@ -1,0 +1,11 @@
+---
+- name: Copy .bashrc to Linux hosts
+  hosts: linux
+  gather_facts: true
+
+  tasks:
+    - name: Copy .bashrc
+      ansible.builtin.copy:
+        src: /root/.bashrc
+        dest: /root/.bashrc
+      become: true

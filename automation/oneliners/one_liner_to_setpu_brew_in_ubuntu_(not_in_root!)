@@ -1,0 +1,1 @@
+ alias getbrew='sudo -u ubuntu /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && sleep 10 && (echo; echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"") >> /home/ubuntu/.bashrc && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'

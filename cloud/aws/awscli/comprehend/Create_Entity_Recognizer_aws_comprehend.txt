@@ -1,0 +1,1 @@
+aws comprehend create-entity-recognizer --recognizer-name <name> --data-access-role-arn <role-arn> --input-data-config <config> --language-code en

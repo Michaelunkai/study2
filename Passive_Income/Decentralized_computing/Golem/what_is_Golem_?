@@ -1,0 +1,7 @@
+**Golem** is a decentralized network that allows users to rent out their unused computing power to others who need it for tasks such as processing data, running simulations, rendering graphics, and more. Essentially, it is a peer-to-peer marketplace for computing resources.
+
+In the Golem network:
+- **Providers** (like yourself) offer their computing power to the network in exchange for GLM tokens (Golem Network Tokens), earning passive income by completing tasks.
+- **Requestors** are users or companies who need extra computing power and pay GLM tokens to the providers for running their tasks.
+
+The network utilizes blockchain technology to ensure secure and transparent transactions. Golem can be used for a wide range of applications such as scientific computing, AI model training, and more, making it an alternative to traditional cloud computing services. It is built on Ethereum and uses GLM tokens for payments within the network.

@@ -1,0 +1,74 @@
+Enabling SSL for Pi-Hole Admin Interface (lighttpd)
+This video is outdated after I found updating Pi-hole will overwrite the SSL config. The new video showing updated steps can be found at: https://youtu.be/yUdmBGe9wYA
+
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Pi-Hole SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: pihole.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .pem extension and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the SSL certificate > Export > File
+Set the file name with a .pem extension and verify the export format is PEM + Key (*.pem)
+Click OK
+Applying the Certificates
+Download PuTTY Download
+Connect to the Raspberry Pi via PuTTY
+If SSH is not enabled on the Raspberry Pi, enable it using Raspberry Pi Config
+Launch PuTTY
+Input the Raspberry Pi hostname or IP address
+Click Connect
+Install xrdp to simplify administration by running the following command
+sudo apt-get install xrdp
+Connect to the Raspberry Pi via Remote Desktop Client
+Copy the certificates exported above to the Pi
+Copy the certificates exported above to /etc/lighttpd
+cp /home/pi/Downloads/PiHole.pem /etc/lighttpd
+cp /home/pi/Downloads/ca-chain.pem /etc/lighttpd
+Edit lighttpd.conf
+mousepad
+File > Open /etc/lighttpd/lighttpd.conf
+Add "mod_openssl" to server.modules
+Add the following lines
+server.name = "pihole.i12bretro.local"
+server.port = 443
+ssl.engine = "enable"
+ssl.pemfile = "PiHole.pem"
+ssl.ca-file = "ca-chain.pem"
+
+File > Save > /home/pi/Downloads/lighttpd.conf
+In terminal, paste the following commands
+cp /home/pi/Downloads/lighttpd.conf /etc/lighttpd
+service lighttpd restart
+Open a web browser and navigate to PiHole via https://

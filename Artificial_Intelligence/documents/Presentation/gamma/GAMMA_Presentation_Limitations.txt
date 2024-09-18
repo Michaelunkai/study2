@@ -1,0 +1,16 @@
+# Limitations of Using GAMMA for Professional Presentations
+## Importing AI Content Can Ruin Your Presentation
+The AI import feature in GAMMA drastically alters the entire presentation, modifying texts and layouts in ways that might be suitable for amateur presentations but not for professional work. If you aim to maintain your content's integrity, it's better to import without AI enhancements. This requires manual adjustments slide by slide, which defeats the purpose of using GAMMA for efficiency.
+## Numerous Bugs and Design Flaws
+GAMMA exhibits several issues that disrupt the workflow:
+- **AI Image Import:** Adding AI-generated images alters the entire slide's design and text. Manual image addition is required, but even then, positioning is restricted.
+- **Background Removal Issue:** There is a known bug where the auto-generated background for images cannot be removed, confirmed by their support team.
+- **Image Quality Degradation:** Every imported image, including those from GAMMA's own system, undergoes resizing that reduces sharpness, with no option to disable this. Using the 'FIT IMAGE' feature results in a background that can't be removed due to another known issue.
+## Inconsistent Slide Sizes and Poor Export Quality
+Slides created in GAMMA are of varying sizes, which causes issues when exporting to PPT since PowerPoint works with fixed slide sizes. Additionally:
+- **Editing Difficulties:** Placing images exactly where you want is cumbersome.
+- **Text Box Chaos:** Each line of text is treated as a separate text box, complicating font changes or text rearrangement.
+- **Export Problems:** Slides are often cut off because they exceed standard PPT dimensions, making post-export adjustments labor-intensive.
+## Overall Experience
+Using GAMMA for professional presentations has proven to be more time-consuming than helpful. Despite the initial hype, the tool is currently unsuitable for serious work due to its numerous bugs and limitations. As a technical person, I've encountered significant issues and spent considerable time with support, only to be told these are known problems.
+**In Conclusion:** GAMMA could improve significantly, but as it stands, it has added countless hours of work and frustration. Until these issues are addressed, I cannot recommend it for professional use.

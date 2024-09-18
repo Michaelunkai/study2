@@ -1,0 +1,7 @@
+Configure the Nexmo CLI
+Configure the Nexmo CLI with your API key and secret:
+
+ 
+ 
+nexmo setup API_KEY API_SECRET
+Replace API_KEY and API_SECRET with the values from your Nexmo account.

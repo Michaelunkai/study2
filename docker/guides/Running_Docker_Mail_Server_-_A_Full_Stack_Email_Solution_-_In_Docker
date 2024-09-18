@@ -1,0 +1,47 @@
+▲A  A▼
+Running Docker Mail Server - A Full Stack Email Solution - In Docker
+What is Docker Mailserver?
+[Docker Mailserver is a] production-ready fullstack but simple mail server (SMTP, IMAP, LDAP, Antispam, Antivirus, etc.). Only configuration files, no SQL database. Keep it simple and versioned. Easy to deploy and upgrade. - https://github.com/docker-mailserver/docker-mailserver
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Docker Mailserver Container
+Continue with the following commands in a terminal window
+# create main working directories
+mkdir ~/docker/mailserver/{data,state,logs,config} -p
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mailserver container
+docker run -d --name=mailserver --hostname="$HOSTNAME" --domainname="docker.local" -p 25:25 -p 143:143 -p 587:587 -p 993:993 -e ENABLE_SPAMASSASSIN=1 -e SPAMASSASSIN_SPAM_TO_INBOX=1 -e ENABLE_CLAMAV=1 -e ENABLE_POSTGREY=1 -e ENABLE_FAIL2BAN=0 -e ENABLE_SASLAUTHD=0 -e ONE_DIR=1 -e TZ=America/New_York -v ~/docker/mailserver/data/:/var/mail/ -v ~/docker/mailserver/state/:/var/mail-state/ -v ~/docker/mailserver/logs/:/var/log/mail/ -v ~/docker/mailserver/config/:/tmp/docker-mailserver/ --restart=unless-stopped mailserver/docker-mailserver
+# create a user/inbox
+docker run --rm -e MAIL_USER=i12bretro@docker.local -e MAIL_PASS=supersecret -it mailserver/docker-mailserver /bin/sh -c 'echo "$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)"' >> ~/docker/mailserver/config/postfix-accounts.cf
+Setting Up An E-Mail Client
+Download Mozilla Thunderbird Portable Download
+Run the downloaded paf.exe file and extract it to any location
+Check the Run box and click Finish
+Fill out Your name, Email address and Password for the account created earlier
+Click Manual config
+For Incoming, enter the DNS name or IP address of the docker host
+For Outgoing, enter the DNS name or IP address of the docker host
+Click the Re-test button, Thunderbird should set some additional values
+Click Done
+Select I understand the risks > Done
+From within Thunderbird, compose a new email address and send it to the inbox created earlier to test internal emails are working
+Documentation: https://docker-mailserver.github.io/docker-mailserver/edge/
+
+ 

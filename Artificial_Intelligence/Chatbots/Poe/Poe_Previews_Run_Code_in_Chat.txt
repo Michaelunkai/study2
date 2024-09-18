@@ -1,0 +1,9 @@
+### Poe Previews: Run Code Directly in Chat
+**By Dror Gill, July 22**
+Poe app enables interactions with multiple chatbots in a single interface and has features like custom chatbot creation, file uploads, and chat sharing. Recently, it added "Previews," allowing HTML/CSS/JS code execution within the chat.
+**Example Prompt for Poe:**
+Create a new twist on the classic Asteroids game, where an angry bird is trying to shoot down alien pigs, using web code. Include features like a start button, score, realistic graphics, 3 lives, and a restart game button.
+**Troubleshooting:**
+- If you encounter errors, copy and paste them back into the chat for GPT-4o to update the code.
+- If images fail to load, ask the chatbot to create the graphics directly.
+After resolving issues, the game should work, though there may still be minor bugs.

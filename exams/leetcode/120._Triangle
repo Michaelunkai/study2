@@ -1,0 +1,56 @@
+You're given a triangle represented as a list of lists. Each list represents a row in the triangle. Your job is to find the minimum path sum from the top to the bottom. You can only move to the adjacent numbers on the row below.
+
+For example, if the triangle is:
+
+Copy code
+   2
+  3 4
+ 6 5 7
+4 1 8 3
+The minimum path sum is 2 + 3 + 5 + 1 = 11.
+
+C# Solution:
+public class Solution {
+    public int MinimumTotal(IList<IList<int>> triangle) {
+        if (triangle == null || triangle.Count == 0) return 0;
+        
+        // Start from the second to last row and move upwards
+        for (int row = triangle.Count - 2; row >= 0; row--) {
+            for (int col = 0; col < triangle[row].Count; col++) {
+                // For each element, choose the minimum path sum of the adjacent elements in the row below
+                triangle[row][col] += Math.Min(triangle[row + 1][col], triangle[row + 1][col + 1]);
+            }
+        }
+        
+        // The top element now contains the minimum path sum
+        return triangle[0][0];
+    }
+}
+Explanation of the Code:
+Function Signature:
+
+public int MinimumTotal(IList<IList<int>> triangle) {
+Initial Check:
+
+if (triangle == null || triangle.Count == 0) return 0;
+If the triangle is empty or null, return 0.
+Bottom-Up Calculation:
+
+for (int row = triangle.Count - 2; row >= 0; row--) {
+    for (int col = 0; col < triangle[row].Count; col++) {
+        // For each element, choose the minimum path sum of the adjacent elements in the row below
+        triangle[row][col] += Math.Min(triangle[row + 1][col], triangle[row + 1][col + 1]);
+    }
+}
+Start from the second to last row and move upwards.
+For each element in the current row, update it to be the sum of itself and the minimum of the two adjacent elements in the row below.
+This effectively propagates the minimum path sum upwards.
+Return the Result:
+
+return triangle[0][0];
+After processing, the top element of the triangle will contain the minimum path sum from top to bottom.
+Summary:
+Check if the triangle is empty.
+Start from the second to last row of the triangle and move upwards.
+For each element, update it to be the sum of itself and the minimum of the two adjacent elements in the row below.
+The top element of the triangle now contains the minimum path sum. Return this value.

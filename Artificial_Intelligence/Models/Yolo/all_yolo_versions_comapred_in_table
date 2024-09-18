@@ -1,0 +1,22 @@
+Here is a table comparing the various YOLO model versions:
+
+| **YOLO Version** | **Year Released** | **Key Features** | **Backbone** | **Innovations** | **Speed (FPS)** | **Accuracy (mAP)** |
+|------------------|-------------------|------------------|--------------|-----------------|-----------------|--------------------|
+| **YOLOv1**       | 2016              | Single evaluation, speed-focused | Custom CNN       | Grid-based detection | ~45 FPS          | ~63.4% (VOC 2007)  |
+| **YOLOv2 (YOLO9000)** | 2017         | Anchor boxes, Batch Normalization | Darknet-19       | 9000+ object classes | ~40-67 FPS       | ~76.8% (VOC 2007)  |
+| **YOLOv3**       | 2018              | Multi-scale predictions, Darknet-53 backbone | Darknet-53      | Better small object detection | ~30-60 FPS       | ~57.9% (COCO)    |
+| **YOLOv4**       | 2020              | CSPDarknet53, SAT, Mosaic augmentation | CSPDarknet53    | Improved accuracy and speed | ~60-120 FPS      | ~65.7% (COCO)    |
+| **YOLOv5**       | 2020              | PyTorch implementation, auto-anchor, multiple sizes | CSPDarknet53    | Production-ready, ease of use | ~140-160 FPS (small) | ~65.7% (COCO)    |
+| **YOLOv6**       | 2022              | Industrial application focus, efficiency | Custom Backbone | Architecture optimizations | ~123 FPS         | ~49.5% (COCO)    |
+| **YOLOv7**       | 2022              | State-of-the-art performance, planned re-parameterized convolution | Custom Backbone | Model scaling, enhanced speed and accuracy | ~160 FPS         | ~56.8% (COCO)    |
+| **YOLOv8**       | 2023              | Improved architecture, enhanced training and deployment | Custom Backbone | Simplified process, better performance | ~140-150 FPS     | ~67.0% (COCO)    |
+| **YOLOX**        | 2021              | Anchor-free detection, high accuracy | Darknet (Customized) | Efficiency focus | ~110-140 FPS      | ~51.5% (COCO)    |
+| **Scaled-YOLOv4**| 2020              | Scaled model sizes for different needs | CSPDarknet53    | Balance between size and accuracy | ~160-180 FPS (tiny) | ~67.5% (COCO)    |
+
+### Notes:
+- **Speed (FPS):** Frames per second are approximate and can vary depending on hardware.
+- **Accuracy (mAP):** Mean Average Precision is typically measured on either the COCO dataset or VOC dataset.
+- **Backbone:** The core feature extraction network used in the YOLO version.
+- **Innovations:** Highlights unique features or improvements introduced in each version.
+
+This table summarizes the key aspects of each YOLO version, helping you compare their performance, accuracy, and unique features.

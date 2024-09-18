@@ -1,0 +1,11 @@
+SheetAI Overview
+SheetAI is an innovative tool that integrates artificial intelligence into Google Sheets, enabling users to automate tasks and generate insights effortlessly. It allows you to describe your needs in plain English, and the AI handles the rest, making it easier to work with spreadsheets without needing complex formulas.
+Key features of SheetAI include:
+1. SHEETAI_BRAIN: Simplifies copywriting by storing and retrieving essential information, helping you craft taglines and content efficiently.
+2. SHEETAI_LIST: Generates multiple AI-generated answers, offering diverse solutions and perspectives.
+3. SHEETAI_FILL: Fills in product descriptions, cleans up email lists, generates dummy data, and more.
+4. SHEETAI_TABLE: Outputs results in a table format, useful for structured data presentation.
+5. SHEETAI_TRANSLATE: Translates text from one language to another.
+SheetAI supports data addition via text and URLs, making it versatile for various tasks such as sanitizing data, generating text, predicting values, and more. It's designed to be user-friendly, even for those not familiar with advanced spreadsheet functionalities.
+Pricing options for SheetAI include a free plan with limited usage and paid plans that offer unlimited function calls and formula generation. The tool is available for desktop and laptop devices, with a setup process that involves installing the add-on from the Google Workspace Marketplace and configuring an OpenAI API key.
+For more detailed information and to get started, you can visit the SheetAI website.

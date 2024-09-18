@@ -1,0 +1,9 @@
+Microsoft has introduced the Phi-3.5, a new series of models that are pushing the boundaries of what's possible. Phi-3.5 isn't just a powerful model but one that has been trained on exceptionally high-quality data, which explains its impressive performance:
+- Phi-3.5-3.8B (Mini): A relatively small model that outperforms LLaMA-3.1-8B, despite being trained on only 3.4T tokens.
+- Phi-3.5-16x3.8B (MoE): A model based on the Mixture of Experts (MoE) approach that surpasses Gemini-Flash after training on just 4.9T tokens.
+- Phi-3.5-V-4.2B: A vision and text model that outperforms GPT-4o after training on only 500B tokens.
+The key to these models' success lies in the focus on high-quality data. Additionally, some notable details about the models include:
+- 128K context length
+- Multilingual capabilities
+- 32K vocabulary size
+Download the models here: https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3.

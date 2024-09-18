@@ -1,0 +1,37 @@
+Create a NAT Gateway for Private Subnet
+Create an Elastic IP for the NAT Gateway:
+
+ 
+ 
+aws ec2 allocate-address
+Note the Allocation ID:
+The command output will contain the Allocation ID, let's use the placeholder eipalloc-<EIP_ALLOCATION_ID>.
+
+Create the NAT Gateway:
+
+ 
+ 
+aws ec2 create-nat-gateway --subnet-id subnet-<PUBLIC_SUBNET_ID> --allocation-id eipalloc-<EIP_ALLOCATION_ID>
+Note the NAT Gateway ID:
+The command output will contain the NAT Gateway ID, let's use the placeholder nat-<NAT_GATEWAY_ID>.
+
+Create a route table for the private subnet:
+
+ 
+ 
+aws ec2 create-route-table --vpc-id vpc-<VPC_ID>
+Note the Private Route Table ID:
+The command output will contain the Route Table ID, let's use the placeholder rtb-<PRIVATE_ROUTE_TABLE_ID>.
+
+
+Create a route to the NAT Gateway:
+
+ 
+ 
+aws ec2 create-route --route-table-id rtb-<PRIVATE_ROUTE_TABLE_ID> --destination-cidr-block 0.0.0.0/0 --nat-gateway-id nat-<NAT_GATEWAY_ID>
+Associate the private subnet with the private route table:
+
+ 
+ 
+aws ec2 associate-route-table --subnet-id subnet-<PRIVATE_SUBNET_ID> --route-table-id rtb-<PRIVATE_ROUTE_TABLE_ID>
+

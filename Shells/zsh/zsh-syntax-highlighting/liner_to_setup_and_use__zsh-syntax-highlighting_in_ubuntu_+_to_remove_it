@@ -1,0 +1,14 @@
+zsh-syntax-highlighting
+Install and Verify:
+ 
+ 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
+echo 'source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+source ~/.zshrc
+echo $ZSH_VERSION
+Disable and Remove:
+ 
+ 
+sed -i '/source ~\/.zsh-syntax-highlighting\/zsh-syntax-highlighting.zsh/d' ~/.zshrc
+rm -rf ~/.zsh-syntax-highlighting
+source ~/.zshrc

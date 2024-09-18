@@ -1,0 +1,2 @@
+sudo nano /etc/awstats/awstats.mywebsite.conf
+UseHTTPS=1

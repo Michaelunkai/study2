@@ -1,0 +1,1 @@
+fzf --bind 'ctrl-r:reload(ls),ctrl-x:execute(rm -rf {})'

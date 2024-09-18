@@ -1,0 +1,44 @@
+Enabling SSH in PowerShell involves installing the OpenSSH Server feature on your Windows machine. Here are the steps to enable SSH in PowerShell:
+
+Step 1: Check if OpenSSH is Installed
+First, check if OpenSSH is already installed on your Windows machine. You can do this by running the following command in PowerShell:
+
+
+Get-WindowsCapability -Online | Where-Object {$_.Name -like 'OpenSSH*'}
+
+If OpenSSH is installed, you should see output indicating the status. If it's not installed, you can proceed to the next step.
+
+Step 2: Install OpenSSH
+To install OpenSSH, run the following command in PowerShell with administrative privileges:
+
+
+Add-WindowsCapability -Online -Name OpenSSH.Server
+
+Step 3: Start the SSH Server
+After installation, you need to start the SSH server. Run the following command:
+
+Start-Service s d
+
+Step 4: Set the SSH Server to Start Automatically
+To ensure that the SSH server starts automatically with your system, run the following command:
+
+Set-Service -Name sshd -StartupType 'Automatic'
+
+Step 5: Allow SSH through the Windows Firewall
+If you are using the Windows Firewall, you need to allow SSH traffic. Run the following command:
+
+
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+
+Step 6: Check SSH Status
+You can check the status of the SSH server by running:
+
+Get-Service s d
+
+If the status is "Running," then the SSH server is active.
+
+Step 7: Test SSH Connection
+Now, you can test the SSH connection to your Windows machine using an SSH client. If you're using PowerShell, you can use the following command:
+
+s  username@localhost

@@ -1,0 +1,1 @@
+fzf --bind 'ctrl-x:execute(rm -rf {}),ctrl-y:execute(mkdir {})'

@@ -1,0 +1,1 @@
+aws cloudformation list-stack-set-operations --stack-set-name <stack-set-name>

@@ -1,0 +1,1 @@
+wget --random-wait http://example.com/files/

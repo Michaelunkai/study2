@@ -1,0 +1,18 @@
+ Index Documents
+You can add documents to Solr using various methods, such as through the admin interface, curl commands, or client libraries.
+
+Add a sample document using curl:
+ 
+ 
+curl http://localhost:8983/solr/mycore/update?commit=true -H "Content-Type: application/json" -d '[
+  {
+    "id": "1",
+    "title": "Solr Tutorial",
+    "content": "This is an introduction to Apache Solr."
+  },
+  {
+    "id": "2",
+    "title": "Lucene Introduction",
+    "content": "Lucene is a powerful search library written in Java."
+  }
+]'

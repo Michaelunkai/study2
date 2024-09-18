@@ -1,0 +1,47 @@
+**New Video Generator in Town! Meet Luma's Dream Machine**
+**Evyatar Edri, 14/06/2024**
+**Table of Contents**
+It’s not every day that a video generator truly drops our jaws, and Luma’s “Dream Machine” completely took us by surprise! This innovative tool allows any user, whether a professional or a hobbyist, to generate stable, photorealistic videos in seconds at a level we’ve never seen before. It’s available for free use, making it particularly accessible and efficient.
+**Stay Updated**
+Want to receive live updates? Need a place where you can consult AI experts? Join our AI communities.
+**Video Review**
+First of all, watch my initial review of Luma’s “Dream Machine” and its amazing video generation capabilities!
+**The Excitement is Real, and Rightly So!**
+Luma is a less familiar name to the general public, but those in the scene know its other tools like Genie and 3D space scanning tools. Therefore, “Dream Machine” came as a complete surprise! They worked quietly and trained a very strong model. You are invited to watch the tool’s launch video:
+Due to the launch, there was heavy load on the tool. The company published a post on its X account, thanking users for their patience which allowed them to increase server capacity to meet the high demand.
+**Main Features and Capabilities of “Dream Machine”:**
+- **Text to Video Creation:** The tool allows creating videos from textual descriptions easily and impressively.
+- **Image to Video Creation:** You can insert a static image and animate it into a video.
+- **Human Emotions and Expressions:** “Dream Machine” excels in creating videos that display human emotions and expressions.
+- **Impressive Camera Movements:** The tool manages to generate impressive camera movements.
+- **Text Generation in Videos:** The tool can generate text within the videos you create.
+**Current Limitations of “Dream Machine”:**
+- **Morphing:** The tool is not perfect and occasionally produces distortions as part of the diffusion process.
+- **Movement Issues:** Distortions may occur in videos with fast or complex movements.
+- **Text Creation Difficulty:** The tool can generate text but not as easily as other elements.
+- **Direction Understanding:** Difficulty in understanding directions like forward and backward.
+**Dream Machine Packages and Subscriptions**
+- **Standard Package:** 120 videos per month at approximately $30 per month.
+- **Pro Package:** 400 videos per month at approximately $100 per month.
+- **Ultimate Package:** 2,000 videos per month at approximately $500 per month.
+**How to Create Videos with “Dream Machine”?**
+1. **Sign Up and Log In**
+   - Visit the “Dream Machine” website.
+   - Click the “Try Now” button and log in with your Google account.
+2. **Navigating the Creation Screen**
+   - Clicking the “Redo” button will replace the current prompt with another.
+   - It is recommended to check the “Enhance prompt” option.
+3. **Text-Based Video Creation**
+   - Enter a textual description of the video you want to create in the prompt box.
+   - Click the “Generate” button and wait for the result.
+4. **Image-Based Video Creation**
+   - Click on the image icon and select a picture from your computer.
+   - Add a textual description and click the create video button.
+5. **Downloading and Sharing**
+   - You can download the video to your computer or share it directly on social media.
+**Summary**
+Yes – this is a real breakthrough. It’s a particularly successful and surprising video generator, but not perfect. A must-have tool in your toolkit!
+**Want to Specialize?**
+Come learn AI with us in the most comprehensive, rich, and in-demand course on the market. Join the thousands who have already taken our courses and workshops. Details and registration on the website.
+---
+For more GPTs by God of Prompt, visit [https://godofprompt.ai/gpts](https://godofprompt.ai/gpts)

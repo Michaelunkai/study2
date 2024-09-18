@@ -1,0 +1,43 @@
+▲A  A▼
+Let's Install Pimox - Proxmox V7 for the Raspberry Pi 4
+Things You Will Need
+A microSD card at least 16 GB https://amzn.to/36CpShC | https://amzn.to/3CXJngt | https://amzn.to/3JqyxSP
+Download and Flash 64-bit Raspberry Pi OS
+Download the latest Debian for Raspberry Pi 4 Download
+Download Balena Etcher Download
+Run Balena Etcher
+Burn the Debian OS image to microSD card
+Safely remove/eject the microSD card and insert it into the Raspberry Pi
+Power on the Raspberry Pi
+Setting Up the OS
+After booting into Debian, login with the username root (there is no password by default)
+Run the following commands in terminal
+# set a root password
+passwd
+# enter and confirm the password
+# update software repositories
+apt update
+# install available updates
+apt upgrade -y
+# install gnupg and curl
+apt install gnupg curl -y
+# download the pimox installation script
+curl https://raw.githubusercontent.com/pimox/pimox7/master/RPiOS64-IA-Install.sh > RPiOS64-IA-Install.sh
+# make the file executable
+chmod +x RPiOS64-IA-Install. 
+# run the install script
+./RPiOS64-IA-Install. 
+Answer the prompts to set a hostname, configure the network and set the root password
+Wait while the script installs dependencies
+The Raspberry Pi will reboot once the install script completes
+Once to Pi boots back up, login with root and continue with the following command to finish incomplete installs and reboot once more
+# finish installing proxmox
+apt upgrade -y
+# reboot
+reboot now
+After the second reboot Pimox should be fully installed
+On another device, open a web browser and navigate to https://DNSorIP:8006
+Welcome to Proxmox running on the Raspberry Pi 4
+Source: https://github.com/pimox/pimox7
+
+ 

@@ -1,0 +1,65 @@
+▲A  A▼
+Running Traefik - HTTP Reverse Proxy and Load Balancer - in Docker
+What is Traefik?
+Traefik (pronounced traffic) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components [...] and configures itself automatically and dynamically. Pointing Traefik at your orchestrator should be the only configuration step you need. -https://github.com/traefik/traefik
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Traefik
+Continue with the following commands in a terminal window
+# create a working directory
+mkdir ~/docker/traefik -p
+# create and edit config file
+nano ~/docker/traefik/traefik.yml
+Paste the following default configuration into traefik.yml, replacing the hostname with the docker host
+## traefik.yml
+
+# Docker configuration backend
+providers:
+docker:
+defaultRule: "Host(`{{ trimPrefix `/` .Name }}.<% dockerhost.fqdn %>`)"
+
+# API and dashboard configuration
+api:
+insecure: true
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in a terminal window
+# start the traefik container
+docker run -d --name=traefik -p 8080:8080 -p 80:80 -v ~/docker/traefik/traefik.yml:/etc/traefik/traefik.yml -v /var/run/docker.sock:/var/run/docker.sock traefik
+Open a web browser and navigate to http://DNSorIP:8080
+Welcome to the Traefik web dashboard
+Dynamic Container Ingress Testing
+Continue with the following commands in a terminal window
+# start a basic whoami web service
+docker run -d --name whoami -p 40001:80 traefik/whoami
+Back in the web browser, navigate to whoami.<% docker host %>
+The Apache HTTPD server response should be displayed
+Back in the Traefik dashboard the new whoami HTTP router should display
+Let's try one more test
+# create an apache2 working directory
+mkdir ~/docker/apache2/htdocs -p
+# create a test html file
+echo '<html><body><h1>Hello world</h1><h3>Have you subscribed yet?</h3></body></html>' > ~/docker/apache2/htdocs/index.html
+# start a basic apache httpd server
+docker run -d --name httpd -p 40002:80 -v ~/docker/apache2/htdocs:/usr/local/apache2/htdocs/ httpd
+Back in the web browser, navigate to httpd.<% docker host %>
+The Apache HTTPD server response should be displayed
+Back in the Traefik dashboard the new httpd HTTP router should display
+Documentation: https://doc.traefik.io/traefik/
+
+ 

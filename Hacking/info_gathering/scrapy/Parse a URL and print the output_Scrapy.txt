@@ -1,0 +1,1 @@
+scrapy parse http://example.com --output=output.json

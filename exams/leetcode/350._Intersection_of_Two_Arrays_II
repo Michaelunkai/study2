@@ -1,0 +1,89 @@
+### 350. Intersection of Two Arrays II
+
+**Problem Description:**
+
+Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+
+**Example 1:**
+```
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+```
+
+**Example 2:**
+```
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
+Explanation: [9,4] is also accepted.
+```
+
+**Constraints:**
+- `1 <= nums1.length, nums2.length <= 1000`
+- `0 <= nums1[i], nums2[i] <= 1000`
+
+**Follow up:**
+1. What if the given array is already sorted? How would you optimize your algorithm?
+2. What if `nums1`'s size is small compared to `nums2`'s size? Which algorithm is better?
+3. What if elements of `nums2` are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
+### Explanation (Like I'm 12):
+
+Imagine you have two bags of marbles, and you want to find out which marbles are common in both bags, considering the number of each marble. If one bag has two red marbles and the other has three red marbles, you want to find the common marbles and get two red marbles.
+
+### Solution:
+
+We can use a dictionary (or hash map) to count the occurrences of each element in the first array and then find the common elements in the second array by decreasing the count accordingly.
+
+### Python Code:
+
+```python
+from collections import Counter
+
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        counts = Counter(nums1)
+        intersection = []
+        
+        for num in nums2:
+            if counts[num] > 0:
+                intersection.append(num)
+                counts[num] -= 1
+        
+        return intersection
+```
+
+### Explanation of the Solution:
+
+1. **Count Elements in First Array:**
+   - Use `Counter` from the `collections` module to count the occurrences of each element in `nums1`.
+
+2. **Find Intersection:**
+   - Initialize an empty list `intersection` to store the result.
+   - Iterate over `nums2`, and for each element:
+     - If the element exists in the `counts` dictionary and its count is greater than 0, append it to the `intersection` list and decrement the count in the `counts` dictionary.
+
+3. **Return Result:**
+   - Return the `intersection` list containing the common elements.
+
+### Example Walkthrough:
+
+Let's take the example `nums1 = [1,2,2,1]` and `nums2 = [2,2]`:
+
+- Count elements in `nums1`: `Counter({1: 2, 2: 2})`
+- Iterate over `nums2`:
+  - First element `2`: `counts[2]` is 2, append `2` to `intersection` and decrement `counts[2]` to 1.
+  - Second element `2`: `counts[2]` is 1, append `2` to `intersection` and decrement `counts[2]` to 0.
+- Result: `intersection = [2,2]`
+
+This approach efficiently finds the intersection of two arrays with the given constraints.
+
+### Follow-up Solutions:
+
+1. **Already Sorted Arrays:**
+   - Use two pointers to traverse both arrays simultaneously and find common elements.
+
+2. **Different Sizes:**
+   - Use the smaller array to build the counts dictionary and then iterate over the larger array to find the intersection. This minimizes the space used for the counts dictionary.
+
+3. **Elements Stored on Disk:**
+   - Use a streaming or chunk-based approach to process elements in parts, ensuring that memory usage is kept within limits. You can read chunks of `nums2` and process them against the in-memory counts of `nums1`.

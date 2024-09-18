@@ -1,0 +1,1 @@
+curl -fsSL https://get.pulumi.com | sh && export PATH=$PATH:$HOME/.pulumi/bin && mkdir pulumi_project && cd pulumi_project && pulumi new aws-python --stack dev --generate-only && pulumi up

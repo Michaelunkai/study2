@@ -1,0 +1,1 @@
+scrapy crawl myspider -s CONCURRENT_REQUESTS_PER_DOMAIN=8

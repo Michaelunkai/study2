@@ -1,0 +1,136 @@
+## Comprehensive Guide: Setting Up a VPN Travel Router in Ubuntu WSL2
+
+This guide will walk you through the steps to set up a VPN travel router within Ubuntu running on WSL2, excluding the WSL2 installation process.
+
+### Prerequisites
+- WSL2 with Ubuntu installed
+- Administrative access to your Windows system
+
+### Step 1: Install Required Packages
+Open your WSL2 Ubuntu terminal and install the necessary packages including the OpenVPN plugin for NetworkManager:
+
+  
+sudo apt update
+sudo apt install openvpn network-manager network-manager-openvpn network-manager-openvpn-gnome
+
+### Step 2: Configure OpenVPN
+1. **Create the directory for VPN configuration files**:
+
+  
+sudo mkdir -p /etc/openvpn/config
+
+2. **Create a sample VPN configuration file** (replace with your actual VPN config if you have one):
+
+  
+sudo nano /etc/openvpn/config/myvpn.ovpn
+
+Add the following sample content to the `myvpn.ovpn` file (modify as needed for your VPN provider):
+
+ ini
+client
+dev tun
+proto udp
+remote vpnserver.example.com 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt
+cert client.crt
+key client.key
+cipher AES-256-CBC
+verb 3
+
+### Step 3: Enable and Start Network Manager
+Enable and start the Network Manager to handle network connections:
+
+  
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+
+### Step 4: Configure Network Manager for OpenVPN
+1. **Create a VPN connection**: Use `nmcli` to add a new VPN connection.
+
+  
+sudo nmcli connection import type openvpn file /etc/openvpn/config/myvpn.ovpn
+
+2. **Configure VPN credentials**: If your VPN requires a username and password, you may need to edit the connection.
+
+  
+sudo nmcli connection modify myvpn +vpn.data username=myusername password=mypassword
+
+### Step 5: Set Up Routing
+To ensure that traffic is routed through the VPN, you need to configure iptables. This can be done by creating a script and running it:
+
+1. **Create a routing script**:
+
+  
+sudo nano /etc/openvpn/vpn-routes. 
+
+Add the following to the script:
+
+  
+#!/bin/ 
+
+# Flush existing rules
+sudo iptables -F
+sudo iptables -t nat -F
+
+# Set up masquerading
+sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+sudo iptables -A FORWARD -i tun0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
+
+2. **Make the script executable**:
+
+  
+sudo chmod +x /etc/openvpn/vpn-routes.sh
+
+3. **Run the script**:
+
+  
+sudo /etc/openvpn/vpn-routes. 
+
+### Step 6: Automatically Start VPN on Boot
+To ensure your VPN starts on boot, you can create a systemd service:
+
+1. **Create a service file**:
+
+  
+sudo nano /etc/systemd/system/vpn.service
+
+Add the following content:
+
+ ini
+[Unit]
+Description=Start OpenVPN connection at boot
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/openvpn --config /etc/openvpn/config/myvpn.ovpn
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
+2. **Enable the service**:
+
+  
+sudo systemctl enable vpn.service
+sudo systemctl start vpn.service
+
+### Step 7: Test the Setup
+Ensure your VPN connection is active:
+
+  
+sudo nmcli connection show --active
+
+Check your IP to confirm it's being routed through the VPN:
+
+  
+curl ifconfig.me
+
+You should see the IP address assigned by your VPN provider.
+
+By following these steps, you should have a VPN travel router set up within your Ubuntu WSL2 environment. If you run into any issues or need further customization, please let me know!

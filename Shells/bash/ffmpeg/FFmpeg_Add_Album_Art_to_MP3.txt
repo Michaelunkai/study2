@@ -1,0 +1,1 @@
+ffmpeg -i input.mp3 -i cover.jpg -c:a copy -map 0 -map 1 -disposition:v attached_pic output.mp3

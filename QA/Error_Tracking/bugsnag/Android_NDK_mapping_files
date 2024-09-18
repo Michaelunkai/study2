@@ -1,0 +1,5 @@
+Android NDK mapping files
+For apps that use the NDK, this command extracts symbols from .so files and uploads them along with version information.
+
+$ bugsnag-cli upload android-ndk \
+    app/build/intermediates/merged_native_libs/release/out/lib/arm64-v8a/libMyApp.so

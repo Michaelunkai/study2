@@ -1,0 +1,1 @@
+ffmpeg -i input.mp3 -af "afade=t=out:st=30:d=5" output.mp3

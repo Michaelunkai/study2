@@ -1,0 +1,1 @@
+aws kms describe-grant --key-id <key-id> --grant-id <grant-id> --grant-constraints <constraints>

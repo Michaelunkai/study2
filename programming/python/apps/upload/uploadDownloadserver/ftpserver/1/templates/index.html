@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>Uploaded Files</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file[]" id="file" multiple>
+        <input type="submit" value="Upload">
+    </form>
+    <h2>Files and Directories:</h2>
+    <ul>
+        {% for item, is_directory in items %}
+            <li>
+                {% if is_directory %}
+                    <a href="{{ url_for('browse_directory', directory=item) }}">{{ item }}</a>
+                {% else %}
+                    <a href="{{ url_for('download_file', filename=item) }}">{{ item }}</a>
+                {% endif %}
+                <form action="{{ url_for('delete_file', filename=item) }}" method="post" style="display: inline;">
+                    <button type="submit">Remove</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

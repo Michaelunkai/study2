@@ -1,0 +1,73 @@
+To solve the problem of finding if there exist two elements in a binary search tree (BST) such that their sum is equal to a given integer `k`, we can leverage the properties of BSTs and use a set to keep track of the values we have seen so far. Here's a detailed approach and the corresponding solution:
+
+### Approach:
+1. **Inorder Traversal**:
+    - Perform an inorder traversal to leverage the sorted property of the BST. This will help in efficiently checking for the pair.
+2. **Hash Set**:
+    - Use a hash set to store the values we have encountered during the traversal.
+    - For each node, check if `k - node.val` exists in the set. If it does, return `true`.
+    - Otherwise, add the current node's value to the set and continue the traversal.
+3. **Early Termination**:
+    - If at any point we find such a pair, we can terminate early and return `true`.
+
+### Implementation:
+
+Here's the Python implementation of the above approach:
+
+```python
+from typing import Optional, Set
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        def inorder(node: Optional[TreeNode], seen: Set[int]) -> bool:
+            if not node:
+                return False
+            if inorder(node.left, seen):
+                return True
+            if k - node.val in seen:
+                return True
+            seen.add(node.val)
+            return inorder(node.right, seen)
+        
+        seen = set()
+        return inorder(root, seen)
+
+# Helper function to build a tree from list
+def build_tree(lst, index=0):
+    if index < len(lst):
+        value = lst[index]
+        if value is None:
+            return None
+        root = TreeNode(value)
+        root.left = build_tree(lst, 2 * index + 1)
+        root.right = build_tree(lst, 2 * index + 2)
+        return root
+    return None
+
+# Example usage
+root = build_tree([5, 3, 6, 2, 4, None, 7])
+solution = Solution()
+print(solution.findTarget(root, 9))  # Output: True
+print(solution.findTarget(root, 28))  # Output: False
+```
+
+### Explanation:
+1. **TreeNode Class**:
+    - Defines the structure of a node in the binary tree.
+2. **Solution Class**:
+    - Contains the `findTarget` method which initiates the process.
+    - Uses an inner function `inorder` to perform an inorder traversal and check for the existence of two nodes that sum up to `k`.
+3. **Helper Function**:
+    - `build_tree` constructs a binary tree from a list representation to facilitate easy testing.
+
+### Constraints Handling:
+- The constraints of the problem, including the range of node values and the value of `k`, are naturally handled by the logic, as we use a set to keep track of the seen values and check for the required pair during the traversal.
+
+This approach efficiently solves the problem with a time complexity of O(n), where n is the number of nodes in the tree, and a space complexity of O(n) due to the set used to store seen values.

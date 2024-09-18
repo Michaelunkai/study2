@@ -1,0 +1,91 @@
+### Problem Statement (Explained Like You're 12):
+
+You have a list of numbers that is already sorted in non-decreasing order (which means the numbers are sorted from smallest to largest or equal). You need to find two different numbers in the list that add up to a specific target number. You should return the positions (indices) of these two numbers, but the positions are 1-based (meaning the first position is 1, the second position is 2, and so on).
+
+For example:
+- If the list is `[2, 7, 11, 15]` and the target is `9`, you should return `[1, 2]` because `2 + 7 = 9`.
+- If the list is `[2, 3, 4]` and the target is `6`, you should return `[1, 3]` because `2 + 4 = 6`.
+
+### Python Solution:
+
+```python
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left, right = 0, len(numbers) - 1
+        
+        while left < right:
+            current_sum = numbers[left] + numbers[right]
+            
+            if current_sum == target:
+                return [left + 1, right + 1]
+            elif current_sum < target:
+                left += 1
+            else:
+                right -= 1
+        
+        return []
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    ```
+
+2. **Initialize Two Pointers**:
+    ```python
+    left, right = 0, len(numbers) - 1
+    ```
+
+    - Initialize `left` pointer to the start of the list and `right` pointer to the end of the list.
+
+3. **Iterate Until Pointers Meet**:
+    ```python
+    while left < right:
+    ```
+
+    - Loop until the `left` pointer is less than the `right` pointer.
+
+4. **Calculate Current Sum**:
+    ```python
+    current_sum = numbers[left] + numbers[right]
+    ```
+
+    - Calculate the sum of the numbers at the `left` and `right` pointers.
+
+5. **Check If Current Sum Equals Target**:
+    ```python
+    if current_sum == target:
+        return [left + 1, right + 1]
+    ```
+
+    - If the current sum is equal to the target, return the 1-based indices of the `left` and `right` pointers.
+
+6. **Move Pointers Based on Comparison**:
+    ```python
+    elif current_sum < target:
+        left += 1
+    else:
+        right -= 1
+    ```
+
+    - If the current sum is less than the target, move the `left` pointer to the right to increase the sum.
+    - If the current sum is greater than the target, move the `right` pointer to the left to decrease the sum.
+
+7. **Return Empty List if No Solution**:
+    ```python
+    return []
+    ```
+
+    - If the loop ends and no solution is found, return an empty list.
+
+### Summary:
+
+1. Initialize two pointers, `left` and `right`, at the start and end of the list.
+2. Loop until the `left` pointer is less than the `right` pointer.
+3. Calculate the current sum of the numbers at the `left` and `right` pointers.
+4. If the current sum equals the target, return the 1-based indices of the pointers.
+5. If the current sum is less than the target, move the `left` pointer to the right.
+6. If the current sum is greater than the target, move the `right` pointer to the left.
+7. If no solution is found, return an empty list.

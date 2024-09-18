@@ -1,0 +1,100 @@
+Arch Linux Install Guide Using VirtualBox
+Download Arch Linux Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Arch
+Machine Folder: C:\VMs
+Type: Linux
+Version: Arch (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Arch.vdi
+File size: 40 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Arch .iso file
+Click OK
+Make sure the Arch VM is selected and click Start > Normal
+At the Arch Linux menu, select Arch Linux install medium > Press Enter
+Run the following commands to install Arch Linux on the VBOX HARDDISK
+# list disk drives, note the identifier for VBOX HARDDISK
+fdisk -l
+# partition the drive, change the identifier if needed
+fdisk /dev/sda
+# create a new partition
+n
+# set the partition type to primary
+p
+# default sector
+2048
+# set the partition size
++40GB
+# create a swap partition
+n
+# set the partition type to primary
+p
+# default sector
+Press Enter to accept default
+# set the partition size
+Press Enter to accept default
+# write the partitions
+w
+# print out the partitions
+fdisk -l
+# create ext4 root partition
+mkfs.ext4 /dev/sda1
+# confirm proceeding with the change if prompted
+y
+# create swap partition
+mkswap /dev/sda2
+# confirm proceeding with the change if prompted
+y
+# mount the root partition
+mount /dev/sda1 /mnt
+# enable swap
+swapon /dev/sda2
+# run pacstrap installation
+pacstrap /mnt base linux linux-firmware
+# generate fstab file
+genfstab -U /mnt >> /mnt/etc/fstab
+# change root to the /mnt directory
+arch-chroot /mnt
+# set the hostname
+echo archlinux-vm > /etc/hostname
+# install grub bootloader
+pacman -S grub
+grub-install /dev/sda
+# create grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+# install gnome desktop environment
+pacman -S gnome
+# enable required services
+systemctl enable gdm.service
+systemctl enable NetworkManager.service
+# set root passwd
+passwd
+# shutdown
+exit
+shutdown now
+Right click the Arch Linux VM > Settings...
+Select Storage from the left navigation menu
+Remove the Arch Linux installation medium from the optical drive
+Click OK
+Right click the Arch Linux VM > Start > Normal Start
+At the gnome login, login with username root and the password set during the installation
+Install VirtualBox Guest Additions (Optional)
+Run the following command in a terminal window
+pacman -S virtualbox-guest-utils

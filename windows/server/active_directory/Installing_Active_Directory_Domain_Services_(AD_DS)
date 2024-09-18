@@ -1,0 +1,3 @@
+Installing Active Directory Domain Services (AD DS)
+
+To begin, ensure that you have a Windows Server installed. Open the "Server Manager" and click on "Add roles and features." Follow the wizard, select "Active Directory Domain Services," and complete the installation.

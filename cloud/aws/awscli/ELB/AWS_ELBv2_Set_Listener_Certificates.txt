@@ -1,0 +1,1 @@
+aws elbv2 set-listener-certificates --listener-arn <listener-arn> --certificates <certificates>

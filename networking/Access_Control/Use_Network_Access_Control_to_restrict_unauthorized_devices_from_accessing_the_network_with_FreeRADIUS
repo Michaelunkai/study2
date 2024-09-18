@@ -1,0 +1,14 @@
+ Implement Network Access Control (NAC)
+Use Network Access Control to restrict unauthorized devices from accessing the network.
+
+Install FreeRADIUS and configure it with dynamic VLAN assignment.
+
+Install FreeRADIUS:
+
+sudo apt install freeradius
+Edit the FreeRADIUS configuration:
+
+sudo nano /etc/freeradius/3.0/mods-enabled/eap
+Restart FreeRADIUS:
+
+sudo systemctl restart freeradius

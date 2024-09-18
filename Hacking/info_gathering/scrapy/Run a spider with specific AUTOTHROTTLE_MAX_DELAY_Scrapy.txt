@@ -1,0 +1,1 @@
+scrapy crawl myspider -s AUTOTHROTTLE_MAX_DELAY=60

@@ -1,0 +1,17 @@
+/boot - hold bootloader files essential for system startup
+/proc - provides access to kernel and process information dynamically
+/sys - exposes kernals view of system's hardware configuration.
+/var - stores variable data such as logs, caches, nd temp files.
+/usr - contains user-accessible programs and data
+/lib - holds essential sys libaries.
+/dev - provides device files for interacting with hardware
+/etc - stores sys-wide config files
+/opt - typically contains optional or 3th party software packages.
+/bin - Houses essential user command binaries.
+/sbin - Contains essential system administration binaries.
+/home - stores user home directories.
+/media - mount point for removable media such as usb drives
+/mnt - directories for temp mounting filesystems.
+/root - home directory for the root user.
+/tmp - holds files created by programs or users.
+

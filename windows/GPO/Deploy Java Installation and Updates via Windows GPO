@@ -1,0 +1,32 @@
+Deploy Java Installation and Updates via Windows GPO
+Getting the Java .msi
+Download the offline Java installer Download
+Start the downloaded Java installer, but don't go past the initial screen
+Open Windows Explorer and navigate to %userprofile%\AppData\LocalLow\Oracle\Java\
+Open the folder for the version of Java and copy the Java .msi to a different folder (ie Downloads, Desktop, etc)
+Cancel the Java installation
+Creating Software Share
+Log into a domain controller
+Create a folder somewhere to share for software distribution (ie c:\gpo_files)
+Right click on the created folder > Properties > Sharing tab > Advanced Sharing...
+Click the Share this folder box
+Give the share a name (ie gpo_files)
+Click the Permissions button
+Remove the Everyone group
+Add Authenticated Users
+Click OK on all open dialog boxes
+Copy the Java .msi from earlier into the new shared folder
+Creating the GPO to Push Java
+Still logged into the domain controller, right click on the Start button > Run > type gpmc.msc > Press Enter
+Expand Forest: %domainname% > Domains > %domainname%
+Right click on the domain name > Create a GPO in this domain, and link it here...
+Name the new GPO Software Distribution
+Right click the Software Distribution GPO > Edit...
+In the Group Policy Management Editor expand Computer Configuration > Policies > Software Settings > Software installation
+Right click Software installation > New > Package...
+When the file dialog appears, point it to the Java .msi using the share created earlier (ie \\domain_controller\gpo_files\javax64.msi)
+Leave the deployment method as Assigned > Click OK
+Close out of all open Group Policy Management Editor windows
+On client domain devices right click the Start button > Run > type gpupdate /force > Press Enter
+After the group policy update completes, reboot the device
+During the boot process the Java from the software distribution GPO will be installed

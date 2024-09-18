@@ -1,0 +1,1 @@
+Get-ComputerRestorePoint | ForEach-Object { Remove-ComputerRestorePoint -RestorePoint $($_.SequenceNumber) }

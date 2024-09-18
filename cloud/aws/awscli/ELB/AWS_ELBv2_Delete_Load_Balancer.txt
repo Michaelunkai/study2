@@ -1,0 +1,1 @@
+aws elbv2 delete-load-balancer --load-balancer-arn <load-balancer-arn>

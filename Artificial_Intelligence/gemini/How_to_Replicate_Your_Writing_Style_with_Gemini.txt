@@ -1,0 +1,18 @@
+💡 How to Accurately Replicate Your Writing Style with Gemini ✍️
+👥 1. Gather Your Documents
+Create a Google Docs document with examples of your texts. Ensure these texts are of the same type (articles, newsletters, social media posts, etc.).
+👥 2. Insert the Prompt
+Switch to Gemini Advanced and use this prompt template:
+"Act as a professional copywriter. Find my doc '[GDOCS NAME]' in my Drive. It contains X examples of [DESCRIPTION]. Analyze the writing style, redundant elements, introductions, conclusions, and structure of the [DOCUMENT TYPE] examples in this document. Then write a new [DOCUMENT TYPE] with exactly the same writing style, structure, and elements about [TOPIC]".
+(This works in regular Gemini too, but Gemini Advance produces much better results)
+*Note: Ensure the Google Workspace extension is enabled so that Gemini can find your document.
+👥 3. Add Specific Elements If Necessary
+If you want to add specific elements to your text, use this prompt:
+"Keep the same analysis, structure, writing style, introduction, conclusion, etc. but replace the information in the [DOCUMENT TYPE] with this one: INFORMATION BEGINNING [PASTE YOUR ELEMENTS] INFORMATION END"
+👥 4. Use Gemini's Features
+Gemini has many features you can use to get better results:
+- You can choose from different drafts and pick the one that best suits your needs
+- You can also modify the response with a simple click
+**I have a video on using Bard that is still relevant even though it's now called Gemini - [Watch the video](https://youtu.be/D_NfLKZcLxI?si=UFsmxo-wyilKUiEj)**
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

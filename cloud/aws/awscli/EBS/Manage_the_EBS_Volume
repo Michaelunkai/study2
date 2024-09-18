@@ -1,0 +1,16 @@
+Manage the EBS Volume
+List volumes to see all EBS volumes in your account:
+
+ 
+ 
+aws ec2 describe-volumes
+Detach the volume from the instance:
+
+ 
+ 
+aws ec2 detach-volume --volume-id vol-0abcdef1234567890
+Delete the volume when you no longer need it:
+
+ 
+ 
+aws ec2 delete-volume --volume-id vol-0abcdef1234567890

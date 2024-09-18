@@ -1,0 +1,1 @@
+iwr -Uri https://download.ultimaker.com/cura/Ultimaker_Cura-4.10.0-win64.exe -OutFile cura_installer.exe; Start-Process cura_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

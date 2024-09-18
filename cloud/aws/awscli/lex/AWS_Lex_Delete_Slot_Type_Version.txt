@@ -1,0 +1,1 @@
+aws lex-models delete-slot-type-version --name <slot-type-name> --version <version>

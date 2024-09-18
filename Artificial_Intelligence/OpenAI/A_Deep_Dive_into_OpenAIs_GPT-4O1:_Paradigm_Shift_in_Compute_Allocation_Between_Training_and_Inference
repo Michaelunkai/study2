@@ -1,0 +1,17 @@
+**A Deep Dive into OpenAI's GPT-4O1: Paradigm Shift in Compute Allocation Between Training and Inference**
+
+Recently, OpenAI introduced a new model, named GPT-4O1, and I wanted to share my thoughts on it. Typically, I avoid commenting on every new model that dominates the benchmarks, but this time, I’m making an exception—not because GPT-4O1 left other models in the dust in benchmark performance, but because it represents a paradigm shift in how we approach Large Language Models (LLMs).
+
+This paradigm shift revolves around the balance between compute resources allocated for training versus inference. Traditionally, models require enormous amounts of compute for training (pre-training, fine-tuning, alignment, etc.), while inference is relatively cheaper (although inference still carries significant costs). However, GPT-4O1 challenges this assumption and asks whether this approach is truly optimal. Perhaps we should train models less and allocate more compute for inference.
+
+Not long ago, I reviewed a paper that changed (or at least refreshed) my thinking on this matter: *"Scaling LLM Test-Time Compute Optimally Can Be More Effective than Scaling Model Parameters."* While this paper came from DeepMind, I had a sense that they were not the only ones reaching this non-trivial conclusion.
+
+The idea boils down to two main points:
+
+1. **Maybe you don’t need a giant language model for inference.** A significant portion of the model’s parameters are likely used to store factual knowledge, ensuring that the model doesn't produce incorrect responses to general knowledge questions (e.g., “When was Mozart born?”). I believe there’s potential to separate reasoning from knowledge, meaning that we could rely on a smaller "reasoning core" that knows how to use tools like Wolfram, a browser, or code validators for tasks requiring factual or domain-specific knowledge (like programming languages). This could reduce the amount of compute needed for pre-training.
+
+2. **A substantial portion of the compute is now shifted to inference.** Instead of focusing so heavily on training, GPT-4O1 operates like a text-based simulator. By generating multiple scenarios and strategies, the model can eventually arrive at strong reasoning solutions. This process of solution selection mirrors techniques like Monte Carlo Tree Search (MCTS), used in systems like AlphaGo.
+
+If we are employing MCTS-like techniques, we also need a reward function. Creating such a function in this context is non-trivial because we don't have an easy way (unless there’s a massive reasoning dataset) to evaluate the quality of reasoning. While techniques like using other language models or self-evaluation by the same model are options, there’s still no clear method for solving this issue. It’s unclear whether GPT-4O1 uses MCTS, but they may have developed a clever method to bypass the need for a reward function, similar to how DPO and ORPO adapted PPO in different contexts. We’ll have to wait for more technical details to emerge.
+
+In short, I’m eagerly anticipating the technical report, which will hopefully shed more light on the architecture and thought processes behind GPT-4O1. While we’re not certain of all the details yet, it’s clear that GPT-4O1 has introduced some groundbreaking ideas that could reshape the way we think about LLMs and compute allocation.

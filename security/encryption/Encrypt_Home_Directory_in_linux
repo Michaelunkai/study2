@@ -1,0 +1,2 @@
+sudo apt install ecryptfs-utils
+ecryptfs-migrate-home -u your_username

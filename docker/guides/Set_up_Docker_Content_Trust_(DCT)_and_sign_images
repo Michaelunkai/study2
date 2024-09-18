@@ -1,0 +1,1 @@
+export DOCKER_CONTENT_TRUST=1 && docker trust key generate mykey && docker trust signer add --key mykey.pub myname repo:tag && docker push username/repo:tag

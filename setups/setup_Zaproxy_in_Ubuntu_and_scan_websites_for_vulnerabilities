@@ -1,0 +1,41 @@
+Step 1: Install Java (Prerequisite)
+OWASP ZAP requires Java. Install it using the following commands:
+
+ 
+ 
+sudo apt update
+sudo apt install openjdk-11-jre
+Step 2: Download OWASP ZAP
+Download the latest version of OWASP ZAP from the official website or use the following command:
+
+ 
+apt install zaproxy -y 
+
+
+owasp-zap
+
+
+Step 7: Start a New Session
+When OWASP ZAP is launched, you can start a new session. This allows you to save your progress and results for later analysis.
+
+New Session: Click on "File" -> "New Session". You can name your session and choose a location to save it.
+Step 8: Configure Browser Proxy Settings
+To intercept and analyze traffic, you need to configure your web browser to use OWASP ZAP as a proxy.
+
+Browser Configuration: Open your browser settings, go to the "Network" or "Proxy" section, and set the proxy to localhost with port 8080.
+Step 9: Explore and Scan a Website
+Now you can start exploring and scanning a website.
+
+Target URL: Enter the URL of the website you want to test in the URL bar at the top of the OWASP ZAP interface.
+Explore: Click on the "Spider" icon to crawl and map the site structure.
+Scan: Use the "Active Scan" feature to find vulnerabilities by selecting the target site and clicking on "Attack" -> "Active Scan".
+Step 10: Analyze Results
+OWASP ZAP will display the scan results with potential security issues.
+
+Alerts Tab: Check the "Alerts" tab to see a list of discovered vulnerabilities.
+Details: Click on each alert to get detailed information and recommendations for fixing the issues.
+Step 11: Save and Export Reports
+After scanning, you can save and export the results for further analysis.
+
+Save Session: Click on "File" -> "Save Session".
+Export Reports: Click on "Report" -> "Generate HTML Report" to export the findings.

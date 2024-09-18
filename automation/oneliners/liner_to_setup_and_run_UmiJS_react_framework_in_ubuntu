@@ -1,0 +1,1 @@
+getnpm && npx create-umi my-umi-app && cd my-umi-app && npm start

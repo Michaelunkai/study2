@@ -1,0 +1,86 @@
+# Tutorial: Train a Simple Neural Network to Recognize Handwritten Digits on Ubuntu
+
+## Step-by-Step Guide to Setting Up and Running a Simple Neural Network in Ubuntu
+
+### Step 1: Install Python and Necessary Libraries
+
+First, ensure you have Python installed. We'll also install TensorFlow, a popular library for neural networks.
+
+  
+sudo apt update
+sudo apt install python3-pip -y
+pip3 install --upgrade pip
+pip3 install tensorflow
+
+### Step 2: Write a Basic Neural Network Script
+
+Create a directory for your project and navigate to it:
+
+  
+mkdir ~/neural_network
+cd ~/neural_network
+
+Create a Python script for your neural network:
+
+  
+nano neural_network.py
+
+Copy and paste the following code into `neural_network.py`. This script creates a simple neural network to recognize handwritten digits using the MNIST dataset.
+
+  
+import tensorflow as tf
+from tensorflow.keras import datasets, layers, models
+import matplotlib.pyplot as plt
+
+# Load and prepare the MNIST dataset
+(train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data()
+train_images, test_images = train_images / 255.0, test_images / 255.0
+
+# Build the convolutional base
+model = models.Sequential([
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
+    layers.MaxPooling2D((2, 2)),
+    layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+    layers.Conv2D(64, (3, 3), activation='relu')
+])
+
+# Add Dense layers on top
+model.add(layers.Flatten())
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(10, activation='softmax'))
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+history = model.fit(train_images, train_labels, epochs=5, 
+                    validation_data=(test_images, test_labels))
+
+# Evaluate the model
+test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
+print(f'\nTest accuracy: {test_acc}')
+
+# Plot training and validation accuracy
+plt.plot(history.history['accuracy'], label='accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.ylim([0, 1])
+plt.legend(loc='lower right')
+plt. ow()
+
+### Step 3: Run the Script
+
+Save and close the file (`Ctrl+X`, `Y`, `Enter`), then run the script:
+
+  
+ 3 neural_network.py
+
+This script will train a simple neural network on the MNIST dataset, evaluate its performance, and plot the training and validation accuracy.
+
+### Conclusion
+
+You've now set up and run a basic neural network on Ubuntu. You can modify the script to experiment with different neural network architectures and datasets.

@@ -1,0 +1,2 @@
+GlobalPooling1D Layer
+This layer is nothing special and simply scales down our data's dimension to make it easier computationally for our model in the later layers. Because our word embedding layer maps thousands and thousands of words to a location in vector space they usually do this in a high dimensional vector space. This means when we get our word vectors from the embedding layer they have multiple dimensions and can be scaled down by this layer.

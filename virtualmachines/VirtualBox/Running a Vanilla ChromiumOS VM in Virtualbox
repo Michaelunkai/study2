@@ -1,0 +1,32 @@
+Running a Vanilla ChromiumOS VM in Virtualbox
+NOTE: This method uses an older outdated version of ChromiumOS
+
+Open a web browser and download the ChromiumOS .ova Download
+Extract the downloaded .zip file
+Launch VirtualBox
+Create a New VM by selecting Machine > New
+Name: ChromiumOS
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other Linux (32-bit)
+Memory Size: 2048 MB
+Hard disk: Use an existing virtual hard disk now
+
+Click the folder icon > Browse to and select the extracted ChromeOS-Vanilla .vdi file
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Check the Enable PAE/NX checkbox
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Expand the Advanced options area
+Set the Adapter Type to Intel PRO/1000 MT Desktop
+Click OK
+Make sure the ChromiumOS VM is selected and click Start > Normal
+Click Continue on the Welcome! screen
+Press Escape to cancel checking for updates
+Click the browse as guest link
+Welcome to ChromiumOS
+ 

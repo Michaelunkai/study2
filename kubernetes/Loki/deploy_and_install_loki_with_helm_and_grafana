@@ -1,0 +1,9 @@
+Add Grafana Helm Repository:
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+
+Install Loki:
+helm install loki grafana/loki-stack --set grafana.enabled=true --namespace logging --create-namespace
+
+

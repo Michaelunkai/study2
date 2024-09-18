@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    anaible_tmp_dir: "/tmp/ansible_tmp"
+  remote_tmp: /tmp/ansible_tmp
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: michadockermisha/backup:fedora
+        source: pulled
+
+    - name: Run Docker container
+      docker_container:
+        name: fedora
+        image: michadockermisha/backup:fedora
+        state: started

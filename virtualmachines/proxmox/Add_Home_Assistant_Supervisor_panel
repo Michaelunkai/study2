@@ -1,0 +1,18 @@
+1) in the web interface:
+settings > addons > search: code > click: studio code server > install >
+> start > open web ui 
+2)in vscode:
+click configuration.yaml > add this lines to the end of the code:
+
+# Custom Panels
+panel_custom:
+  - name: Supervisor
+    url_path: hassio/system
+    sidebar_title: Supervisor
+    sidebar_icon: mdi:home-assistant
+    module_url: /local/panel-redirect.js
+
+> cntrl + s to save.
+
+3)in home asistant interface:
+developer tools > under "chack and restart" > restart.

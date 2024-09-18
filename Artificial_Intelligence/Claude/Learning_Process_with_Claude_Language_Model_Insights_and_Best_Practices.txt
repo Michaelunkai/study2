@@ -1,0 +1,20 @@
+# Learning Process with Claude Language Model: Insights and Best Practices
+## Introduction
+Claude is an advanced language model that enables browser-based code generation and other content production in a flexible and precise manner. In this article, I will share the important insights and recommendations I have gathered while working with Claude.
+## Prompt Structure
+- **Precision and Conciseness**: Ensure your prompt is simple and precise. An initial comprehensive, in-depth, and precise prompt, which also includes negative instructions (i.e., what you do not want as an outcome), will help in obtaining results closer to your request.
+- **Using Feedback**: Incorporate as much feedback as needed during the conversation with Claude to refine your needs.
+## Tips for Interacting with Claude
+1. **Detailing the User/Player Experience**: Clearly describe what the user or player should experience and do, including the visual aspects if they are significant to you.
+2. **Clear Instructions**: Provide detailed information on what you do not want as a possible outcome related to your request.
+## Managing the Workflow
+- **Questions and Testing**: After your prompt is ready and before you start generating code, ask Claude questions and let him suggest ideas.
+- **Saving Drafts**: Keep a documentation draft in a suitable document such as NOTION or WORD.
+- **Version Management**: Save good versions of the product separately as a file. Create improvements and refinements in a new document even if you worked on a saved good version. Use a numbering system for version management.
+## Learning from the Workflow
+- **Understanding Code**: Learn what the different parts of the code mean, at least the general idea, so you can make corrections and understand Claude's work better.
+- **Learning from Failures**: Treat every failure as an opportunity for learning and improvement. Each success is especially sweet.
+## Conclusion
+Working with Claude requires investment and commitment, but its results can be impressive and precise to your needs. Ensure precise communication, manage drafts and versions, and continuously learn from both failures and successes.
+## Invitation to Share
+I would be happy if you share your insights as well, always happy to learn 🤓

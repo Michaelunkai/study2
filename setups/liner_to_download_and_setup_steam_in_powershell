@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe" -OutFile "$env:TEMP\SteamSetup.exe"; Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList "/S" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\SteamSetup.exe"

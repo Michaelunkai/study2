@@ -1,0 +1,1 @@
+aws comprehend describe-entities-detection-job --job-id <job-id>

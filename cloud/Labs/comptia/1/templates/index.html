@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA A+ Practice Exam</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 10px;
+        }
+        .stats {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1>CompTIA A+ Practice Exam</h1>
+        <div v-if="currentQuestion">
+            <div class="question">
+                <h2>[[ currentQuestion.question ]]</h2>
+                <ul class="options">
+                    <li v-for="(option, index) in currentQuestion.options" :key="index">
+                        <button @click="submitAnswer(index)" :disabled="result !== null">[[ option ]]</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div v-if="result !== null" class="result">
+            <p v-if="result.correct" class="correct">Correct!</p>
+            <p v-else class="incorrect">Incorrect.</p>
+            <p class="explanation">[[ result.explanation ]]</p>
+        </div>
+        <button @click="getNextQuestion" :disabled="result === null">Next Question</button>
+        <div class="stats">
+            <p>Questions Answered: [[ questionsAnswered ]]</p>
+            <p>Correct Answers: [[ correctAnswers ]]</p>
+            <p>Score: [[ score ]]%</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                currentQuestion: null,
+                result: null,
+                questionsAnswered: 0,
+                correctAnswers: 0
+            },
+            computed: {
+                score() {
+                    return this.questionsAnswered > 0
+                        ? Math.round((this.correctAnswers / this.questionsAnswered) * 100)
+                        : 0;
+                }
+            },
+            methods: {
+                getNextQuestion() {
+                    axios.get('/get_question')
+                        .then(response => {
+                            this.currentQuestion = response.data;
+                            this.result = null;
+                        })
+                        .catch(error => console.error(error));
+                },
+                submitAnswer(answerIndex) {
+                    axios.post('/submit_answer', {
+                        question_id: this.currentQuestion.id,
+                        answer: answerIndex
+                    })
+                    .then(response => {
+                        this.result = response.data;
+                        this.questionsAnswered++;
+                        if (this.result.correct) {
+                            this.correctAnswers++;
+                        }
+                    })
+                    .catch(error => console.error(error));
+                }
+            },
+            mounted() {
+                this.getNextQuestion();
+            }
+        });
+    </script>
+</body>
+</html>

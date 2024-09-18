@@ -1,0 +1,14 @@
+Bash-it
+Install and Verify:
+ 
+ 
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/. _it/install.sh --silent
+source ~/. rc
+bash-it show aliases --version
+Disable and Remove:
+ 
+ 
+~/. _it/uninstall.sh
+rm -rf ~/. _it
+source ~/. rc

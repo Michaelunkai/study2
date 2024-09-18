@@ -1,0 +1,40 @@
+Build and Evaluate Models
+Split Data
+
+ 
+ 
+from sklearn.model_selection import train_test_split
+
+X = data.drop('high_risk', axis=1)
+y = data['high_risk']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+Train a Model
+
+ 
+ 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Predictions
+y_pred = model.predict(X_test)
+
+# Eva te
+print(classification_report(y_test, y_pred))
+Tune Model Parameters (Optional)
+
+ 
+ 
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'n_estimators': [100, 200],
+    'max_depth': [10, 20]
+}
+grid_search = GridSearchCV(RandomForestClassifier(), param_grid, cv=3)
+grid_search.fit(X_train, y_train)
+
+print("Best Parameters:", grid_search.best_params_)

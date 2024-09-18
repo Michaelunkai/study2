@@ -1,0 +1,16 @@
+Federated Learning Algorithm: An Overview
+Federated learning is a decentralized approach to machine learning where multiple devices or servers collaborate to train a model without sharing their local data. Instead of sending raw data to a central server, each device (often referred to as a client) trains a local model using its own data and then sends only the model updates (like gradients) to a central server. The central server aggregates these updates to improve a global model.
+Key Features:
+1. Privacy Preservation: Since raw data remains on the local devices, federated learning helps protect user privacy.
+2. Decentralization: Training happens on distributed devices, reducing the need for centralized data storage.
+3. Efficiency: Reduces the communication cost as only model updates are shared, not the data itself.
+Federated Learning Process:
+1. Initialization: A global model is initialized and sent to all participating clients.
+2. Local Training: Each client trains the model locally on its own data.
+3. Aggregation: The local model updates are sent back to the central server, which aggregates them (e.g., by averaging the weights).
+4. Update: The aggregated updates are applied to the global model, and the process repeats.
+Applications:
+- Healthcare: Hospitals can collaborate to improve medical models without sharing sensitive patient data.
+- Finance: Banks can improve fraud detection models without exposing customer data.
+- Mobile Devices: Smartphones can learn personalized models without sending user data to the cloud.
+Federated learning is a key technology in areas where privacy, security, and data locality are crucial.

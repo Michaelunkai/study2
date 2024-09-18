@@ -1,0 +1,1 @@
+wget --quota=50m http://example.com/files/

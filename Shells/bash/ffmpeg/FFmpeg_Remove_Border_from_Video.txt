@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -vf "crop=iw-20:ih-20" output.mp4

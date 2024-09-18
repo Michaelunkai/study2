@@ -1,0 +1,1 @@
+sqlmap -u 'http://example.com/vulnerable.php?id=1' --auth-type=basic --auth-cred=username:password

@@ -1,0 +1,1 @@
+sam local start-api --docker-network <network-name>

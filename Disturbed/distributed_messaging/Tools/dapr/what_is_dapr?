@@ -1,0 +1,33 @@
+**Dapr** (Distributed Application Runtime) is an open-source, portable, event-driven runtime designed to simplify the development of distributed microservices. Dapr helps developers build scalable, resilient, and stateless or stateful microservices by abstracting away common concerns like state management, service discovery, message-passing (pub/sub), security, and observability.
+
+### Key Features of Dapr:
+
+1. **Language Agnostic:** Dapr can be used with any programming language (e.g., Python, Node.js, Go, C#, etc.) because it runs as a sidecar alongside your microservices.
+  
+2. **Sidecar Architecture:** Dapr operates as a sidecar process next to your microservices, communicating via HTTP or gRPC APIs. This means that the microservice doesn't need to know the complexities of handling communication, messaging, state management, etc., as Dapr does this for you.
+
+3. **Building Blocks:**
+   - **Service Invocation:** Facilitates secure communication between microservices.
+   - **State Management:** Provides stateful management via pluggable stores like Redis, Azure Cosmos DB, or Amazon DynamoDB.
+   - **Pub/Sub Messaging:** Enables event-driven messaging via systems like Redis, Kafka, Azure Service Bus, and more.
+   - **Bindings:** Integrates with external services (e.g., databases, cloud services) via input/output bindings.
+   - **Secret Management:** Securely handles secrets by integrating with providers like AWS Secrets Manager, Azure Key Vault, etc.
+   - **Observability:** Supports distributed tracing, metrics, and logs to make microservices observable.
+
+4. **Portable and Extensible:** Dapr can run anywhere—on any cloud, on-premises, or even at the edge. It supports Kubernetes, VMs, and local development environments like Docker.
+
+### Why Use Dapr?
+
+- **Simplifies Microservices Development:** By providing a set of pre-built, language-agnostic building blocks (like pub/sub, state, bindings), Dapr allows developers to focus on business logic instead of writing boilerplate code for communication, state management, or service discovery.
+  
+- **Portable and Cloud-Native:** Dapr is designed to run in any environment, making your microservices portable across clouds or on-premises infrastructure without rewriting them for different platforms.
+  
+- **Interoperable with Any Language or Framework:** Because it runs as a sidecar, you can use Dapr with any programming language or framework. It offers APIs for communication, messaging, and state, which are accessible via simple HTTP or gRPC.
+
+### How Dapr Works:
+
+1. Each service in a Dapr-based architecture runs with a Dapr sidecar process.
+2. Services interact with each other and external systems via Dapr’s APIs, without needing to worry about networking, retries, state persistence, or scaling.
+3. Dapr abstracts away infrastructure concerns like service discovery, messaging, or state stores, making microservices easier to develop, test, and scale.
+
+Dapr can be thought of as a universal runtime that significantly reduces the complexity of building microservices-based applications.

@@ -1,0 +1,11 @@
+🛑 Runway Gets into Trouble with YouTube! 🛑
+You won't believe what I'm about to tell you!
+**Runway Gen-3**, the amazing video generator we all knew and loved, is at the center of a massive storm!
+**It turns out that Runway used thousands of YouTube videos to train its algorithm without any permission!** Yes, you read that right!
+Leading content creators like The New Yorker, VICE News, Pixar, Disney, and Netflix found out that their videos were used to train the AI without their knowledge.
+The most troubling part is how Runway did it. They used open-source software and proxies to collect the videos and bypass YouTube's restrictions. It's like breaking into someone's house and taking their property without asking!
+**The implication:** We are facing a tough moral question. Is it right to use copyrighted materials to train generative AI models? Is it ethical?
+Could we see massive lawsuits and legal battles over copyright between tech companies and content creators in the near future?
+[Read more here](https://www.404media.co/runway-ai-image-generator-training-data-youtube/)
+**Dvir Bitton - InfinityAI**
+*Private lessons on AI tools*

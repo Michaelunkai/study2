@@ -1,0 +1,33 @@
+▲A  A▼
+Install AdGuard Home Cross-Platform Pi-Hole Alternative on Linux (Debian/Ubuntu)
+What is AdGuard Home?
+AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.
+
+It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public AdGuard DNS servers, and both share a lot of code. -https://github.com/AdguardTeam/AdguardHome
+Installing AdGuard Home
+Log into the Linux device
+Run the following commands in a terminal window
+# download the latest adguard home release
+wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
+# extract the downloaded tar.gz
+sudo tar xvf AdGuardHome_linux_amd64.tar.gz
+# change directory into the extracted folder
+cd AdGuardHome
+# install AdGuardHome as a service
+sudo ./AdGuardHome -s install
+Open a web browser and navigate to http://localhost:3000
+Click the Get Started button
+Set the Admin Web Interface and DNS Server network interfaces and ports > Click Next
+Enter an admin username and password > Click Next
+Click Next on page 4
+Click Open Dashboard on the Congratutations page
+Log in using the admin username and password created during the install
+Welcome to AdGuardHome
+Source: https://github.com/AdguardTeam/AdGuardHome#getting-started
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed
+
+
+one liner:
+wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz && sudo tar xvf AdGuardHome_linux_amd64.tar.gz && cd AdGuardHome && sudo ./AdGuardHome -s install

@@ -1,0 +1,64 @@
+Running a Windows 2000 VM in Virtualbox
+Download Microsoft Windows 2000 Download
+Extract the Windows 2000 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows 2000
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 2000
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows 2000.vdi
+File size: 4.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to the extracted Windows 2000 files and select Win2000 .iso
+Click OK
+Make sure the Windows 2000 VM is selected and click Start > Normal
+The Windows 2000 setup should load on boot
+Press Enter to Continue with Setup 
+Press C to Continue with Setup
+Press F8 to agree to the Licensing Agreement
+Press Enter to Install to the unpartitioned space
+Select the top option to format using the NTFS file system
+Press Enter to continue
+Setup will copy files and then reboot the VM
+When the VM boots back up, Click Next
+Wait for Windows to install devices and drivers
+Click Next
+Enter a name and organization > Click Next
+Enter a valid Windows 2000 product key (XGH9J-KBPBD-FXDKQ-K36XB-X9J6Y), click Next
+Give the computer a name
+Enter an administrator password > Re-type to confirm > Click Next
+Set the date/time and select a timezone > Click Apply > Click OK
+Select Typical settings on the Network settings dialog > Click Next
+Select No, this computer is not on a network > Click Next
+Wait for Windows to install components
+Click Finish, the VM will reboot
+On the Network Identification dialog select This computer is for home use... > Click Next > Click Next > Click Finish, the VM will reboot
+Welcome back to Windows 2000...Y2k
+Revel in the nostalgia
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions-x86.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Yes button
+After the installation completes select Reboot now > Click Finish
+Upon rebooting, you can now full screen the VM and the interal resolution will automatically change to match the window size
+Download i12bretro Windows SP.iso Download
+Select Devices > Optical Drives > Select disk image...
+Navigate to and select i12bretro_Windows_SP.iso
+If the VM doesn't autorun, open My Computer > CD Drive
+Open the Windows 2000 folder > Double click Windows 2000 SP4.exe
+Follow the dialogs to install Service Pack 4
+Click Finish to reboot and complete the SP4 install

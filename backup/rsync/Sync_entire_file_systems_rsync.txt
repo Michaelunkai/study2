@@ -1,0 +1,1 @@
+rsync -av --one-file-system /source_directory/ /destination_directory/

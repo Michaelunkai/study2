@@ -1,0 +1,36 @@
+▲A  A▼
+VMware ESXi - Create Datastore from Windows Network Share via NFS
+Installing NFS Server Role
+Launch Server Manager if it does not automatically load
+Click the Start button > Server Manager
+Click Manage > Add roles and features
+Click Next on the Before you begin screen
+Select Role-based or feature-based installation > Next
+Leave Select a server from the server pool selected and select the current server > Next
+Expand File and Storage Services > Expand File and iSCSI Services > Select Server for NFS
+A popup will appear with additional required roles and features, click the Add Features button
+Click Next
+Click Next on the Select features screen
+Click Install on the confirmation screen
+Leave the installation progress screen open until the install completes
+Once the installation has completed click Close
+Creating the NFS Share
+In Server Manager, click File and Storage Services in the left navigation menu
+Select Shares in the left sub-navigation menu
+To the right of the Shares pane, click Tasks > New Share...
+Select NFS Share - Quick > Click Next
+Select Type a custom path... > Click the Browse button
+Navigate to the folder location to share > Click Select Folder > Click Next
+Enter a Share name > Click Next
+Under No server authentication, Check Enable unmapped user access > Select No server authentication (AUTH_SYS) > Select Enable unmapped user access > Click Next
+On the Share Permissions page click Add...
+Select Host > Enter the IP address or DNS name of the ESXi server > Set the Share permissions dropdown to Read / Write Click Add > Check the Allow root access box > Click Next
+On the Permissions page click Next
+Click Create > Click Close
+Adding the NFS Share to VMware ESXi
+Log into the VMware ESXi web UI
+Select Storage from the left navigation menu > Click New datastore
+Select Mount NFS datastore > Click Next
+Enter the a name for the datastore > Enter the NFS server IP or DNS name, share name and select NFS 4 > Click Next
+Review the summary page > Click Finish
+ 

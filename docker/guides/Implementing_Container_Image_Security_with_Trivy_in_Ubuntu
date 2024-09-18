@@ -1,0 +1,144 @@
+Implementing Container Image Security with Trivy in Ubuntu
+Step-by-Step Guide
+Step 1: Update Your System
+Before installing any new software, it's good practice to update your system packages.
+
+ 
+ 
+sudo apt update && sudo apt upgrade -y
+Step 2: Install Trivy
+Download the latest Trivy binary:
+ 
+ 
+sudo wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.52.1_Linux-64bit.deb
+Install the downloaded package:
+ 
+ 
+sudo dpkg -i trivy_0.52.1_Linux-64bit.deb
+Verify the installation:
+ 
+ 
+trivy --version
+Step 3: Run Trivy on a Container Image
+Assuming you already have Docker installed or have access to Docker images, you can use Trivy to scan a Docker image for vulnerabilities.
+
+Pull a Docker image to scan (for example, the official nginx image):
+ 
+ 
+docker pull nginx
+Run Trivy to scan the nginx image:
+ 
+ 
+trivy image nginx
+Trivy will download vulnerability databases (this might take a while the first time) and then scan the image for known vulnerabilities.
+
+Step 4: Automate Regular Scans
+To ensure continuous security, automate the scanning process. You can set up a cron job to scan images regularly.
+
+Open the crontab file:
+ 
+ 
+crontab -e
+Add a cron job to scan the nginx image daily at midnight:
+ 
+ 
+0 0 * * * /usr/local/bin/trivy image nginx > /var/log/trivy_nginx_scan.log 2>&1
+This will save the scan results to /var/log/trivy_nginx_scan.log.
+
+Step 5: Scan Local Files or Directories
+Trivy can also scan local files or directories for vulnerabilities.
+
+Create a test directory with a Dockerfile:
+ 
+ 
+mkdir ~/test-trivy
+cd ~/test-trivy
+echo -e 'FROM nginx\nRUN apt-get update && apt-get install -y curl' > Dockerfile
+Run Trivy to scan the directory:
+ 
+ 
+trivy fs .
+Step 6: Scan Git Repositories
+You can also scan Git repositories for vulnerabilities.
+
+Clone a Git repository (e.g., a sample repository):
+ 
+ 
+git clone https://github.com/aquasecurity/trivy-ci-test.git
+cd trivy-ci-test
+Run Trivy to scan the repository:
+ 
+ 
+trivy repo .
+Understanding Trivy  
+Update and Downloading Databases
+ 
+ 
+2024-06-13T16:52:55+03:00 INFO    Need to update DB
+2024-06-13T16:52:55+03:00 INFO    Downloading DB... repository="ghcr.io/aquasecurity/trivy-db:2"
+48.06 MiB / 48.06 MiB [----------------------------------------------------------------------] 100.00% 7.51 MiB p/s 6.6s
+Trivy checks if the vulnerability database is up-to-date. If not, it downloads the latest database from the specified repository.
+Scanning Information
+ 
+ 
+2024-06-13T16:53:03+03:00 INFO    Vulnerability scanning is enabled
+2024-06-13T16:53:03+03:00 INFO    Secret scanning is enabled
+2024-06-13T16:53:03+03:00 INFO    If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2024-06-13T16:53:03+03:00 INFO    Please see also https://aquasecurity.github.io/trivy/v0.52/docs/scanner/secret/#recommendation for faster secret detection
+Trivy confirms that both vulnerability and secret scanning are enabled.
+It suggests disabling secret scanning (--scanners vuln) if the scan is slow.
+Provides a link for more information on optimizing secret detection.
+Java Database Information
+ 
+ 
+2024-06-13T16:53:10+03:00 INFO    Java DB Repository      repository=ghcr.io/aquasecurity/trivy-java-db:1
+2024-06-13T16:53:10+03:00 INFO    Downloading the Java DB...
+617.80 MiB / 617.80 MiB [--------------------------------------------------] 100.00% 6.65 MiB p/s 1m33s
+2024-06-13T16:54:59+03:00 INFO    The Java DB is cached for 3 days. If you want to update the database more frequently, the '--reset' flag clears the DB cache.
+Trivy downloads an additional database for Java-related vulnerabilities and caches it for three days.
+OS and Package Detection
+ 
+ 
+2024-06-13T16:55:10+03:00 INFO    Detected OS     family="debian" version="12.5"
+2024-06-13T16:55:10+03:00 INFO    [debian] Detecting vulnerabilities...   os_version="12" pkg_num=149
+2024-06-13T16:55:11+03:00 INFO    Number of language-specific files       num=0
+Trivy detects the operating system and its version.
+It also detects the number of packages and language-specific files in the image.
+Vulnerability Report
+less
+ 
+nginx (debian 12.5)
+
+Total: 161 (UNKNOWN: 0, LOW: 88, MEDIUM: 50, HIGH: 21, CRITICAL: 2)
+A summary of the vulnerabilities found in the nginx image, categorized by severity:
+LOW: 88
+MEDIUM: 50
+HIGH: 21
+CRITICAL: 2
+Detailed Vulnerability Information
+The report then lists each vulnerability found in the image, detailing:
+
+Library: The package or library where the vulnerability is found.
+Vulnerability: The CVE identifier for the vulnerability.
+Severity: The severity level (LOW, MEDIUM, HIGH, CRITICAL).
+Status: Whether the package is affected or if a fix is available.
+Installed Version: The version of the package installed in the image.
+Fixed Version: The version where the vulnerability is fixed (if available).
+Title: A brief description of the vulnerability.
+Link: A URL to more detailed information about the vulnerability.
+Example:
+
+arduino
+ 
+│ apt                │ CVE-2011-3374       │ LOW      │ affected     │ 2.6.1                   │
+        │ It was found that apt-key in apt, all versions, do not       │
+        │ correctly...                                                 │
+        │ https://avd.aquasec.com/nvd/cve-2011-3374                    │
+apt: The package with the vulnerability.
+CVE-2011-3374: The CVE identifier.
+LOW: Severity level.
+affected: The status indicating the package is affected.
+2.6.1: The installed version.
+https://avd.aquasec.com/nvd/cve-2011-3374: Link to more details.
+Conclusion
+You've now installed Trivy, scanned a Docker image, automated scans with cron, and used Trivy to scan local files and Git repositories. Trivy is a versatile tool that helps ensure your container images and code are secure from known vulnerabilities. Regular scanning and integrating Trivy into your CI/CD pipeline can help maintain the security of your applications.

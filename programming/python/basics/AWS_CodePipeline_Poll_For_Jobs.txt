@@ -1,0 +1,1 @@
+aws codepipeline poll-for-jobs --action-type-id <action-type-id>

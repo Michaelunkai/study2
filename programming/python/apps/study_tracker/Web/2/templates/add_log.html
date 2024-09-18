@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Study Log</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #00ffff;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        a {
+            color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Study Log</h1>
+    <form action="{{ url_for('add_log') }}" method="post">
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" list="subjects">
+        <datalist id="subjects">
+            {% for subject in subjects %}
+            <option value="{{ subject }}">
+            {% endfor %}
+        </datalist>
+
+        <label for="duration">Duration (minutes):</label>
+        <input type="text" name="duration" id="duration">
+
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes"></textarea>
+
+        <input type="submit" value="Add Log">
+    </form>
+    <a href="{{ url_for('index') }}">Back to Logs</a>
+</body>
+</html>

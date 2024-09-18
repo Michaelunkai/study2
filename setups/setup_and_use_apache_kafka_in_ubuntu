@@ -1,0 +1,131 @@
+Update and Install Required Packages
+First, update your system and install Java, which is required to run Kafka.
+
+ 
+ 
+sudo apt update
+sudo apt install default-jdk -y
+Step 2: Download Kafka
+Download the Kafka binaries using the wget command.
+
+ 
+ 
+wget https://dlcdn.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz
+Step 3: Extract the Kafka Archive
+Extract the downloaded Kafka archive.
+
+ 
+ 
+tar -xvzf kafka_2.13-3.7.0.tgz
+Step 4: Move Kafka to an Appropriate Directory
+Move the extracted Kafka folder to /usr/local/kafka.
+
+ 
+ 
+sudo mv kafka_2.13-3.7.0 /usr/local/kafka
+Step 5: Start Zookeeper
+Kafka uses Zookeeper to manage distributed brokers. Start Zookeeper using the provided configuration file.
+
+ 
+ 
+cd /usr/local/kafka
+bin/zookeeper-server-start.  config/zookeeper.properties
+Step 6: Start Kafka Server
+In a new terminal, start the Kafka server.
+
+ 
+ 
+cd /usr/local/kafka
+bin/kafka-server-start.  config/server.properties
+Step 7: Create a Kafka Topic
+Create a Kafka topic named "test-topic".
+
+ 
+ 
+cd /usr/local/kafka
+bin/kafka-topics.sh --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+Step 8: List Kafka Topics
+Verify that the topic was created by listing all topics.
+
+ 
+ 
+cd /usr/local/kafka
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+Step 9: Send Messages to the Kafka Topic
+Send some messages to the "test-topic".
+
+ 
+ 
+cd /usr/local/kafka
+bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+Type some messages and press Enter after each message. To exit, press Ctrl+C.
+
+Step 10: Consume Messages from the Kafka Topic
+Consume the messages from the "test-topic".
+
+ 
+ 
+cd /usr/local/kafka
+bin/kafka-console-consumer.sh --topic test-topic --from-beginning --bootstrap-server localhost:9092
+Step 11: Verify Kafka Installation
+If you see the messages you typed earlier, then Kafka is working correctly.
+
+Step 12: Setting Up Kafka as a System Service (Optional)
+To make Kafka and Zookeeper run as services, create systemd service files.
+
+Create Zookeeper Service
+ 
+ 
+sudo nano /etc/systemd/system/zookeeper.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Apache Zookeeper server
+Documentation=http://zookeeper.apache.org
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/kafka/bin/zookeeper-server-start.  /usr/local/kafka/config/zookeeper.properties
+ExecStop=/usr/local/kafka/bin/zookeeper-server-stop. 
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+Create Kafka Service
+ 
+ 
+sudo nano /etc/systemd/system/kafka.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Apache Kafka server
+Documentation=http://kafka.apache.org
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/kafka/bin/kafka-server-start.  /usr/local/kafka/config/server.properties
+ExecStop=/usr/local/kafka/bin/kafka-server-stop. 
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and Start Services
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl start zookeeper
+sudo systemctl start kafka
+Enable Services to Start on Boot
+ 
+ 
+sudo systemctl enable zookeeper
+sudo systemctl enable kafka
+Now, Kafka and Zookeeper should be set up and running on your Ubuntu system.

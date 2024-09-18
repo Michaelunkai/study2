@@ -1,0 +1,95 @@
+### 450. Delete Node in a BST
+
+To delete a node in a Binary Search Tree (BST), we need to handle three cases:
+1. The node to be deleted is a leaf node.
+2. The node to be deleted has one child.
+3. The node to be deleted has two children.
+
+The approach involves searching for the node and then rearranging the tree to maintain the BST properties after deletion.
+
+**Solution:**
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
+        if not root:
+            return root
+        
+        # Find the node to be deleted
+        if key < root.val:
+            root.left = self.deleteNode(root.left, key)
+        elif key > root.val:
+            root.right = self.deleteNode(root.right, key)
+        else:
+            # Node with only one child or no child
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+            
+            # Node with two children, get the inorder successor (smallest in the right subtree)
+            temp = self.minValueNode(root.right)
+            root.val = temp.val
+            root.right = self.deleteNode(root.right, temp.val)
+        
+        return root
+
+    def minValueNode(self, node: TreeNode) -> TreeNode:
+        current = node
+        while current.left:
+            current = current.left
+        return current
+```
+
+### Explanation:
+
+1. **Finding the Node to Delete:**
+   - If the key is less than the current node's value, recurse into the left subtree.
+   - If the key is greater than the current node's value, recurse into the right subtree.
+   - If the key is equal to the current node's value, this is the node to be deleted.
+
+2. **Handling Deletion:**
+   - If the node has no left child, replace it with its right child.
+   - If the node has no right child, replace it with its left child.
+   - If the node has two children, find the inorder successor (the smallest node in the right subtree), copy its value to the current node, and delete the inorder successor in the right subtree.
+
+3. **Finding the Inorder Successor:**
+   - The `minValueNode` function finds the node with the minimum value in a given tree, which is the leftmost node.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `root = [5,3,6,2,4,null,7]`, `key = 3`
+   - Steps:
+     - Find node `3`.
+     - Node `3` has two children, find the inorder successor `4`.
+     - Replace node `3` with `4` and delete node `4`.
+   - Output: `[5,4,6,2,null,null,7]` (another valid output: `[5,2,6,null,4,null,7]`)
+
+2. **Example 2:**
+   - Input: `root = [5,3,6,2,4,null,7]`, `key = 0`
+   - Steps:
+     - Key `0` is not in the tree.
+   - Output: `[5,3,6,2,4,null,7]`
+
+3. **Example 3:**
+   - Input: `root = []`, `key = 0`
+   - Steps:
+     - Tree is empty.
+   - Output: `[]`
+
+### Constraints:
+
+- The number of nodes in the tree is in the range [0, 10^4].
+- `-10^5 <= Node.val <= 10^5`
+- Each node has a unique value.
+- `root` is a valid binary search tree.
+- `-10^5 <= key <= 10^5`
+
+This solution ensures that the BST properties are maintained after the deletion of a node, handling all possible scenarios efficiently.

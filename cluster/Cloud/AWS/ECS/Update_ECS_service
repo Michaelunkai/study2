@@ -1,0 +1,1 @@
+aws ecs update-service --cluster my-cluster-ad350c48 --service my-service --task-definition my-task:2

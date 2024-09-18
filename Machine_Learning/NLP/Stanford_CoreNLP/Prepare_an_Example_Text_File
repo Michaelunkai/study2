@@ -1,0 +1,6 @@
+Prepare an Example Text File
+Ensure you have a file named example.txt in the stanford-corenlp-4.4.0 directory before running the command. You can create this file with the following command:
+
+ 
+ 
+echo "Barack Obama was born in Hawaii. He was elected pres

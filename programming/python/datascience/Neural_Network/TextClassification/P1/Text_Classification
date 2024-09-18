@@ -1,0 +1,24 @@
+Text Classification P1
+
+Subscribe to Tech with Tim
+Youtube IconYouTube
+Text Classification
+Another large application of neural networks is text classification. In these next few tutorials we will use a neural network to classify movie reviews as either positive or negative.
+
+Install Previous Version of Numpy
+There is a bug when using this specific dataset that requires us to install the previous version of numpy, we can do this by running the following in our cmd:
+
+pip install numpy==1.16.1
+
+This is the current working solution as of May 14, 2019. If you are reading this after that date you may not need to do this.
+
+Loading Data
+The dataset we will use for these next tutorials is the IMDB movie dataset from keras. To load and split the data we will do the same as we did in the previous tutorial.
+
+import tensorflow as tf
+from tensorflow import keras
+import numpy
+
+imdb = keras.datasets.imdb
+
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)

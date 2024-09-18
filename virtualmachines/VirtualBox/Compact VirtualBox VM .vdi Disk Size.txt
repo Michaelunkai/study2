@@ -1,0 +1,39 @@
+Compact VirtualBox VM .vdi Disk Size
+NOTE: This process only works on dynamically allocated virtual disks. If you're not sure, launch VirtualBox and go to File > Virtual Media Manager. Select the virtual drive and view the properties
+Create backups of virtual disks before attempting these steps
+Compacting Windows Guest VM
+Launch the Windows VM
+Inside the VM, launch a web browser and download the sdelete utility Download
+Extract the downloaded sdelete .zip file
+Copy sdelete.exe for 32-bit OS or sdelete64.exe for 64-bit OS to the C:\Windows directory
+Launch Command Prompt by right clicking the Start button > Run > type cmd > Press Enter
+Run the following command to zero out the free space on the disk, replace the drive letter to target additional drives
+sdelete64.exe c: -z
+Once the process completes, shutdown the VM
+Compacting Linux Guest VM
+Download the SystemRescue live disc Download
+Launch VirtualBox Manager
+Right click the VM to be compacted > Settings
+Select Storage on the left hand side
+Select the optical disc drive
+Click the disk selection icon > Choose a disk file...
+Navigate to the downloaded SystemRescue .iso file
+Click Open and OK to close the settings
+Right click the VM > Start > Normal Start
+Press Enter to boot SystemRescue using default options
+Once SystemRescue has finished booting, run the following commands
+# list the attached disks
+fdisk -l
+# find the disk to be compacted
+# usually listed as /dev/mapper/....
+# run the following, replacing the drive identifier as needed
+zerofree -v /dev/mapper/
+# after zerofree completes, shutdown the VM
+shutdown now
+Go back into the VM settings and remove the attached SystemRescue .iso
+Compacting the Virtual Disk
+Launch VirtualBox Manager on the host device
+Right click the VM to be compacted > Show in Explorer
+Right click in the white space > Open PowerShell window here...
+Run the following command, replacing the file name of the virtual disk
+"%programfiles%\Oracle\VirtualBox\vboxmanage.exe" modifymedium disk "name_of_disk.vdi" --compact

@@ -1,0 +1,24 @@
+Enable Kernel Hardening
+Use sysctl to enable kernel hardening features.
+
+Edit sysctl configuration:
+
+sudo nano /etc/sysctl.conf
+Add these lines for additional security:
+
+# Disable IP forwarding
+net.ipv4.ip_forward = 0
+# Disable source routing
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0
+# Enable TCP SYN cookies
+net.ipv4.tcp_syncookies = 1
+# Enable Exec Shield
+kernel.exec- ield = 1
+# Enable IP spoofing protection
+net.ipv4.conf.all.rp_filter = 1
+# Log Martians
+net.ipv4.conf.all.log_martians = 1
+Apply the changes:
+
+sudo sysctl -p

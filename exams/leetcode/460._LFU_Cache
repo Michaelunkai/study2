@@ -1,0 +1,92 @@
+### 460. LFU Cache
+
+To design a Least Frequently Used (LFU) cache, we need to implement a data structure that efficiently supports three main operations: initialization, getting a value, and putting a value. The LFU cache should remove the least frequently used elements when the cache reaches its capacity, and if there is a tie, the least recently used element should be removed.
+
+Here is a Python implementation of the LFU Cache:
+
+```python
+class LFUCache:
+
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.min_freq = 0
+        self.key_to_val = {}
+        self.key_to_freq = {}
+        self.freq_to_keys = collections.defaultdict(OrderedDict)
+
+    def get(self, key: int) -> int:
+        if key not in self.key_to_val:
+            return -1
+        
+        # Get the value and frequency of the key
+        val = self.key_to_val[key]
+        freq = self.key_to_freq[key]
+        
+        # Remove the key from the current frequency list
+        del self.freq_to_keys[freq][key]
+        
+        # If the current frequency list is empty, remove it and update the min frequency
+        if not self.freq_to_keys[freq]:
+            del self.freq_to_keys[freq]
+            if self.min_freq == freq:
+                self.min_freq += 1
+        
+        # Update the key's frequency
+        self.key_to_freq[key] += 1
+        freq = self.key_to_freq[key]
+        
+        # Add the key to the new frequency list
+        self.freq_to_keys[freq][key] = None
+        
+        return val
+
+    def put(self, key: int, value: int) -> None:
+        if self.capacity == 0:
+            return
+        
+        if key in self.key_to_val:
+            # Update the value of the existing key
+            self.key_to_val[key] = value
+            # Update the frequency of the key using get() method
+            self.get(key)
+            return
+        
+        if len(self.key_to_val) >= self.capacity:
+            # Remove the least frequently used key
+            del_key, _ = self.freq_to_keys[self.min_freq].popitem(last=False)
+            del self.key_to_val[del_key]
+            del self.key_to_freq[del_key]
+        
+        # Add the new key and value
+        self.key_to_val[key] = value
+        self.key_to_freq[key] = 1
+        self.freq_to_keys[1][key] = None
+        self.min_freq = 1
+```
+
+### Explanation
+
+1. **Initialization (`__init__` method):**
+   - `capacity`: The maximum number of items the cache can hold.
+   - `min_freq`: Tracks the minimum frequency of keys in the cache.
+   - `key_to_val`: A dictionary mapping keys to their values.
+   - `key_to_freq`: A dictionary mapping keys to their frequencies.
+   - `freq_to_keys`: A dictionary mapping frequencies to an ordered dictionary of keys. This allows us to track the order of keys with the same frequency.
+
+2. **Get (`get` method):**
+   - Check if the key exists in the cache.
+   - If not, return -1.
+   - If it does, retrieve the value and frequency of the key.
+   - Remove the key from its current frequency list.
+   - If the current frequency list becomes empty, remove it and update the minimum frequency.
+   - Increment the key's frequency and add it to the new frequency list.
+   - Return the value of the key.
+
+3. **Put (`put` method):**
+   - If the cache capacity is 0, do nothing.
+   - If the key already exists in the cache, update its value and frequency using the `get` method.
+   - If the cache is full, remove the least frequently used key.
+   - Add the new key and value to the cache.
+   - Set the key's frequency to 1 and update the minimum frequency to 1.
+
+This implementation ensures that both `get` and `put` operations run in O(1) average time complexity.

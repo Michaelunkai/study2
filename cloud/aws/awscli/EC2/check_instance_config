@@ -1,0 +1,1 @@
+aws ec2 describe-instances --instance-ids i-0a9f5df2156045051 --query 'Reservations[*].Instances[*].{State:State.Name,InstanceType:InstanceType,PublicIpAddress:PublicIpAddress,PrivateIpAddress:PrivateIpAddress}'

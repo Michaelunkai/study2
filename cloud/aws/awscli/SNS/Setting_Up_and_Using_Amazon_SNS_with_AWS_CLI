@@ -1,0 +1,102 @@
+The error `InvalidClientTokenId` typically indicates that the AWS CLI is not properly configured with valid credentials or the region is incorrect. Let's walk through the steps again to ensure everything is set up correctly.
+
+### Step-by-Step Guide to Setting Up and Using Amazon SNS with AWS CLI
+
+#### Step 1: Configure AWS CLI
+
+Ensure your AWS CLI is configured correctly with valid credentials. Run the following command:
+
+  
+aws configure
+
+You will be prompted to enter the following details:
+
+- **AWS Access Key ID**: [Your Access Key ID]
+- **AWS Secret Access Key**: [Your Secret Access Key]
+- **Default region name**: [Your Preferred Region, e.g., `us-east-1`]
+- **Default output format**: [json]
+
+#### Step 2: Create a Topic
+
+Run the command to create a new SNS topic:
+
+  
+aws sns create-topic --name my-topic
+
+This command will return a TopicArn. Note down the `TopicArn` as you will need it for the subsequent steps.
+
+Example output:
+
+ json
+{
+    "TopicArn": "arn:aws:sns:us-east-1:123456789012:my-topic"
+}
+
+#### Step 3: Subscribe to the Topic
+
+Now, subscribe an email endpoint to the topic using the `TopicArn` obtained from the previous step:
+
+  
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic --protocol email --notification-endpoint your-email@example.com
+
+Replace `your-email@example.com` with your actual email address.
+
+#### Step 4: Confirm the Subscription
+
+Check your email for a subscription confirmation message from AWS. Click the link in the email to confirm your subscription.
+
+#### Step 5: Publish a Message to the Topic
+
+After confirming the subscription, you can publish a message to the topic:
+
+  
+aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic --message "Hello, this is a test message." --subject "Test Subject"
+
+#### Step 6: List Subscriptions
+
+To list all subscriptions for a specific topic, use:
+
+  
+aws sns list-subscriptions-by-topic --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic
+
+#### Step 7: Unsubscribe from a Topic
+
+To unsubscribe an endpoint from a topic, you need the subscription ARN. First, get the subscription ARN using the list subscriptions command. Then, use the following command to unsubscribe:
+
+  
+aws sns unsubscribe --subscription-arn arn:aws:sns:us-east-1:123456789012:my-topic:2bcfbf39-05c3-41de-beaa-fcfcc21c8f55
+
+#### Step 8: Delete a Topic
+
+If you no longer need a topic, you can delete it:
+
+  
+aws sns delete-topic --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic
+
+### Example Commands Summary
+
+  
+# Configure AWS CLI
+aws configure
+
+# Create a topic
+aws sns create-topic --name my-topic
+
+# Subscribe an email endpoint
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic --protocol email --notification-endpoint your-email@example.com
+
+# Confirm the email subscription (done via email link)
+
+# Publish a message to the topic
+aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic --message "Hello, this is a test message." --subject "Test Subject"
+
+# List subscriptions by topic
+aws sns list-subscriptions-by-topic --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic
+
+# Unsubscribe from a topic
+aws sns unsubscribe --subscription-arn arn:aws:sns:us-east-1:123456789012:my-topic:2bcfbf39-05c3-41de-beaa-fcfcc21c8f55
+
+# Delete a topic
+aws sns delete-topic --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic
+
+Make sure your AWS credentials are correctly configured and the region specified is accurate. If you encounter any errors, double-check your AWS Access Key ID, Secret Access Key, and ensure you have the necessary permissions to use SNS services.

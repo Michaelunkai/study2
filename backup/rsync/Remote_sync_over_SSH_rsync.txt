@@ -1,0 +1,1 @@
+rsync -av -e ssh /source_directory/ user@remote_host:/destination_directory/

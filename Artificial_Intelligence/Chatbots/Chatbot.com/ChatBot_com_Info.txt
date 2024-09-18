@@ -1,0 +1,9 @@
+ChatBot.com is a platform designed to help businesses create and deploy AI chatbots for various purposes such as customer service, sales, marketing, and support. The platform provides a range of features including customizable chat widgets, dynamic responses, and a visual builder for easy chatbot design.
+Key features of ChatBot.com include:
+- **AI-Powered Responses**: Uses machine learning and natural language processing to deliver accurate answers based on provided data.
+- **Standalone Solution**: Operates independently without relying on third-party providers like OpenAI or Google Bard.
+- **Integration Capabilities**: Supports integration with various tools and platforms including LiveChat, Facebook Messenger, Shopify, Slack, and WordPress.
+- **Data Security**: Ensures enterprise-grade data security, with all data processed and hosted on the ChatBot platform.
+- **Custom Flows**: Allows users to design custom chatbot flows and automate complex processes using an intuitive visual builder.
+- **Rich Messaging**: Enhances user engagement with features like quick replies, images, GIFs, and product recommendations.
+The platform also offers a 14-day free trial, allowing businesses to experiment with chatbot features and determine their effectiveness without any initial cost. For more information and to sign up, you can visit their [official website](https://www.chatbot.com).

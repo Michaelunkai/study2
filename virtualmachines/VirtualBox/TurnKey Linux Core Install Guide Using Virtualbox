@@ -1,0 +1,13 @@
+TurnKey Linux Core Install Guide Using Virtualbox
+Open a web browser and download the Turnkey Linux Core .ova Download
+Launch VirtualBox
+Select File > Import Appliance...
+Click the Browse icon > Navigate to and select the downloaded .ova file
+Click Next and then Import
+Make sure the Turnkey Core VM is selected and click Start > Normal
+Once the VM boots, enter a new root password
+Select Skip on the TurnKey Backup and Migration screen
+Select Skip on the System Notifications screen
+Select Install on the Security Updates screen
+Note the URLs and IP address for the VM > Press Enter to finish the installation
+Welcome to TurnKey Linux Core

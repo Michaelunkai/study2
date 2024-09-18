@@ -1,0 +1,1 @@
+clamscan -r --config-file=/path/to/config /path/to/directory

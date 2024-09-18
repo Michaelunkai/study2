@@ -1,0 +1,67 @@
+**Method for Creating Mockups with Character Reference (CREF) and Describe in Midjourney**
+**By: Evyatar Adri**
+**27/06/2024**
+**Table of Contents**
+I came across a guide by Salma (@Salmaaboukarr) on Twitter (now X). I loved what she did and thought to share her work method. Thank you, Salma, for sharing!
+**Guide for Using Midjourney to Create Mockups:**
+### Step 1: Describe
+- Use the "/describe" function.
+- Upload your raw product image.
+- Upload the desired background image.
+### Step 2: Cref
+- Copy the image description prompt from your product.
+- Repeat the process for your background image.
+- Add the suffix –cref at the end.
+### Step 3: Combining Product and Background
+- Use the following prompt formula:
+```
+(IMG description prompt product) + (IMG description prompt background image) + (IMG URL product) + (IMG URL of background) (–cref)
+```
+The prompt used by Salma:
+```
+A flat rock with wildflowers growing on it, with a brown background and purple, white and blue flowers. The photograph has a style similar to commercial photography, with studio lighting creating warm tones, like a product display. There is a stone podium with pebbles around the base, captured in high resolution as a closeup shot. Blue colour tube of facial cream or body lotion on white background vector illustration, no text, white and blue colours, high resolution, professional photograph, Super resolution preserves every detail in the scene with sharpness and texture, isolated on a blank white background for easy cutout and composition, white background, highly detailed, hyperrealistic –cref https://s.mj.run/FchGf0Ry3MQ https://s.mj.run/yHOQstHlQGQ
+```
+### Insights and Conclusions from the Process
+This method demonstrates that using the “describe” function in Midjourney to analyze images and create prompts allows for the creation of unique and stunning mockups. It is not only an efficient working method but also a creative way to see how technological tools can serve as building blocks for boundless creativity.
+### Want to Master This?
+Come learn with us about artificial intelligence in the most comprehensive and sought-after course in the market. Join the thousands who have already taken our courses and workshops. Details and registration on the website.
+**To get a discount on course prices – use the coupon code LETSAI**
+---
+**Stay Updated:**
+Want to get live updates? Join our AI communities to receive updates on promotions and benefits for AI tools that are changing the world. Subscribe to our newsletter.
+---
+**Want a Lecture or Consultation from Evyatar Adri?**
+Leave your details and we will get back to you with the relevant information:
+- Full Name
+- Phone
+- Email
+- Tell us a bit...
+---
+**Evyatar Adri**
+AI lecturer and social marketing expert. Co-Founder & VP Product at LetsAI. Founder and CEO of Fuzz New Media.
+---
+**Recommended Reading:**
+- Creating Clips with Noisy
+- The Longest Teasing in History - Sora
+- GPT-4o mini
+- Intelligent Agents
+---
+**Leading AI Tools:**
+- Midjourney
+- HeyGen
+- Suno
+- D-ID AI
+- Synthesia AI
+- Leonardo AI
+- Elevenlabs AI
+- ChatGPT
+- Claude2
+- Runway
+- Pika
+---
+Stay Updated:
+Want to get updates on everything new and interesting in the AI world? Subscribe to our newsletter!
+---
+**All rights reserved – Let’s AI ©**
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

@@ -1,0 +1,27 @@
+Create an IAM Role for AWS Glue
+First, create an IAM role that AWS Glue can assume to perform its tasks. This role should have policies that allow access to the necessary resources, such as S3.
+
+ 
+ 
+aws iam create-role --role-name GlueServiceRole --assume-role-policy-document file://trust-policy.json
+trust-policy.json should look like this:
+
+json
+ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+Attach the managed policy for AWS Glue:
+
+ 
+ 
+aws iam attach-role-policy --role-name GlueServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole

@@ -1,0 +1,104 @@
+# Tutorial: Setting Up and Using Wit.ai for NLP on Ubuntu
+
+This tutorial will guide you through the process of setting up and using Wit.ai for Natural Language Processing (NLP) on Ubuntu. We'll cover the installation of necessary tools, creating a Wit.ai app, and writing a simple Node.js script to interact with Wit.ai.
+
+## Step 1: Install Node.js and npm
+Wit.ai has SDKs for various languages, but using Node.js is quite common. First, ensure you have Node.js and npm installed on your Ubuntu system.
+
+1. **Update your package list:**
+   ```sh
+   sudo apt update
+   ```
+
+2. **Install Node.js and npm:**
+   ```sh
+   sudo apt install nodejs npm
+   ```
+
+3. **Verify the installation:**
+   ```sh
+   node -v
+   npm -v
+   ```
+
+## Step 2: Create a Wit.ai Account and App
+
+1. **Sign up for Wit.ai:**
+   Go to [Wit.ai](https://wit.ai) and sign up using your GitHub or Facebook account.
+
+2. **Create a new app:**
+   - After logging in, click on **"Create New App"**.
+   - Fill in the necessary details (name, description, language, etc.).
+   - Click **"Create"**.
+
+3. **Get your Server Access Token:**
+   - Go to the app settings.
+   - Under the **"Settings"** tab, find your **"Server Access Token"** and copy it. You will need this token to authenticate your requests.
+
+## Step 3: Set Up a Node.js Project
+
+1. **Create a new directory for your project:**
+   ```sh
+   mkdir wit-ai-example
+   cd wit-ai-example
+   ```
+
+2. **Initialize a new Node.js project:**
+   ```sh
+   npm init -y
+   ```
+
+3. **Install the Wit.ai SDK:**
+   ```sh
+   npm install node-wit
+   ```
+
+## Step 4: Write a Script to Interact with Wit.ai
+
+1. **Create a file named `index.js` and open it in your favorite editor:**
+   ```sh
+   touch index.js
+   nano index.js
+   ```
+
+2. **Add the following code to `index.js`:**
+   ```js
+   const { Wit } = require('node-wit');
+
+   const client = new Wit({ accessToken: 'YOUR_SERVER_ACCESS_TOKEN' });
+
+   client.message('Hello, world!', {})
+     .then((data) => {
+       console.log('Yay, got Wit.ai response: ', JSON.stringify(data));
+     })
+     .catch((err) => {
+       console.error('Oops! Got an error: ', err);
+     });
+   ```
+
+   Replace `'YOUR_SERVER_ACCESS_TOKEN'` with the Server Access Token you copied earlier.
+
+## Step 5: Run Your Script
+
+1. **Run the script using Node.js:**
+   ```sh
+   node index.js
+   ```
+
+   You should see a response from Wit.ai with the entities and intents recognized from the input message.
+
+## Additional Steps: Creating and Training Intents and Entities
+
+1. **Define intents and entities:**
+   - Go to your Wit.ai app dashboard.
+   - Define new intents and entities that you want your app to recognize.
+   - Provide example phrases for training.
+
+2. **Train your model:**
+   - Wit.ai will automatically train your model based on the examples you provide.
+   - You can test phrases directly on the Wit.ai dashboard to see how well your model performs.
+
+3. **Integrate with your application:**
+   - Modify your `index.js` script to handle different intents and entities based on your application's logic.
+
+This setup should get you started with using Wit.ai for NLP on Ubuntu. If you have any specific use cases or further customization, feel free to ask!

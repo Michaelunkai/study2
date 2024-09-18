@@ -1,0 +1,81 @@
+Hardware
+Q1: What is the maximum speed of USB 3.0?
+
+A1: The maximum speed of USB 3.0 is 5 Gbps (gigabits per second).
+
+Q2: What is the purpose of ECC memory?
+
+A2: ECC (Error-Correcting Code) memory is designed to detect and correct data corruption, improving the reliability of data in systems where data integrity is crucial.
+
+Networking
+Q3: What is the default subnet mask for a Class B IP address?
+
+A3: The default subnet mask for a Class B IP address is 255.255.0.0.
+
+Q4: What is the function of a DHCP server?
+
+A4: A DHCP (Dynamic Host Configuration Protocol) server automatically assigns IP addresses and other network configuration parameters to devices on a network, allowing them to communicate efficiently.
+
+Operating Systems
+Q5: What is the primary difference between FAT32 and NTFS file systems?
+
+A5: FAT32 is an older file system with a maximum file size limit of 4 GB and less efficient handling of large volumes. NTFS is a newer file system that supports larger file sizes, file permissions, encryption, and other advanced features.
+
+Q6: How can you access the Task Manager in Windows 10?
+
+A6: You can access the Task Manager in Windows 10 by pressing Ctrl + Shift + Esc, right-clicking the taskbar and selecting "Task Manager," or pressing Ctrl + Alt + Delete and then selecting "Task Manager."
+
+Security
+Q7: What is the purpose of a firewall?
+
+A7: A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined security rules, acting as a barrier between a trusted network and an untrusted network.
+
+Q8: What is phishing?
+
+A8: Phishing is a type of cyber attack where attackers attempt to trick individuals into providing sensitive information, such as usernames, passwords, and credit card numbers, by masquerading as a trustworthy entity in electronic communications.
+
+Mobile Devices
+Q9: What are two common operating systems used in smartphones?
+
+A9: The two common operating systems used in smartphones are Android and iOS.
+
+Q10: How can you secure a mobile device?
+
+A10: You can secure a mobile device by setting a strong passcode or biometric lock, enabling encryption, installing security software, regularly updating the OS and apps, and avoiding suspicious links and downloads.
+
+Virtualization and Cloud Computing
+Q11: What is the primary benefit of virtualization?
+
+A11: The primary benefit of virtualization is the ability to run multiple operating systems and applications on a single physical server, maximizing resource utilization and reducing hardware costs.
+
+Q12: What is SaaS?
+
+A12: SaaS (Software as a Service) is a cloud computing model that delivers software applications over the internet, typically on a subscription basis, eliminating the need for local installation and maintenance.
+
+Troubleshooting
+Q13: What are the first steps to take when troubleshooting a computer that won't power on?
+
+A13: First, check if the power cable is securely connected, the power outlet is functional, and the power switch on the power supply (if present) is turned on. Next, check for any visible signs of damage or loose connections inside the computer.
+
+Q14: How can you diagnose a slow-running computer?
+
+A14: To diagnose a slow-running computer, check for background processes consuming high CPU or memory resources, ensure the hard drive isn't nearly full, scan for malware, and verify that the system and drivers are up to date.
+
+Example Task
+Task: Set up a new user account in Windows 10.
+
+Steps:
+
+Open the "Settings" app by clicking the Start menu and selecting the gear icon.
+Go to "Accounts."
+Select "Family & other users" from the left-hand menu.
+Under "Other users," click "Add someone else to this PC."
+Follow the on-screen instructions to create a new user account, entering the necessary information such as email address or username and password.
+Additional Questions and Answers
+Q15: What is the purpose of an SSD over an HDD?
+
+A15: An SSD (Solid State Drive) offers faster read and write speeds, better durability, and lower power consumption compared to an HDD (Hard Disk Drive).
+
+Q16: What command can you use to check the IP configuration on a Windows machine?
+
+A16: You can use the ipconfig command in the Command Prompt to check the IP configuration on a Windows machine.

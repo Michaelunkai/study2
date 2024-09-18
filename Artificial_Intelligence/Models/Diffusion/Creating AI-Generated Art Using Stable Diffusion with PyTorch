@@ -1,0 +1,44 @@
+### Title: **Creating AI-Generated Art Using Stable Diffusion with PyTorch: A Step-by-Step Guide**
+
+### Code Explanation
+
+This tutorial walks you through creating AI-generated art using the Stable Diffusion model in PyTorch. The provided code initializes by checking if a GPU is available using CUDA. If CUDA is available, the model leverages GPU acceleration for faster processing; otherwise, it defaults to CPU. The Stable Diffusion model `runwayml/stable-diffusion-v1-5` is loaded, and the image is generated based on a text prompt. The generated image is then saved to a specified location on your file system. The code also includes error handling to manage any issues that may arise during execution.
+
+### Full Code
+
+```python
+import torch
+from diffusers import StableDiffusionPipeline
+import os
+
+def generate_image(prompt, output_path):
+    try:
+        # Check for CUDA availability
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        
+        # Load the model
+        model_id = "runwayml/stable-diffusion-v1-5"
+        pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16 if device == "cuda" else torch.float32)
+        pipe = pipe.to(device)
+
+        # Generate the image
+        image = pipe(prompt).images[0]
+
+        # Ensure the output directory exists
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+        # Save the image
+        image.save(output_path)
+        print(f"Image saved successfully to {output_path}")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+
+if __name__ == "__main__":
+    prompt = "a photo of an astronaut riding a horse on mars"
+    output_path = "astronaut_rides_horse.png"
+    generate_image(prompt, output_path)
+```
+
+### Output Explanation
+
+The script generates an image based on the prompt "a photo of an astronaut riding a horse on Mars" and saves it as `astronaut_rides_horse.png`. The image will be generated using GPU acceleration if CUDA is available; otherwise, the CPU will be used. The image is saved in the specified directory, and upon successful completion, a message confirming the save location is printed. If any errors occur during the process, they will be caught and displayed in the console.

@@ -1,0 +1,13 @@
+Convert Text to Speech with Amazon Polly
+Create a text file with the text you want to convert:
+ 
+ 
+echo "Hello, this is a test of Amazon Polly text to speech service." > text.txt
+Use AWS CLI to convert text to speech:
+ 
+ 
+aws polly synthesize-speech \
+    --output-format mp3 \
+    --voice-id Joanna \
+    --text file://text.txt \
+    output.mp3

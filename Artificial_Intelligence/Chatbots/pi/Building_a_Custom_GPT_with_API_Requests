@@ -1,0 +1,104 @@
+### Step-by-Step Tutorial: Building a Custom GPT with API Requests
+
+This tutorial will guide you through creating a custom GPT that can make API requests using data from a Google Spreadsheet. By the end, you will have a GPT that can query a database and return relevant information based on user queries.
+
+---
+
+### Step 1: Create Your Spreadsheet Database
+
+1. **Open Google Sheets** and create a new spreadsheet.
+2. **Add the following columns** to your spreadsheet:
+   - **Column A:** Name
+   - **Column B:** Biography
+   - **Column C:** Industry
+3. **Populate the spreadsheet** with sample data that represents community members, their biographies, and their industries.
+
+### Step 2: Convert Spreadsheet to an API with Sheety
+
+1. **Go to [Sheety](https://sheety.co/)** and log in or sign up.
+2. **Create a new project** and link it to your Google Spreadsheet.
+3. **Use the following prompt in Sheety** to create your API:
+
+    plaintext
+   Create an API endpoint from the following Google Spreadsheet:
+
+   1. The spreadsheet contains the following columns: Name, Biography, Industry.
+   2. I want to use the GET method to retrieve data based on specific queries.
+   3. The endpoint should allow filtering based on any of the columns (e.g., find a person by their name, industry, or keywords in their biography).
+   4. The API should return a JSON response with the following structure:
+
+   {
+     "id": "<row_id>",
+     "name": "<Name>",
+     "biography": "<Biography>",
+     "industry": "<Industry>"
+   }
+
+   5. Ensure the API URL is simple and clear.
+   6. Provide me with the JavaScript code snippet to make GET requests to this API.
+   7. Ensure that the API is live and accessible.
+
+   Once the API is set up, I will use it in a custom GPT for querying the database.
+
+4. **Sheety will provide you with a formula** for filtering data based on queries. You can use the following formula in your Google Sheet:
+
+    plaintext
+   =FILTER(A2:C1000, (A2:A1000=Name)*(B2:B1000=Biography)*(C2:C1000=Industry))
+
+   - This formula assumes that your data is in cells **A2:C1000** and that specific queries are in separate cells named **Name**, **Biography**, and **Industry**.
+
+### Step 3: Create an OpenAPI Schema
+
+1. **Use ChatGPT** to generate an OpenAPI schema based on the API you created.
+2. Provide the JavaScript code snippet and the response structure to ChatGPT, asking it to generate an OpenAPI schema.
+3. **Example Schema Prompt**:
+
+    plaintext
+   You are given a JavaScript code snippet that makes a GET request to an API endpoint. Here is the structure of the response:
+
+   {
+     "id": "<row_id>",
+     "name": "<Name>",
+     "biography": "<Biography>",
+     "industry": "<Industry>"
+   }
+
+   Create an OpenAPI schema for this API.
+
+4. **Review and adjust the schema** if needed, using ChatGPT to correct any errors.
+
+### Step 4: Build Your Custom GPT in GPT Builder
+
+1. **Go to GPT Builder** and create a new GPT.
+2. **Configure the GPT**:
+   - **Name**: Give your GPT a relevant name.
+   - **Description**: Describe the GPT’s function.
+3. **Paste the OpenAPI schema** you generated into the "Actions" section of the GPT configuration.
+4. Ensure that the schema is correctly formatted and includes a sample URL if needed.
+
+### Step 5: Define the GPT’s Role and Prompts
+
+1. **Use GPT Builder** to define the role and goal of your GPT. For example:
+
+   - **Role**: Act as a community member for a technology-focused founder community.
+   - **Goal**: Facilitate network and collaboration by connecting members based on their expertise and needs.
+
+2. **Create prompts** for handling queries, guidelines, and communication style. For example:
+
+   - **Query Handling**: Define how the GPT should interpret and respond to queries.
+   - **Guidelines**: Set rules for prioritizing responses and handling ambiguity.
+   - **Communication Style**: Specify how the GPT should communicate with users.
+
+### Step 6: Test Your GPT
+
+1. **Test the GPT** by asking it queries such as, “Find me someone who understands artificial intelligence.”
+2. **Verify the responses** to ensure that the GPT is querying the API correctly and returning accurate information from your database.
+
+### Step 7: Iterate and Improve
+
+1. **Test different scenarios** and refine the prompts, schema, or database as necessary.
+2. **Update the GPT** to improve accuracy and functionality based on user feedback.
+
+---
+
+By following these steps, you’ll have a fully functional GPT that can make API requests to a custom database, offering personalized responses based on user queries. This setup allows for dynamic interaction, making your GPT a powerful tool for community engagement or other applications.

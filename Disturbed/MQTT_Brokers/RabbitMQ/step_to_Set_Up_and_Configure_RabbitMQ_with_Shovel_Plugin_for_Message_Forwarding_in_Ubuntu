@@ -1,0 +1,101 @@
+Step 1: Install RabbitMQ
+Update the system:
+
+ 
+ 
+sudo apt update
+sudo apt upgrade
+Install Erlang:
+RabbitMQ requires Erlang to be installed. Add the RabbitMQ repository to get the latest version of Erlang.
+
+ 
+ 
+echo "deb https://packages.erlang-solutions.com/ubuntu $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/erlang.list
+wget -O- https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
+sudo apt update
+sudo apt install erlang
+Install RabbitMQ:
+Add the RabbitMQ repository and install RabbitMQ.
+
+ 
+ 
+echo "deb https://dl.bintray.com/rabbitmq-erlang/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list
+wget -O- https://dl.bintray.com/rabbitmq-keys/rabbitmq-release-signing-key.asc | sudo apt-key add -
+sudo apt update
+sudo apt install rabbitmq-server
+Start RabbitMQ server:
+
+ 
+ 
+sudo systemctl start rabbitmq-server
+sudo systemctl enable rabbitmq-server
+Step 2: Enable the RabbitMQ Management Plugin
+Enable the management plugin:
+
+ 
+ 
+sudo rabbitmq-plugins enable rabbitmq_management
+Access the RabbitMQ management interface:
+Open your browser and go to http://localhost:15672. The default username and password are guest and guest.
+
+Step 3: Enable and Configure the Shovel Plugin
+Enable the Shovel plugin:
+
+ 
+ 
+sudo rabbitmq-plugins enable rabbitmq_shovel
+sudo rabbitmq-plugins enable rabbitmq_shovel_management
+Configure the Shovel plugin:
+You need to create a configuration file to define the Shovel settings. Create or edit the RabbitMQ configuration file.
+
+ 
+ 
+sudo nano /etc/rabbitmq/rabbitmq.conf
+Add the following configuration to the file:
+
+ini
+ 
+[
+  {rabbitmq_ ovel,
+    [{ ovels,
+      [
+        {my_ ovel,
+          [{sources, [{broker, "amqp://user:password@source-host:5672/source-vhost"}]},
+           {destinations, [{broker, "amqp://user:password@destination-host:5672/destination-vhost"}]},
+           {queue, <<"source-queue">>},
+           {ack_mode, on_confirm},
+           {publi _properties, [{delivery_mode, 2}]},
+           {reconnect_delay, 5}
+          ]
+        }
+      ]
+    }]
+  }
+].
+Replace the placeholders (user, password, source-host, destination-host, source-vhost, destination-vhost, source-queue) with your actual values.
+
+Restart RabbitMQ to apply the configuration:
+
+ 
+ 
+sudo systemctl restart rabbitmq-server
+Step 4: Verify the Shovel Configuration
+Check the Shovel status:
+Go to the RabbitMQ management interface (http://localhost:15672), navigate to the "Admin" tab, and check the "Shovels" section to see if your shovel is listed and running.
+Step 5: Testing the Setup
+Send a test message to the source queue:
+Use any RabbitMQ client to publish a message to the source queue.
+
+Verify the message forwarding:
+Check if the message appears in the destination queue, verifying that the Shovel plugin is forwarding messages correctly.
+
+Additional Configuration Options
+You can customize the Shovel configuration further with options such as:
+
+source_exchange: To specify an exchange in the source broker.
+destination_exchange: To specify an exchange in the destination broker.
+source_exchange_key: To specify the routing key for the source exchange.
+destination_exchange_key: To specify the routing key for the destination exchange.
+Refer to the RabbitMQ Shovel plugin documentation for more advanced configurations and options.
+
+This completes the basic setup and configuration of RabbitMQ with the Shovel plugin for message forwarding on Ubuntu.

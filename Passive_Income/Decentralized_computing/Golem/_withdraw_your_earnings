@@ -1,0 +1,44 @@
+To withdraw your earnings (GLM tokens) from Golem, follow these steps:
+
+### Step 1: Confirm Wallet Balance
+Before withdrawing, check how much GLM you've earned by running the following command:
+
+  
+golemsp status
+
+Look at the **amount (total)** field under the **Wallet** section to see your total GLM balance.
+
+### Step 2: Set Up an External Wallet (if you don't have one)
+To withdraw your GLM tokens, you need an Ethereum wallet that supports ERC-20 tokens, such as **MetaMask** or **MyEtherWallet**. If you don't have one:
+
+1. **Install MetaMask**:
+   - Go to [MetaMask](https://metamask.io/) and install the browser extension.
+   - Set up your wallet and make sure to save your recovery phrase.
+
+2. **Add GLM (Golem Network Token) to MetaMask**:
+   - In MetaMask, click **Add Token** and search for **Golem (GLM)**.
+   - If it doesn't appear, you can add the token manually using the contract address: `0x7DD9c5Cba05E151C895FDe1CF355C9A1D5DA6429`.
+
+### Step 3: Withdraw GLM Tokens
+To transfer your GLM from Golem's internal wallet to your external wallet (e.g., MetaMask):
+
+1. Run the following command to withdraw your GLM tokens:
+
+  
+golemsp settings set --account <Your_Ethereum_Wallet_Address>
+
+Replace `<Your_Ethereum_Wallet_Address>` with your MetaMask Ethereum wallet address (which starts with `0x`).
+
+2. Withdraw your tokens using the Golem CLI by specifying the amount you want to withdraw:
+
+  
+golemsp withdraw --amount <Amount_of_GLM>
+
+Replace `<Amount_of_GLM>` with the number of GLM tokens you wish to transfer to your external wallet.
+
+### Step 4: Confirm Withdrawal
+Once you've withdrawn the GLM tokens, check your external wallet (e.g., MetaMask) to verify that the tokens have been transferred.
+
+You can also view your transaction on [Etherscan](https://etherscan.io/) by entering your wallet address in the search bar.
+
+Let me know if you need more details on any step!

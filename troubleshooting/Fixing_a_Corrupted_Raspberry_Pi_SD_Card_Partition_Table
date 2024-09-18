@@ -1,0 +1,24 @@
+▲A  A▼
+Fixing a Corrupted Raspberry Pi SD Card Partition Table
+Download the GParted live disc Download
+Insert the SD card into a PC and boot into the GParted live disc
+Minimize the GParted UI and launch Terminal from the desktop
+Run the following command in the open terminal
+sudo testdisk
+Select Create
+Use the arrows to select the SD card device > Proceed
+Use the arrows to select Intel
+Select Analyse > Quick Search
+Press Enter to continue
+Arrow over and select Write to apply the partition table to the SD card > Type Y and press Enter to confirm
+Quit out of TestDisk back to the terminal
+Continue with the following commands to check and repair the filesystems on the SD card
+# take note of the device identifiers for the SD card (/dev/sda1 and /dev/sda2 in the example)
+sudo fdisk -l
+# run the following command for each partition on the SD card, replacing x with the correct disk identifier
+sudo fsck /dev/sdx1 -fy
+sudo fsck /dev/sdx2 -fy
+Shutdown the GParted live disc
+Insert the SD card back into the Raspberry Pi
+Power it on to see if the SD card is now able to boot
+ 

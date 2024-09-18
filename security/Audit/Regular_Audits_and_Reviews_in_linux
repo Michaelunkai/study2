@@ -1,0 +1,18 @@
+ Regular Audits and Reviews
+Regularly audit your system and review logs to identify and address potential risks.
+
+Check system logs:
+
+ 
+ 
+sudo less /var/log/syslog
+Use logwatch for log analysis:
+
+ 
+ 
+sudo apt install logwatch
+Run logwatch to generate a report:
+
+ 
+ 
+sudo logwatch --detail High --service All --range All

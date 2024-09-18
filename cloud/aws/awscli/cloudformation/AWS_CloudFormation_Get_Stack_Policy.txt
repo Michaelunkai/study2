@@ -1,0 +1,1 @@
+aws cloudformation get-stack-policy --stack-name <stack-name>

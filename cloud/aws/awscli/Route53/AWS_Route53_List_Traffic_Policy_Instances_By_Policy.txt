@@ -1,0 +1,1 @@
+aws route53 list-traffic-policy-instances-by-policy --traffic-policy-id <policy-id> --traffic-policy-version <version>

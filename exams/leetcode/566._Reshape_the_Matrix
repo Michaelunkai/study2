@@ -1,0 +1,43 @@
+To solve the problem of reshaping a matrix, we need to follow these steps:
+
+1. **Calculate the Total Number of Elements**: Check if the total number of elements in the original matrix matches the total number of elements required in the reshaped matrix.
+2. **Reshape the Matrix**: If the total number of elements matches, reshape the matrix while maintaining the original row-traversing order.
+3. **Return the Result**: If reshaping is not possible, return the original matrix.
+
+Here is the Python code to achieve this:
+
+```python
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        m = len(mat)
+        n = len(mat[0])
+        
+        # Check if reshaping is possible
+        if m * n != r * c:
+            return mat
+        
+        # Flatten the original matrix
+        flat_list = [num for row in mat for num in row]
+        
+        # Create the new reshaped matrix
+        reshaped_matrix = []
+        for i in range(r):
+            reshaped_matrix.append(flat_list[i * c:(i + 1) * c])
+        
+        return reshaped_matrix
+
+# Example usage:
+solution = Solution()
+mat = [[1, 2], [3, 4]]
+r, c = 1, 4
+print(solution.matrixReshape(mat, r, c))  # Output: [[1, 2, 3, 4]]
+```
+
+### Explanation:
+1. **Input Parameters**: The function `matrixReshape` takes the original matrix `mat`, and the desired number of rows `r` and columns `c` for the reshaped matrix.
+2. **Dimensions Check**: The code first calculates the dimensions of the original matrix `m` and `n`. It then checks if the total number of elements (`m * n`) is equal to the total number of elements in the desired reshaped matrix (`r * c`). If not, it returns the original matrix.
+3. **Flatten the Matrix**: It flattens the original matrix into a single list `flat_list` using list comprehension.
+4. **Create the Reshaped Matrix**: It constructs the reshaped matrix by slicing the `flat_list` into sublists of length `c` and appending them to the `reshaped_matrix`.
+5. **Return the Reshaped Matrix**: Finally, it returns the reshaped matrix.
+
+This solution ensures that the original data order is preserved and the reshaped matrix is constructed correctly if the reshape operation is possible.

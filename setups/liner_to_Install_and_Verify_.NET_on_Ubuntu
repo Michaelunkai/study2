@@ -1,0 +1,1 @@
+sudo apt install -y dotnet-sdk-6.0 && dotnet new console -o myapp && cd myapp && dotnet run

@@ -1,0 +1,79 @@
+# Comprehensive Guide to Setting Up and Running RISC-V GNU Compiler Toolchain Analysis in Ubuntu Using Git, CMake, and Build-Essential
+
+### Prerequisites
+Before we start, ensure you have the following:
+- Ubuntu installed
+- Administrative privileges (sudo access)
+
+### Step 1: Update System Packages
+First, update your system packages to the latest version.
+  
+sudo apt update && sudo apt upgrade -y
+
+### Step 2: Install Dependencies
+Install the necessary dependencies for running RISC analysis. This typically includes development tools, libraries, and version control systems.
+  
+sudo apt install -y build-essential git cmake
+
+### Step 3: Clone RISC-V GNU Compiler Toolchain Repository
+Clone the RISC-V GNU Compiler Toolchain repository from GitHub.
+  
+git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+cd riscv-gnu-toolchain
+
+### Step 4: Build the Project
+Navigate to the project directory and build the project using the provided scripts.
+  
+./configure --prefix=/opt/riscv
+make
+
+### Step 5: Run RISC Analysis
+Once the build process is complete, you can run the RISC analysis tool. The exact command might vary depending on the project. Here, we'll assume you want to use the newly built toolchain.
+  
+export PATH=/opt/riscv/bin:$PATH
+riscv64-unknown-elf-gcc --version
+
+### Step 6: (Optional) Install Additional Tools
+Depending on the specific requirements of your RISC analysis project, you might need additional tools or libraries. Refer to the project documentation for detailed requirements.
+
+### Step 7: Create a Nano Command File
+For convenience, you can create a script to automate the build and run process. Here’s an example of a nano command file to streamline the setup.
+
+  
+nano setup_risc_analysis. 
+
+Paste the following script into the nano editor:
+
+  
+#!/bin/ 
+
+# Update and upgrade system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install necessary dependencies
+sudo apt install -y build-essential git cmake
+
+# Clone the repository
+git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+cd riscv-gnu-toolchain
+
+# Build the project
+./configure --prefix=/opt/riscv
+make
+
+# Add the toolchain to the PATH
+export PATH=/opt/riscv/bin:$PATH
+
+# Verify installation
+riscv64-unknown-elf-gcc --version
+
+Save and exit the nano editor by pressing `CTRL+X`, then `Y`, and `Enter`.
+
+### Step 8: Make the Script Executable
+Make the script executable and run it.
+  
+chmod +x setup_risc_analysis. 
+./setup_risc_analysis. 
+
+### Conclusion
+Following these steps, you should be able to set up and run RISC analysis on your Ubuntu system using the RISC-V GNU Compiler Toolchain. For detailed information, refer to the specific documentation of the toolchain or any other RISC analysis tool you are using.

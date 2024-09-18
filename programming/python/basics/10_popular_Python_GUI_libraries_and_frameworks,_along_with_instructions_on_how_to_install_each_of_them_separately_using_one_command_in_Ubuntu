@@ -1,0 +1,31 @@
+Here's a list of 10 popular Python GUI libraries and frameworks, along with instructions on how to install each of them separately using one command in Ubuntu for each:
+
+    PyQt5:
+        Installation: Already covered in a previous response. Use pip3 install PyQt5.
+
+    Tkinter:
+        Installation: Tkinter is included with Python by default, so there's no need to install it separately.
+
+    wxPython:
+        Installation: Use pip3 install wxPython.
+
+    Kivy:
+        Installation: Use pip3 install kivy.
+
+    PyGTK:
+        Installation: Use pip3 install PyGTK.
+
+    PySide2:
+        Installation: Use pip3 install PySide2.
+
+    FLTK (PyFLTK):
+        Installation: Use pip3 install PyFLTK.
+
+    Dear PyGui:
+        Installation: Use pip3 install dearpygui.
+
+    PyForms:
+        Installation: Use pip3 install pyforms.
+
+    Remi (Web-based):
+        Installation: Use pip3 install remi.

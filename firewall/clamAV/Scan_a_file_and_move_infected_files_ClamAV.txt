@@ -1,0 +1,1 @@
+clamscan --move=/path/to/quarantine file.txt

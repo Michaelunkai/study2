@@ -1,0 +1,38 @@
+**How to Copy Any Writing Style with ChatGPT**
+Tired of the generic responses from ChatGPT? In just four steps, you can train the free GPT-3.5 model to mimic any writing style:
+### Step 1: Gather Writing Samples
+Collect writing samples that illustrate the style you want to replicate. The more high-quality examples you have, the better the outcome will be. You can use emails, documents, articles, or anything else you've written (or others have written). The key is to use your best writing. ChatGPT will learn from this.
+### Step 2: Input the Prompt into ChatGPT
+Enter the following prompt into ChatGPT. This will tell it to analyze and adopt your writing patterns.
+### Step 3: Start the Training Process
+Type "BEGIN" to let ChatGPT know the samples are coming. Paste your first writing sample and wait for "CONTINUE" before adding more. You can train it with just two writing pieces, but the more writing you provide, the better the output will be.
+### Step 4: Finish the Training Process
+After inputting enough writing (a minimum of 4 pieces is recommended), type "FINISH" to let ChatGPT know you're done. ChatGPT will analyze your samples and recreate the style. Test it by giving writing prompts – if the output isn't close enough initially, feed it more samples to further refine the style.
+### Step 5: Name Your Writing Style
+Give a name to your writing style, for example, "Newsletter Style". The name doesn't matter much, but it should be easy to remember.
+**Sample Prompt:**
+I want you to remember this style as "Newsletter Style."
+### Step 6: Test the Writing
+Test ChatGPT by having it write an article on a topic based on the new style and see how accurate it is.
+**Sample Prompt:**
+Write a paragraph on [your topic] using The [style name] Style.
+In just a few minutes, you can fully utilize the range of styles of ChatGPT for free.
+**Full Prompt for Training ChatGPT:**
+You are an expert ghostwriter. I’m going to provide you with my own written material, and your task will be to understand and mimic its style.
+You'll start this exercise by saying "BEGIN.” After, I'll present an example text, to which you'll respond, "CONTINUE". The process will continue similarly with another piece of writing and then with further examples. I'll give you unlimited examples. Your response will only be "CONTINUE.” You're only permitted to change your response when I tell you "FINISHED".
+After this, you'll explore and understand the tone, style, and characteristics of my writing based on the samples I've given. Finally, I'll prompt you to craft a new piece of writing on a specified topic, emulating my distinctive writing style.
+---
+**Join my AI community on Facebook – AI Community Hub**
+**Follow me on my YouTube channel**
+**Sign up for my newsletter**
+---
+**Contact**
+For any questions or requests, fill out the form, and I’ll get back to you as soon as I can.
+- Email
+- Message
+- Full Name
+---
+© 2024 Shani Burstein - All Rights Reserved
+EM Studio - Digital Solutions
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

@@ -1,0 +1,21 @@
+Layer 2 protocols, also known as Data Link Layer protocols, are responsible for the direct communication between devices on the same local network. They define how data is formatted for transmission and how access to the network is controlled. Some key responsibilities include error detection and correction, frame synchronization, and flow control. Here are some commonly used Layer 2 protocols:
+
+1. **Ethernet (IEEE 802.3):** The most widely used LAN technology, defining wiring and signaling standards for the physical layer and data frame formats for the Data Link Layer.
+
+2. **Wi-Fi (IEEE 802.11):** A set of standards for wireless local area networks (WLANs), allowing devices to communicate without physical cables.
+
+3. **Point-to-Point Protocol (PPP):** Used to establish a direct connection between two network nodes, often used for internet dial-up connections.
+
+4. **High-Level Data Link Control (HDLC):** A bit-oriented protocol for communication over point-to-point and multipoint links.
+
+5. **Frame Relay:** A high-performance WAN protocol that operates at the Data Link Layer, providing fast and efficient communication over digital networks.
+
+6. **Asynchronous Transfer Mode (ATM):** A cell-based switching technique that uses fixed-size packets (cells) to provide data link layer services.
+
+7. **Fiber Distributed Data Interface (FDDI):** A standard for data transmission on fiber optic lines in a local area network.
+
+8. **Carrier Sense Multiple Access with Collision Detection (CSMA/CD):** Used in Ethernet networks, this protocol helps devices detect collisions on the network and retransmit data accordingly.
+
+9. **Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA):** Used in wireless networks (e.g., Wi-Fi), this protocol helps devices avoid collisions by listening to the channel before transmitting.
+
+These protocols ensure reliable and efficient data communication within the same local network or point-to-point connection, providing a foundation for higher-layer protocols to build upon.

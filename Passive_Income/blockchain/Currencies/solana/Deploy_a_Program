@@ -1,0 +1,14 @@
+Deploy a Program
+Compile Your Program:
+Assuming you have a Solana program written in Rust, compile it to BPF:
+
+ 
+ 
+cargo build-bpf
+Deploy the Program:
+
+ 
+ 
+solana program deploy <PATH_TO_YOUR_BPF_FILE>
+Interact with the Deployed Program:
+You can interact with your program using custom commands or by calling specific instructions.

@@ -1,0 +1,8 @@
+
+alias plex="pct exec 107 -- fstrim -av"
+alias brc="nano /root/.bashrc"
+alias brc1="source /root/.bashrc"
+alias cc="clear"
+alias pl="pct enter 107"
+alias cdv="cd /var/lib/vz"
+alias update="apt update && apt upgrade -y"

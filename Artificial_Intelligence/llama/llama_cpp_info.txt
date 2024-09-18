@@ -1,0 +1,8 @@
+llama.cpp is an open-source project that aims to provide efficient inference and training of the LLaMA (Large Language Model Meta AI) models on consumer-grade hardware. The project leverages the efficient implementation of the LLaMA model architecture in C++ to make it possible to run large-scale language models with relatively modest hardware requirements.
+Key features of llama.cpp include:
+1. Efficient Inference: The implementation focuses on optimizing inference time, making it possible to run large language models faster on CPUs and GPUs.
+2. Cross-Platform Compatibility: Designed to work across various operating systems, including Windows, macOS, and Linux.
+3. Low Hardware Requirements: Allows running large language models on consumer-grade hardware, lowering the barrier to entry for developers and researchers.
+4. Open Source: The project is open-source, fostering community contributions and improvements.
+5. Ease of Use: Provides a user-friendly API for integrating LLaMA models into applications and systems.
+The llama.cpp project is particularly useful for developers and researchers who need to deploy large language models without access to high-end, specialized hardware.

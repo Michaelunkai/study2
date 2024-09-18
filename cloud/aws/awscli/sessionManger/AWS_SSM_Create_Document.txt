@@ -1,0 +1,1 @@
+aws ssm create-document --name <document-name> --content file://document-content.json

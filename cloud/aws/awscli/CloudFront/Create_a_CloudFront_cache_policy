@@ -1,0 +1,1 @@
+aws cloudfront create-cache-policy --cache-policy-config file://cache-policy-config.json

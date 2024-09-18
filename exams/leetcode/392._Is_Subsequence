@@ -1,0 +1,93 @@
+\### 392. Is Subsequence
+
+**Solution:**
+
+```python
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if not s:
+            return True
+        
+        s_index, t_index = 0, 0
+        
+        while t_index < len(t):
+            if s[s_index] == t[t_index]:
+                s_index += 1
+                if s_index == len(s):
+                    return True
+            t_index += 1
+        
+        return s_index == len(s)
+```
+
+### Explanation:
+
+1. **Edge Case Check:**
+   - If `s` is an empty string, it is trivially a subsequence of `t`, so return `True`.
+
+2. **Initialize Indices:**
+   - Initialize two pointers: `s_index` to 0 (pointing to the current character in `s`) and `t_index` to 0 (pointing to the current character in `t`).
+
+3. **Iterate Through `t`:**
+   - Use a while loop to iterate through `t` until `t_index` reaches the end of `t`.
+   - If the characters at `s_index` and `t_index` match, increment `s_index` to move to the next character in `s`.
+   - If `s_index` reaches the length of `s`, it means all characters of `s` have been found in `t` in the correct order, so return `True`.
+
+4. **Return Result:**
+   - If the loop completes and `s_index` has not reached the length of `s`, return `False`.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `s = "abc"`, `t = "ahbgdc"`
+   - Steps:
+     - Compare `s[0]` with `t[0]`: 'a' == 'a' (move `s_index` to 1, `t_index` to 1)
+     - Compare `s[1]` with `t[1]`: 'b' != 'h' (move `t_index` to 2)
+     - Compare `s[1]` with `t[2]`: 'b' == 'b' (move `s_index` to 2, `t_index` to 3)
+     - Compare `s[2]` with `t[3]`: 'c' != 'g' (move `t_index` to 4)
+     - Compare `s[2]` with `t[4]`: 'c' != 'd' (move `t_index` to 5)
+     - Compare `s[2]` with `t[5]`: 'c' == 'c' (move `s_index` to 3)
+   - `s_index` has reached the length of `s`, so return `True`.
+
+2. **Example 2:**
+   - Input: `s = "axc"`, `t = "ahbgdc"`
+   - Steps:
+     - Compare `s[0]` with `t[0]`: 'a' == 'a' (move `s_index` to 1, `t_index` to 1)
+     - Compare `s[1]` with `t[1]`: 'x' != 'h' (move `t_index` to 2)
+     - Compare `s[1]` with `t[2]`: 'x' != 'b' (move `t_index` to 3)
+     - Compare `s[1]` with `t[3]`: 'x' != 'g' (move `t_index` to 4)
+     - Compare `s[1]` with `t[4]`: 'x' != 'd' (move `t_index` to 5)
+     - Compare `s[1]` with `t[5]`: 'x' != 'c' (move `t_index` to 6)
+   - `t_index` has reached the end of `t` and `s_index` has not reached the length of `s`, so return `False`.
+
+### Follow-up:
+For the follow-up scenario where there are lots of incoming `s`, you can preprocess the string `t` to allow efficient subsequence checks. One approach is to use a data structure that maps each character to the list of its indices in `t`. This allows binary search for each character in `s`:
+
+```python
+from collections import defaultdict
+import bisect
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        char_to_indices = defaultdict(list)
+        
+        # Preprocess t and store indices of each character
+        for index, char in enumerate(t):
+            char_to_indices[char].append(index)
+        
+        # Check if s is a subsequence of t using the preprocessed data
+        current_position = -1
+        for char in s:
+            if char not in char_to_indices:
+                return False
+            # Use binary search to find the smallest index greater than current_position
+            pos_list = char_to_indices[char]
+            i = bisect.bisect_right(pos_list, current_position)
+            if i == len(pos_list):
+                return False
+            current_position = pos_list[i]
+        
+        return True
+```
+
+This approach preprocesses `t` in `O(t)` time and allows each check of `s` to be done in `O(s * log t)` time, which is efficient for large numbers of queries.

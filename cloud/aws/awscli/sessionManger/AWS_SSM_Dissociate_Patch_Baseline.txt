@@ -1,0 +1,1 @@
+aws ssm disassociate-patch-baseline --baseline-id <baseline-id> --patch-group <patch-group>

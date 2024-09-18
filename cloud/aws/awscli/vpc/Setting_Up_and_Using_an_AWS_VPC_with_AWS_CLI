@@ -1,0 +1,112 @@
+# Comprehensive Guide to Setting Up and Using an AWS VPC with AWS CLI
+
+## Step 1: Create a VPC
+1. **Create the VPC:**
+     
+   aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+2. **Note the VPC ID:**
+   Let's use the placeholder VPC ID: `vpc-<VPC_ID>`.
+
+## Step 2: Create Subnets
+1. **Create a public subnet:**
+     
+   aws ec2 create-subnet --vpc-id vpc-<VPC_ID> --cidr-block 10.0.1.0/24 --availability-zone us-east-1a
+
+2. **Use the provided Subnet ID:**
+   Use the placeholder Subnet ID for the public subnet: `subnet-<PUBLIC_SUBNET_ID>`.
+
+3. **Create a private subnet:**
+     
+   aws ec2 create-subnet --vpc-id vpc-<VPC_ID> --cidr-block 10.0.2.0/24 --availability-zone us-east-1a
+
+4. **Note the Subnet ID:**
+   The command output will contain the Subnet ID for the private subnet, let's use the placeholder `subnet-<PRIVATE_SUBNET_ID>`.
+
+## Step 3: Create an Internet Gateway
+1. **Create the Internet Gateway:**
+     
+   aws ec2 create-internet-gateway
+
+2. **Note the Internet Gateway ID:**
+   The command output will contain the Internet Gateway ID, let's use the placeholder `igw-<INTERNET_GATEWAY_ID>`.
+
+3. **Attach the Internet Gateway to the VPC:**
+     
+   aws ec2 attach-internet-gateway --vpc-id vpc-<VPC_ID> --internet-gateway-id igw-<INTERNET_GATEWAY_ID>
+
+## Step 4: Create Route Tables
+1. **Create a route table for the public subnet:**
+     
+   aws ec2 create-route-table --vpc-id vpc-<VPC_ID>
+
+2. **Note the Route Table ID:**
+   The command output will contain the Route Table ID, let's use the placeholder `rtb-<PUBLIC_ROUTE_TABLE_ID>`.
+
+3. **Create a route to the Internet Gateway:**
+     
+   aws ec2 create-route --route-table-id rtb-<PUBLIC_ROUTE_TABLE_ID> --destination-cidr-block 0.0.0.0/0 --gateway-id igw-<INTERNET_GATEWAY_ID>
+
+4. **Associate the public subnet with the route table:**
+     
+   aws ec2 associate-route-table --subnet-id subnet-<PUBLIC_SUBNET_ID> --route-table-id rtb-<PUBLIC_ROUTE_TABLE_ID>
+
+## Step 5: Modify Subnet Attributes
+1. **Enable auto-assign public IP on the public subnet:**
+     
+   aws ec2 modify-subnet-attribute --subnet-id subnet-<PUBLIC_SUBNET_ID> --map-public-ip-on-launch
+
+## Step 6: (Optional) Create a NAT Gateway for Private Subnet
+1. **Create an Elastic IP for the NAT Gateway:**
+     
+   aws ec2 allocate-address
+
+2. **Note the Allocation ID:**
+   The command output will contain the Allocation ID, let's use the placeholder `eipalloc-<EIP_ALLOCATION_ID>`.
+
+3. **Create the NAT Gateway:**
+     
+   aws ec2 create-nat-gateway --subnet-id subnet-<PUBLIC_SUBNET_ID> --allocation-id eipalloc-<EIP_ALLOCATION_ID>
+
+4. **Note the NAT Gateway ID:**
+   The command output will contain the NAT Gateway ID, let's use the placeholder `nat-<NAT_GATEWAY_ID>`.
+
+5. **Create a route table for the private subnet:**
+     
+   aws ec2 create-route-table --vpc-id vpc-<VPC_ID>
+
+6. **Note the Private Route Table ID:**
+   The command output will contain the Route Table ID, let's use the placeholder `rtb-<PRIVATE_ROUTE_TABLE_ID>`.
+
+7. **Create a route to the NAT Gateway:**
+     
+   aws ec2 create-route --route-table-id rtb-<PRIVATE_ROUTE_TABLE_ID> --destination-cidr-block 0.0.0.0/0 --nat-gateway-id nat-<NAT_GATEWAY_ID>
+
+8. **Associate the private subnet with the private route table:**
+     
+   aws ec2 associate-route-table --subnet-id subnet-<PRIVATE_SUBNET_ID> --route-table-id rtb-<PRIVATE_ROUTE_TABLE_ID>
+
+## Step 7: Security Groups and Network ACLs
+1. **Create a Security Group:**
+     
+   aws ec2 create-security-group --group-name my-security-group --description "My security group" --vpc-id vpc-<VPC_ID>
+
+2. **Note the Security Group ID:**
+   The command output will contain the Security Group ID, let's use the placeholder `sg-<SECURITY_GROUP_ID>`.
+
+3. **Add rules to the Security Group (e.g., allowing SSH and HTTP):**
+     
+   aws ec2 authorize-security-group-ingress --group-id sg-<SECURITY_GROUP_ID> --protocol tcp --port 22 --cidr 0.0.0.0/0
+   aws ec2 authorize-security-group-ingress --group-id sg-<SECURITY_GROUP_ID> --protocol tcp --port 80 --cidr 0.0.0.0/0
+
+## Step 8: Launch an EC2 Instance
+1. **Launch an instance in the public subnet:**
+     
+   aws ec2 run-instances --image-id <AMI_ID> --count 1 --instance-type t2.micro --key-name MyKeyPair --security-group-ids sg-<SECURITY_GROUP_ID> --subnet-id subnet-<PUBLIC_SUBNET_ID>
+
+   Replace `<AMI_ID>` with the ID of the Amazon Machine Image (AMI) you want to use.
+
+## Summary
+You have successfully set up a VPC with the provided VPC ID, created public and private subnets using the provided public subnet ID, set up an Internet Gateway, and optionally a NAT Gateway. You also created a security group and launched an EC2 instance in the public subnet.
+
+Feel free to ask if you need more details or have specific requirements!

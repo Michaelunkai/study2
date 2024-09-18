@@ -1,0 +1,1 @@
+sudo apt install -y swish-e && echo 'Hello, Swish-e!' > doc.txt && swish-e -i doc.txt -f swish-e-index && swish-e -w "Hello" -f swish-e-index

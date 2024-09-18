@@ -1,0 +1,46 @@
+Modifying a User Account
+To modify a user account, use the Set-LocalUser cmdlet. Here’s an example:
+
+Changing the Password:
+ 
+ 
+# Define the new password
+$newPassword = ConvertTo-SecureString "N3wP@ssw0rd123" -AsPlainText -Force
+
+# Set the new password
+Set-LocalUser -Name $username -Password $newPassword
+Changing the Full Name and Description:
+ 
+ 
+Set-LocalUser -Name $username -FullName "Updated User" -Description "Updated description"
+Deleting a User Account
+To delete a user account, use the Remove-LocalUser cmdlet. Here’s an example:
+
+Deleting a User Account:
+ 
+ 
+Remove-LocalUser -Name $username
+Example Script
+Here’s a complete script that demonstrates creating a user, modifying their details, and then deleting the user:
+
+ 
+ 
+# Define the username and password
+$username = "NewUser"
+$password = ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force
+
+# Create the user account
+New-LocalUser -Name $username -Password $password -FullName "New User" -Description "Description of the new user" -AccountNeverExpires
+
+# Add the user to the Administrators group
+Add-LocalGroupMember -Group "Administrators" -Member $username
+
+# Change the password
+$newPassword = ConvertTo-SecureString "N3wP@ssw0rd123" -AsPlainText -Force
+Set-LocalUser -Name $username -Password $newPassword
+
+# Change the full name and description
+Set-LocalUser -Name $username -FullName "Updated User" -Description "Updated description"
+
+# Delete the user account
+Remove-LocalUser -Name $username

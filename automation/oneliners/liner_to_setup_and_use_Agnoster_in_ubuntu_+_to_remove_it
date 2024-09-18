@@ -1,0 +1,12 @@
+Agnoster
+Install and Verify:
+ 
+ 
+echo 'ZSH_THEME="agnoster"' >> ~/.zshrc
+source ~/.zshrc
+echo $ZSH_VERSION
+Disable and Remove:
+ 
+ 
+sed -i '/ZSH_THEME="agnoster"/d' ~/.zshrc
+source ~/.zshrc

@@ -1,0 +1,1 @@
+aws elb delete-load-balancer-policy --load-balancer-name <load-balancer-name> --policy-name <policy-name>

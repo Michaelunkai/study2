@@ -1,0 +1,11 @@
+Tyk is an open-source API gateway that helps manage, secure, and monitor APIs (Application Programming Interfaces). It acts as an intermediary between API consumers and backend services, providing various features to streamline API management. These features include:
+
+1. **Rate Limiting**: Controls the number of requests an API consumer can make within a certain time period.
+2. **Authentication**: Supports multiple authentication methods such as API keys, OAuth, and JWT (JSON Web Tokens) to ensure secure access to APIs.
+3. **Logging and Analytics**: Tracks and logs API usage, providing insights into how APIs are being used and identifying any issues.
+4. **Traffic Management**: Directs and controls the flow of API traffic to ensure efficient and balanced distribution.
+5. **Transformations**: Allows modification of requests and responses, enabling data transformation and enrichment.
+6. **Monitoring and Alerts**: Monitors API performance and sends alerts when predefined thresholds are breached.
+7. **Developer Portal**: Offers a self-service portal for developers to register, discover, and use APIs.
+
+Tyk can be deployed in various environments, including cloud, on-premises, and hybrid setups, making it versatile and adaptable to different infrastructure needs.

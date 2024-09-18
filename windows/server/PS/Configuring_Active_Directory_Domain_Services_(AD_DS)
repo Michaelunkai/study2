@@ -1,0 +1,5 @@
+# Install Active Directory Domain Services role
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+
+# Promote the server to a domain controller
+Install-ADDSForest -DomainName "yourdomain.com" -DomainNetbiosName "yourdomain" -InstallDns -Force

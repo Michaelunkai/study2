@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://downloads.slack-edge.com/releases_x64/SlackSetup.exe" -OutFile "$env:TEMP\slack_installer.exe"; Start-Process -FilePath "$env:TEMP\slack_installer.exe" -ArgumentList "/S" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\slack_installer.exe"

@@ -1,0 +1,1 @@
+aws cloudformation create-change-set --stack-name my-cf-stack --change-set-name my-change-set --template-body file://updated-template.yaml --parameters ParameterKey=InstanceType,ParameterValue=t2.small

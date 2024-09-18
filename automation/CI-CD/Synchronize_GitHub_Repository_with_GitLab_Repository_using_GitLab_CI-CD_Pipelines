@@ -1,0 +1,51 @@
+To verify if the synchronization between your GitHub and GitLab repositories is working correctly, follow these steps:
+
+### 1. **Push a Change to Your GitHub Repository**
+
+1. Make a simple change in your GitHub repository. For example, you can update the README.md file.
+2. Commit and push the change to the `master` branch of your GitHub repository.
+
+### 2. **Monitor the Webhook in GitHub**
+
+1. Go to your GitHub repository.
+2. Navigate to "Settings" > "Webhooks."
+3. Find the webhook you created for GitLab and click on it.
+4. Check the "Recent Deliveries" section to ensure the webhook was triggered successfully. It should show a green check mark if the delivery was successful.
+5. Click on the recent delivery to see detailed logs. Confirm that the payload was delivered and received by GitLab without errors.
+
+### 3. **Check the Pipeline in GitLab**
+
+1. Go to your GitLab project.
+2. Navigate to "CI / CD" > "Pipelines."
+3. Check the pipeline list for a new pipeline triggered by the recent push event from GitHub.
+4. Click on the pipeline to view its details. Ensure that the pipeline stages (especially the `sync` stage) ran successfully.
+
+### 4. **Verify the Changes in GitLab Repository**
+
+1. Go to the repository files in your GitLab project.
+2. Check the updated file (e.g., README.md) to see if the changes you made in GitHub are reflected in the GitLab repository.
+3. If the changes are visible, the synchronization is working correctly.
+
+### 5. **Optional: Add Logging in the CI/CD Pipeline**
+
+To add more transparency to the pipeline process, you can include logging commands in your `.gitlab-ci.yml` file to output messages during the sync process:
+
+  
+stages:
+  - sync
+
+sync_with_github:
+  stage: sync
+  script:
+    - echo "Adding GitHub remote repository"
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/<YOUR_GITHUB_REPOSITORY>.git
+    - echo "Fetching changes from GitHub"
+    - git fetch github
+    - echo "Pushing changes to GitLab"
+    - git push origin master
+  only:
+    - master
+
+This will print out messages in the pipeline logs, making it easier to track the progress and identify any issues.
+
+By following these steps, you can ensure that the synchronization between your GitHub and GitLab repositories is working as expected. If any issues arise, the logs and webhook details should help diagnose and resolve them.

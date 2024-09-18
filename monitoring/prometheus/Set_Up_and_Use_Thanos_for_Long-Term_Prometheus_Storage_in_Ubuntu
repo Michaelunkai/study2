@@ -1,0 +1,174 @@
+Setting up and using Thanos for long-term Prometheus storage on Ubuntu involves several steps, including installing Prometheus, setting up Thanos components, and configuring them to work together. Here's a detailed step-by-step guide:
+
+### Step 1: Install Prometheus
+
+1. **Download Prometheus:**
+     
+   wget https://github.com/prometheus/prometheus/releases/download/v2.41.0/prometheus-2.41.0.linux-amd64.tar.gz
+   tar xvfz prometheus-2.41.0.linux-amd64.tar.gz
+   cd prometheus-2.41.0.linux-amd64
+
+2. **Move Prometheus binaries:**
+     
+   sudo mv prometheus /usr/local/bin/
+   sudo mv promtool /usr/local/bin/
+
+3. **Set up Prometheus configuration:**
+   Create a configuration file (`prometheus.yml`):
+     
+   global:
+     scrape_interval: 15s
+
+   scrape_configs:
+     - job_name: 'prometheus'
+       static_configs:
+         - targets: ['localhost:9090']
+
+4. **Create Prometheus service:**
+     
+   sudo nano /etc/systemd/system/prometheus.service
+   Add the following content:
+    ini
+   [Unit]
+   Description=Prometheus
+   After=network.target
+
+   [Service]
+   User=prometheus
+   ExecStart=/usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus
+
+   [Install]
+   WantedBy=multi-user.target
+
+5. **Reload systemd and start Prometheus:**
+     
+   sudo systemctl daemon-reload
+   sudo systemctl start prometheus
+   sudo systemctl enable prometheus
+
+### Step 2: Install and Configure Thanos
+
+1. **Download Thanos:**
+     
+   wget https://github.com/thanos-io/thanos/releases/download/v0.29.0/thanos-0.29.0.linux-amd64.tar.gz
+   tar xvfz thanos-0.29.0.linux-amd64.tar.gz
+   cd thanos-0.29.0.linux-amd64
+
+2. **Move Thanos binaries:**
+     
+   sudo mv thanos /usr/local/bin/
+
+### Step 3: Set Up Thanos Sidecar
+
+1. **Create Thanos sidecar service:**
+     
+   sudo nano /etc/systemd/system/thanos-sidecar.service
+   Add the following content:
+    ini
+   [Unit]
+   Description=Thanos Sidecar
+   After=network.target
+
+   [Service]
+   User=prometheus
+   ExecStart=/usr/local/bin/thanos sidecar --tsdb.path /var/lib/prometheus --prometheus.url http://localhost:9090 --objstore.config-file /etc/thanos/objstore.yml
+
+   [Install]
+   WantedBy=multi-user.target
+
+2. **Create the object storage configuration:**
+     
+   sudo mkdir /etc/thanos
+   sudo nano /etc/thanos/objstore.yml
+   Example configuration for AWS S3:
+     
+   type: S3
+   config:
+     bucket: <your-bucket-name>
+     endpoint: <your-endpoint>
+     access_key: <your-access-key>
+     secret_key: <your-secret-key>
+     insecure: false
+
+3. **Reload systemd and start Thanos sidecar:**
+     
+   sudo systemctl daemon-reload
+   sudo systemctl start thanos-sidecar
+   sudo systemctl enable thanos-sidecar
+
+### Step 4: Set Up Thanos Store
+
+1. **Create Thanos store service:**
+     
+   sudo nano /etc/systemd/system/thanos-store.service
+   Add the following content:
+    ini
+   [Unit]
+   Description=Thanos Store
+   After=network.target
+
+   [Service]
+   User=prometheus
+   ExecStart=/usr/local/bin/thanos store --objstore.config-file /etc/thanos/objstore.yml --http-address 0.0.0.0:10902 --grpc-address 0.0.0.0:10901
+
+   [Install]
+   WantedBy=multi-user.target
+
+2. **Reload systemd and start Thanos store:**
+     
+   sudo systemctl daemon-reload
+   sudo systemctl start thanos-store
+   sudo systemctl enable thanos-store
+
+### Step 5: Set Up Thanos Query
+
+1. **Create Thanos query service:**
+     
+   sudo nano /etc/systemd/system/thanos-query.service
+   Add the following content:
+    ini
+   [Unit]
+   Description=Thanos Query
+   After=network.target
+
+   [Service]
+   User=prometheus
+   ExecStart=/usr/local/bin/thanos query --http-address 0.0.0.0:10902 --grpc-address 0.0.0.0:10901 --store grpc://localhost:10901
+
+   [Install]
+   WantedBy=multi-user.target
+
+2. **Reload systemd and start Thanos query:**
+     
+   sudo systemctl daemon-reload
+   sudo systemctl start thanos-query
+   sudo systemctl enable thanos-query
+
+### Step 6: Verify the Setup
+
+1. **Access Prometheus:**
+   Open your browser and go to `http://<your-server-ip>:9090`.
+
+2. **Access Thanos Query:**
+   Open your browser and go to `http://<your-server-ip>:10902`.
+
+### Step 7: Configure Prometheus to Use Thanos Query
+
+1. **Edit Prometheus configuration:**
+     
+   sudo nano /etc/prometheus/prometheus.yml
+   Add the following to the `remote_read` and `remote_write` sections:
+     
+   remote_read:
+     - url: "http://localhost:10902/api/v1/read"
+
+   remote_write:
+     - url: "http://localhost:10902/api/v1/write"
+
+2. **Restart Prometheus:**
+     
+   sudo systemctl restart prometheus
+
+### Conclusion
+
+You've now set up Thanos for long-term Prometheus storage on Ubuntu. You should have Thanos Sidecar, Store, and Query components running alongside Prometheus, with Thanos handling long-term storage and querying.

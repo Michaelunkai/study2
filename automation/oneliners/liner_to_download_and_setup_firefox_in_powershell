@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US" -OutFile "$env:TEMP\firefox_installer.exe"; Start-Process -FilePath "$env:TEMP\firefox_installer.exe" -ArgumentList "/S" -NoNewWindow -Wait; Remove-Item -Path "$env:TEMP\firefox_installer.exe"

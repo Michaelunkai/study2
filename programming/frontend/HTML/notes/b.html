@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            background-image: url('a.png');
+            background-size: cover;
+        }
+        .note {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1em;
+            margin: 1em 0;
+        }
+    </style>
+    <title>Note Taking Website</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Note Taking App</strong></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Create a New Note</h2>
+                </hgroup>
+                <form id="note-form">
+                    <input type="text" id="note-title" name="note-title" placeholder="Note Title" required>
+                    <textarea id="note-content" name="note-content" placeholder="Note Content" required></textarea>
+                    <button type="submit">Add Note</button>
+                </form>
+                <h3>Notes</h3>
+                <div id="notes"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="container">
+        <small>&copy; 2024 Note Taking App</small>
+    </footer>
+
+    <script>
+        document.getElementById('note-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('note-title').value;
+            const content = document.getElementById('note-content').value;
+            addNote(title, content);
+            document.getElementById('note-form').reset();
+        });
+
+        function addNote(title, content) {
+            const noteContainer = document.getElementById('notes');
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.innerHTML = `
+                <h3>${title}</h3>
+                <p>${content}</p>
+                <button onclick="editNote(this)">Edit</button>
+                <button onclick="deleteNote(this)">Delete</button>
+            `;
+            noteContainer.appendChild(note);
+            saveNotes();
+        }
+
+        function deleteNote(button) {
+            const note = button.parentElement;
+            note.remove();
+            saveNotes();
+        }
+
+        function editNote(button) {
+            const note = button.parentElement;
+            const title = note.querySelector('h3').innerText;
+            const content = note.querySelector('p').innerText;
+            document.getElementById('note-title').value = title;
+            document.getElementById('note-content').value = content;
+            note.remove();
+            saveNotes();
+        }
+
+        function saveNotes() {
+            const notes = [];
+            document.querySelectorAll('.note').forEach(note => {
+                const title = note.querySelector('h3').innerText;
+                const content = note.querySelector('p').innerText;
+                notes.push({ title, content });
+            });
+            localStorage.setItem('notes', JSON.stringify(notes));
+        }
+
+        function loadNotes() {
+            const notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes.forEach(note => addNote(note.title, note.content));
+        }
+
+        window.onload = loadNotes;
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Run theHarvester for the target domain using different search engines:
+
+theharvester -d example.com -l 500 -b google
+theharvester -d example.com -l 500 -b bing
+theharvester -d example.com -l 500 -b baidu
+theharvester -d example.com -l 500 -b yahoo
+theharvester -d example.com -l 500 -b linkedin
+

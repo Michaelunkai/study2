@@ -1,0 +1,140 @@
+Step_1:_Install_Prometheus
+ 
+ 
+sudo apt update && sudo apt install prometheus -y && sudo systemctl start prometheus
+Step_2:_Define_Metrics
+Install_and_configure_a_metrics_exporter_(Node_Exporter_for_Linux_systems):
+ 
+ 
+wget https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz
+tar xvfz node_exporter-1.5.0.linux-amd64.tar.gz
+sudo mv node_exporter-1.5.0.linux-amd64/node_exporter /usr/local/bin/
+Create_a_systemd_service_for_Node_Exporter:
+ 
+ 
+sudo nano /etc/systemd/system/node_exporter.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Node_Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=node_exporter
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=default.target
+Reload systemd and start Node Exporter:
+
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl enable node_exporter
+sudo systemctl start node_exporter
+Step_3:_Create_Recording_Rules
+Edit_Prometheus_configuration_to_include_recording_rules:
+ 
+ 
+sudo nano /etc/prometheus/prometheus.yml
+Add the following lines under rule_files:
+
+ 
+ 
+rule_files:
+  - "slo_rules.yml"
+Step_4:_Set_Up_Alerts
+Edit_Prometheus_configuration_to_include_alert_rules:
+ 
+ 
+sudo nano /etc/prometheus/prometheus.yml
+Add the following lines under rule_files:
+
+ 
+ 
+rule_files:
+  - "alert_rules.yml"
+Step_5:_Set_Up_Alertmanager
+Create_the_Alertmanager_directory:
+ 
+ 
+sudo mkdir /etc/alertmanager
+Install_Alertmanager:
+ 
+ 
+wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
+tar xvfz alertmanager-0.25.0.linux-amd64.tar.gz
+sudo mv alertmanager-0.25.0.linux-amd64/alertmanager /usr/local/bin/
+sudo mv alertmanager-0.25.0.linux-amd64/amtool /usr/local/bin/
+Step_6:_Create_Alertmanager_configuration_file
+ 
+ 
+sudo nano /etc/alertmanager/alertmanager.yml
+Add the following content to the file:
+
+ 
+ 
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'default'
+
+receivers:
+- name: 'default'
+  email_configs:
+  - to: 'your-email@example.com'
+    from: 'alertmanager@example.com'
+    smarthost: 'smtp.example.com:587'
+    auth_username: 'your-username'
+    auth_password: 'your-password'
+Save the file by pressing Ctrl + O, then press Enter to confirm, and exit by pressing Ctrl + X.
+
+Step_7:_Create_the_systemd_service_for_Alertmanager
+ 
+ 
+sudo nano /etc/systemd/system/alertmanager.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=alertmanager
+ExecStart=/usr/local/bin/alertmanager \
+    --config.file=/etc/alertmanager/alertmanager.yml \
+    --storage.path=/var/lib/alertmanager
+
+[Install]
+WantedBy=multi-user.target
+Step_8:_Reload_systemd_and_start_Alertmanager
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl enable alertmanager
+sudo systemctl start alertmanager
+Step_9:_Configure_Prometheus_to_use_Alertmanager
+ 
+ 
+sudo nano /etc/prometheus/prometheus.yml
+Add Alertmanager configuration to Prometheus:
+
+ 
+ 
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093
+Step_10:_Reload_Prometheus_configuration
+ 
+ 
+sudo systemctl restart prometheus
+These steps ensure that the necessary Alertmanager configuration file is created and included in the setup process. Adjust the configurations as needed based on your monitoring requirements.

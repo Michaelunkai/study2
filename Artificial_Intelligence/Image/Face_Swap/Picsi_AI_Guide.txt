@@ -1,0 +1,39 @@
+### Comprehensive Guide to Using Picsi.AI – A Face Swap Tool with Artificial Intelligence
+#### Overview of Picsi.AI
+Picsi.AI is an advanced tool for swapping faces in photos based on artificial intelligence technology, developed by InsightFace. The tool allows users to swap faces in images accurately and convincingly. With the launch of the dedicated website, using the tool has become more convenient and intuitive.
+#### How to Register for Picsi.AI
+1. Visit the official Picsi website.
+2. Log in using your Discord account.
+3. Fill in the required details and confirm your registration.
+4. After registering, you can start using the tool immediately, even for free.
+#### Picsi.AI Subscription Plans
+- **Free Plan**: One face swap per image, 50 free credits daily.
+- **Basic Plan ($9.99/month)**: Swap up to 4 faces per image, 200 credits daily.
+- **Pro Plan ($19.99/month)**: Swap up to 20 seconds of video, 400 credits daily.
+- **Ultra Plan ($34.99/month)**: Swap up to 45 seconds of video, 800 credits daily.
+#### How to Swap Faces in Picsi.AI Web Version
+1. Upload the original image with the faces you want to keep.
+2. Upload the target image.
+3. Click the “Swap” button to perform the swap.
+#### Advanced Features on Picsi Dedicated Website
+- **Project Dax**: Improves face swapping quality.
+- **Keep Eyes Shut**: Keeps eyes closed in the final image.
+- **Retain Target’s Mouth**: Keeps the mouth area unchanged.
+- **Fix Minor Chin/Jawline**: Fixes minor mismatches in the chin and jawline.
+- **Fix Hairline**: Addresses low hairlines issues.
+- **Fix Eyes**: Attempts to correct pupil shape and eye color.
+- **Similarity Intensity**: Controls the intensity of similarity between images.
+- **Disable Restoration**: Disables face restoration, enhancing realism but might introduce slight distortions.
+#### Advanced Features for Paying Subscribers
+- **Face Texturizer**: Preserves intricate facial details.
+- **Sharpen**: Adds clarity and sharpness to the image.
+- **Expressionify**: Synchronizes expressions between images.
+- **Oldify**: Allows aging a character in the image.
+- **Youngify**: Optimizes embedded faces to appear younger.
+#### Ethical and Legal Considerations
+- **Copyrights**: Ensure you have rights to the images and do not infringe on intellectual property.
+- **Commercial Use**: The free plan does not allow commercial use of processed images.
+- **Source Attribution**: Clearly state that images were modified using Picsi.AI.
+- **Caution in Use**: Exercise caution when swapping faces of famous individuals.
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

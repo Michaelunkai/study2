@@ -1,0 +1,5 @@
+This was resolved in seleniumbase 4.27.0: https://github.com/seleniumbase/SeleniumBase/releases/tag/v4.27.0
+
+For regular selenium-wire users who aren't using SeleniumBase, run this:
+
+pip install blinker==1.7.0

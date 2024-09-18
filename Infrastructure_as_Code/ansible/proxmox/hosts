@@ -1,0 +1,5 @@
+[linux]
+192.168.1.193 ansible_user=ubuntu ansible_password=123456
+192.168.1.119 ansible_user=root ansible_password=123456
+192.168.1.100 ansible_user=root ansible_password=123456
+192.168.1.195 ansible_user=root ansible_password=123456

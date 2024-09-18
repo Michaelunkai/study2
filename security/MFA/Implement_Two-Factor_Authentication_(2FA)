@@ -1,0 +1,18 @@
+Implement Two-Factor Authentication (2FA)
+Add an extra layer of security with 2FA.
+
+Install the Google Authenticator PAM module:
+
+sudo apt install libpam-google-authenticator
+Configure it for your user:
+
+google-authenticator
+Edit the PAM configuration:
+
+sudo nano /etc/pam.d/s d
+Add this line:
+
+auth required pam_google_authenticator.so
+Restart SSH:
+
+sudo systemctl restart ssh

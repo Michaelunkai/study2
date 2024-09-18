@@ -1,0 +1,1 @@
+aws elasticbeanstalk validate-configuration-settings --application-name <app-name> --template-name <template-name> --option-settings <option-settings>

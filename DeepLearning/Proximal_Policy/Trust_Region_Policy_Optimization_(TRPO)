@@ -1,0 +1,2 @@
+Trust Region Policy Optimization (TRPO)
+One solution to this problem is introducing trust regions. If an agent's performance is reasonable, the corresponding parameter space region likely represents a suboptimal yet acceptable policy. Constraining changes to the neural network to stay within this region prevents drastic performance drops. This concept was implemented in Trust Region Policy Optimization (TRPO), which maximizes a surrogate objective subject to a constraint involving the KL divergence, a measure of divergence between two distributions.

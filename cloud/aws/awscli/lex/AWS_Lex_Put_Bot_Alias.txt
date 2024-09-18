@@ -1,0 +1,1 @@
+aws lex-models put-bot-alias --name <alias-name> --bot-name <bot-name> --description <description> --checksum <checksum>

@@ -1,0 +1,30 @@
+Use JOIN Instead of Correlated Subqueries
+Correlated subqueries slow down query performance because they are executed for every row. Instead, use a JOIN.
+
+Steps:
+
+Identify a correlated subquery in your SQL.
+Replace it with a JOIN for better performance.
+Correlated subquery example:
+
+ 
+ 
+SELECT e1.employee_id, e1.employee_name, e1.salary
+FROM employee e1
+WHERE e1.salary > (
+  SELECT AVG(e2.salary)
+  FROM employee e2
+  WHERE e2.department_id = e1.department_id
+);
+Optimized JOIN version:
+
+ 
+ 
+SELECT e1.employee_id, e1.employee_name, e1.salary
+FROM employee e1
+JOIN (
+  SELECT department_id, AVG(salary) AS avg_salary
+  FROM employee
+  GROUP BY department_id
+) e2 ON e1.department_id = e2.department_id
+WHERE e1.salary > e2.avg_salary;

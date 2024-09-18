@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.jetbrains.com/webstorm/WebStorm-2021.2.3.exe -OutFile webstorm_installer.exe; Start-Process webstorm_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,10 @@
+Checkov is an open-source static analysis tool designed to scan Infrastructure as Code (IaC) for security and compliance issues. It helps identify potential vulnerabilities and misconfigurations in IaC files, such as Terraform, CloudFormation, Kubernetes, ARM templates, and more.
+
+### Key Features of Checkov:
+- **Security Best Practices**: Detects common misconfigurations related to security (e.g., missing encryption, open ports).
+- **Compliance**: Ensures compliance with standards such as SOC 2, HIPAA, GDPR, and PCI-DSS.
+- **Multi-Cloud Support**: Works with AWS, Azure, Google Cloud, and other cloud environments.
+- **Custom Policies**: Allows you to define custom policies for specific security needs.
+- **Integration**: Easily integrates into CI/CD pipelines to automate security checks before deployments.
+
+It's widely used to ensure that IaC deployments are secure and compliant with industry standards before going live.

@@ -1,0 +1,5 @@
+Receive Messages from the Queue
+ 
+ 
+aws sqs receive-message --queue-url <QueueUrl>
+This command returns one or more messages from the specified queue.

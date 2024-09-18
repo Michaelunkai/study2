@@ -1,0 +1,1 @@
+aws codeguruprofiler configure-agent --profiling-group-name MyProfilingGroup --agent-parameters file://parameters.json

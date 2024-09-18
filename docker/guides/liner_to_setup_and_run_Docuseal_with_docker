@@ -1,0 +1,1 @@
+git clone https://github.com/docusealco/docuseal.git && cd docuseal && echo -e "POSTGRES_DB=docuseal_db\nPOSTGRES_USER=docuseal_user\nPOSTGRES_PASSWORD=your_password" > .env && sudo docker-compose up --build && gcl 3000

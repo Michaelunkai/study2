@@ -1,0 +1,10 @@
+Univention Corporate Server Install Guide Using Virtualbox
+What is Univention Corporate Server?
+Univention Corporate Server (UCS) is the innovative basis for the cost-efficient operation and easy administration of server applications and entire IT infrastructures. UCS is optimally suited to the management of distributed heterogeneous and virtualized IT environments, regardless of whether you employ Microsoft Windows, Mac OS X or Linux systems. - https://www.univention.com/products/ucs/
+Open a web browser and download the Univention Corporate Server .ova Download
+Launch VirtualBox
+Select File > Import Appliance...
+Click the Browse icon > Navigate to the downloaded .ova file > Select UCS-Virtualbox-Image.ova
+Click Next and then Import
+Make sure the Univention Corporate Server VM is selected and click Start > Normal
+That's it

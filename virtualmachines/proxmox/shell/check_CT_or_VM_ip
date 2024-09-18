@@ -1,0 +1,4 @@
+pct exec <CTID> ip addr show
+
+
+qm exec <VMID> ip addr show

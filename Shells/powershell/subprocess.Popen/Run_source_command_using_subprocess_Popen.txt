@@ -1,0 +1,1 @@
+subprocess.Popen(['source', 'env/bin/activate'], shell=True)

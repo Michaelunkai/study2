@@ -1,0 +1,1 @@
+sudo docker exec -it kafka kafka-topics --create --topic partitioned_topic --bootstrap-server localhost:7000 --partitions 3 --replication-factor 2

@@ -1,0 +1,1 @@
+convert your_image.jpg output.png

@@ -1,0 +1,21 @@
+Create an EKS Cluster
+Check for Existing Stacks: Ensure no conflicting CloudFormation stacks exist.
+
+ 
+ 
+aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE CREATE_IN_PROGRESS --region us-west-2
+If there are any stacks related to your previous attempts, delete them:
+
+ 
+ 
+aws cloudformation delete-stack --stack-name <stack-name> --region us-west-2
+Create the EKS Cluster: Use eksctl to create your EKS cluster.
+
+ 
+ 
+eksctl create cluster --name my-cluster --region us-west-2 --nodegroup-name linux-nodes --node-type t2.medium --nodes 3
+Ensure that the availability zones and instance types are compatible. If you encounter issues, you can manually specify the availability zones:
+
+ 
+ 
+eksctl create cluster --name my-cluster --region us-west-2 --zones "us-we

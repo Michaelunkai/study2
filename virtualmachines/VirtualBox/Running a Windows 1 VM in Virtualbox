@@ -1,0 +1,48 @@
+Running a Windows 1 VM in Virtualbox
+Download MS-DOS 6.22 Download
+Download Microsoft Windows 1.04 Download
+Extract the MS-DOS and Windows 1.04 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Microsoft Windows 1.04
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 3.1
+Memory Size: 4 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Microsoft Windows 1.04.vdi
+File size: 16 MB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Storage
+Click on the floppy disk drive
+Select the disc dropdown to the right > Choose a virtual floppy disk file...
+Browse to the extracted MS-DOS 6.22 files and select Disk1.img
+Click OK
+Make sure the Windows 1.04 VM is selected and click Start > Normal
+Press Enter to start the installation and press Enter multiple times to accept the default values
+When prompted by the installer, go to the VM settings and swap out the MS-DOS disk images and press Enter to continue
+Once MS-DOS has been successfully installed, select Devices > Floppy Drives > Remove disk from virtual drive
+Press Enter in the VM to reboot
+Once MS-DOS has booted, select Devices > Floppy Drives > Choose disk image...
+Navigate to the extracted Windows 1.04 files and select Disk1.img
+Type the following command
+a:
+setup
+The Windows 1.04 installation process will start
+Press C to Continue
+Select 1 on the keyboard setup
+Select 7 on the pointing device setup
+Select 3 on the display setup
+When prompted by the installer, go to the VM settings and swap out the Window 1.04 disk images and press Enter to continue
+Press N when asked if you'd like to setup a printer/plotter
+After the installation completes, type the following command:
+win
+Welcome to Windows 1.04
+Revel in the nostalgia

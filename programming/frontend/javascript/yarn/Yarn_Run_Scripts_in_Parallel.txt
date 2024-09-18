@@ -1,0 +1,1 @@
+yarn run <script1> && yarn run <script2>

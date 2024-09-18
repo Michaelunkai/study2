@@ -1,0 +1,1 @@
+allocation_id=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text)

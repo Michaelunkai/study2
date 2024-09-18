@@ -1,0 +1,5 @@
+/var/lib/lxc
+
+
+and for the .conf files:
+ /etc/pve/lxc/

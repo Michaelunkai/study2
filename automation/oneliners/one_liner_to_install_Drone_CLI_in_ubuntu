@@ -1,0 +1,1 @@
+apt install curl -y && curl -L https://github.com/drone/drone-cli/releases/download/v1.6.0/drone_linux_amd64.tar.gz | tar zx && sudo install -t /usr/local/bin drone && drone --version

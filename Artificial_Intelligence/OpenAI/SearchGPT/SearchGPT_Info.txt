@@ -1,0 +1,19 @@
+**Everything You Need to Know About SearchGPT**
+For several months, there have been rumors about the announcement of OpenAI's search engine, and finally, OpenAI has launched SearchGPT. Does it sound familiar? Yes, Perplexity already does that. So what's the difference between them? Let's see...
+### What is SearchGPT
+SearchGPT is a search engine that combines the capabilities of OpenAI's artificial intelligence models with information from the internet, providing quick and up-to-date answers with clear and relevant sources.
+### Capabilities of SearchGPT
+- **Providing real-time information from the internet**
+- **Providing links to relevant sources**
+- **Ability to ask follow-up questions**
+- **Webmasters can manage how they appear on SearchGPT**
+### Differences Between Perplexity and SearchGPT
+Currently, it doesn't seem that there is anything that distinguishes SearchGPT from Perplexity. However, Perplexity also allows searching for academic articles, opinions, and rumors on social media, videos, and more, which SearchGPT does not offer.
+### So What's Next?
+According to the company's statement, they plan to receive feedback on the prototype and then launch it as part of ChatGPT.
+**Join the Waiting List:**
+[https://chatgpt.com/search](https://chatgpt.com/search)
+---
+**Hadas Frank**
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

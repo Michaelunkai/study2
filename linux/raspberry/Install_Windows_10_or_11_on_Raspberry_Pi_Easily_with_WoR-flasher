@@ -1,0 +1,36 @@
+▲A  A▼
+Install Windows 10 or 11 on Raspberry Pi Easily with WoR-flasher
+Things You Will Need
+A USB flash drive at least 32 GB https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Fla ing Windows
+Log into a Linux device (this can be a Raspberry Pi or any other Debian based Linux device)
+Plug in the target USB flash drive
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install git if not already installed
+sudo apt install git -y
+# clone the wor-flasher github repository
+git clone https://github.com/Botspot/wor-flasher ./wor-flasher
+# run the wor-flasher GUI
+./wor-fla er/install-wor-gui. 
+The WOR Flasher GUI should load
+Select a version of Windows and the target Raspberry Pi model > Click Next
+Select the language for the Windows installation > Click Next
+Select the target device to write Windows to > Click Next
+NOTE: Double check that you select the correct device as all data will be overwritten on it
+Review the overview screen
+If everything looks correct click Flash
+A new terminal window will run and Windows will be downloaded and flashed to the target device
+Once the flash completes, either safely remove the USB flash drive if flashing from a different device or shutdown the Raspberry Pi if running from the Pi directly
+Booting Windows on the Raspberry Pi
+Remove all other bootable USB/MicroSD devices from the Raspberry Pi and insert the flashed Windows USB flash drive device
+Power on the Raspberry Pi
+The Windows Setup dialog should display
+Select the edition of Windows > Click Install
+Windows Setup will complete and reboot when completed
+After booting back up answer the sysprep questions
+Welcome to Windows 10 or 11 running on Raspberry Pi
+Source: https://github.com/Botspot/wor-fla er
+
+ 

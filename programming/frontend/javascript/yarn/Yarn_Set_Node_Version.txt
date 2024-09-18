@@ -1,0 +1,1 @@
+yarn set version <version>

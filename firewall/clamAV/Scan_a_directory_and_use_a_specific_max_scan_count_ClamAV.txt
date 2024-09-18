@@ -1,0 +1,1 @@
+clamscan -r --max-scan-count=1000 /path/to/directory

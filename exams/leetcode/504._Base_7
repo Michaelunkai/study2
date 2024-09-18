@@ -1,0 +1,56 @@
+To convert an integer to its base 7 representation, you can follow a straightforward approach similar to how you would convert an integer to any other base. Here's a step-by-step guide and the implementation in Python:
+
+### Steps:
+
+1. **Handle Edge Case**: If the number is 0, return "0" immediately.
+2. **Determine Sign**: Check if the number is negative. If so, remember to append a "-" sign at the end.
+3. **Convert to Positive**: Work with the absolute value of the number to simplify the conversion process.
+4. **Convert to Base 7**:
+   - Use a loop to repeatedly divide the number by 7.
+   - Keep track of the remainders.
+   - Append each remainder to the result.
+5. **Form the Result**:
+   - Combine all remainders in reverse order (since the last remainder corresponds to the highest place value).
+   - Add the negative sign back if the original number was negative.
+
+Here's the Python implementation of the described approach:
+
+```python
+class Solution:
+    def convertToBase7(self, num: int) -> str:
+        if num == 0:
+            return "0"
+        
+        negative = num < 0
+        num = abs(num)
+        result = []
+        
+        while num > 0:
+            result.append(str(num % 7))
+            num //= 7
+        
+        if negative:
+            result.append("-")
+        
+        return ''.join(result[::-1])
+
+# Example usage:
+solution = Solution()
+print(solution.convertToBase7(100))  # Output: "202"
+print(solution.convertToBase7(-7))   # Output: "-10"
+```
+
+### Explanation:
+
+1. **Edge Case Handling**: The function immediately returns "0" if `num` is 0.
+2. **Sign Handling**: The `negative` boolean variable keeps track of whether the original number is negative. The `abs(num)` function is used to work with the absolute value of `num`.
+3. **Conversion Loop**:
+   - The `while` loop continues as long as `num` is greater than 0.
+   - Inside the loop, `num % 7` computes the remainder (current digit in base 7), which is appended to the `result` list as a string.
+   - `num //= 7` reduces `num` for the next iteration by integer division.
+4. **Result Formation**:
+   - If the original number was negative, append the "-" sign to the result list.
+   - The `result[::-1]` reverses the order of the elements in the `result` list because the digits were added from least significant to most significant.
+   - `''.join(result[::-1])` combines the elements of the list into a single string and returns it.
+
+This method ensures that the integer is correctly converted to its base 7 representation and handles both positive and negative integers appropriately.

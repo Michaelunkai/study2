@@ -1,0 +1,30 @@
+Enabling LDAP/Active Directory Authentication in Apache Guacamole
+Open a terminal and run the following commands:
+wget http://mirror.metrocast.net/apache/guacamole/1.2.0/binary/guacamole-auth-ldap-1.2.0.tar.gz
+tar -xzf guacamole-auth-ldap-1.2.0.tar.gz
+sudo mkdir /etc/guacamole/extensions
+sudo cp ~/guacamole-auth-ldap-1.2.0/guacamole-auth-ldap-1.2.0.jar /etc/guacamole/extensions
+sudo nano /etc/guacamole/guacamole.properties
+Edit the guacamole.properties file adding the following values:
+### LDAP SETTINGS
+ldap-hostname:          i12bretrodc.i12bretro.local
+ldap-port:              389
+ldap-encryption-method: none
+
+ldap-user-base-dn:       DC=i12bretro,DC=local
+ldap-username-attribute: sAMAccountName
+
+ldap-search-bind-dn:       CN=readonly_svc,CN=Users,DC=i12bretro,DC=local
+ldap-search-bind-password: Read0nly!!
+
+ldap-user-search-filter: (&(objectClass=user)(memberOf:1.2.840.113556.1.4.1941:=CN=GuacamoleUsers,CN=Users,DC=i12bretro,DC=local))
+
+Press CTRL+O, Enter, CTRL+X to save the changes and exit
+Back in the terminal, run the following command to restart Tomcat
+sudo systemctl restart tomcat9
+Open a web browser and navigate to Guacamole
+Test logging in with a valid Active Directory username and password
+Note: to use an Active Directory account in Guacamole as a Guacamole administrator you must manually create the User in Guacamole > Settings > Users. After logging in with the account it will see Active Directory and Guacamole specific users simultaneously
+
+https://enterprise.glyptodon.com/doc/latest/authenticating-users-with-ldap-12812314.html
+https://guacamole.apache.org/doc/gug/ldap-auth.html#ldap-downloading

@@ -1,0 +1,20 @@
+Meet Vicuna: The Closest Open Model to ChatGPT
+
+**Try it here:** [Chat LMSYS](https://chat.lmsys.org/)  
+**Blog:** [Vicuna LMSYS](https://vicuna.lmsys.org/)  
+**Code:** [GitHub FastChat](https://github.com/lm-sys/FastChat)
+
+**About the Model:**
+Researchers from UC Berkeley, CMU, Stanford, and UC San Diego present Vicuna-13B, an open-source chat model trained on user conversations from ChatGPT. The model was evaluated using GPT-4, which acted as a judge in head-to-head comparisons with other models. Vicuna-13B achieved a performance score of approximately 90% of the original ChatGPT, with a training cost of just $300.
+
+**Training Details:**
+- The model was trained on the LLaMA base using a dataset of around 70,000 ChatGPT conversations.
+- The authors convert HTML code to Markdown and filter out inappropriate or low-quality examples.
+- The model's training incorporated Gradient Checkpointing and Flash Attention to reduce memory usage.
+- SkyPilot was used for training on Spot Instances, significantly cutting training costs.
+
+**Conclusion:**
+Vicuna-13B demonstrates impressive performance, showcasing the potential of open models trained on ChatGPT conversations. The model shows improvements in response quality compared to previous models, with the potential for even higher quality.
+
+**References:**
+[1] Based on GPT-3 training costs.

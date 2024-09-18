@@ -1,0 +1,1 @@
+aws codepipeline describe-job --job-id <job-id>

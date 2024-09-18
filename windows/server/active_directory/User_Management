@@ -1,0 +1,42 @@
+Now that your Active Directory forest is set up, let's delve into user management:
+
+Create a User Account:
+New-ADUser -Name "mich fed" -SamAccountName "mich" -GivenName "micha" -Surname "mich" -UserPrincipalName "mygmail@gmail.com" -Enabled $true -PassThru -AccountPassword (ConvertTo-SecureString -AsPlainText "password" -Force)
+
+** To list all group names in Active Directory, you can use the Get-ADGroup command. Here's the command:
+
+ 
+ 
+Get-ADGroup -Filter * | Select-Object Name
+This command retrieves all groups and then selects and displays only the "Name" property for each group. Execute this in PowerShell on your Windows Server to see a list of all group names in your Active Directory environment. If you need more details about each group, you can remove the Select-Object Name part from the command.
+
+
+2)
+Add-ADGroupMember -Identity "GroupName" -Members "mich"
+
+3) etrieve User Information:
+
+ 
+ 
+Get-ADUser -Identity "micha"
+
+4)
+Modify User Attributes:
+
+ 
+ 
+Set-ADUser -Identity "micha" -Title "Manager" -Description "Department Head"
+
+5)Disable a User Account:
+
+ 
+ 
+6)Disable-ADAccount -Identity "micha"
+Enable a User Account:
+
+ 
+ 
+Enable-ADAccount -Identity "micha"
+
+
+Adjust the user details and group name as needed.

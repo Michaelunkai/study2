@@ -1,0 +1,22 @@
+Sure, here is a comparison between AdGuard and Pi-hole:
+
+### AdGuard vs. Pi-hole
+
+| Feature                | AdGuard                                          | Pi-hole                                          |
+|------------------------|--------------------------------------------------|--------------------------------------------------|
+| **Purpose**            | Ad blocker, privacy protection                   | Network-wide ad blocker                          |
+| **Installation**       | Software application, browser extension, router  | Self-hosted, requires Raspberry Pi or similar    |
+| **User Interface**     | GUI (Desktop and Mobile apps)                    | Web-based interface                              |
+| **Block Lists**        | Uses community block lists, custom lists         | Uses community block lists, custom lists         |
+| **Privacy Protection** | Blocks trackers, phishing sites                  | Primarily blocks ads                             |
+| **Customizability**    | High (custom rules, DNS settings)                | High (custom lists, whitelisting, blacklisting)  |
+| **Cost**               | Free with premium options                        | Free                                             |
+| **DNS Support**        | Supports DNS over HTTPS, DNS over TLS            | Supports custom DNS servers                      |
+| **Logging and Stats**  | Detailed statistics and logs                     | Detailed statistics and logs                     |
+| **Compatibility**      | Windows, macOS, iOS, Android, Linux, Router      | Any device via network connection                |
+| **Performance Impact** | Minimal impact                                   | Minimal impact                                   |
+| **Setup Complexity**   | Easy for applications, moderate for router setup | Moderate to high (requires some technical knowledge) |
+| **Community Support**  | Active community forums                          | Active community forums, open-source development |
+| **Updates**            | Regular updates and support                      | Regular updates from open-source community       |
+
+Both AdGuard and Pi-hole are effective at blocking ads and protecting privacy, but they serve slightly different purposes and have different methods of deployment. AdGuard is more versatile with its applications and browser extensions, while Pi-hole provides a network-wide ad-blocking solution that requires more technical setup.

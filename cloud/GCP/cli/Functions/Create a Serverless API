@@ -1,0 +1,1 @@
+gcloud functions deploy my-function --runtime nodejs14 --trigger-http --allow-unauthenticated

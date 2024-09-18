@@ -1,0 +1,19 @@
+Step 1: Definition
+Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable where the problem can be divided into overlapping subproblems.
+
+
+# Recursive approach with memoization
+def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]
+
+# Example usage
+print(fibonacci(10))  # Output: 55
+
+
+
+

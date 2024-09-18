@@ -1,0 +1,73 @@
+To solve the problem of finding the smallest range that includes at least one number from each of the k lists, we can use a min-heap (priority queue) to efficiently keep track of the minimum elements from each list and a variable to keep track of the current maximum value. The idea is to use the min-heap to maintain the smallest element from each list and iterate through the elements, expanding and contracting the range until the smallest range is found.
+
+### Steps:
+
+1. **Initialization**:
+   - Create a min-heap to store the smallest elements from each list along with the index of the list and the index of the element within the list.
+   - Initialize `max_value` to the maximum of the first elements of each list, as this helps in tracking the largest element in the current range.
+
+2. **Heap Operations**:
+   - Continuously extract the minimum element from the heap.
+   - Update the range `[min_value, max_value]` if it is smaller than the previous range.
+   - Move to the next element in the same list from which the minimum element was extracted and update `max_value` if the new element is larger.
+
+3. **Termination**:
+   - Stop when any of the lists is exhausted, as it's not possible to have a valid range covering all lists.
+
+### Python Code:
+
+Here is the Python implementation using the described approach:
+
+```python
+import heapq
+
+class Solution:
+    def smallestRange(self, nums: List[List[int]]) -> List[int]:
+        # Min-heap to store elements (value, list_index, element_index)
+        min_heap = []
+        max_value = float('-inf')
+        
+        # Initialize the heap with the first element of each list
+        for i in range(len(nums)):
+            heapq.heappush(min_heap, (nums[i][0], i, 0))
+            max_value = max(max_value, nums[i][0])
+        
+        # The range result initialized to a very large range
+        range_start, range_end = float('-inf'), float('inf')
+        
+        while min_heap:
+            min_value, list_index, element_index = heapq.heappop(min_heap)
+            
+            # Update the smallest range if found
+            if max_value - min_value < range_end - range_start:
+                range_start, range_end = min_value, max_value
+            
+            # Move to the next element in the same list
+            if element_index + 1 < len(nums[list_index]):
+                next_value = nums[list_index][element_index + 1]
+                heapq.heappush(min_heap, (next_value, list_index, element_index + 1))
+                max_value = max(max_value, next_value)
+            else:
+                # One of the lists is exhausted, break the loop
+                break
+        
+        return [range_start, range_end]
+
+# Example usage:
+# solution = Solution()
+# print(solution.smallestRange([[4,10,15,24,26],[0,9,12,20],[5,18,22,30]]))  # Output: [20,24]
+```
+
+### Explanation:
+
+1. **Initialization**: 
+   - The min-heap is initialized with the first element of each list. `max_value` keeps track of the maximum of these initial elements.
+
+2. **Min-Heap Operations**:
+   - Extract the minimum element from the heap, update the smallest range if the current range is smaller.
+   - Push the next element from the list (if available) to the heap and update `max_value`.
+
+3. **Termination**:
+   - The loop breaks when any list is exhausted, ensuring the result is valid and covers at least one element from each list.
+
+This approach ensures an optimal and efficient solution to finding the smallest range covering elements from each of the k lists.

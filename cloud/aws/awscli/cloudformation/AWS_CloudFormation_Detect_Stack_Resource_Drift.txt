@@ -1,0 +1,1 @@
+aws cloudformation detect-stack-resource-drift --stack-name <stack-name> --logical-resource-id <resource-id>

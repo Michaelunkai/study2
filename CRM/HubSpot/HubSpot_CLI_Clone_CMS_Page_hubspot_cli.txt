@@ -1,0 +1,1 @@
+hs cms clone page <page-id> <destination-path>

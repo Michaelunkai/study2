@@ -1,0 +1,16 @@
+Listmonk is a high-performance, self-hosted newsletter and mailing list manager. It is designed to be fast, feature-rich, and easy to use, with a modern dashboard for managing your email campaigns. Listmonk is packed into a single binary application and uses a PostgreSQL database as its data store.
+
+### Key Features:
+- **Self-Hosted**: You can run Listmonk on your own servers, giving you full control over your data and email lists.
+- **High Performance**: Listmonk is optimized for speed, capable of handling large mailing lists and high volumes of emails efficiently.
+- **Modern Dashboard**: The application comes with an intuitive and modern web-based dashboard, making it easy to manage your mailing lists, campaigns, and subscribers.
+- **Single Binary**: Listmonk is distributed as a single binary file, simplifying the deployment process.
+- **Open Source**: Listmonk is open-source software licensed under the AGPL v3 license, allowing you to modify and extend it as needed.
+- **API Support**: It also provides APIs for integration with other systems and custom automation.
+
+### Use Cases:
+- **Newsletters**: Manage and send newsletters to your subscribers.
+- **Campaigns**: Run email campaigns for marketing, announcements, or any other purpose.
+- **Mailing Lists**: Organize and manage multiple mailing lists with ease.
+
+Listmonk is ideal for individuals or organizations that need a robust, self-hosted solution for managing newsletters and email campaigns.

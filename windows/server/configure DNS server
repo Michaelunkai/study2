@@ -1,0 +1,53 @@
+# Import the DNS Server module
+Import-Module DnsServer
+
+# Check if the reverse lookup zone exists
+$reverseLookupZone = Get-DnsServerZone -Name "1.168.192.in-addr.arpa"
+
+if ($reverseLookupZone) {
+    Write-Host "Reverse lookup zone '1.168.192.in-addr.arpa' exists."
+} else {
+    Write-Host "Reverse lookup zone '1.168.192.in-addr.arpa' does not exist. Creating..."
+
+    # Add a reverse lookup zone
+    Add-DnsServerPrimaryZone -NetworkID "192.168.1.0/24" -ZoneFile "1.168.192.in-addr.arpa.dns"
+    Write-Host "Reverse lookup zone '1.168.192.in-addr.arpa' created successfully."
+}
+
+# Check if the PTR record for "micha" exists
+$existingPtrRecord = Get-DnsServerResourceRecord -ZoneName "1.168.192.in-addr.arpa" -Name "100" -RRType PTR
+
+if ($existingPtrRecord) {
+    Write-Host "PTR record for 'micha' exists."
+
+    # Update the existing PTR record
+    $existingPtrRecord = $existingPtrRecord[0]
+    $existingPtrRecord.RecordData.PtrDomainName = "micha.com"
+    Set-DnsServerResourceRecord -ZoneName "1.168.192.in-addr.arpa" -OldInputObject $existingPtrRecord -NewInputObject $existingPtrRecord
+    Write-Host "PTR record for 'micha' updated successfully."
+} else {
+    Write-Host "PTR record for 'micha' does not exist."
+
+    # Add the PTR record for "micha"
+    Add-DnsServerResourceRecordPtr -ZoneName "1.168.192.in-addr.arpa" -Name "100" -PtrDomainName "micha.com"
+    Write-Host "PTR record for 'micha' added successfully."
+}
+
+
+
+
+
+**** to undo:
+
+# Undo the PTR record for "micha"
+Remove-DnsServerResourceRecord -ZoneName "1.168.192.in-addr.arpa" -Name "100" -RRType PTR
+
+# Undo the A record for "micha"
+Remove-DnsServerResourceRecord -ZoneName "micha.com" -Name "micha" -RRType A
+
+# Undo the reverse lookup zone
+Remove-DnsServerZone -Name "1.168.192.in-addr.arpa"
+
+# Undo the primary DNS zone
+Remove-DnsServerZone -Name "micha.com"
+

@@ -1,0 +1,1 @@
+ffmpeg -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3

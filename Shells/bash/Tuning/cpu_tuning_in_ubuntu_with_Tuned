@@ -1,0 +1,6 @@
+Advanced CPU Tuning
+
+Install and configure tuned: A daemon that tunes system settings dynamically.sudo apt install tuned
+sudo systemctl enable tuned
+sudo systemctl start tunedApply a tuned profile:sudo tuned-adm list
+sudo tuned-adm profile throughput-performance

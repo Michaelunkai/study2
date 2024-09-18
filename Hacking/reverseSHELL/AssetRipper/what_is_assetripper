@@ -1,0 +1,9 @@
+`AssetRipper` is a tool designed to extract and decompile assets from Unity games. Unity is a popular game development platform, and many games built with Unity use various assets such as 3D models, textures, audio files, and scripts. AssetRipper allows users to extract these assets from Unity game files, typically from the `.unity3d`, `.asset`, or `.bundle` files, so they can be examined or reused.
+
+Here’s what AssetRipper typically does:
+
+1. **Extraction**: It extracts raw assets from Unity games, including textures, models, sounds, and scripts.
+2. **Decompilation**: It decompiles Unity scripts written in C# back into readable source code.
+3. **Reconstruction**: AssetRipper attempts to reconstruct the assets in a way that they can be opened in Unity or other software that supports the formats of the extracted assets.
+
+AssetRipper is often used by developers for educational purposes, modding, or for recovering assets from older projects where the original files have been lost. However, it's important to note that extracting and using assets from games you do not own or do not have permission to modify can violate intellectual property laws or terms of service.

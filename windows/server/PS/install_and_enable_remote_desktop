@@ -1,0 +1,9 @@
+# Install Remote Desktop Services role
+Install-WindowsFeature -Name RDS-RD-Server -IncludeManagementTools
+
+# Configure Remote Desktop licensing mode
+Set-RDLicenseConfiguration -LicenseServer "RDLicenseServerName" -Mode PerUser
+
+# Enable Remote Desktop connections
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+

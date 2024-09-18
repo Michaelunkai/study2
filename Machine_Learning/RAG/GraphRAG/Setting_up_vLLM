@@ -1,0 +1,55 @@
+Setting up vLLM
+vLLM requires CUDA 12.1 for its compiled binaries.
+
+Check and Install the NVIDIA Drivers
+First, check your driver version of NVIDIA and its CUDA compatibility:
+
+ 
+ 
+nvidia-smi
+If you’re not seeing any output, you need to first install the drivers. You can refer to this link for more details on installing NVIDIA drivers on Ubuntu 22.04 LTS.
+
+Install CUDA
+Download and install CUDA:
+
+ 
+ 
+wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda_12.1.0_525.85.12_linux.run
+sudo   cuda_12.1.0_525.85.12_linux.run
+Verify the CUDA version:
+
+ 
+ 
+nvcc --version
+Install Pytorch and vLLM
+Ensure PyTorch is installed with CUDA support:
+
+ 
+ 
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+Then install vLLM:
+
+ 
+ 
+pip install vllm
+Download the Model
+Download the Meta-Llama model:
+
+ 
+ 
+huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct --exclude "original/*" --local-dir meta-llama/Meta-Llama-3.1-8B-Instruct
+Running the vLLM Inference Server
+Start the vLLM server with the following command:
+
+ 
+ 
+python -m vllm.entrypoints.openai.api_server \
+--model meta-llama/Meta-Llama-3.1-8B-Instruct \
+--dtype half \
+--api_key EMPTY \
+--tensor-parallel-size 4 \
+--trust-remote-code \
+--gpu-memory-utilization 0.92 \
+--max-num-seqs 128 \
+--max-model-len 65536 \
+--guided-decoding-backend lm-format-enforcer

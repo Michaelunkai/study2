@@ -1,0 +1,17 @@
+Katalon Studio is an all-in-one test automation solution for web, API, mobile, and desktop applications. It provides a user-friendly interface with built-in features that enable testers and developers to create, execute, and manage automated tests effectively. 
+
+Key features of Katalon Studio include:
+
+1. **Cross-Platform Testing**: Supports testing across various platforms, including web browsers, mobile devices, and desktop applications.
+
+2. **Multiple Testing Types**: Supports functional testing, API testing, mobile testing, and even UI testing.
+
+3. **Built-in Keywords and Scripting**: Offers a wide range of built-in keywords that simplify the process of creating test cases. For more advanced users, it allows scripting in Groovy.
+
+4. **Integration**: Seamlessly integrates with popular CI/CD tools like Jenkins, Git, and JIRA, enhancing the automation workflow.
+
+5. **Data-Driven Testing**: Allows for parameterized test cases, which can be executed with different sets of data.
+
+6. **Test Reporting and Analytics**: Provides detailed test reports and dashboards for tracking test execution and results.
+
+Katalon Studio is widely used in software testing due to its comprehensive feature set, ease of use, and ability to scale with testing needs.

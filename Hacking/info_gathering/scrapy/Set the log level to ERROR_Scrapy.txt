@@ -1,0 +1,1 @@
+scrapy crawl myspider --set LOG_LEVEL=ERROR

@@ -1,0 +1,5 @@
+# Install DHCP Server role
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
+
+# Configure DHCP server settings
+Add-DhcpServerV4Scope -Name "MyScope" -StartRange 192.168.1.100 -EndRange 192.168.1.200 -SubnetMask 255.255.255.0 -State Active

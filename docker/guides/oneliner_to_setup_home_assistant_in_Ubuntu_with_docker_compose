@@ -1,0 +1,1 @@
+ cd /mnt/c/study/docker/compose/homeassistant && dcu && gc http://172.27.127.95:8123/

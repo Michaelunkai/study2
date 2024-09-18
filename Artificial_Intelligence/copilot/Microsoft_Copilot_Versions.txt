@@ -1,0 +1,43 @@
+**Microsoft Introduces Three Versions of Copilot – What Are the Differences?**
+In the rapidly evolving landscape of AI assistants, Microsoft has introduced three versions of Copilot. Let’s examine the differences to help you choose the right one.
+### 1. **Copilot (Free Version)**
+**Target Audience:** General users seeking AI assistance
+**Availability:** Mobile app, web tool, and integrated within Windows
+**Features:**
+- Access to GPT-4 and GPT-4 Turbo during off-peak hours
+- AI image creation via Designer with 15 boosts per day
+- Conversational search using text, images, and voice
+- Platform compatibility: Web, Android, Windows, macOS, iOS, and iPadOS
+### 2. **Copilot Pro ($20 per month per user)**
+**Target Audience:** Power users, developers, creators, and researchers
+**Integration:** Deeper integration with the Microsoft 365 suite
+**Features:**
+- Seamless AI experience across devices
+- Advanced AI image creation with 100 boosts per day
+- Access to Copilot within Word, PowerPoint, Excel, Outlook, and OneNote (for Microsoft 365 Family and Personal subscribers)
+- Exclusive access to the latest GPT models, including GPT-4 Turbo, even during peak hours
+- Future feature: Copilot GPT Builder for creating custom AI models
+### 3. **Microsoft 365 Copilot**
+**Focus:** Work-focused tasks within Microsoft 365 applications (Word, Excel, PowerPoint)
+**Use Case:** Boosting productivity and efficiency when working on documents and spreadsheets
+**Key Differentiating Feature:** Tailored enhancements for seamless integration with Microsoft 365 tools
+### Copilot Features
+**AI Image Creation with Copilot** is a fascinating feature that combines the power of language with artificial intelligence to create visual content.
+### Image Creator from Microsoft Designer
+**What it is:** A tool within Copilot that allows creating images based on words using AI
+**How it works:** You provide a prompt, and Copilot uses its AI capabilities (including DALL-E) to generate four images related to the prompt
+**Customization:** After creating the initial images, you can further customize them by adding more prompts and suggestions
+**Saving and Sharing:** Once satisfied with the results, you can save the images to your computer and share them with others
+**Integration:** Seamlessly integrated with Copilot, making it easy to access and use
+### Windows Copilot for Image Creation
+**Prompt-based:** Copilot creates images with a simple prompt
+**Multiple Images:** Generates four images at once, giving you options to choose from
+**User-Friendly:** No expertise needed – just provide a simple prompt, and Copilot does the rest
+**Versatility:** Use the generated images for presentations, social media, or any creative project
+### Editing Copilot-Generated Images
+**Access:** Log into Copilot and find the available GPT Copilots on the right side panel
+**Selecting Copilot Designer:** Click on 'Designer' specifically for AI image creation
+**Creating Images:** Enter a prompt in the search box at the bottom, and Copilot will create images based on your input
+**Remember, this feature opens exciting possibilities for content creators, designers, and anyone looking to add visual flair to their work!**
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

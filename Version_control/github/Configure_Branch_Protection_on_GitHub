@@ -1,0 +1,12 @@
+Configure Branch Protection on GitHub
+Go to GitHub: Open your repository on GitHub.
+Settings: Click on the Settings tab.
+Branches: Select Branches from the left sidebar.
+Add Rule: Under the Branch protection rules, click Add rule.
+Branch Name Pattern: Enter the branch name you want to protect (e.g., main).
+Protection Options: Select the protection options you prefer:
+Require pull request reviews before merging.
+Require status checks to pass before merging.
+Include administrators (if you want administrators to adhere to these rules).
+Require linear history, etc.
+Create: Click Create to apply the branch protection rule.

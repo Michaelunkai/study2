@@ -1,0 +1,1 @@
+aws ssm start-automation-execution --document-name <document-name> --parameters <parameters>

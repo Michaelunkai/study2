@@ -1,0 +1,4 @@
+Open "Server Manager" and click on "Add roles and features."
+Select "Remote Desktop Services installation" and follow the wizard to install the role.
+Once installed, open "Remote Desktop Licensing Manager" to configure the licensing mode.
+Enable Remote Desktop connections by navigating to "Control Panel" > "System" > "Remote settings" and enabling remote connections.

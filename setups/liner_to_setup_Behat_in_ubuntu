@@ -1,0 +1,1 @@
+sudo apt install php-cli composer -y && composer require behat/behat --dev && vendor/bin/behat --init && vendor/bin/behat --version

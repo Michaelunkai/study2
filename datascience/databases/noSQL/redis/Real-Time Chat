@@ -1,0 +1,2 @@
+redis-cli publish chatroom "Hello, everyone!"
+redis-cli subscribe chatroom

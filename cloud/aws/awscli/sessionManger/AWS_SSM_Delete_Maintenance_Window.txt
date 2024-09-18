@@ -1,0 +1,1 @@
+aws ssm delete-maintenance-window --window-id <window-id>

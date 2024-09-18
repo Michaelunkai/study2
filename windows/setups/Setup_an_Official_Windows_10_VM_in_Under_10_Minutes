@@ -1,0 +1,10 @@
+Setup an Official Windows 10 VM in Under 10 Minutes
+Open a browser and navigate to https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+Select VirtualBox from the platform options
+Extract the downloaded .zip file
+Launch VirtualBox
+Select File > Import Appliance...
+Click the Browse icon > Navigate to the extracted files .ova file > Select MSEdge - Win10.ova
+Click Next and then Import
+Make sure the MSEdge - Win10 VM is selected and click Start > Normal
+That's it

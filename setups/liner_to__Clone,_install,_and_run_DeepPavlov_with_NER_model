@@ -1,0 +1,1 @@
+cd && git clone https://github.com/deepmipt/DeepPavlov.git && cd DeepPavlov && pip install -r requirements.txt && pip install deeppavlov && python -m deeppavlov interact deeppavlov/configs/ner/ner_ontonotes_bert_mult.json -d -i

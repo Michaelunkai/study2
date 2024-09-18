@@ -1,0 +1,82 @@
+BlueBomb Wii Homebrew Method from Linux Virtualbox VM
+Setting up the Virtual Machine
+A USB flash drive (any size, the file is about 2 MB) https://amzn.to/3wkR5ju
+A USB Bluetooth adapter compatible with Linux https://amzn.to/3CUf6iN
+Setting up the Virtual Machine
+Download VirtualBox and VirtualBox Extension Pack Download
+Download a Linux Distro (I'm using Lubuntu x86) Download
+Download the BootMii installer Download
+Format the USB flash drive to the FAT32 filesystem
+This will erase all data on the drive, make sure you select the correct drive and that it doesn't contain anything important
+Copy boot.elf from the downloaded hackmii_installer_v1.2.zip and paste it on the root of the USB flash drive
+Safely remove the flash drive and insert it into the Wii using the USB port closest to the edge of the console
+Install VirtualBox
+Install the VirtualBox Extension Pack
+Launch VirtualBox
+Create a New VM by selecting Machine > New
+Name: BlueBomb
+Machine Folder: C:\VMs
+Type: Linux
+Version: Ubuntu (32-bit)
+Memory Size: 512 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image BlueBomb.vdi
+File size: 5 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Linux .iso file
+Click OK
+Make sure the BlueBomb VM is selected and click Start > Normal
+Follow the prompts to install the OS
+Update the Linux distro by running the following commands:
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get clean
+Install the required packages to run VirtualBox Guest Additions by running the following commands:
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+Select Devices > Insert Guest Additions CD image...
+Right click on the disc on the desktop > Open in Terminal
+Run the following command to install VirtualBox Guest Additions:
+sudo sh ./VBoxLinuxAdditions.run
+Once the Guest Additions have installed reboot the VM from the GUI or by running the reboot command in terminal
+After the VM reboots, login
+Plug the USB Bluetooth dongle into the host computer
+Select Devices > USB and select the Bluetooth USB dongle
+If this worked correctly the Bluetooth device should now display in the VM
+Select Preferences > Bluetooth Manager to test that the VM now has Bluetooth capability
+Downloading BlueBomb and Executing the Script
+Launch Terminal inside the VM
+Execute the following commands to change directory into Downloads and download the BlueBomb script
+cd Downloads
+https://raw.githubusercontent.com/RiiConnect24/Wii-Guide/master/assets/files/bluebomb-helper.sh
+chmod +x bluebomb-helper.sh
+To execute the script enter the following command:
+./bluebomb-helper.sh
+The BlueBomb script will ask if this is a Wii or Wii Mini
+It will then ask for the region (if Wii Mini) or the Wii Menu version (if Wii), enter the requested information > Press Enter
+Type yes to proceed > Press Enter
+At this point you will either get "Waiting to accept" or the error "Failed to power on device: -1"
+If you get the error press Ctrl+C to cancel the script and re-run it by pressing the up arrow and pressing Enter (It took me 2 tries)
+Power on the Wii but don't pair any WiiMotes with it
+Press the pair controller button the Wii console once every 2 or 3 seconds until the BlueBomb script makes a connection and starts pushing the payload over the Bluetooth connection
+Once completed the Wii will be at the HackMii Installer screen
+Wait for about a minute and it will prompt you to Press 1 to continue
+Pair a WiiMote with the console as normal and press 1
+Press A to Continue
+Using the D-pad, scroll up to Install the Homebrew Channel > Press A
+Select Yes, continue > Press A
+Select Exit > Press A
+You have now installed the Homebrew Channel using the BlueBomb exploit

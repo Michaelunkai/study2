@@ -1,0 +1,1 @@
+getphp && getapache && sudo mkdir -p /var/www/html && cd /var/www/html && sudo wget https://github.com/filegator/static/raw/master/dist.zip && sudo unzip dist.zip && sudo rm dist.zip && sudo chown -R www-data:www-data /var/www/html && sudo systemctl restart apache2

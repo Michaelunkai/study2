@@ -1,0 +1,5 @@
+Open "Server Manager" and click on "Add roles and features."
+Select "Active Directory Domain Services" and follow the wizard to install the role.
+After installing the role, promote the server to a domain controller using the "Active Directory Domain Services Configuration Wizard" or "dcpromo" command.
+Follow the prompts to configure the domain settings and complete the promotion process.
+After completing this step, your Windows Server will be configured as a domain controller running Active Directory Domain Services, allowing you to centrally manage network resources and user accounts within your domain.

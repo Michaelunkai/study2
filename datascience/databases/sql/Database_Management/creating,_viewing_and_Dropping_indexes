@@ -1,0 +1,32 @@
+Creating Indexes
+To create an index on a table column, you can use the CREATE INDEX statement.
+
+CREATE INDEX index_name ON tablename (column1, column2, ...);
+Replace index_name with a name for your index, tablename with the table name, and column1, column2, etc., with the columns you want to index.
+
+Example:
+
+CREATE INDEX username_index ON users (username);
+This creates an index named username_index on the username column in the users table.
+
+Viewing Indexes
+You can view the indexes associated with a table using the SHOW INDEX statement.
+
+SHOW INDEX FROM tablename;
+Replace tablename with the name of your table.
+
+Example:
+
+SHOW INDEX FROM users;
+This command displays information about the indexes associated with the users table.
+
+Dropping Indexes
+If needed, you can drop an index from a table using the DROP INDEX statement.
+
+DROP INDEX index_name ON tablename;
+Replace index_name with the name of the index you want to drop and tablename with the name of the table.
+
+Example:
+
+DROP INDEX username_index ON users;
+This removes the username_index from the users table.

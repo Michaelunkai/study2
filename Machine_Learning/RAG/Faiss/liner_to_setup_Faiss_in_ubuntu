@@ -1,0 +1,1 @@
+sudo apt-get install libfaiss-dev && mkdir faiss && cd faiss && python3 -m venv venv && source venv/bin/activate && pip install faiss-cpu && python -c 'import faiss; print(faiss.__version__)'

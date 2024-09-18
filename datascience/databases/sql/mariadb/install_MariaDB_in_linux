@@ -1,0 +1,244 @@
+
+How to Install and Start Using MariaDB on Ubuntu 20.04 | Step-by-Step
+by Winnie Ondara
+June 28th, 2022
+Cloud Computing
+How to Install and Start Using MariaDB on Ubuntu 20.04 | Step-by-Step
+Article contents
+
+    What is MariaDB?
+    Prerequisites
+    How to install MariaDB on Ubuntu 20.40?
+    Conclusion
+
+This step-by-step MariaDB installation tutorial will demonstrate how to install MariaDB on Ubuntu 20.04 server, including the configuration and how to start using it. Additionally, we will highlight some best practices to ensure optimal performance of your MariaDB database server.
+#
+What is MariaDB?
+
+MariaDB is arguably one of the most widely used open-source relational database systems for newbies learning SQL databases to seasoned developers working on massive IT projects. MariaDB continues to be one of the most preferred Relational Database Management Systems (RDBMS).
+
+MariaDB is community-developed, and a drop-in replacement for the MySQL database server. It was forked from the popular MySQL database server in 2009 after the acquisition of MySQL by Oracle.
+
+MariaDB delivers better performance, speed, and security when pitted against MySQL. It also outperforms MySQL in replication thanks to its asynchronous Master-slave replication.
+
+MariaDB provides three main editions:
+
+    MariaDB Community Server
+    MariaDB Enterprise Server
+    MariaDB SkySQL
+
+The MariaDB Community Edition is an opensource version which is completely free to download.
+
+The **MariaDB Enterprise Server Edition ** is a scaled-up Community Edition that provides production-grade and opensource database management solutions at a subscription. It provides additional features such as additional plugins, automatic failover, database firewall, security alerts, technical support, and consultation to mention a few.
+
+The MariaDB SkySQL Edition is a database-as-a-service (DBaaS) solution that ships the full power of the Enterprise Edition to the cloud. It provides powerful and innovative features that are intended to underpin mission-critical and enterprise deployments in the cloud. It supports thousands of databases in production with ease thanks to its efficiency and groundbreaking innovative features that make it a robust and reliable database service.
+
+Check out the official product page for a better comparison among the three MariaDB Editions.
+
+Top companies that leverage MariaDB in their tech stacks include Red Hat, Verizon, Samsung, Google, and ServiceNow to mention a few.
+
+At the time of publishing this guide, here are the latest MariaDB versions.
+
+    MariaDB 11.0 - The latest developmental release
+    MariaDB 10.11 - The latest stable LTS release
+
+Key highlights of the latest LTS release include:
+
+    Performance schema
+    Information schema
+    Enhanced Replication features
+    Improvements in Galera clustering
+    Storage Engines
+    Character Sets
+    Security vulnerabilities from previous versions have been addressed
+
+And so much more! Check out all the improvements included in MariaDB 10.6. In this guide, you will learn how to install MariaDB Community Server on Ubuntu 20.04.
+#
+Prerequisites
+
+To follow this MariaDB installation tutorial you need the following set of requirements:
+
+    An instance of Ubuntu 20.04.
+    A non-administrative user with sudo privileges configured on the instance.
+
+#
+How to install MariaDB on Ubuntu 20.40?
+
+Now that we know what MariaDB is, what it is used for, and what prerequisites we need, let’s look at how to install MariaDB on Ubuntu 20.04 server and get you started.
+#
+Step 1: Install MariaDB by logging into your Ubuntu server
+
+To get started, log into your Ubuntu 20.04 server and refresh the local repositories.
+
+sudo apt update
+
+Ubuntu repositories already provide MariaDB packages. The installation is straightforward using the PAT package manager as follows.
+
+sudo apt install mariadb-server mariadb-client -y
+
+However, the version of MariaDB provided by Ubuntu repositories is not the latest one. This installs MariaDB 10.3.24 at the time of penning down this guide. To install the latest version, use the official MariaDB repository.
+
+First, install the prerequisite package.
+
+sudo apt install -y software-properties-common
+
+Next, import the GPG signing key.
+
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+
+Once the GPG key is in place, add the MariaDB APT repository. The following repository is enabled for the MariaDB version 10.6. You may replace this value with the version that you intend to install.
+
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mariadb.mirror.liquidtelecom.com/repo/10.6/ubuntu focal main'
+
+Finally, refresh the local repositories and install the MariaDB server and client by using the APT package manager.
+
+sudo apt update && sudo apt install -y mariadb-server mariadb-client
+
+The command installs the specified version of the MariaDB database engine and client, alongside other additional packages and dependencies.
+
+You can confirm the installed version of MariaDB as shown.
+
+mariadb --version
+
+MariaDB version
+#
+Step 2: Start And Enable MariaDB
+
+By default, the MariaDB database engine starts automatically upon installation. You can verify this by running the command:
+
+sudo systemctl status mariadb
+
+MariaDB status
+
+From the above output, you can see that the MariaDB service is running. If for whatever reason, you find that the service is inactive or not running, you can start it as follows.
+
+sudo systemctl start mariadb
+
+Additionally, consider enabling MariaDB to start every time on system startup as shown.
+
+sudo systemctl enable mariadb
+
+The above command ensures that MariaDB starts automatically every time the server is rebooted or powered on.
+#
+Step 3: Configure MariaDB
+
+MariaDB ships with default settings that are considered weak and present loopholes which can potentially be exploited by nefarious parties leading to data breaches.
+
+To remediate this issue, you need to go an extra step and harden your MariaDB instance. To improve the security of the MariaDB database engine, you need to run the my _secure_installation shell script as shown.
+
+sudo my _secure_installation
+
+The script walks you through a series of prompts that will require you to make changes to the security options that involve the MariaDB database engine.
+
+The first prompt asks you to provide the current root password, and since none has been set up yet, simply hit ENTER on your keyboard.
+
+MariaDB secure installation
+
+Next, you will be prompted for the database root password. This ensures that no one can log in as the root user without authentication. So, type ‘Y’ and provide the database root password and confirm it.
+
+MariaDB consent screen
+
+Then press ‘Y’ for the subsequent prompts in order to configure the database engine according to the best security practices. This does the following:
+
+    Removes anonymous users from the database server
+    Disables remote root login. This ensures that the root user can only log in to the database server from “localhost”
+    Remove the test database which comes with MariaDB by default.
+    Reloads privilege tables for the changes t take effect immediately.
+
+MariaDB secure installation completed
+
+At this point, you have successfully completed the initial security configuration for MariaDB.
+#
+Step 4: Configure A Password-authenticated Administrative User
+
+In this section, you are going to create a new user account in the database server with password authentication and later assign administrative privileges to the user. So, login as the root user as follows:
+
+sudo mariadb -u root -p
+
+Next, create a regular user. Here, we are creating a user called admin_user. Be sure to replace secret_password with your preferred user’s password.
+
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'secret_password';
+
+ 
+
+Query OK, 0 rows affected (0.000 sec)
+
+Next, grant all privileges to admin_user. This effectively assigns all the database root user’s permissions to the user.
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin_user'@'localhost';
+
+The *.* wildcard notation implies that the user has permission to execute any task on any database in the database server.
+
+To apply the changes, flush the privileges.
+
+FLUSH PRIVILEGES;
+
+Finally, exit the database server.
+
+EXIT;
+
+#
+Step 5: Test MariaDB
+
+With the MariaDB database server configured, you can now log in and run a few queries. Proceed and log in to the database server using the administrative user that you have just created.
+
+sudo mariadb -u admin_user -p
+
+Login to MariaDB
+
+Provide the password for the administrative user and hit ENTER. Just above the MariaDB shell some details about the database server including the connection id, server version, and copyright information will be displayed.
+
+To check the existing databases, run the command:
+
+SHOW DATABASES;
+
+ 
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my               |
+| performance_schema |
++--------------------+
+4 rows in set (0.002 sec)
+
+To create a new database, run the following query. In this example, we are creating a database called test_db.
+
+CREATE DATABASE test_db;
+
+ 
+
+Query OK, 1 row affected (0.000 sec)
+
+To apply all the changes made without restarting or reloading MariaDB run the query:
+
+> FLUSH PRIVILEGES
+
+ 
+
+Query OK, 0 rows affected (0.000 sec)
+
+To list all the existing users in your database engine, run the following query.
+
+SELECT host, user FROM my .user;
+
+ 
+
++-----------+-------------+
+| Host      | User        |
++-----------+-------------+
+| localhost | admin_user  |
+| localhost | mariadb.sys |
+| localhost | root        |
++-----------+-------------+
+3 rows in set (0.001 sec)
+
+To exit the MariaDB prompt, simply run:
+
+QUIT
+
+ 
+
+Bye
+

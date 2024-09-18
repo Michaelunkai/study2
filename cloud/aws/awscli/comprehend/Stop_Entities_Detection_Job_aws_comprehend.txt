@@ -1,0 +1,1 @@
+aws comprehend stop-entities-detection-job --job-id <job-id>

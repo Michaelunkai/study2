@@ -1,0 +1,8 @@
+**LaZagne** is an open-source project designed to recover stored passwords from various applications on a local machine. It supports many commonly used software across Windows, Linux, and macOS, retrieving credentials stored using various methods, such as plaintext files, APIs, or encryption algorithms.
+
+Key features of LaZagne:
+- It can retrieve passwords from web browsers, email clients, databases, sysadmin tools, and more.
+- It supports password extraction for applications like Chrome, Firefox, FileZilla, KeePass, and RDPManager.
+- LaZagne is commonly used for post-exploitation, password recovery, and security assessments.
+
+It can be run directly from memory on Windows and Linux without writing files to the disk, making it useful in security and penetration testing scenarios.

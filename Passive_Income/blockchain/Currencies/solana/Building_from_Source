@@ -1,0 +1,19 @@
+Building from Source
+After installing the prerequisites, proceed with building Solana from source, navigate to Solana's GitHub releases page, and download the Source Code archive. Extract the code and build the binaries with:
+
+./scripts/cargo-install-all.  .
+export PATH=$PWD/bin:$PATH
+
+You can then run the following command to obtain the same result as with prebuilt binaries:
+
+solana-install init
+
+Use Homebrew
+This option requires you to have Homebrew package manager on your MacOS or Linux machine.
+
+MacOS & Linux
+Follow instructions at: https://formulae.brew.sh/formula/solana
+Homebrew formulae is updated after each solana release, however it is possible that the Homebrew version is outdated.
+
+Confirm you have the desired version of solana installed by entering:
+solana --version

@@ -1,0 +1,10 @@
+Devika AI is an open-source AI software engineer designed to understand high-level human instructions, conduct research, and generate code across multiple programming languages. It leverages advanced language models like GPT-4 and Claude, as well as local language models via Ollama, to perform complex coding tasks with minimal human guidance. Devika's core components include:
+
+1. **Agent Core**: Manages planning, reasoning, and execution by communicating with various sub-agents and modules.
+2. **Research Module**: Conducts web searches and gathers relevant data.
+3. **Code Writing Module**: Generates code based on the gathered information and user requirements.
+4. **Browser Interaction Module**: Navigates websites to extract information and interact with web elements.
+
+Devika aims to be a robust alternative to Devin AI, providing features like natural language interaction, project management, and dynamic state tracking. It supports various programming languages and offers a flexible, extensible architecture for adding new features and integrations【6†source】【7†source】【9†source】. 
+
+For more detailed information and installation instructions, you can visit the [Devika AI GitHub repository](https://github.com/stitionai/devika).

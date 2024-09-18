@@ -1,0 +1,1 @@
+aws iot delete-thing --thing-name <thing-name>

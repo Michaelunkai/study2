@@ -1,0 +1,64 @@
+Install Web Based Download Utility with Aria2 WebUI on Debian/Ubuntu
+Quick Setup
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install aria2
+sudo apt install aria2 -y
+# run the aria2 RPC server
+sudo aria2c --dir=/home/$USER/Downloads --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800 --rpc-secret=SomethingSecure -D
+# install git
+sudo apt install git -y
+# make a working directory
+mkdir aria2-webui
+# clone the aria2 webui github repository
+git clone https://github.com/ziahamza/webui-aria2.git ./aria2-webui
+Open a file explorer and navigate to ~/aria2-webui/docs
+Double click index.html to open it in the default web browser
+Select Settings > Connection Settings from the top navigation menu
+Scroll down to the Enter the secret token field and paste the rpc-secret string, SomethingSecure in this example
+Scroll down and click the Save Connection configuration button
+The webui will now be able to communicate with aria2 over RPC
+Starting Aria2 on System Boot
+Run the following commands in a terminal window
+# kill aria2 if it is running
+sudo killall aria2c
+# create aria2 conf directory
+sudo mkdir /etc/aria2 -p
+# create aria2.conf
+sudo nano /etc/aria2/aria2.conf
+Paste the following into the aria2.conf file
+dir=/home/i12bretro/Downloads
+enable-rpc=true
+rpc-allow-origin-all=true
+rpc-listen-all=true
+rpc-listen-port=6800
+rpc-secret=SomethingSecure
+
+Press CTRL+O, Enter, CTRL+X to write the changes to aria2.conf
+Continue with the following commands in terminal
+# create the service file
+sudo nano /etc/systemd/system/aria2.service
+Paste the following into the aria2.service file
+[Unit]
+Description=Aria2c
+Requires=network.target
+After=dhcpcd.service
+
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf
+
+[Install]
+WantedBy=default.target
+
+Press CTRL+O, Enter, CTRL+X to write the changes to aria2.service
+Continue with the following commands to start the new service on system boot
+# set the service to start on system boot
+sudo systemctl enable aria2
+# start the service now
+sudo systemctl start aria2
+Reboot the system
+Once the system comes back up, relaunch aria2-webui in a web browser and verify it can connect to the aria2 RPC server

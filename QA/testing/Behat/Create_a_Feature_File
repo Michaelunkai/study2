@@ -1,0 +1,14 @@
+ Create a Feature File
+Create a new feature file where you will define your test scenarios. For example, create a file named example.feature in the features directory:
+
+ 
+ 
+nano features/example.feature
+Add the following content as an example:
+
+gherkin
+ 
+Feature: Example feature
+  Scenario: Visiting the homepage
+    Given I am on the homepage
+    Then I should see "Welcome"

@@ -1,0 +1,21 @@
+Exploratory Data Analysis (EDA)
+Visualize Data
+
+ 
+ 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Plot distribution of credit scores
+sns.histplot(data['credit_score'])
+plt.title('Distribution of Credit Scores')
+plt. ow()
+Analyze Data
+
+ 
+ 
+# Summary statistics
+print(data.describe())
+
+# Check for missing values
+print(data.isnull().sum())

@@ -1,0 +1,28 @@
+Create an IAM Role for X-Ray
+Create an IAM role with the necessary permissions for X-Ray:
+
+ 
+ 
+aws iam create-role --role-name XRayServiceRole --assume-role-policy-document file://trust-policy.json
+Create a file named trust-policy.json with the following content:
+
+json
+ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "xray.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+Attach the AWSXRayDaemonWriteAccess policy to the role:
+
+ 
+ 
+aws iam attach-role-policy --role-name XRayServiceRole --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
+

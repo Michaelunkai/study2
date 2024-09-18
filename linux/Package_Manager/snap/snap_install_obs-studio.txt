@@ -1,0 +1,1 @@
+snap install obs-studio

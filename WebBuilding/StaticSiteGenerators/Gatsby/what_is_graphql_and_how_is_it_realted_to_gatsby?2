@@ -1,0 +1,14 @@
+**GraphQL** is like a smart assistant for getting information from a database or other sources of data. Imagine you want to know about a movie. Instead of asking for a huge list of details and picking out the parts you need, you can ask GraphQL exactly what you want: the movie's name, its release year, and maybe the director’s name. GraphQL will then bring you just those specific details, nothing more, nothing less. This is different from older methods, where you’d often get a lot more information than you actually needed, which could be overwhelming or slow things down.
+
+Now, let’s talk about **Gatsby**. Gatsby is a tool that helps you build websites. But it’s not just any website—Gatsby makes super fast websites. It’s kind of like a LEGO set where you can build whatever you want, but instead of LEGO bricks, you’re using small pieces of code and data.
+
+So, how does GraphQL relate to Gatsby? Gatsby uses GraphQL to help gather all the information it needs to build your website. Let’s say you’re building a website about your favorite movies. Your movie details might be stored in a file, a database, or even an online service like IMDb. Gatsby needs to pull all that information together before it can build your site. 
+
+Here’s where GraphQL comes in. Gatsby uses GraphQL to ask very specific questions about your movie data, like:
+- “What’s the title of the movie?”
+- “When was it released?”
+- “Who directed it?”
+
+Once Gatsby gets these answers from GraphQL, it uses them to put together the pieces of your website. This means your site only includes exactly what’s needed, making it faster and more efficient.
+
+In a way, GraphQL is like the person who organizes all the pieces you need to build your LEGO set, while Gatsby is the builder who puts everything together to create your website. This combination helps ensure your website is not only complete but also fast and easy to use.

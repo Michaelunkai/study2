@@ -1,0 +1,9 @@
+**How to Convert Spreadsheets to Charts Using ChatGPT**
+**Want to create a stunning chart for your next presentation but lack the technical skills to convert your data into a visualization?**
+Follow these steps using ChatGPT:
+1. **Upload your spreadsheet to ChatGPT**.
+2. **Modify or remove sensitive data** such as names and email addresses before uploading the spreadsheet.
+3. **Use the following prompt to convert the spreadsheet into a chart:**
+   "Run a basic analysis on this spreadsheet and generate charts based on the data."
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

@@ -1,0 +1,5 @@
+Create a new public subnet with a different CIDR block (replace <availability-zone> with one of the valid availability zones from the previous step):
+
+ 
+ 
+aws ec2 create-subnet --vpc-id vpc-0088010cde7a8460f --cidr-block 10.0.2.0/24 --availability-zone <availability-zone>

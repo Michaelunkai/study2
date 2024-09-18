@@ -1,0 +1,9 @@
+Optimize Disk I/O
+Use the noatime option in /etc/fstab to reduce write operations.
+
+Edit the fstab file:
+
+sudo nano /etc/fstab
+Add noatime to your file system options:
+
+UUID=your-uuid / ext4 defaults,noatime 0 1

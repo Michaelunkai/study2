@@ -1,0 +1,81 @@
+▲A  A▼
+Install Akaunting - Open Source Accounting Software - On Linux
+What is Akaunting?
+Akaunting is a free, open source and online accounting software designed for small businesses and freelancers. -https://github.com/akaunting/akaunting
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install prerequisites
+sudo apt install curl wget zip lsb-release apt-transport-https ca-certificates -y
+# add the php gpg key
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+# add the php apt repository
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php8.0 libapache2-mod-php8.0 php8.0-common php8.0-xml php8.0-bcmath php8.0-gd php8.0-mbstring php8.0-curl php8.0-zip php8.0-gmp php8.0-mysql php8.0-intl -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the database and database user
+CREATE DATABASE akaunting;
+GRANT ALL ON akaunting.* to 'akaunting_rw'@'localhost' IDENTIFIED BY '@kaunt1ng!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# lookup latest akaunting release URL
+regex='"browser_download_url": "(https:\/\/github.com\/akaunting\/akaunting\/releases\/download\/[^/]*\/[^/]*\.zip)"' && response=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/akaunting/akaunting/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download the latest release
+wget -O /tmp/akaunting.zip $downloadURL
+# extract the download .zip archive
+sudo unzip /tmp/akaunting.zip -d /var/www/html/akaunting
+# copy sample .env file
+sudo cp /var/www/html/akaunting/.env.example /var/www/html/akaunting/.env
+# generate application key
+# if prompted, answer yes
+sudo php /var/www/html/akaunting/artisan key:generate
+# set the owner of the akaunting directory
+sudo chown -R www-data:www-data /var/www/html/akaunting
+# enable mod_rewrite
+sudo a2enmod rewrite
+# restart apache2 service
+sudo systemctl restart apache2
+Akaunting Web Installer
+Open a web browser and navigate to http://DNSorIP/akaunting/index.php
+Select a Language > Click Next
+Complete the Database form as shown below
+Hostname: localhost
+Username: akaunting_rw
+Password: @kaunt1ng!
+Database: akaunting
+
+Click Next
+Complete the Admin form by entering a Company Name, Company Email, Admin Email and Admin Password > Click Next
+Log in with the Admin username and password
+On the Company tab, scroll to the bottom of the form and click Skip this step
+Select/add the desired currencies > Click Next
+Click Next on the Taxes tab
+Click the Create your first invoice link
+Welcome to Akaunting
+Source: https://akaunting.com/docs/installation
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

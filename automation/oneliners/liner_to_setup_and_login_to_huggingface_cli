@@ -1,0 +1,1 @@
+pip install huggingface_hub && huggingface-cli login --token <your token>

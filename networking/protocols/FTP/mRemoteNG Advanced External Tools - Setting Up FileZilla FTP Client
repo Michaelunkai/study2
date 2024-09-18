@@ -1,0 +1,24 @@
+mRemoteNG Advanced External Tools - Setting Up FileZilla FTP Client
+mRemoteNG is a fork of mRemote: an open source, tabbed, multi-protocol, remote connections manager for Windows. mRemoteNG creates a tabbed interface for RDP, VNC, SSH and many other connection protocols.
+
+This tutorial assumes the target host already has an FTP server configured and running
+
+Creating the FileZilla External Tool
+Download FileZilla FTP client Download
+Extract the downloaded FileZilla .zip file
+Rename the extracted folder to FileZilla
+Copy the entire extracted FileZilla folder to the mRemoteNG installation directory, usually C:\Program Files (x86)\mRemoteNG
+Launch mRemoteNG
+Click Tools > External Tools
+Click the New Button at the top left
+Set the following values to add the ability to quickly FTP to the host
+Display Name: FileZilla
+Filename: .\FileZilla\FileZilla.exe
+Arguments: ftp://%hostname%
+Try to Integrate: checked
+Run Elevated: checked
+
+Testing FileZilla
+Click on the Connections tab
+Right click the host with FTP server running > External Tools > FileZilla
+Enjoy FTP connectivity integrated within mRemoteNG

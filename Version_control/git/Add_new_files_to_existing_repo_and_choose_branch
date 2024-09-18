@@ -1,0 +1,13 @@
+1)
+cd /path/to/github/repo/on/local/machine
+
+2)
+touch a.py
+
+3)
+git add a.py
+ 
+4) 
+git checkout <branch name>
+
+5)git pu 

@@ -1,0 +1,6 @@
+To ensure zero downtime during deployments, you can use the ps:rebuild command which will restart the app in a controlled manner.
+
+
+16.1 Rebuild an app:
+
+dokku ps:rebuild myapp

@@ -1,0 +1,25 @@
+**ZooKeeper** is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. It is used in distributed systems to achieve higher reliability, availability, and performance.
+
+Here are some key points about ZooKeeper:
+
+1. **Centralized Coordination Service**: ZooKeeper acts as a centralized service for maintaining configuration information and naming, providing distributed synchronization, and providing group services.
+
+2. **Hierarchical Namespace**: ZooKeeper allows clients to access the distributed coordination service through a hierarchical namespace, much like a filesystem. The namespace consists of data nodes called znodes.
+
+3. **Simple API**: ZooKeeper has a simple API that supports a basic set of operations, such as creating and deleting znodes, reading and writing data from znodes, and checking the status of znodes.
+
+4. **Consistency Guarantees**: ZooKeeper ensures that every update to the data is consistent across all nodes. This is achieved through a protocol called Zab (ZooKeeper Atomic Broadcast), which guarantees that updates are applied in the same order on all nodes.
+
+5. **High Availability**: ZooKeeper is designed to be highly available, meaning it can continue to operate even if some of the nodes fail. This is achieved through replication, where the data is replicated across multiple ZooKeeper servers.
+
+6. **Leader Election**: ZooKeeper provides a leader election mechanism, which is crucial in distributed systems to ensure that there is always a leader that coordinates the actions of the system.
+
+7. **Ephemeral Nodes**: ZooKeeper supports ephemeral znodes, which are znodes that exist as long as the session that created them is active. This is useful for scenarios where temporary data needs to be maintained, such as locks in a distributed locking mechanism.
+
+8. **Use Cases**:
+   - **Configuration Management**: ZooKeeper can be used to store configuration information that needs to be consistent across a distributed system.
+   - **Naming Service**: ZooKeeper can act as a naming service to resolve names to addresses in a distributed system.
+   - **Synchronization**: ZooKeeper can be used to implement distributed synchronization primitives like locks, barriers, and queues.
+   - **Group Membership**: ZooKeeper can be used to track the membership of nodes in a distributed system.
+
+ZooKeeper is often used in conjunction with other distributed systems and frameworks, such as Apache Hadoop, Apache Kafka, and Apache HBase, to provide reliable and coordinated operation.

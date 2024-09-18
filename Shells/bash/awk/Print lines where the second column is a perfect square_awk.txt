@@ -1,0 +1,1 @@
+awk 'function is_perfect_square(n) {return (sqrt(n) == int(sqrt(n)))} {if (is_perfect_square($2)) print}' filename.txt

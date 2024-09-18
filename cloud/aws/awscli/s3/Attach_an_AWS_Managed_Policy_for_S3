@@ -1,0 +1,6 @@
+To simplify, you can attach an AWS managed policy that allows S3 full access to the user micha.
+
+Attach the Managed Policy:
+
+
+aws iam attach-user-policy --user-name micha --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess

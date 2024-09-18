@@ -1,0 +1,5 @@
+# Delete all CloudWatch log groups
+aws logs describe-log-groups --query 'logGroups[*].logGroupName' --output text | xargs -I {} aws logs delete-log-group --log-group-name {}
+
+# Check if log groups are deleted
+aws logs describe-log-groups --query 'logGroups[*].logGroupName' --output text

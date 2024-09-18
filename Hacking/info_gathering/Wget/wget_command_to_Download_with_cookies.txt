@@ -1,0 +1,1 @@
+wget --load-cookies=cookies.txt http://example.com/file.zip

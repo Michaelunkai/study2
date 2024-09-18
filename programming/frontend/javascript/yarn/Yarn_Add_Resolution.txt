@@ -1,0 +1,1 @@
+yarn add <package-name>@npm:<version-range> --resolution <resolution-name>

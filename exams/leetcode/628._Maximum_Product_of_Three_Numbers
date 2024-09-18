@@ -1,0 +1,52 @@
+To solve the problem of finding the maximum product of three numbers in an array, you can follow these steps:
+
+1. Sort the array.
+2. Consider the two potential candidates for the maximum product:
+   - The product of the three largest numbers.
+   - The product of the two smallest numbers (which could be negative) and the largest number (this handles cases where multiplying two negatives results in a positive product).
+
+Here is the Python code to achieve this:
+
+```python
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        nums.sort()
+        return max(nums[-1] * nums[-2] * nums[-3], nums[0] * nums[1] * nums[-1])
+```
+
+### Explanation:
+1. **Sorting the Array**:
+   - Sorting helps easily pick the largest and smallest numbers. The three largest numbers will be at the end of the sorted array, and the two smallest numbers will be at the start.
+   
+2. **Calculating the Maximum Product**:
+   - `nums[-1] * nums[-2] * nums[-3]`: This is the product of the three largest numbers in the array.
+   - `nums[0] * nums[1] * nums[-1]`: This is the product of the two smallest numbers and the largest number, which can potentially be the maximum product if the two smallest numbers are negative.
+   - The `max` function is used to return the larger of the two computed products.
+
+### Example Execution:
+
+#### Example 1:
+```python
+nums = [1, 2, 3]
+# Sorted nums = [1, 2, 3]
+# Possible products: 1*2*3 = 6
+# Result: 6
+```
+
+#### Example 2:
+```python
+nums = [1, 2, 3, 4]
+# Sorted nums = [1, 2, 3, 4]
+# Possible products: 2*3*4 = 24
+# Result: 24
+```
+
+#### Example 3:
+```python
+nums = [-1, -2, -3]
+# Sorted nums = [-3, -2, -1]
+# Possible products: -1*-2*-3 = -6
+# Result: -6
+```
+
+This solution ensures that the maximum product of any three numbers in the array is found efficiently.

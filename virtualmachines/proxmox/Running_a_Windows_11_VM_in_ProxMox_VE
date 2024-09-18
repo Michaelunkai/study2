@@ -1,0 +1,41 @@
+▲A  A▼
+Running a Windows 11 VM in ProxMox VE
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download the Windows 11 iso Download and upload it to the ProxMox ISO image library
+If on ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Right click the ProxMox node name > Create VM
+Type Windows11 in the name field > Next
+Set the Type to Microsoft Windows and select the Windows 11 iso
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 32 > Next
+On the CPU tab, set Cores to 2 > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Windows11 VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Click Next
+Click Install Now
+Click I don't have a product key
+Select the edition you'd like to install
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Select the drive to install to > Click Next
+Wait for Windows to copy files, the VM will reboot
+Select a Region > Click Yes
+Select a Keyboard layout > Click Yes
+Click Skip
+Enter a name for the VM > Click Next
+Select Set up for work or school > Click Next
+Click Sign-in options
+Click Join domain instead
+Enter a username > Click Next
+Enter a password > Click Next
+Re-type the password > Click Next
+Select and answer 3 security questions
+Uncheck everything > Click Accept
+Wait while updates are downloaded and installed
+Welcome to Windows 11
+ 

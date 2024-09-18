@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/vit_image_classification.ipynb -O vit_image_classification.ipynb

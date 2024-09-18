@@ -1,0 +1,10 @@
+. Backup and Restore
+
+
+Backup:
+
+mongodump --out /path/to/backup
+
+Restore:
+
+mongorestore /path/to/backup

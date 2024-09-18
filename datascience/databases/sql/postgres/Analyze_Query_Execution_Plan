@@ -1,0 +1,18 @@
+ Analyze Query Execution Plan
+To see how PostgreSQL executes a query and understand where you can improve performance, use the EXPLAIN command.
+
+Steps:
+
+Run the EXPLAIN ANALYZE command to see the query execution details.
+Example:
+
+ 
+ 
+EXPLAIN ANALYZE SELECT e1.employee_id, e1.employee_name, e1.salary
+FROM employee e1
+WHERE e1.salary > (
+  SELECT AVG(e2.salary)
+  FROM employee e2
+  WHERE e2.department_id = e1.department_id
+);
+This will give you detailed information on query execution time, indexes used, and more.

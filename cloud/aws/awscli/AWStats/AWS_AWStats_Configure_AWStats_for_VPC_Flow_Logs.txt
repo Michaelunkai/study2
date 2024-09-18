@@ -1,0 +1,1 @@
+aws ec2 create-flow-logs --resource-type VPC --resource-id <vpc-id> --traffic-type ALL --log-group-name my-flow-logs --deliver-logs-permission-arn <role-arn>

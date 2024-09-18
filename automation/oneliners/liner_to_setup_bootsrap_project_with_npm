@@ -1,0 +1,1 @@
+ npx @botpress/cli init --name my-chatbot --type bot && cd my-chatbot && npm install && npm run check:type

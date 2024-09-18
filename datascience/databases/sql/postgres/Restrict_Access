@@ -1,0 +1,2 @@
+REVOKE ALL ON DATABASE mydatabase FROM PUBLIC;
+GRANT CONNECT ON DATABASE mydatabase TO secureuser;

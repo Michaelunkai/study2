@@ -1,0 +1,1 @@
+aws lex-models delete-import --import-id <import-id>

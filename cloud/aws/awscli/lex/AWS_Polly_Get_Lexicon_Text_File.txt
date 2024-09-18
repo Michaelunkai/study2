@@ -1,0 +1,1 @@
+aws polly get-lexicon --name <lexicon-name> --output text.txt

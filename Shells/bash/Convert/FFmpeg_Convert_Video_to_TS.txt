@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts output.ts

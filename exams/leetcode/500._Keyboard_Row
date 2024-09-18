@@ -1,0 +1,47 @@
+To solve the problem of finding words that can be typed using letters from only one row of an American keyboard, we can follow these steps:
+
+1. **Define the rows**: Create sets for each row of the keyboard.
+2. **Check each word**: For each word, determine if all the characters belong to any one of the sets.
+3. **Return the valid words**: Collect and return the words that meet the criteria.
+
+Here's the Python code to implement this approach:
+
+```python
+class Solution:
+    def findWords(self, words: [str]) -> [str]:
+        # Define the rows
+        row1 = set("qwertyuiop")
+        row2 = set("asdfghjkl")
+        row3 = set("zxcvbnm")
+        
+        # Function to check if a word can be typed using one row
+        def can_be_typed_in_one_row(word):
+            lowercase_word = set(word.lower())
+            return lowercase_word.issubset(row1) or lowercase_word.issubset(row2) or lowercase_word.issubset(row3)
+        
+        # Collect words that can be typed using one row
+        result = [word for word in words if can_be_typed_in_one_row(word)]
+        
+        return result
+
+# Example usage:
+solution = Solution()
+print(solution.findWords(["Hello","Alaska","Dad","Peace"]))  # Output: ["Alaska", "Dad"]
+print(solution.findWords(["omk"]))                           # Output: []
+print(solution.findWords(["adsdf","sfd"]))                   # Output: ["adsdf", "sfd"]
+```
+
+### Explanation:
+
+1. **Define the rows**: We use sets to represent each row on the keyboard for easy subset checking.
+   - `row1 = set("qwertyuiop")`
+   - `row2 = set("asdfghjkl")`
+   - `row3 = set("zxcvbnm")`
+
+2. **Check each word**: The function `can_be_typed_in_one_row` converts the word to lowercase and checks if the set of characters in the word is a subset of any row set.
+   - `lowercase_word = set(word.lower())`
+   - Check if `lowercase_word` is a subset of `row1`, `row2`, or `row3`.
+
+3. **Return the valid words**: Use a list comprehension to filter and collect the words that can be typed using one row.
+
+This approach ensures that we efficiently check each word and collect the valid ones, with a time complexity of \(O(n \times m)\), where \(n\) is the number of words and \(m\) is the average length of each word. This is efficient given the problem constraints.

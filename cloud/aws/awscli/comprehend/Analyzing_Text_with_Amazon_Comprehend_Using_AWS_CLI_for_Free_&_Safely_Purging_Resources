@@ -1,0 +1,98 @@
+### Comprehensive Tutorial on Analyzing Text with Amazon Comprehend Using AWS CLI for Free & Safely Purging Resources
+
+This tutorial will guide you through the steps to analyze text using Amazon Comprehend with the AWS CLI, ensuring you can perform NLP tasks like sentiment analysis, entity detection, and language identification. We’ll also include steps to safely purge all resources to avoid any costs.
+
+### Step 1: Set Up AWS CLI
+1. **Install AWS CLI**: If you haven’t already installed the AWS CLI, use the following command:
+
+     
+   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   unzip awscliv2.zip
+   sudo ./aws/install
+
+2. **Configure AWS CLI**: Set up your AWS credentials by running the following command:
+
+     
+   aws configure
+
+   When prompted, enter your AWS Access Key ID, Secret Access Key, default region name, and output format (e.g., `json`).
+
+### Step 2: Create a Text File for Analysis
+1. **Create a sample text file**:
+
+     
+   echo "Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in a text." > sample.txt
+
+### Step 3: Analyze Text with Amazon Comprehend
+1. **Detect Sentiment**:
+   
+   Use the following command to detect the sentiment (e.g., `Positive`, `Negative`, `Neutral`, `Mixed`) of the text:
+
+     
+   aws comprehend detect-sentiment \
+   --language-code "en" \
+   --text "$(cat sample.txt)"
+
+2. **Detect Entities**:
+   
+   Identify entities like names, dates, and locations in the text:
+
+     
+   aws comprehend detect-entities \
+   --language-code "en" \
+   --text "$(cat sample.txt)"
+
+3. **Detect Key Phrases**:
+   
+   Extract key phrases identified by Amazon Comprehend:
+
+     
+   aws comprehend detect-key-phrases \
+   --language-code "en" \
+   --text "$(cat sample.txt)"
+
+4. **Detect Dominant Language**:
+   
+   Identify the dominant language of the text:
+
+     
+   aws comprehend detect-dominant-language \
+   --text "$(cat sample.txt)"
+
+### Step 4: Show Amazon Resource Name (ARN) of Any Created Resources
+If you create any custom resources like entity recognizers or document classifiers, you can show their ARNs (Amazon Resource Names) using the following commands:
+
+1. **List entity recognizers**:
+
+     
+   aws comprehend list-entity-recognizers
+
+2. **List document classifiers**:
+
+     
+   aws comprehend list-document-classifiers
+
+   The ARNs will be displayed in the output.
+
+### Step 5: Purge Everything to Avoid Costs
+1. **Delete the Sample File**:
+
+     
+   rm sample.txt
+
+2. **Delete Custom Resources**:
+
+   If you created any custom resources, delete them to avoid ongoing costs:
+
+     
+   aws comprehend delete-entity-recognizer --entity-recognizer-arn <arn>
+   aws comprehend delete-document-classifier --document-classifier-arn <arn>
+
+3. **Remove AWS Credentials** (Optional):
+
+   If you’re done using the AWS CLI, you can remove your credentials:
+
+     
+   rm -rf ~/.aws
+
+This tutorial has guided you through analyzing text using Amazon Comprehend via AWS CLI, displaying ARNs of any created resources, and purging everything to prevent any costs.

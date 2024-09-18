@@ -1,0 +1,31 @@
+▲A  A▼
+Setup Automatic Updates on Debian
+Log into the Debian device
+Run the following commands in a terminal:
+# update software repositories
+sudo apt update
+# install software updates
+sudo apt upgrade -y
+# install unattended-upgrades
+sudo apt install unattended-upgrades -y
+# edit unattended-upgrades config
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+Update the unattended-upgrades conf as needed
+Uncomment the ::Mail line and edit the email address to receive email notifications
+
+Unattended-Upgrade::Mail "i12bretro@i12bretro.local";
+
+Uncomment and set the value to true to automatically remove unused dependencies
+
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# at the prompt, select Yes to enable automatic updates
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+# enable and start the unattended upgrades service
+sudo systemctl enable unattended-upgrades --now
+That's it, updates will now be installed automatically. Logs can be found in /var/log/unattended-upgrades
+To run updates on demand, simply run the following command
+sudo unattended-upgrade -d
+ 

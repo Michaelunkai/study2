@@ -1,0 +1,18 @@
+You can also integrate Pyroscope with your CI/CD pipelines to continuously profile your code during builds and deployments.
+Add Pyroscope to your CI/CD pipeline configuration. For example, in a GitHub Actions workflow:
+
+
+name: CI Profiling
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Pyroscope
+        run: |
+          docker run -d -p 4040:4040 grafana/pyroscope
+      - name: Run tests with profiling
+        run: |
+          pyroscope exec -- your_test_command

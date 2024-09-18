@@ -1,0 +1,37 @@
+1. Create API Gateway:
+
+Log in to the AWS Management Console.
+Navigate to the API Gateway dashboard.
+Click on "Create API."
+Choose the type of API (REST or WebSocket) and click "Build."
+Enter the API name and description.
+Choose an endpoint type (Edge-optimized, Regional, or Private).
+Click "Create API" to create your API Gateway.
+2. Create Resources and Methods:
+
+After creating the API Gateway, navigate to its details page.
+Click on "Create Resource" to define the resource hierarchy for your API.
+Configure methods (GET, POST, PUT, DELETE, etc.) for each resource to define how clients can interact with them.
+Configure request and response mappings, including headers, query parameters, and request body handling.
+3. Set Up Integration with Lambda:
+
+Select a resource and method in the API Gateway console.
+Choose "Lambda Function" as the integration type.
+Select the region where your Lambda function resides.
+Choose the Lambda function to integrate with the API Gateway.
+Configure additional integration settings such as mapping templates and payload transformation.
+4. Configure API Gateway Authorization and Security:
+
+Set up API Gateway authorization mechanisms such as IAM permissions, API keys, or Lambda authorizers.
+Configure CORS (Cross-Origin Resource Sharing) settings to allow or restrict access from different origins.
+Implement usage plans and API keys to control access and throttle requests.
+5. Deploy API Gateway:
+
+After configuring the API Gateway resources and integrations, deploy the API to make it accessible to clients.
+Choose a stage (e.g., development, testing, production) and click "Deploy."
+Note down the API endpoint URL generated after deployment.
+6. Test API Gateway Integration:
+
+Use tools like cURL, Postman, or the AWS SDK to send requests to the API endpoint URL.
+Verify that the requests are routed to the Lambda function and the expected responses are returned.
+Monitor API Gateway usage and performance metrics in the AWS Management Console.

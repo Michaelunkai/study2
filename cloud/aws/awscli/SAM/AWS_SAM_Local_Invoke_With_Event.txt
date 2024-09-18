@@ -1,0 +1,1 @@
+sam local invoke <function-logical-id> --event event.json

@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://github.com/HandBrake/HandBrake/releases/download/1.4.2/HandBrake-1.4.2-x86_64-Win_GUI.exe -OutFile handbrake_installer.exe; Start-Process handbrake_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+gsutil mb gs://my-unique-bucket-name

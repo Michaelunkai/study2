@@ -1,0 +1,41 @@
+Here are the one-liners without `sudo apt update &&`:
+
+1. **htop**:
+     
+   sudo apt install -y htop && htop
+
+2. **smem**:
+     
+   sudo apt install -y smem && smem
+
+3. **free**:
+     
+   free -h
+
+4. **ps_mem**:
+     
+   sudo apt install -y python3-pip && sudo pip3 install ps_mem && sudo ps_mem
+
+5. **Stacer**:
+     
+   sudo add-apt-repository ppa:oguzhaninan/stacer -y && sudo apt install -y stacer && stacer
+
+6. **GNOME System Monitor**:
+     
+   sudo apt install -y gnome-system-monitor && gnome-system-monitor
+
+7. **Monit**:
+     
+   sudo apt install -y monit && sudo monit
+
+8. **vmtouch**:
+     
+   sudo apt install -y vmtouch && vmtouch
+
+9. **Vmstat**:
+     
+   sudo apt install -y sysstat && vmstat
+
+10. **Perf**:
+     
+   sudo apt install -y linux-tools-common linux-tools-generic && perf stat

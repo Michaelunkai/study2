@@ -1,0 +1,6 @@
+ Enable Mining at boot
+Open the crontab file
+sudo crontab -e
+Add this line of config to your crontab file. (you are adding the same command used in step 4)
+@reboot /home/pi/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u yourwalletaddress -p nameofyourpi
+Save the file.

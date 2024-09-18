@@ -1,0 +1,11 @@
+Invoke the Lambda Function
+Invoke the Lambda Function:
+
+ 
+ 
+aws lambda invoke --function-name myLambdaFunction output.txt
+Check the  :
+
+ 
+ 
+cat output.txt

@@ -1,0 +1,26 @@
+▲A  A▼
+Addendum - Running a MacOS Big Sur VM in ProxMox VE
+This is an addendum to the tutorial on installing a MacOS Big Sur VM on Proxmox VE. The steps below will allow the VM to boot without having the OpenCore .iso mounted, as we'll be copying the EFI boot files onto the virtual hard disk.
+
+Configuring Booting Without OpenCore Mounted
+Log into the MacOSBigSur VM
+Launch a web browser and download the KVM OpenCore EFI folder Download
+Start LaunchPad from the dock
+Search terminal > Click Terminal to launch it
+Run the following commands in the terminal window
+git clone https://github.com/corpnewt/MountEFI
+cd MountEFI
+chmod +x MountEFI.command
+./MountEFI.command
+Enter the number that corresponds to the OS11 drive created during the installation > Press Enter
+Open a Finder window
+Navigate to the mounted EFI location
+If an existing EFI folder exists, rename the it to EFI.orig
+Copy the KVM OpenCoreEFI folder downloaded earlier to the mounted EFI partition
+Once the EFI folder is copied, shutdown the VM
+Click the MacOSBigSur VM > Select Hardware from the left sub-navigation menu
+Click the OpenCore Hard Disk to select it > Click Detach
+Click the detached OpenCore Hard Disk to select it again > Click Remove
+Right click the MacOSBigSur VM in the left navigation pane > Start
+Click console in the left sub-navigation menu to verify the VM still boots into Big Sur without the OpenCore disc image mounted
+ 

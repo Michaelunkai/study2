@@ -1,0 +1,1 @@
+ffmpeg -i input.flv -vn -acodec copy output.aac

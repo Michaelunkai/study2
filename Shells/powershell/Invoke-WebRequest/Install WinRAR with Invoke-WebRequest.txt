@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://www.rarlab.com/rar/winrar-x64-601.exe -OutFile winrar_installer.exe; Start-Process winrar_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

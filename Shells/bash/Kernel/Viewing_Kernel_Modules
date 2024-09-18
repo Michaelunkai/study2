@@ -1,0 +1,2 @@
+# View all kernel parameters
+sysctl -a

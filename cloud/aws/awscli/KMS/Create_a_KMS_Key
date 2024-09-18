@@ -1,0 +1,8 @@
+Create a KMS key:
+
+aws kms create-key --description "Vault Auto-Unseal Key" --key-usage ENCRYPT_DECRYPT --origin AWS_KMS
+Note the Key ID: You will need the Key ID from the output for later steps.
+
+Create an alias for the KMS key (optional but recommended for easier reference):
+
+aws kms create-alias --alias-name alias/vault-auto-unseal --target-key-id <your-key-id>

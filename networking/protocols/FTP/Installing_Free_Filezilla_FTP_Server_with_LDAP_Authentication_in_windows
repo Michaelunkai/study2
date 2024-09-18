@@ -1,0 +1,53 @@
+Installing Free Filezilla FTP Server with LDAP Authentication
+Installing FileZilla Server
+Download FileZilla with LDAP support, FzLDAP Download
+Install the downloaded executable
+Launch FileZilla Server Administration
+Select Edit > Settings from the top navigation
+Click LDAP from the left navigation
+Check the Enable LDAP support box
+Fill out the LDAP server, port and domain name
+Click OK
+Adding Individual LDAP Users
+Back in Server Administration click Edit > Users
+Click the Add button under Users
+Enter the username exactly as it is in LDAP
+Leave the Password checkbox unchecked
+Under the Check password in section uncheck LOCAL and check the LDAP option
+Click Shared folders under the Page section
+Click the Add button and browse to folder(s) to share with the new user
+Set the users permissions to the right of the directories box
+Click OK once finish with configuration.
+Batch Importing LDAP Users
+From the Start menu launch FzLDAP Import
+Fill out the LDAP server information
+Server: i12bretro.local
+Port: 389
+Domain: i12bretro.local
+User: readonly_svc
+Password: Read0nly!!
+Base DN: DC=i12bretro,DC=local
+Search DN: CN=Users,DC=i12bretro,DC=local
+Search: cn=*
+
+A list of users found with the LDAP search will display > Click Next
+Set the FTP root directory path
+Click the Generate button
+A summary will be displayed > Click OK
+Click the ed button next to users.txt to view the generated users file
+Open File Explorer and navigate to C:\Program Files (x86)\FileZilla Server
+Edit FileZilla Server.xml in a text editor
+Copy the user(s) generated in users.txt to the Users node of FileZilla Server.xml
+Save the changes to FileZilla Server.xml
+Right click on the Start button > Run > type services.msc > Press Enter
+Find the FileZilla Server FTP server and restart the service
+Load FileZilla Server Administration
+Click Edit > Users from the top navigation
+The imported user(s) should be listed and editable
+Testing LDAP Authentication
+Download FileZilla FTP client Download
+Extract the downloaded FileZilla .zip file
+Launch FileZilla.exe
+Enter the FileZilla server DNS name or IP address in the host field
+Enter the LDAP credentials in the username and password fields
+Click the Quickconnect button

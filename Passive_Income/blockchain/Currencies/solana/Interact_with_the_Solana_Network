@@ -1,0 +1,18 @@
+Interact with the Solana Network
+Choose the Network:
+Solana supports multiple networks (mainnet, testnet, devnet). You can configure the CLI to use a specific network:
+
+ 
+ 
+solana config set --url https://api.devnet.solana.com
+Check Your Balance:
+
+ 
+ 
+solana balance
+Transfer SOL:
+To transfer SOL to another account, use:
+
+ 
+ 
+solana transfer <RECIPIENT_ADDRESS> <AMOUNT>

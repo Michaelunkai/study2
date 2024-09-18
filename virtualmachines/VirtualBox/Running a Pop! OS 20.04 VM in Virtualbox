@@ -1,0 +1,63 @@
+Running a Pop! OS 20.04 VM in Virtualbox
+Download Pop! OS Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Pop! OS 20.04
+Machine Folder: C:\VMs
+Type: Linux
+Version: Ubuntu (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Pop! OS 20.04.vdi
+File size: 16 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Pop! OS .iso file
+Click OK
+Make sure the Pop! OS 20.04 VM is selected and click Start > Normal
+Click the Activities button > Search install > Select Install Pop!_OS
+Choose a language > Click Select > Click Select
+Select a keyboard layout > Click Select > Click Select
+Click Clean Install > Click Clean Install
+Select the ATA VBOX HARDDISK > Click Erase and Install
+Click Don't Encrypt
+Wait while Pop! OS copies files and installs
+When the installation completes click Restart Device
+At the Welcome! screen click Next, Next
+Choose to enable or disable Location Services > Click Next
+Select a time zone > Click Next
+Click Skip on the Connect Your Online Accounts screen
+Enter a full name and username > Click Next
+Enter and re-enter a password > Click Next
+Click Start Using Pop!_OS
+Welcome to Pop! OS 20.04
+Optional Steps
+Click the Applications button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get clean
+Select Devices > Insert Guest Additions CD image...
+If the installation autoruns, select Run
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+sudo sh ./VBoxLinuxAdditions.run
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back in

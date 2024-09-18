@@ -1,0 +1,29 @@
+##run the container
+drun opensuse michadockermi a/backup:opensuse
+
+##update and upgrade
+zypper --non-interactive update -y && zypper --non-interactive upgrade -y
+
+##install  3
+zypper install  3
+
+##install opens 
+ zypper --non-interactive install openssh-server
+ 
+ s -keygen -A
+ 
+/usr/sbin/s d
+
+add to /etc/ansible/hosts:
+opensuse ansible_host=172.17.0.6 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+##add the ssh keys to the host (only if i already generate th ssh keys in my main host!!):
+
+ s -copy-id root@172.17.0.6
+ 
+ ## now commit and push the image to michadockermisha/backup
+ 
+ ### run it like this:
+  docker run -v /mnt/d/:/d/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --ip 172.17.0.6 --name opensuse -d michadockermisha/backup:opensuse /bin/bash -c "/usr/sbin/sshd && tail -f /dev/null" 
+  
+  ## use ansible ping command and check if works

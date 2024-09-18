@@ -1,0 +1,14 @@
+*
+apt install awscli
+
+*
+in aws cnosole:
+IAM > users > user name.
+
+* go to securit credentials > access keys > create access key
+
+
+*in terminal:
+aws configure
+
+enter the credentials

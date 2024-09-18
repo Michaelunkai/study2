@@ -1,0 +1,27 @@
+MidJourney V6.1: Incremental Improvements with No Major Surprises
+This evening, MidJourney releases version 6.1, slightly enhancing the world’s best image generator. However, don’t expect groundbreaking innovations. Here are the main changes:
+Key Changes in MidJourney V6.1
+1. Enhanced Coherency
+Significant improvements in representing arms, legs, hands, bodies, plants, and animals.
+2. Improved Image Quality
+Reduction in flaws and hallucinations, improved textures, and better skin quality in human images.
+3. Increased Detail Accuracy
+Better representation of small details, including eyes, small faces, and proportionate hands.
+4. Upscalers Enhancements
+Improved image and texture quality in the built-in upscalers.
+5. Faster Image Processing
+25% increase in image processing speed.
+6. Improved Text Generation Accuracy
+Continued enhancements in text generation, although still limited to English.
+7. Return of the "Quality" Parameter (--q2)
+This parameter, useful in version 4, returns. It increases texture accuracy at the cost of some coherency and takes 25% more time to process.
+Summary
+You'll get "better" or "prettier" images, but that's about it.
+Important Notes
+- Version V6.1 is now the default model for all MidJourney users. However, some features like Inpainting (Vary region) or Outpainting (Zoom) are still inactive in V6.1, reverting to V6.0 when used.
+- Users can revert to V6 through the settings interface (/settings) or by adding the parameter "--v 6" at the end of their prompt.
+Personal Opinion
+This is indeed a new, upgraded model, but there are no drastic innovations. Features like 3D element generation, ControlNet-like simulations, or video capabilities, which are already available on competing platforms like Stable, Leonardo, and Artflow, are still missing. Nonetheless, these improvements are welcome.
+The Real Reason for the Release
+The primary goal is to collect data for the upcoming V6.2 release expected in about a month. Overall, this release is nice but not revolutionary.
+Feel free to share your creations made with V6.1. If you want them included in our comprehensive guide on LetsAI, mention your name and credit. Also, let us know your impressions of the new model.

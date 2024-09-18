@@ -1,0 +1,3 @@
+Command: sudo usermod -L <username>
+Description: Locks a user account.
+User Management

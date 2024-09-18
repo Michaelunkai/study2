@@ -1,0 +1,19 @@
+Imagine we have the following dataset about playing outside:
+
+| Day  | Weather | Temperature | Play |
+|------|---------|-------------|------|
+| Mon  | Sunny   | Hot         | Yes  |
+| Tue  | Rainy   | Cold        | No   |
+| Wed  | Sunny   | Warm        | Yes  |
+| Thu  | Cloudy  | Cold        | No   |
+| Fri  | Sunny   | Warm        | Yes  |
+
+We want to build a Decision Tree to decide whether to play outside based on the weather and temperature.
+
+1. **Root Node**: Is it sunny?
+   - **Yes**: Is it hot?
+     - **Yes**: Play outside.
+     - **No**: Is it warm?
+       - **Yes**: Play outside.
+       - **No**: Stay inside.
+   - **No**: Stay inside.

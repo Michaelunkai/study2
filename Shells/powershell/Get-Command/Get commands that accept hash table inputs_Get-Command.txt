@@ -1,0 +1,1 @@
+Get-Command | Where-Object {$_.Parameters.Values.ParameterType -match "System.Collections.Hashtable"}

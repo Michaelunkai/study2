@@ -1,0 +1,291 @@
+The error you're encountering suggests an issue with the CUDA setup or compatibility with PyTorch and vLLM. Here's a step-by-step guide to ensure your environment is set up correctly.
+
+## Detailed Integration Guide: Setting Up GraphRAG with vLLM and Ollama using venv
+
+### Introduction
+GraphRAG is an innovative approach to Retrieval-Augmented Generation (RAG) that leverages graph-based techniques for improved information retrieval. It offers a structured, hierarchical approach as opposed to naive semantic-search approaches using plain text snippets. This guide provides a comprehensive walkthrough for setting up and using GraphRAG with open-source inference alternatives like vLLM for inferencing our Large Language Model and Ollama for embeddings.
+
+### Prerequisites
+Ensure you have the following before beginning:
+
+- A system with NVIDIA GPUs
+- Python 3.10–3.11 (vLLM supports 3.8 to 3.11, GraphRAG supports 3.10 and above)
+- CUDA 12.1
+- NVIDIA drivers compatible with CUDA 12.1
+- Patience, as some steps can be time-consuming
+
+### Setting Up the Environment
+Create a fresh environment for your GraphRAG setup using Python’s built-in venv.
+
+  
+python -m venv graphenv
+source graphenv/bin/activate
+
+### Installing GraphRAG
+Install GraphRAG and Ollama:
+
+  
+pip install graphrag==0.1.1 ollama
+
+### Preparing the Workspace
+Create a directory for your RAG project:
+
+  
+mkdir -p ./ragdir/input
+
+Add a text file inside the `input` directory. Keep the text content very short because GraphRAG is computationally expensive and it will take time for indexing.
+
+Initialize the GraphRAG workspace:
+
+  
+python -m graphrag.index --init --root ./ragdir
+
+This will create two files: `.env` and `settings.yaml` in the `./ragdir` directory.
+
+### Configuring GraphRAG
+#### Modifying .env
+Create and edit the `.env` file:
+
+  
+nano ./ragdir/.env
+
+Replace the content with:
+
+ plaintext
+GRAPHRAG_API_KEY=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
+
+#### Updating settings. 
+Edit the `settings.yaml` file:
+
+  
+nano ./ragdir/settings. 
+
+Modify the content to:
+
+  
+encoding_model: cl100k_base
+skip_workflows: []
+llm:
+  api_key: ${GRAPHRAG_API_KEY}
+  type: openai_chat
+  model: gpt-4-turbo-preview
+  model_supports_json: true
+
+parallelization:
+  stagger: 0.3
+
+async_mode: threaded
+
+embeddings:
+  async_mode: threaded
+  llm:
+    api_key: ${GRAPHRAG_API_KEY}
+    type: openai_embedding
+    model: text-embedding-3-small
+
+chunks:
+  size: 300
+  overlap: 100
+  group_by_columns: [id]
+
+input:
+  type: file
+  file_type: text
+  base_dir: "input"
+  file_encoding: utf-8
+  file_pattern: ".*\\.txt$"
+
+cache:
+  type: file
+  base_dir: "cache"
+
+storage:
+  type: file
+  base_dir: "output/${timestamp}/artifacts"
+
+reporting:
+  type: file
+  base_dir: "output/${timestamp}/reports"
+
+entity_extraction:
+  prompt: "prompts/entity_extraction.txt"
+  entity_types: [organization,person,geo,event]
+  max_gleanings: 0
+
+summarize_descriptions:
+  prompt: "prompts/summarize_descriptions.txt"
+  max_length: 500
+
+claim_extraction:
+  prompt: "prompts/claim_extraction.txt"
+  description: "Any claims or facts that could be relevant to information discovery."
+  max_gleanings: 0
+
+community_report:
+  prompt: "prompts/community_report.txt"
+  max_length: 2000
+  max_input_length: 8000
+
+cluster_graph:
+  max_cluster_size: 10
+
+embed_graph:
+  enabled: false
+
+umap:
+  enabled: false
+
+snap ots:
+  graphml: false
+  raw_entities: false
+  top_level_nodes: false
+
+local_search:
+  # text_unit_prop: 0.5
+  # community_prop: 0.1
+  # conversation_history_max_turns: 5
+  # top_k_mapped_entities: 10
+  # top_k_relation ips: 10
+  # max_tokens: 12000
+
+global_search:
+  # max_tokens: 12000
+  # data_max_tokens: 12000
+  # map_max_tokens: 1000
+  # reduce_max_tokens: 2000
+  # concurrency: 32
+
+### Setting up vLLM
+vLLM requires CUDA 12.1 for its compiled binaries.
+
+#### Check and Install the NVIDIA Drivers
+First, check your driver version of NVIDIA and its CUDA compatibility:
+
+  
+nvidia-smi
+
+If you’re not seeing any output, you need to first install the drivers. You can refer to this [link](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) for more details on installing NVIDIA drivers on Ubuntu 22.04 LTS.
+
+#### Install CUDA
+Download and install CUDA:
+
+  
+wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda_12.1.0_525.85.12_linux.run
+sudo   cuda_12.1.0_525.85.12_linux.run
+
+Verify the CUDA version:
+
+  
+nvcc --version
+
+#### Install Pytorch and vLLM
+Ensure PyTorch is installed with CUDA support:
+
+  
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+Then install vLLM:
+
+  
+pip install vllm
+
+#### Download the Model
+Download the Meta-Llama model:
+
+  
+huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct --exclude "original/*" --local-dir meta-llama/Meta-Llama-3.1-8B-Instruct
+
+### Running the vLLM Inference Server
+Start the vLLM server with the following command:
+
+  
+python -m vllm.entrypoints.openai.api_server \
+--model meta-llama/Meta-Llama-3.1-8B-Instruct \
+--dtype half \
+--api_key EMPTY \
+--tensor-parallel-size 4 \
+--trust-remote-code \
+--gpu-memory-utilization 0.92 \
+--max-num-seqs 128 \
+--max-model-len 65536 \
+--guided-decoding-backend lm-format-enforcer
+
+### Setting up Ollama for Embeddings
+Install Ollama by visiting the official Ollama download page. Then pull the embedding model:
+
+  
+ollama pull nomic-embed-text
+
+### Modifying GraphRAG Library
+#### Search the GraphRAG Directory
+Find the location where GraphRAG is installed:
+
+  
+pip  ow graphrag
+
+#### Modify the Necessary Files
+1. In `graphrag/llm/openai/openai_configuration.py`, edit the file:
+
+     
+   nano <path_to_graphrag>/graphrag/llm/openai/openai_configuration.py
+
+   Hardcode the value of `self._n = 1` in the `__init__` function of the `OpenAIConfiguration` class.
+
+2. Replace the content of `graphrag/llm/openai/openai_embeddings_llm.py` with the following code:
+
+     
+   nano <path_to_graphrag>/graphrag/llm/openai/openai_embeddings_llm.py
+
+   Replace the content with:
+
+     
+   from typing_extensions import Unpack
+   from graphrag.llm.base import BaseLLM
+   from graphrag.llm.types import (
+       EmbeddingInput,
+       Embedding ,
+       LLMInput,
+   )
+   from .openai_configuration import OpenAIConfiguration
+   from .types import OpenAIClientTypes
+   import ollama
+
+   class OpenAIEmbeddingsLLM(BaseLLM[EmbeddingInput, Embedding ]):
+       _client: OpenAIClientTypes
+       _configuration: OpenAIConfiguration
+
+       def __init__(self, client: OpenAIClientTypes, configuration: OpenAIConfiguration):
+           self._client = client
+           self._configuration = configuration
+
+       async def _execute_llm(
+           self, input: EmbeddingInput, **kwargs: Unpack[LLMInput]
+       ) -> EmbeddingOutput | None:
+           args = {
+               "model": self._configuration.model,
+               **(kwargs.get("model_parameters") or {}),
+           }
+           embedding_list = []
+           for inp in input:
+               embedding = ollama.embeddings(model="nomic-embed-text", prompt=inp)
+               embedding_list.append(embedding["embedding"])
+           return embedding_list
+
+### Running GraphRAG
+Navigate to the `ragdir` directory and run:
+
+  
+python -m graphrag.index --root ./ragdir
+
+### Querying GraphRAG
+To query GraphRAG, use:
+
+  
+python -m graphrag.query --root ./ragdir
+
+ --method global "Your query from the context"
+
+Refer to the GraphRAG Docs for more details on different ways to query.
+
+### Conclusion
+We’ve successfully set up GraphRAG with the vLLM inference engine for our language model and Ollama for embeddings. This setup offers a powerful, open-source alternative to OpenAI, providing flexibility and control for setting up a local GraphRAG sandbox.

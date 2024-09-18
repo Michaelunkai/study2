@@ -1,0 +1,1 @@
+wget --limit-rate=100k http://example.com/file.zip

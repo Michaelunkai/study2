@@ -1,0 +1,22 @@
+Nmon - Terminal System Monitor for Linux
+What is nmon?
+nmon is a systems administrator, tuner, benchmark tool. It can display the CPU, memory, network, disks (mini graphs or numbers), file systems, NFS, top processes, resources (Linux version & processors) and on Power micro-partition information. -https://packages.debian.org/bullseye/nmon
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install software updates
+sudo apt upgrade -y
+# install nmon
+sudo apt install nmon -y
+# launch nmon
+nmon
+Use the different keyboard shortcuts to show/hide various monitors
+c = CPU monitor
+m = memory monitor
+d = disk monitor
+n = network monitor
+t = process monitor
++ = slower update interval
+- = faster update interval

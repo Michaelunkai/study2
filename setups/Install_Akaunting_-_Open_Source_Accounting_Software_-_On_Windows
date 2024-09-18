@@ -1,0 +1,86 @@
+▲A  A▼
+Install Akaunting - Open Source Accounting Software - On Windows
+What is Akaunting?
+Akaunting is a free, open source and online accounting software designed for small businesses and freelancers. -https://github.com/akaunting/akaunting
+Installation
+Download XAMPP Download
+Download Akaunting Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP .zip file > Extract All...
+Right click the downloaded Akaunting .zip file > Extract All...
+Rename the extacted folder to akaunting
+Cut the akaunting folder inside the XAMPP/htdocs directory
+Navigate into the akaunting folder > Create a copy of .env.example
+Rename the copy .env
+Edit the .env file in a text editor
+Edit the values in .env as follows
+APP_URL=http://DNSorIP/akaunting
+LOCALE=en-US
+
+DB_HOST=localhost
+DB_PORT=3306
+
+DB_NAME=akaunting
+DB_USERNAME=akaunting_rw
+DB_PASSWORD=@kaunt1ng!
+
+DB_PREFIX=
+
+Save the changes to .env and close the text editor
+Navigate back to the Downloads directory and cut the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Navigate into XAMPP/PHP and edit php.ini in a text editor
+Find the list of extensions and make sure the following are enabled by removing the ; at the start of the line
+extension=gd
+extension=intl
+
+Save the changes to php.ini and close the text editor
+Right click the Start button > Settings > About
+Click the Advanced system settings option
+Click the Environment Variables...
+Edit the System Path variable
+Click the New button
+Add the PHP installation directory (ie C:\Program Files\xampp\PHP\)
+Click OK to all open dialog windows
+Back in File Explorer, run XAMPP/xampp-control.exe
+Click the Start buttons next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Run the following commands in the PowerShell window to setup the database
+# connect to mysql
+.\my  -u root
+# create the database
+CREATE DATABASE akaunting;
+# create the service account
+GRANT ALL ON akaunting.* to 'akaunting_rw'@'localhost' IDENTIFIED BY '@kaunt1ng!';
+# flu  privileges
+FLUSH PRIVILEGES;
+# close mysql connection
+EXIT;
+# change directory to the akaunting folder
+cd ..\..\htdocs\akaunting
+# generate an app key
+  artisan key:generate
+# exit  
+exit
+Akaunting Web Installer
+Open a web browser and navigate to http://DNSorIP/akaunting
+Select a Language > Click Next
+Complete the Database form as shown below
+Hostname: localhost
+Username: akaunting_rw
+Password: @kaunt1ng!
+Database: akaunting
+
+Click Next
+Complete the Admin form by entering a Company Name, Company Email, Admin Email and Admin Password > Click Next
+Log in with the Admin username and password
+On the Company tab, scroll to the bottom of the form and click Skip this step
+Select/add the desired currencies > Click Next
+Click Next on the Taxes tab
+Click the Create your first invoice link
+Welcome to Akaunting
+Source: https://akaunting.com/docs/installation
+
+ 

@@ -1,0 +1,1 @@
+aws ssm update-document --name <document-name> --content file://document-content.json

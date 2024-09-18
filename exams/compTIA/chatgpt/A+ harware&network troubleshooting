@@ -1,0 +1,66 @@
+What does POST stand for in relation to computer booting?
+
+A:
+POST - Power-On Self Test, which is diagnostic testing squence that computer basic input/output system(BIOS) runs ti determine if the computer hardware is working correctly
+
+
+
+How would you troubleshoot a computer that is not powering on?
+
+A:
+Troubleshooting a computer that is not powering on involves various steps, including checking power connections, ensuring the power supply is functioning, testing the power button, and examining internal components for damage.
+
+
+Explain the purpose of a loopback plug in network troubleshooting.
+
+A:
+A loopback plug is used in network troubleshooting to test network ports and connectivity by simulating network connection back to device itself.
+
+
+What is the role of Device Manager in Windows operating systems?
+
+A:
+Device Manager in Windows operating systems allows users to view and control the hardware attached to the computer, including managing device drivers, disabling or enabling devices, and troubleshooting hardware conflicts.
+
+
+
+How can you identify if a CPU is overheating?
+
+A:
+CPU overheating can be identified by monitoring temperature readings using software utilities like Core Temp or checking for physical signs such as excessive fan noise or system shutdowns due to overheating.
+
+
+
+Describe the steps you would take to troubleshoot a network connectivity issue.
+
+A:
+Troubleshooting network connectivity issues involves steps like checking physical connections, verifying IP configuration settings, testing connectivity with ping and traceroute commands, and checking for software/firewall issues.
+
+
+
+What does DHCP stand for and what is its function in a network?
+
+A:
+DHCP stands for Dynamic Host Configuration Protocol, which automatically assigns IP addresses and other network configuration settings to devices on a network, simplifying network administration.
+
+
+
+
+Explain the difference between a hub and a switch in networking.
+
+A:
+A hub operates at the physical layer of the OSI model, and simply broadcasts data to akk connected devices, whereas a switch opeartes at the data link layer and intelligently forwards data only to the device it is intended for, improving network efficiency.
+
+
+How can you identify if a RAM module is faulty?
+
+A:
+Faulty ram modules can be identified by running memory diagnostic tests such as MemTest86, observing system crashes or blue screens of death (BSODs), or by pysically inspecting the ram for sign of damage. 
+
+
+Describe the purpose of an IP address in networking.
+
+A:
+an IP address serves as a unuque identifier for devices on a network and facilitates communication between devices by specifying the source and destination of data packets within a network.
+
+

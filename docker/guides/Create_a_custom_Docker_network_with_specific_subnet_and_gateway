@@ -1,0 +1,1 @@
+docker network create --driver bridge --subnet 172.20.0.0/16 --gateway 172.20.0.1 --opt com.docker.network.bridge.name=custombridge custom-network && docker network inspect custom-network

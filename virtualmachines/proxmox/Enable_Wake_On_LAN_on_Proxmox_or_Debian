@@ -1,0 +1,34 @@
+▲A  A▼
+Enable Wake On LAN on Proxmox/Debian
+Wake on LAN is very useful functionality if your hardware supports it. Here is a good tutorial on the steps required to enable WOL on a device. This typically needs to be enabled in the BIOS first and the steps below will enable it in Linux https://www.lifewire.com/wake-on-lan-4149800
+
+After enabling WOL in the BIOS, boot into Linux and login
+Run the following commands in a terminal window
+# install ethtool
+sudo apt install ethtool -y
+# list network devices
+ip addr
+Look for the device that has a local IP address (192.168 or 10.10)
+Note the device name and the MAC address for use later when sending the magic packet
+Continue with the following commands to check if the device supports WOL
+# replace eno1 with the device name to test
+sudo ethtool eno1
+Find the Supports Wake-on line
+If it contains a g it supports WOL, continue with the following commands
+# enable wol on the device
+sudo ethtool -s eno1 wol g
+# edit the network interfaces configuration
+sudo nano /etc/network/interfaces
+Paste the following below the iface line for the network device
+ethernet-wol g
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Shutdown the device
+Test to see if WOL is working by sending a magic packet
+If everything is setup correctly the device should awaken from it's slumber and boot up
+Log back into the device and run the following command to verify the Wake-on value has updated to g on boot
+# replace eno1 with the device name to test
+sudo ethtool eno1
+NOTE: If the WOL flag doesn't stick with the configuration above, replace the "ethernet-wol g" value in /etc/network/interfaces with "post-up /usr/sbin/ethtool -s eno1 wol g", replacing eno1 with the name of the interface.
+
+ 

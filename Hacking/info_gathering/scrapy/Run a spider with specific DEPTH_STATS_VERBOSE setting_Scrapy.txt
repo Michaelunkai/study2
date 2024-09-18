@@ -1,0 +1,1 @@
+scrapy crawl myspider -s DEPTH_STATS_VERBOSE=True

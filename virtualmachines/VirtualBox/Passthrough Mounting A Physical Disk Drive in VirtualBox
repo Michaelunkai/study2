@@ -1,0 +1,28 @@
+Passthrough Mounting A Physical Disk Drive in VirtualBox
+Creating the Physical Disk VMDK
+Connect the physical disk to the host
+Log into the VirtualBox host
+Launch PowerShell as administrator
+Run the following commands
+# list physical disks
+Get-PhysicalDisk
+Take note of the disk number for the target disk to mount in VirtualBox
+Continue with the following commands
+# cd to the virtualbox installation directory
+cd "$ENV:ProgramFiles\Oracle\VirtualBox"
+# create a vmdk disk pointing to the target physical disk
+# usage
+# .\VBoxManage.exe internalcommands createrawvmdk -filename "<%fullpathto.vmdk%>" -rawdisk \\.\PhysicalDrive<%disknumber%>
+.\VBoxManage.exe internalcommands createrawvmdk -filename "D:\VMs\SSD.vmdk" -rawdisk \\.\PhysicalDrive2
+# launch virtualbox manager
+.\VirtualBox.exe
+Attaching the Physical Disk to a Virtual Machine
+NOTE: If you don't run VirtualBox Manager as administrator you will get permissions errors trying to access the physical disk
+
+Right click on the target VM > Settings
+Select Storage from the left navigation menu
+Click the Add Hard disk icon
+Click Add > Browse to and select the .vmdk file created earlier
+Scroll to the bottom of the listing and select the .vmdk > Click Choose
+Click OK to confirm the VM settings
+Right click on the target VM > Start

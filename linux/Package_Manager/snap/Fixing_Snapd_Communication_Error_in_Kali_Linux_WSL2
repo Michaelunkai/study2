@@ -1,0 +1,49 @@
+Fixing Snapd Communication Error in Kali Linux WSL2
+Step 1: Install and Configure systemd for WSL2
+Install Necessary Packages
+
+sudo apt update
+sudo apt install -y daemonize dbus-user-session fontconfig
+Create a Script to Launch systemd
+
+cat <<EOF | sudo tee /usr/sbin/start-systemd-namespace
+#!/bin/ 
+if grep -q "Microsoft" /proc/version; then
+    if [ -z "\${WSL_INTEROP}" ]; then
+        export WSL_INTEROP=\$(ls /run/WSL/*_interop)
+    fi
+    if [ -n "\${WSL_DISTRO_NAME}" ] && [ -d "/run/systemd/system" ]; then
+        exec daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd
+    fi
+fi
+EOF
+
+sudo chmod +x /usr/sbin/start-systemd-namespace
+Modify .bashrc to Start systemd Automatically
+
+ 
+ 
+cat <<EOF >> ~/.bashrc
+if grep -q "Microsoft" /proc/version && [ -z "\${WSL_INTEROP}" ]; then
+    if [ -d "/run/systemd/system" ]; then
+        sudo /usr/sbin/start-systemd-namespace
+    fi
+fi
+EOF
+Restart WSL2 Instance
+
+wsl -- utdown
+wsl
+Step 2: Install and Enable Snapd
+Install Snapd
+
+sudo apt update
+sudo apt install -y snapd
+Enable and Start the Snapd Service
+
+sudo systemctl enable snapd
+sudo systemctl start snapd
+Enable and Start the Snapd Socket
+
+sudo systemctl enable snapd.socket
+sudo systemctl start snapd.socket

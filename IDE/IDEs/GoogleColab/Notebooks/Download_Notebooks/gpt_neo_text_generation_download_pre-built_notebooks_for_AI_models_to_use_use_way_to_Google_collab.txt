@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/EleutherAI/gpt-neo/blob/master/notebooks/gpt_neo_example.ipynb -O gpt_neo_text_generation.ipynb

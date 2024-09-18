@@ -1,0 +1,36 @@
+Here's a PowerShell script to create a rule that allows all traffic to and from the C:\study\Hacking\payloads folder by making sure Windows Firewall does not check this folder:
+
+
+# Define the path to the folder
+$folderPath = "C:\study\Hacking\payloads"
+
+# Create a new firewall rule to allow all traffic to and from the folder
+New-NetFirewallRule -DisplayName "Allow All Traffic to Payloads Folder" `
+    -Direction Inbound `
+    -Action Allow `
+    -Path $folderPath `
+    -Profile Any `
+    -Enabled True
+
+New-NetFirewallRule -DisplayName "Allow All Traffic from Payloads Folder" `
+    -Direction Outbound `
+    -Action Allow `
+    -Path $folderPath `
+    -Profile Any `
+    -Enabled True
+
+
+
+
+one liner :
+
+New-NetFirewallRule -DisplayName "Allow All Traffic to Payloads Folder" -Direction Inbound -Action Allow -Profile Any -Enabled True; New-NetFirewallRule -DisplayName "Allow All Traffic from Payloads Folder" -Direction Outbound -Action Allow -Profile Any -Enabled True
+
+
+
+To confirm if the rules are functioning as expected, you can check them with:
+
+
+Get-NetFirewallRule -DisplayName "Allow All Traffic to Payloads Folder"
+Get-NetFirewallRule -DisplayName "Allow All Traffic from Payloads Folder"
+

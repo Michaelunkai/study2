@@ -1,0 +1,2 @@
+Syntax Highlighting
+Hastebin supports syntax highlighting for multiple programming languages, which makes it easier to read code snippets. The site automatically detects the language based on the syntax, but you can also manually specify the language by using the appropriate file extension in the URL (e.g., http://bin.christitus.com/example.py).

@@ -1,0 +1,93 @@
+### 232. Implement Queue using Stacks
+
+**Problem Description:**
+
+Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+
+Implement the `MyQueue` class:
+- `void push(int x)` Pushes element x to the back of the queue.
+- `int pop()` Removes the element from the front of the queue and returns it.
+- `int peek()` Returns the element at the front of the queue.
+- `boolean empty()` Returns `true` if the queue is empty, `false` otherwise.
+
+**Notes:**
+- You must use only standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size`, and `is empty` operations are valid.
+- Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
+
+**Example:**
+```
+Input
+["MyQueue", "push", "push", "peek", "pop", "empty"]
+[[], [1], [2], [], [], []]
+Output
+[null, null, null, 1, 1, false]
+
+Explanation
+MyQueue myQueue = new MyQueue();
+myQueue.push(1); // queue is: [1]
+myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
+myQueue.peek();  // return 1
+myQueue.pop();   // return 1, queue is [2]
+myQueue.empty(); // return false
+```
+
+**Constraints:**
+- `1 <= x <= 9`
+- All the calls to `pop` and `peek` are valid.
+- At most `100` calls will be made to `push`, `pop`, `peek`, and `empty`.
+
+**Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing `n` operations will take overall O(n) time even if one of those operations may take longer.**
+
+### Explanation (Like I'm 12):
+
+Imagine you have two boxes, and you can only add or remove things from the top of the boxes. These boxes are your stacks. You need to make these boxes behave like a line where the first person in line is the first to get out. This is what we call a queue.
+
+### Python Solution:
+
+Here's how you can do it:
+
+```python
+class MyQueue:
+    def __init__(self):
+        self.in_stack = []
+        self.out_stack = []
+
+    def push(self, x: int) -> None:
+        self.in_stack.append(x)
+
+    def pop(self) -> int:
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+        return self.out_stack.pop()
+
+    def peek(self) -> int:
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+        return self.out_stack[-1]
+
+    def empty(self) -> bool:
+        return not self.in_stack and not self.out_stack
+```
+
+### Explanation of the Solution:
+
+1. **Initialization:**
+   - We have two stacks: `in_stack` for adding new elements and `out_stack` for removing elements.
+
+2. **Push Operation:**
+   - Add the new element to the `in_stack`.
+
+3. **Pop Operation:**
+   - If `out_stack` is empty, move all elements from `in_stack` to `out_stack`. This reverses the order of elements, so the oldest element ends up on top of `out_stack`.
+   - Remove and return the top element from `out_stack`.
+
+4. **Peek Operation:**
+   - If `out_stack` is empty, move all elements from `in_stack` to `out_stack` to reverse their order.
+   - Return the top element of `out_stack` without removing it.
+
+5. **Empty Operation:**
+   - Check if both `in_stack` and `out_stack` are empty. If both are empty, the queue is empty; otherwise, it's not.
+
+In simpler terms, we use one stack to store new items and another stack to serve items in the order they were added. When we need to serve an item and the serving stack is empty, we move all items from the new items stack to the serving stack, reversing their order. This way, we can serve items in the correct order.

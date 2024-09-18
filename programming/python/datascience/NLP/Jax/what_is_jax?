@@ -1,0 +1,53 @@
+JAX is a library for high-performance numerical computing that extends the capabilities of NumPy, primarily designed for machine learning research. It combines the flexibility of NumPy with automatic differentiation and GPU/TPU acceleration.
+
+### Key Features of JAX:
+
+1. **Automatic Differentiation**:
+   - JAX provides automatic differentiation (autodiff) through the `jax.grad` function. This makes it easy to compute gradients of functions, which is crucial for machine learning and optimization tasks.
+
+2. **GPU/TPU Acceleration**:
+   - JAX can automatically run computations on GPUs or TPUs using the `jax.devices()` function to query available devices and `jax.numpy` operations that are optimized for these accelerators.
+
+3. **NumPy Compatibility**:
+   - JAX offers a NumPy-compatible API through `jax.numpy`, allowing you to use familiar NumPy functions and syntax while benefiting from JAX's acceleration and autodiff capabilities.
+
+4. **Just-In-Time (JIT) Compilation**:
+   - JAX supports JIT compilation using `jax.jit`, which optimizes and speeds up your functions by compiling them into efficient machine code.
+
+5. **Vectorization**:
+   - With `jax.vmap`, you can automatically vectorize your functions, allowing you to apply them over batches of data efficiently.
+
+6. **Custom Gradients**:
+   - You can define custom gradients using `jax.custom_gradient`, giving you control over how gradients are computed for your functions.
+
+### Typical Use Cases:
+
+- **Machine Learning**: Training and evaluating deep learning models, particularly in research and development contexts.
+- **Scientific Computing**: Performing complex numerical simulations that benefit from GPU/TPU acceleration.
+- **Optimization**: Solving optimization problems where gradients are used to update model parameters.
+
+### Example Code:
+
+Here’s a simple example using JAX:
+
+  
+import jax
+import jax.numpy as jnp
+
+# Define a function
+def my_function(x):
+    return jnp.sin(x) * jnp.exp(x)
+
+# Compute the gradient
+grad_function = jax.grad(my_function)
+
+# Test with a sample input
+x = jnp.array(1.0)
+print("Function output:", my_function(x))
+print("Gradient output:", grad_function(x))
+
+In this example:
+- `my_function` computes the sine of `x` multiplied by the exponential of `x`.
+- `jax.grad` calculates the gradient of `my_function` with respect to `x`.
+
+JAX is especially popular in research environments due to its flexibility and performance, and it's increasingly used in production settings as well.

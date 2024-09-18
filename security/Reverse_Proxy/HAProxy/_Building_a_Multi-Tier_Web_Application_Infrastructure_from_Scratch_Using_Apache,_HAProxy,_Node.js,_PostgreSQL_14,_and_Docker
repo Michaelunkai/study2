@@ -1,0 +1,268 @@
+## Comprehensive Guide to Building a Multi-Tier Web Application Infrastructure from Scratch Using Apache, HAProxy, Node.js, PostgreSQL 14, and Docker
+
+**Objective**: Build a multi-tier web application infrastructure from scratch, including a web server, application server, and database server. This project will also incorporate load balancing, monitoring, and backup systems.
+
+**Tools & Technologies**:
+- Ubuntu
+- Apache (Web Server)
+- Node.js (Application Server)
+- PostgreSQL 14 (Database Server)
+- HAProxy (Load Balancer)
+- Prometheus & Grafana (Monitoring)
+- rsync & Cron (Backup System)
+- Docker & Docker Compose (Containerization)
+
+### Step-by-Step Guide:
+
+#### Step 1: Install Necessary Software on All Servers
+
+1. **Update and Upgrade All Servers**:
+   ``` 
+   sudo apt update && sudo apt upgrade -y
+
+2. **Install Common Utilities**:
+   ``` 
+   sudo apt install curl wget git -y
+
+#### Step 2: Configure Load Balancer with HAProxy
+
+1. **Install HAProxy**:
+   ``` 
+   sudo apt install haproxy -y
+
+2. **Configure HAProxy**:
+   - Edit the configuration file:
+     ``` 
+     sudo nano /etc/haproxy/haproxy.cfg
+   - Replace the existing content with the following configuration:
+     ```haproxy
+     global
+         log /dev/log local0
+         log /dev/log local1 notice
+         chroot /var/lib/haproxy
+         stats socket /run/haproxy/admin.sock mode 660 level admin
+         stats timeout 30s
+         user haproxy
+         group haproxy
+         daemon
+
+         # Default SSL material locations
+         ca-base /etc/ssl/certs
+         crt-base /etc/ssl/private
+
+         # Default ciphers to use on SSL-enabled listening sockets.
+         # For more information, see ciphers(1SSL).
+         ssl-default-bind-ciphers PROFILE=SYSTEM
+         ssl-default-bind-options no-sslv3 no-tls-tickets
+
+     defaults
+         log     global
+         mode    http
+         option  httplog
+         option  dontlognull
+         timeout connect 5000
+         timeout client  50000
+         timeout server  50000
+         errorfile 400 /etc/haproxy/errors/400.http
+         errorfile 403 /etc/haproxy/errors/403.http
+         errorfile 408 /etc/haproxy/errors/408.http
+         errorfile 500 /etc/haproxy/errors/500.http
+         errorfile 502 /etc/haproxy/errors/502.http
+         errorfile 503 /etc/haproxy/errors/503.http
+         errorfile 504 /etc/haproxy/errors/504.http
+
+     frontend http_front
+         bind *:80
+         stats uri /haproxy?stats
+         default_backend http_back
+
+     backend http_back
+         balance roundrobin
+         server app1 192.168.1.2:3000 check
+         server app2 192.168.1.3:3000 check
+
+3. **Restart HAProxy**:
+   ``` 
+   sudo systemctl restart haproxy
+
+#### Step 3: Configure the Web Server with Apache
+
+1. **Install Apache**:
+   ``` 
+   sudo apt install apache2 -y
+
+2. **Enable Necessary Apache Modules**:
+   ``` 
+   sudo a2enmod proxy proxy_http
+
+3. **Configure Apache to run on port 83**:
+   - Edit the default configuration file:
+     ``` 
+     sudo nano /etc/apache2/ports.conf
+   - Change the `Listen` directive to 83:
+     ```apache
+     Listen 83
+
+   - Edit the default virtual host file:
+     ``` 
+     sudo nano /etc/apache2/sites-available/000-default.conf
+   - Replace the existing content with the following configuration:
+     ```apache
+     <VirtualHost *:83>
+         ServerAdmin webmaster@localhost
+         DocumentRoot /var/www/html
+
+         ErrorLog ${APACHE_LOG_DIR}/error.log
+         CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+         ProxyPreserveHost On
+         ProxyPass / http://application_server_ip:3000/
+         ProxyPassReverse / http://application_server_ip:3000/
+     </VirtualHost>
+
+4. **Restart Apache**:
+   ``` 
+   sudo systemctl restart apache2
+
+#### Step 4: Configure the Application Server with Node.js
+
+1. **Install Node.js and npm**:
+   ``` 
+   sudo apt install nodejs npm -y
+
+2. **Create a Simple Node.js Application**:
+   - Create a directory for your application:
+     ``` 
+     mkdir myapp && cd myapp
+   - Initialize a new Node.js project:
+     ``` 
+     npm init -y
+   - Install Express.js:
+     ``` 
+     npm install express
+   - Create an `index.js` file with a simple Express server:
+     ``` 
+     nano index.js
+   - Add the following content to `index.js`:
+     ```javascript
+     const express = require('express');
+     const app = express();
+     const port = 3000;
+
+     app.get('/', (req, res) => {
+       res.send('Hello World!');
+     });
+
+     app.listen(port, () => {
+       console.log(`App listening at http://localhost:${port}`);
+     });
+   - Start the application:
+     ``` 
+     node index.js
+
+#### Step 5: Configure the Database Server with PostgreSQL 14
+
+1. **Install PostgreSQL 14**:
+   ``` 
+   sudo apt update
+   sudo apt -y install postgresql-14 postgresql-client-14
+
+2. **Configure PostgreSQL**:
+   - Allow remote connections by editing `/etc/postgresql/14/main/postgresql.conf`:
+     ``` 
+     sudo nano /etc/postgre /14/main/postgre .conf
+   - Modify the line:
+     ```plaintext
+     listen_addresses = '*'
+   - Edit `/etc/postgresql/14/main/pg_hba.conf` to allow connections from the application server:
+     ``` 
+     sudo nano /etc/postgre /14/main/pg_hba.conf
+   - Add the following line:
+     ```plaintext
+     host    all             all             application_server_ip/32         md5
+   - Restart PostgreSQL:
+     ``` 
+     sudo systemctl restart postgresql
+
+#### Step 6: Set Up Monitoring with Prometheus and Grafana
+
+1. **Install Prometheus**:
+   ``` 
+   sudo apt install prometheus -y
+
+2. **Install Grafana**:
+   ``` 
+   sudo apt install grafana -y
+   sudo systemctl start grafana-server
+   sudo systemctl enable grafana-server
+
+3. **Configure Prometheus and Grafana**:
+   - Add Prometheus as a data source in Grafana.
+   - Create dashboards to monitor your servers.
+
+#### Step 7: Set Up Backup System with rsync and Cron
+
+1. **Create Backup Script**:
+   - Create a script to backup PostgreSQL data:
+     ``` 
+     sudo nano /path/to/backup_script. 
+   - Add the following content:
+     ``` 
+     #!/bin/ 
+     pg_dumpall -U postgres > /path/to/backup/dump.sql
+     rsync -avz /path/to/backup/dump.sql backup_server:/path/to/backup/
+   - Make the script executable:
+     ``` 
+     sudo chmod +x /path/to/backup_script.sh
+
+2. **Schedule Cron Job**:
+   ``` 
+   crontab -e
+   - Add the following line to schedule the script to run daily at midnight:
+     ```plaintext
+     0 0 * * * /path/to/backup_script.sh
+
+#### Step 8: Containerization with Docker and Docker Compose
+
+1. **Install Docker and Docker Compose**:
+   ``` 
+   sudo apt install docker.io docker-compose -y
+
+2. **Create Docker Compose File**:
+   - Create a `docker-compose.yml` file to define your multi-tier application:
+     ``` 
+     nano docker-compose.yml
+   - Add the following content:
+     ``` 
+     version: '3'
+     services:
+       web:
+         image: httpd:latest
+         ports:
+           - "83:83"
+         volumes:
+           - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+       app:
+         image: node:latest
+         volumes:
+           - ./app:/usr/src/app
+         working_dir: /usr/src/app
+         command: node index.js
+         ports:
+           - "3000:3000"
+       db:
+         image: postgres:14
+         environment:
+           POSTGRES_USER: postgres
+           POSTGRES_PASSWORD: password
+           POSTGRES_DB: mydb
+         volumes:
+           - pgdata:/var/lib/postgre /data
+     volumes:
+       pgdata:
+
+3. **Deploy the Application**:
+   ``` 
+   docker-compose up -d
+
+This project will help you build a robust, scalable, and manageable multi-tier web application infrastructure from scratch, covering various aspects of system administration and infrastructure management.

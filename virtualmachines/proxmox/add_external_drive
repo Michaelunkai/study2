@@ -1,0 +1,20 @@
+1)
+lsblk 
+
+find the currect one.
+its useally /dev/sdX
+
+2)
+nano /etc/fstab
+
+example:
+/dev/nvme0n1p3 /var/lib/vz ext4 defaults 0 2
+/dev/sda3 /mnt/sda3 ext4 defaults 0 2
+
+the local is the first
+the sda3 is the external
+
+3)
+datacenter > storage > add > directory:
+directory: /mnt/sda3
+in contenct > check all boxes

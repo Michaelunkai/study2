@@ -1,0 +1,13 @@
+Install BCC
+Ubuntu/Debian
+
+
+sudo apt-get update
+sudo apt-get install bpfcc-tools linux-headers-$(uname -r) -y
+
+sudo apt-get install bpfcc-tools libbcc-examples linux-headers-$(uname -r) -y
+CentOS/RHEL
+
+
+sudo yum install epel-release -y
+sudo yum install bcc-tools bcc-devel -y

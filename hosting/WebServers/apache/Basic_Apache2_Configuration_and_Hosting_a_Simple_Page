@@ -1,0 +1,26 @@
+Introduction:
+We'll now configure Apache2 and host a simple HTML page to understand the basics of web hosting.
+
+Instructions:
+
+Apache2 Configuration Files:
+
+Apache2 configuration files are usually located in /etc/apache2/.
+The main configuration file is apache2.conf, and additional configurations are in the sites-available directory.
+Navigate to Apache2 Directory:
+
+Run: cd /etc/apache2/
+Edit Apache2 Configuration:
+
+Use a text editor (e.g., nano): sudo nano apache2.conf
+Explore and understand basic configurations.
+Create a Simple HTML Page:
+
+Navigate to the default web root: cd /var/www/html/
+Create an HTML file (e.g., index.html) with a basic message.
+Restart Apache2:
+
+Run: sudo service apache2 restart
+Access Your Web Page:
+
+Open a web browser and enter localhost again. You should see the content of your HTML page.

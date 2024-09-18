@@ -1,0 +1,15 @@
+Security Groups and Network ACLs
+Create a Security Group:
+
+ 
+ 
+aws ec2 create-security-group --group-name my-security-group --description "My security group" --vpc-id vpc-<VPC_ID>
+Note the Security Group ID:
+The command output will contain the Security Group ID, let's use the placeholder sg-<SECURITY_GROUP_ID>.
+
+Add rules to the Security Group (e.g., allowing SSH and HTTP):
+
+ 
+ 
+aws ec2 authorize-security-group-ingress --group-id sg-<SECURITY_GROUP_ID> --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id sg-<SECURITY_GROUP_ID> --protocol tcp --port 80 --cidr 0.0.0.0/0

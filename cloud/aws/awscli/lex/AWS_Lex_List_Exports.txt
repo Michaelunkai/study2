@@ -1,0 +1,1 @@
+aws lex-models list-exports --bot-name <bot-name>

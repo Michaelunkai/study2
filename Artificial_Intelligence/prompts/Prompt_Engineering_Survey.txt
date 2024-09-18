@@ -1,0 +1,19 @@
+A Survey of Prompt Engineering Methods in Large Language Models for Different NLP Tasks
+Abstract
+Large language models (LLMs) have shown remarkable performance on many different Natural Language Processing (NLP) tasks. Prompt engineering plays a key role in enhancing the capabilities of LLMs to achieve significant performance gains on various NLP tasks. This technique involves composing natural language instructions, called prompts, to elicit structured knowledge from LLMs. Unlike previous state-of-the-art (SoTA) models, prompt engineering does not require extensive parameter re-training or fine-tuning for a given NLP task, thus relying solely on the embedded knowledge of LLMs. This allows LLM enthusiasts, even without a deep mathematical machine learning background, to experiment with LLMs through basic natural language conversational exchanges or prompt engineering.
+With the rising popularity of prompt engineering in the past two years, researchers have developed numerous techniques for designing prompts to improve information extraction accuracy from LLMs. This paper summarizes different prompting techniques, categorizing them based on the NLP tasks they have been used for. It further highlights the performance of these prompting strategies on various datasets, discusses the corresponding LLMs used, presents a taxonomy diagram, and explores the potential SoTA for specific datasets. The survey covers 44 research papers discussing 39 different prompting methods across 29 different NLP tasks, most of which have been published in the last two years.
+Subjects
+- Computation and Language (cs.CL)
+- Artificial Intelligence (cs.AI)
+Citation
+Vatsal, S., & Dubey, H. (2024). A Survey of Prompt Engineering Methods in Large Language Models for Different NLP Tasks. arXiv preprint arXiv:2407.12994.
+DOI
+https://doi.org/10.48550/arXiv.2407.12994
+Submission History
+- Version 1: Submitted on 17 Jul 2024
+- Version 2: Revised on 24 Jul 2024
+Access
+- PDF: https://arxiv.org/pdf/2407.12994v2
+- HTML: https://arxiv.org/abs/2407.12994v2
+Licensing
+This work is licensed under the terms of the arXiv.org perpetual, non-exclusive license.

@@ -1,0 +1,55 @@
+Implement Data Warehousing with Apache Druid in Ubuntu
+Step 1: Install OpenJDK 11 and Download Apache Druid
+First, you'll need to install OpenJDK 11 and download Apache Druid. Run the following command in your terminal:
+sudo apt install -y openjdk-11-jdk && wget -qO- https://downloads.apache.org/druid/26.0.0/apache-druid-26.0.0-bin.tar.gz | sudo tar xz -C /opt && sudo mv /opt/apache-druid-26.0.0 /opt/druid && cd /opt/druid && sudo bin/start-micro-quickstart
+This command installs OpenJDK 11, downloads and extracts Apache Druid, moves it to /opt/druid, and starts the micro-quickstart example.
+Step 2: Verify Installation
+After running the above command, verify that Druid has started by checking the running services:
+ps aux | grep druid
+You should see multiple Java processes running, indicating that Druid is up and running.
+Step 3: Access Druid Console
+Open your web browser and navigate to http://localhost:8888. This should bring up the Druid console. The Druid console provides a user-friendly interface to interact with and manage your Druid cluster.
+Step 4: Ingest Data into Druid
+To ingest data into Druid, follow these steps:
+1. Click on the Load Data tab in the Druid console.
+2. Select the type of data source you want to ingest from (e.g., local disk, HTTP(S), Amazon S3, etc.).
+3. Follow the wizard to configure your data ingestion. You'll need to specify the data format (e.g., CSV, JSON), schema, and other parameters.
+4. Submit the ingestion job.
+Step 5: Querying Data
+Once the data is ingested, you can query it using Druid SQL or native queries. To execute a query:
+1. Go to the Query tab in the Druid console.
+2. Write your SQL query or use the native query editor.
+3. Execute the query to see the results.
+Step 6: Configuring Druid for Production
+For a production setup, you need to configure Druid to run as a cluster with multiple nodes. This involves setting up the following components:
+- Coordinator: Manages data availability.
+- Overlord: Manages task distribution.
+- Historical: Stores immutable data.
+- MiddleManager: Handles real-time ingestion.
+- Broker: Routes queries to the appropriate data nodes.
+- Router: Optional component for routing queries.
+Each component can be configured in the conf/druid/_common directory. Here's a basic example of a configuration file (common.runtime.properties):
+# Druid common configuration
+druid.metadata.storage.type=derby
+druid.metadata.storage.connector.connectURI=jdbc:derby://localhost:1527/var/druid/metadata.db;create=true
+druid.metadata.storage.connector.user=druid
+druid.metadata.storage.connector.password=diurd
+druid.zk.service.host=localhost
+druid.zk.paths.base=/druid
+# Extensions
+druid.extensions.loadList=["druid-kafka-indexing-service", "druid-hdfs-storage"]
+# Monitoring
+druid.monitoring.monitors=["org.apache.druid.java.util.metrics.JvmMonitor"]
+# Segment Cache
+druid.segmentCache.locations=[{"path": "/mnt/druid/segments", "maxSize": 100000000000}]
+Step 7: Start Druid Services
+To start each Druid service, navigate to the Druid directory and run:
+sudo bin/start-coordinator
+sudo bin/start-overlord
+sudo bin/start-historical
+sudo bin/start-middleManager
+sudo bin/start-broker
+You can also create systemd service files for each Druid component to manage them more easily.
+Step 8: Monitor and Manage Your Druid Cluster
+Use the Druid console and monitoring tools to manage and monitor your Druid cluster. You can set up alerts, check the health of nodes, and ensure data availability and query performance.
+By following these steps, you should have a functional Apache Druid setup on your Ubuntu system. For more advanced configurations and optimizations, refer to the official Apache Druid documentation: https://druid.apache.org/docs/latest/.

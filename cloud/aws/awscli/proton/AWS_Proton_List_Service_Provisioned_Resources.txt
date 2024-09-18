@@ -1,0 +1,1 @@
+aws proton list-service-provisioned-resources --service-name <service-name>

@@ -1,0 +1,9 @@
+Run KubeMQ Container with Required Ports Mapped:
+
+ 
+ 
+sudo docker run -d --name kubemq -p 8080:8080 -p 50000:50000 kubemq/kubemq:latest
+-d: Run the container in detached mode.
+--name kubemq: Assign the name "kubemq" to the container.
+-p 8080:8080: Map port 8080 of the host to port 8080 of the container (HTTP management port).
+-p 50000:50000: Map port 50000 of the host to port 50000 of the container (gRPC port).

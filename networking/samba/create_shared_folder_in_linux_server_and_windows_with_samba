@@ -1,0 +1,63 @@
+Install Samba on Ubuntu Server:
+
+ 
+ 
+sudo apt update
+sudo apt install samba
+Create a Shared Directory:
+
+ 
+ 
+sudo mkdir -p /srv/samba/shared
+sudo chmod 2775 /srv/samba/shared
+sudo chown nobody:nogroup /srv/samba/shared
+Configure Samba:
+Edit the Samba configuration file:
+
+ 
+ 
+sudo nano /etc/samba/smb.conf
+Add the following lines at the end of the file:
+
+ini
+ 
+[ ared]
+path = /srv/samba/ ared
+browseable = yes
+read only = no
+guest ok = yes
+force user = nobody
+Save and exit the editor (Ctrl+X, then Y, and Enter).
+
+Restart Samba Service:
+
+ 
+ 
+sudo systemctl restart smbd
+On Windows 11
+Open File Explorer and Map Network Drive:
+
+Open File Explorer.
+Click on "This PC" in the left sidebar.
+Click on the "Map network drive" button in the ribbon at the top.
+Map the Shared Folder:
+
+Choose a drive letter from the dropdown menu.
+In the "Folder" field, enter the IP address of your Ubuntu server and the name of the shared folder:
+ 
+ 
+\\<Ubuntu_Server_IP>\ ared
+Replace <Ubuntu_Server_IP> with the actual IP address of your Ubuntu server.
+Connect to the Shared Folder:
+
+Check the box "Connect using different credentials."
+Click "Fini ."
+When prompted, enter the credentials:
+Username: nobody
+Password: (leave it blank)
+Now, you should be able to access the shared folder from your Windows 11 laptop.
+
+Additional Notes
+Ensure that your Ubuntu server and Windows 11 laptop are on the same network.
+If you face any issues with permissions, you might need to adjust the Samba configuration or folder permissions accordingly.
+If you need the shared folder to be more secure, you can create specific Samba users and configure permissions as needed.

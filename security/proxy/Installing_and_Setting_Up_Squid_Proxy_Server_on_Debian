@@ -1,0 +1,28 @@
+Installing and Setting Up Squid Proxy Server on Debian
+Installing Squid Proxy Server
+Log into the Linux device
+Run the following commands in terminal
+# update software repositories
+sudo apt update
+# install available updates
+sudo apt upgrade -y
+# install squid
+sudo apt install squid -y
+# enable the squid service to start on boot
+sudo systemctl enable squid
+# restart the squid service
+sudo systemctl restart squid
+# configure the proxy server sudo nano /etc/squid/squid.conf
+After completing any configuration changes, press CTRL+O, Enter, CTRL+X to write the changes to squid.conf
+Run the following command in terminal to restart the Squid service for changes to take effect
+sudo systemctl restart squid
+Testing the Proxy Over HTTP
+Open a web browser and navigate to the settings
+The proxy settings with vary by browser, but for Brave on Windows click the search icon in the top right corner of the settings page
+Search for proxy
+Click on Open your computer's proxy settings
+Enable the Manual proxy setup option
+Enter the IP address running the Squid server and port 3128
+Click the Save button at the bottom of the page
+Back in the browser, navigate to any web page and the traffic will be routed through the proxy and any settings will be applied
+Squid configuration documentation can be found at http://www.squid-cache.org/Doc/config/

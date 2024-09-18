@@ -1,0 +1,42 @@
+ Create a Nano Command File
+For convenience, you can create a script to automate the build and run process. Here’s an example of a nano command file to streamline the setup.
+
+ 
+ 
+nano setup_risc_analysis. 
+Paste the following script into the nano editor:
+
+ 
+ 
+#!/bin/ 
+
+# Update and upgrade system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install necessary dependencies
+sudo apt install -y build-essential git cmake
+
+# Clone the repository
+git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+cd riscv-gnu-toolchain
+
+# Build the project
+./configure --prefix=/opt/riscv
+make
+
+# Add the toolchain to the PATH
+export PATH=/opt/riscv/bin:$PATH
+
+# Verify installation
+riscv64-unknown-elf-gcc --version
+Save and exit the nano editor by pressing CTRL+X, then Y, and Enter.
+
+
+
+Make the Script Executable
+Make the script executable and run it.
+
+ 
+ 
+chmod +x setup_risc_analysis. 
+./setup_risc_analysis. 

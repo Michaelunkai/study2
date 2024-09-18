@@ -1,0 +1,8 @@
+Managing and Monitoring Your CDN
+Enable Logging (Optional):
+
+ 
+ 
+gcloud compute backend-buckets update YOUR_BACKEND_BUCKET_NAME \
+    --enable-cdn \
+    --cdn-cache-mode=CACHE_ALL_STATIC

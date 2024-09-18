@@ -1,0 +1,1 @@
+scrapy crawl myspider -s DUPEFILTER_CLASS='myproject.dupefilters.MyCustomDupeFilter'

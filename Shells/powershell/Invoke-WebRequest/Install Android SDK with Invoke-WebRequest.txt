@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip -OutFile android_sdk.zip; Expand-Archive android_sdk.zip -DestinationPath C:\AndroidSDK

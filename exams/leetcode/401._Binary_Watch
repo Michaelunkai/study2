@@ -1,0 +1,53 @@
+### 401. Binary Watch
+
+**Solution:**
+
+```python
+from typing import List
+
+class Solution:
+    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+        def bit_count(x):
+            return bin(x).count('1')
+        
+        result = []
+        for h in range(12):
+            for m in range(60):
+                if bit_count(h) + bit_count(m) == turnedOn:
+                    result.append(f"{h}:{m:02d}")
+        return result
+```
+
+### Explanation:
+
+1. **Bit Count Function:**
+   - The `bit_count` function counts the number of 1's in the binary representation of a given integer `x`. This is done using `bin(x).count('1')`.
+
+2. **Iterate Over All Possible Times:**
+   - Iterate over all possible hours (`h`) from 0 to 11.
+   - Iterate over all possible minutes (`m`) from 0 to 59.
+
+3. **Check Bit Count:**
+   - For each combination of hour and minute, check if the total number of 1's in their binary representations equals `turnedOn`.
+   - If it does, format the time as `h:m` with leading zeros for minutes if necessary (using `f"{h}:{m:02d}"`).
+
+4. **Store and Return Results:**
+   - Store all valid times in the `result` list.
+   - Return the `result` list.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `turnedOn = 1`
+   - Output: `["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]`
+   - Explanation: Each time has exactly one LED turned on.
+
+2. **Example 2:**
+   - Input: `turnedOn = 9`
+   - Output: `[]`
+   - Explanation: It is impossible to have 9 LEDs turned on since there are only 10 LEDs in total (4 for hours and 6 for minutes).
+
+### Constraints:
+
+- The solution iterates over a fixed range of hours (0-11) and minutes (0-59), resulting in a time complexity of `O(720)` which is constant.
+- This approach is efficient and straightforward, ensuring all possible times are considered and valid times are filtered based on the number of LEDs turned on.

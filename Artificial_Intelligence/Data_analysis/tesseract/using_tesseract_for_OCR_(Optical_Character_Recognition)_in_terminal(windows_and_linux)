@@ -1,0 +1,33 @@
+Using Tesseract for OCR
+
+Install Tesseract:
+
+For Ubuntu/Debian-based systems:
+ 
+ 
+sudo apt-get install tesseract-ocr
+For Windows, download the installer from the official GitHub page.
+Open Terminal or Command Prompt:
+
+On Linux, press Ctrl + Alt + T to open a terminal.
+On Windows, press Win + R, type cmd, and press Enter.
+Navigate to the image directory:
+
+ 
+ 
+cd path/to/your/image/directory
+Run Tesseract:
+
+ 
+ 
+tesseract input_image.png output_text.txt
+Replace input_image.png with your image file and output_text.txt with the desired output file name.
+
+View the  :
+Open the generated text file to review the extracted text.
+
+ 
+ 
+cat output_text.txt  # On Linux
+type output_text.txt # On Windows
+

@@ -1,0 +1,90 @@
+Install NATS Streaming Client Libraries
+Depending on the programming language you prefer, install the appropriate NATS Streaming client library. Here, we'll use Go and Python as examples.
+
+For Go:
+Install the NATS Streaming Go client:
+
+ 
+ 
+go get github.com/nats-io/stan.go
+
+Create a Publi er
+Create a simple publisher that will send messages to the NATS Streaming server.
+
+Go Example:
+Create a file publisher.go:
+
+go
+ 
+package main
+
+import (
+    "fmt"
+    "log"
+    "time"
+
+    stan "github.com/nats-io/stan.go"
+)
+
+func main() {
+    sc, err := stan.Connect("test-cluster", "publisher")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer sc.Close()
+
+    for i := 0; i < 10; i++ {
+        msg := fmt.Sprintf("Message %d", i)
+        err := sc.Publish("foo", []byte(msg))
+        if err != nil {
+            log.Fatal(err)
+        }
+        log.Printf("Published message: %s", msg)
+        time.Sleep(1 * time.Second)
+    }
+}
+Run the publi er:
+
+ 
+ 
+go run publi er.go
+
+
+ Create a Subscriber
+Create a simple subscriber that will receive messages from the NATS Streaming server.
+
+Go Example:
+Create a file subscriber.go:
+
+go
+ 
+package main
+
+import (
+    "log"
+
+    stan "github.com/nats-io/stan.go"
+)
+
+func main() {
+    sc, err := stan.Connect("test-cluster", "subscriber")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer sc.Close()
+
+    _, err = sc.Subscribe("foo", func(m *stan.Msg) {
+        log.Printf("Received message: %s", string(m.Data))
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Keep the process running
+    select {}
+}
+Run the subscriber:
+
+ 
+ 
+go run subscriber.go

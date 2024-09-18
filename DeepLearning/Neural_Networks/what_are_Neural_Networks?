@@ -1,0 +1,18 @@
+Neural networks are a class of machine learning models inspired by the structure and function of the human brain. They are designed to recognize patterns and make predictions by learning from data. Here’s a breakdown of their key components and how they work:
+
+1. **Neurons**: The basic unit of a neural network is the neuron, which receives input, processes it, and produces an output. In a neural network, neurons are organized into layers.
+
+2. **Layers**:
+   - **Input Layer**: The first layer where data is fed into the network. Each neuron in this layer represents a feature or characteristic of the data.
+   - **Hidden Layers**: Layers between the input and output layers where computations and transformations occur. These layers can be multiple and can vary in complexity. The number and size of hidden layers can affect the network’s performance.
+   - **Output Layer**: The final layer that produces the network’s predictions or classifications.
+
+3. **Weights and Biases**: Connections between neurons have weights that are adjusted during training to minimize error. Each neuron also has a bias that shifts the activation function.
+
+4. **Activation Functions**: Functions applied to the output of each neuron to introduce non-linearity into the model. Common activation functions include ReLU (Rectified Linear Unit), sigmoid, and tanh.
+
+5. **Training**: Neural networks are trained using a process called backpropagation, where the network adjusts weights and biases based on the error of its predictions compared to the actual values. This is done iteratively using optimization algorithms like Gradient Descent.
+
+6. **Learning**: During training, the network learns to map inputs to outputs by adjusting its parameters to minimize the error on the training data. This process involves feeding data through the network, computing errors, and updating parameters accordingly.
+
+Neural networks are used for a wide range of applications, including image recognition, natural language processing, and game playing, due to their ability to model complex patterns and relationships in data.

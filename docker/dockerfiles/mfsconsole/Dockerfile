@@ -1,0 +1,14 @@
+# Use Kali Linux as the base image
+FROM kalilinux/kali-rolling
+
+# Update and install dependencies
+RUN apt-get update && \
+    apt-get install -y metasploit-framework net-tools
+
+# Expose the necessary ports for Metasploit
+EXPOSE 4444
+EXPOSE 8080
+
+# Start Metasploit and nsfconsole when the container starts
+CMD ["msfconsole", "-q"]
+

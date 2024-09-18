@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://get.octoprint.org/latest/windows64 -OutFile octoprint_installer.exe; Start-Process octoprint_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

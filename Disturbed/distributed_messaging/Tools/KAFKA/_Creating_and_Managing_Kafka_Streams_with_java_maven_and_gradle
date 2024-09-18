@@ -1,0 +1,42 @@
+ Creating and Managing Kafka Streams
+Kafka Streams is a client library for building applications and microservices. Here’s a basic example:
+
+Create a Streams Application
+Create a Java project with Maven or Gradle.
+Add dependencies for kafka-streams in your pom.xml or build.gradle.
+Example pom.xml snippet:
+
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka-streams</artifactId>
+    <version>3.0.0</version>
+</dependency>
+Create a simple Kafka Streams application:
+
+
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.kstream.KStream;
+
+import java.util.Properties;
+
+public class KafkaStreamsExample {
+
+    public static void main(String[] args) {
+        Properties props = new Properties();
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streams-example");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:7000");
+        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, "org.apache.kafka.common.serialization.Serdes$StringSerde");
+        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, "org.apache.kafka.common.serialization.Serdes$StringSerde");
+
+        StreamsBuilder builder = new StreamsBuilder();
+        KStream<String, String> source = builder.stream("input-topic");
+        source.to("output-topic");
+
+        KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        streams.start();
+    }
+}
+Build and run the application.
+Step 14: Stopping All Services

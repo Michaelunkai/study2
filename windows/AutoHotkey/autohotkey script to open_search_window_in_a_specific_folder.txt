@@ -1,0 +1,1 @@
+^!f::Run, explorer.exe "C:\Users\micha\Documents"

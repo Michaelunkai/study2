@@ -1,0 +1,2 @@
+Increase swap efficiency by changing swapiness and pressure limits:sudo nano /etc/sysctl.confAdd the following lines:vm.swappiness = 10
+vm.vfs_cache_pressure = 50Apply the changes:sudo sysctl -p

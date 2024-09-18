@@ -1,0 +1,8 @@
+**TiddlyWiki5** is a self-contained, non-linear personal web notebook and interactive wiki written in JavaScript. It allows users to create, edit, and organize notes (called "tiddlers") within a single HTML file or a Node.js-powered server. Key features include:
+
+1. **Self-Contained Wiki**: It can be run entirely within a browser as a single HTML file, or as a powerful server application using Node.js or AWS Lambda.
+2. **Highly Customizable**: The user interface and features can be easily customized with WikiText (its markup language).
+3. **Personal Knowledge Management**: Users can create, edit, and organize their content in a nonlinear, interconnected manner, ideal for knowledge management, note-taking, journaling, and task tracking.
+4. **Open-Source and Portable**: TiddlyWiki5 is open-source and designed to be portable, meaning users can download their entire wiki and carry it anywhere.
+
+In essence, TiddlyWiki5 is a flexible tool for personal and collaborative knowledge management that can be extended and modified to fit a wide variety of use cases.

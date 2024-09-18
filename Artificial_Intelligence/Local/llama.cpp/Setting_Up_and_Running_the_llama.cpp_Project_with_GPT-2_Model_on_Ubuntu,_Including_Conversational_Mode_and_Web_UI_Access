@@ -1,0 +1,92 @@
+# **Complete Step-by-Step Tutorial: Setting Up and Running the `llama.cpp` Project with GPT-2 Model on Ubuntu, Including Conversational Mode and Web UI Access**
+
+---
+
+## **1. Install Dependencies**
+
+First, update your package list and install the required dependencies:
+
+  
+sudo apt update && sudo apt install -y build-essential cmake python3 python3-pip
+
+## **2. Clone the `llama.cpp` Repository**
+
+Next, clone the `llama.cpp` repository from GitHub:
+
+  
+git clone https://github.com/ggerganov/llama.cpp.git
+cd llama.cpp
+
+## **3. Build the Project Using CMake**
+
+Run the following commands to build the project using `cmake`:
+
+  
+mkdir build
+cd build
+cmake ..
+make
+
+## **4. Download the GPT-2 Model from Hugging Face Using `huggingface-cli`**
+
+Use the `huggingface-cli` to download the GPT-2 model into your system's cache:
+
+  
+pip install huggingface_hub
+
+huggingface-cli login
+
+# Download the GPT-2 model
+huggingface-cli download gpt2
+
+The model will be downloaded to a directory like `/root/.cache/huggingface/hub/models--gpt2/snapshots/<snapshot_id>`.
+
+## **5. Convert the GPT-2 Model to `.gguf` Format Using the Conversion Script**
+
+Navigate to the `llama.cpp` directory and run the conversion script to convert the GPT-2 model to `.gguf` format:
+
+  
+python3 convert_hf_to_gguf.py /root/.cache/huggingface/hub/models--gpt2/snapshots/<snapshot_id> --outfile ~/llama.cpp/build/gpt2.gguf
+
+Replace `<snapshot_id>` with the actual ID of the downloaded model. This command will convert the model and save it as `gpt2.gguf` in the `~/llama.cpp/build` directory.
+
+## **6. Enable Conversational Mode with the AI Model Using `llama-cli`**
+
+To interact with the AI model in a conversational manner, use the following command:
+
+  
+cd ~/llama.cpp/build/bin
+./llama-cli -m ~/llama.cpp/build/gpt2.gguf -p "You are a helpful assistant." -cnv
+
+This command initiates the AI in a mode where it behaves like a conversational assistant.
+
+## **7. Run the Web UI for `llama.cpp`**
+
+To access the AI model through a web UI, you can start the `llama.cpp` web server:
+
+  
+./llama-server -m ~/llama.cpp/build/gpt2.gguf --port 8080
+
+This command will start a web server on port 8080. You can access the web UI by opening your browser and navigating to:
+
+http://localhost:8080
+
+The web UI will allow you to interact with the AI model through a user-friendly interface.
+
+## **8. Interact with the AI Model**
+
+- **Through the Terminal:** Continue interacting with the model directly in the terminal where you initiated the conversational mode.
+  
+- **Through the Web UI:** Use the web interface for a more intuitive interaction, suitable for extended conversations.
+
+## **9. Clean Up (Optional)**
+
+If you want to clean up unnecessary files, you can remove them:
+
+  
+cd ~/llama.cpp/build
+rm -rf unnecessary_files
+
+---
+
+This comprehensive tutorial covers everything from setting up and running the `llama.cpp` project with the GPT-2 model on Ubuntu to interacting with the AI model in conversational mode and accessing the model through the web UI. All necessary tools and steps are clearly outlined to ensure a smooth experience. If you have any further questions or encounter any issues, feel free to ask!

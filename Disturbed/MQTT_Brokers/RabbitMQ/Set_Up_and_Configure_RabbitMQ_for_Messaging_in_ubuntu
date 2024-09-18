@@ -1,0 +1,95 @@
+Step 1: Update Your System
+First, ensure your system is up to date by running the following commands:
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Step 2: Install Erlang
+RabbitMQ requires Erlang to be installed. You can install Erlang by following these steps:
+
+Add the Erlang repository:
+ 
+ 
+sudo apt install -y gnupg
+wget -O- https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
+echo "deb https://packages.erlang-solutions.com/ubuntu $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/erlang.list
+Update your package list and install Erlang:
+ 
+ 
+sudo apt update
+sudo apt install -y erlang
+Step 3: Install RabbitMQ
+Add the RabbitMQ repository:
+ 
+ 
+wget -O- https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey | sudo apt-key add -
+echo "deb https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+Update your package list and install RabbitMQ:
+ 
+ 
+sudo apt update
+sudo apt install -y rabbitmq-server
+Step 4: Enable and Start RabbitMQ Server
+Enable RabbitMQ to start on boot and start the RabbitMQ server:
+
+ 
+ 
+sudo systemctl enable rabbitmq-server
+sudo systemctl start rabbitmq-server
+Step 5: Enable the RabbitMQ Management Console
+RabbitMQ comes with a handy management console that you can enable with the following command:
+
+ 
+ 
+sudo rabbitmq-plugins enable rabbitmq_management
+Step 6: Create a RabbitMQ User
+Create a new RabbitMQ user and set permissions. Replace your-username and your-password with your desired username and password:
+
+ 
+ 
+sudo rabbitmqctl add_user your-username your-password
+sudo rabbitmqctl set_user_tags your-username administrator
+sudo rabbitmqctl set_permissions -p / your-username ".*" ".*" ".*"
+Step 7: Configure RabbitMQ (Optional)
+You can configure RabbitMQ by editing the configuration file located at /etc/rabbitmq/rabbitmq.conf. Open the file with your preferred text editor:
+
+ 
+ 
+sudo nano /etc/rabbitmq/rabbitmq.conf
+You can set various configurations here. For example, to change the default port or configure SSL/TLS.
+
+Step 8: Access RabbitMQ Management Console
+The RabbitMQ Management Console can be accessed by navigating to http://localhost:15672 in your web browser. Log in with the username and password you created in Step 6.
+
+Step 9: Verify the Installation
+To ensure RabbitMQ is running correctly, you can check the service status:
+
+ 
+ 
+sudo systemctl status rabbitmq-server
+Additionally, you can verify the status of RabbitMQ using the command:
+
+ 
+ 
+sudo rabbitmqctl status
+Step 10: Enable Firewall (Optional)
+If you have a firewall enabled, you’ll need to allow traffic on the RabbitMQ ports. The default ports are 5672 for AMQP connections and 15672 for the management console:
+
+ 
+ 
+sudo ufw allow 5672
+sudo ufw allow 15672
+Step 11: Securing RabbitMQ (Optional)
+To enhance security, consider the following steps:
+
+Disable the default guest user if you don’t need it:
+
+ 
+ 
+sudo rabbitmqctl delete_user guest
+Use SSL/TLS for secure communication (configure SSL settings in /etc/rabbitmq/rabbitmq.conf).
+
+Set up user permissions to restrict access.
+
+With these steps, RabbitMQ  ould be installed, configured, and ready for use on your Ubuntu system. You can now use RabbitMQ for your messaging needs. If you encounter any issues, refer to the RabbitMQ documentation for further assistance.

@@ -1,0 +1,16 @@
+Function
+A function is a block of code designed to perform a specific task, which can be called or invoked when needed. Functions can take inputs (called parameters) and can return a value.
+
+Examples of Functions (in Python):
+ 
+ 
+def greet(name):
+    return f"Hello, {name}!"
+ 
+ 
+def add(a, b):
+    return a + b
+ 
+ 
+def is_even(number):
+    return number % 2 == 0

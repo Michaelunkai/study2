@@ -1,0 +1,20 @@
+Set Up an Amazon EKS Cluster
+Create an EKS Cluster
+
+ 
+ 
+aws eks create-cluster --name my-cluster --role-arn arn:aws:iam::account-id:role/role-name --resources-vpc-config subnetIds=subnet-xxxxxx,securityGroupIds=sg-xxxxxx
+Update kubeconfig
+
+Update your kubeconfig to interact with the EKS cluster:
+
+ 
+ 
+aws eks update-kubeconfig --name my-cluster
+Deploy Applications
+
+Use kubectl to deploy applications. For example:
+
+ 
+ 
+kubectl apply -f deployment.yaml

@@ -1,0 +1,111 @@
+Containerizing a Python Application with Docker: Step-by-Step Guide
+
+    Get the Sample Application
+        Clone the Flask application from the repository:
+
+         
+
+    $ git clone https://github.com/docker/python-docker
+
+Test the Application Locally (Optional)
+
+    Navigate to the working directory:
+
+     
+
+$ cd /path/to/ -docker
+
+Set up a Python virtual environment and run the application:
+
+ 
+
+    $ python3 -m venv .venv
+    $ source .venv/bin/activate
+    (.venv) $ python3 -m pip install -r requirements.txt
+    (.venv) $ python3 -m flask run
+
+    Test in a browser: http://localhost:5000
+
+Initialize Docker Assets
+
+    Run the Docker Init CLI inside the python-docker directory (if not already done):
+
+     
+
+    $ docker init
+
+    Answer prompts for application platform, Python version, port, and command to run the app.
+
+Update Dockerfile (New Step)
+
+    Open your Dockerfile and make the following changes:
+
+    Dockerfile
+
+    # syntax=docker/dockerfile:1
+
+    ARG PYTHON_VERSION=3.11.4
+    FROM python:${PYTHON_VERSION}-slim as base
+
+    ENV PYTHONDONTWRITEBYTECODE=1
+    ENV PYTHONUNBUFFERED=1
+
+    WORKDIR /app
+
+    ARG UID=10001
+    RUN adduser \
+        --disabled-password \
+        --gecos "" \
+        --home "/nonexistent" \
+        -- ell "/sbin/nologin" \
+        --no-create-home \
+        --uid "${UID}" \
+        appuser
+
+    RUN --mount=type=cache,target=/root/.cache/pip \
+        --mount=type=bind,source=requirements.txt,target=requirements.txt \
+        python -m pip install -r requirements.txt
+
+    USER appuser
+
+    COPY . .
+
+    EXPOSE 5000
+
+    CMD python3 -m flask run --host=0.0.0.0
+
+    Save the Dockerfile.
+
+Run the Application with Docker
+
+    Build and run the Docker container:
+
+     
+
+    $ docker compose up --build
+
+    View the application in a browser: http://localhost:5000
+    Stop the application in the terminal: ctrl+c
+
+Run the Application in the Background
+
+    Run the application detached from the terminal:
+
+     
+
+$ docker compose up --build -d
+
+View the application in a browser: http://localhost:5000
+Stop the application with:
+
+ 
+
+        $ docker compose down
+
+    Summary
+        Learn how to containerize and run a Python application using Docker.
+
+    Next Steps
+        Explore development with containers in the next section.
+
+Note: Make sure to have Docker Desktop installed and a git client.

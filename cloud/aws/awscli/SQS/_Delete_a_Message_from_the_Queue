@@ -1,0 +1,7 @@
+Delete a Message from the Queue
+Once you receive and process a message, you should delete it from the queue to prevent it from being received again.
+
+ 
+ 
+aws sqs delete-message --queue-url <QueueUrl> --receipt-handle <ReceiptHandle>
+The ReceiptHandle is obtained from the output of the receive-message command.

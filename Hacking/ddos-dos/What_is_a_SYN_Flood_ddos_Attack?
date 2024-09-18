@@ -1,0 +1,45 @@
+A SYN Flood attack is a type of Distributed Denial of Service (DDoS) attack that targets the process of establishing a TCP connection. Here's a detailed explanation of what it is and what it does to the target:
+
+### What is a SYN Flood Attack?
+
+1. **TCP Handshake Basics**:
+   - TCP (Transmission Control Protocol) connections are established using a three-way handshake process:
+     1. **SYN**: The client sends a synchronization (SYN) packet to the server to request a connection.
+     2. **SYN-ACK**: The server acknowledges the request by sending a synchronization-acknowledgment (SYN-ACK) packet back to the client.
+     3. **ACK**: The client sends an acknowledgment (ACK) packet back to the server, completing the connection.
+
+2. **SYN Flood Mechanism**:
+   - In a SYN Flood attack, the attacker sends a large number of SYN packets to the target server, but never completes the handshake by sending the final ACK packet. This leaves the connection in a half-open state.
+
+### What It Does to the Target
+
+1. **Resource Exhaustion**:
+   - The target server allocates resources for each half-open connection. With a large number of SYN packets and no corresponding ACK packets, the server's resources (such as memory and processing power) become overwhelmed, leading to resource exhaustion.
+
+2. **Connection Table Overflow**:
+   - Most servers maintain a connection table to track the state of each ongoing TCP connection. During a SYN Flood attack, this table can become full, preventing legitimate users from establishing connections because the server cannot handle any new requests.
+
+3. **Denial of Service**:
+   - As a result of resource exhaustion and connection table overflow, legitimate users experience slow responses or are unable to connect to the server at all. This leads to a Denial of Service (DoS) where the targeted service becomes unavailable.
+
+4. **Network Congestion**:
+   - The attack can also lead to network congestion as a large volume of SYN packets flood the network, causing increased latency and packet loss for legitimate traffic.
+
+### Mitigation Techniques
+
+1. **SYN Cookies**:
+   - A technique that allows a server to handle SYN packets without allocating resources until the handshake is completed. This helps prevent resource exhaustion.
+
+2. **Firewall Rules**:
+   - Configuring firewalls to limit the rate of incoming SYN packets can help mitigate the effects of a SYN Flood attack.
+
+3. **Intrusion Detection and Prevention Systems (IDPS)**:
+   - Using IDPS to detect and block suspicious traffic patterns indicative of a SYN Flood attack.
+
+4. **Timeout Reduction**:
+   - Reducing the timeout for half-open connections can help free up resources more quickly.
+
+5. **Load Balancers**:
+   - Distributing the incoming traffic across multiple servers can help manage the load and prevent any single server from becoming overwhelmed.
+
+Understanding and implementing these mitigation techniques can help protect servers from the disruptive effects of SYN Flood attacks.

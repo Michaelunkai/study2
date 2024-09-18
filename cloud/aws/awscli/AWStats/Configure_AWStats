@@ -1,0 +1,23 @@
+Configure AWStats
+2.1 Create a Configuration File
+Copy the model configuration file:
+ 
+ 
+sudo cp /etc/awstats/awstats.model.conf /etc/awstats/awstats.yourdomain.conf
+2.2 Edit the Configuration File
+Open the configuration file for editing:
+ 
+ 
+sudo nano /etc/awstats/awstats.yourdomain.conf
+Update the following lines to fit your setup:
+conf
+ 
+LogFile="/var/log/httpd/access_log"
+SiteDomain="yourdomain.com"
+HostAliases="www.yourdomain.com localhost 127.0.0.1"
+Save and close the file.
+2.3 Generate Initial Statistics
+Run the AWStats update command:
+ 
+ 
+sudo /usr/share/awstats/wwwroot/cgi-bin/awstats.pl -config=yourdomain -update

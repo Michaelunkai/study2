@@ -1,0 +1,82 @@
+Rules for Subtracting Binary Numbers
+Subtracting 0 from 0:
+
+0 - 0 = 0
+Subtracting 1 from 0:
+
+0 - 1 = 1, and you borrow 1 from the next higher bit.
+This is because in binary, 0 - 1 requires borrowing, similar to decimal subtraction where you borrow from the next column.
+Subtracting 0 from 1:
+
+1 - 0 = 1
+Subtracting 1 from 1:
+
+1 - 1 = 0
+Borrowing in Binary Subtraction:
+When borrowing in binary, you take 1 from the next higher bit. This is equivalent to borrowing 10 (binary) or 2 (decimal).
+Example:
+Let's subtract 1011 (11 in decimal) and 110 (6 in decimal).
+
+Align the numbers:
+
+ 
+ 
+  1011
+- 0110
+Subtract from right to left:
+
+Rightmost column: 1 - 0 = 1
+Next column: 1 - 1 = 0
+Next column: 0 - 1 (need to borrow from the next column)
+Borrow 1 from the next column (10 - 1 = 1)
+After borrowing, the column becomes 10 - 1 = 1
+Adjust the borrowed column: 1 - 1 = 0
+Leftmost column: 1 (since we borrowed from this column earlier, it becomes 0 after adjustment)
+Write down the result:
+
+ 
+ 
+  1011
+- 0110
+------
+  0101
+Final Answer:
+1011 - 0110 = 0101
+Summary of Subtraction Rules:
+0 - 0 = 0
+1 - 0 = 1
+1 - 1 = 0
+0 - 1 = 1 (with borrowing)
+Another Example:
+Let's subtract 10010 (18 in decimal) and 1011 (11 in decimal).
+
+Align the numbers:
+
+diff
+ 
+  10010
+-  1011
+Subtract from right to left:
+
+Rightmost column: 0 - 1 (need to borrow)
+Borrow from next column (10 - 1 = 1)
+After borrowing, the column becomes 10 - 1 = 1
+Next column: 0 - 1 (need to borrow)
+Borrow from next column (10 - 1 = 1)
+After borrowing, the column becomes 10 - 1 = 1
+Next column: 1 - 0 = 1
+Next column: 0 - 1 (need to borrow)
+Borrow from next column (10 - 1 = 1)
+After borrowing, the column becomes 10 - 1 = 1
+Leftmost column: 1 - 0 = 1
+Write down the result:
+
+ 
+ 
+  10010
+-  1011
+------
+  01111
+Final Answer:
+10010 - 1011 = 01111
+By following these rules and steps, you can accurately subtract binary numbers.

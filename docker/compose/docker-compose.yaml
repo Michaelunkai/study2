@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    ports:
+      - '81:81'
+      - '443:443'
+      - '444:444'
+    volumes:
+      - ./data:/config
+      - /etc/letsencrypt:/etc/letsencrypt
+
+  nextcloud:
+    image: linuxserver/nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./nextcloud:/config
+    ports:
+      - '8000:443'
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    environment:
+      - TZ=UTC
+    volumes:
+      - ./jellyfin:/config
+      - /media:/media
+    ports:
+      - '8096:8096'
+    restart: unless-stopped
+
+  homeassistant:
+    image: homeassistant/home-assistant
+    volumes:
+      - ./homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=America/New_York
+    restart: unless-stopped

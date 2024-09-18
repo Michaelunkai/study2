@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -i music.mp3 -filter_complex "[0:a][1:a]amix=inputs=2:duration=first:dropout_transition=2" -map 0:v -c:v copy -map "[out]" -c:a aac output.mp4

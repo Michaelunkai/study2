@@ -1,0 +1,123 @@
+# Comprehensive Guide: Setting Up and Using Eleventy (11ty) Static Site Generator with Node.js and npm in Ubuntu Step by Step
+
+### Step 1: Installing Node.js and npm on Ubuntu for Eleventy (11ty) Setup
+
+To start, you need to install Node.js and npm (Node Package Manager), as Eleventy requires these tools. Open your terminal and run the following commands:
+
+  
+sudo apt update
+sudo apt install -y nodejs npm
+
+After installation, verify that both Node.js and npm are installed correctly by checking their versions:
+
+  
+node -v
+npm -v
+
+### Step 2: Installing Eleventy (11ty) Globally Using npm
+
+Once Node.js and npm are installed, you can install Eleventy globally on your system. Execute the following command:
+
+  
+sudo npm install -g @11ty/eleventy
+
+Verify the installation of Eleventy by checking its version:
+
+  
+eleventy --version
+
+### Step 3: Creating a New Project Directory for Your Eleventy (11ty) Site
+
+Now, create a new directory for your Eleventy project and navigate into it using the following commands:
+
+  
+mkdir my-eleventy-site
+cd my-eleventy-site
+
+### Step 4: Initializing a New npm Project for Eleventy (11ty)
+
+Inside the directory you just created, initialize a new npm project. This is essential for managing dependencies and configurations:
+
+  
+npm init -y
+
+### Step 5: Creating a Basic Eleventy Configuration File (.eleventy.js)
+
+Eleventy doesn’t require a configuration file by default, but creating one allows you to customize your setup. Create a `.eleventy.js` file using the nano editor:
+
+  
+nano .eleventy.js
+
+Add the following content to the `.eleventy.js` file to define some basic configurations:
+
+ javascript
+module.exports = function(eleventyConfig) {
+  // Copy `static/` to `_site/static`
+  eleventyConfig.addPassthroughCopy("static");
+  
+  return {
+    dir: {
+      input: "src",
+      output: "_site"
+    }
+  };
+};
+
+Save and close the file by pressing `CTRL + X`, then `Y`, and `Enter`.
+
+### Step 6: Creating Content for Your Eleventy (11ty) Site
+
+Next, you need to create content for your site. Start by creating a `src` directory where your content files will be stored:
+
+  
+mkdir src
+
+Inside the `src` directory, create an `index.md` file:
+
+  
+nano src/index.md
+
+Add the following markdown content to your `index.md` file:
+
+  
+---
+title: My First Eleventy Site
+---
+
+# Hello, Eleventy!
+
+This is my first Eleventy site. Welcome!
+
+Save and close the file.
+
+### Step 7: Building Your Eleventy (11ty) Site
+
+To generate your static site, run Eleventy using the following command:
+
+  
+eleventy
+
+This command will process your content and create the static site in the `_site` directory.
+
+### Step 8: Serving Your Eleventy (11ty) Site Locally for Development
+
+To preview your site locally, you can use Eleventy's built-in development server. Run the following command:
+
+  
+eleventy --serve
+
+Your site will be served at `http://localhost:8080`, where you can view and test it in your web browser.
+
+### Step 9: Making Changes and Automatically Rebuilding Your Eleventy (11ty) Site
+
+While the server is running, you can make changes to your content in the `src` directory. Eleventy will automatically rebuild your site whenever you save a file, allowing you to see updates in real-time.
+
+### Step 10: Deploying Your Eleventy (11ty) Site to a Web Server or Static Hosting Service
+
+Once you're satisfied with your site, deploy the contents of the `_site` directory to your preferred web server or static site hosting service such as GitHub Pages, Netlify, or Vercel.
+
+### Step 11: (Optional) Adding Additional Features to Your Eleventy (11ty) Site
+
+Explore more advanced features of Eleventy, such as using templates, data files, and filters, by referring to the [Eleventy documentation](https://www.11ty.dev/docs/). This will help you enhance your site with additional functionality and customization.
+
+This guide should provide you with everything you need to get started with Eleventy on Ubuntu!

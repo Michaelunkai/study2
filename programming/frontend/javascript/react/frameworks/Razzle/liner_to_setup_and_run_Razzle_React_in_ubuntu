@@ -1,0 +1,1 @@
+getnpm && npx create-razzle-app my-razzle-app && cd my-razzle-app && npm start

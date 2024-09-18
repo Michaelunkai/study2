@@ -1,0 +1,102 @@
+### 445. Add Two Numbers II
+
+**Solution:**
+
+To solve the problem without reversing the input lists, we can use stacks to store the values from the linked lists. This way, we can process the digits from the least significant to the most significant by popping from the stacks.
+
+Here's how we can implement the solution:
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        stack1 = []
+        stack2 = []
+
+        # Push all values from l1 to stack1
+        while l1:
+            stack1.append(l1.val)
+            l1 = l1.next
+        
+        # Push all values from l2 to stack2
+        while l2:
+            stack2.append(l2.val)
+            l2 = l2.next
+
+        carry = 0
+        head = None
+
+        # Pop from both stacks and add values
+        while stack1 or stack2 or carry:
+            sum = carry
+            if stack1:
+                sum += stack1.pop()
+            if stack2:
+                sum += stack2.pop()
+
+            carry = sum // 10
+            node = ListNode(sum % 10)
+            node.next = head
+            head = node
+
+        return head
+```
+
+### Explanation:
+
+1. **Create Stacks:**
+   - We create two stacks (`stack1` and `stack2`) to store the digits from the linked lists `l1` and `l2`.
+
+2. **Push Values to Stacks:**
+   - Traverse the linked list `l1` and push all its values onto `stack1`.
+   - Traverse the linked list `l2` and push all its values onto `stack2`.
+
+3. **Initialize Carry and Head:**
+   - Initialize `carry` to 0.
+   - Initialize `head` to `None` (this will be the head of the resultant linked list).
+
+4. **Pop Values and Add:**
+   - While there are elements in `stack1` or `stack2` or `carry` is non-zero:
+     - Pop the top value from `stack1` (if not empty) and add it to `sum`.
+     - Pop the top value from `stack2` (if not empty) and add it to `sum`.
+     - Add the carry to `sum`.
+     - Calculate new carry as `sum // 10`.
+     - Create a new node with value `sum % 10` and set its next pointer to the current head.
+     - Update the head to the new node.
+
+5. **Return Head:**
+   - Return `head`, which now points to the resultant linked list representing the sum of the two numbers.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `l1 = [7,2,4,3]`, `l2 = [5,6,4]`
+   - Steps:
+     - Push values to stacks: `stack1 = [7, 2, 4, 3]`, `stack2 = [5, 6, 4]`
+     - Pop and add: `3 + 4 = 7`, carry = 0, head = `7`
+     - Pop and add: `4 + 6 + 0 = 10`, carry = 1, head = `0 -> 7`
+     - Pop and add: `2 + 5 + 1 = 8`, carry = 0, head = `8 -> 0 -> 7`
+     - Pop and add: `7 + 0 + 0 = 7`, carry = 0, head = `7 -> 8 -> 0 -> 7`
+   - Output: `7 -> 8 -> 0 -> 7`
+
+2. **Example 2:**
+   - Input: `l1 = [2,4,3]`, `l2 = [5,6,4]`
+   - Steps:
+     - Push values to stacks: `stack1 = [2, 4, 3]`, `stack2 = [5, 6, 4]`
+     - Pop and add: `3 + 4 = 7`, carry = 0, head = `7`
+     - Pop and add: `4 + 6 + 0 = 10`, carry = 1, head = `0 -> 7`
+     - Pop and add: `2 + 5 + 1 = 8`, carry = 0, head = `8 -> 0 -> 7`
+   - Output: `8 -> 0 -> 7`
+
+3. **Example 3:**
+   - Input: `l1 = [0]`, `l2 = [0]`
+   - Steps:
+     - Push values to stacks: `stack1 = [0]`, `stack2 = [0]`
+     - Pop and add: `0 + 0 = 0`, carry = 0, head = `0`
+   - Output: `0`
+
+This solution efficiently adds two numbers represented by linked lists without reversing the lists and uses constant extra space apart from the input and output lists.

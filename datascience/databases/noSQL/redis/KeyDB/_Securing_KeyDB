@@ -1,0 +1,15 @@
+To add a layer of security, you can require a password by editing the configuration file.
+
+ 
+ 
+sudo nano /usr/local/bin/keydb.conf
+Add the following line:
+
+ 
+ 
+requirepass YourStrongPassword
+Restart the KeyDB service:
+
+ 
+ 
+sudo systemctl restart keydb

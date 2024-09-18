@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://download.mozilla.org/?product=thunderbird-91.2.1-SSL&os=win64&lang=en-US -OutFile thunderbird_installer.exe; Start-Process thunderbird_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+Start-Process -FilePath 'C:\path\to\nginx_installer.exe' -ArgumentList '/S' -NoNewWindow -Wait

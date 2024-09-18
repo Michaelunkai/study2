@@ -1,0 +1,1 @@
+aws codeguruprofiler delete-profiling-group --profiling-group-name MyProfilingGroup

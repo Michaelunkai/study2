@@ -1,0 +1,1 @@
+iwr -Uri https://download.unity3d.com/download_unity/ff021b08efcf/Windows64EditorInstaller/UnitySetup64.exe -OutFile unity_installer.exe; Start-Process unity_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

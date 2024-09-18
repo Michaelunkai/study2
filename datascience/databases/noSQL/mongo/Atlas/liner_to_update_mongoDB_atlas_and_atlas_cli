@@ -1,0 +1,1 @@
+atlas --version && sudo apt-get install --only-upgrade mongodb-atlas && sudo apt-get install --only-upgrade mongodb-atlas-cli && atlas --version

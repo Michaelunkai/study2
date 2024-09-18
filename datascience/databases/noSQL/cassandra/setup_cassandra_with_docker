@@ -1,0 +1,5 @@
+ docker run --name my-cassandra -d -p 9042:9042 -p 7000:7000 -p 7001:7001 cassandra:latest && cqlsh 127.0.0.1 9042
+
+
+
+docker exec -it my-cassandra cqlsh

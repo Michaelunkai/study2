@@ -1,0 +1,16 @@
+▲A  A▼
+SSH From Linux Into Your Microsoft Windows Hosts
+Log into the Windows host
+Run the following commands in a powershell window
+# check the current status of ssh server
+Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+# install the ssh server
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+# start the sshd service and set for automatic startup
+Set-Service -Name sshd -Status Running -StartupType Automatic
+# check the sshd service status
+Get-Service s d
+With SSH now running, let's test connecting to it
+From another device (Linux or Windows), ssh into the Windows host
+After authenticating you should SSH into a remote PowerShell terminal
+ 

@@ -1,0 +1,64 @@
+# Step-by-Step Guide to Deploying Your FastAPI Application on Railway for Free Using Only the Command Line
+
+### Prerequisites
+1. **Railway CLI:** Make sure you have the Railway CLI installed. You can install it with the following command:
+    ```bash
+    curl -sSL https://railway.app/install.sh | sh
+    ```
+2. **Python:** Ensure you have Python installed on your machine.
+
+### Steps
+
+1. **Navigate to Your Project Directory:**
+    ```bash
+    cd /mnt/c/study/programming/python/apps/Media2Text/speachtotext/7
+    ```
+
+2. **Create a `requirements.txt` File:**
+    ```bash
+    echo "fastapi" > requirements.txt
+    echo "uvicorn" >> requirements.txt
+    ```
+
+3. **Create a `Procfile`:**
+    ```bash
+    echo "web: uvicorn app:app --host=0.0.0.0 --port=\$PORT" > Procfile
+    ```
+
+4. **Create a `runtime.txt` File:**
+    This ensures that Railway uses the correct Python version.
+    ```bash
+    echo "python-3.9.6" > runtime.txt
+    ```
+
+5. **Initialize a Railway Project:**
+    ```bash
+    railway init
+    ```
+
+6. **Deploy the Application:**
+    ```bash
+    railway up
+    ```
+
+7. **Access Your Application:**
+    After deployment, Railway will provide a URL where your application is hosted. You can find this URL in the output of the `railway up` command or by logging into the Railway web dashboard.
+
+### Additional Steps (if necessary)
+1. **Logging into Railway:**
+    ```bash
+    railway login
+    ```
+    This command will prompt you to log in through a web browser.
+
+2. **Linking the Project:**
+    If you have already created a project on Railway through their web interface, you can link it with the following command:
+    ```bash
+    railway link
+    ```
+
+### Notes
+- Ensure your `app.py` file contains a FastAPI application instance named `app`.
+- The `railway up` command will handle the creation and deployment of your project, including setting up environment variables.
+
+Your FastAPI application should now be running on Railway. If you encounter any issues or need further customization, you can refer to the [Railway documentation](https://docs.railway.app/) for more detailed instructions.

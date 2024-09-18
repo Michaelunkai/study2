@@ -1,0 +1,17 @@
+### Websim: Create Interactive Websites and Games Instantly
+**By Dror Gill, July 22**
+Websim allows you to create websites, interactive apps, and games in seconds using "prompts" - instructions for a chatbot. After building the site, you can share it via a link or download it as an HTML file. Websim is entirely free (requires Google account registration) and supports advanced language models like Claude 3.5 Sonnet and GPT-4o.
+To see the top creations, visit the homepage where you can view the day's, week's, or month's leading projects. Just enter your prompt in the "What would you like to create today?" field.
+**Example Prompt:**
+Create a new twist on the classic Asteroids game, where an angry bird is trying to shoot down alien pigs.
+**Additional Prompts:**
+- Add a start game button.
+- Make the pigs more realistic.
+- Make the pigs explode into pieces like in the original Asteroids game.
+- Make it work on mobile by swiping and tapping on the screen.
+- Add 3 lives.
+- Add the ability to move forward by pressing the Up arrow as in the original game.
+**Issues and Solutions:**
+- If progress stalls, click the reload button to recreate the app.
+- For server overloads, start again with the initial prompt.
+Find the addictive game "Angroids" created with Websim [here].

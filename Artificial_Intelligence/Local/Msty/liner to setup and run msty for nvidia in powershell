@@ -1,0 +1,1 @@
+$downloadPath = "C:\users\micha\downloads\Msty_x64_cuda.exe"; wget https://assets.msty.app/cuda/Msty_x64_cuda.exe -OutFile $downloadPath; Start-Process -FilePath $downloadPath -ArgumentList "/S" -Wait; Start-Process -FilePath "C:\Program Files\Msty\msty.exe" -ArgumentList "--version" -Wait; Remove-Item -Path $downloadPath

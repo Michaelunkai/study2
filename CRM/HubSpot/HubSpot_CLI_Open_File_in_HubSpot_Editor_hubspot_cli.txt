@@ -1,0 +1,1 @@
+hs open <path-to-file>

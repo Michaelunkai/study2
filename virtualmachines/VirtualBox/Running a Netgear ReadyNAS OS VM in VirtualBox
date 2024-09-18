@@ -1,0 +1,37 @@
+Running a Netgear ReadyNAS OS VM in VirtualBox
+What is Netgear ReadyNAS OS?
+ReadyNAS [is] an advanced, easy-to-use storage solution for centralizing and accessing digital files such as photos, music, videos and documents. Designed for both home and small- and medium-sized business (SMB) users, the new ReadyNAS OS offers improvements in data protection, backup, sync, and cloud-based usability. -https://www.netgear.com/about/press-releases/2014/11172014_new_readynas_operating_system/
+Open a web browser and download the ReadyNAS OS .vmdk file Download VMDK Files
+Launch VirtualBox
+Create a New VM by selecting Machine > New
+Name: ReadyNAS OS
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 1024 MB
+Hard disk: Use an existing virtual hard disk now
+
+Click the folder icon > Browse to and select the extracted ReadyNAS OS .vmdk file
+Click Create
+Select the VM and Click Settings
+Select System
+Uncheck the Floppy checkbox
+On the Processor tab, give the VM at least 2 processors
+Select Storage
+Select and remove the IDE disk controller
+Select the Add hard disk dropdown to the right
+Click the Create button at the top
+Change the size to 20 GB > Click Create
+Click Choose to select the new virtual disk
+Select Audio
+Uncheck the Enable Audio checkbox
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Click OK
+Make sure the ReadyNAS OS VM is selected and click Start > Normal
+Welcome to ReadyNAS OS
+Log into the console with the username root and password password
+Run the following command to output the IP address of the VM
+ifconfig
+Open a web browser and navigate to http://IPAddressfromIFCONFIG
+Login with the username admin and password password

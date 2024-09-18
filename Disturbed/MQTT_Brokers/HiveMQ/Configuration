@@ -1,0 +1,9 @@
+
+Configuration:
+
+HiveMQ configuration files are located in the conf directory.
+Main configuration file: hivemq.conf
+To modify settings, edit the hivemq.conf file and restart HiveMQ.
+sh
+Copy code
+sudo nano /opt/hivemq/hivemq-4.29.0/conf/hivemq.conf

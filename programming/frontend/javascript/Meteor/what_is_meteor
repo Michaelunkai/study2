@@ -1,0 +1,8 @@
+Meteor is an open-source, full-stack platform for building web and mobile applications. It provides a set of tools and frameworks that streamline the development process. Key features include:
+
+- **Real-time Data**: Meteor supports real-time data updates, making it easier to build applications where the user interface reflects the latest data without requiring manual refreshes.
+- **Integrated Stack**: It includes a set of built-in tools for developing and deploying applications, such as a development server, database integration, and a build system.
+- **JavaScript-Based**: Meteor allows you to use JavaScript on both the client and server sides, which can simplify development and reduce context switching.
+- **Easy Deployment**: It includes tools for easy deployment and scaling of applications.
+
+In the context of Rocket.Chat, Meteor is used to handle the application's real-time communication features and overall application structure.

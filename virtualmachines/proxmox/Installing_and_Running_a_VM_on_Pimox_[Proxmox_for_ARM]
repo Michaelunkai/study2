@@ -1,0 +1,56 @@
+▲A  A▼
+Installing and Running a VM on Pimox [Proxmox for ARM]
+Creating the VM
+Plug a USB 3 drive into the Raspberry Pi to use for VM storage
+DISCLAIMER: The drive will be formatted, backup any important data
+
+Open a web browser > Navigate to the Pimox web UI and login
+Select the Pimox node > Expand Disks > Click ZFS
+Click the Create: ZFS button
+Give the new ZFS storage a Name and select the USB 3 drive from the devices displayed > Click Create
+Select the local storage from the left navigation pane > ISO Images > Download from URL
+Paste the download URL for Ubuntu Server Download > Click Query URL > Click Download
+Right click the Pimox node name > Create VM
+Give the VM a unique VMID and Name> Click Next
+On the OS tab select Do not use any media and set the Guest OS Type to Linux and Version to 5.x - 2.6 Kernel > Click Next
+On the System tab set the BIOS for OVMF (UEFI) and the EFI Storage > Click Next
+On the Hard Disk tab set the Storage device to USB3 and set the Disk size to 16 (adjust as needed) > Click Next
+On the CPU tab, set the Type to host and Cores to 2 (adjust as needed) > Click Next
+On the Memory tab, set the Memory to 1024 (adjust as needed) > Click Next
+Leave the defaults on the Network tab > Next
+Review the summary and click Finish
+Select the new VM from the left navigation menu > Hardware
+Click on the CD/DVD Drive to select it > Click Remove at the top of the main content area > Click Yes to confirm
+Click Add > Select CD/DVD Drive > Set the Bus/Device to SCSI > Select the local storage device > Select the uploaded Ubuntu .iso > Click Create
+Click Add > Serial Port > Leave the Port Number 0 > Click Add
+Double click Display to edit it > Set the Graphic card value to Serial terminal 0 > Click OK
+Select Options from the left navigation sub-menu
+Double click Boot order to edit it > Drag/drop the scsi2 device (where the Ubuntu iso is attached) to the top of the list > Click OK
+Click the Start button in the top right of the screen
+Click the Console dropdown at the top right of the screen > Select xterm.js
+Wait a moment for the serial console to initialize
+Follow the prompts to complete the OS installation
+After the installation completes, select the Shutdown dropdown at the top of the screen > Stop
+Select Hardware from the left sub-navigation menu
+Double click the CD/DVD Drive to edit it > Select Do not use any media > Click OK
+Click Start at the top right of the screen to start the VM again
+Reconnect to the xterm.js console
+The GRUB menu should boot and start loading Ubuntu Server
+Adding a Desktop Environment
+Login once Ubuntu Server has booted
+Run the following commands to install lxce
+# update software repositories
+sudo apt update
+# install xfce4
+# When prompted, press Enter to configure a display manager > Select lightdm > Press Enter
+sudo apt install xfce4 -y
+# shutdown the VM
+sudo  utdown now
+Back in the Pimox UI, navigate back to the VM Hardware settings
+Double click Display to edit it > Set the Graphic card value to Default > Click OK
+Click the Serial Port (serial0) to select it > Click Remove > Yes
+Click the Start button in the top right of the screen
+Click the normal Console display
+Log back in at the xfce login screen
+Welcome to ARM64 based Ubuntu Server running on Proxmox on your Raspberry Pi
+ 

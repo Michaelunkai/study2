@@ -1,0 +1,41 @@
+Install FreshRSS - RSS Feed Aggregator - on Windows
+What is Fre RSS?
+FreshRSS is a self-hosted RSS feed aggregator. It is lightweight, easy to work with, powerful, and customizable. -https://github.com/FreshRSS/FreshRSS
+Installation
+Download XAMPP Download
+Download Fre RSS Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP file > Extract All...
+Right click the downloaded FreshRSS.zip file > Extract All...
+Rename the extracted folder freshrss
+Cut the freshrss folder inside the XAMPP/htdocs directory
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell windows here...
+Type the following in the PowerShell window to setup the database
+.\my  -u root
+CREATE DATABASE freshrss DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'freshrss_rw'@'localhost' IDENTIFIED BY 'Fr3s4R$S!!';
+GRANT ALL ON freshrss.* TO 'freshrss_rw'@'localhost';
+FLUSH PRIVILEGES;
+exit;
+Open a web browser and navigate to http://DNSorIP:8089
+Select a Language > Click Submit
+Click the Go to the next step button
+Complete the database configuration form as follows
+Type of database: MySQL
+Host: mariadb
+Database username: fre rss_rw
+Database password: Fr3s4R$S!!
+Database: fre rss
+Table prefix:
+
+Click the Go to the next step button
+Enter a username and password > Click Submit
+Click the Complete Installation button
+Login with the username and password created earlier
+Welcome to Fre RSS

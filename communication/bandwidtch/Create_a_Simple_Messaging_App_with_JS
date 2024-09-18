@@ -1,0 +1,45 @@
+Create a Simple Messaging App
+Create and Open app.js:
+
+ 
+ 
+touch app.js
+nano app.js
+Add the Following Code to app.js:
+
+javascript
+ 
+require('dotenv').config();
+const BandwidthMessaging = require('@bandwidth/messaging');
+
+const accountId = process.env.BANDWIDTH_ACCOUNT_ID;
+const username = process.env.BANDWIDTH_API_USER;
+const password = process.env.BANDWIDTH_API_PASSWORD;
+
+BandwidthMessaging.Configuration.basicAuthUserName = username;
+BandwidthMessaging.Configuration.basicAuthPassword = password;
+
+const messagingController = BandwidthMessaging.APIController;
+
+const messageRequest = new BandwidthMessaging.MessageRequest({
+  applicationId: 'your_application_id',
+  to: ['+1234567890'], // recipient's phone number
+  from: '+0987654321', // your Bandwidth phone number
+  text: 'Hello from Bandwidth!'
+});
+
+messagingController.createMessage(accountId, messageRequest)
+  .then(response => {
+    console.log('Message sent successfully:', response);
+  })
+  .catch(error => {
+    console.error('Error sending message:', error);
+  });
+Replace your_application_id, +1234567890, and +0987654321 with your Bandwidth application ID, recipient's phone number, and your Bandwidth phone number, respectively.
+
+Run the Application:
+
+ 
+ 
+node app.js
+If everything is set up correctly, you should see a success message indicating that the SMS was sent successfully.

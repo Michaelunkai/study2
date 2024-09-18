@@ -1,0 +1,36 @@
+Running a DD-WRT VM in Virtualbox
+Download Oracle Virtualbox Download
+Download DD-WRT x86 Image Download
+Install Oracle Virtualbox
+Convert DD-WRT x86 Image to VDI
+# change directory to virtualbox installation
+cd "%programfiles%\Oracle\Virtualbox"
+# run vboxmanage to convert the raw image to .vdi
+vboxmanage.exe convertdd "%userprofile%\downloads\dd-wrt_public_vga.image" "%userprofile%\downloads\dd-wrt.vdi"
+Resize the VDI File
+# resize the vdi to 256MB
+vboxmanage.exe modifyhd --resize 256 "%userprofile%\downloads\dd-wrt.vdi"
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: DD-WRT
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other Linux (32-bit)
+Memory Size: 256 MB
+Hard disk: Do not add a virtual hard disk
+
+Click Create
+Copy the dd-wrt.vdi file from downloads into C:\VMs\DD-WRT
+Select the VM and Click Settings
+Select Storage
+Click Add Storage Attachment > Add Hard Disk > Choose existing disk
+Click Add and browse to C:\VMs\DD-WRT\dd-wrt.vdi
+Click OK
+Select Network
+Set Attached to: Bridge Adapter
+Make sure the DD-WRT VM is selected and click Start > Normal
+Wait for the text to stop scrolling and press Enter
+Login with root/admin
+Set the IP address to something in your current subnet so you can reach it
+ifconfig br0 192.168.0.227
+Launch your web browser of choice and access the DD-WRT web UI with the IP address in the previous step

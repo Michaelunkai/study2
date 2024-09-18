@@ -1,0 +1,14 @@
+Configuring Kernel Parameters
+You can modify some kernel parameters within the constraints of WSL2 by editing the /etc/sysctl.conf file or adding configuration files under /etc/sysctl.d/.
+
+Example: Changing the Swappiness Parameter
+ 
+ 
+# Edit the sysctl.conf file
+sudo nano /etc/sysctl.conf
+
+# Add or modify the following line to set the swappiness to 10
+vm.swappiness = 10
+
+# Apply the changes
+sudo sysctl -p

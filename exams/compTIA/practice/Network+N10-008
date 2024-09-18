@@ -1,0 +1,108 @@
+Question 1
+When logging in to an application, users are prompted to enter a code received from a smartphone application after entering a username and password. Which of the following security concepts does this BEST represent?
+A. Biometric authentication
+B. Least privilege
+C. Role-based access
+D. Multifactor authentication
+
+D. Multifactor authentication
+
+
+Question 2
+Which of the following concepts would MOST likely be used to identify individual pieces of hardware throughout their life cycle?
+A. Geofencing
+B. Smart locker
+C. Chain of custody
+D. Asset tagging
+Your answer (A/B/C/D):
+
+D. Asset tagging
+
+3.
+Which of the following layers is the FIRST step of the bottom-to-top OSI model troubleshooting approach?
+A. Network
+B. Application
+C. Presentation
+D. Physical
+
+D. Physical
+
+
+Question 4
+A network technician is responding to an end user who is experiencing issues while trying to connect to 123.com. Other users, however, are able to access the website by the IP address. Which of the following is MOST likely the cause of the issue?
+A. DNS
+B. DHCP
+C. FTP
+D. HTTP
+Your answer (A/B/C/D):
+
+A. DNS
+
+
+Question 5
+A new wireless network was implemented with every AP linked to the others to maintain full redundancy for network links. Which of the following BEST describes this network topology?
+A. Star
+B. Bus
+C. Mesh
+D. Ring
+
+C. Mesh
+
+
+Question 6
+A technician is required to keep all network devices configured to the same system time. Which of the following network protocols will the technician MOST likely use?
+A. DNS
+B. STP
+C. NTP
+D. DHCP
+
+C. NTP
+
+
+
+Question 7
+A device on the network is used to link hosts from multiple subnets and on different VLANs. Which of the following does this MOST likely describe?
+A. An access point
+B. A hub
+C. A proxy server
+D. A Layer 3 switch
+Your answer (A/B/C/D):
+
+D. A Layer 3 switch
+
+
+Question 8
+A network technician is trying to determine which hop between a client and a server is causing extreme latency. Which of the following commands will allow the technician to find this information?
+A. tracert
+B. arp
+C. tcpdump
+D. netstat
+Your answer (A/B/C/D):
+
+A. tracert
+
+
+Question 9
+During a routine network check, a technician discovers multiple IP addresses recorded in the network logs that are not listed in the company's inventory. None of the devices have wireless network cards. Which of the following would prevent unauthorized devices from gaining access to computer resources?
+A. DHCP
+B. Geofencing
+C. SFTP
+D. Port security
+
+D. Port security
+
+
+
+
+Question 10
+A technician needs to connect two systems. The only available path for the cabling passes close to some equipment that emits large amounts of interference. Which of the following would be the BEST type of cable to install between the two systems?
+A. Crossover
+B. Cat 3
+C. Shielded twisted pair
+D. Plenum-rated
+
+C. Shielded twisted pair
+
+
+
+

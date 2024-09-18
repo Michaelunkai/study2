@@ -1,0 +1,20 @@
+ Modifying Scheduled Tasks
+To modify a scheduled task, you typically retrieve it, modify the desired property, and then set it again.
+
+Retrieve the Task
+ 
+ 
+$task = Get-ScheduledTask -TaskName "MyTask"
+Modify the Task
+For example, to change the trigger:
+
+ 
+ 
+$trigger = New-ScheduledTaskTrigger -Daily -At 8am
+Set-ScheduledTask -TaskName "MyTask" -Trigger $trigger
+Or to change the action:
+
+ 
+ 
+$action = New-ScheduledTaskAction -Execute "calc.exe"
+Set-ScheduledTask -TaskName "MyTask" -Action $action

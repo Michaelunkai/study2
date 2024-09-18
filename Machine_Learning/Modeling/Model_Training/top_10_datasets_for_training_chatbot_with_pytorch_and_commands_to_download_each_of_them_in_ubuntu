@@ -1,0 +1,93 @@
+Here are the top 10 datasets for training chatbots with PyTorch, ranked from best to worst, along with the commands to download each of them in Ubuntu:
+
+1. **Cornell Movie Dialogues Corpus**
+    - **Description:** Contains a rich collection of movie character dialogues.
+    - **Command:**
+      
+    mkdir -p ~/datasets/cornell_movie_dialogues
+    cd ~/datasets/cornell_movie_dialogues
+    wget http://www.cs.cornell.edu/~cristian/data/cornell_movie_dialogs_corpus.zip
+    unzip cornell_movie_dialogs_corpus.zip
+
+2. **Facebook AI's Wizard of Wikipedia**
+    - **Description:** Consists of Wikipedia-based dialogues where one participant is a knowledgeable expert.
+    - **Command:**
+      
+    mkdir -p ~/datasets/wizard_of_wikipedia
+    cd ~/datasets/wizard_of_wikipedia
+    wget https://parl.ai/downloads/wizard_of_wikipedia/wizard_of_wikipedia.tgz
+    tar -xvzf wizard_of_wikipedia.tgz
+
+3. **OpenSubtitles**
+    - **Description:** Large dataset of dialogues from movie subtitles.
+    - **Command:**
+      
+    mkdir -p ~/datasets/opensubtitles
+    cd ~/datasets/opensubtitles
+    wget http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.en.gz -O OpenSubtitles.raw.en.gz
+    gunzip OpenSubtitles.raw.en.gz
+
+4. **DailyDialog**
+    - **Description:** High-quality multi-turn dialogues covering various topics.
+    - **Command:**
+      
+    mkdir -p ~/datasets/dailydialog
+    cd ~/datasets/dailydialog
+    wget http://yanran.li/files/ijcnlp_dailydialog.zip
+    unzip ijcnlp_dailydialog.zip
+
+5. **Persona-Chat**
+    - **Description:** Conversations with personality traits included.
+    - **Command:**
+      
+    mkdir -p ~/datasets/persona_chat
+    cd ~/datasets/persona_chat
+    wget https://s3.amazonaws.com/datasets.huggingface.co/personachat/personachat_self_original.json
+
+6. **Empathetic Dialogues**
+    - **Description:** Conversations grounded in empathy.
+    - **Command:**
+      
+    mkdir -p ~/datasets/empathetic_dialogues
+    cd ~/datasets/empathetic_dialogues
+    wget https://dl.fbaipublicfiles.com/empatheticdialogues/empatheticdialogues.tar.gz
+    tar -xvzf empatheticdialogues.tar.gz
+
+7. **Reddit Comments Dataset**
+    - **Description:** Large dataset of comments from Reddit.
+    - **Command:**
+      
+    mkdir -p ~/datasets/reddit_comments
+    cd ~/datasets/reddit_comments
+    wget http://files.pu  ift.io/reddit/comments/RC_2019-11.zst
+    apt-get install zstd
+    unzstd RC_2019-11.zst
+
+8. **Microsoft Research Social Media Conversation Corpus**
+    - **Description:** Conversations extracted from social media.
+    - **Command:**
+      
+    mkdir -p ~/datasets/msr_social_media_conversations
+    cd ~/datasets/msr_social_media_conversations
+    wget https://github.com/Microsoft/Social-Media-Conversations-Corpus/archive/refs/heads/master.zip
+    unzip master.zip
+
+9. **ConvAI2 Dataset**
+    - **Description:** Dataset for conversational AI competition.
+    - **Command:**
+      
+    mkdir -p ~/datasets/convai2
+    cd ~/datasets/convai2
+    wget https://s3.amazonaws.com/fair-data/parlai/convai2/convai2_fix_723.tgz
+    tar -xvzf convai2_fix_723.tgz
+
+10. **Twitter Dataset for Sentiment Analysis**
+    - **Description:** Tweets labeled with sentiment, useful for dialogue understanding.
+    - **Command:**
+      
+    mkdir -p ~/datasets/twitter_sentiment
+    cd ~/datasets/twitter_sentiment
+    wget http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip
+    unzip trainingandtestdata.zip
+
+These commands will help you download and prepare the datasets for training chatbots with PyTorch.

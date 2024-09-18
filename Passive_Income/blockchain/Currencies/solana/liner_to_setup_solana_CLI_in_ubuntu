@@ -1,0 +1,1 @@
+curl -sSfL https://release.solana.com/v1.18.18/install | sh -s && export PATH="/home/$USER/.local/share/solana/install/active_release/bin:$PATH" && solana --version

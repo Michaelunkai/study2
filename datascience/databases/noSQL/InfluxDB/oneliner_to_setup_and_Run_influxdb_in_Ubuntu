@@ -1,0 +1,1 @@
+sudo apt-get install influxdb influxdb-client -y && sudo systemctl enable influxdb && sudo systemctl start influxdb && influx

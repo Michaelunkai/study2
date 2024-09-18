@@ -1,0 +1,1 @@
+colab-cli set-auth-user <user_index>

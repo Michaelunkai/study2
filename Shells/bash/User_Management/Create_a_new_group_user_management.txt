@@ -1,0 +1,3 @@
+Command: sudo addgroup <groupname>
+Description: Creates a new user group.
+User Management

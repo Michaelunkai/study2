@@ -1,0 +1,1 @@
+getnpm && npx create-expo-app my-expo-app && cd my-expo-app && npm start

@@ -1,0 +1,1 @@
+aws codepipeline acknowledge-job --job-id <job-id> --nonce <nonce>

@@ -1,0 +1,10 @@
+
+Quick Start Guide - Setup An Apache/PHP Web Server on Windows in 5 Minutes
+Download XAMPP Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Install XAMPP
+After the installation completes the XAMPP Control Panel will display
+Click the box under Service next to Apache and MySQL to run them as Windows Services
+Open a web browser and navigate to http://localhost
+Welcome to your fully functional WAMP server in under 5 minutes

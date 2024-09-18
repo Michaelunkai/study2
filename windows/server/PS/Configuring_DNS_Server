@@ -1,0 +1,5 @@
+# Install DNS Server role
+Install-WindowsFeature -Name DNS -IncludeManagementTools
+
+# Configure DNS server settings
+Add-DnsServerPrimaryZone -Name "yourdomain.com" -ZoneFile "yourdomain.com.dns" -DynamicUpdate Secure

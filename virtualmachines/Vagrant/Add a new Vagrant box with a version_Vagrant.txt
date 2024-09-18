@@ -1,0 +1,1 @@
+vagrant box add hashicorp/bionic64 --box-version 1.0.282

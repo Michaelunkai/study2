@@ -1,0 +1,1 @@
+gcloud compute backend-buckets create my-backend-bucket --gcs-bucket-name=my-bucket && gcloud compute url-maps create my-url-map --default-backend-bucket=my-backend-bucket && gcloud compute target-http-proxies create http-lb-proxy --url-map=my-url-map && gcloud compute forwarding-rules create http-content-rule --global --target-http-proxy=http-lb-proxy --ports=80

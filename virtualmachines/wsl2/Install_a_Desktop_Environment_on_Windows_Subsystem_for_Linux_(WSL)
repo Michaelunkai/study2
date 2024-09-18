@@ -1,0 +1,17 @@
+Install a Desktop Environment on Windows Subsystem for Linux (WSL)
+Download VcXsrv Download
+Install VcXsrv
+Launch WSL environment
+Run the following commands in the WSL terminal to install the lightweight LXDE desktop environment
+sudo apt-get install lxde
+export DISPLAY=:0
+export LIBGL_ALWAYS_INDIRECT=1
+Run VcXsrv
+Select how to display the Linux environment (Windowed, Full Screen, etc)
+Select No Client
+Click Next to accept the default values
+Click the Save Configuration button and save the .xlaunch configuration file
+Click Fini 
+Back in the WSL terminal run the following command to launch the LXDE desktop environment
+startlxde
+Enjoy your Linux desktop environment running natively on Windows

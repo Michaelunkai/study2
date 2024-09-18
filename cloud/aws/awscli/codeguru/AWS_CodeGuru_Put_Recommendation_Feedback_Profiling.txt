@@ -1,0 +1,1 @@
+aws codeguruprofiler put-recommendation-feedback --profiling-group-name MyProfilingGroup --recommendation-id <recommendation-id> --type ThumbsUp

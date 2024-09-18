@@ -1,0 +1,15 @@
+nano /etc/pve/lxc/100.conf
+
+Locate the net0 line in the file, which defines the network interface settings for the container:
+
+net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:C1:D0:3E,ip=dhcp,type=veth
+
+Change ip=dhcp to specify the desired static IP address. For example:
+
+net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:C1:D0:3E,ip=192.168.1.101/24,type=veth
+
+Save the changes and exit the text editor.
+
+Restart the container for the changes to take effect:
+
+pct restart <ctID>

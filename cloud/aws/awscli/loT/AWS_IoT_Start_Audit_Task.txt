@@ -1,0 +1,1 @@
+aws iot start-audit-task --target-checks <check-names>

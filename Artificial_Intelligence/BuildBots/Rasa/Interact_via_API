@@ -1,0 +1,7 @@
+Interact via API:
+You can also interact with your Rasa bot programmatically through HTTP API calls. Here’s how you might send a message to your bot:
+
+ 
+ 
+curl -XPOST http://localhost:5005/webhooks/rest/webhook -d '{"sender": "test_user", "message": "hello"}'
+This will send a message to your bot and you'll receive the bot's response as a JSON.

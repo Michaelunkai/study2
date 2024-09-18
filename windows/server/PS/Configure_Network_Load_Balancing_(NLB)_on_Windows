@@ -1,0 +1,23 @@
+ Network Load Balancing
+Configure Network Load Balancing (NLB) on Windows
+Script:
+
+# Install NLB feature
+Install-WindowsFeature -Name NLB -IncludeManagementTools
+
+# Create new NLB cluster
+New-NlbCluster -InterfaceName "Ethernet" -ClusterPrimaryIP 192.168.1.200 -ClusterName "NLBCluster"
+
+# Add hosts to NLB cluster
+Add-NlbClusterNode -InterfaceName "Ethernet" -HostName "Server1" -ClusterName "NLBCluster"
+Add-NlbClusterNode -InterfaceName "Ethernet" -HostName "Server2" -ClusterName "NLBCluster"
+Explanation:
+Install NLB feature.
+
+Adds Network Load Balancing feature to Windows.
+Create new NLB cluster.
+
+Configures a new NLB cluster with a primary IP and name.
+Add hosts to NLB cluster.
+
+Adds specified servers to the NLB cluster.

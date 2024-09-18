@@ -1,0 +1,25 @@
+▲A  A▼
+Share Proxmox Backups Locally with Samba
+Log into Proxmox VE, either at the console or the web UI and launch the web shell
+Run the following commands
+# update software repositories
+apt update
+# install samba
+apt install samba -y
+# edit the samba conf file
+nano /etc/samba/smb.conf
+Paste the following at the bottom of the file
+[vmbackups]
+comment = Proxmox backups
+path = /var/lib/vz
+guest ok = no
+public = yes
+writable = yes
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# restart samba service
+systemctl restart smbd
+Test that the new samba share is accessible, from Windows \\DNSorIP\vmbackups
+When prompted, login with root and the Proxmox root password
+ 

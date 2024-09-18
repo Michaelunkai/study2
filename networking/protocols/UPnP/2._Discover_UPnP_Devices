@@ -1,0 +1,9 @@
+Discover UPnP Devices
+After installing miniupnpc, you can use it to discover UPnP-enabled devices on your network.
+
+Run the following command:
+
+ 
+ 
+upnpc -l
+This will list all UPnP devices available on your network along with their IP addresses.

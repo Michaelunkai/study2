@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/kingoflolz/mesh-transformer-jax/blob/main/notebooks/GPTJ_Text_Generation.ipynb -O gptj_text_generation.ipynb

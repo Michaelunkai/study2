@@ -1,0 +1,17 @@
+# Enable YouTube Data API
+gcloud services enable youtube.googleapis.com
+
+# Set your project
+gcloud config set project mynewproj-1718545327
+
+# Create an API key
+gcloud alpha services api-keys create --display-name="YouTube API Key"
+
+# Retrieve the created API key
+API_KEY=$(gcloud alpha services api-keys list --filter="displayName:YouTube API Key" --format="value(name)")
+
+# Restrict the API key to the YouTube Data API
+gcloud alpha services api-keys update $API_KEY --api-targets="service=youtube.googleapis.com"
+
+# Print the API key
+echo "Your YouTube API Key: $API_KEY"

@@ -1,0 +1,1 @@
+rsync -av --modify-window=1 /source_directory/ /destination_directory/

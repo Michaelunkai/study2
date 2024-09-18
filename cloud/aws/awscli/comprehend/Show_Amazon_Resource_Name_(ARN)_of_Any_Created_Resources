@@ -1,0 +1,14 @@
+ Show Amazon Resource Name (ARN) of Any Created Resources
+If you create any custom resources like entity recognizers or document classifiers, you can show their ARNs (Amazon Resource Names) using the following commands:
+
+List entity recognizers:
+
+ 
+ 
+aws comprehend list-entity-recognizers
+List document classifiers:
+
+ 
+ 
+aws comprehend list-document-classifiers
+The ARNs will be displayed in the output.

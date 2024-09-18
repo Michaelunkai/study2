@@ -1,0 +1,63 @@
+▲A  A▼
+Try Out Citrix Hypervisor (XenServer) in VirtualBox
+NOTE: This is a helpful exercise to get familiar with the Citrix Hypervisor (XenServer) user interface and terminology but is not recommended for production use. 
+Download the Citrix Hypervisor (XenServer) .iso file Download
+Create an account to complete the download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: XenServer
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other (64-bit)
+Memory Size: 8192 MB
+Hard disk: Create a virtual hard disk now
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image XenServer.vdi
+File size: 500 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Check the Enable Nested VT-x/AMD-V
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Citrix Hypervisor (XenServer) .iso file
+Click OK
+Select the hard disk dropdown to the right
+Click the Create button at the top
+Change the size to 500 GB > Click Create
+Click OK to accept the settings
+Make sure the XenServer VM is selected and click Start > Normal
+Select a keyboard mapping > Ok
+Select Ok to begin the installation
+Select Accept EULA
+Press Spacebar to select the 500GB VBOX HARDDISK
+Arrow down and check the Enable thin provisioning box
+Select Ok
+Select Local Media > Ok
+Enter and confirm a root password
+Configure the network > Ok
+Specify a hostname > Ok
+Set the time zone > Ok
+Select Using NTP > Ok
+Select Ok at the NTP server setup
+Select Install Citrix Hypervisor
+Select No at the supplemental packs installation screen
+After the installation completes, select Devices > Optical Drives > Remove disk from virtual drive 
+Select Ok to reboot
+Welcome to Citrix Hypervisor (XenServer) inside VirtualBox
+Installing Citrix XenCenter
+Go back to the download page and download XenCenter Download
+Install the downloaded .msi
+Launch Citrix XenCenter
+Click the Add a Server option in the main window
+Enter the IP address and root password to the Citrix Hypervisor VM
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

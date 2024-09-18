@@ -1,0 +1,9 @@
+Edit /etc/mongod.conf and add:
+
+
+security:
+  authorization: enabled
+
+
+sudo systemctl restart mongod
+

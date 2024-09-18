@@ -1,0 +1,11 @@
+LightLLM is a Python-based Large Language Model (LLM) inference and serving framework designed for lightweight, scalable, and high-speed performance. It leverages various open-source implementations like FasterTransformer, TGI, vLLM, and FlashAttention to enhance efficiency and reduce memory footprint during inference. Key features of LightLLM include:
+
+1. **Tri-process Asynchronous Collaboration:** Asynchronous tokenization, model inference, and detokenization improve GPU utilization.
+2. **Nopad Attention Operations:** Efficient handling of requests with large length disparities.
+3. **Dynamic Batch Scheduling:** Enables dynamic batch scheduling of requests to optimize processing.
+4. **FlashAttention Integration:** Improves speed and reduces GPU memory usage.
+5. **Tensor Parallelism:** Utilizes tensor parallelism over multiple GPUs for faster inference.
+6. **Token Attention and High-Performance Router:** Manages GPU memory of each token to optimize throughput.
+7. **Int8KV Cache:** Increases token capacity significantly.
+
+LightLLM supports various models such as BLOOM, LLaMA, StarCoder, Qwen-VL, and others. It can be deployed as a service, allowing for efficient inference and scalability【6†source】【7†source】【8†source】.

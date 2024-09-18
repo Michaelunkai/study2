@@ -1,0 +1,37 @@
+▲A  A▼
+Host Your Own GitHub Alternative with Gitea Docker Container
+What is Gitea
+Gitea is a community managed lightweight code hosting solution written in Go. -https://gitea.io/
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Gitea
+Now that Docker is installed, run the following commands to setup the Gitea Docker container and run it
+# create working directory
+sudo mkdir /home/$USER/docker/gitea -p && sudo mkdir /home/$USER/docker/mariadb -p
+# run the mariadb docker container
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=p@$$word -e MYSQL_USER=gitea_rw -e MYSQL_PASSWORD=G1te@ -e MYSQL_DATABASE=gitea -v /home/$USER/docker/mariadb:/var/lib/mysql -p 3306:3306 -d mariadb
+# run the Gitea docker container
+docker run --name gitea -d -p 3000:3000 -p 222:22 -v /home/$USER/docker/gitea:/data -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro -e USER_UID=1000 -e USER_GID=1000 -e GITEA__database__DB_TYPE=mysql -e GITEA__database__HOST=DNSorIP:3306 -e GITEA__database__NAME=gitea -e GITEA__database__USER=gitea_rw -e GITEA__database__PASSWD=G1te@ --restart=unless-stopped gitea/gitea:latest
+Open a web browser and navigate to http://DNSorIP:3000
+Confirm the settings on the Initial Configuration screen > Click the Install Gitea button
+Click the Register Now link
+Enter a username, email and password > Click the Register Account button
+Welcome to Gitea running in a Docker container
+Documentation: https://hub.docker.com/r/gitea/gitea
+
+ 

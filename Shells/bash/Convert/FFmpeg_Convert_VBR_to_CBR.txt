@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -b:v 1000k -maxrate 1000k -bufsize 1000k output.mp4

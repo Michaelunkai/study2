@@ -1,0 +1,52 @@
+`npm run build` and `npm install` are two distinct commands used in Node.js and npm (Node Package Manager) workflows. Here’s a detailed comparison and explanation of their purposes:
+
+### `npm install`
+1. **Purpose**:
+   - Installs all the dependencies listed in the `package.json` file of a Node.js project.
+   - It also generates or updates the `node_modules` directory where the installed packages reside.
+   - Optionally installs a specific package if you provide the package name (e.g., `npm install express`).
+
+2. **Usage**:
+   - Typically run when setting up a project for the first time or when new dependencies are added.
+   - Ensures that all required packages are available locally for the application to run.
+
+3. **Variants**:
+   - `npm install`: Installs all dependencies (both `dependencies` and `devDependencies`).
+   - `npm install <package>`: Installs a specific package and adds it to `package.json`.
+   - `npm install --production`: Installs only `dependencies`, skipping `devDependencies`.
+
+### `npm run build`
+1. **Purpose**:
+   - Executes the `build` script defined in the `scripts` section of the `package.json` file.
+   - Commonly used to bundle, transpile, or compile source code, preparing it for production deployment.
+
+2. **Usage**:
+   - Typically run after `npm install` to process source files and create a production-ready version of the application.
+   - The specifics of what happens during the build process depend on the tools and configurations set in the `build` script.
+
+3. **Customization**:
+   - The `build` script can be defined to perform various tasks, such as running Webpack, Babel, TypeScript compiler, etc.
+   - Example in `package.json`:
+      json
+     {
+       "scripts": {
+         "build": "webpack --config webpack.config.js"
+       }
+     }
+
+### Example Workflow
+1. **Setup Project**:
+     
+   npm install
+   - This will install all necessary dependencies.
+
+2. **Build Project**:
+     
+   npm run build
+   - This will execute the build script, which might involve bundling files, transpiling JavaScript, and more.
+
+### Summary
+- **`npm install`**: Used to install project dependencies.
+- **`npm run build`**: Used to execute a custom build script, typically to prepare the application for production.
+
+Understanding and using these commands correctly is essential for managing dependencies and preparing a Node.js project for deployment.

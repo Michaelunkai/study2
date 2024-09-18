@@ -1,0 +1,1 @@
+aws elasticbeanstalk abort-environment-update --environment-id <env-id>

@@ -1,0 +1,19 @@
+ Deploy Your Blog
+If you want to deploy your blog, you can set up deployment configurations in _config.yml. For example, you can deploy to GitHub Pages:
+
+ 
+ 
+deploy:
+  type: 'git'
+  repo: 'https://github.com/yourusername/yourrepository.git'
+  branch: 'gh-pages'
+Then, install the deployer plugin:
+
+ 
+ 
+npm install hexo-deployer-git --save
+Finally, deploy your site with:
+
+ 
+ 
+hexo deploy

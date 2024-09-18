@@ -1,0 +1,1 @@
+ffmpeg -i input.mp3 -filter_complex "showwaves=s=640x120" -frames:v 1 output.png

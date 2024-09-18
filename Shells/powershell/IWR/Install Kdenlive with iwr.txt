@@ -1,0 +1,1 @@
+iwr -Uri https://download.kde.org/stable/kdenlive/21.08.2/windows/kdenlive-21.08.2.exe -OutFile kdenlive_installer.exe; Start-Process kdenlive_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

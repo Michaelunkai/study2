@@ -1,0 +1,43 @@
+▲A  A▼
+How to Install GRUB Themes
+Install a New Theme
+Find and download a theme Browse
+Run the following commands in a terminal window:
+# change to ~/Downloads directory
+cd ~/Downloads
+# list the contents of the directory
+ls
+# extract the downloaded theme, replace the file name as needed
+tar xzvf 'Grub2-theme CyberRe 1.0.0.tar.gz'
+# copy the extracted theme to /boot/grub/themes
+# change the theme name as needed
+sudo cp CyberRe\ 1.0.0/CyberRe /boot/grub/themes/ -r
+# backup /etc/default/grub
+sudo cp /etc/default/grub /etc/default/grub.bkup
+# edit /etc/default/grub
+sudo nano /etc/default/grub
+At the bottom of the file, paste the following, updating the path to the theme.txt file
+GRUB_THEME=/boot/grub/themes/CyberRe/theme.txt
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in a terminal window:
+# update grub
+sudo update-grub
+If everything is setup correctly, a line that reads Found theme: /boot/grub/themes/CyberRe/theme.txt should show in the update-grub output
+Reboot to see the new theme in action
+Removing the Theme
+Run the following commands in a terminal window:
+# change to the grub themes directory
+cd /boot/grub/themes/
+# list the contents of the directory
+ls
+# recursively remove the custom theme directory
+# replace the theme folder name as needed
+sudo rm CyberRe -r
+NOTE: You can also remove the GRUB_THEME= line from /etc/default/grub, but it is not required
+Continue with the following commands:
+# update grub
+sudo update-grub
+# reboot
+sudo reboot now
+ 

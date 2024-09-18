@@ -1,0 +1,1 @@
+aws codepipeline delete-custom-action-type --category Source --provider <provider> --version <version>

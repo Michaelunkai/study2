@@ -1,0 +1,21 @@
+---
+- name: Install Nano Playbook
+  hosts: docker
+  become: yes  # Run tasks as the root user
+  become_method: sudo  # Use sudo for privilege escalation
+
+  tasks:
+    - name: Install Nano on Debian-based systems
+      apt:
+        name: nano
+      when: ansible_os_family == 'Debian'
+
+    - name: Install Nano on Red Hat-based systems
+      dnf:
+        name: nano
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install Nano on openSUSE
+      zypper:
+        name: nano
+      when: ansible_os_family == 'Suse'

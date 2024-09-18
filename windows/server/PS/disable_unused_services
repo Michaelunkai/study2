@@ -1,0 +1,2 @@
+# Get list of services and stop those that are unnecessary
+Get-Service | Where-Object { $_.Name -in @('service1', 'service2', 'service3') } | Stop-Service

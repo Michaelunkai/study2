@@ -1,0 +1,2 @@
+sudo nano /etc/awstats/awstats.mywebsite.conf
+LogFormat=\"%time1 %host %logname %methodurl %code %bytesd\"

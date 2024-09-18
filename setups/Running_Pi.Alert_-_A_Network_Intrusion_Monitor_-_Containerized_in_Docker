@@ -1,0 +1,43 @@
+▲A  A▼
+Running Pi.Alert - A Network Intrusion Monitor - Containerized in Docker
+What is Pi.Alert?
+[Pi.Alert is a] WIFI / LAN intruder detector. Check the devices connected and alert you with unknown devices. It also warns of the disconnection of "always connected" devices. -https://github.com/pucherot/Pi.Alert/
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running the Pi.Alert Container
+Now that Docker is installed, run the following commands to setup the Pi.Alert Docker container and run it
+# create working directory
+mkdir ~/docker/pialert -p
+# set ownership on the working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run temp pialert container
+docker run -d --name=pialert --net=host -e TZ=America/New_York jokobsk/pi.alert
+# copy default config files to host
+docker cp pialert:/home/pi/pialert/config ~/docker/pialert/
+# copy db to host
+docker cp pialert:/home/pi/pialert/db ~/docker/pialert/
+# remove the temp container
+docker rm pialert --force
+# run the pialert container
+docker run -d --name=pialert --net=host -e TZ=America/New_York -v ~/docker/pialert/db:/home/pi/pialert/db -v ~/docker/pialert/config/:/home/pi/pialert/config/ --restart=unless-stopped jokobsk/pi.alert
+Open a web browser and navigate to http://DNSorIP:20211/pialert
+Welcome to Pi.Alert
+NOTE: By default, Pi.Alert cron job runs every 5 minutes to check for new devices on the network
+Documentation: https://hub.docker.com/r/jokobsk/pi.alert
+
+ 

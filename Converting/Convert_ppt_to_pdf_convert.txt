@@ -1,0 +1,1 @@
+libreoffice --headless --convert-to pdf your_file.ppt

@@ -1,0 +1,262 @@
+Certainly! Here are the complete steps to set up a Kickstart server on Ubuntu, including starting the server and checking its status.
+
+### Step 1: Install Required Packages
+
+First, update your system and install the necessary packages:
+  
+sudo apt update
+sudo apt upgrade -y
+sudo apt install apache2 syslinux python3-pip wget curl -y
+pip3 install pykickstart
+
+### Step 2: Configure Apache
+
+Edit the Apache configuration file to include the necessary settings for serving the Kickstart files.
+
+Open the Apache configuration file:
+  
+sudo nano /etc/apache2/apache2.conf
+
+Replace the content with the following configuration:
+ plaintext
+# This is the main Apache server configuration file.  It contains the
+# configuration directives that give the server its instructions.
+# See http://httpd.apache.org/docs/2.4/ for detailed information about
+# the directives and /usr/share/doc/apache2/README.Debian about Debian specific
+# hints.
+
+# Global configuration
+DefaultRuntimeDir ${APACHE_RUN_DIR}
+PidFile ${APACHE_PID_FILE}
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+
+User ${APACHE_RUN_USER}
+Group ${APACHE_RUN_GROUP}
+HostnameLookups Off
+ErrorLog ${APACHE_LOG_DIR}/error.log
+LogLevel warn
+
+IncludeOptional mods-enabled/*.load
+IncludeOptional mods-enabled/*.conf
+Include ports.conf
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    Require all denied
+</Directory>
+
+<Directory /usr/ are>
+    AllowOverride None
+    Require all granted
+</Directory>
+
+<Directory /var/www/>
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+
+AccessFileName .htaccess
+
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>
+
+LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined
+LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %>s %O" common
+LogFormat "%{Referer}i -> %U" referer
+LogFormat "%{User-agent}i" agent
+
+IncludeOptional conf-enabled/*.conf
+IncludeOptional sites-enabled/*.conf
+
+# Directory for Kickstart
+<Directory /var/www/html/kickstart>
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+
+Save and close the file.
+
+Restart Apache to apply the changes:
+  
+sudo systemctl restart apache2
+
+### Step 3: Create the Kickstart Directory
+
+Create a directory to store your Kickstart files and installation media:
+  
+sudo mkdir -p /var/www/html/kickstart/ks
+
+### Step 4: Create the Kickstart File
+
+Create a Kickstart configuration file (`ks.cfg`). Here is a simple example:
+  
+sudo nano /var/www/html/kickstart/ks/ks.cfg
+
+Example content for `ks.cfg`:
+ plaintext
+#version=RHEL8
+install
+url --url="http://your_server_ip/kickstart/centos"
+lang en_US.UTF-8
+keyboard us
+network --bootproto=dhcp
+rootpw --plaintext your_password
+firewall --enabled --service=s 
+authconfig --enable adow --passalgo= a512
+selinux --enforcing
+timezone --utc America/New_York
+bootloader --location=mbr
+clearpart --all --initlabel
+autopart
+reboot
+
+%packages
+@core
+%end
+
+%post
+echo "Kickstart post-install script"
+%end
+
+### Step 5: Download and Set Up Installation Media
+
+Download the CentOS ISO file using the specified command:
+  
+cd && wget $(curl -s https://www.centos.org/download/ | grep -Eo 'https://[^"]+x86_64-dvd1.iso' | head -n 1 | xargs curl -s | grep -Eo 'http[^"]+iso' | head -n 1) -O /root/CentOS-Stream-9-latest-x86_64-dvd1.iso
+
+Mount the ISO file:
+  
+sudo mkdir -p /var/www/html/kickstart/centos
+sudo mount -o loop /root/CentOS-Stream-9-latest-x86_64-dvd1.iso /var/www/html/kickstart/centos
+
+### Step 6: Configure DHCP and TFTP
+
+You need a DHCP server to provide network booting information and a TFTP server to serve the boot files.
+
+#### Install and Configure DHCP Server
+
+Install the DHCP server:
+  
+sudo apt install isc-dhcp-server -y
+
+Edit the DHCP configuration file:
+  
+sudo nano /etc/dhcp/dhcpd.conf
+
+Replace the content with the following configuration:
+ plaintext
+# dhcpd.conf
+#
+# Sample configuration file for ISC dhcpd
+#
+
+# option definitions common to all supported networks...
+option domain-name "example.org";
+option domain-name-servers ns1.example.org, ns2.example.org;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+# The ddns-updates-style parameter controls whether or not the server will
+# attempt to do a DNS update when a lease is confirmed. We default to the
+# behavior of the version 2 packages ('none', since DHCP v2 didn't
+# have support for DDNS.)
+ddns-update-style none;
+
+# If this DHCP server is the official DHCP server for the local
+# network, the authoritative directive should be uncommented.
+authoritative;
+
+# Use this to send dhcp log messages to a different log file (you also
+# have to hack syslog.conf to complete the redirection).
+#log-facility local7;
+
+# A very basic subnet declaration.
+subnet 192.168.1.0 netmask 255.255.255.0 {
+    range 192.168.1.100 192.168.1.200;
+    option routers 192.168.1.1;
+    option domain-name-servers 8.8.8.8, 8.8.4.4;
+    next-server 192.168.1.10;  # IP of your Kickstart server
+    filename "pxelinux.0";
+}
+
+Restart the DHCP server:
+  
+sudo systemctl restart isc-dhcp-server
+
+#### Install and Configure TFTP Server
+
+Install the TFTP server:
+  
+sudo apt install tftpd-hpa -y
+
+Edit the TFTP configuration file:
+  
+sudo nano /etc/default/tftpd-hpa
+
+Replace the content with the following configuration:
+ plaintext
+# /etc/default/tftpd-hpa
+
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS=":69"
+TFTP_OPTIONS="--secure"
+
+Restart the TFTP server:
+  
+sudo systemctl restart tftpd-hpa
+
+Create the TFTP directory and copy the necessary PXE boot files:
+  
+sudo mkdir -p /srv/tftp
+sudo cp /usr/lib/PXELINUX/pxelinux.0 /srv/tftp/
+sudo mkdir -p /srv/tftp/pxelinux.cfg
+sudo cp /usr/lib/syslinux/modules/bios/ldlinux.c32 /srv/tftp/
+sudo cp /var/www/html/kickstart/centos/images/pxeboot/vmlinuz /srv/tftp/
+sudo cp /var/www/html/kickstart/centos/images/pxeboot/initrd.img /srv/tftp/
+
+### Step 7: Set Up PXE Boot
+
+Create the PXE configuration file:
+  
+sudo nano /srv/tftp/pxelinux.cfg/default
+
+Add the following content:
+ plaintext
+default linux
+prompt 1
+timeout 600
+label linux
+  kernel vmlinuz
+  append initrd=initrd.img inst.ks=http://your_server_ip/kickstart/ks/ks.cfg
+
+### Step 8: Start the Kickstart Server and Check Its Status
+
+Start the necessary services to ensure everything is running correctly:
+  
+sudo systemctl start apache2
+sudo systemctl start isc-dhcp-server
+sudo systemctl start tftpd-hpa
+
+Check the status of the services to ensure they are running properly:
+  
+sudo systemctl status apache2
+sudo systemctl status isc-dhcp-server
+sudo systemctl status tftpd-hpa
+
+### Step 9: Boot a Client Machine
+
+Configure a client machine to boot from the network (PXE). Ensure the client is on the same network as the Kickstart server.
+
+### Conclusion
+
+This setup will allow you to perform automated installations using Kickstart on your network. You can customize the `ks.cfg` file to fit your specific installation requirements. By starting the services and checking their statuses, you can ensure that your Kickstart server is functioning correctly.

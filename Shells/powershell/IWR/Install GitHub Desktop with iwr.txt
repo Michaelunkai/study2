@@ -1,0 +1,1 @@
+iwr -Uri https://central.github.com/deployments/desktop/desktop/latest/win32 -OutFile github_desktop_installer.exe; Start-Process github_desktop_installer.exe -ArgumentList '/silent' -NoNewWindow -Wait

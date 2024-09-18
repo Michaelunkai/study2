@@ -1,0 +1,10 @@
+Validation Data
+For this specific model we will introduce a new idea of validation data. In the last tutorial when we trained the models accuracy after each epoch on the current training data, data the model had seen before. This can be problematic as it is highly possible the a model can simply memorize input data and its related output and the accuracy will affect how the model is modified as it trains. So to avoid this issue we will sperate our training data into two sections, training and validation. The model will use the validation data to check accuracy after learning from the training data. This will hopefully result in us avoiding a false confidence for our model.
+
+We can split our training data into validation data like so:
+
+x_val = train_data[:10000]
+x_train = train_data[10000:]
+
+y_val = train_labels[:10000]
+y_train = train_labels[10000:]

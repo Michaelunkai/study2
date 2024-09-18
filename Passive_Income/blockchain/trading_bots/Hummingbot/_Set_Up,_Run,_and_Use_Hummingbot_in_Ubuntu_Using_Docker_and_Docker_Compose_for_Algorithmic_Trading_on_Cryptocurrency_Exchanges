@@ -1,0 +1,89 @@
+### **Step-by-Step Tutorial to Set Up, Run, and Use Hummingbot in Ubuntu Using Docker and Docker Compose for Algorithmic Trading on Cryptocurrency Exchanges**
+
+This tutorial will guide you through the detailed steps to set up, run, and use **Hummingbot** for algorithmic trading on cryptocurrency exchanges. The tutorial includes the installation and configuration of **Docker** and **Docker Compose** in **Ubuntu**, as these tools are essential for running Hummingbot effectively.
+
+#### **Step 1: Install Docker on Ubuntu**
+Docker is required to run Hummingbot as it uses containerization. If Docker is not installed on your system, follow the steps below:
+
+  
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+This installs Docker and sets it up to start automatically on boot.
+
+#### **Step 2: Add User to Docker Group to Avoid Using Sudo**
+By default, Docker requires `sudo` for most commands. To make it more convenient, add your user to the Docker group:
+
+  
+sudo usermod -aG docker $USER
+newgrp docker
+
+This ensures that you can run Docker commands without needing to use `sudo`.
+
+#### **Step 3: Install Docker Compose**
+Docker Compose is required to handle multi-container Docker applications. Install Docker Compose using the following command:
+
+  
+sudo apt-get install docker-compose -y
+
+#### **Step 4: Create a Folder for Hummingbot Files**
+Now, create a folder where you will store the configuration files for Hummingbot:
+
+  
+mkdir ~/hummingbot_files
+cd ~/hummingbot_files
+
+This will create a directory called `hummingbot_files` in your home folder and switch to that directory.
+
+#### **Step 5: Download and Run Hummingbot Using Docker**
+Use Docker to download and run Hummingbot by executing the following command:
+
+  
+docker run -it \
+--name hummingbot-instance \
+--mount type=bind,source="$(pwd)",target=/hummingbot_files \
+coinalpha/hummingbot:latest
+
+This command will pull the latest Hummingbot Docker image and bind the `hummingbot_files` folder to your container.
+
+#### **Step 6: Start Hummingbot Instance**
+To start Hummingbot, use the following command:
+
+  
+docker start -ia hummingbot-instance
+
+This will bring up the interactive Hummingbot console where you can configure and run strategies.
+
+#### **Step 7: Configure Hummingbot**
+Once Hummingbot is running, enter the configuration menu to set up API keys for your exchange, define strategies, and configure your wallet:
+
+  
+config
+
+Follow the on-screen prompts to input your exchange API keys, wallet information, and select a trading strategy.
+
+#### **Step 8: Start Your Trading Strategy**
+Once you have configured everything, start your strategy by typing:
+
+  
+start
+
+This will launch your trading bot based on the selected strategy and configuration.
+
+#### **Step 9: Stop and Restart Hummingbot**
+To stop Hummingbot, use the following command:
+
+  
+docker stop hummingbot-instance
+
+To restart the Hummingbot instance later, use:
+
+  
+docker start -ia hummingbot-instance
+
+This will reload the Hummingbot bot with your saved configurations.
+
+---
+
+With these steps, you have successfully set up and run **Hummingbot** on **Ubuntu** using **Docker** and **Docker Compose**. You are now ready to begin algorithmic trading on cryptocurrency exchanges!

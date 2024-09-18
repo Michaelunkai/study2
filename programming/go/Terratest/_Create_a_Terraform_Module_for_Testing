@@ -1,0 +1,32 @@
+Create a Terraform Module for Testing
+You need a Terraform configuration to test. Create a directory called example and add a simple Terraform module.
+
+ 
+ 
+mkdir ../example
+nano ../example/main.tf
+Add the following content to main.tf:
+
+hcl
+ 
+provider "aws" {
+  region = "us-west-2" # Replace with your AWS region
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0" # Replace with your desired AMI
+  instance_type = "t2.micro"
+}
+
+output "instance_id" {
+  value = aws_instance.example.id
+}
+
+
+ Run the Terratest:
+
+Run the test using the Go testing tool.
+
+ 
+ 
+go test -v

@@ -1,0 +1,111 @@
+### Detailed Step-by-Step Guide on Setting Up and Running the Parse Server Project from the parse-server-example Repository in Ubuntu Using Node.js, npm, and MongoDB
+
+#### Introduction
+This comprehensive tutorial will guide you through the process of setting up and running the Parse Server project from the `parse-server-example` repository on an Ubuntu environment. Parse Server is a powerful backend framework that can be deployed on any infrastructure running Node.js. This example project utilizes the Express framework and MongoDB as its database. By the end of this tutorial, you'll have a fully functional Parse Server running locally on your machine.
+
+#### Prerequisites
+Before starting, ensure your system meets the following prerequisites:
+- **Ubuntu** installed (either as the main OS or within a virtual machine)
+- Basic knowledge of using the command line
+- **Git** installed
+- **Node.js** installed
+- **MongoDB** installed
+
+#### Step 1: Install Node.js and npm on Ubuntu for Running Parse Server
+Node.js is a JavaScript runtime that Parse Server depends on. To check if Node.js is installed on your system, run:
+
+  
+node --version
+
+If Node.js is not installed or if a specific version is required, install Node.js and npm using the following commands:
+
+  
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+This command installs Node.js version 18.x, which is compatible with the Parse Server project. Adjust the version number if you need a different version.
+
+#### Step 2: Install MongoDB on Ubuntu for Parse Server Database Management
+MongoDB is the database that Parse Server uses to store data. Install MongoDB using the following command:
+
+  
+sudo apt-get install -y mongodb
+
+After installation, start the MongoDB service and ensure it starts automatically on boot:
+
+  
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
+
+To verify that MongoDB is running correctly, connect to it using the MongoDB shell:
+
+  
+mongo
+
+Once you see the MongoDB prompt, you can exit by pressing `Ctrl + D`.
+
+#### Step 3: Clone the parse-server-example Repository Using Git
+Next, you need to clone the `parse-server-example` repository to your local machine. Navigate to the directory where you want to store the project and run:
+
+  
+git clone https://github.com/parse-community/parse-server-example.git
+cd parse-server-example
+
+This command will download the repository and navigate into the project directory.
+
+#### Step 4: Install Project Dependencies Using npm to Prepare Parse Server
+Now, you need to install the required dependencies for the Parse Server project. Inside the `parse-server-example` directory, run:
+
+  
+npm install
+
+This command installs all the necessary Node.js packages listed in the `package.json` file.
+
+#### Step 5: Run Parse Server Locally Using npm in Ubuntu
+Once all dependencies are installed, you can start the Parse Server by running:
+
+  
+npm start
+
+By default, the Parse Server will be accessible at `http://localhost:1337/parse`.
+
+#### Step 6: Verify the Parse Server Setup Using the Health Check Endpoint
+To ensure that the Parse Server is running correctly, you can perform a health check by accessing the following URL in your browser:
+
+  
+http://localhost:1337/parse/health
+
+Alternatively, you can use `curl` from the command line:
+
+  
+curl http://localhost:1337/parse/health
+
+This should return a JSON response indicating that the server is up and running.
+
+#### Step 7: (Optional) Customize Parse Server Using Environment Variables in Ubuntu
+You can customize the Parse Server setup by setting environment variables. For example, to change the base path of the API route, you can export the `PARSE_MOUNT` variable before starting the server:
+
+  
+export PARSE_MOUNT=/app
+npm start
+
+This command will set the API route to `http://localhost:1337/app`.
+
+#### Step 8: Interact with Parse Server Using REST API, JavaScript SDK, or Other SDKs
+With Parse Server running, you can interact with it using various APIs and SDKs. For example, to save an object using the REST API, you can use the following `curl` command:
+
+  
+curl -X POST \
+  -H "X-Parse-Application-Id: YOUR_APP_ID" \
+  -H "Content-Type: application/json" \
+  -d '{"score":1337}' \
+  http://localhost:1337/parse/classes/GameScore
+
+Make sure to replace `YOUR_APP_ID` with your actual Parse Application ID.
+
+#### Conclusion
+This detailed tutorial has guided you through the process of setting up and running the Parse Server project from the `parse-server-example` repository on your Ubuntu machine using Node.js, npm, and MongoDB. With this setup, you can now develop, test, and deploy applications using Parse Server locally, and later expand to cloud platforms if needed.
+
+This guide covered the essentials, but you can further explore by integrating Parse Server with various client SDKs or deploying it on platforms like Heroku, AWS, or Azure.
+
+Happy coding!

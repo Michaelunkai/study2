@@ -1,0 +1,1 @@
+aws iot create-thing-type --thing-type-name <thing-type-name>

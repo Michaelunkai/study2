@@ -1,0 +1,6 @@
+cat /proc/asound/modules
+
+
+
+Purpose: List all loaded Alsa audio modules.
+Explanation: This command displays the currently loaded audio modules, which can help identify which modules to blacklist.

@@ -1,0 +1,1 @@
+sudo apt-get install -y python3-pip && pip3 install pytest && mkdir pytest_project && cd pytest_project && echo "def test_example():\n assert 1 == 1" > test_example.py && pytest

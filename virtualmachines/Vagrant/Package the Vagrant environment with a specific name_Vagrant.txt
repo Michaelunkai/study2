@@ -1,0 +1,1 @@
+vagrant package machine_name

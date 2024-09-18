@@ -1,0 +1,1 @@
+aws comprehend detect-syntax --text "your text here" --language-code en

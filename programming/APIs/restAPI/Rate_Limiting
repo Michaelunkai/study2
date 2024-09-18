@@ -1,0 +1,30 @@
+ Rate Limiting
+Rate limiting is essential for controlling the number of requests a client can make to your API within a certain timeframe. This helps prevent abuse and ensures fair usage among all clients.
+
+Implementing Rate Limiting
+Headers: Inform clients of their rate limits and remaining quota.
+Algorithms: Common algorithms include fixed window, sliding window, and token bucket.
+Example Response Headers for Rate Limiting:
+
+mathematica
+ 
+X-Rate-Limit-Limit: 1000
+X-Rate-Limit-Remaining: 750
+X-Rate-Limit-Reset: 1587955200
+Example in Python (using Flask and Flask-Limiter)
+ 
+ 
+from flask import Flask, jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+app = Flask(__name__)
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["200 per day", "50 per hour"])
+
+@app.route("/resource")
+@limiter.limit("10 per minute")
+def get_resource():
+    return jsonify({"message": "This is a rate-limited endpoint"})
+
+if __name__ == "__main__":
+    app.run()

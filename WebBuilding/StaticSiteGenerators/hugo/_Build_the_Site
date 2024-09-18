@@ -1,0 +1,8 @@
+Build the Site
+
+When you're ready to build your site for production, use the following command:
+
+ 
+ 
+hugo
+This will generate the static site files in the public directory, which you can then upload to your web server.

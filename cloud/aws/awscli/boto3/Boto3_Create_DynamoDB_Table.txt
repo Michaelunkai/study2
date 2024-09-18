@@ -1,0 +1,3 @@
+import boto3
+dynamodb = boto3.client('dynamodb')
+dynamodb.create_table(TableName='MyTable', KeySchema=[{'AttributeName': 'ID', 'KeyType': 'HASH'}], AttributeDefinitions=[{'AttributeName': 'ID', 'AttributeType': 'S'}], ProvisionedThroughput={'ReadCapacityUnits': 1, 'WriteCapacityUnits': 1})

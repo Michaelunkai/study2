@@ -1,0 +1,1 @@
+aws kinesisvideo create-stream --stream-name MySurveillanceStream --data-retention-in-hours 24

@@ -1,0 +1,1 @@
+copy /b [image.jpg] + [folder.zip] [new_image.jpg]

@@ -1,0 +1,1 @@
+ cd && getjava && wget https://www.hivemq.com/releases/hivemq-4.29.0.zip && sudo apt install unzip -y && unzip hivemq-4.29.0.zip -d /opt/hivemq && cd /opt/hivemq/hivemq-4.29.0 && sudo chmod -R 755 /opt/hivemq/hivemq-4.29.0 && ./bin/run.sh

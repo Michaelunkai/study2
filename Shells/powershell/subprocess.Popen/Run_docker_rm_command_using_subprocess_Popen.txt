@@ -1,0 +1,1 @@
+subprocess.Popen(['docker', 'rm', 'container_name'])

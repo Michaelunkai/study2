@@ -1,0 +1,33 @@
+Dual Boot Windows 10 and Debian Keeping Windows Boot Manager
+Installing the Operating Systems
+Install Windows 10 normally, leaving enough space on the disk for Debian to be installed
+After Windows 10 is installed successfully, start the Debian installation
+At the partition setup screen, select Guided partitioning > Manual
+Create two partitions as follows
+1 large ext4 partition to install Debian, note the partition identifier for installing GRUB later
+1 smaller (1-4 GB) swap partition
+Continue through the installation normally
+At the GRUB setup screen, select No to installing GRUB boot loader to the master boot record > Click Continue
+Select Enter device manually
+Enter the partition identifier noted above in the partitioning section
+Let the installation finish
+Adding Linux to the Windows Bootloader
+After rebooting, the device will only be able to boot into Windows 10
+Download and install EasyBCD Download
+Launch EasyBCD
+Choose a Language > Click Go
+Click OK to launch the EasyBCD Community Edition
+Click the Add New Entry button on the left navigation
+Select the Linux/BSD tab
+Set the Type dropdown to GRUB 2
+Set the Name to Debian
+Set the drive to the Linux partition created during the Debian installation
+Click the green plus icon to add the entry
+Click the Edit Boot Menu button on the left navigation.
+Set the default operating system and the number of seconds to wait before auto booting the default OS
+Click the Save Settings button to save any changes
+Reboot to test the boot menu changes
+Test booting into Debian
+Reboot and test booting into Windows
+Cleaning Up
+After testing that Debian is now showing on the Windows Boot Manager and that both Windows and Debian are working, EasyBCD can be uninstalled from Windows

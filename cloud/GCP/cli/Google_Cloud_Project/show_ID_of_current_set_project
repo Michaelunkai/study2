@@ -1,0 +1,1 @@
+gcloud config get-value project

@@ -1,0 +1,88 @@
+▲A  A▼
+Run the Official Debian Rolling Release - Sid - in a VirtualBox VM
+What is Debian Sid?
+Debian Unstable (also known by its codename "Sid") is not strictly a release, but rather a rolling development version of the Debian distribution containing the latest packages that have been introduced into Debian. As with all Debian release names, Sid takes its name from a Toy Story character. In the movie, Sid is the kid next door who breaks his toys and makes nasty creatures of them. - https://wiki.debian.org/DebianUnstable
+Running Debian Sid
+Download Debian Unstable (Sid) Download
+Launch VirtualBox
+Create a New VM by selecting Machine > New
+Name: Debian Sid
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Debian Sid.vdi
+File size: 30 GB (or more)
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Debian mini.iso file
+Click OK
+Make sure the Debian Sid VM is selected and click Start > Normal
+When the install dialog displays press Enter to select Install
+Select a language > Press Enter
+Select a Location > Press Enter
+Select a keyboard layout > Press Enter
+Enter a hostname for the VM > Press Enter
+Enter a Domain name or leave it empty > Press Enter
+Choose a mirror location > Press Enter
+Choose a mirror > Press Enter
+Set the HTTP proxy if needed > Press Enter
+Leave the root password empty > Press Enter > Press Enter again to confirm
+Enter the full name for the new user > Press Enter
+Enter the username for the new user > Press Enter
+Enter a password for the new user > Press Enter > Confirm the password > Press Enter
+Select a timezone > Press Enter
+Select Guided - user entire disk > Press Enter
+Select the VBOX HARDDISK > Press Enter
+Select All files in one partition > Press Enter
+Select Finish partitioning and write changes to disk > Press Enter
+Select Yes to confirm writing the changes > Press Enter
+Select a country to use for the apt mirror > Press Enter
+Select a mirror from the list > Press Enter
+Setup a HTTP proxy if necessary > Press Enter
+Choose if you want to participate in package usage survey > Press Enter
+Select the optional software to install > Press Enter
+Wait for Debian Sid to copy and install files
+Select Yes to install GRUB > Press Enter
+Select /dev/sda for the boot loader location > Press Enter
+After the bootloader is installed press Enter to finish the installation and reboot
+Log in using the username and password created during the installation
+Welcome to Debian Sid
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# clean apt cache
+sudo apt clean
+# install prerequisites
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+# run the virtualbox guest additions installer
+sudo sh ./VBoxLinuxAdditions.run
+# restart the VM
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Debian
+Documentation: https://wiki.debian.org/DebianUnstable
+
+ 

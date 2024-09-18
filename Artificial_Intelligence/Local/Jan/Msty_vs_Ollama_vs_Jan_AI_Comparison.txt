@@ -1,0 +1,28 @@
+Msty vs. Ollama vs. Jan AI
+Msty:
+1. Unified Model Access: Supports models from multiple providers such as Hugging Face, Ollama, Open Router, and more. This allows users to choose the best model for their needs and integrate them seamlessly into their workflow.
+2. Knowledge Stack: Goes beyond simple document management by allowing users to leverage multiple data sources. Users can import files and folders, connect Obsidian vaults, and add YouTube transcriptions to build a comprehensive information stack.
+3. Prompt Library: Offers a library of ready-made prompts to guide AI models, refine responses, and fulfill specific needs. Users can also add their own prompts to the library.
+4. Privacy and Offline Mode: Emphasizes user privacy, ensuring that no personal information leaves the machine. It also supports offline usage, allowing users to work without an internet connection.
+5. Real-time Data Integration: Allows users to bring in external data sources into their conversations with AI models.
+Ollama:
+1. Focus on Local Models: Ollama specializes in managing and running local AI models, providing a streamlined experience for users who prefer or need to run models on their local machines.
+2. Integration with Msty: Msty can use existing models downloaded through Ollama, allowing for flexibility in managing and utilizing models from different sources.
+3. User-Friendly Interface: Known for its simple and beautiful interface, making it accessible to non-technical users while still offering advanced features for power users.
+4. Model Management: Allows users to manage models, including downloading, updating, and configuring models with ease.
+Jan AI:
+1. Advanced AI Integration: Jan AI focuses on integrating cutting-edge AI models for various applications. It emphasizes ease of use and accessibility for both technical and non-technical users.
+2. Custom AI Solutions: Provides custom AI solutions tailored to specific user needs, offering flexibility and customization in AI model deployment.
+3. Comprehensive Support: Offers extensive support and resources to help users get the most out of their AI models, including detailed documentation, tutorials, and community forums.
+4. Privacy and Security: Prioritizes user privacy and security, ensuring that all data and interactions are securely managed and protected.
+Comparison Table:
+| Feature                     | Msty                                                       | Ollama                                                    | Jan AI                                                  |
+|-----------------------------|------------------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------|
+| **Model Access**            | Supports multiple providers (Hugging Face, Ollama, etc.)   | Specializes in local model management                     | Focuses on integrating cutting-edge AI models           |
+| **Knowledge Stack**         | Comprehensive information stack with multiple data sources| Not available                                             | Not available                                           |
+| **Prompt Library**          | Ready-made and customizable prompts                        | Not specified                                             | Not specified                                           |
+| **Privacy and Offline Mode**| Emphasizes privacy, supports offline usage                 | Focuses on local models for privacy                        | Prioritizes user privacy and security                   |
+| **Real-time Data Integration**| Integrates external data sources into conversations       | Not specified                                             | Not specified                                           |
+| **User Interface**          | User-friendly, accessible to non-technical users           | Simple and beautiful interface                            | Easy to use, accessible to both technical and non-technical users |
+| **Model Management**        | Comprehensive management, including downloading and updating | Manages local models with ease                             | Custom AI solutions, tailored to specific needs         |
+| **Support and Resources**   | Extensive documentation and community support              | Not specified                                             | Comprehensive support, tutorials, and community forums  |

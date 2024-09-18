@@ -1,0 +1,1 @@
+aws s3 mv s3://your-bucket-name/ s3://your-new-bucket-name/ --recursive --include '*.jpg'

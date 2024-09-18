@@ -1,0 +1,85 @@
+### Problem Statement (Explained Like You're 12):
+
+You have two version strings, `version1` and `version2`, and you need to compare them. A version string is made up of numbers separated by dots (like "1.2" or "1.0.0"). You need to compare these versions from left to right. If one version has fewer numbers, assume the missing numbers are zeros.
+
+You need to return:
+- `1` if `version1` is greater than `version2`
+- `-1` if `version1` is less than `version2`
+- `0` if they are equal
+
+### Python Solution:
+
+```python
+class Solution:
+    def compareVersion(self, version1: str, version2: str) -> int:
+        v1 = version1.split('.')
+        v2 = version2.split('.')
+        
+        max_length = max(len(v1), len(v2))
+        
+        for i in range(max_length):
+            num1 = int(v1[i]) if i < len(v1) else 0
+            num2 = int(v2[i]) if i < len(v2) else 0
+            
+            if num1 > num2:
+                return 1
+            elif num1 < num2:
+                return -1
+        
+        return 0
+```
+
+### Explanation of the Code:
+
+1. **Function Signature**:
+    ```python
+    def compareVersion(self, version1: str, version2: str) -> int:
+    ```
+
+2. **Split Version Strings**:
+    ```python
+    v1 = version1.split('.')
+    v2 = version2.split('.')
+    ```
+
+    - Split both version strings by the dot `.` to get the individual revision numbers.
+
+3. **Find the Maximum Length**:
+    ```python
+    max_length = max(len(v1), len(v2))
+    ```
+
+    - Determine the maximum length of the two version lists to ensure we compare all revisions.
+
+4. **Iterate and Compare**:
+    ```python
+    for i in range(max_length):
+        num1 = int(v1[i]) if i < len(v1) else 0
+        num2 = int(v2[i]) if i < len(v2) else 0
+        
+        if num1 > num2:
+            return 1
+        elif num1 < num2:
+            return -1
+    ```
+
+    - Loop through each revision number up to the maximum length.
+    - Convert the revision numbers to integers for comparison. If one version has fewer revisions, assume the missing revisions are zeros.
+    - Compare the corresponding revision numbers:
+        - If `num1` is greater than `num2`, return `1`.
+        - If `num1` is less than `num2`, return `-1`.
+
+5. **Return Result**:
+    ```python
+    return 0
+    ```
+
+    - If all revisions are equal, return `0`.
+
+### Summary:
+
+1. Split the version strings by the dot `.` to get the individual revisions.
+2. Find the maximum length of the two version lists.
+3. Iterate through each revision number up to the maximum length.
+4. Compare corresponding revision numbers, assuming missing revisions are zeros.
+5. Return `1` if `version1` is greater, `-1` if `version1` is less, or `0` if they are equal.

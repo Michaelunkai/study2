@@ -1,0 +1,16 @@
+ Optimize Queries with Execution Order
+Knowing the SQL query execution order is essential for optimization. Queries run in this order:
+
+FROM -> JOIN -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> OFFSET -> LIMIT
+
+Steps:
+
+Make sure you apply filters (WHERE) as early as possible in your query to reduce data processing later.
+Create a basic query:
+ 
+ 
+SELECT category, AVG(price) AS avg_price
+FROM products
+WHERE category = 'Electronics'
+GROUP BY category
+HAVING AVG(price) > 100;

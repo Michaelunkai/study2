@@ -1,0 +1,70 @@
+▲A  A▼
+Running a MacOS Big Sur VM in ProxMox VE
+Download a MacOS Big Sur .iso Download
+Download KVM OpenCore bootloader Download
+Extract the downloaded KVM OpenCore bootloader .gz file
+Upload the Big Sur and KVM OpenCore .iso files to the Proxmox ISO library
+Log into the ProxMox web UI
+Right click the ProxMox node name > Create VM
+Type MacOSBigSur in the name field, set the VM ID to 1100 (unless 1100 is in use) > Next
+On the OS tab, set the Type field to Other and select the KVM OpenCore .iso in the ISO Image field > Next
+On the System tab, set the Graphic card field to VMware compatible, BIOS field to OVMF (UEFI), Check the Add EFI Disk checkbox, Uncheck the Pre-Enroll Keys checkbox, Machine field to q35 and the SCSI Controller to VirtIO SCSI > Next
+On the Hard Disk tab, set the Bus/Device field to VirtIO Block, Disk size field to 64, Cache field to Write back (unsafe) > Next
+On the CPU tab, set Cores field to 4, Type field to Penryn > Next
+On the Memory tab, set the Memory to 4096 > Next
+On the Network tab, set the Model field to VMware vmxnet3 > Next
+Verify the summary and click Finish
+Click the MacOSBigSur VM > Select Hardware from the left sub-navigation menu
+Click Add > CD/DVD Drive
+Select the MacOS Big Sur .iso downloaded earlier > Click Create
+Select the MacOSBigSur VM > Options > Boot Order
+Set the KVM OpenCore disk as the first boot option > Click OK
+Right click the ProxMox node name > Console
+Run the following commands in the terminal
+# edit the VM conf file, change 1100 to the VM ID for the Big Sur VM
+nano /etc/pve/qemu-server/1100.conf
+If running on an Intel CPU, add the following line to the bottom of the .conf file:
+args: -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" -smbios type=2 -device usb-kbd,bus=ehci.0,port=2 -cpu host,kvm=on,vendor=GenuineIntel,+kvm_pv_unhalt,+kvm_pv_eoi,+hypervisor,+invtsc
+
+If running on an AMD CPU, add the following line to the bottom of the .conf file:
+args: -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" -smbios type=2 -device usb-kbd,bus=ehci.0,port=2 -cpu Penryn,kvm=on,vendor=GenuineIntel,+kvm_pv_unhalt,+kvm_pv_eoi,+hypervisor,+invtsc,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+avx2,+aes,+fma,+fma4,+bmi1,+bmi2,+xsave,+xsaveopt,check
+
+Press CTRL+W and search for ,media=cdrom
+Delete the ,media=cdrom from the two attached .iso files (KVM OpenCore and Big Sur) and add cache=unsafe
+Press CTRL+O, Enter, CTRL+X to write the changes to the conf file
+Back in the Proxmox web UI, right click the MacOSBigSur VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+At the OpenCore menu, select UEFI Shell > Press Enter
+Type the following in the UEFI shell:
+# change to the Big Sur .iso, the disk number may be different for you
+fs0:
+# launch the MacOS installer
+System\Library\CoreServices\boot.efi
+After a long initialization sequence the MAC OS Setup should start
+Select Disk Utility
+Select the VIRTIO Block Media > Click Erase
+Name the drive OS11 > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS Big Sur
+Click Continue > Click Agree > Click Agree again
+Select the OS11 disk > Click Install
+Wait while Mac OS 11 installs files, the VM will reboot several times
+Press Enter at the OpenCore boot screen after each reboot to continue the MacOS installation
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Choose whether to share analytics with Apple > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 11 Big Sur
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

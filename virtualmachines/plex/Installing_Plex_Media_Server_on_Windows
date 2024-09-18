@@ -1,0 +1,23 @@
+▲A  A▼
+Installing Plex Media Server on Windows
+Install Plex Media Server
+Log into the Windows device
+Run the following commands in a PowerShell window
+# change directory to user downloads
+cd $ENV:UserProfile\Downloads
+# download latest plex media server installer
+$ProgressPreference = 'SilentlyContinue'; $t = Invoke-WebRequest 'https://plex.tv/api/downloads/5.json'; $null = ($t -Match '"distro":"windows","url":"(https:\/\/downloads\.plex\.tv\/plex-media-server-new\/[^/]*\/windows\/[^/]*\.exe)",'); Invoke-WebRequest $Matches[1] -OutFile .\plexmediaserver.exe; $ProgressPreference = 'Continue'
+# run the installer
+.\plexmediaserver.exe
+Click Install on the Plex Media Server Setup dialog
+After the installation completes click Launch
+Configuring Plex Account
+Open a web browser and navigate to http://DNSorIP:32400/web
+Log in with one of the available options or click sign up with email
+Give the Plex server a name > Click Next
+Click the Add Library button > Select the media type
+Select Add folders from the left navigation > Click Browse for media folder > Select the folder to add to the media > Click Add Library
+Click Next
+Click Done to complete the server setup
+Welcome to Plex Media Server
+ 

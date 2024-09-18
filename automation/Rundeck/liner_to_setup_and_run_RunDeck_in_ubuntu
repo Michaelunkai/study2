@@ -1,0 +1,1 @@
+curl https://raw.githubusercontent.com/rundeck/packaging/main/scripts/deb-setup.sh 2> /dev/null | sudo bash -s rundeck &&  sudo apt-get install rundeck && sudo systemctl daemon-reload && sudo service rundeckd start && tail -f /var/log/rundeck/service.log

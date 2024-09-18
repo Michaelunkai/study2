@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://github.com/laurent22/joplin/releases/download/v2.4.12/Joplin-Setup-2.4.12.exe -OutFile joplin_installer.exe; Start-Process joplin_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

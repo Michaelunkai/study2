@@ -1,0 +1,27 @@
+▲A  A▼
+Create An Easy to Use Bash Script Repository Using GitHub
+In this example I'll be setting up a GitHub repository to host bash files, using the GitHub URL Shortener to simplify the URLs and then running the scripts locally on a Debian based virtual machine
+
+Create the GitHub Repository
+Create or log into your existing GitHub account
+Click the New button in the top left to create a new repository
+Give the repository a name > Click the Create Repository button
+Creating a Sample Bash Script
+Open a text editor
+Paste the following script into a new text document
+#!/bin/ 
+echo "hello, today is $(date '+%A'). You are running me as $(whoami)."
+
+Save the file as whoami.sh
+Back in the browser, click the uploading an existing file link
+Upload the whoami.sh file and give a brief description > Click the Commit changes button
+Click on the newly uploaded file
+Click the Raw tab at the top right of the code
+Copy the URL for the raw code
+Open another browser tab and navigate to https://git.io
+Paste in the raw code URL from the clipboard > Click Shorten
+Copy the shortened URL
+Executing the Sample Bash Script
+Launch terminal and execute the bash file from GitHub by running the following command
+curl -L PastedShortenedURL | bash
+ 

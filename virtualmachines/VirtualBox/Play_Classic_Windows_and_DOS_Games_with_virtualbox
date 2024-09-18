@@ -1,0 +1,47 @@
+How I Play Classic Windows and DOS Games
+Setting Up the VM and Software
+Create a Windows XP virtual machine in VirtualBox (https://youtu.be/mPOmPusoELk)
+Make sure VirtualBox Guest Additions are installed
+Shutdown the VM
+In the Virtualbox interface, right click the Windows XP VM > Settings
+Select Storage
+Select the hard disk dropdown to the right
+Click the Create button at the top
+Change the size to 500 GB > Click Create
+Click OK to accept the settings
+Make sure the Windows XP VM is selected and click Start > Normal
+Once inside Windows XP, go to Start > Run > type diskmgmt.msc > Press Enter
+Inside Disk Management, locate the 500 GB virtual hard disk > Right click > Format...
+Set the following values:
+Volume label: Games
+Files system: NTFS
+Allocation unit size: Default
+Perform a quick format: Checked
+
+Click OK
+Once the disk is formatted and initialized, right click it again > Change Drive Letter and Paths...
+Click the Change... button
+Set the drive letter to G > Click OK
+Download DOSBox Download
+Install DOSBox to G:\_DOSBOX
+Locate the game installation media
+If the game is a CD-ROM image mount the CD-ROM in VirtualBox by selecting Devices > Optical Drives > Choose a disk file... and selecting the image
+If the game is a physical CD-ROM put the disc in the host computer and mount the CD-ROM in VirtualBox by selecting Devices > Optical Drives > Host Drive
+If the game is contained on floppy disk images mount the floppy disk(s) in VirtualBox by selecting Devices > Floppy Drives > Choose a disk file... and selecting the image
+Installing a Windows Based Game
+Once the installation media is mounted in VirtualBox install the game normally making sure to set the installation path to a sub-directory inside G:\Games\
+If the installer doesn't automatically create a shortcut on the desktop, navigate to the installation directory in File Explorer > right click the game .exe > Send To > Desktop (create shortcut)
+Installing a DOS Based Game
+Create a sub-directory in G:\Games\ to copy the game to
+Once the installation media is mounted in VirtualBox navigate to it in Windows Explorer
+Copy the files from the game media to G:\Games\%game%
+Navigate to the desktop > Right click > New > Shortcut
+Click the Browse... button > Navigate to the DOSBox .exe file and select it > Click OK > Click Next > Click Finish
+Right click the new shortcut > Properties
+Edit the shortcut properties as follows
+Target: G:\_DOSBOX\DOSBox.exe -userconf "G:\Games\Hugo's House of Horrors" -noconsole
+Start in: G:\_DOSBOX\
+Click OK
+Double click the shortcut to launch DOSBox with the game mounted to the C:\ 
+Launch the game normally by typing the exe name and pressing Enter
+The DOSBox configuration file is located at %userprofile%\Local Settings\Application Data\DOSBox and can be edited to set preferences such as the resolution and redering method

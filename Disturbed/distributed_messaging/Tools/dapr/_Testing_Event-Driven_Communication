@@ -1,0 +1,19 @@
+ Testing Event-Driven Communication
+Once both services are running, test the communication by sending a message to Service A (Publisher).
+
+Step 1: Use curl to Publish a Message
+Run the following curl command to send a message to Service A:
+
+ 
+ 
+curl -X POST http://localhost:3000/publish \
+     -H "Content-Type: application/json" \
+     -d '{"message": "Hello, Dapr!"}'
+Step 2: Verify Message in Service B (Subscriber)
+In the terminal running Service B, you should see the following output:
+
+ 
+ 
+Received message: Hello, Dapr!
+This confirms that the message was successfully published by Service A and received by Service B using Dapr's pub/sub.
+

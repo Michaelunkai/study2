@@ -1,0 +1,1 @@
+aws amplify list-apps --query 'apps[*].name'

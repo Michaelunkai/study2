@@ -1,0 +1,22 @@
+How to Permanently Disable History Expansion in Bash to Fix the `-bash: !': event not found` Error: Step-by-Step Tutorial Using Nano Editor
+This tutorial will guide you through the steps to permanently disable history expansion in Bash to fix the `-bash: !': event not found` error. We'll use the `nano` text editor to modify your `~/.bashrc` file. This process ensures that the history expansion feature (which uses the `!` character) is disabled for all future Bash sessions, preventing the error from occurring.
+Step 1: Open Your `~/.bashrc` File in Nano
+First, open the `~/.bashrc` file using the `nano` text editor. This file contains configurations that are executed whenever you start a new Bash session.
+  
+nano ~/. rc
+Step 2: Add the Command to Disable History Expansion
+Scroll to the end of the `~/.bashrc` file and add the following line. This command will disable history expansion (`!`) permanently.
+  
+set +H
+Step 3: Save and Exit the Editor
+To save the changes and exit `nano`:
+1. Press `CTRL + X` to exit.
+2. Press `Y` to confirm that you want to save the changes.
+3. Press `Enter` to write the changes to the file.
+Step 4: Apply the Changes Immediately
+To apply the changes without restarting your terminal, run the following command:
+  
+source ~/. rc
+This command reloads the `~/.bashrc` file, ensuring that the history expansion is disabled in your current session as well.
+Summary
+By following these steps, you've successfully disabled history expansion in Bash, which will prevent the `-bash: !': event not found` error from occurring in future sessions. This tutorial covered how to use the `nano` text editor to modify your `~/.bashrc` file, ensuring that the changes are permanent.

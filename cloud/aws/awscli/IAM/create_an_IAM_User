@@ -1,0 +1,4 @@
+aws iam create-user --user-name openshift-user
+
+create access key for user: 
+aws iam create-access-key --user-name openshift-user

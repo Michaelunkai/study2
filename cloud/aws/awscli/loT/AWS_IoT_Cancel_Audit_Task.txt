@@ -1,0 +1,1 @@
+aws iot cancel-audit-task --task-id <task-id>

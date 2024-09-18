@@ -1,0 +1,1 @@
+sudo apt-get install -y openjdk-11-jre wget && wget https://github.com/allure-framework/allure2/releases/download/2.17.2/allure-2.17.2.zip && unzip allure-2.17.2.zip && cd allure-2.17.2/bin && ./allure

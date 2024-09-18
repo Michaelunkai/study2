@@ -1,0 +1,19 @@
+Amazon Polly is a service provided by Amazon Web Services (AWS) that converts text into lifelike speech. It uses advanced deep learning technologies to synthesize speech that sounds like a human voice. Key features of Amazon Polly include:
+
+1. **Text-to-Speech Conversion**: Converts written text into spoken word, enabling the creation of applications that can talk.
+   
+2. **Multiple Languages and Voices**: Supports various languages and offers multiple voices, including male and female options.
+
+3. **Real-Time and Batch Processing**: Can generate speech in real-time for applications that require instant responses or process large batches of text to generate audio files.
+
+4. **Speech Marks**: Provides metadata about the speech, such as sentence boundaries, word boundaries, and phonemes, which can be used to create visual cues or synchronize animations with speech.
+
+5. **Neural Text-to-Speech (NTTS)**: Offers high-quality, natural-sounding voices using advanced neural network models.
+
+6. **Custom Lexicons and Pronunciations**: Allows users to customize pronunciations for specific words using lexicons.
+
+7. **SSML Support**: Supports Speech Synthesis Markup Language (SSML) for controlling various aspects of speech, such as pronunciation, volume, pitch, and speed.
+
+8. **Streaming and File Output**: Can stream audio directly or save it to files in formats like MP3, OGG, and PCM.
+
+Amazon Polly is commonly used in applications like voice assistants, interactive voice response systems, e-learning platforms, news readers, and accessibility tools for visually impaired users.

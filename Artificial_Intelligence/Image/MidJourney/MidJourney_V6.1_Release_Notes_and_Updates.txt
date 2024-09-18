@@ -1,0 +1,19 @@
+MidJourney V6.1 Release: What's New and What's Not
+This evening, version 6.1 of the image generator MidJourney was released. The generator, known as one of the best in the world, undergoes upgrades, but without dramatic innovations. Here are the main changes:
+1. More coherent images: Improved representation of arms, legs, hands, bodies, plants, and animals.
+2. Improved image quality: Reduced defects and hallucinations, improved textures, better skin quality in images of people.
+3. Increased accuracy in small details: Improved eyes, small faces, and disproportionate hands.
+4. Improvements to built-in upscalers: Improved image and texture quality.
+5. Increased image processing speed: Processing is 25% faster.
+6. Improved text generation accuracy: Further improvement of this feature introduced in version 6.
+7. Return of the "quality" parameter (--q2): Added accuracy in textures, affecting coherence and processing time.
+Important Notes:
+- Version V6.1 is now the default model. Features like inpainting (Vary region) or outpainting (Zoom) are not active in this version, and using them will revert you to V6.0.
+- You can revert to V6 via the settings interface (/settings) or by adding the parameter "--v 6" at the end of your prompt.
+Personal Opinion:
+The upgrades are welcome, but there's no drastic innovation like models for generating 3D elements or video capabilities. The improvements are beneficial, but it's not a revolution. However, any improvement is always welcome.
+Purpose of the Release:
+To collect data for the release of V6.2 expected in about a month.
+Sharing Creations:
+You are welcome to upload creations made with V6.1 and share your opinion on the new model.
+LetsAI: Upload your creations, and they might be included in the comprehensive guide on our website tomorrow.

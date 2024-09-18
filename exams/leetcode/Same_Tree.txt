@@ -1,0 +1,48 @@
+### Step 1: Rewrite the Entire Question
+**Problem: Same Tree**
+Given the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+**Examples:**
+Example 1:
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+Example 2:
+Input: p = [1,2], q = [1,null,2]
+Output: false
+Example 3:
+Input: p = [1,2,1], q = [1,1,2]
+Output: false
+**Constraints:**
+- The number of nodes in both trees is in the range [0, 100].
+- `-10^4 <= Node.val <= 10^4`
+### Step 2: Explain the Entire Question Step by Step
+1. **Given two binary trees:** You are provided with two binary trees, denoted by their root nodes `p` and `q`.
+2. **Check if they are the same:** Your task is to determine whether these two binary trees are identical.
+3. **Structural and value similarity:** Two trees are considered identical if:
+   - They have the exact same structure (i.e., the shape and arrangement of nodes are the same).
+   - Corresponding nodes in both trees have the same value.
+4. **Examples:**
+   - Example 1: Both trees are [1,2,3] which means they have the same structure and node values, so the output is `true`.
+   - Example 2: Trees are [1,2] and [1,null,2]. They have different structures, so the output is `false`.
+   - Example 3: Trees are [1,2,1] and [1,1,2]. They have the same structure but different node values, so the output is `false`.
+### Step 3: Full Answer Code without Comments
+class Solution:
+    def isSameTree(self, p, q):
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        if p.val != q.val:
+            return False
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+### Step 4: Full Code with Comments for Each Line
+class Solution:
+    def isSameTree(self, p, q):
+        if not p and not q:  # If both nodes are None
+            return True  # Trees are identical
+        if not p or not q:  # If one node is None
+            return False  # Trees are not identical
+        if p.val != q.val:  # If node values differ
+            return False  # Trees are not identical
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)  
+        # Check left and right subtrees

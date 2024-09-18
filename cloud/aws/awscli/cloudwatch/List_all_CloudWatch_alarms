@@ -1,0 +1,1 @@
+aws cloudwatch describe-alarms --query 'MetricAlarms[*].AlarmName' --output text

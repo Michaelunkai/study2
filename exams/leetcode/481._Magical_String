@@ -1,0 +1,73 @@
+### Problem: 481. Magical String
+
+### Solution
+
+To solve this problem, we need to generate the magical string `s` and count the number of '1's in the first `n` characters. The magical string is self-generating based on the counts of '1's and '2's in consecutive groups. 
+
+### Steps
+
+1. **Initialize**:
+   - Start with the initial part of the magical string, which is "122".
+   - Use a pointer to keep track of the position in the string that dictates the number of '1's or '2's to add next.
+
+2. **Generate the String**:
+   - Use the current character in the string to decide how many '1's or '2's to append next.
+   - Alternate between appending '1's and '2's.
+
+3. **Count '1's**:
+   - As we generate the string, count the number of '1's up to the required length `n`.
+
+4. **Efficiency**:
+   - Ensure that the string generation stops as soon as we have enough characters to determine the count for the first `n` characters.
+
+### Code Implementation
+
+```python
+class Solution:
+    def magicalString(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n <= 3:
+            return 1
+        
+        # Start with the initial magical string
+        s = [1, 2, 2]
+        head = 2
+        num = 1
+        count_ones = 1
+        
+        while len(s) < n:
+            for _ in range(s[head]):
+                s.append(num)
+                if num == 1 and len(s) <= n:
+                    count_ones += 1
+            num ^= 3  # Toggle between 1 and 2
+            head += 1
+        
+        return count_ones
+
+# Example usage:
+solution = Solution()
+print(solution.magicalString(6))  # Output: 3
+print(solution.magicalString(1))  # Output: 1
+```
+
+### Explanation of the Code
+
+1. **Initialization**:
+   - The initial magical string is `[1, 2, 2]`.
+   - `head` points to the current character in `s` that dictates the number of times to append the next number.
+   - `num` toggles between 1 and 2.
+
+2. **String Generation**:
+   - Use a loop to keep generating the string until its length reaches at least `n`.
+   - For each character at `s[head]`, append `num` that many times to `s`.
+   - If `num` is 1, increment the count of ones (`count_ones`).
+
+3. **Toggle Between 1 and 2**:
+   - Use `num ^= 3` to toggle `num` between 1 and 2. This works because `1 ^ 3 = 2` and `2 ^ 3 = 1`.
+
+4. **Count '1's**:
+   - Only count '1's that are appended while ensuring that the string length does not exceed `n`.
+
+This approach ensures that we efficiently generate the magical string and count the '1's without generating unnecessary characters beyond `n`.

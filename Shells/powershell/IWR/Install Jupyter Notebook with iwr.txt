@@ -1,0 +1,1 @@
+iwr -Uri https://jupyter.org/install.html -OutFile jupyter_installer.html

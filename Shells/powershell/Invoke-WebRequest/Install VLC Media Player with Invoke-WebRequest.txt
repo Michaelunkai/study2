@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://get.videolan.org/vlc/latest/win64/vlc_installer.exe -OutFile vlc_installer.exe; Start-Process vlc_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

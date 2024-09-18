@@ -1,0 +1,1 @@
+docker run -d -p 80:80 -v /my/awstats:/etc/awstats -v /var/log/apache2:/var/log/apache2 awstats/awstats

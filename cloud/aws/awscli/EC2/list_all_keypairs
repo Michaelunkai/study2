@@ -1,0 +1,1 @@
+ aws ec2 describe-key-pairs --query 'KeyPairs[*].KeyName'

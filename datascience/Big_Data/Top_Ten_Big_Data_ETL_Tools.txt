@@ -1,0 +1,11 @@
+Top Ten Big Data ETL Tools:
+1. Apache NiFi: A data integration tool that supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
+2. Talend Big Data: An open-source data integration tool that supports ETL for big data with connectors for Hadoop, Spark, and other big data platforms.
+3. Informatica Big Data Management: A comprehensive data management solution designed to handle complex big data integrations, transformations, and governance.
+4. Apache Spark: While primarily known for its data processing capabilities, Spark also has built-in libraries (Spark SQL, Spark Streaming) for handling ETL processes on large datasets.
+5. AWS Glue: A managed ETL service that simplifies the process of discovering, preparing, and combining data for analytics, machine learning, and application development.
+6. Google Cloud Dataflow: A fully managed service for stream and batch processing that allows users to develop and execute a wide range of data processing patterns.
+7. Apache Flink: Known for stream processing, Flink can also handle batch ETL jobs with its DataSet API and SQL support.
+8. Azure Data Factory: A cloud-based data integration service that orchestrates and automates the movement and transformation of data.
+9. Pentaho Data Integration (PDI): Also known as Kettle, this tool provides a comprehensive platform for data integration, including robust ETL capabilities.
+10. Apache Airflow: While not exclusively an ETL tool, Airflow is used to programmatically author, schedule, and monitor workflows, which can include complex ETL pipelines for big data.

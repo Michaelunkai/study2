@@ -1,0 +1,3 @@
+import boto3
+ec2 = boto3.client('ec2')
+ec2.attach_volume(VolumeId='<volume-id>', InstanceId='<instance-id>', Device='/dev/sdf')

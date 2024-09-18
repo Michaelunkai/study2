@@ -1,0 +1,23 @@
+Here are the steps to control your Android phone from a Windows 11 PC using Microsoft Phone Link, with commands to install winget in C:\Program Files and open Phone Link after setup:
+Open an elevated PowerShell prompt by pressing Windows key + X and selecting "Windows PowerShell (Admin"). Copy and paste the following command to install winget in C:\Program Files:
+ 
+$wingetPath = "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_*_x64__8wekyb3d8bbwe"
+$env:Path += ";$wingetPath"
+winget install --id Microsoft.DesktopAppInstaller -e --source winget
+
+Press Enter to run the command. This will install winget in C:\Program Files and add it to the system PATH.
+Use the following winget command to reinstall the Microsoft Phone Link app:
+ 
+winget install 9NMPJ99VJBWV --silent --accept-package-agreements --accept-source-agreements
+
+After the reinstallation is complete, run this command to open Microsoft Phone Link:
+ 
+start ms-phone:
+
+Make sure you have the latest version of Microsoft Phone Link installed on both your Windows 11 PC and Android phone. It comes pre-installed on many Windows 11 PCs.
+Sign into the same Microsoft account on your PC and phone in Phone Link.
+On your PC, select "Pair with QR code" and a QR code will appear. On your phone, open Phone Link, select "Link your phone and PC", and scan the QR code.
+Grant the requested Android permissions to allow Phone Link to access your phone's features like messages, calls, photos, and notifications.
+You can now use your PC to make/take calls, send/receive texts, view photos, and manage notifications from your linked Android phone.
+For more control, you can use apps like AirDroid Personal, TeamViewer Quick Support, ApowerMirror, or Scrcpy. These allow full remote control of your Android from the PC, even over WiFi.
+To use your Android camera as a webcam in any Windows app, make sure you have the latest Windows Insider build. Grant the required permissions and your Android camera will work as a webcam.

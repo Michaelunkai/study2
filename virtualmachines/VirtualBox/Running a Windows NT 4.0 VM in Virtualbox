@@ -1,0 +1,77 @@
+Running a Windows NT 4.0 VM in Virtualbox
+Download Microsoft Windows NT 6 Download
+Extract the Windows NT 4 files
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows NT 4
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows NT 4
+Memory Size: 256 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows NT 4.vdi
+File size: 1024 MB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Acceleration
+Uncheck Enable Nested Paging
+Uncheck Enable VT-x/AMD-V
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to the extracted Windows NT 4 files and select the .iso file
+Click OK
+Make sure the Windows NT VM is selected and click Start > Normal
+Press Enter to setup Windows NT
+Press Enter to continue
+Press C to continue
+Page Down until you can press F8 to agree to the Licensing Agreement
+Press Enter to accept no changes
+Press Enter to install to the Unpartitioned space
+Select the 2nd option to partition using the NTFS file system > Press Enter
+Press Enter a few more times for good measure
+When prompted, remove the CD by selecting Devices > Option Drives > Remove disk from virtual drive
+Press Enter to restart the VM
+After rebooting a few times you will be prompted to reinsert the CD-ROM
+Devices > Option Drives > Choose disk image
+Navigate back to the downloaded Windows NT 4 .iso file
+Click Open
+Click OK inside the VM
+Follow the default prompts and then enter a name and organization > Click Next
+Give the computer a name > Click Next
+Type an administrator password > Re-type to confirm > Click Next
+Select No, do not create an emergency repair disk > Click Next
+Click Next
+Select Wired to the Network > Click Next
+Click the Find button and then Next, Next, Next, Continue
+Click Yes to use DHCP
+Click Next, Next, Finish
+Set the date/time and time zone and click close
+Wait for the files to copy and Windows 95 to complete initializing
+Select a timezone > Click OK
+Remove the CD by selecting Devices > Option Drives > Remove
+Click the Restart Computer button
+Select Input > Keyboard > Insert Ctrl-Alt-Del
+Enter the administrator password created earlier and click OK to login
+Welcome back to Windows NT 4
+Revel in the nostalgia
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions-x86.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Continue Anyway button
+After the installation completes select Reboot now > Click Finish
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Download i12bretro Windows SP.iso Download
+Select Devices > Optical Drives > Select disk image...
+Navigate to and select i12bretro_Windows_SP.iso
+If the VM doesn't autorun, open My Computer > CD Drive
+Open the Windows NT folder > Double click Windows NT 4.0 SP6.exe
+Follow the dialogs to install Service Pack 6
+Click Finish to reboot and complete the SP6 install

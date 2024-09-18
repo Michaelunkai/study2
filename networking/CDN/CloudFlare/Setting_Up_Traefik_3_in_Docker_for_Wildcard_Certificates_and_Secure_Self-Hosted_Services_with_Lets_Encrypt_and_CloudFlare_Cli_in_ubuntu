@@ -1,0 +1,118 @@
+Install Docker and Docker Compose:
+
+ Copysudo apt update
+sudo apt install docker.io docker-compose
+
+Install Cloudflared:
+
+ Copywget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+sudo dpkg -i cloudflared-linux-amd64.deb
+
+Authenticate Cloudflared:
+
+ Copycloudflared tunnel login
+Follow the prompts to authenticate with your Cloudflare account.
+
+Create a Cloudflare Tunnel:
+
+bashCopycloudflared tunnel create mytraefiktunnel
+
+Create a Docker network:
+
+bashCopydocker network create traefik_network
+
+Create a docker-compose.yml file:
+
+ Copyversion: '3'
+
+services:
+  traefik:
+    image: traefik:v2.9
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/traefik.yml:ro
+      - ./acme.json:/acme.json
+    networks:
+      - traefik_network
+
+  cloudflared:
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=your_tunnel_token_here
+    networks:
+      - traefik_network
+
+networks:
+  traefik_network:
+    external: true
+
+Create a traefik.yml configuration file:
+
+ Copyapi:
+  da board: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: michaelovsky5@gmail.com
+      storage: acme.json
+      httpChallenge:
+        entryPoint: web
+
+Create an empty acme.json file and set permissions:
+
+ Copytouch acme.json
+chmod 600 acme.json
+
+Configure your Cloudflare Tunnel:
+
+bashCopycloudflared tunnel route dns mytraefiktunnel yourdomain.com
+
+Get your Tunnel Token:
+
+bashCopycloudflared tunnel token mytraefiktunnel
+Replace 'your_tunnel_token_here' in the docker-compose.yml with this token.
+
+Start your services:
+
+ Copydocker-compose up -d
+
+Add labels to your Docker services:
+For each service you want to expose, add the following labels in its docker-compose.yml file:
+
+ Copylabels:
+  - "traefik.enable=true"
+  - "traefik.http.routers.servicename.rule=Host(`subdomain.yourdomain.com`)"
+  - "traefik.http.routers.servicename.entrypoints=websecure"
+  - "traefik.http.routers.servicename.tls.certresolver=letsencrypt"
+
+Restart your services to apply the new configuration.
+
+This setup uses Cloudflare Tunnel instead of ngrok, which should avoid the issues you were encountering. It still provides secure access to your self-hosted services and integrates well with Traefik for automatic HTTPS.

@@ -1,0 +1,1 @@
+aws comprehend batch-detect-key-phrases --text-list "your text here" --language-code en

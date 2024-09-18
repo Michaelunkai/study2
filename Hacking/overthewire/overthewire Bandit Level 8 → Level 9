@@ -1,0 +1,16 @@
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once
+
+
+**
+grep -Fvx -f <(grep -Fxv "$(sort data.txt | uniq -u)" data.txt) data.txt
+
+
+
+
+sort data.txt | uniq -u: This command sorts the lines in data.txt and then filters out only the unique lines. The -u option in uniq ensures that only unique lines are output.
+grep -Fxv "$(sort data.txt | uniq -u)" data.txt: This command then searches for lines in data.txt that do not match any of the unique lines found in the previous step. The -Fxv options in grep ensure that the comparison is done line by line (whole line), and only lines that do not match are output.
+<(grep -Fxv "$(sort data.txt | uniq -u)" data.txt): This part of the command uses process substitution (<(...)) to pass the output of the inner grep command as input to the outer grep.
+grep -Fvx -f <(grep -Fxv "$(sort data.txt | uniq -u)" data.txt) data.txt: Finally, this command searches for lines in data.txt that do not match any of the lines output by the inner grep command. The -Fvx options in grep ensure that the comparison is done line by line (whole line), and only lines that do not match are output.
+
+
+

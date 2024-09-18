@@ -1,0 +1,7 @@
+ Cleanup
+If you uploaded images to an S3 bucket, you might want to delete them afterward:
+
+ 
+ 
+aws s3 rm s3://your-bucket-name/image.jpg
+This guide covers the basics of using Amazon Rekognition with AWS CLI. Adjust the commands according to your needs and the specific analysis you're performing.

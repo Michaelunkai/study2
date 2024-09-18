@@ -1,0 +1,3 @@
+Google Lighthouse is an open-source, automated tool for improving the quality of web pages. It provides audits for performance, accessibility, best practices, SEO, and more. Lighthouse can run on any web page, public or requiring authentication, and generates detailed reports to help developers optimize their sites.
+
+It is commonly used for improving web performance and ensuring compliance with modern web standards. The tool can be accessed via Chrome DevTools, as a Node.js module, or as a browser extension.

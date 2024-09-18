@@ -1,0 +1,6 @@
+Trouble ooting in Colab
+If you encounter issues, here are some troubleshooting steps:
+
+Restart Runtime: Go to Runtime > Restart runtime to refresh the environment.
+Clear Outputs: Clearing outputs can help free up memory.
+Check Logs: Review the logs for any errors or warnings

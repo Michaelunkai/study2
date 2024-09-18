@@ -1,0 +1,1 @@
+aws ec2 create-internet-gateway --tag-specification 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=MyIGW-48684d92}]'

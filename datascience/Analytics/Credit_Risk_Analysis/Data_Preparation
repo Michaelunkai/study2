@@ -1,0 +1,16 @@
+Data Preparation
+Collect Data
+Obtain financial data, such as credit scores, loan amounts, repayment histories, etc. You can use public datasets or data from financial institutions.
+
+Load Data into Python
+Create a Python script or Jupyter Notebook to load and preprocess the data.
+
+ 
+ 
+import pandas as pd
+
+# Load data
+data = pd.read_ ('path_to_your_data. ')
+
+# Display first few rows
+print(data.head())

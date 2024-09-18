@@ -1,0 +1,72 @@
+Compromise is a JavaScript library for natural language processing. Setting it up and using it on Ubuntu involves a few steps. Here's a detailed guide to help you get started:
+
+### Step 1: Install Node.js and npm
+
+First, you need to have Node.js and npm (Node Package Manager) installed on your system. You can install them using the following commands:
+
+  
+sudo apt update
+sudo apt install nodejs npm -y
+
+You can verify the installation by checking the versions:
+
+  
+node -v
+npm -v
+
+### Step 2: Set Up a New Node.js Project
+
+Create a new directory for your project and navigate into it:
+
+  
+mkdir compromise-demo
+cd compromise-demo
+
+Initialize a new Node.js project:
+
+  
+npm init -y
+
+### Step 3: Install Compromise
+
+Install the Compromise library using npm:
+
+  
+npm install compromise
+
+### Step 4: Create a JavaScript File to Use Compromise
+
+Create a new JavaScript file to use Compromise. For example, create a file named `index.js`:
+
+  
+touch index.js
+
+Open `index.js` with your preferred text editor and add the following content:
+
+ javascript
+const nlp = require('compromise');
+
+// Sample text
+const doc = nlp('Compromise is a great NLP library.');
+
+// Perform NLP operations
+console.log(doc.sentences().out('array'));  // Split text into sentences
+console.log(doc.nouns().out('array'));      // Extract nouns
+console.log(doc.verbs().out('array'));      // Extract verbs
+
+### Step 5: Run Your Script
+
+Run your JavaScript file using Node.js:
+
+  
+node index.js
+
+You should see the output of the NLP operations performed by Compromise.
+
+### Additional Tips
+
+1. **Documentation**: Refer to the official [Compromise documentation](https://compromise.cool/) for more features and examples.
+2. **Development Environment**: Consider using a development environment like VSCode for better code editing and debugging support.
+3. **Package Management**: Keep your `package.json` updated and consider using `npm install` to add additional dependencies as your project grows.
+
+This setup provides you with a basic environment to start using Compromise on Ubuntu. You can extend and customize it based on your project requirements.

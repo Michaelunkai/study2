@@ -1,0 +1,267 @@
+Step 1: Update the System
+First, ensure your system is up-to-date.
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Step 2: Install OpenVPN and Easy-RSA
+Install OpenVPN and Easy-RSA, a tool for creating and managing a PKI (Public Key Infrastructure).
+
+ 
+ 
+sudo apt install openvpn easy-rsa -y
+Step 3: Set Up the CA Directory
+Create a directory for Easy-RSA and navigate to it.
+
+ 
+ 
+make-cadir ~/openvpn-ca
+cd ~/openvpn-ca
+Step 4: Configure Easy-RSA
+Edit the vars file to set up your environment variables.
+
+ 
+ 
+nano vars
+Uncomment and edit the following lines to match your information:
+
+perl
+ 
+set_var EASYRSA_REQ_COUNTRY    "US"
+set_var EASYRSA_REQ_PROVINCE   "CA"
+set_var EASYRSA_REQ_CITY       "San Francisco"
+set_var EASYRSA_REQ_ORG        "MyOrg"
+set_var EASYRSA_REQ_EMAIL      "email@example.com"
+set_var EASYRSA_REQ_OU         "MyOrgUnit"
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Step 5: Build the CA
+Initialize the PKI directory and build the CA.
+
+ 
+ 
+./easyrsa init-pki
+./easyrsa build-ca nopass
+When prompted to enter a common name for the CA, you can use MyOrg-CA.
+
+Step 6: Create Server Certificate, Key, and Encryption Files
+Generate the server certificate and key.
+
+ 
+ 
+./easyrsa gen-req server nopass
+./easyrsa sign-req server server
+Generate the Diffie-Hellman parameters and HMAC key.
+
+ 
+ 
+./easyrsa gen-dh
+openvpn --genkey --secret ta.key
+Step 7: Configure the OpenVPN Server
+Copy the generated files to the OpenVPN directory.
+
+ 
+ 
+sudo cp pki/private/server.key /etc/openvpn/
+sudo cp pki/issued/server.crt /etc/openvpn/
+sudo cp pki/ca.crt /etc/openvpn/
+sudo cp pki/dh.pem /etc/openvpn/
+sudo cp ta.key /etc/openvpn/
+Create the server configuration file.
+
+ 
+ 
+sudo nano /etc/openvpn/server.conf
+Paste the following configuration:
+
+ 
+ 
+port 1194
+proto udp
+dev tun
+ca ca.crt
+cert server.crt
+key server.key
+dh dh.pem
+tls-auth ta.key 0
+topology subnet
+server 10.8.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 8.8.8.8"
+push "dhcp-option DNS 8.8.4.4"
+keepalive 10 120
+cipher AES-256-CBC
+user nobody
+group nogroup
+persist-key
+persist-tun
+status openvpn-status.log
+log-append  /var/log/openvpn.log
+verb 3
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Step 8: Enable IP Forwarding
+Edit the sysctl configuration file to enable IP forwarding.
+
+ 
+ 
+sudo nano /etc/sysctl.conf
+Uncomment the following line:
+
+ 
+net.ipv4.ip_forward=1
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Apply the changes.
+
+ 
+ 
+sudo sysctl -p
+Step 9: Configure UFW
+Allow the OpenVPN traffic through the firewall.
+
+ 
+ 
+sudo ufw allow 1194/udp
+Edit the UFW before rules.
+
+ 
+ 
+sudo nano /etc/ufw/before.rules
+Add the following lines after the # END OPENVPN RULES comment:
+
+ 
+ 
+# START OPENVPN RULES
+*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE
+COMMIT
+# END OPENVPN RULES
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Enable the UFW forwarding policy.
+
+ 
+ 
+sudo nano /etc/default/ufw
+Change the DEFAULT_FORWARD_POLICY to ACCEPT:
+
+ 
+ 
+DEFAULT_FORWARD_POLICY="ACCEPT"
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Reload UFW to apply the changes.
+
+ 
+ 
+sudo ufw disable
+sudo ufw enable
+Step 10: Start and Enable OpenVPN Service
+Start the OpenVPN service and enable it to start on boot.
+
+ 
+ 
+sudo systemctl start openvpn@server
+sudo systemctl enable openvpn@server
+Step 11: Generate Client Certificates and Keys
+Create a directory for the client configuration.
+
+ 
+ 
+mkdir -p ~/client-configs/keys
+chmod -R 700 ~/client-configs
+cd ~/openvpn-ca
+./easyrsa gen-req client1 nopass
+./easyrsa sign-req client client1
+Copy the client files to the client configuration directory.
+
+ 
+ 
+cp pki/ca.crt ~/client-configs/keys/
+cp pki/issued/client1.crt ~/client-configs/keys/
+cp pki/private/client1.key ~/client-configs/keys/
+cp ta.key ~/client-configs/keys/
+Step 12: Create Client Configuration File
+ 
+ 
+nano ~/client-configs/base.conf
+Paste the following configuration:
+
+ 
+ 
+client
+dev tun
+proto udp
+remote your_server_ip 1194 udp4
+resolv-retry infinite
+nobind
+user nobody
+group nogroup
+persist-key
+persist-tun
+remote-cert-tls server
+cipher AES-256-CBC
+auth SHA256
+key-direction 1
+verb 3
+Replace your_server_ip with the actual IP address of your OpenVPN server. Save and exit the file with Ctrl+X, Y, and Enter.
+
+Step 13: Generate Client Configuration Script
+ 
+ 
+nano ~/client-configs/make_config. 
+Paste the following script:
+
+ 
+ 
+#!/bin/ 
+
+# First argument: Client identifier
+
+KEY_DIR=~/client-configs/keys
+OUTPUT_DIR=~/client-configs/files
+BASE_CONFIG=~/client-configs/base.conf
+
+cat ${BASE_CONFIG} \
+    <(echo -e '<ca>') \
+    ${KEY_DIR}/ca.crt \
+    <(echo -e '</ca>\n<cert>') \
+    ${KEY_DIR}/${1}.crt \
+    <(echo -e '</cert>\n<key>') \
+    ${KEY_DIR}/${1}.key \
+    <(echo -e '</key>\n<tls-auth>') \
+    ${KEY_DIR}/ta.key \
+    <(echo -e '</tls-auth>') \
+    > ${OUTPUT_DIR}/${1}.ovpn
+Save and exit the file with Ctrl+X, Y, and Enter.
+
+Make the script executable.
+
+ 
+ 
+chmod 700 ~/client-configs/make_config. 
+Step 14: Create the files Directory
+ 
+ 
+mkdir -p ~/client-configs/files
+Step 15: Generate the Client Configuration File
+ 
+ 
+~/client-configs/make_config.  client1
+Step 16: Transfer the Client Configuration File to the Client Device
+Use scp to transfer the client1.ovpn file to your client device:
+
+ 
+ 
+scp ~/client-configs/files/client1.ovpn user@client_device_ip:/home/user/
+Step 17: Connect to the OpenVPN Server
+On your client device, use the following command to connect to the OpenVPN server:
+
+ 
+ 
+sudo openvpn --config /home/user/client1.ovpn
+This should establish a connection to your OpenVPN server

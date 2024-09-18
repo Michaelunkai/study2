@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://downloads.slack-edge.com/releases/windows/4.21.1/prod/x64/SlackSetup.exe -OutFile slack_installer.exe; Start-Process slack_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

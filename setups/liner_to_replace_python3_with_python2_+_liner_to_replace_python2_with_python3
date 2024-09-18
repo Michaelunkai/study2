@@ -1,0 +1,7 @@
+get  2:
+
+sudo apt purge python3 -y && sudo apt install python2 -y && python2 --version
+
+get  3:
+sudo apt purge python2 -y && sudo apt install python3 -y && python --version
+

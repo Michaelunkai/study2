@@ -1,0 +1,1 @@
+fzf --preview 'git diff --color=always HEAD {}'

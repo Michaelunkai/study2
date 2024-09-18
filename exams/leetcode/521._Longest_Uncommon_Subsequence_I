@@ -1,0 +1,36 @@
+To solve the problem of finding the longest uncommon subsequence between two strings `a` and `b`, we need to consider the following key points:
+
+1. If `a` and `b` are the same, then any subsequence of `a` is also a subsequence of `b`, and vice versa. Therefore, the longest uncommon subsequence does not exist in this case.
+2. If `a` and `b` are different, then the longest uncommon subsequence is simply the longer string between `a` and `b`, because the entire string `a` cannot be a subsequence of `b` if `a` is different from `b`, and vice versa.
+
+Given these points, we can derive the following straightforward solution:
+
+- If `a` is equal to `b`, return -1.
+- Otherwise, return the length of the longer string between `a` and `b`.
+
+Here's the Python code to implement this logic:
+
+```python
+class Solution:
+    def findLUSlength(self, a: str, b: str) -> int:
+        if a == b:
+            return -1
+        else:
+            return max(len(a), len(b))
+
+# Example usage:
+solution = Solution()
+print(solution.findLUSlength("aba", "cdc"))  # Output: 3
+print(solution.findLUSlength("aaa", "bbb"))  # Output: 3
+print(solution.findLUSlength("aaa", "aaa"))  # Output: -1
+```
+
+### Explanation:
+
+1. **Check if the Strings are Equal**:
+   - If `a` and `b` are the same, then return -1 because there is no uncommon subsequence.
+
+2. **Return the Length of the Longer String**:
+   - If `a` and `b` are different, the longest uncommon subsequence is the longer string itself. Therefore, return `max(len(a), len(b))`.
+
+This solution ensures that the function runs efficiently with a time complexity of O(1), as the length comparison and equality check both run in constant time.

@@ -1,0 +1,1 @@
+Get-Command | Select-Object Name, Synopsis

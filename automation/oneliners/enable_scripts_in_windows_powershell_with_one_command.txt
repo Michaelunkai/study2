@@ -1,0 +1,4 @@
+#This will temporarily set the execution policy to Bypass for the duration of the command and allow the script to run:
+powershell -ExecutionPolicy Bypass -File .\s.ps1
+#to permanently change the execution policy, you can use the following command:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned

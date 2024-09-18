@@ -1,0 +1,127 @@
+### Step-by-Step Guide to Running the Ivrit.ai Transcription Model with Faster-Whisper on Ubuntu
+
+#### Step 1: Install Required Dependencies
+1. Open the terminal and install Python 3, pip, and virtualenv:
+      
+    sudo apt update
+    sudo apt install python3 python3-pip python3-venv
+
+2. Install CUDA:
+      
+    sudo apt install -y nvidia-cuda-toolkit
+    sudo apt install -y libcudnn8 libcudnn8-dev
+    nvidia-smi
+    nvcc --version
+
+#### Step 2: Create a Virtual Environment
+1. Create a directory for the project:
+      
+    mkdir ivrit_ai_project
+    cd ivrit_ai_project
+
+2. Create and activate the virtual environment:
+      
+    python3 -m venv venv
+    source venv/bin/activate
+
+#### Step 3: Install Required Python Libraries
+1. Install the necessary libraries:
+      
+    pip install torch faster-whisper gradio
+
+#### Step 4: Write the Code
+1. Create a new Python file named `transcribe.py` and open it in a text editor:
+      
+    nano transcribe.py
+
+2. Copy the following code into the file and save it:
+      
+    from time import time
+    import os
+    os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:32,garbage_collection_thre old:0.8'
+    import torch
+    from faster_whisper import WhisperModel
+    import gradio as gr
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    compute_type = "float16" if torch.cuda.is_available() else "int8"
+
+    model = WhisperModel("ivrit-ai/faster-whisper-v2-d3-e3", device=device, compute_type=compute_type, cpu_threads=os.cpu_count())
+
+    def transcribe(audio):
+        segments, _ = model.transcribe(audio, language='he', max_new_tokens=128)
+        return '\n'.join([segment.text for segment in segments])
+
+    demo = gr.Interface(transcribe, gr.File(file_types=["audio"]), "text")
+    demo.launch( are=False)
+
+#### Step 5: Run the Code
+1. Ensure you are still in the virtual environment and run the code:
+      
+      transcribe.py
+
+2. If everything is working correctly, you will see the following message:
+    Running on local URL: http://127.0.0.1:7860
+
+3. Open your browser and navigate to the provided URL to upload an audio file and perform the transcription.
+
+### Summary
+Follow these steps to run the Ivrit.ai transcription model with Faster-Whisper on an Ubuntu system. If you encounter any issues or have questions, you can reach out to the Ivrit.ai developer community for further support. Good luck!
+
+Here is the code for creating the `ipynb` file:
+
+ json
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "f61a4c32",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from time import time\n",
+    "import os\n",
+    "os.environ[\"KMP_DUPLICATE_LIB_OK\"] = \"TRUE\"\n",
+    "os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:32,garbage_collection_thre old:0.8'\n",
+    "import torch\n",
+    "from faster_whisper import WhisperModel\n",
+    "import gradio as gr\n",
+    "\n",
+    "device = \"cuda\" if torch.cuda.is_available() else \"cpu\"\n",
+    "compute_type = \"float16\" if torch.cuda.is_available() else \"int8\"\n",
+    "\n",
+    "model = WhisperModel(\"ivrit-ai/faster-whisper-v2-d3-e3\", device=device, compute_type=compute_type, cpu_threads=os.cpu_count())\n",
+    "\n",
+    "def transcribe(audio):\n",
+    "    segments, _ = model.transcribe(audio, language='he', max_new_tokens=128)\n",
+    "    return '\\n'.join([segment.text for segment in segments])\n",
+    "\n",
+    "demo = gr.Interface(transcribe, gr.File(file_types=[\"audio\"]), \"text\")\n",
+    "demo.launch( are=False)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": " ",
+   "name": " 3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "i ",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x- ",
+   "name": " ",
+   "nbconvert_exporter": " ",
+   "pygments_lexer": "i 3",
+   "version": "3.8.10"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

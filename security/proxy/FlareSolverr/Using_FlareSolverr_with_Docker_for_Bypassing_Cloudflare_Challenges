@@ -1,0 +1,95 @@
+### Comprehensive Guide to Using FlareSolverr with Docker for Bypassing Cloudflare Challenges
+
+FlareSolverr is a proxy server to bypass Cloudflare protection, and using it with Docker makes the setup and management straightforward. This tutorial provides a detailed step-by-step guide on how to set up and use FlareSolverr after running it with Docker.
+
+#### Step 1: Run FlareSolverr Docker Container
+
+First, you need to run the FlareSolverr container using the following Docker command:
+  
+docker run -d --name flaresolverr -p 8191:8191 ghcr.io/flaresolverr/flaresolverr:latest
+
+This command pulls the latest FlareSolverr image from the GitHub Container Registry and runs it in detached mode, exposing it on port 8191.
+
+#### Step 2: Ensure the Container is Running
+
+Verify that the FlareSolverr container is running by using the following command:
+  
+docker ps
+
+You should see an entry for `flaresolverr` in the list of running containers.
+
+#### Step 3: Check FlareSolverr Logs (Optional)
+
+To ensure that FlareSolverr started correctly and to check for any startup messages or errors, you can view the container logs:
+  
+docker logs flaresolverr
+
+#### Step 4: Interact with FlareSolverr API
+
+FlareSolverr runs a web server that listens on port 8191. You can interact with this server via HTTP requests.
+
+#### Step 5: Basic Usage with cURL
+
+To solve a Cloudflare challenge and fetch a webpage using FlareSolverr, send a POST request with cURL. Replace `https://example.com` with the URL you want to access:
+
+  
+curl -X POST 'http://localhost:8191/v1' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "cmd": "request.get",
+        "url": "https://example.com"
+      }'
+
+This command sends a GET request to `https://example.com` and returns the page content, solving any Cloudflare challenges automatically.
+
+#### Step 6: Python Example
+
+Here’s how you can use FlareSolverr with Python to bypass Cloudflare and retrieve a webpage:
+
+  
+import requests
+
+url = 'http://localhost:8191/v1'
+payload = {
+    "cmd": "request.get",
+    "url": "https://example.com"
+}
+
+response = requests.post(url, json=payload)
+result = response.json()
+
+print(result)
+
+Replace `https://example.com` with your target URL.
+
+#### Step 7: Advanced Configuration
+
+FlareSolverr allows various configurations for solving different types of challenges and using different browsers. Refer to the [FlareSolverr API documentation](https://github.com/FlareSolverr/FlareSolverr) for advanced usage and options.
+
+#### Step 8: Using with Scrapers
+
+FlareSolverr can be used with scraping libraries like `BeautifulSoup` or `Scrapy`. Here’s an example using `BeautifulSoup`:
+
+  
+import requests
+from bs4 import BeautifulSoup
+
+url = 'http://localhost:8191/v1'
+payload = {
+    "cmd": "request.get",
+    "url": "https://example.com"
+}
+
+response = requests.post(url, json=payload)
+result = response.json()
+
+html_content = result.get('solution').get('response')
+soup = BeautifulSoup(html_content, 'html.parser')
+
+print(soup.prettify())
+
+#### Step 9: Handling Errors
+
+If you encounter any errors, check the response from FlareSolverr. It will provide detailed error messages to help you troubleshoot.
+
+By following these steps, you should be able to effectively use FlareSolverr to bypass Cloudflare challenges and scrape web pages.

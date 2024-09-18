@@ -1,0 +1,14 @@
+Go
+Import the Pyroscope Go agent in your application:
+
+import "github.com/pyroscope-io/pyroscope/pkg/agent/profiler"
+
+Start the profiler in your main function:
+
+func main() {
+    profiler.Start(profiler.Config{
+        ApplicationName: "your.app.name",
+        ServerAddress:   "http://localhost:4040",
+    })
+    // Your application code here
+}

@@ -1,0 +1,1 @@
+az synapse workspace create --name my-synapse-workspace --resource-group myResourceGroup --storage-account mystorage --file-system myfilesystem --sql-admin-login-user sqladminuser --sql-admin-login-password Password123!

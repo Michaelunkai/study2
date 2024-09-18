@@ -1,0 +1,60 @@
+Sure, I'll provide you with detailed steps on how to use Salesforce Authenticator to authenticate Heroku login.
+
+### Step 1: Install Salesforce Authenticator
+
+1. **Download and Install**: Go to the app store on your mobile device (App Store for iOS or Google Play Store for Android) and download the "Salesforce Authenticator" app.
+
+### Step 2: Set Up Salesforce Authenticator
+
+1. **Open the App**: Once installed, open the Salesforce Authenticator app.
+2. **Add an Account**: Tap on the "+" button to add a new account.
+3. **Get the Key**: Keep the app open on the "Add an Account" screen. You will need this when linking with Heroku.
+
+### Step 3: Install Heroku CLI
+
+1. **Download and Install**: If you haven't already, download and install the Heroku CLI from [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+
+### Step 4: Log In to Heroku
+
+1. **Open Terminal**: Open your terminal or command prompt.
+2. **Login Command**: Type the following command to log in to Heroku:
+     
+   heroku login
+3. **Browser Authentication**: A browser window will open asking you to log in to your Heroku account.
+
+### Step 5: Enable Two-Factor Authentication (2FA) on Heroku
+
+1. **Go to Heroku Dashboard**: Log in to your Heroku dashboard at [Heroku Dashboard](https://dashboard.heroku.com/).
+2. **Account Settings**: Click on your profile picture at the top right corner and select "Account Settings".
+3. **Enable 2FA**: Scroll down to the "Security" section and click on "Enable Two-Factor Authentication".
+
+### Step 6: Link Salesforce Authenticator with Heroku
+
+1. **Select Salesforce Authenticator**: When prompted to choose a 2FA method, select "Salesforce Authenticator".
+2. **Enter Key**: Enter the key shown in the Salesforce Authenticator app into the Heroku setup page.
+3. **Verify**: A notification will be sent to your Salesforce Authenticator app. Approve the request to verify.
+
+### Step 7: Complete the Login Process
+
+1. **Complete Setup**: Once verified, complete the setup process on Heroku.
+2. **Re-login**: You might need to re-login to Heroku CLI using the `heroku login` command.
+3. **Approve Login**: After entering your credentials, you will receive a notification on your Salesforce Authenticator app. Approve the login request.
+
+### Step 8: Test Your Setup
+
+1. **Verify**: Run any Heroku CLI command, such as:
+     
+   heroku apps
+2. **Authenticate**: If prompted, use Salesforce Authenticator to approve the login.
+
+### Summary
+
+1. **Install Salesforce Authenticator** on your mobile device.
+2. **Set Up Salesforce Authenticator** by adding a new account.
+3. **Install Heroku CLI** on your computer.
+4. **Login to Heroku** using the `heroku login` command.
+5. **Enable Two-Factor Authentication** on your Heroku account.
+6. **Link Salesforce Authenticator** with Heroku by entering the key and approving the request.
+7. **Complete the Login Process** and test by running Heroku CLI commands.
+
+By following these steps, you will be able to use Salesforce Authenticator to authenticate your Heroku login securely.

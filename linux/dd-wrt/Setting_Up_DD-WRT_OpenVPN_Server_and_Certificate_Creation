@@ -1,0 +1,156 @@
+Create Required Certificates
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN Server
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: vpn.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Set the Type dropdown to End Endity
+Check the box next to Subject Key Identifier
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature and Key Encipherment
+Under Extended Key Usage select TLS Web Server Authentication
+Click the Netscape tab
+Deselect all options and clear the Netscape Comment field
+Click OK to create the certificate
+Click on the Certificates tab, right click on your Intermediate CA certificate again
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN Client #1
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: VPN Client 1
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Set the Type dropdown to End Endity
+Check the box next to Subject Key Identifier
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Agreement
+Under Extended Key Usage select TLS Web Client Authentication
+Click the Netscape tab
+Deselect all options and clear the Netscape Comment field
+Click OK to create the certificate
+On the Certificates tab, click the OpenVPN Server certificate
+Select Extra > Generate DH Parameter
+Type 2048 for DH parameter bits
+Click OK
+Select a location for dh2048.pem and click Save
+Exporting Required Files for OpenVPN
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .pem extension and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the OpenVPN Server certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Right click the OpenVPN Client #1 certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Click on the Private Keys tab
+Right click the OpenVPN Server key > Export > File
+Set the file name with a .pk8 extension and verify the export format is PKCS #8 (*.pk8)
+Click OK
+Right click the OpenVPN Client #1 key> Export > File
+Set the file name with a .pk8 extension and verify the export format is PKCS #8 (*.pk8)
+Click OK
+Setting Up OpenVPN Server in DD-WRT
+Open a web browser and navigate to your DD-WRT IP address
+Login when prompted
+Select the Administration tab
+Select the Backup sub tab
+Click Backup at the very bottom
+Save the nvrambak file somewhere safe
+Select the Services tab
+Select the VPN sub tab
+Scroll down and select enable next to OpenVPN under the OpenVPN Server/Daemon header
+Set the OpenVPN Settings as the following:
+Start Type: System
+Config as: Server
+Server mode: Router (TUN)
+Network: 10.10.28.0
+Netmask: 255.255.255.0
+Port: 1194
+Tunnel Protocol: TCP
+Encyption Cipher: AES-256 GCM
+Ha  Algorithm: SHA256
+Advanced Options: Enable
+TLS Cipher: TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384
+Compression: Compress lz4-v2
+Redirect default Gateway: Disable
+Allow Client to Client: Enable
+Allow duplicate CN: Disable
+Tunnel MT setting: 1500
+Tunnel UDP MSS-Fix: Disable
+Paste the contents of OpenVPN_Server.crt into the Public Server Cert field
+Paste the contents of CA_Chain.pem into the CA Cert field
+Paste the contents of OpenVPN_Server.pem into the Private Server Key field
+Paste the contents of dh2048.pem into the DH PEM field
+Paste the following into the Additional Config field:
+pu  "route-gateway 10.10.27.27"
+push "route 10.10.27.0 255.255.255.0"
+push "dhcp-option DNS 10.10.27.1"
+push "dhcp-option DNS 208.67.222.222"
+
+Note in the above:
+route-gateway is the IP address of the internet gateway on your local network
+route is the subnet of your local network
+dhcp-option DNS sets DNS servers, in my case my domain controller and an OpenDNS server
+Click Save at the bottom
+Click Apply Settings
+Click the Administration tab
+Click the Command sub tab
+Paste the following into the Commands field
+iptables -t nat -I PREROUTING -p udp --dport 1194 -j ACCEPT
+iptables -I INPUT -p udp --dport 1194 -j ACCEPT
+iptables -t nat -I PREROUTING -p tcp --dport 1194 -j ACCEPT
+iptables -I INPUT -p tcp --dport 1194 -j ACCEPT
+iptables -I INPUT -i tun2 -j ACCEPT
+iptables -I FORWARD -i tun2 -j ACCEPT
+iptables -I FORWARD -o tun2 -j ACCEPT
+iptables -t nat -A POSTROUTING -s 10.10.28.0/24 -o eth0 -j MASQUERADE
+
+Click Save Firewall at the bottom
+Click the Management sub tab
+Click Reboot Router at the very bottom
+Installing OpenVPN Client Software and Testing
+Download the OpenVPN software Download
+Run the installer with all the default values
+Click the Start button and search OpenVPN GUI
+Select OpenVPN GUI from the results to start the application
+Creating the OpenVPN Client Profile
+Download the OVPN template Download
+Rename the .ovpn template something meaningful
+Edit the .ovpn template replacing the following:
+<#replace with dynamic dns#> with a dynamic DNS or external IP address to your server
+<#replace with CA chain#> with the contents of CA_Chain.pem
+<#replace with client 1 cert #> with the contents of OpenVPN_Client #1.crt
+<#replace with client 1 key #> with the contents of OpenVPN_Client #1.pk8
+
+Save your changes
+Copy the .ovpn template to OpenVPN install directory/config
+Right click OpenVPN GUI in the system tray > Connect

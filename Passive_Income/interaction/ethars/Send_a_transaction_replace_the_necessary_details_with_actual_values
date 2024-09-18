@@ -1,0 +1,4 @@
+wallet.sendTransaction({
+    to: 'RECEIVER_ADDRESS',
+    value: ethers.utils.parseEther('1.0')  // sending 1 ETH
+}).then(console.log);

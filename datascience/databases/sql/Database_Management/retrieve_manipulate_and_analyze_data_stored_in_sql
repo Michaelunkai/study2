@@ -1,0 +1,41 @@
+Create Database: Let's create a new database named sales_data where we'll store our sales data.
+
+
+CREATE DATABASE sales_data;
+Select Database: Now, let's select the sales_data database to work with:
+ 
+USE sales_data;
+Create Table: We'll create a table named orders to store our sales order data. Let's assume it has columns like order_id, customer_name, product_id, quantity, and order_date.
+
+
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255),
+    product_id INT,
+    quantity INT,
+    order_date DATE
+);
+Insert Data: Now, let's insert some sample data into the orders table.
+
+
+INSERT INTO orders (customer_name, product_id, quantity, order_date) VALUES
+('John Doe', 1, 5, '2024-04-01'),
+('Jane Smith', 2, 3, '2024-04-05'),
+('Bob Johnson', 1, 2, '2024-04-10');
+Retrieve Data: Let's retrieve all orders from the orders table.
+
+
+SELECT * FROM orders;
+Update Data: Suppose we need to update the quantity of a specific order. Let's say we want to increase the quantity of order with order_id 1 to 7.
+
+
+UPDATE orders SET quantity = 7 WHERE order_id = 1;
+Delete Data: Suppose we need to delete a specific order. Let's say we want to delete the order with order_id 3.
+
+
+DELETE FROM orders WHERE order_id = 3;
+Analyze Data: Let's analyze our data by finding the total number of orders and the average quantity of products ordered.
+ 
+ 
+SELECT COUNT(*) AS total_orders, AVG(quantity) AS avg_quantity FROM orders;
+Export Data: To export data, you can use the SELECT INTO OUTFILE statement or export directly from your MySQL client.

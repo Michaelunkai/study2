@@ -1,0 +1,8 @@
+# Example script to generate data
+from faker import Faker
+import pandas as pd
+
+fake = Faker()
+data = [fake.profile() for _ in range(1000000)]
+df = pd.DataFrame(data)
+df.to_ ('/path/to/large-dataset. ', index=False)

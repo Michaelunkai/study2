@@ -1,0 +1,29 @@
+### Tools You Need to Become Experts in the New World
+#### Designing Screens with the New Ability of Claude 3.5 Sonnet
+**July 25, 2024**
+Rinat Keinan
+---
+#### New Ability for Designing User Experience Interfaces Easily and Without Experience
+In today's digital world, the ability to create and manage high-quality graphic content has become more essential than ever. With the launch of Claude's new ability, entrepreneurs and e-commerce site owners can now produce quality visual and programmatic outputs on their own.
+#### Example Uses of Claude 3.5 Sonnet
+- Designing app screens
+- Designing animated newsletters
+- Buttons for online websites
+- Interactive banners and pop-ups
+#### Step 1 - Settings
+To access Claude, click on the link: [Claude](https://claude.ai).
+You can try it for free before deciding whether to upgrade to a paid plan.
+On the bottom left, in the settings, click on Feature Preview and enable the Artifacts option so you can see the outputs you created in real time.
+#### Step 2 - Writing the Instruction
+We can describe the visual product or upload our own sketch. In the product specification guide, I demonstrate how ChatGPT's artificial intelligence can create the framework for any screen for us.
+In the example before you, I want to show how the screen I built in the guide easily becomes designed by code with Claude's new ability.
+For the example, I use the file upload capability (marked in green). I upload to the instruction in Claude an image file of the screen framework I want to design and add a textual instruction explaining the request.
+#### Step 3 - Receiving the Design Output
+Within seconds, I received an amazing design for the requested screen on the right side.
+The design we received is accompanied by code that can be copied and added to the product specification document.
+Additionally, you can click on "Publish" at the bottom to allow the design to appear in a live link that can be shared with relevant parties.
+You can continue chatting with Claude and ask him to change colors, styles, add or remove details, and see how the design changes in real time for you.
+---
+#### Interested in learning how to specify a technological product idea? You are welcome to check out my product specification guide
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

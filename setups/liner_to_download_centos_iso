@@ -1,0 +1,1 @@
+cd && wget $(curl -s https://www.centos.org/download/ | grep -Eo 'https://[^"]+x86_64-dvd1.iso' | head -n 1 | xargs curl -s | grep -Eo 'http[^"]+iso' | head -n 1)

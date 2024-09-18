@@ -1,0 +1,1 @@
+aws s3api put-bucket-versioning --bucket my-unique-bucket-d110ec38 --versioning-configuration Status=Enabled

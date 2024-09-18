@@ -1,0 +1,92 @@
+# Hardening a Windows Server Installation
+
+# Set Execution Policy to RemoteSigned
+Set-ExecutionPolicy RemoteSigned -Force
+
+# Disable Unnecessary Services
+$services = @(
+    "Browser",
+    "SMB1Protocol",
+    "Fax",
+    "Spooler",
+    "SNMP",
+    "RemoteRegistry",
+    "Telnet",
+    "WebClient"
+)
+
+foreach ($service in $services) {
+    Stop-Service -Name $service -Force -ErrorAction SilentlyContinue
+    Set-Service -Name $service -StartupType Disabled
+}
+
+# Enable Windows Firewall
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+
+# Configure Password Policy
+secedit /export /cfg C:\secpol.cfg
+
+$cfgPath = "C:\secpol.cfg"
+(Get-Content $cfgPath) -replace "MinimumPasswordLength = 0", "MinimumPasswordLength = 12" | 
+Set-Content $cfgPath
+
+(Get-Content $cfgPath) -replace "PasswordComplexity = 0", "PasswordComplexity = 1" | 
+Set-Content $cfgPath
+
+(Get-Content $cfgPath) -replace "MaximumPasswordAge = 42", "MaximumPasswordAge = 30" | 
+Set-Content $cfgPath
+
+(Get-Content $cfgPath) -replace "MinimumPasswordAge = 0", "MinimumPasswordAge = 1" | 
+Set-Content $cfgPath
+
+(Get-Content $cfgPath) -replace "PasswordHistorySize = 0", "PasswordHistorySize = 24" | 
+Set-Content $cfgPath
+
+secedit /configure /db C:\secpol.sdb /cfg C:\secpol.cfg /areas SECURITYPOLICY
+
+# Enable Audit Policy
+auditpol /set /subcategory:"Logon" /success:enable /failure:enable
+auditpol /set /subcategory:"Account Lockout" /success:enable /failure:enable
+auditpol /set /subcategory:"User Account Management" /success:enable /failure:enable
+auditpol /set /subcategory:"Process Creation" /success:enable /failure:enable
+auditpol /set /subcategory:"Policy Change" /success:enable /failure:enable
+
+# Configure Account Lockout Policy
+net accounts /lockoutthre old:3
+net accounts /lockoutduration:30
+net accounts /lockoutwindow:30
+
+# Disable LM Hash
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "NoLMHash" -Value 1 -PropertyType "DWORD" -Force
+
+# Restrict Anonymous Access
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "RestrictAnonymous" -Value 1 -PropertyType "DWORD" -Force
+
+# Disable Guest Account
+net user Guest /active:no
+
+# Set Auto Logoff for Idle Sessions
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "InactivityTimeoutSecs" -Value 900 -PropertyType "DWORD" -Force
+
+# Disable Autorun
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun" -Value 255
+
+# Disable Remote Desktop Access
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 1 -PropertyType "DWORD" -Force
+
+# Enable Windows Defender Antivirus
+Set-MpPreference -DisableRealtimeMonitoring $false
+Set-MpPreference -DisableBehaviorMonitoring $false
+Set-MpPreference -DisableBlockAtFirstSeen $false
+Set-MpPreference -DisableIOAVProtection $false
+Set-MpPreference -DisableIntrusionPreventionSystem $false
+Set-MpPreference -DisableScriptScanning $false
+
+# Enable Network Level Authentication (NLA)
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Value 1 -PropertyType "DWORD" -Force
+
+# Enable SMB Encryption (Optional)
+Set-SmbServerConfiguration -EncryptData $true
+
+# Reboot the Server to Apply Changes
+Restart-Computer -Force

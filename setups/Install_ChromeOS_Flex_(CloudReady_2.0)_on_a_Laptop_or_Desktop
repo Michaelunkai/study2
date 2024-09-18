@@ -1,0 +1,42 @@
+▲A  A▼
+Install ChromeOS Flex (CloudReady 2.0) on a Laptop or Desktop
+What is ChromeOS Flex?
+Try the cloud-first, fast, easy-to-manage, and secure Chrome OS for PCs and Macs. Chrome OS Flex is a free and sustainable way to modernize devices you already own. It’s easy to deploy across your fleet or simply try it to see what a cloud-first OS has to offer. -https://chromeenterprise.google/os/chromeosflex/
+Things You Will Need
+A USB flash drive, at least 16 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Creating the Installation Media
+PRO TIP: I repeatedly had issues booting the flash drive created by the Chromebook Recovery Utility. I found that the utility downloads ChromeOS Flex to the user's local temp directory (%temp% or %userprofile%\AppData\Local\Temp). Browse through the scoped_dir directories to find the compressed ChromeOS Flex image. I grabbed the file and used Balena Etcher to write it to a flash drive to correct the booting issue
+
+Open a Chromium based browser, install the Chromebook Recovery Utility extension
+In Brave Browser, open a new tab and navigate to https://chrome.google.com/webstore/category/extensions
+Search for Chromebook Recovery
+Click on Chromebook Recovery Utility
+Click the Add to Brave button > Click Add Extension to confirm
+After the extension installs, click the puzzle piece next to the hamburger menu > Click Chromebook Recovery Utility to launch it
+Inside the Chromebook Recovery Utility click the Get started button
+Click the Select a model from a list link
+Select Google Chrome OS Flex from the manufacturer dropdown
+Select Chrome OS Flex from the product dropdown > Click Continue
+Select the USB flash device to write ChromeOS Flex to > Click Continue > Click Create now
+Wait while Chrome OS Flex is written and verified
+Once the flash drive is setup, remove it and plug it into a USB port on the target device
+Installing ChromeOS Flex
+Power on the target device and boot to the ChromeOS Flex flash drive
+After the Chrome splash screen displays, click the Get started button
+Click Install CloudyReady 2.0 to select it > Click Next
+Click Install CloudyReady 2.0
+Click Install to confirm erasing the hard drive
+After about two minutes the installation will complete and the PC will reboot
+Remove the USB flash drive during the reboot to avoid booting back into the installation media
+Once ChromeOS has rebooted, click the Get started button
+ChromeOS should detect an Ethernet connection, otherwise connect to a Wifi network > Click Next
+Uncheck the Help improve ChromeOS option > Click Accept and continue
+At the Who's using this Chrome device screen, select You > Click Next
+Login with Google account credentials
+At the Sync your Chrome device screen, click Accept and continue
+Uncheck the Let Google use your hardware data option > Click Accept and continue
+Select whether to use Google Assistant
+Select whether to connect to your phone
+Click Get started to complete setup
+Welcome to ChromeOS Flex
+ 

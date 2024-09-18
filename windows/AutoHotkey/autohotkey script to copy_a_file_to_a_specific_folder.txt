@@ -1,0 +1,3 @@
+^!c::
+FileCopy, C:\Users\micha\source.txt, C:\Users\micha\Documents\destination.txt
+return

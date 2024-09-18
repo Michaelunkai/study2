@@ -1,0 +1,1 @@
+cd && git clone https://github.com/M4sc3r4n0/Evil-Droid.git && cd Evil-Droid && chmod +x evil-droid && sudo ./evil-droid

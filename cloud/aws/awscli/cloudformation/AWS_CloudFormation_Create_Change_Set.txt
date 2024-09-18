@@ -1,0 +1,1 @@
+aws cloudformation create-change-set --stack-name <stack-name> --template-body file://template.json --change-set-name <change-set-name>

@@ -1,0 +1,8 @@
+Start Your Notebook Instance:
+
+Explanation: Starting the notebook instance makes it accessible for you to use Jupyter notebooks to develop and train machine learning models.
+Steps:
+Run:
+ 
+ 
+aws sagemaker start-notebook-instance --notebook-instance-name my-notebook-instance

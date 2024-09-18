@@ -1,0 +1,6 @@
+[boot]
+systemd=True
+
+[wsl2]
+memory=8gb
+

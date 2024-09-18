@@ -1,0 +1,1 @@
+sudo apt install -y mediawiki && sudo systemctl start apache2 && gc http://localhost/mediawiki

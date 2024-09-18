@@ -1,0 +1,1 @@
+aws rds create-db-instance-read-replica --db-instance-identifier mydbinstance-replica --source-db-instance-identifier mydbinstance

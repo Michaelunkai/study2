@@ -1,0 +1,10 @@
+Set Up a Cron Job to Pull Changes Periodically
+On each server, set up a cron job to pull the latest changes from GitHub every minute.
+
+Edit the Cron Tab:
+
+crontab -e
+Add the Following Line to Pull Changes Every Minute:
+
+* * * * * cd /mnt/c/study && git pull origin main  # for WSL2 instances
+* * * * * cd /home/ubuntu/study && git pull origin main  # for the Ubuntu server

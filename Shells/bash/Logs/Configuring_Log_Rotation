@@ -1,0 +1,28 @@
+Configuring Log Rotation
+Edit Logrotate Configuration:
+
+ 
+ 
+sudo nano /etc/logrotate.d/nginx
+Example NGINX logrotate configuration:
+
+plaintext
+ 
+/var/log/nginx/*.log {
+    weekly
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0640 www-data adm
+    sharedscripts
+    postrotate
+        [ -f /var/run/nginx.pid ] && kill -USR1 `cat /var/run/nginx.pid`
+    endscript
+}
+Test Logrotate Configuration:
+
+ 
+ 
+sudo logrotate -d /etc/logrotate.conf

@@ -1,0 +1,14 @@
+sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql -y && sudo a2enmod php && sudo service apache2 restart
+
+sudo nano /var/www/html/info. 
+
+<? 
+ info();
+?>
+
+
+
+
+
+
+http://localhost/info. 

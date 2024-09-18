@@ -1,0 +1,1 @@
+getsnap && sudo snap install weka && weka

@@ -1,0 +1,1 @@
+iwr -Uri https://download.sublimetext.com/Sublime%20Text%20Build%203211%20Setup.exe -OutFile sublime_text_installer.exe; Start-Process sublime_text_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

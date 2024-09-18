@@ -1,0 +1,23 @@
+# 3. Model Training
+## 3.1 Selecting a Model
+Choose a machine learning algorithm based on the problem you are solving. For classification problems, consider algorithms like logistic regression, decision trees, or support vector machines. For regression problems, linear regression or random forests are good starting points.
+## 3.2 Training the Model
+Split your data into training and test sets to evaluate model performance. Use libraries like `scikit-learn` for model training.
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+# Split data
+X = data.drop('target', axis=1)
+y = data['target']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train the model
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+## 3.3 Evaluating the Model
+Evaluate your model using appropriate metrics such as accuracy, precision, recall, F1 score, or mean squared error, depending on the type of problem.
+from sklearn.metrics import accuracy_score, classification_report
+# Predict on test data
+y_pred = model.predict(X_test)
+# Evaluate the model
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Classification Report:
+", classification_report(y_test, y_pred))

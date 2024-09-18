@@ -1,0 +1,25 @@
+Testing and Debugging
+Thorough testing ensures your API works correctly and handles edge cases.
+
+Tools for Testing
+Postman: Popular tool for manual API testing.
+Automated Testing: Use libraries like unittest or pytest in Python to automate tests.
+Example using Python's requests library:
+
+ 
+ 
+import requests
+
+def test_get_resource():
+    response = requests.get('https://api.example.com/resource')
+    assert response.status_code == 200
+    assert 'application/json' in response.headers['Content-Type']
+
+def test_create_resource():
+    data = {'name': 'new resource'}
+    response = requests.post('https://api.example.com/resource', json=data)
+    assert response.status_code == 201
+    assert response.json()['name'] == 'new resource'
+
+test_get_resource()
+test_create_resource()

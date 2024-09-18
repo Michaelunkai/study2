@@ -1,0 +1,9 @@
+Binary strings are sequences consisting only of the characters '0' and '1'. They are used in computing to represent binary numbers, which are the foundation of all computer operations and data storage.
+
+Examples:
+
+"1010"
+"1101"
+"0001"
+"1111"
+"0101"

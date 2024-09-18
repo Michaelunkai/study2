@@ -1,0 +1,61 @@
+Step-by-Step Guide to Create a Go Web Server
+Create a Project Directory:
+mkdir go-web-server
+cd go-web-server
+Initialize a Go Module:
+go mod init go-web-server
+Install Gorilla Mux:
+go get -u github.com/gorilla/mux
+Create the main.go File:
+Create a main.go file with the following content:
+package main
+import (
+    "fmt"
+    "log"
+    "net/http"
+    "github.com/gorilla/mux"
+)
+func main() {
+    r := mux.NewRouter()
+    r.HandleFunc("/", homeHandler)
+    r.HandleFunc("/hello", helloHandler)
+    r.HandleFunc("/submit", submitHandler).Methods("POST")
+    r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+    port := ":9090" // Change port here
+    fmt.Printf("Starting server at %s
+", port)
+    if err := http.ListenAndServe(port, r); err != nil {
+        log.Fatalf("could not start server: %s
+", err)
+    }
+}
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/html")
+    fmt.Fprint(w, "<h1>Welcome to Go Web Server</h1>")
+}
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/plain")
+    fmt.Fprint(w, "Hello, World!")
+}
+func submitHandler(w http.ResponseWriter, r *http.Request) {
+    name := r.FormValue("name")
+    fmt.Fprintf(w, "Hello, %s!", name)
+}
+Create a Static Directory:
+mkdir static
+Add a Sample Static File:
+Create a file static/example.txt with the following content:
+This is a static file served by the Go web server.
+Run the Server:
+go run main.go
+You should see the output:
+Starting server at :9090
+Test the Server:
+Open your browser and visit http://localhost:9090/ to see the home page.
+Visit http://localhost:9090/hello to see the hello message.
+Visit http://localhost:9090/static/example.txt to see the static file content.
+You can also test the POST request with the following curl command:
+curl -X POST -d "name=GoDeveloper" http://localhost:9090/submit
+This should return Hello, GoDeveloper!.
+Summary
+By following these steps, you will have a fully functional Go web server running on port 9090, serving static files, and handling basic GET and POST requests. This includes correctly installing the gorilla/mux package to avoid the module not found error. Feel free to adjust the port or extend the functionality as needed! ✔️

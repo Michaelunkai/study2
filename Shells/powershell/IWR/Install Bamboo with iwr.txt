@@ -1,0 +1,1 @@
+iwr -Uri https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-7.2.4.exe -OutFile bamboo_installer.exe; Start-Process bamboo_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

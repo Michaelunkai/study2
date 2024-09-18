@@ -1,0 +1,108 @@
+You have a binary tree, which is like a family tree where each parent can have up to two children. Your job is to connect each node to its next right node. If there is no next right node, the pointer should be set to NULL.
+
+Here's an example:
+
+Imagine a tree with these levels:
+
+
+
+      1
+     / \
+    2   3
+   / \   \
+  4   5   7
+The goal is to connect nodes on the same level:
+
+
+      1 -> NULL
+     / \
+    2 -> 3 -> NULL
+   / \    \
+  4-> 5 -> 7 -> NULL
+Python Solution:
+
+
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        if not root:
+            return None
+        
+        queue = [root]
+        
+        while queue:
+            size = len(queue)
+            for i in range(size):
+                node = queue.pop(0)
+                if i < size - 1:
+                    node.next = queue[0]
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return root
+Explanation of the Code:
+Node Class:
+
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+This defines a node in the binary tree with a value, a left child, a right child, and a next pointer.
+Solution Class and Method:
+
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        if not root:
+            return None
+        
+        queue = [root]
+        
+        while queue:
+            size = len(queue)
+            for i in range(size):
+                node = queue.pop(0)
+                if i < size - 1:
+                    node.next = queue[0]
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return root
+connect method connects each node to its next right node.
+if not root: If the tree is empty, return None.
+queue = [root]: Initialize a queue with the root node to perform level order traversal.
+while queue: Continue until the queue is empty.
+size = len(queue): Get the number of nodes at the current level.
+for i in range(size): Iterate over each node in the current level.
+node = queue.pop(0): Remove and get the first node in the queue.
+if i < size - 1: If there is a next node in the same level, set the current node's next pointer to the next node.
+if node.left: If the current node has a left child, add it to the queue.
+if node.right: If the current node has a right child, add it to the queue.
+return root: Return the root of the modified tree.
+Summary:
+Start from the root and initialize a queue to perform level order traversal.
+While there are nodes left to process:
+Get the number of nodes at the current level.
+Iterate over each node at the current level.
+Connect the current node's next pointer to the next node in the queue if there is one.
+Add the left and right children of the current node to the queue.
+Return the root of the modified tree.
+
+
+
+
+

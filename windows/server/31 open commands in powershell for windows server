@@ -1,0 +1,159 @@
+In PowerShell, you can use the following command to open Server Manager:
+
+powershell
+Copy code
+Start-Process ServerManager
+
+
+Open Active Directory Users and Computers:
+
+powershell
+Copy code
+dsa.msc
+Open Group Policy Management Console:
+
+powershell
+Copy code
+gpmc.msc
+View System Information:
+
+powershell
+Copy code
+Get-CimInstance Win32_ComputerSystem
+List Installed Windows Features:
+
+powershell
+Copy code
+Get-WindowsFeature
+Restart the Server:
+
+powershell
+Copy code
+Restart-Computer
+Check Disk Space:
+
+powershell
+Copy code
+Get-PSDrive C | Format-Table Name, Used, Free, @{Label="TotalSize(GB)"; Expression={"{0:N2}" -f ($_.Used + $_.Free) / 1GB}}
+List Running Processes:
+
+powershell
+Copy code
+Get-Process
+Show Network Configuration:
+
+powershell
+Copy code
+Get-NetIPAddress
+List Installed Updates:
+
+powershell
+Copy code
+Get-HotFix
+Open Windows Firewall:
+
+powershell
+Copy code
+wf.msc
+Display Event Viewer:
+
+powershell
+Copy code
+eventvwr.msc
+Check Network Adapters:
+
+powershell
+Copy code
+Get-NetAdapter
+Enable Remote Desktop:
+
+powershell
+Copy code
+Enable-RemoteDesktop
+Check Windows Services:
+
+powershell
+Copy code
+Get-Service
+List Scheduled Tasks:
+
+powershell
+Copy code
+Get-ScheduledTask
+Display System Logs:
+
+powershell
+Copy code
+Get-WinEvent -LogName System
+Create a New Folder:
+
+powershell
+Copy code
+New-Item -ItemType Directory -Path C:\NewFolder
+Check System Uptime:
+
+powershell
+Copy code
+Get-CimInstance Win32_OperatingSystem | Select-Object LastBootUpTime
+Show Installed Programs:
+
+powershell
+Copy code
+Get-WmiObject -Class Win32_Product
+Check System Information:
+
+powershell
+Copy code
+Get-ComputerInfo
+List User Accounts:
+
+powershell
+Copy code
+Get-LocalUser
+Open Disk Management:
+
+powershell
+Copy code
+diskmgmt.msc
+Configure Remote Desktop Users:
+
+powershell
+Copy code
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
+List Available PowerShell Modules:
+
+powershell
+Copy code
+Get-Module -ListAvailable
+Check System Environment Variables:
+
+powershell
+Copy code
+Get-ChildItem Env:
+Show System Volume Information:
+
+powershell
+Copy code
+Get-Volume
+List Printers:
+
+powershell
+Copy code
+Get-Printer
+View Disk Partitions:
+
+powershell
+Copy code
+Get-Partition
+Open Device Manager:
+
+powershell
+Copy code
+devmgmt.msc
+List Network Shares:
+
+powershell
+Copy code
+Get-SmbShare
+
+

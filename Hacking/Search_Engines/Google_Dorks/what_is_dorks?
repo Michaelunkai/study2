@@ -1,0 +1,15 @@
+"Dorks" in the context of cybersecurity and hacking, particularly in relation to search engines, refers to "Google dorks" or "Google hacking." This practice involves using advanced search operators in search engines like Google to find specific information that is not intended to be publicly accessible. These search queries can reveal sensitive information, such as exposed databases, vulnerable web pages, or confidential files.
+
+Common search operators used in Google dorks include:
+
+- `intitle:` - Searches for pages with specific keywords in the title.
+- `inurl:` - Searches for pages with specific keywords in the URL.
+- `filetype:` - Searches for specific file types.
+- `site:` - Restricts the search to a specific domain.
+- `allintext:` - Searches for pages containing all the specified keywords in the text.
+- `allintitle:` - Searches for pages containing all the specified keywords in the title.
+- `allinurl:` - Searches for pages containing all the specified keywords in the URL.
+
+For example, a Google dork query like `filetype:sql site:example.com` could reveal SQL database files hosted on `example.com`.
+
+Google dorking can be used for legitimate purposes, such as finding publicly available information more efficiently, but it is often associated with finding security vulnerabilities and sensitive data that should not be publicly accessible. It is important to use these techniques responsibly and ethically.

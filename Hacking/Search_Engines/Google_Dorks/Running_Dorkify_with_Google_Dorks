@@ -1,0 +1,25 @@
+Running Dorkify with Google Dorks
+To run Dorkify with specific Google Dorks, use the appropriate flags and options. Below is a basic example:
+
+Define Your Google Dorks:
+Open a new file with nano:
+
+ 
+ 
+nano dorks.txt
+Add the following content to the file:
+
+arduino
+ 
+"inurl:admin"
+"site:.gov filetype:pdf"
+"intitle:index.of"
+Save and close the file (Ctrl+O to save, Ctrl+X to exit).
+
+Running Dorkify:
+Use the following command to run Dorkify with a specific dork:
+
+ 
+ 
+python3 dorkify.py -d "inurl:admin"
+Replace inurl:admin with your desired Google Dork query.

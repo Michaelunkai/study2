@@ -1,0 +1,1 @@
+docker run -d --name peertube -p 9000:9000 -e NODE_ENV=production -v $(pwd)/data:/data -v $(pwd)/config:/config -v $(pwd)/cache:/cache -v $(pwd)/client:/client -v $(pwd)/plugins:/plugins -v $(pwd)/storage:/storage -v $(pwd)/assets:/assets -v $(pwd)/videos:/videos -v $(pwd)/logs:/logs chocobozzz/peertube && gcl 9000

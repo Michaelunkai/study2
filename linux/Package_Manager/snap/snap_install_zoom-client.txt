@@ -1,0 +1,1 @@
+snap install zoom-client

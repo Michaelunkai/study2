@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://updates.signal.org/desktop/signal-desktop-win-5.24.0.exe -OutFile signal_installer.exe; Start-Process signal_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

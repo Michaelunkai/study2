@@ -1,0 +1,4 @@
+curl https://bitping.com/install.sh | bash && brc2 && bitpingd login
+
+
+bitpingd

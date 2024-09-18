@@ -1,0 +1,94 @@
+## 173. Binary Search Tree Iterator
+
+### Problem Statement (Explained Like You're 12):
+
+Imagine you have a special tree where each part has up to two branches, and the smaller numbers are always on the left. You need to make a magical tool that helps you go through the numbers in this tree in the order from smallest to largest. This tool should let you do two things:
+1. Check if there are any more numbers left to look at.
+2. Get the next smallest number.
+
+### Python Solution:
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.stack = []
+        self._leftmost_inorder(root)
+    
+    def _leftmost_inorder(self, root):
+        while root:
+            self.stack.append(root)
+            root = root.left
+
+    def next(self) -> int:
+        topmost_node = self.stack.pop()
+        if topmost_node.right:
+            self._leftmost_inorder(topmost_node.right)
+        return topmost_node.val
+
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
+```
+
+### Explanation of the Code:
+
+1. **TreeNode Definition**:
+    ```python
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val = val
+            self.left = left
+            self.right = right
+    ```
+    - This defines a tree node with a value (`val`) and optional left and right children.
+
+2. **BSTIterator Initialization**:
+    ```python
+    class BSTIterator:
+        def __init__(self, root: Optional[TreeNode]):
+            self.stack = []
+            self._leftmost_inorder(root)
+    ```
+    - Initialize the iterator with the root of the tree.
+    - Create an empty stack to keep track of the nodes.
+    - Call `_leftmost_inorder` to push all the leftmost nodes to the stack.
+
+3. **Helper Method to Process Leftmost Nodes**:
+    ```python
+    def _leftmost_inorder(self, root):
+        while root:
+            self.stack.append(root)
+            root = root.left
+    ```
+    - This method pushes all the leftmost nodes of the current subtree to the stack.
+
+4. **Next Method**:
+    ```python
+    def next(self) -> int:
+        topmost_node = self.stack.pop()
+        if topmost_node.right:
+            self._leftmost_inorder(topmost_node.right)
+        return topmost_node.val
+    ```
+    - Pop the topmost node from the stack (which is the next smallest element).
+    - If this node has a right child, process its leftmost nodes.
+    - Return the value of the popped node.
+
+5. **HasNext Method**:
+    ```python
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
+    ```
+    - Return `True` if there are nodes left in the stack, `False` otherwise.
+
+### Summary:
+
+1. Initialize the iterator with the root of the BST and process all the leftmost nodes.
+2. The `next` method pops the smallest node from the stack, processes its right child (if any), and returns the node's value.
+3. The `hasNext` method checks if there are any nodes left in the stack to process.

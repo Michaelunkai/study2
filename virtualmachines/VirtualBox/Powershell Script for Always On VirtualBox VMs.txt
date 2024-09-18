@@ -1,0 +1,43 @@
+Powershell Script for Always On VirtualBox VMs
+Preparation
+Download the VMs_Always_On Powershell script Download
+Open the downloaded VMs_Always_on.ps1 file in a text editor
+Edit the following:
+Set the $vboxPath variable to the install path of VirtualBox if it's not installed to the default location
+Set the $alwaysRunningVMs variable, adding the list of VM names or UUIDs to keep running (These values are case sensitive)
+Save the changes
+Copy the file to a location it will run from, c:\scripts for example
+Scheduled Task: Manual Method
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to VMs Always On and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+In the Program/script field, paste the following:
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+In the Add arguments field, paste the following, editing the path to the .ps1 file if necessary:
+-NoLogo -NoProfile -ExecutionPolicy Bypass -File "C:\Scripts\VMs_Always_On.ps1"
+Click Next
+Check the Open the Properties dialog for this task when I click Finish box
+Click Finish
+In the Properties dialog, select Run whether user is logged on or not
+Select the Triggers tab and click the Edit... button
+Check the Repeat task every: box and set the value to 5 minutes
+Set the for a duration of value to Indefinitely
+Click OK to accept the triggers
+Click OK again to create the scheduled task
+Enter the password for the user the task will run as
+To test, stop at least one VM listed in the VMs_Always_On.ps1 file
+Right click the VMs Always On task > Run
+Check that the VM is starting as expected
+Scheduled Task: Quick Method
+Download the Scheduled Task export VMs Always On.xml Download
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Import Task...
+Browse to the downloaded VMs Always On.xml file and select it > Click Open
+Click the Actions tab > Edit... button
+In the Add arguments field, update the path to the VMs_Always_On.ps1 file downloaded earlier (Defaults to c:\scripts\)
+Click OK and OK again to create the scheduled task
+To test, stop at least one VM listed in the VMs_Always_On.ps1 file
+Right click the VMs Always On task > Run
+Check that the VM is starting as expected

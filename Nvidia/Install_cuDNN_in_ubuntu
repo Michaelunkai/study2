@@ -1,0 +1,26 @@
+x86_64
+deb(local)
+ubuntu 22.04
+
+Installation Instructions:
+wget https://developer.download.nvidia.com/compute/cudnn/9.3.0/local_installers/cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2204-9.3.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cudnn
+To install for CUDA 11, perform the above configuration but install the CUDA 11 specific package:
+sudo apt-get -y install cudnn-cuda-11
+To install for CUDA 12, perform the above configuration but install the CUDA 12 specific package:
+sudo apt-get -y install cudnn-cuda-12
+
+
+
+x86_64
+deb(Network)
+ubuntu 22.04
+
+Installation Instructions:
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cudnn

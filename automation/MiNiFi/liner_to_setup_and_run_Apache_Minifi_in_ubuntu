@@ -1,0 +1,1 @@
+wget https://downloads.apache.org/nifi/1.27.0/minifi-1.27.0-bin.zip && apt install unzip -y && unzip minifi-1.27.0-bin.zip && sudo mv minifi-1.27.0 /opt/minifi && export MINIFI_HOME=/opt/minifi && export PATH=$PATH:$MINIFI_HOME/bin && $MINIFI_HOME/bin/minifi.sh start

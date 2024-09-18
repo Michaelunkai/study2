@@ -1,0 +1,13 @@
+Create Mount Targets
+You need to create mount targets in the subnets of your VPC. First, list your VPCs and subnets to get their IDs:
+
+ 
+ 
+aws ec2 describe-vpcs
+aws ec2 describe-subnets
+Then, create mount targets for your EFS file system:
+
+ 
+ 
+aws efs create-mount-target --file-system-id fs-12345678 --subnet-id subnet-12345678 --security-groups sg-12345678
+Replace fs-12345678 with your EFS file system ID, subnet-12345678 with your subnet ID, and sg-12345678 with your security group ID.

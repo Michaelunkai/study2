@@ -1,0 +1,1 @@
+vagrant package --vagrantfile Vagrantfile --include include_folder

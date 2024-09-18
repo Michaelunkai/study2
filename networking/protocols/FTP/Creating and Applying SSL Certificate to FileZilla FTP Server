@@ -1,0 +1,82 @@
+Creating and Applying SSL Certificate to FileZilla FTP Server
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+DNS Setup
+For Windows DNS, go to Start > Windows Administrative Tools > DNS
+Expand the DNS server and domain name
+Right Click > New Host (A or AAAA)
+Type ftp as the hostname and the target IP address > Click OK
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: ftp.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: ftp.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to ftp.crt verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to ftp.key and verify the export format is PEM Private (*.pem)
+Click OK
+Copy the two exported files to the FileZilla Server installation directory, typically C:\Program Files\FileZilla
+Installing FileZilla Server
+Download FileZilla Server Download
+Install Filezilla Server
+Launch FileZilla Server Administration
+Select Edit > Users from the top navigation
+Click the Add button under Users on the right side of the screen
+Enter a username > Click OK
+Enable the Password field by checking the box > Enter a password for the new user
+Click the Shared folders option in the left navigation menu
+Click the Add button in the middle of the page
+Browse to a local directory on the server to grant access to this FTP user
+On the right side of the Shared folders pane, set the access level that the user will have on this directory
+Click OK to close the Users dialog
+Select Edit > Settings from the top navigation
+Click FTP over TLS settings from the left navigation
+Check the Enable FTP over TLS support box
+Click the browse button next to Private key file and browse to the exported .key file
+Click the browse button next to Certificate file and browse to the exported .crt file
+To force all connections to use SSL, check the Disallow plain unencrypted FTP box
+Change the SSL/TLS listen port to 990
+Click OK
+The FTP server should restart and apply the new settings
+Testing FTPS Connectivity
+Download FileZilla Client Download
+Extract the downloaded .zip file
+Run Filezilla.exe
+Complete the quickconnect fields as follows
+Host: ftps://ftp.i12bretro.local
+Username: i12bretro
+Password: <#ftp password#>
+Port: 990
+
+On the Unknown Certificate popup, check the Always trust this certificate in future sessions checkbox > Click OK

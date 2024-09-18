@@ -1,0 +1,1 @@
+subprocess.Popen(['aws', 's3', 'sync', 'local_folder', 's3://bucket_name/'])

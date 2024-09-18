@@ -1,0 +1,1 @@
+aws elasticbeanstalk delete-platform-version --platform-arn <platform-arn>

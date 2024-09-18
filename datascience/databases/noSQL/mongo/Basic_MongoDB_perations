@@ -1,0 +1,28 @@
+a. Launch MongoDB Shell
+ 
+ 
+mongo
+b. Create a Database
+javascript
+ 
+use mydatabase
+c. Create a Collection
+javascript
+ 
+db.createCollection("mycollection")
+d. Insert a Document
+javascript
+ 
+db.mycollection.insertOne({ name: "John Doe", age: 30, city: "New York" })
+e. Find a Document
+javascript
+ 
+db.mycollection.find()
+f. Update a Document
+javascript
+ 
+db.mycollection.updateOne({ name: "John Doe" }, { $set: { age: 31 } })
+g. Delete a Document
+javascript
+ 
+db.mycollection.deleteOne({ name: "John Doe" })

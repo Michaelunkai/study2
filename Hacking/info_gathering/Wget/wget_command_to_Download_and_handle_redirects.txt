@@ -1,0 +1,1 @@
+wget --max-redirect=5 http://example.com/file.zip

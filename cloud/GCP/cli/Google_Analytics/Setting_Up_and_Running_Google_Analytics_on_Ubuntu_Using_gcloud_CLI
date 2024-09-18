@@ -1,0 +1,151 @@
+# Comprehensive Guide to Setting Up and Running Google Analytics on Ubuntu Using gcloud CLI
+
+This guide will walk you through the process of setting up and running Google Analytics on an Ubuntu system using only the Google Cloud CLI (gcloud). This includes installing necessary tools, enabling the API, setting up service accounts, and using the Google Analytics API without placeholders.
+
+### Step 1: Install Google Cloud SDK
+
+First, you need to install the Google Cloud SDK on your Ubuntu machine. Open your terminal and run the following commands:
+
+1. **Update your package list and install dependencies:**
+     
+   sudo apt-get update
+   sudo apt-get install apt-transport-https ca-certificates gnupg
+
+2. **Add the Google Cloud SDK repository:**
+     
+   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+   sudo apt-get install curl
+   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+3. **Install the Google Cloud SDK:**
+     
+   sudo apt-get update
+   sudo apt-get install google-cloud-sdk
+
+4. **Initialize the Google Cloud SDK:**
+     
+   gcloud init
+
+### Step 2: Enable Google Analytics API
+
+Enable the Google Analytics API using the gcloud CLI:
+
+1. **Set your desired project:**
+     
+   gcloud config set project YOUR_PROJECT_ID
+
+2. **Enable the Google Analytics Reporting API:**
+     
+   gcloud services enable analyticsreporting.googleapis.com
+
+### Step 3: Set Up Service Account
+
+1. **Create a service account:**
+     
+   gcloud iam service-accounts create my-service-account \
+       --description="My service account for Google Analytics" \
+       --display-name="my-service-account"
+
+2. **Grant permissions to the service account:**
+     
+   gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
+       --member="serviceAccount:my-service-account@$(gcloud config get-value project).iam.gserviceaccount.com" \
+       --role="roles/editor"
+
+3. **Create a key for the service account:**
+     
+   gcloud iam service-accounts keys create ~/my-service-account-key.json \
+       --iam-account=my-service-account@$(gcloud config get-value project).iam.gserviceaccount.com
+
+### Step 4: Install Google Analytics Client Library
+
+1. **Install the Google Analytics client library for Python:**
+     
+   sudo apt-get install python3-pip
+   pip3 install --upgrade google-api-python-client oauth2client
+
+### Step 5: Use the Google Analytics API
+
+Here's an example Python script to access Google Analytics data using the Google Cloud SDK and the Google Analytics Reporting API:
+
+1. **Create a script (`analytics.py`):**
+     
+   touch analytics.py
+   nano analytics.py
+
+2. **Add the following code to `analytics.py`:**
+     
+   from google.oauth2 import service_account
+   from googleapiclient.discovery import build
+
+   # Path to the service account key file
+   KEY_FILE_LOCATION = 'my-service-account-key.json'
+
+   # Define the scopes
+   SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
+
+   # Authenticate and construct service
+   credentials = service_account.Credentials.from_service_account_file(
+       KEY_FILE_LOCATION, scopes=SCOPES)
+
+   analytics = build('analyticsreporting', 'v4', credentials=credentials)
+
+   def get_report(analytics):
+       return analytics.reports().batchGet(
+           body={
+               'reportRequests': [
+                   {
+                       'viewId': '123456789',  # Replace with your view ID
+                       'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
+                       'metrics': [{'expression': 'ga:sessions'}],
+                       'dimensions': [{'name': 'ga:country'}]
+                   }]
+           }
+       ).execute()
+
+   def print_response(response):
+       for report in response.get('reports', []):
+           columnHeader = report.get('columnHeader', {})
+           dimensionHeaders = columnHeader.get('dimensions', [])
+           metricHeaders = columnHeader.get('metricHeader', {}).get('metricHeaderEntries', [])
+
+           for row in report.get('data', {}).get('rows', []):
+               dimensions = row.get('dimensions', [])
+               dateRangeValues = row.get('metrics', [])
+
+               for header, dimension in zip(dimensionHeaders, dimensions):
+                   print(f'{header}: {dimension}')
+
+               for i, values in enumerate(dateRangeValues):
+                   print(f'Date range: {i}')
+                   for metricHeader, value in zip(metricHeaders, values.get('values')):
+                       print(f'{metricHeader.get("name")}: {value}')
+
+   response = get_report(analytics)
+   print_response(response)
+
+3. **Run the script:**
+     
+    3 analytics.py
+
+Make sure to replace `'123456789'` with your actual Google Analytics view ID.
+
+### Step 6: Automate and Schedule the Script (Optional)
+
+If you want to run this script regularly, you can use `cron` to schedule it:
+
+1. **Open the crontab file:**
+     
+   crontab -e
+
+2. **Add a cron job to run the script daily:**
+     
+   0 0 * * * /usr/bin/python3 /path/to/analytics.py
+
+Replace `/path/to/analytics.py` with the actual path to your Python script.
+
+### Conclusion
+
+If you encounter any permission issues during this process, you will need to work with your project administrator to ensure you have the necessary access to enable APIs and manage the project settings. Once the permissions and API are properly configured, your script should be able to access and utilize the Google Analytics API without further issues.
+
+By following this comprehensive guide, you will have a fully functional setup for accessing Google Analytics data on an Ubuntu system using only the command line and the gcloud CLI.

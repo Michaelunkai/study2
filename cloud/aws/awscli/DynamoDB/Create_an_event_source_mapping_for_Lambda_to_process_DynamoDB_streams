@@ -1,0 +1,1 @@
+aws lambda create-event-source-mapping --function-name my-lambda-function --event-source arn:aws:dynamodb:us-west-2:111122223333:table/Users/stream/2021-03-05T00:00:00.000 --batch-size 100 --starting-position LATEST

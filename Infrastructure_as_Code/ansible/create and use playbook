@@ -1,0 +1,19 @@
+
+### create /etc/ansible/playbook folder and cd there. that create <playbook>.yml
+ mkdir playbook && cd playbook && nano reboot.yml
+ 
+###in th yaml file(this will reboot all vms):
+ 
+ 
+ ---
+- name: Reboot the system
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Reboot the system
+      shell: reboot
+
+  
+ 
+#to run the playbook:
+ansible-playbook /etc/ansible/playbook/reboot.yml

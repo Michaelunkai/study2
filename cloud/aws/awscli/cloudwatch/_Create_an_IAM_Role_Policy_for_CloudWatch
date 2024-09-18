@@ -1,0 +1,29 @@
+ Create an IAM Role/Policy for CloudWatch
+To enable CloudWatch to monitor your resources, you need to create an IAM role or user with the necessary permissions.
+
+Creating a policy JSON file (cloudwatch-policy.json):
+
+json
+ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:PutMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics",
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+Create the policy using the AWS CLI:
+
+ 
+ 
+aws iam create-policy --policy-name CloudWatchFullAccess --policy-document file://cloudwatch-policy.json

@@ -1,0 +1,20 @@
+CMake for Build Automation
+Create a CMakeLists.txt file for complex projects:
+
+cmake
+ 
+cmake_minimum_required(VERSION 3.10)
+project(PerformanceApp)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(PerformanceApp main.cpp)
+To build:
+
+ 
+ 
+mkdir build
+cd build
+cmake ..
+make
+./PerformanceApp

@@ -1,0 +1,10 @@
+Cleanup
+After you are done, make sure to clean up the resources to avoid unnecessary charges:
+
+ 
+ 
+aws glue delete-job --job-name your-glue-job
+aws glue delete-crawler --name your-crawler
+aws s3 rm s3://your-glue-bucket --recursive
+aws iam detach-role-policy --role-name GlueServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+aws iam delete-role --role-name GlueServiceRole

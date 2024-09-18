@@ -1,0 +1,5 @@
+Title: Evaluating Open Source LLM for RAG
+Content:
+I've been working on Retrieval-Augmented Generation (RAG) and Large Language Models (LLMs), and I developed a tool called BeyondLLM. This tool simplifies building advanced AI applications with just a few lines of code. BeyondLLM is open source and designed to help you dive into RAG and LLMs easily. The tool aims to make the process straightforward and accessible, even for those who may not have extensive experience in these areas.
+The discussion includes various insights and experiences shared by the community about their methods for evaluating and experimenting with open-source LLMs. Users shared their methodologies, prompt collections, and evaluation techniques, providing a comprehensive look at how different models perform in various tasks.
+For more details and to join the discussion, you can visit the original post on Reddit here: https://www.reddit.com/r/LocalLLaMA/comments/14j7a5y/evaluating_open_source_llm_for_rag/

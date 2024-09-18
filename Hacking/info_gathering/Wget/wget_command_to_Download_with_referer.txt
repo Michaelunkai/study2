@@ -1,0 +1,1 @@
+wget --referer=http://google.com http://example.com/file.zip

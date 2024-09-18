@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y nvidia-container-runtime && curl -s -L https://nvidia.github.io/nvidia-docker/wsl2/nvidia-docker-install | sh && sudo systemctl restart docker

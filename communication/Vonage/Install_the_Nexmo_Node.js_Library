@@ -1,0 +1,6 @@
+Install the Nexmo Node.js Library
+For using Nexmo within a Node.js application, you need to install the Nexmo Node.js library:
+
+ 
+ 
+npm install nexmo --save

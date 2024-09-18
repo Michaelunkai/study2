@@ -1,0 +1,1 @@
+aws route53 get-hosted-zone --id <hosted-zone-id>

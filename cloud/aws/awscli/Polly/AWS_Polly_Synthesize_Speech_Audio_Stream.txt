@@ -1,0 +1,1 @@
+aws polly synthesize-speech --output-format pcm --voice-id Joey --text 'This is a stream of audio.' output.pcm

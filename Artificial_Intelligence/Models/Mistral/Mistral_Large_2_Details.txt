@@ -1,0 +1,11 @@
+Mistral Strikes Back! Mistral just released the Mistral Large 2, a 123-billion parameter model competing with Llama-3 405B.
+---
+## Model Details:
+- **Context**: 128K
+- **Support**: 80 programming languages
+- **Size**: 123-billion parameters
+- **Performance**: Competing with Llama-405B
+- **Download Link**: [Click here to download](https://huggingface.co/mistralai/Mistral-Large-Instruct-2407)
+- **Blog**: [Read more on the blog](https://mistral.ai/news/mistral-large-2407/)
+## Highlight:
+You can easily run this model on 4x3090 GPUs (even on 3 GPUs, but with performance degradation).

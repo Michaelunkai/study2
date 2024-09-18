@@ -1,0 +1,96 @@
+### 257. Binary Tree Paths
+
+**Problem Description:**
+
+Given the root of a binary tree, return all root-to-leaf paths in any order.
+
+A leaf is a node with no children.
+
+**Example 1:**
+```
+Input: root = [1,2,3,null,5]
+Output: ["1->2->5","1->3"]
+```
+
+**Example 2:**
+```
+Input: root = [1]
+Output: ["1"]
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range [1, 100].
+- -100 <= Node.val <= 100
+
+### Explanation (Like I'm 12):
+
+Imagine you have a tree house with several different paths (like ladders and ropes) to get from the ground to each individual house (leaf) on the tree. You want to write down all the possible paths you can take to get from the main tree house (root) to all the other tree houses (leaves).
+
+### Python Solution:
+
+To solve this problem, we need to traverse the tree and keep track of the path from the root to each leaf node. Here’s a way to do it using Depth-First Search (DFS):
+
+```python
+from typing import Optional, List
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        def dfs(node, path):
+            if node:
+                path += str(node.val)
+                if not node.left and not node.right:  # if leaf node
+                    paths.append(path)
+                else:
+                    path += '->'
+                    dfs(node.left, path)
+                    dfs(node.right, path)
+        
+        paths = []
+        dfs(root, "")
+        return paths
+```
+
+### Explanation of the Solution:
+
+1. **TreeNode Class:**
+   - This is a standard class definition for a node in a binary tree with a value (`val`), a left child (`left`), and a right child (`right`).
+
+2. **binaryTreePaths Function:**
+   - This function initializes a list `paths` to store all the paths from the root to the leaves.
+   - It calls the helper function `dfs` with the root node and an empty path string.
+
+3. **dfs (Depth-First Search) Function:**
+   - This recursive function takes a node and the current path string as arguments.
+   - If the node exists, it adds the node’s value to the current path.
+   - If the node is a leaf (both left and right children are `None`), it adds the current path to the `paths` list.
+   - If the node is not a leaf, it continues the DFS on the left and right children, appending `->` to the current path to indicate the next step in the path.
+
+### Example Walkthrough:
+
+Let’s walk through the first example:
+```
+Input: root = [1,2,3,null,5]
+```
+
+The tree looks like this:
+```
+   1
+  / \
+ 2   3
+  \
+   5
+```
+
+- Starting at the root (1), the current path is `"1"`.
+- Moving to the left child (2), the current path is `"1->2"`.
+- Moving to the right child of 2 (5), the current path is `"1->2->5"`. Since 5 is a leaf, this path is added to `paths`.
+- Backtracking to 1 and moving to the right child (3), the current path is `"1->3"`. Since 3 is a leaf, this path is added to `paths`.
+
+Finally, the function returns `["1->2->5", "1->3"]`.

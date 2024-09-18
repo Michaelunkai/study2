@@ -1,0 +1,1 @@
+aws kms enable-key --key-id <key-id>

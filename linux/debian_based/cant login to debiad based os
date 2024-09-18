@@ -1,0 +1,7 @@
+    While in the username screen press Ctrl+Alt+F1
+    Login with root.
+    Type sudo apt-get update
+    Type sudo apt-get upgrade
+    Type sudo reboot
+    sudo dpkg --configure -a
+

@@ -1,0 +1,11 @@
+Troubleshoot EKS Cluster Issues
+Check Pod Logs
+
+ 
+ 
+kubectl logs pod/my-pod
+Describe Pod
+
+ 
+ 
+kubectl describe pod my-pod

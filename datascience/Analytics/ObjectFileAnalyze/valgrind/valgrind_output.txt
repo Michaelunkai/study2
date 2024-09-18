@@ -1,0 +1,8 @@
+gdb_debugger
+ltrace
+memory_leak_check_with_valgrind.sh
+nm
+objdump
+readelf
+strace
+valgrind_output.txt

@@ -1,0 +1,3 @@
+CREATE USER secureuser WITH ENCRYPTED PASSWORD 'securepassword';
+
+

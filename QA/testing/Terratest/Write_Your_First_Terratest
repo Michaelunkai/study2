@@ -1,0 +1,31 @@
+Write Your First Terratest
+Create a test file in your project directory. Let's call it main_test.go.
+
+ 
+ 
+nano main_test.go
+Add the following sample code to main_test.go:
+
+go
+ 
+package test
+
+import (
+	"testing"
+
+	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestTerraformExample(t *testing.T) {
+	terraformOptions := &terraform.Options{
+		TerraformDir: "../example", // Replace with your Terraform directory path
+	}
+
+	defer terraform.Destroy(t, terraformOptions)
+
+	terraform.InitAndApply(t, terraformOptions)
+
+	output := terraform.Output(t, terraformOptions, "output_variable") // Replace with your output variable
+	assert.Equal(t, "expected_value", output)
+}

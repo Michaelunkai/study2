@@ -1,0 +1,1 @@
+aws ec2 describe-subnets --filters "Name=map-public-ip-on-launch,Values=true" --query "Subnets[0].SubnetId" --output text

@@ -1,0 +1,29 @@
+Sharing Artifacts in Claude: A Revolution in AI-Based Collaboration
+14/07/2024 - Evyatar Edri
+Introduction
+Anthropic continues to lead in the field of artificial intelligence with Claude 3.5 Sonnet and the launch of the new Artifacts feature. This article will review the ability to share Artifacts between users and use them effectively.
+What are Artifacts and How Do They Work?
+Artifacts are digital products that can be code snippets, documents, articles, simple websites, diagrams, and even interactive components. Users can easily edit and share these contents in a dedicated window alongside the main conversation with Claude.
+Advantages of Artifacts
+- Accessibility for Users Without Programming Background: Claude guides the user step by step in creating content, making advanced technology accessible to a wider audience.
+- Collaboration: The ability to share Artifacts allows users to work together, improve existing content, and create new ones inspired by others' work.
+- Diverse Uses: You can create games, websites, applications, simulations, presentations, and more.
+How to Activate and Use Artifacts
+1. Activate the feature: In the user menu under "Feature Preview."
+2. Create an Artifact: Ask Claude to create some content, and it will appear in the Artifacts window.
+3. Improve the product: You can ask Claude to improve the product and receive feedback.
+Sharing Artifacts
+1. Locate the relevant Artifact.
+2. Click on the "Publish" button.
+3. Confirm the publication.
+4. Copy the link.
+5. Share the link on your preferred platform.
+Examples from the Field
+- Tom Hagiladi: Created a Snake game in a conversation with Claude.
+- Dana Ackerman Green: Created a Super Mario-style computer game for her daughter.
+Conclusions
+The Artifacts feature represents a significant step in human-machine interaction, allowing the easy creation of complex content and broad collaboration. As technology develops, we can expect to see new and surprising uses in this field.
+Want to specialize?
+Join our courses and workshops to learn artificial intelligence and advance with technology.
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

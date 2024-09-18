@@ -1,0 +1,7 @@
+Verify the Mount
+Verify that the file system is mounted:
+
+ 
+ 
+df -h | grep efs
+You should see the EFS file system listed in the output.

@@ -1,0 +1,12 @@
+Prezto
+Install and Verify:
+ 
+ 
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+zsh
+source ~/.zshrc
+Disable and Remove:
+ 
+ 
+rm -rf ~/.zprezto
+rm ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc

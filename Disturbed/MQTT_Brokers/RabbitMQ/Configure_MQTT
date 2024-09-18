@@ -1,0 +1,23 @@
+Configure MQTT
+You can configure MQTT settings in RabbitMQ by editing its configuration file.
+
+Open the configuration file for editing:
+
+ 
+ 
+sudo nano /etc/rabbitmq/rabbitmq.conf
+Add MQTT configuration settings:
+Here’s a basic example that sets up MQTT to listen on port 1883 (the default MQTT port):
+
+arduino
+ 
+mqtt.listeners.tcp.default = 1883
+Optionally, you can specify additional settings like MQTT protocol versions or TLS configurations.
+
+Save and exit the editor.
+
+Restart RabbitMQ to apply the changes:
+
+ 
+ 
+sudo systemctl restart rabbitmq-server

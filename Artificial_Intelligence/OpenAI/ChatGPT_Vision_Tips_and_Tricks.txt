@@ -1,0 +1,69 @@
+Tips and Tricks for ChatGPT Vision
+What is ChatGPT Vision?
+ChatGPT Vision analyzes and understands the content of images provided by users. It uses images to create text-based responses, analyze image content, answer questions about them, or provide information. This model is powered by GPT-4V, the latest AI model from OpenAI.
+How it Works
+- Connect to ChatGPT via the website or app.
+- Select GPT-4 at the top of the screen and choose the default option from the dropdown menu.
+- Look for the pin or upload icon at the bottom left corner of the screen.
+- If you're using a computer, you can also drag and drop an image into the chat.
+Types of Images You Can Upload
+- Supported formats: JPEG, PNG, and GIF (static). For best results, use clear images without excessive 'noise' or distortion.
+- Data Visualizations:
+  - Graphs (line, bar, pie, etc.)
+  - Tables (data tables, comparison charts)
+  - Infographics (educational, informative, etc.)
+  - Flowcharts (processes, algorithms, etc.)
+- Images and Art:
+  - Photos of objects, people, and places
+  - Paintings (classical, modern, abstract, etc.)
+  - Digital Art (concept art, character design)
+  - Comics
+  - Sketches or drafts of design projects
+- Memes and Social Media Content:
+  - Internet memes
+  - Social media posts (screenshots of text-based content, user interactions, etc.)
+  - Reviews or comment excerpts (for analysis or summary)
+- Educational and Technical Materials:
+  - Scientific diagrams
+  - Equations or geometric shapes
+  - Historical documents
+  - Technical drawings
+  - Schematics
+  - User manuals
+Main Uses and Prompt Templates
+- Identification: Identify and describe visual content.
+- Data Analysis: Upload graphs or charts for help with data interpretation or trend analysis.
+- Code Assistance: Upload screenshots of code or error messages for help with debugging or solutions.
+- Legal Assistance: Get explanations or clarifications of legal documents (not a substitute for professional legal advice).
+- Document Clarification: Understand complex language or summarize content.
+- Presentation Feedback: Get feedback on content, clarity, design, and visual elements.
+- Product Feedback: Upload a screenshot of your product and get recommendations on design and functionality.
+- Medical Interpretation: Analyze medical charts and images (not a substitute for professional medical advice).
+- Technical Interpretation: Understand technical diagrams.
+- Explanatory Assistance: Provide explanations for visual situations.
+- Identification: Identify a place, person, or object in an image.
+- Accuracy Check: Evaluate technical accuracy.
+- Content Analysis: Understand meaning and emotion behind text.
+- Media to Text: Convert images to text.
+- Data Interpretation: Understand quantitative visual data like graphs.
+- Writing Feedback: Evaluate and critique screenshots of written content such as blogs and emails.
+- Recommended Actions: Suggest actions based on images.
+- Visual to Graphical: Create prompts based on visual graphics.
+- Transcription: Convert text in an image to editable text.
+- Data Extraction: Extract structured data from documents.
+- Task Solver: Solve specific image-based tasks by uploading images of the task.
+- Accuracy Check: Evaluate technical accuracy or correctness.
+- Technical Support: Show error messages, device setups, or connection issues you may need help with.
+---
+Join my Facebook community: [AI Community Hub](https://www.facebook.com)
+Join my YouTube channel: [here](https://www.youtube.com)
+Subscribe to my newsletter: [here](https://www.newsletter.com)
+Contact Us
+For any questions or requests, fill out your details in the form, and I'll get back to you as soon as possible :)
+Email
+Message
+Full Name
+© 2024 Shani Burshtein - All Rights Reserved
+EM Studio - Digital Solutions
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

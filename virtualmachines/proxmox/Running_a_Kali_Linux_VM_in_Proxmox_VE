@@ -1,0 +1,54 @@
+▲A  A▼
+Running a Kali Linux VM in Proxmox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Download the Kali Linux iso Download to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Kali Linux installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 or more > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Kali Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter at the Kali Linux installer menu to select Graphical install
+Select a Language > Click Continue
+Select a Location > Click Continue
+Select a keyboard layout > Click Continue
+Enter a Hostname > Click Continue
+Enter an optional Domain name > Click Continue
+Enter the Full name for a new user account > Click Continue
+Enter the Username for the new account > Click Continue
+Enter and confirm a password for the new user > Click Continue
+Select a time zone > Click Continue
+Select Guided - use entire disk > Click Continue
+Select the QEMU HARDDISK > Click Continue
+Select All files in one partition > Click Continue
+Select Finish partitioning and write changes to disk > Click Continue
+Select Yes to confirm writing the changes > Click Continue
+Wait for Kali Linux to copy and install files
+When prompted, select any additional software to install > Click Continue
+Select Yes to install the GRUB boot loader > Click Continue
+Select /dev/sda for the boot loader location > Click Continue
+After the bootloader is installed select Continue to reboot the VM
+Login with the username and password created during the setup process
+Welcome to Kali Linux
+Optional Steps
+Launch a terminal window
+Run the following commands
+# update software repositories
+sudo apt update
+# install qemu guest agent
+sudo apt install qemu-guest-agent -y
+# shutdown the VM
+sudo  utdown now
+Back in the Proxmox web UI, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the Kali Linux VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+ 

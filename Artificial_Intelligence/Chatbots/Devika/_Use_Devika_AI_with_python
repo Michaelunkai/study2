@@ -1,0 +1,26 @@
+Use Devika AI
+Create a Python script to test Devika AI. Here’s a basic example assuming Devika AI provides a Python library.
+
+Create a Python script: Open your terminal and create a new Python script.
+ 
+ 
+nano main.py
+Add the following code:
+ 
+ 
+import devika
+
+# Initialize Devika AI with your API key
+api_key = "YOUR_API_KEY"
+ai = devika.initialize(api_key=api_key)
+
+# Example usage
+response = ai.chat("Hello, how can I help you today?")
+print(response)
+Replace YOUR_API_KEY with the actual API key you obtained.
+Run Your Script
+Run your Python script to see Devika AI in action.
+
+ 
+ 
+  main.py

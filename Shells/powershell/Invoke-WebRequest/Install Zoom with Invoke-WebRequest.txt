@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://zoom.us/client/latest/ZoomInstaller.exe -OutFile zoom_installer.exe; Start-Process zoom_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

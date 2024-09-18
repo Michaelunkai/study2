@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y build-essential gcc g++ clang mono-devel dotnet-sdk-7.0 cmake gdb valgrind make automake libtool autoconf pkg-config ninja-build git

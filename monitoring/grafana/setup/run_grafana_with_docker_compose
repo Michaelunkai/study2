@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=your_admin_password
+    restart: always
+
+volumes:
+  grafana_data:
+
+
+
+***
+change the password in your_admin_password
+
+
+or, to change password for admin after running the compose file:
+
+
+docker exec -it grafana /bin/bash
+
+
+grafana-cli admin reset-admin-password your_new_password
+
+Replace your_new_password with the desired password.
+
+
+docker-compose up -d
+
+
+to enter grafana:
+http://localhost:3000
+
+
+username is admin

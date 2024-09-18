@@ -1,0 +1,12 @@
+Katalon Studio is an integrated development environment (IDE) designed for automated testing. It provides a comprehensive platform for creating, executing, and managing automated tests for web applications, mobile applications, APIs, and desktop applications. Katalon Studio is built on the Eclipse framework and supports multiple scripting languages, including Groovy and Java, making it accessible to both beginners and experienced testers.
+
+The key features of Katalon Studio include:
+
+1. **Web Testing:** Automated testing of web applications across different browsers and platforms.
+2. **Mobile Testing:** Support for automated testing of mobile applications on Android and iOS platforms.
+3. **API Testing:** Tools for testing RESTful and SOAP web services.
+4. **Desktop Testing:** Automation support for desktop applications.
+5. **Integration:** Integration with CI/CD tools, version control systems, and other testing frameworks.
+6. **Test Management:** Features for managing test cases, test suites, and reporting.
+
+Katalon Studio is widely used in the software testing industry due to its user-friendly interface, ease of setup, and robust set of features that allow testers to automate complex test scenarios efficiently.

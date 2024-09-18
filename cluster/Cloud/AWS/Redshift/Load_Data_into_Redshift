@@ -1,0 +1,32 @@
+ Load Data into Redshift
+Create a Table:
+
+ 
+ 
+CREATE TABLE users (
+    userid INTEGER NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    city VARCHAR(255),
+    state CHAR(2),
+    email VARCHAR(255),
+    phone CHAR(14),
+    likesports BOOLEAN,
+    liketheatre BOOLEAN,
+    likeconcerts BOOLEAN,
+    likejazz BOOLEAN,
+    likeclassical BOOLEAN,
+    likeopera BOOLEAN,
+    likerock BOOLEAN,
+    likevegas BOOLEAN,
+    likebroadway BOOLEAN,
+    likemusicals BOOLEAN
+);
+Copy Data from S3:
+
+ 
+ 
+COPY users FROM 's3://mybucket/users'
+IAM_ROLE 'arn:aws:iam::123456789012:role/Red iftRole'
+CSV;

@@ -1,0 +1,19 @@
+66. How can you automate the process of setting up new servers?
+Q: How can you automate the process of setting up new servers?
+A: Automate server setup using tools like Ansible, Puppet, Chef, or cloud-init for cloud environments. Define configurations in scripts or playbooks, automate network configurations, package installations, security settings, and integrate with infrastructure as code (IaC) tools to provision resources.
+
+67. What is immutable infrastructure, and how does it relate to automation?
+Q: What is immutable infrastructure, and how does it relate to automation?
+A: Immutable infrastructure refers to servers that are not modified after deployment. Instead of updating existing servers, new instances are deployed with the updated configuration. Automation ensures consistent, repeatable deployments and simplifies rollback by replacing instances with known good states.
+
+68. How can you use Jenkins for automation in system administration?
+Q: How can you use Jenkins for automation in system administration?
+A: Jenkins can automate tasks such as continuous integration, continuous deployment (CI/CD), automated testing, and monitoring. It supports plugins for various tools and can trigger jobs based on events, schedule jobs, and provide reports on the status and results of automated tasks.
+
+69. What are the benefits of using Terraform for automation?
+Q: What are the benefits of using Terraform for automation?
+A: Terraform provides a declarative syntax for defining infrastructure as code, supports multiple cloud providers, ensures consistent and reproducible infrastructure, enables version control and collaboration, and integrates with CI/CD pipelines for automated deployments and updates.
+
+70. How can you automate the process of monitoring system performance?
+Q: How can you automate the process of monitoring system performance?
+A: Use monitoring tools like Nagios, Prometheus, or Zabbix to automate performance monitoring. Define metrics to monitor, set thresholds for alerts, automate data collection and visualization, and

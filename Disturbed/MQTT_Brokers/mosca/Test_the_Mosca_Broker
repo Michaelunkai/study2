@@ -1,0 +1,41 @@
+Test the Mosca Broker
+To test the Mosca broker, you can use MQTT clients like mqtt.js or mosquitto-clients.
+
+Install mqtt.js:
+ 
+ 
+npm install mqtt
+Create a file named client.js:
+
+ 
+ 
+nano client.js
+Add the following code to client.js:
+
+javascript
+ 
+var mqtt = require('mqtt');
+var client  = mqtt.connect('mqtt://localhost:1883');
+
+client.on('connect', function () {
+  console.log('Client connected');
+  client.subscribe('test', function (err) {
+    if (!err) {
+      client.publi ('test', 'Hello MQTT');
+    }
+  });
+});
+
+client.on('message', function (topic, message) {
+  // message is Buffer
+  console.log(message.toString());
+  client.end();
+});
+Save and exit the file.
+
+Run the client:
+
+ 
+ 
+node client.js
+You should see the messages indicating that the client connected, subscribed to the topic, and received the message.

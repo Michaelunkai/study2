@@ -1,0 +1,32 @@
+▲A  A▼
+Free Up Pi-Hole Disk Space Usage
+Cleaning Log Files
+Log into the Pi-Hole server
+Run the following commands in a terminal window
+# output current pihole db size
+sudo du /etc/pihole/pihole-FTL.db -h
+# flush pihole logs
+pihole flu 
+# stop pihole FTL service
+sudo systemctl stop pihole-FTL
+# delete the FTL database file
+sudo rm /etc/pihole/pihole-FTL.db
+# stop pihole FTL service
+sudo systemctl start pihole-FTL
+# output reduced pihole db size
+sudo du /etc/pihole/pihole-FTL.db -h
+Reduce Long Term Log Lifespan
+By default, Pi-hole keeps long term DNS logs for 365 days. This lifespan can be changed by altering the MAXDBDAYS variable in /etc/pihole/pihole-FTL.conf
+
+To reduce the log lifespan, run the following commands in a terminal window
+# edit pihole-FTD.conf
+sudo nano /etc/pihole/pihole-FTL.conf
+Add or edit MAXDBDAYS value in the configuration file as needed
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following command
+# restart pihole-FTL server
+sudo systemctl restart pihole-FTL
+After restarting the service the new logs lifespan will be active
+Pi-hole Documentation: https://docs.pi-hole.net/ftldns/configfile
+
+ 

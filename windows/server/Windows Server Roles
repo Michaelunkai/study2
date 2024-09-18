@@ -1,0 +1,8 @@
+# Install a Windows Server role
+Install-WindowsFeature -Name "Web-Server"
+
+# Uninstall a Windows Server role
+Uninstall-WindowsFeature -Name "Web-Server"
+
+# Get a list of installed Windows Server roles and features
+Get-WindowsFeature

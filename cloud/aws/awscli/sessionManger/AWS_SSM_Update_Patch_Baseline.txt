@@ -1,0 +1,1 @@
+aws ssm update-patch-baseline --baseline-id <baseline-id> --name <baseline-name> --operating-system <os> --approved-patches <patches>

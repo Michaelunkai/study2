@@ -1,0 +1,1 @@
+aws kms list-keys --query 'Keys[*].KeyId' --output text

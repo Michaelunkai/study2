@@ -1,0 +1,47 @@
+Running a Windows 8 VM in Virtualbox
+Locate a Windows 8 iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows 8
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 8 (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows 8.vdi
+File size: 40.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Windows 8 .iso file
+Click OK
+Make sure the Windows 8 VM is selected and click Start > Normal
+Click Next
+Click Install Now
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files, the VM will reboot
+Give the PC a name > Click Next
+Click Sign in without a Microsoft account
+Click Local account
+Enter a username > Enter a password > Re-type the password > Enter a password hint > Click Next
+Click Finish
+Welcome to Windows 8
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Install button
+After the installation completes select Reboot now > Click Finish

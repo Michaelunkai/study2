@@ -1,0 +1,1 @@
+aws codeguruprofiler update-profiling-group --profiling-group-name MyProfilingGroup --profiling-group-arn <profiling-group-arn>

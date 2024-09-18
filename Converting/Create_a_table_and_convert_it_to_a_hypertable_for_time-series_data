@@ -1,0 +1,30 @@
+Create a Hypertable
+Create a table and convert it to a hypertable for time-series data:
+
+Connect to your database:
+
+ 
+ 
+sudo -i -u postgres psql -d my_timescale_db
+Create a sample table:
+
+ 
+ 
+CREATE TABLE conditions (
+    time TIMESTAMPTZ NOT NULL,
+    location TEXT NOT NULL,
+    temperature DOUBLE PRECISION NULL,
+    humidity DOUBLE PRECISION NULL
+);
+Convert the table to a hypertable:
+
+ 
+ 
+SELECT create_hypertable('conditions', 'time');
+Insert some sample data:
+
+ 
+ 
+INSERT INTO conditions (time, location, temperature, humidity) VALUES
+(NOW(), 'office', 70.0, 50.0),
+(NOW() - interval '1 hour', 'office', 68.0, 55.0);

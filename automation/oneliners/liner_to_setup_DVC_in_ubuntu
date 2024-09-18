@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y python3-pip git && pip3 install dvc[all] && mkdir my_dvc_project && cd my_dvc_project && git init && dvc init

@@ -1,0 +1,16 @@
+ Data Encryption at Rest Using LUKS and dm-crypt:
+Encrypt entire disks or partitions using LUKS (Linux Unified Key Setup).
+Encrypt a Partition:
+
+ 
+ 
+sudo apt install cryptsetup
+sudo cryptsetup luksFormat /dev/sdX
+sudo cryptsetup luksOpen /dev/sdX encrypted_partition
+sudo mkfs.ext4 /dev/mapper/encrypted_partition
+sudo mount /dev/mapper/encrypted_partition /mnt/encrypted
+Automate Mounting of Encrypted Partition:
+
+ 
+ 
+echo "encrypted_partition UUID=your_uuid none luks" | sudo tee -a /etc/crypttab

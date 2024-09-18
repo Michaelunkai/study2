@@ -1,0 +1,16 @@
+Create and Use Materialized Views
+Materialized views store the results of queries on disk, making subsequent queries faster.
+
+Steps:
+
+Create a materialized view for frequently queried, complex data:
+ 
+ 
+CREATE MATERIALIZED VIEW employee_salaries AS
+SELECT department_id, AVG(salary) AS avg_salary
+FROM employee
+GROUP BY department_id;
+Refresh the materialized view periodically:
+ 
+ 
+REFRESH MATERIALIZED VIEW employee_salaries;

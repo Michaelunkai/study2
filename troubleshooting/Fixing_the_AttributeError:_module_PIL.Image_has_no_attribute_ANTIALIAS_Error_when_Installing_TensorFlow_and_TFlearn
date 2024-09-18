@@ -1,0 +1,69 @@
+**Fixing the "AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'" Error when Installing TensorFlow and TFlearn**
+
+In this tutorial, we will walk through the steps to install TensorFlow and TFlearn, and fix the "AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'" error that may occur during the installation process.
+
+**Step 1: Create a New Virtual Environment**
+
+First, we need to create a new virtual environment using Python. Open a terminal and run the following command:
+
+  
+python -m venv myenv
+
+**Step 2: Activate the Virtual Environment**
+
+Next, we need to activate the virtual environment. Run the following command:
+
+  
+source myenv/bin/activate
+
+**Step 3: Install TensorFlow**
+
+Now, we can install TensorFlow using pip. However, we need to install a specific version of TensorFlow that is compatible with TFlearn. Run the following command:
+
+  
+pip install tensorflow==2.10.0
+
+**Step 4: Install TFlearn**
+
+After installing TensorFlow, we can install TFlearn. However, we need to downgrade Pillow to a version that is compatible with TFlearn. Run the following commands:
+
+  
+pip install Pillow==9.0.1
+pip install tflearn
+
+**Step 5: Install NLTK**
+
+If you are using NLTK in your script, you need to install it separately. Run the following command:
+
+  
+pip install nltk
+
+**Step 6: Run Your Script**
+
+Finally, you can run your script using the following command:
+
+  
+  a.py
+
+This should resolve the "AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'" error and allow you to run your script without errors.
+
+**Full Code:**
+
+Here is the full code for the tutorial:
+  
+python -m venv myenv
+source myenv/bin/activate
+pip install tensorflow==2.10.0
+pip install Pillow==9.0.1
+pip install tflearn
+pip install nltk
+  a.py
+
+**Trouble ooting:**
+
+If you are still experiencing issues, you can try the following:
+
+* Check the version of TensorFlow and TFlearn that you are using.
+* Make sure that you have downgraded Pillow to a version that is compatible with TFlearn.
+* Try reinstalling TensorFlow and TFlearn.
+* Check the documentation for TensorFlow and TFlearn for any known issues or compatibility problems.

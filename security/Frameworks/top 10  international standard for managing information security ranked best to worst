@@ -1,0 +1,23 @@
+Ranking international standards for managing information security can vary based on criteria such as adoption, comprehensiveness, and industry relevance. Here is a list of ten widely recognized international standards and frameworks for information security, typically considered important and useful, though not strictly ranked from best to worst:
+
+1. **ISO/IEC 27001**: The premier standard for establishing, implementing, maintaining, and improving an Information Security Management System (ISMS).
+
+2. **ISO/IEC 27002**: Provides guidelines and general principles for implementing information security controls based on ISO/IEC 27001.
+
+3. **NIST Cybersecurity Framework (CSF)**: A comprehensive framework by the National Institute of Standards and Technology (NIST) for managing cybersecurity risks.
+
+4. **ISO/IEC 27005**: Focuses on information security risk management and supports the implementation of an ISMS as outlined in ISO/IEC 27001.
+
+5. **ISO/IEC 27018**: A code of practice for protecting personal data in the cloud, particularly for cloud service providers.
+
+6. **CIS Controls (Center for Internet Security)**: A set of best practices for securing IT systems and data, widely used in various sectors.
+
+7. **COBIT (Control Objectives for Information and Related Technologies)**: A framework for developing, implementing, monitoring, and improving IT governance and management practices.
+
+8. **ISO/IEC 27701**: An extension to ISO/IEC 27001 and ISO/IEC 27002 for privacy information management, addressing privacy and data protection.
+
+9. **PCI DSS (Payment Card Industry Data Security Standard)**: A standard for securing payment card information, particularly relevant for organizations handling payment card transactions.
+
+10. **ISO/IEC 27032**: Provides guidelines for improving the state of cybersecurity, focusing on cyber threat and vulnerability management.
+
+These standards and frameworks provide a range of approaches and tools for managing information security effectively across different contexts and industries.

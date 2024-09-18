@@ -1,0 +1,7 @@
+Train a Model if Necessary
+If no models appear in the models directory, you need to manually train a model using:
+
+ 
+ 
+rasa train
+This will generate a new model based on your chatbot’s configurations and training data.

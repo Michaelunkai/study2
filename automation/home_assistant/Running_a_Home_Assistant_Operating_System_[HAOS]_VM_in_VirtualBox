@@ -1,0 +1,36 @@
+Running a Home Assistant Operating System [HAOS] VM in VirtualBox
+What is Home Assistant Operating System [HAOS]?
+[Home Assistant Operating System is a] minimal Operating System optimized to power Home Assistant. It comes with Supervisor to manage Home Assistant Core and Add-on. -https://www.home-assistant.io/installation/
+Open a web browser and download the Home Assistant Operating System .vdi Download
+Extract the downloaded .zip file
+Launch VirtualBox
+Create a New VM by selecting Machine > New
+Name: HAOS
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other Linux (64-bit)
+Memory Size: 2048 MB
+Hard disk: Use an existing virtual hard disk now
+
+Click the folder icon > Browse to and select the extracted HAOS .vdi file
+Click Create
+Select the VM and Click Settings
+Select System
+Check the Enable EFI checkbox
+On the Processor tab, give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Audio
+Set the Audio Controller dropdown to Intel HD Audio
+Click OK
+Make sure the HAOS VM is selected and click Start > Normal
+Welcome to Home Assistant Operating System
+Open a web browser and navigate to http://DNSorIP:8123
+Enter a Name, Username and Password to create a Home Assistant user account > Click Create Account
+Enter a Name for this Home Assistant installation (ie Home)
+Click Detect to set the installation geolocation
+Verify the Unit System and Currency > Click Next
+Select any anonymous data to share with the Home Assistant development team > Click Next
+Click Fini 

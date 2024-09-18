@@ -1,0 +1,1 @@
+aws s3 sync /etc/awstats s3://mybucket/awstats-backup

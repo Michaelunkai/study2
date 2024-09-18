@@ -1,0 +1,63 @@
+### 405. Convert a Number to Hexadecimal
+
+**Solution:**
+
+  
+class Solution:
+    def toHex(self, num: int) -> str:
+        if num == 0:
+            return "0"
+        
+        # Handle negative numbers using two's complement
+        if num < 0:
+            num += 2**32
+        
+        hex_chars = "0123456789abcdef"
+        result = ""
+        
+        while num > 0:
+            result = hex_chars[num % 16] + result
+            num //= 16
+        
+        return result
+
+### Explanation:
+
+1. **Base Case for Zero:**
+   - If `num` is `0`, directly return `"0"`.
+
+2. **Handling Negative Numbers:**
+   - If `num` is negative, convert it to its two's complement by adding `2^32`. This effectively simulates how negative numbers are represented in binary using two's complement.
+
+3. **Hex Characters:**
+   - Use a string `hex_chars` containing all hexadecimal characters `0-9` and `a-f`.
+
+4. **Convert to Hexadecimal:**
+   - Initialize an empty string `result` to store the hexadecimal representation.
+   - Use a while loop to repeatedly divide `num` by `16` and prepend the corresponding hexadecimal character to `result`.
+   - Continue this process until `num` becomes `0`.
+
+5. **Return the Result:**
+   - Return the `result` string containing the hexadecimal representation of the number.
+
+### Example Walkthrough:
+
+1. **Example 1:**
+   - Input: `num = 26`
+   - Explanation:
+     - `26` in binary is `11010`.
+     - Divide by `16` gives `1` with remainder `10` (hex `a`).
+     - Result: `"1a"`
+
+2. **Example 2:**
+   - Input: `num = -1`
+   - Explanation:
+     - Two's complement of `-1` in 32-bit representation is `2^32 - 1` which is `4294967295`.
+     - Convert `4294967295` to hex: `ffffffff`.
+     - Result: `"ffffffff"`
+
+### Constraints:
+
+- `-2^31 <= num <= 2^31 - 1`
+
+This solution converts the number to its hexadecimal representation by simulating the process without using any built-in functions, ensuring a clear understanding of how the conversion works.

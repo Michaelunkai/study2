@@ -1,0 +1,25 @@
+1)setup jenkins , than enter localhost:8080, enter the password, and
+setup neccesery plugins. add your details, than press "start using jenkins"
+
+New item > enter name > choose pipeline < ok
+
+
+Configure Pipeline Script:
+
+In the job configuration page, scroll down to the "Pipeline" section.
+Select "Pipeline script" from the "Definition" dropdown.
+Copy and paste your pipeline script into the script editor.
+
+Save Changes: Click "Save" to save your pipeline job configuration.
+
+** to add tools like nodejs, go to manage jenkins > tools > 
+nodejs installtions > add > add name ("nodejs") and save.
+
+
+Run the Pipeline:
+
+Go back to your Jenkins dashboard and click on your pipeline job.
+Click on "Build Now" to start the pipeline.
+
+
+

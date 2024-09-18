@@ -1,0 +1,1 @@
+scrapy crawl myspider -s HTTPCACHE_ENABLED=True

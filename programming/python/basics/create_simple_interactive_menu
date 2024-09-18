@@ -1,0 +1,144 @@
+
+
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+input("What is your name?")
+
+print("Hello micha!!")
+
+
+##output:
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?micha
+Hello micha!!
+
+____________________________________________________________________________________________
+
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?")
+
+#print("Hello micha!!")
+print(name)
+
+##output:
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?shani
+ ani
+____________________________________________________________________________________________
+
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?")
+
+print("Hello! " + name)
+
+
+##output: 
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?regev
+Hello! regev
+____________________________________________________________________________________________
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?")
+
+print("Hello! " + name + ", thank you so much for coming here today!")   
+
+##output:
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?yossi
+Hello! yossi, thank you so much for coming here today!
+____________________________________________________________________________________________
+
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?\n")
+
+print("Hello! " + name + ", thank you so much for coming here today!")
+
+##output:
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?\n")
+
+print("Hello! " + name + ", thank you so much for coming here today!")
+
+____________________________________________________________________________________________
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?\n")
+
+print("Hello! " + name + ", thank you so much for coming here today!")
+
+menu = "Black Coffee, Espresso, Latte, Cappucino"
+
+print(name + ", What would you like from our menu? here is what we are serving.\n" + menu)
+
+###output: 
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?
+micha
+Hello! micha, thank you so much for coming here today!
+micha, What would you like from our menu? here is what we are serving.
+Black Coffee, Espresso, Latte, Cappucino
+____________________________________________________________________________________________
+print("Hello ....., thank you for coming today! hpe you have great time!")
+
+name = input("What is your name?\n")
+
+print("Hello! " + name + ", thank you so much for coming here today!\n\n\n")
+
+menu = "Black Coffee, Espresso, Latte, Cappucino"
+
+print(name + ", What would you like from our menu? here is what we are serving.\n" + menu)
+
+order = input()
+
+##output:
+┌──(kali㉿micha)-[~]
+└─$ /bin/ 3 /home/kali/file.py
+Hello ....., thank you for coming today! hpe you have great time!
+What is your name?
+ziva
+Hello! ziva, thank you so much for coming here today!
+
+
+
+ziva, What would you like from our menu? here is what we are serving.
+Black Coffee, Espresso, Latte, Cappucino
+espresso
+____________________________________________________________________________________________
+print("Hello ....., thank you for coming today! hope you have great time!")
+
+name = input("What is your name?\n")
+
+print("Hello! " + name + ", thank you so much for coming here today!\n\n\n")
+
+menu = "Black Coffee, Espresso, Latte, Cappucino"
+
+print(name + ", What would you like from our menu? here is what we are serving.\n" + menu)
+
+order = input()
+  
+print("Sounds good " + name + ", We'll have that " + order + " in no time!" "")
+
+###output:
+Hello ....., thank you for coming today! hope you have great time!
+What is your name?
+avi 
+Hello! avi, thank you so much for coming here today!
+
+
+
+avi, What would you like from our menu? here is what we are serving.
+Black Coffee, Espresso, Latte, Cappucino
+Late
+Sounds good avi, We'll have that Late in no time!
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+▲A  A▼
+Running a MacOS Monterey VM in ProxMox VE
+Download a MacOS Monterey .iso Download
+Download KVM OpenCore bootloader Download
+Extract the downloaded KVM OpenCore bootloader .gz file
+Upload the Monterey and KVM OpenCore .iso files to the Proxmox ISO library
+Log into the ProxMox web UI
+Right click the ProxMox node name > Create VM
+Type MacOS12 in the name field, set the VM ID to 1200 (unless 1200 is in use) > Next
+On the OS tab, set the Type field to Other and select the KVM OpenCore .iso in the ISO Image field > Next
+On the System tab, set the Graphic card field to VMware compatible, BIOS field to OVMF (UEFI), Uncheck the Pre-Enroll Keys checkbox, Check the Add EFI Disk checkbox, Machine field to q35 and the SCSI Controller to VirtIO SCSI > Next
+On the Hard Disk tab, set the Bus/Device field to VirtIO Block, Disk size field to 64, Cache field to Write back (unsafe) > Next
+On the CPU tab, set Cores field to 4, Type field to Penryn > Next
+On the Memory tab, set the Memory to 4096 > Next
+On the Network tab, set the Model field to VMware vmxnet3 > Next
+Verify the summary and click Finish
+Click the MacOS12 VM > Select Hardware from the left sub-navigation menu
+Click Add > CD/DVD Drive
+Select the MacOS Monterey .iso downloaded earlier > Click Create
+Select the MacOS12 VM > Options > Boot Order
+Set the KVM OpenCore disk as the first boot option > Click OK
+Right click the ProxMox node name > Console
+Run the following commands in the terminal
+# edit the VM conf file, change 1200 to the VM ID for the MacOS12 VM
+nano /etc/pve/qemu-server/1200.conf
+If running on an Intel CPU, add the following line to the bottom of the .conf file:
+args: -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" -smbios type=2 -device usb-kbd,bus=ehci.0,port=2 -global nec-usb-xhci.msi=off -cpu host,kvm=on,vendor=GenuineIntel,+kvm_pv_unhalt,+kvm_pv_eoi,+hypervisor,+invtsc
+
+If running on an AMD CPU, add the following line to the bottom of the .conf file:
+args: -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" -smbios type=2 -device usb-kbd,bus=ehci.0,port=2 -global nec-usb-xhci.msi=off -cpu Penryn,kvm=on,vendor=GenuineIntel,+kvm_pv_unhalt,+kvm_pv_eoi,+hypervisor,+invtsc,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+avx2,+aes,+fma,+fma4,+bmi1,+bmi2,+xsave,+xsaveopt,check
+
+Press CTRL+W and search for ,media=cdrom
+Delete the ,media=cdrom from the two attached .iso files (KVM OpenCore and Monterey) and add cache=unsafe
+Press CTRL+O, Enter, CTRL+X to write the changes to the conf file
+Back in the Proxmox web UI, right click the MacOS12 VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+At the OpenCore menu, select UEFI Shell > Press Enter
+Type the following in the UEFI shell:
+# change to the Monterey .iso, the disk number may be different for you
+fs0:
+# launch the MacOS installer
+System\Library\CoreServices\boot.efi
+After a long initialization sequence the MAC OS Setup should start
+Select Disk Utility
+Select the VIRTIO Block Media > Click Erase
+Name the drive OS12 > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS Monterey
+Click Continue > Click Agree > Click Agree again
+Select the OS12 disk > Click Install
+Wait while Mac OS installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck Share Mac Analytics with Apple > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 12 Monterey
+Configuring Booting Without OpenCore Mounted
+Log into the MacOS12 VM
+Launch a web browser and download the KVM OpenCore EFI folder Download
+Start LaunchPad from the dock
+Search terminal > Click Terminal to launch it
+Run the following commands in the terminal window
+git clone https://github.com/corpnewt/MountEFI
+cd MountEFI
+chmod +x MountEFI.command
+./MountEFI.command
+Enter the number that corresponds to the OS12 drive created during the installation > Press Enter
+Open a Finder window
+Navigate to the mounted EFI location
+If an existing EFI folder exists, rename the it to EFI.orig
+Copy the KVM OpenCoreEFI folder downloaded earlier to the mounted EFI partition
+Once the EFI folder is copied, shutdown the VM
+Click the MacOS12 VM > Select Hardware from the left sub-navigation menu
+Click the OpenCore Hard Disk to select it > Click Detach
+Click the detached OpenCore Hard Disk to select it again > Click Remove
+Right click the MacOS12 VM in the left navigation pane > Start
+Click console in the left sub-navigation menu to verify the VM still boots into Monterey without the OpenCore disc image mounted
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

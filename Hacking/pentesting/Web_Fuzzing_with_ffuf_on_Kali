@@ -1,0 +1,78 @@
+
+
+Web fuzzing is a security testing technique that involves sending random or unexpected data to web applications to discover vulnerabilities. By analyzing the application's responses, testers can identify weaknesses like unhandled exceptions, SQL injection points, and cross-site scripting (XSS) flaws, helping to enhance the application's security.
+
+
+
+
+
+
+
+
+
+
+Web Fuzzing with ffuf on Kali Linux
+Step-by-Step Tutorial
+Step 1: Install ffuf
+Install ffuf fuzzing tool on your Kali Linux.
+
+sudo apt update
+Updates the package list for upgrades.
+
+
+sudo apt install ffuf
+Installs the ffuf fuzzing tool.
+
+Step 2: Install seclists
+Install seclists wordlist package for security assessments.
+
+sudo apt install seclists
+Installs the seclists package with wordlists.
+
+Step 3: Using ffuf with seclists
+Use ffuf and seclists to fuzz web applications.
+
+Enumerate Directories:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://example.com/FUZZ
+Fuzzes directories on the target web application.
+
+Filter Out Empty Responses:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://example.com/FUZZ -fs 0
+Filters out responses with size 0 bytes.
+
+Discover PHP Files:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://example.com/FUZZ.php -mc 200
+Discovers PHP files with HTTP status code 200.
+
+Step 4: Advanced Fuzzing Techniques
+Fuzz Multiple Parts of the URL:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt:/usr/share/seclists/Discovery/Web-Content/file-extensions.txt -u http://example.com/FUZZ1.FUZZ2
+Fuzzes file names and their extensions.
+
+Fuzz GET Parameters:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt -u http://example.com/page?FUZZ=1 -fs 691
+Fuzzes GET parameters and filters noise responses.
+
+Fuzz POST Parameters:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt -u http://example.com/page -X POST -d "FUZZ=value" -H "Content-Type: application/x-www-form-urlencoded"
+Fuzzes POST parameters with specified payload data.
+
+Step 5: Fuzzing Subdomains
+Direct Subdomain Fuzzing:
+
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://FUZZ.example.com
+Enumerates subdomains directly on the target.
+
+Virtual Host Fuzzing:
+
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://example.com -H "Host: FUZZ.example.com"
+Fuzzes subdomains using the Host header.
+
+Conclusion
+This tutorial guides you through installing and using ffuf with seclists on Kali Linux for web fuzzing. It covers basic and advanced usage to discover directories, files, and parameters in web applications. Always ensure you have authorization before fuzzing any web application

@@ -1,0 +1,1 @@
+aws kms get-key-policy --key-id <key-id> --policy-name <policy-name>

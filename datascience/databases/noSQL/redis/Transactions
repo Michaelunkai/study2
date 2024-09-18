@@ -1,0 +1,14 @@
+Begin a Transaction:
+
+redis-cli multi
+
+
+Execute Commands:
+
+redis-cli set key1 "value1"
+redis-cli set key2 "value2"
+
+
+Execute Transaction:
+redis-cli exec
+

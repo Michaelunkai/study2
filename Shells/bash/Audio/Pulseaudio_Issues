@@ -1,0 +1,5 @@
+Reset by deleting ~/.config/pulse/ and restarting Pulseaudio:
+ 
+ 
+pulseaudio -k
+pulseaudio --start

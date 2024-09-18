@@ -1,0 +1,101 @@
+▲A  A▼
+Install InvoiceNinja - Invoice and Payment Manager - On Windows
+What is InvoiceNinja?
+[InvoiceNinja is a] powerful suite of features to invoice clients, facilitate payment, track-time & tasks, expenses, and more. -https://www.invoiceninja.com/invoicing-features/
+Installation
+Download XAMPP Download
+Download InvoiceNinja Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP file > Extract All...
+Right click the downloaded InvoiceNinja .zip file > Extract All...
+Cut the invoiceninja folder inside the XAMPP directory
+Navigate into the invoiceninja folder > Create a copy of .env.example
+Rename the copy .env
+Navigate into the invoiceninja/public folder
+Edit the .htaccess file in a text editor
+Scroll to the bottom of the file and find the following lines and add the /invoiceninja/ folder to the RewriteRule
+RewriteRule ^ %1 [L,R=301]
+RewriteRule ^ index.php [L]
+
+Replace the line with the following
+RewriteRule ^ /invoiceninja/%1 [L,R=301]
+RewriteRule ^ /invoiceninja/index.php [L]
+
+Save the changes and close the editor
+Navigate back to the Downloads directory and copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Navigate into XAMPP/PHP and edit php.ini in a text editor
+Find the list of extensions and make sure the following are enabled by removing the ; at the start of the line
+extension=curl
+extension=fileinfo
+extension=gd
+extension=gmp
+extension=mbstring
+extension=my i
+extension=openssl
+extension=pdo_my 
+
+Save the changes to php.ini
+Navigate into XAMPP/Apache/conf and edit httpd.conf in a text editor
+Uncomment the following Apache modules by removing the # in front of them
+LoadModule deflate_module modules/mod_deflate.so
+LoadModule filter_module modules/mod_filter.so
+
+Search the file for <Directory />
+Overwrite the existing values with the following
+Options Indexes FollowSymLinks
+AllowOverride All
+
+Paste the following at the bottom of the httpd.conf file
+Alias /invoiceninja "C:/Program Files/xampp/invoiceninja/public"
+<Directory "C:/Program Files/xampp/invoiceninja/public">
+DirectoryIndex index. 
+Options +FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+
+Save the changes and close out of the editor
+Click the Start button > Search Control > Click Control Panel
+Click on System > Advanced system settings
+Click the Environment Variables...
+Edit the System Path variable
+Click the New button
+Add the PHP installation directory (ie C:\Program Files\xampp\PHP\)
+Click the New button
+Add the MySQL installation directory (ie C:\Program Files\xampp\mysql\bin\)
+Click OK to all open dialog windows
+Back in File Explorer, runun XAMPP/xampp-control.exe
+Click the Start buttons next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Run the following commands in the PowerShell window to setup the database
+.\my  -u root
+CREATE DATABASE invoiceninja;
+GRANT ALL ON invoiceninja.* to 'invoice_ninja_rw'@'localhost' IDENTIFIED BY '!nv0ic3Ninj@!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+InvoiceNinja Web Installer
+Open a web browser and navigate to http://DNSorIP/invoiceninja/setup
+The InvoiceNinja web setup should be load
+Enter the URL to use for the site (ie http://DNSorIP/invoiceninja)
+Uncheck the Require HTTPS option > Click Test PDF
+Complete the Database Connection form as follows
+Host: localhost
+Port: 3306
+Database: invoiceninja
+Username: invoice_ninja_rw
+Password: Click the Test connection button
+
+If you have an Email server, configure it under Email Settings, otherwise leave the driver as Log and click the Send test email button
+Completed the User Details form by entering a First Name, Last Name, Email and Password
+Check both I Agree checkboxes > Click Submit
+If the page redirects to http://localhost, navigate to http://localhost/invoiceninja/index.php
+Login with the Email and Password setup earlier > Click Login with email
+On the Welcome dialog, enter a company name and select the Light or Dark theme > Click Save
+Welcome to InvoiceNinja
+Source: https://invoiceninja.github.io/docs/self-host-installation/
+
+ 

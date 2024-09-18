@@ -1,0 +1,29 @@
+Using lsof:
+Open a terminal.
+Run the following command:
+
+
+sudo lsof -i :8080
+This command will list the process that is using port 8080, along with its process ID (PID) and other details.
+
+Using netstat:
+Open a terminal.
+Run the following command:
+
+
+sudo netstat -tuln | grep :8080
+This will show the process using port 8080. If you need to find more details about the process, you can use the PID obtained from the netstat output with the ps command like this:
+
+ps -p <PID> -o comm=
+Replace <PID> with the actual PID obtained from the netstat command.
+
+Alternatively, you can use the ss command, which is a modern replacement for netstat:
+
+sudo ss -tuln | grep :8080
+These commands will help you identify the service running on port 8080 on your Ubuntu system.
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+ Use Solana SPL Token CLI
+Solana also has a separate CLI for interacting with SPL tokens:
+
+Install SPL Token CLI:
+
+ 
+ 
+cargo install spl-token-cli
+Create a New Token:
+
+ 
+ 
+spl-token create-token
+Create a Token Account:
+
+ 
+ 
+spl-token create-account <TOKEN_ADDRESS>
+Mint Tokens:
+
+ 
+ 
+spl-token mint <TOKEN_ADDRESS> <AMOUNT> <RECIPIENT_ADDRESS>
+Check Token Balance:
+
+ 
+ 
+spl-token balance <TOKEN_ADDRESS>

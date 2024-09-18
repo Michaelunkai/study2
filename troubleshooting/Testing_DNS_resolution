@@ -1,0 +1,14 @@
+Open PowerShell.
+Run the following command to perform a DNS lookup:
+
+Resolve-DnsName -Name "host1.example.com" -Type A
+
+Replace "host1.example.com" with the fully qualified domain name (FQDN) of the host you added in the previous step.
+
+Verify that the command returns the IP address associated with the domain name.
+Optionally, you can also test reverse DNS lookup by running the following command:
+
+
+Resolve-DnsName -Name "192.168.1.100" -Type PTR
+
+Replace "192.168.1.100" with the IP address you want to test.

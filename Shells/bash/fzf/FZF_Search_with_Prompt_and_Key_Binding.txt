@@ -1,0 +1,1 @@
+fzf --prompt 'Search> ' --bind 'enter:execute(echo {} > selected.txt)'

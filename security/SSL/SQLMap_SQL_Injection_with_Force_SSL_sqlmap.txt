@@ -1,0 +1,1 @@
+sqlmap -u 'https://example.com/vulnerable.php?id=1' --force-ssl

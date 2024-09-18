@@ -1,0 +1,1 @@
+ npx create-react-app my-cra-app && cd my-cra-app && npm start

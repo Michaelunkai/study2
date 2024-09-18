@@ -1,0 +1,134 @@
+Step 1: Update System Packages
+Ensure your system packages are up-to-date.
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Step 2: Install Java
+Apache Spark requires Java. Install OpenJDK.
+
+ 
+ 
+sudo apt install openjdk-11-jdk -y
+Verify the installation:
+
+ 
+ 
+java -version
+Step 3: Download Apache Spark
+Visit the Apache Spark download page to find the latest stable release. Use the direct link to download it using wget.
+
+For example, if the latest version is 3.3.2, the command might look like this:
+
+ 
+ 
+wget https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
+Step 4: Extract Spark Package
+Extract the downloaded tarball.
+
+ 
+ 
+tar -xvzf spark-3.3.2-bin-hadoop3.tgz
+Step 5: Move Spark to /opt Directory
+Move the extracted Spark directory to /opt for system-wide access.
+
+ 
+ 
+sudo mv spark-3.3.2-bin-hadoop3 /opt/spark
+Step 6: Set Up Environment Variables
+Add Spark and Hadoop environment variables to your . rc file.
+
+Edit your . rc file:
+
+ 
+ 
+nano ~/. rc
+Add the following lines at the end of the file:
+
+ 
+ 
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH="/root/.krew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/AOMEI(2):/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Users/micha/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/micha/AppData/Local/GitHubDesktop/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/micha/AppData/Local/Docker Labs Debug Tools/bin:/mnt/c/Users/micha/AppData/Local/Programs/Ollama:/mnt/c/Program Files/mingw-w64/mingw64/bin:/mnt/c/cygwin64/bin:/mnt/c/msys64/usr/bin:/mnt/c/msys64/bin:/mnt/c/tools/msys64:/mnt/c/tools/msys64/usr/bin:/mnt/c/tools/msys64/bin:/mnt/c/Program Files (x86)/AOMEI(1):/mnt/c/Program Files/Git/cmd:/mnt/c/Users/micha/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/micha/AppData/Local/GitHubDesktop/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/micha/AppData/Local/Docker Labs Debug Tools/bin:/mnt/c/Users/micha/AppData/Local/Programs/Ollama:/mnt/c/ProgramData/mingw64/mingw64/bin:/snap/bin:/bin:/sbin"
+Save and exit the editor (Ctrl + X, then Y, then Enter if using nano).
+
+Step 7: Reload . bashrc
+Reload the . rc file to apply the changes.
+
+ 
+ 
+source ~/.  rc
+Step 8: Verify Spark Installation
+Verify the installation by running Spark shell.
+
+ 
+ 
+spark- ell
+
+or
+
+/opt/spark/bin/spark- ell
+
+
+You should see the Spark shell starting up without errors.
+
+Step 9: Configure Spark
+You can configure Spark settings by editing the spark-defaults.conf file. Create a copy of the template file.
+
+ 
+ 
+cp $SPARK_HOME/conf/spark-defaults.conf.template $SPARK_HOME/conf/spark-defaults.conf
+Edit the spark-defaults.conf file to set your desired configurations.
+
+ 
+ 
+nano $SPARK_HOME/conf/spark-defaults.conf
+Add or modify configurations as needed. For example:
+
+ 
+ 
+spark.master  local[*]
+spark.eventLog.enabled  true
+spark.eventLog.dir  file:/tmp/spark-events
+Step 10: Start Spark Standalone Cluster
+You can start a standalone Spark cluster by executing the following commands:
+
+ 
+ 
+start-master. 
+start-worker.  spark://<your-hostname>:7077
+Replace <your-hostname> with your machine's hostname or IP address.
+
+Step 11: Access Spark Web UI
+Access the Spark Web UI to monitor your cluster by navigating to http://<your-hostname>:8080 in your web browser.
+
+Step 12: Submit a Spark Job
+To run a Spark job, use the spark-submit script. For example:
+
+ 
+ 
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://<your-hostname>:7077 $SPARK_HOME/examples/jars/spark-examples_2.12-3.3.2.jar 100
+This command runs the SparkPi example job on your Spark cluster.
+
+Optional: Install Hadoop
+If you want to integrate Spark with Hadoop, follow these additional steps:
+
+Download Hadoop:
+ 
+ 
+wget https://archive.apache.org/dist/hadoop/core/hadoop-3.3.4/hadoop-3.3.4.tar.gz
+Extract Hadoop:
+ 
+ 
+tar -xvzf hadoop-3.3.4.tar.gz
+sudo mv hadoop-3.3.4 /opt/hadoop
+Set Hadoop environment variables:
+ 
+ 
+echo "export HADOOP_HOME=/opt/hadoop" >> ~/. rc
+echo "export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin" >> ~/. rc
+source ~/. rc
+Configure Hadoop for Spark:
+Edit the core-site.xml, hdfs-site.xml, and mapred-site.xml files in the $HADOOP_HOME/etc/hadoop directory to configure Hadoop.

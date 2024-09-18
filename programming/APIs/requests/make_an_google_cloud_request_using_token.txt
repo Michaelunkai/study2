@@ -1,0 +1,2 @@
+curl -X GET "https://cloudresourcemanager.googleapis.com/v1/projects" \
+-H "Authorization: Bearer YOUR_GOOGLE_CLOUD_ACCESS_TOKEN"

@@ -1,0 +1,1 @@
+hs cms create theme <theme-name>

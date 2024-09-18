@@ -1,0 +1,4 @@
+Making Predictions
+Now it is time to used our saved model to make predictions. Now this is a little bit harder than it looks because we need to consider the following: – our model accepts integer encoded data – our model needs reviews that are of length 250 words
+
+This means we can’t just pass any string of text into our model. It will need to be reshaped and reformed to meet the criteria above.

@@ -1,0 +1,1 @@
+mkdir -p taffydb-demo && cd taffydb-demo && npm init -y --silent && npm install taffy --silent && echo "const TAFFY = require('taffy'); const db = TAFFY([{ name: 'Alice', age: 25 }]); console.log('TaffyDB Users:', db().get());" > taffydb.js && node taffydb.js && npm list taffy -v

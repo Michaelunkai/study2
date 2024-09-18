@@ -1,0 +1,27 @@
+nstall Node.js and npm: LocalTunnel is a Node.js application, so you'll need to have Node.js installed on your system. You can download and install it from the official Node.js website.
+
+
+Install LocalTunnel: Once Node.js is installed, you can install LocalTunnel globally using npm. Open your terminal or command prompt and run the following command:
+ 
+npm install -g localtunnel
+
+Run LocalTunnel: In your terminal or command prompt, type the following command to start LocalTunnel and expose your local server to the internet:
+ 
+ 
+lt --port 32400 --subdomain yoursubdomain
+Replace yoursubdomain with a subdomain of your choice. If you don't specify a subdomain, LocalTunnel will generate one for you.
+Access Your Server: Once LocalTunnel is running, it will provide you with a URL that you can use to access your local server from anywhere on the internet. It will look something like this:
+yoursubdomain.loca.lt -> 192.168.1.100:32400
+
+
+to check password:
+ wget -q -O - https://loca.lt/mytunnelpassword
+
+**usually:
+77.124.17.130
+
+
+Keep LocalTunnel Running: Keep the terminal window running with LocalTunnel to maintain the connection. If you close the terminal, the tunnel will be closed, and you'll need to restart it the next time you want to access your local server from the internet.
+
+
+

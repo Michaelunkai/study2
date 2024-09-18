@@ -1,0 +1,23 @@
+Here are the top 10 frameworks related to Large Language Models (LLMs):
+
+1. **Hugging Face Transformers**: A comprehensive library for working with state-of-the-art pretrained models in NLP, including transformers like BERT, GPT, and T5.
+
+2. **LangChain**: A framework specifically designed for building applications powered by LLMs, focusing on chaining together LLM prompts to create more complex interactions.
+
+3. **Haystack**: An open-source framework that enables developers to build pipelines for information retrieval, question answering, and chatbots using transformers and other LLMs.
+
+4. **OpenAI API**: Provides access to powerful LLMs like GPT-3.5 and GPT-4, offering tools to integrate these models into applications with APIs and SDKs.
+
+5. **Rasa**: An open-source conversational AI framework that allows for the integration of LLMs in building sophisticated chatbots and voice assistants.
+
+6. **LlamaIndex (formerly GPT Index)**: A framework that integrates LLMs with large document collections to allow for efficient querying and retrieval.
+
+7. **DeepSpeed**: A deep learning optimization library by Microsoft that includes tools for training and deploying large transformer models efficiently.
+
+8. **NLP.js**: A natural language processing library for building chatbots, including support for LLMs and other machine learning models.
+
+9. **Fairseq**: Facebook AI Research's sequence-to-sequence learning toolkit, which supports LLMs and has been used in research and production for tasks like translation and summarization.
+
+10. **Promptify**: A library designed to simplify the use of prompts for various LLMs, enabling developers to create and manage prompt-based interactions efficiently.
+
+These frameworks are widely used in developing applications that leverage the power of large language models for tasks such as text generation, translation, question answering, and more.

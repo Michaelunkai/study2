@@ -1,0 +1,1 @@
+aws lex-models create-intent --name <intent-name> --description <description> --sample-utterances <sample-utterances> --fulfillment-activity <fulfillment-activity>

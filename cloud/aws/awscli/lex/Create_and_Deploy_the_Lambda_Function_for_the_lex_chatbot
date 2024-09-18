@@ -1,0 +1,39 @@
+Create and Deploy the Lambda Function
+2.1 Create a Lambda Function
+The Lambda function will handle the fulfillment of the bot’s intent.
+
+Lambda Function Code (lambda_function.py):
+ 
+ 
+import json
+
+def lambda_handler(event, context):
+    response = {
+        "dialogAction": {
+            "type": "Close",
+            "fulfillmentState": "Fulfilled",
+            "message": {
+                "contentType": "PlainText",
+                "content": "Your pizza order has been placed."
+            }
+        }
+    }
+    return response
+2.2 Deploy the Lambda Function
+After creating the Lambda function, deploy it using the AWS CLI.
+
+Zip the Lambda Function Code:
+
+ 
+ 
+zip function.zip lambda_function.py
+Create the Lambda Function on AWS:
+
+ 
+ 
+aws lambda create-function \
+    --function-name orderPizzaLambda \
+    --runtime  3.8 \
+    --role arn:aws:iam::account-id:role/lambda-ex \
+    --handler lambda_function.lambda_handler \
+    --zip-file fileb://function.zip

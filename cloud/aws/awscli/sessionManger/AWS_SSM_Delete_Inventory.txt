@@ -1,0 +1,1 @@
+aws ssm delete-inventory --instance-id <instance-id> --type-name <type-name>

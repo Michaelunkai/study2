@@ -1,0 +1,58 @@
+Guide to Creating Your AI Images in Seconds with Just One Picture and No Need to Build a Model
+By Eviatar Edri | 21/06/2024
+Table of Contents
+If you're looking for a quick and innovative way to create high-quality portrait images, meet PromeAI's new tool – the AI Headshot Generator. This simple and lightweight tool allows you to create multiple variations of face images within seconds without needing any special technological skills. You can create an image of yourself in different clothing, historical periods, or fantastic backgrounds – all from just one picture without needing to build a model.
+---
+What is AI Headshot Generator?
+PromeAI launched an AI-based tool called AI Headshot Generator. This tool allows you to create high-quality portrait images quickly and easily, without needing to build a model. It's suitable for work purposes, social networks, professional profiles, and more.
+Advantages of the tool:
+1. Speed and Efficiency: Create face images in just a few seconds.
+2. Ease of Use: No special technological skills required.
+3. High Quality: Impressive quality portrait images.
+4. Variety of Options: Choose from a variety of photography styles and presets.
+5. No Need to Build a Model: The tool creates images from just one picture.
+---
+How does it work?
+1. Go to the AI Headshot tab:
+   Select the AI Headshot tab on PromeAI's website or go directly to the following link.
+2. Upload a face picture:
+   Click the plus button and upload a face picture.
+3. Write a prompt and choose the desired settings:
+   Write a textual description of the image or select the desired parameters:
+   - Style: Cinematic, Realistic, Anime, etc.
+   - Scene Characterization: Professional, natural, fantasy, sci-fi.
+   - Composition: Close-up, full body images.
+4. Click OK:
+   Click Generate and the image will be created within seconds.
+---
+Tips for Completing the Process
+**Enlarge and Sharpen the Image with Leonardo's Universal Upscaler:**
+Save the image and use Leonardo's free upscaler to enhance and enlarge it.
+**Animate the Static Image:**
+Use Leonardo's Motion tool to turn your image into a video.
+**Face Swap:**
+Replace faces in the image you enlarged with Leonardo.
+---
+Conclusion
+In this guide, we learned how to create images from a single picture. To work like a professional, mastering model building techniques using tools like Stable Diffusion, Leonardo, and Astria is recommended.
+---
+Join our AI Community
+Want live updates? Join our AI communities or subscribe to our newsletter.
+**Email**
+Your email address
+ By subscribing, I agree to receive promotional emails.
+Subscribe
+---
+**Eviatar Edri**
+AI lecturer and social marketing expert. Co-Founder & VP Product at LetsAI.
+---
+To get a discount on course prices – use the coupon code LETSAI
+---
+Stay Updated
+Subscribe to our newsletter!
+**Email**
+Your email address
+ By subscribing, I agree to receive promotional emails.
+Subscribe
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

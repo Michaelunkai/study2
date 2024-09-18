@@ -1,0 +1,1 @@
+subprocess.Popen(['python', 'manage.py', 'runserver'])

@@ -1,0 +1,1 @@
+aws lambda create-event-source-mapping --function-name my-function-57d706bb --event-source-arn arn:aws:sqs:REGION:ACCOUNT_ID:myQueue

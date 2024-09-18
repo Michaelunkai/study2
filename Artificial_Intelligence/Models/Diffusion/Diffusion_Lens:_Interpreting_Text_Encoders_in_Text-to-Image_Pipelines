@@ -1,0 +1,50 @@
+### Diffusion Lens: Interpreting Text Encoders in Text-to-Image Pipelines
+
+**Authors**: Michael Toker, Hadas Orgad, Mor Ventura, Dana Arad, Yonatan Belinkov  
+**Institution**: Technion - Israel Institute of Technology
+
+#### Abstract
+
+Text-to-image (T2I) diffusion models utilize latent representations of text prompts to guide the image generation process. However, the mechanics of how the encoder produces these text representations remain unclear. The "Diffusion Lens" is introduced as a novel method to analyze the text encoder in T2I models by generating images from its intermediate representations. This approach allows for an in-depth examination of two recent T2I models.
+
+Key findings from using the Diffusion Lens include:
+
+- **Compound Prompts**: Complex scenes involving multiple objects are composed progressively and more slowly than simple scenes.
+- **Knowledge Retrieval**: Representations of uncommon concepts require more computation compared to common concepts, and the retrieval process is gradual across layers.
+
+Overall, these insights shed light on the functioning of the text encoder in T2I pipelines.
+
+#### Diffusion Lens
+
+The Diffusion Lens visualizes the text encoder's intermediate representations. At each layer of the text encoder, the full hidden state is passed through the final layer norm and fed into the diffusion model.
+
+##### Insights from Diffusion Lens
+
+- **Concept Evolution**: Early layers of the text encoder often act as a "bag of concepts," with relational information emerging in later layers.
+- **Uncommon Concepts**: These concepts gradually evolve over layers and take longer to generate compared to common concepts. Fine details, such as human facial features, materialize in the later layers.
+
+##### Visualization of All Layers
+
+The Diffusion Lens can generate images from all layers of the text encoder, providing a comprehensive visualization of how text representations evolve through the model.
+
+#### Related Work
+
+- Tang et al. (2023). "What the DAAM: Interpreting Stable Diffusion Using Cross Attention." ACL 2023.
+- Chefer et al. (2023). "The Hidden Language of Diffusion Models." ICLR 2024.
+- Nostalgebraist (2020). "Interpreting GPT: the logit lens." LESSWRONG Blog.
+
+#### Citation
+
+To cite this work, please use the following BibTeX entry:
+
+ bibtex
+@article{toker2024diffusion,
+  title={Diffusion Lens: Interpreting Text Encoders in Text-to-Image Pipelines},
+  author={Toker, Michael and Orgad, Hadas and Ventura, Mor and Arad, Dana and Belinkov, Yonatan},
+  journal={arXiv preprint arXiv:2403.05846},
+  year={2024}
+}
+
+#### Licensing
+
+This page was built using the Academic Project Page Template, adopted from the Nerfies project page. Feel free to use the template, but please link back to this page in the footer. This website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.

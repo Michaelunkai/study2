@@ -1,0 +1,1 @@
+clamscan -r --max-dir-recursion=10 /path/to/directory

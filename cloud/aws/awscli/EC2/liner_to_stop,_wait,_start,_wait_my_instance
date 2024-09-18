@@ -1,0 +1,1 @@
+ aws ec2 stop-instances --instance-ids i-02ed9bb2af43e020d && aws ec2 wait instance-stopped --instance-ids i-02ed9bb2af43e020d && aws ec2 start-instances --instance-ids i-02ed9bb2af43e020d && aws ec2 wait instance-running --instance-ids i-02ed9bb2af43e020d

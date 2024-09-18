@@ -1,0 +1,16 @@
+Use LUKS for Disk Encryption
+Encrypt your entire disk with LUKS (Linux Unified Key Setup). This is best done during installation, but you can also encrypt additional partitions:
+
+Install LUKS:
+
+sudo apt install cryptsetup
+Encrypt the partition:
+
+sudo cryptsetup luksFormat /dev/sdX
+sudo cryptsetup luksOpen /dev/sdX my_encrypted_partition
+Create a filesystem:
+
+sudo mkfs.ext4 /dev/mapper/my_encrypted_partition
+Mount the encrypted partition:
+
+sudo mount /dev/mapper/my_encrypted_partition /mnt

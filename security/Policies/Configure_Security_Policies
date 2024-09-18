@@ -1,0 +1,22 @@
+Configure Security Policies
+Windows:
+
+Use Local Group Policy Editor:
+
+Run gpedit.msc and configure policies under Computer Configuration -> Windows Settings -> Security Settings.
+Command Line Example for Password Policy:
+
+net accounts /minpwlen:12 /maxpwage:30 /minpwage:1 /uniquepw:5
+
+Ubuntu:
+
+Edit Security Limits in /etc/security/limits.conf:
+
+
+sudo nano /etc/security/limits.conf
+
+
+Example:
+
+
+* hard core 0

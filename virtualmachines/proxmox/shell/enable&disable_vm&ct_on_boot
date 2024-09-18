@@ -1,0 +1,5 @@
+to enable:
+pct set --onboot 1 CTID
+
+to disable: 
+pct set --onboot 0 CTID

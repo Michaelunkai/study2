@@ -1,0 +1,6 @@
+Here we introduce some vocabulary terms for typical LLM use cases:
+
+Text Generation: This is the fundamental LLM task, generating text by predicting the next token. Text generation can be used for writing tasks such as essays and blog posts as well as for generating code snippets in various programming languages.
+Summarization: This is a type of text generation where the LLM takes in a larger piece of text such as an article, report, or paper and condenses its information into fewer words.
+Translation: This is a type of text generation where the LLM takes in text in one language and generates text in another language.
+Information Retrieval: This is the task of a search engine, taking in a query and finding the most relevant information out of stored files or documents. Information retrieval is often combined with text generation to produce virtual assistants or customer support chatbots.

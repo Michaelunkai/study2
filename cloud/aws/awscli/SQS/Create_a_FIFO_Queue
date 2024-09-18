@@ -1,0 +1,7 @@
+Create a FIFO Queue:
+
+FIFO (First-In-First-Out) queues ensure that the order of messages is preserved.
+
+ 
+ 
+aws sqs create-queue --queue-name MyFIFOQueue.fifo --attributes FifoQueue=true

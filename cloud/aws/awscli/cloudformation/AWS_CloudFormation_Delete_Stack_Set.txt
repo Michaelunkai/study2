@@ -1,0 +1,1 @@
+aws cloudformation delete-stack-set --stack-set-name <stack-set-name>

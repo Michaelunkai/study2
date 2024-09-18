@@ -1,0 +1,1 @@
+aws kms create-alias --alias-name <alias-name> --target-key-id <key-id>

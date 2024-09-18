@@ -1,0 +1,1 @@
+aws eks list-clusters --query 'clusters[*]' --output text | xargs -I {} aws eks delete-cluster --name {}

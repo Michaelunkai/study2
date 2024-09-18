@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://mirror.clarkson.edu/blender/release/Blender2.93/blender-2.93.5-windows-x64.msi -OutFile blender_installer.msi; Start-Process msiexec.exe -ArgumentList '/i blender_installer.msi /quiet' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+docker run -d --name bitbucket -p 7990:7990 -p 7999:7999 atlassian/bitbucket-server && gc http://localhost:7990

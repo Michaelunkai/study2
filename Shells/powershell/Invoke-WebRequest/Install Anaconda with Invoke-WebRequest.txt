@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe -OutFile anaconda_installer.exe; Start-Process anaconda_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+az ml model deploy --name myModel --model my-model:1 --inference-config inferenceConfig.json --deployment-config deploymentConfig.json --resource-group myResourceGroup --workspace-name myWorkspace

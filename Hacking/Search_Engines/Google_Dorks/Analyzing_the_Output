@@ -1,0 +1,16 @@
+Analyzing the  
+The results from running the dorks will be displayed in your terminal. You can redirect the output to a file if needed for further analysis:
+
+Create a Results File:
+Open a new file with nano:
+
+ 
+ 
+nano results.txt
+You can leave this file empty or use it to store results later. Save and close the file.
+
+Run Dorkify and Save Output:
+
+ 
+ 
+python3 dorkify.py -d "inurl:admin" > results.txt

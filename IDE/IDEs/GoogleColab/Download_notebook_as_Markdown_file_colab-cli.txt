@@ -1,0 +1,1 @@
+colab-cli download-nb <notebook_name.ipynb> --format md

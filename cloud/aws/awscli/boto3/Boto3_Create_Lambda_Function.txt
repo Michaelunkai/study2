@@ -1,0 +1,5 @@
+import boto3
+lambda_client = boto3.client('lambda')
+with open('lambda_function.zip', 'rb') as f:
+    zipped_code = f.read()
+response = lambda_client.create_function(FunctionName='MyLambdaFunction', Runtime='python3.8', Role='arn:aws:iam::account-id:role/service-role/MyLambdaRole', Handler='lambda_function.lambda_handler', Code=dict(ZipFile=zipped_code))

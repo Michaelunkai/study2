@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://www.ollydbg.de/odbg110.zip" -OutFile "$env:USERPROFILE\Downloads\odbg110.zip"; Expand-Archive -Path "$env:USERPROFILE\Downloads\odbg110.zip" -DestinationPath "$env:USERPROFILE\OllyDbg"; Start-Process "$env:USERPROFILE\OllyDbg\OLLYDBG.EXE"

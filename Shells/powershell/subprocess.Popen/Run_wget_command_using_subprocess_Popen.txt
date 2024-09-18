@@ -1,0 +1,1 @@
+subprocess.Popen(['wget', 'https://example.com/file.txt'])

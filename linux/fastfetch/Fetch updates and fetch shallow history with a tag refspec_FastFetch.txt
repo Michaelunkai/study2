@@ -1,0 +1,1 @@
+fastfetch fetch origin 'refs/tags/*:refs/tags/*' --depth=1

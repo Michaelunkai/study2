@@ -1,0 +1,1 @@
+aws lambda create-alias --function-name my-function-57d706bb --name prod --function-version 1

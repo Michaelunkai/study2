@@ -1,0 +1,14 @@
+▲A  A▼
+Install Windows Terminal on Windows Server 2022
+What is Windows Terminal?
+The Windows Terminal is a modern, fast, efficient, powerful, and productive terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and WSL. Its main features include multiple tabs, panes, Unicode and UTF-8 character support, a GPU accelerated text rendering engine, and custom themes, styles, and configurations. -https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701
+Log into the Server 2022 device
+Download the latest Windows Terminal release Download
+Open File Explorer and navigate to the download location
+Rename the downloaded msixbundle Microsoft.WindowsTerminal.msixbundle
+While holding Shift, right click in the whitespace > Open PowerShell window here
+Run the following command in Powershell
+# install Windows Terminal
+Add-AppxPackage -Path .\Microsoft.WindowsTerminal.msixbundle
+That's it! Windows Terminal is now installed on Server 2022
+ 

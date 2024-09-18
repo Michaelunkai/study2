@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.1.9.2/npp.8.1.9.2.Installer.x64.exe -OutFile notepad++_installer.exe; Start-Process notepad++_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

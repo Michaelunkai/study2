@@ -1,0 +1,51 @@
+1)
+gedit /etc/apache2/apache2.conf
+
+Enable Keep-Alive:
+
+It looks like Keep-Alive is already enabled in your configuration, which is good for performance. You can leave it as is:
+apache
+ 
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+Timeout and MaxClients:
+
+Adjust the Timeout and MaxClients settings for better resource management:
+apache
+ 
+Timeout 30
+MaxClients 50
+Compression:
+
+Enable compression to reduce the size of data sent over the network. Add the following lines:
+apache
+ 
+<IfModule mod_deflate.c>
+    Set Filter DEFLATE
+    DeflateCompressionLevel 9
+</IfModule>
+LogLevel:
+
+Adjust the LogLevel to control the severity of messages logged to the error_log. For production, it's recommended to set it to warn:
+apache
+ 
+LogLevel warn
+Directory Settings:
+
+Depending on your specific requirements, you can adjust the directory settings. For example, you can allow .htaccess files in your web directories by changing AllowOverride None to AllowOverride All:
+apache
+ 
+<Directory /var/www/>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+Security Model:
+
+Depending on your application, you might need to adjust the security model. For example, if you're serving content from a sub-directory in /srv, you may need to modify the settings under <Directory /srv/>.
+After making these changes, save the file and restart Apache2:
+
+ 
+ 
+sudo service apache2 restart

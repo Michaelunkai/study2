@@ -1,0 +1,7 @@
+docker run --name yugabytedb -d --publish 7000:7000 --publish 5433:5433 --publish 9042:9042 yugabytedb/yugabyte:latest bin/yugabyted start --daemon=false && sleep 10 && xdg-open http://localhost:7000
+
+
+
+If it still fails, check the logs to diagnose the issue:
+
+docker logs yugabytedb

@@ -1,0 +1,1 @@
+aws kms update-alias --alias-name <alias-name> --target-key-id <key-id>

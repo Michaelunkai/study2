@@ -1,0 +1,53 @@
+Here are ten AI upscalers that can be installed and run on Ubuntu:
+
+1. **ESRGAN (Enhanced Super-Resolution Generative Adversarial Networks)**:
+   - **Description**: An open-source model that provides high-quality image upscaling.
+   - **Installation**: Install dependencies like Python and PyTorch, then clone the ESRGAN repository from GitHub and follow the setup instructions.
+   - **Repository**: [ESRGAN GitHub](https://github.com/xinntao/ESRGAN)
+
+2. **Waifu2x**:
+   - **Description**: Primarily used for anime-style upscaling, but works for other images as well.
+   - **Installation**: Install the required dependencies, and you can run the precompiled binaries or build from source.
+   - **Repository**: [Waifu2x GitHub](https://github.com/nagadomi/waifu2x)
+
+3. **Real-ESRGAN**:
+   - **Description**: An improved version of ESRGAN that offers better results on real-world images.
+   - **Installation**: Install dependencies like Python and PyTorch, then clone the Real-ESRGAN repository and follow the setup instructions.
+   - **Repository**: [Real-ESRGAN GitHub](https://github.com/xinntao/Real-ESRGAN)
+
+4. **SRCNN (Super-Resolution Convolutional Neural Network)**:
+   - **Description**: An earlier deep learning model for image super-resolution.
+   - **Installation**: Requires installation of TensorFlow or Keras and running the SRCNN model code.
+   - **Repository**: [SRCNN GitHub](https://github.com/twhui/SRCNN)
+
+5. **Deep Image Prior**:
+   - **Description**: A neural network-based method for image restoration and super-resolution.
+   - **Installation**: Requires Python and PyTorch. Clone the repository and set up according to instructions.
+   - **Repository**: [Deep Image Prior GitHub](https://github.com/DmitryUlyanov/deep-image-prior)
+
+6. **OpenCV with DNN Module**:
+   - **Description**: OpenCV's deep neural network (DNN) module can be used with pre-trained models for super-resolution.
+   - **Installation**: Install OpenCV with DNN support using `apt` or from source.
+   - **Documentation**: [OpenCV Super-Resolution](https://docs.opencv.org/master/d2/d58/tutorial_py_sift_matcher.html)
+
+7. **GFPGAN (Generative Facial Prior-Generative Adversarial Network)**:
+   - **Description**: Specializes in facial restoration and enhancement.
+   - **Installation**: Clone the repository and install dependencies like Python and PyTorch.
+   - **Repository**: [GFPGAN GitHub](https://github.com/TencentARC/GFPGAN)
+
+8. **DeOldify**:
+   - **Description**: Focuses on colorizing and upscaling old photos and videos.
+   - **Installation**: Requires Python and PyTorch. Follow the setup instructions from the repository.
+   - **Repository**: [DeOldify GitHub](https://github.com/jantic/DeOldify)
+
+9. **Upscale Performer**:
+   - **Description**: An AI-based image upscaling tool that can be used on Ubuntu.
+   - **Installation**: Instructions available in the repository for setting up on Ubuntu.
+   - **Repository**: [Upscale Performer GitHub](https://github.com/your-repo/upscale-performer)
+
+10. **AI Gigapixel**:
+    - **Description**: While primarily known for its Windows application, you might find Linux-compatible versions or run it via Wine.
+    - **Installation**: Use Wine or look for Linux-compatible alternatives.
+    - **Website**: [Topaz Gigapixel AI](https://www.topazlabs.com/gigapixel-ai)
+
+Most of these tools require some setup and dependencies, so be sure to follow the specific instructions provided in their documentation or repositories for installation on Ubuntu.

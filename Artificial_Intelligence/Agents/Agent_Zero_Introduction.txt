@@ -1,0 +1,26 @@
+**Title: Introducing Agent Zero: A New AI Agent**
+**Introduction**
+Meet Agent Zero, a new AI agent available as open source on GitHub. What sets Agent Zero apart from other platforms is its ability to create agents and tasks dynamically without predefined settings.
+**Main Features**
+Agent Zero allows interaction and execution of various tasks such as:
+- Coding
+- Downloading YouTube videos
+- Installing software
+Additionally, Agent Zero can delegate tasks to other subordinate agents.
+**Examples of Agent Zero's Actions**
+1. **Retrieving the time in Berlin using Python code:**
+   The agent encounters an error due to a missing library, installs the required library, rewrites the code, and successfully retrieves the time.
+2. **Saving information to a file using Node.js:**
+   The agent writes JavaScript code to save information in a file named Time info.txt.
+3. **Downloading a YouTube video:**
+   The agent receives an instruction to download a YouTube video on "RAG." It uses online and offline search tools to gather information and downloads the video using YouTube DL in Python after installing the necessary package.
+4. **Extracting audio from the downloaded video:**
+   The agent installs the Ffmpeg library and converts the video to an audio file.
+5. **Installing Midnight Commander:**
+   The agent installs the software interactively, confirming dialogues by sending the appropriate key (such as 'y') and continues with the installation.
+6. **Real-time system load monitoring:**
+   The agent demonstrates its ability to store and retrieve memories and activate other agents to delegate tasks.
+**Conclusion**
+Agent Zero is a powerful and intriguing tool available for download as open source on GitHub. It showcases advanced and customizable capabilities for executing various tasks. It’s worth exploring this tool early on, as the demonstration videos and GitHub stars are still few in number.
+---
+For more GPTs by God of Prompt, visit https://godofprompt.ai/gpts

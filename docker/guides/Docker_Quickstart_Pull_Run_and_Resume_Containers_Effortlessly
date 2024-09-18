@@ -1,0 +1,11 @@
+##Docker Quickstart: Pull, Run, and Resume Containers Effortlessly
+
+##to pull, run and exec image in one command, for example kali ill use:
+
+docker run --name kali -it kalilinux/kali-rolling
+
+docker run --name <choosename> dockhubname/dockhubrepo
+
+##to start a created container back from where i left it:
+
+docker start -ai kali

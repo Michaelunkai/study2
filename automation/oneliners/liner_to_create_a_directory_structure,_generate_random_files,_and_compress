@@ -1,0 +1,1 @@
+mkdir -p project/{src,tests,docs} && for i in {1..5}; do dd if=/dev/urandom of=project/file$i.bin bs=1M count=1; done && tar -czvf project.tar.gz project && echo "Project structure created and compressed"

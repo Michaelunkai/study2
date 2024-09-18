@@ -1,0 +1,4 @@
+$totalMemory = (Get-WmiObject Win32_ComputerSystem).TotalPhysicalMemory
+Get-Process | Sort-Object -Property WorkingSet -Descending | Select-Object Name, @{Name="MemoryUsage(MB)"; Expression={[math]::Round($_.WorkingSet / 1MB, 2)}}, @{Name="MemoryUsage(%)"; Expression={($_.WorkingSet / $totalMemory) * 100}}
+
+

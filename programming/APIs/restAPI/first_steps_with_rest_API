@@ -1,0 +1,99 @@
+What is a REST API?
+A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It allows different systems to communicate with each other over the internet using standard HTTP methods.
+
+Key Concepts of REST API:
+Resources: Objects or representations of information that are managed by the API (e.g., users, posts, products).
+Endpoints: URLs where resources can be accessed (e.g., https://api.example.com/users).
+HTTP Methods: Actions you can perform on resources:
+GET: Retrieve data
+POST: Create new data
+PUT: Update existing data
+DELETE: Remove data
+Headers: Metadata sent with the request (e.g., authentication tokens, content type).
+Request Body: Data sent with POST or PUT requests.
+Step-by-Step Guide to Using a REST API
+Step 1: Understand the API Documentation
+API Documentation: This is the guide provided by the API provider that explains how to use the API, including available endpoints, required parameters, and response formats.
+Example Documentation: Let's consider the JSONPlaceholder API, a free fake API for testing and prototyping: JSONPlaceholder.
+Step 2: Making a GET Request
+Objective: Retrieve data from the API.
+Tool: Use tools like curl, Postman, or any programming language (e.g., Python's requests library).
+Using curl:
+
+ 
+ 
+curl -X GET "https://jsonplaceholder.typicode.com/posts"
+Using Python:
+
+ 
+ 
+import requests
+
+response = requests.get('https://jsonplaceholder.typicode.com/posts')
+print(response.json())
+This will fetch a list of posts from the API.
+
+Step 3: Making a POST Request
+Objective: Create a new resource.
+Tool: Use tools like curl, Postman, or any programming language (e.g., Python's requests library).
+Using curl:
+
+ 
+ 
+curl -X POST "https://jsonplaceholder.typicode.com/posts" -H "Content-Type: application/json" -d '{"title": "foo", "body": "bar", "userId": 1}'
+Using Python:
+
+ 
+ 
+import requests
+
+data = {
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+}
+response = requests.post('https://jsonplaceholder.typicode.com/posts', json=data)
+print(response.json())
+This will create a new post.
+
+Step 4: Making a PUT Request
+Objective: Update an existing resource.
+Tool: Use tools like curl, Postman, or any programming language (e.g., Python's requests library).
+Using curl:
+
+ 
+ 
+curl -X PUT "https://jsonplaceholder.typicode.com/posts/1" -H "Content-Type: application/json" -d '{"id": 1, "title": "foo", "body": "bar", "userId": 1}'
+Using Python:
+
+ 
+ 
+import requests
+
+data = {
+    "id": 1,
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+}
+response = requests.put('https://jsonplaceholder.typicode.com/posts/1', json=data)
+print(response.json())
+This will update the post with ID 1.
+
+Step 5: Making a DELETE Request
+Objective: Delete an existing resource.
+Tool: Use tools like curl, Postman, or any programming language (e.g., Python's requests library).
+Using curl:
+
+ 
+ 
+curl -X DELETE "https://jsonplaceholder.typicode.com/posts/1"
+Using Python:
+
+ 
+ 
+import requests
+
+response = requests.delete('https://jsonplaceholder.typicode.com/posts/1')
+print(response.status_code)
+This will delete the post with ID 1.

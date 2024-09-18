@@ -1,0 +1,2 @@
+curl -X GET "https://gitlab.com/api/v4/user" \
+-H "Authorization: Bearer YOUR_GITLAB_ACCESS_TOKEN"

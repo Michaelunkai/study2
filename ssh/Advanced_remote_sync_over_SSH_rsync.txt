@@ -1,0 +1,1 @@
+rsync -avz -e ssh --rsync-path="sudo rsync" /source_directory/ user@remote_host:/destination_directory/

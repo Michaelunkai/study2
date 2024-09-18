@@ -1,0 +1,64 @@
+Running a Mac OSX VM in Virtualbox
+Locate a Mac OSX Catalina iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: MAC OSX
+Machine Folder: C:\VMs
+Type: MAC OS X
+Version: Mac OS X (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image MAC OSX.vdi
+File size: 60.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Click the Processor tab > Set Processor(s) to at least 2
+Select Display > Slide Video Memory to 128 MB
+Select USB > Select USB 3.0
+Select Storage > Create a new SATA Controller
+Click the Choose disk button on the optical drive
+Click the Add button > Browse to and select the MAC OSX .iso file
+Click Choose
+Click OK
+Right Click the Start Button > Command Prompt (Admin) > Paste in the following commands
+cd "%programfiles%\Oracle\VirtualBox\"
+VBoxManage.exe modifyvm "MAC OSX" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+VBoxManage setextradata "MAC OSX" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3"
+VBoxManage setextradata "MAC OSX" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+VBoxManage setextradata "MAC OSX" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+VBoxManage setextradata "MAC OSX" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+VBoxManage setextradata "MAC OSX" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+If you are running an AMD processor also run the following command:
+VBoxManage modifyvm "MAC OSX" --cpu-profile "Intel Core i7-6700K"
+Make sure the MAC OSX VM is selected and click Start > Normal
+After a long initialization sequence the OSX Setup should start
+Select a language > Click the arrow
+Select Disk Utility
+Select the VBOX HARDDISK > Click Erase
+Name the drive OSX > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS
+Click Continue, Click Agree
+Select the OSX disk > Click Install
+Wait while OSX installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Continue on the Data & Privacy screen
+Select Don't transfer any information now > Click Continue
+Select Set Up Later > Click Continue > Click Skip
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Customize Settings
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck the Send Mac Analytics box > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to OSX

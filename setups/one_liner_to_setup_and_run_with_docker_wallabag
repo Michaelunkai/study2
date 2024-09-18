@@ -1,0 +1,1 @@
+docker run -d --name wallabag -p 80:80 wallabag/wallabag && gc http://localhost:80

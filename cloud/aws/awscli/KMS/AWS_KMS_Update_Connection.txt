@@ -1,0 +1,1 @@
+aws kms update-connection --connection-id <connection-id> --new-connection-name <name> --new-connection-configuration file://config.json

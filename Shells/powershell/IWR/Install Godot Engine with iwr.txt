@@ -1,0 +1,1 @@
+iwr -Uri https://downloads.tuxfamily.org/godotengine/3.3.3/Godot_v3.3.3-stable_win64.exe.zip -OutFile godot.zip; Expand-Archive godot.zip -DestinationPath C:\Godot

@@ -1,0 +1,17 @@
+**Bun** is a fast, all-in-one JavaScript runtime that includes a bundler, transpiler, task runner, and package manager. It's designed as an alternative to Node.js, providing improved performance and better developer experience for JavaScript and TypeScript projects.
+
+### Key Features of Bun:
+- **Runtime**: Bun runs JavaScript and TypeScript code, similar to Node.js, but with a focus on speed and efficiency.
+- **Bundler**: It can bundle JavaScript and TypeScript files for production, optimizing them for better performance.
+- **Transpiler**: Bun supports TypeScript and modern JavaScript syntax out of the box, transpiling them to code that can run in environments that don't natively support these features.
+- **Package Manager**: It has a built-in package manager that installs dependencies faster than npm or Yarn.
+- **Task Runner**: Bun includes a task runner to automate repetitive tasks like building, testing, and linting code.
+
+### Installation
+To install Bun on your system, you can run the following command in your terminal:
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+This command will download and install Bun on your system. After installation, you can use the `bun` command to run JavaScript and TypeScript files, manage dependencies, and more.

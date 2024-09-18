@@ -1,0 +1,1 @@
+aws polly put-lexicon --name <lexicon-name> --content file://lexicon-file.pls

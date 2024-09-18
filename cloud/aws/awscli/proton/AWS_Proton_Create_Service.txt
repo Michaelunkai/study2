@@ -1,0 +1,1 @@
+aws proton create-service --name <service-name> --template-name <template-name> --spec <spec-path>

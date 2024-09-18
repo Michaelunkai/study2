@@ -1,0 +1,22 @@
+`rsync` is a utility for efficiently transferring and synchronizing files between a computer and an external hard drive, a remote server, or between two locations on the same computer. It is commonly used for backups and mirroring and can synchronize data over a network or locally. Some key features of `rsync` include:
+
+- **Incremental Transfers**: Only the parts of files that have changed are transferred, making the process faster and more efficient.
+- **Compression**: Data can be compressed during transfer to save bandwidth.
+- **Preservation of Attributes**: It can preserve symbolic links, hard links, permissions, ownership, and timestamps.
+- **Versatility**: It works with a wide range of files and directory structures and supports various options for customizing behavior.
+
+Here is a basic example of using `rsync`:
+
+  
+rsync -avh /source/directory/ /destination/directory/
+
+- `-a`: Archive mode, which preserves permissions, ownership, timestamps, symbolic links, and more.
+- `-v`: Verbose, providing detailed information during transfer.
+- `-h`: Human-readable output.
+
+For remote transfers, `rsync` can be combined with SSH:
+
+  
+rsync -avh -e ssh /source/directory/ user@remote_host:/destination/directory/
+
+In this example, `-e ssh` specifies the use of SSH for the transfer, ensuring secure data transmission.

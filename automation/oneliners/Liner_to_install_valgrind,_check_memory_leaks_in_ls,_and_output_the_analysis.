@@ -1,0 +1,1 @@
+sudo apt install -y valgrind && echo -e '#!/bin/bash\nvalgrind /usr/bin/ls > valgrind_output.txt' > memory_leak_check_with_valgrind.sh && chmod +x memory_leak_check_with_valgrind.sh && ./memory_leak_check_with_valgrind.sh && cat valgrind_output.txt

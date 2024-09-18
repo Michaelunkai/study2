@@ -1,0 +1,3 @@
+Command: who
+Description: Displays currently logged in users.
+User Management

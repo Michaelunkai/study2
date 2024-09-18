@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" xmlns:ct="http://www.abisource.com/changetracking.dtd" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="211" xmlns:dc="http://purl.org/dc/elements/1.1/" styles="unlocked" fileformat="1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="abiword.date_last_changed">Tue Nov 21 06:52:55 2023
+</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="dc.creator">root</m>
+<m key="dc.date">Tue Nov 21 06:13:53 2023
+</m>
+<m key="dc.format">application/x-abiword</m>
+</metadata>
+<rdf>
+</rdf>
+<history version="7" edit-time="2419" last-saved="1700542375" uid="3391cdf8-8824-11ee-9b55-e1d262093f10">
+<version id="7" started="1700540033" uid="d5bcaba2-8829-11ee-9b55-e1d262093f10" auto="0" top-xid="34"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="font-family:Times New Roman; margin-top:0pt; color:000000; margin-left:0pt; text-position:normal; widows:2; font-style:normal; text-indent:0in; font-variant:normal; font-weight:normal; margin-right:0pt; font-size:12pt; text-decoration:none; margin-bottom:0pt; line-height:1.0; bgcolor:transparent; text-align:left; font-stretch:normal"/>
+</styles>
+<lists>
+<l id="1" parentid="0" type="5" start-value="0" list-delim="%L" list-decimal="."/>
+</lists>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section xid="33" props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" xid="34"><c props="font-weight:bold">Arithmetic Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="1" props="start-value:0; text-indent:-0.3in; list-style:Bullet List; field-font:NULL; margin-left:0.50in"><c props="font-weight:bold"></c><field type="list_label" xid="2"></field><c type="list_label">	Addition, subtraction, multiplication, division, and modulus.</c></p>
+<p style="Normal" xid="3" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a = 5</c></p>
+<p style="Normal" xid="7" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>b = 2</c></p>
+<p style="Normal" xid="8" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a + b)  # 7</c></p>
+<p style="Normal" xid="9" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a - b)  # 3</c></p>
+<p style="Normal" xid="10" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a * b)  # 10</c></p>
+<p style="Normal" xid="11" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a / b)  # 2.5</c></p>
+<p style="Normal" xid="12" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a % b)  # 1</c></p>
+<p style="Normal" xid="13" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="14" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Comparison Operators</c></p>
+<p style="Normal" xid="15" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c><field type="list_label" xid="38"></field><c type="list_label">	Compare values and return True or False</c></p>
+<p style="Normal" xid="43" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="40" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="16" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>x = 10</c></p>
+<p style="Normal" xid="18" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>y = 5</c></p>
+<p style="Normal" xid="19" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x == y)  # False</c></p>
+<p style="Normal" xid="20" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x != y)  # True</c></p>
+<p style="Normal" xid="21" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x &gt; y)   # True</c></p>
+<p style="Normal" xid="22" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x &lt; y)   # False</c></p>
+<p style="Normal" xid="23" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="24" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="17" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Logical Operators</c></p>
+<p style="Normal" xid="45" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold"></c><field type="list_label" xid="46"></field><c type="list_label">	Combine conditions using </c><c props="font-family:Courier">and</c><c>, </c><c props="font-family:Courier">or</c><c>, and </c><c props="font-family:Courier">not</c><c>.</c></p>
+<p style="Normal" xid="47" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="48" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="25" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>p = True</c></p>
+<p style="Normal" xid="28" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>q = False</c></p>
+<p style="Normal" xid="29" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(p and q)  # False</c></p>
+<p style="Normal" xid="30" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(p or q)   # True</c></p>
+<p style="Normal" xid="31" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(not p)    # False</c></p>
+<p style="Normal" xid="32" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="26" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold"></c></p>
+<p style="Normal" xid="35" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Assignment Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="57" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="58"></field><c type="list_label">	Assign values to variables.</c></p>
+<p style="Normal" xid="59" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="36" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="27" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a = 5</c></p>
+<p style="Normal" xid="64" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a += 2  # equivalent to a = a + 2</c></p>
+<p style="Normal" xid="65" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a)  # 7</c></p>
+<p style="Normal" xid="66" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="68" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Identity Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="69" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="70"></field><c type="list_label">	Check if two variables are the same object.</c></p>
+<p style="Normal" xid="81" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>x = [1, 2, 3]</c></p>
+<p style="Normal" xid="83" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>y = [1, 2, 3]</c></p>
+<p style="Normal" xid="84" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x is y)       # False</c></p>
+<p style="Normal" xid="85" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(x is not y)   # True</c></p>
+<p style="Normal" xid="86" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Membership Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="91" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="92"></field><c type="list_label">	Check if a value is present in a sequence.</c></p>
+<p style="Normal" xid="97" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="100" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>numbers = [1, 2, 3, 4, 5]</c></p>
+<p style="Normal" xid="101" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(3 in numbers)  # True</c></p>
+<p style="Normal" xid="102" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(6 not in numbers)  # True</c></p>
+<p style="Normal" xid="103" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="104" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Bitwise Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="105" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="106"></field><c type="list_label">	Perform bitwise operations on integers.</c></p>
+<p style="Normal" xid="107" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="112" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a = 5  # 0101 in binary</c></p>
+<p style="Normal" xid="113" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>b = 3  # 0011 in binary</c></p>
+<p style="Normal" xid="114" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a &amp; b)  # 1 (bitwise AND)</c></p>
+<p style="Normal" xid="115" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c><c>print(a | b)  # 7 (bitwise OR)</c></p>
+<p style="Normal" xid="116" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="111" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="99" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">String Concatenation</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="118" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="119"></field><c type="list_label">	Combine strings using the </c><c props="font-family:Courier">+</c><c> operator.</c></p>
+<p style="Normal" xid="124" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="120" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>str1 = "Hello"</c></p>
+<p style="Normal" xid="126" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>str2 = "World"</c></p>
+<p style="Normal" xid="127" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>result = str1 + " " + str2</c></p>
+<p style="Normal" xid="128" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(result)  # Hello World</c></p>
+<p style="Normal" xid="129" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="130" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Slice Operator</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="131" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="132"></field><c type="list_label">	Extract portions of a sequence (string, list, etc.).</c></p>
+<p style="Normal" xid="133" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="138" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>my_string = "Python"</c></p>
+<p style="Normal" xid="139" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(my_string[1:4])  # yth</c></p>
+<p style="Normal" xid="137" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="87" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="75" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Exponentiation Operator</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="140" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="141"></field><c type="list_label">	Calculate the power of a number.</c></p>
+<p style="Normal" xid="142" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="143" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>base = 2</c></p>
+<p style="Normal" xid="146" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>exponent = 3</c></p>
+<p style="Normal" xid="147" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>result = base ** exponent</c></p>
+<p style="Normal" xid="148" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(result)  # 8</c></p>
+<p style="Normal" xid="149" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="150" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="151" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Floor Division</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="152" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="153"></field><c type="list_label">	Divide and discard the fractional part.</c></p>
+<p style="Normal" xid="154" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="155" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a = 10</c></p>
+<p style="Normal" xid="158" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>b = 3</c></p>
+<p style="Normal" xid="159" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>result = a // b</c></p>
+<p style="Normal" xid="160" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(result)  # 3</c></p>
+<p style="Normal" xid="161" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="163" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Unary Negation</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="164" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="165"></field><c type="list_label">	Negate the value of a variable.</c></p>
+<p style="Normal" xid="166" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>x = 7</c></p>
+<p style="Normal" xid="170" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>result = -x</c></p>
+<p style="Normal" xid="171" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(result)  # -7</c></p>
+<p style="Normal" xid="172" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="173" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Augmented Assignment</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="175" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="176"></field><c type="list_label">	Perform an operation and assign the result.</c></p>
+<p style="Normal" xid="177" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="178" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a = 5</c></p>
+<p style="Normal" xid="181" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>a *= 2  # equivalent to a = a * 2</c></p>
+<p style="Normal" xid="182" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(a)  # 10</c></p>
+<p style="Normal" xid="183" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="185" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Ternary Operator</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="186" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="187"></field><c type="list_label">	A concise way to write if-else statements.</c></p>
+<p style="Normal" xid="188" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>age = 20</c></p>
+<p style="Normal" xid="192" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>status = "Adult" if age &gt;= 18 else "Minor"</c></p>
+<p style="Normal" xid="193" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(status)  # Adult</c></p>
+<p style="Normal" xid="194" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="196" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="197" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Priority of Operators</c></p>
+<p level="1" listid="1" parentid="0" style="Normal" xid="198" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.50in; text-indent:-0.3in; text-align:left; field-font:NULL"><c props="font-weight:bold"></c><field type="list_label" xid="199"></field><c type="list_label">	Understand the order of operations.</c></p>
+<p style="Normal" xid="200" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="204" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>result = 3 + 5 * 2</c></p>
+<p style="Normal" xid="205" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c>print(result)  # 13 (multiplication is performed first)</c></p>
+<p style="Normal" xid="206" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="207" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="209" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c props="font-weight:bold">Mastering Python Operators in 50 Words:</c><c> Python operators encompass arithmetic, comparison, logical, assignment, identity, membership, and bitwise operations. From string concatenation to exponentiation, each plays a unique role. Uncover their power for precise calculations and efficient code. Understanding operator precedence is the key to mastering Python's diverse range of operators. </c></p>
+<p style="Normal" xid="210" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="211" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="208" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="195" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="189" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="184" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="174" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+<p style="Normal" xid="167" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c type="list_label"></c></p>
+<p style="Normal" xid="162" props="text-align:left; text-indent:0in; dom-dir:ltr; margin-left:0pt"><c></c></p>
+</section>
+</abiword>

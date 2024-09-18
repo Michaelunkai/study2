@@ -1,0 +1,5 @@
+    chmod 777 file: Full read, write, and execute permissions for all users.
+    chmod 755 file: Owner has full control; others can execute only.
+    chmod 644 file: Owner has full control; others can read only.
+    chmod +x file: Adds execute permission for all users.
+    chmod 600 file: Owner can read and write; others have no access.

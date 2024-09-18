@@ -1,0 +1,55 @@
+Modifying GraphRAG Library
+Search the GraphRAG Directory
+Find the location where GraphRAG is installed:
+
+ 
+ 
+pip  ow graphrag
+Modify the Necessary Files
+In graphrag/llm/openai/openai_configuration.py, edit the file:
+
+ 
+ 
+nano <path_to_graphrag>/graphrag/llm/openai/openai_configuration.py
+Hardcode the value of self._n = 1 in the __init__ function of the OpenAIConfiguration class.
+
+Replace the content of graphrag/llm/openai/openai_embeddings_llm.py with the following code:
+
+ 
+ 
+nano <path_to_graphrag>/graphrag/llm/openai/openai_embeddings_llm.py
+Replace the content with:
+
+ 
+ 
+from typing_extensions import Unpack
+from graphrag.llm.base import BaseLLM
+from graphrag.llm.types import (
+    EmbeddingInput,
+    Embedding ,
+    LLMInput,
+)
+from .openai_configuration import OpenAIConfiguration
+from .types import OpenAIClientTypes
+import ollama
+
+class OpenAIEmbeddingsLLM(BaseLLM[EmbeddingInput, Embedding ]):
+    _client: OpenAIClientTypes
+    _configuration: OpenAIConfiguration
+
+    def __init__(self, client: OpenAIClientTypes, configuration: OpenAIConfiguration):
+        self._client = client
+        self._configuration = configuration
+
+    async def _execute_llm(
+        self, input: EmbeddingInput, **kwargs: Unpack[LLMInput]
+    ) -> EmbeddingOutput | None:
+        args = {
+            "model": self._configuration.model,
+            **(kwargs.get("model_parameters") or {}),
+        }
+        embedding_list = []
+        for inp in input:
+            embedding = ollama.embeddings(model="nomic-embed-text", prompt=inp)
+            embedding_list.append(embedding["embedding"])
+        return embedding_list

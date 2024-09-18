@@ -1,0 +1,34 @@
+Open PowerShell: Start PowerShell by searching for it in the Start menu or pressing Win + X and selecting "Windows PowerShell."
+
+Check if Profile Exists: Check if your PowerShell profile script exists by running:
+
+ 
+ 
+Test-Path $PROFILE
+If it returns True, your profile script exists. If it returns False, you'll need to create it.
+
+Create Profile Script: If the profile script doesn't exist, create it by running:
+
+ 
+ 
+New-Item -Path $PROFILE -Type File -Force
+Edit Profile Script: Open the profile script in a text editor. You can use notepad to edit it:
+
+ 
+ 
+notepad $PROFILE
+Add Alias: Add the following function to your profile script to create the alias:
+
+ 
+ 
+function 10sec {
+      C:\study\Credentials\apps\WallpaperChanger\10sec.py
+}
+Save and Close: Save the profile script and close the text editor.
+
+Reload Profile: To apply the changes without restarting PowerShell, reload the profile script by running:
+
+ 
+ 
+. $PROFILE
+Now, you should be able to type 10sec in PowerShell to run your Python script.

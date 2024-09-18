@@ -1,0 +1,13 @@
+For securing your applications, you can use Let's Encrypt for free SSL certificates. 
+
+ Install the Let's Encrypt plugin:
+
+sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+
+ Enable Let's Encrypt for your app:
+
+dokku letsencrypt myapp
+
+Set up auto-renewal for the certificates:
+
+dokku letsencrypt:cron-job --add

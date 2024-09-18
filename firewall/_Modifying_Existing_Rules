@@ -1,0 +1,5 @@
+Modifying Existing Rules:
+
+You can modify rules using the Set-NetFirewallRule cmdlet. For example, to change the display name of a rule:
+
+Set-NetFirewallRule -DisplayName "Allow HTTP" -NewDisplayName "Allow Web Traffic"

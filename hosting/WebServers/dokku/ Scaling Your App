@@ -1,0 +1,4 @@
+Scale your application by setting the number of process instances:
+
+dokku ps:scale myapp web=1
+

@@ -1,0 +1,7 @@
+1)option 1:
+find . -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.mov" \) -exec mv {} . \;
+
+
+2) * to also remove the folders after:
+find . -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.mov" \) -exec mv {} . \; -exec dirname {} \; | sort -u | xargs -I {} rm -r "{}"
+

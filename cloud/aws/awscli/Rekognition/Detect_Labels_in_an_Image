@@ -1,0 +1,13 @@
+aws rekognition detect-labels \
+--image "S3Object={Bucket=your-bucket-name,Name=image.jpg}" \
+--max-labels 10 \
+--min-confidence 75
+
+
+To use a local file instead of an S3 object:
+
+aws rekognition detect-labels \
+--image "Bytes=$(base64 /path/to/your/image.jpg | tr -d '\n')" \
+--max-labels 10 \
+--min-confidence 75
+

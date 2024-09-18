@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-1.6.0-setup.exe -OutFile pcsx2_installer.exe; Start-Process pcsx2_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

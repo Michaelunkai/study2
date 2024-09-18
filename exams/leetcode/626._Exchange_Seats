@@ -1,0 +1,59 @@
+To solve the problem of swapping seats in a table of students where each student has a unique ID, we can use SQL to manipulate the order based on the ID. The key is to swap the IDs of every two consecutive students while ensuring that if the number of students is odd, the last student's seat remains unchanged.
+
+Here's the solution using SQL:
+
+```sql
+SELECT 
+    CASE 
+        WHEN MOD(id, 2) = 0 THEN id - 1
+        WHEN MOD(id, 2) = 1 AND id + 1 <= (SELECT COUNT(*) FROM Seat) THEN id + 1
+        ELSE id
+    END AS id,
+    student
+FROM Seat
+ORDER BY id;
+```
+
+### Explanation:
+
+1. **CASE Statement**:
+   - `MOD(id, 2) = 0 THEN id - 1`: If the `id` is even, we subtract 1 to get the previous odd `id`.
+   - `MOD(id, 2) = 1 AND id + 1 <= (SELECT COUNT(*) FROM Seat) THEN id + 1`: If the `id` is odd and the next `id` is within the total number of students, we add 1 to get the next even `id`.
+   - `ELSE id`: This handles the case where the `id` is odd but there is no next `id` (i.e., the last student in an odd-numbered list).
+
+2. **Ordering**:
+   - After computing the new `id` values based on the CASE logic, we order the result by the `id`.
+
+This solution ensures that:
+- Each pair of consecutive students swaps their `id`s.
+- The last student remains in the same seat if the number of students is odd.
+
+### Example Walkthrough:
+
+Given the table:
+```
++----+---------+
+| id | student |
++----+---------+
+|  1 | Abbot   |
+|  2 | Doris   |
+|  3 | Emerson |
+|  4 | Green   |
+|  5 | Jeames  |
++----+---------+
+```
+
+The SQL query will produce:
+```
++----+---------+
+| id | student |
++----+---------+
+|  1 | Doris   |
+|  2 | Abbot   |
+|  3 | Green   |
+|  4 | Emerson |
+|  5 | Jeames  |
++----+---------+
+```
+
+As required, every two consecutive students' seats are swapped, and the last student's seat remains unchanged if the number of students is odd.

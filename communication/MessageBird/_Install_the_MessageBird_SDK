@@ -1,0 +1,17 @@
+ Install the MessageBird SDK
+Create a new directory for your project and navigate into it:
+
+ 
+ 
+mkdir messagebird_project
+cd messagebird_project
+Initialize a new Node.js project:
+
+ 
+ 
+npm init -y
+Install the MessageBird SDK:
+
+ 
+ 
+npm install messagebird

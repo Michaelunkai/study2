@@ -1,0 +1,9 @@
+directories and files : 
+rsync -av --dry-run --ignore-existing /mnt/c/Users/micha/Downloads/study/ /mnt/c/study/ | grep -v '/$'
+
+
+
+
+only directories:
+
+rsync -av --dry-run --ignore-existing --include '*/' --exclude '*' /mnt/c/Users/micha/Downloads/study/ /mnt/c/study/ | grep '/$'

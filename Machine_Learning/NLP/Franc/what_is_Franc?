@@ -1,0 +1,42 @@
+Franc is a JavaScript library used for language detection. It analyzes text and attempts to determine the language in which the text is written. Franc stands for "Fast RAndom 'N' Classifier" and is designed to be fast and efficient. It is based on character n-gram frequencies and is capable of detecting many different languages.
+
+### Key Features of Franc
+- **Lightweight**: Franc is a minimalistic library that doesn't require a lot of dependencies.
+- **Fast**: It is optimized for performance, making it suitable for real-time applications.
+- **Wide Language Support**: Franc can detect a large number of languages, making it versatile for various use cases.
+- **Open Source**: Franc is open source and available on GitHub, which allows developers to contribute to its development and use it freely in their projects.
+
+### Use Cases
+- **Content Management Systems**: Automatically detect the language of user-submitted content for appropriate processing or categorization.
+- **Multilingual Applications**: Provide language-specific features such as translation, spell-check, or language-specific formatting based on detected language.
+- **Data Analysis**: Analyze large corpora of text to determine the distribution of languages within the dataset.
+- **Search Engines**: Improve search results by understanding the language of the query and matching it to relevant documents.
+
+### Example Usage
+Here is a simple example of how Franc can be used in a Node.js application:
+
+1. Install Franc using npm:
+     
+   npm install franc
+
+2. Create a JavaScript file, e.g., `detectLanguage.js`:
+    javascript
+   const franc = require('franc');
+   
+   const text = "Bonjour tout le monde";
+   const langCode = franc(text);
+   
+   console.log(`Detected language code: ${langCode}`);
+
+3. Run the script:
+     
+   node detectLanguage.js
+
+This will output the detected language code for the provided text.
+
+### Benefits
+- **Ease of Integration**: Franc is easy to integrate into JavaScript and Node.js projects.
+- **Community Support**: Being an open-source project, it benefits from contributions and support from the developer community.
+- **Customizable**: Users can customize the library or extend its functionality based on their needs.
+
+Franc is a valuable tool for developers working on projects that require language detection capabilities, providing a simple yet effective solution.

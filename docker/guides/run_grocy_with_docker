@@ -1,0 +1,5 @@
+docker run -d --name grocy -p 9283:80 -v grocy_data:/config ghcr.io/linuxserver/grocy && gc  http://localhost:9283
+
+
+admin
+admin

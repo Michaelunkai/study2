@@ -1,0 +1,96 @@
+# Step-by-Step Guide to Implement Automated Testing with Selenium Grid in Ubuntu
+
+## Step 1: Install Java and Unzip
+First, ensure you have Java installed on your Ubuntu machine, which is required to run Selenium Grid, and also install `unzip` to extract downloaded files.
+
+  
+sudo apt update && sudo apt install openjdk-11-jdk unzip -y
+
+## Step 2: Set Up Selenium Grid
+You can now set up Selenium Grid in your current directory by running the following one-liner command:
+
+  
+getjava && apt install unzip -y && mkdir -p $(pwd)/selenium-grid && wget https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.23.0/selenium-server-4.23.0.jar -P $(pwd)/selenium-grid/ && cd $(pwd)/selenium-grid && java -jar selenium-server-4.23.0.jar hub
+
+This command will:
+- Install Java (if not already installed) and the `unzip` tool.
+- Create a `selenium-grid` directory in your current path.
+- Download the Selenium Server JAR file (version 4.23.0) into the `selenium-grid` directory.
+- Navigate to the `selenium-grid` directory.
+- Start the Selenium Grid Hub.
+
+## Step 3: Start the Selenium Grid Hub
+The above command also starts the Selenium Grid Hub. The Hub manages the Selenium Grid and acts as the central point to receive requests. You can monitor and manage your Selenium Grid Hub by accessing the Grid Console at `http://localhost:4444` in your web browser.
+
+## Step 4: Start Selenium Grid Nodes
+Nodes are the machines that execute the tests. You can start multiple nodes depending on your requirements.
+
+### For a Node with Chrome:
+Use the following command to install Chrome and ChromeDriver:
+
+  
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install -y ./google-chrome-stable_current_amd64.deb && sudo apt install -y chromium-chromedriver
+
+Start the Chrome Node:
+
+  
+java -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -jar $(pwd)/selenium-server-4.23.0.jar node --detect-drivers true --hub http://localhost:4444
+
+### For a Node with Firefox:
+First, install Firefox and Geckodriver.
+
+  
+sudo apt install -y firefox
+wget https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz -P $(pwd)/selenium-grid/
+tar -xvzf $(pwd)/selenium-grid/geckodriver-v0.32.0-linux64.tar.gz -C $(pwd)/selenium-grid/
+
+Start the Firefox Node:
+
+  
+java -Dwebdriver.gecko.driver=$(pwd)/geckodriver -jar $(pwd)/selenium-server-4.23.0.jar node --detect-drivers true --hub http://localhost:4444
+
+## Step 5: Write a Test Script
+Create a simple test script to run on your Selenium Grid.
+
+  
+nano $(pwd)/selenium-grid/test_script.py
+
+Replace the content with the following Python code:
+
+  
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webdriver import WebDriver
+
+# Set up Chrome options
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")  # Run Chrome in headless mode (no UI)
+
+# Set up the remote driver
+driver = webdriver.Remote(
+    command_executor='http://localhost:4444/wd/hub',
+    options=chrome_options
+)
+
+# Navigate to a website
+driver.get('http://www.google.com')
+
+# Print the title of the webpage
+print(driver.title)
+
+# Close the browser
+driver.quit()
+
+## Step 6: Run the Test Script
+After updating the script, execute it:
+
+  
+ 3 $(pwd)/selenium-grid/test_script.py
+
+## Step 7: Monitor and Manage the Grid
+You can monitor and manage your Selenium Grid by accessing the Grid Console at `http://localhost:4444/grid/console` in your web browser.
+
+---
+
+You now have a complete Selenium Grid setup in Ubuntu with automated testing configured and ready to use. The steps have been updated to reflect the most recent changes in the Selenium WebDriver API.

@@ -1,0 +1,2 @@
+curl -X GET "https://api.twitter.com/2/users/by/username/TwitterDev" \
+-H "Authorization: Bearer YOUR_TWITTER_BEARER_TOKEN"

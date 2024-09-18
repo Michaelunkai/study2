@@ -1,0 +1,1 @@
+aws ec2 describe-route-tables --query 'RouteTables[*].{RouteTableId:RouteTableId,VpcId:VpcId}'

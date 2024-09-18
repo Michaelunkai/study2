@@ -1,0 +1,1 @@
+aws cloudformation describe-stack-instances --stack-set-name <stack-set-name> --stack-instance-account <account-id> --stack-instance-region <region> --output json

@@ -1,0 +1,5 @@
+Open "Server Manager" and click on "Add roles and features."
+Select "Active Directory Certificate Services" and follow the wizard to install the role.
+After installing the role, open "Certification Authority" from the Tools menu.
+Follow the wizard to configure the AD CS role, including selecting the CA type and setting up the CA.
+After configuring Active Directory Certificate Services, you'll have a centralized PKI infrastructure to issue and manage digital certificates for secure communication and authentication within your network.

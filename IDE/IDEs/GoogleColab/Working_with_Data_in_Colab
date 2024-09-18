@@ -1,0 +1,6 @@
+Working with Data in Colab
+Google Colab offers multiple ways to handle data:
+
+Uploading Files: You can upload files using the "Upload" button or by dragging and dropping them into the notebook.
+Loading Data: Data can be loaded from various sources such as CSV, JSON, and Excel files using libraries like pandas and NumPy.
+Data Manipulation: Libraries such as pandas and NumPy allow for extensive data manipulation within your Colab notebook.

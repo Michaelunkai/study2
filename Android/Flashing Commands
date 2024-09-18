@@ -1,0 +1,33 @@
+Flashing Commands
+Reboot to Bootloader:
+
+bash
+Copy code
+adb reboot bootloader
+Flash Images:
+
+bash
+Copy code
+fastboot flash boot boot.img
+fastboot flash dtbo dtbo.img
+fastboot flash vendor_boot vendor_boot.img
+fastboot reboot recovery
+Factory Reset:
+
+In recovery mode, navigate to Factory reset -> Format data/factory reset and confirm.
+Apply Update:
+
+From the main menu, select Apply update -> Apply from ADB.
+Sideload ROM:
+
+bash
+Copy code
+adb sideload rom.zip  # Replace "rom.zip" with the actual filename if different
+Optional: Reboot to Recovery for Add-ons:
+
+If you need to sideload additional files (e.g., Magisk), reboot to recovery.
+Reboot to System:
+
+bash
+Copy code
+fastboot reboot

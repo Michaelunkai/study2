@@ -1,0 +1,1 @@
+aws ec2 modify-vpc-endpoint-connection-notifications --vpc-endpoint-id <endpoint-id> --connection-notification-arn arn:aws:sns:us-west-2:123456789012:AWStatsNotifications

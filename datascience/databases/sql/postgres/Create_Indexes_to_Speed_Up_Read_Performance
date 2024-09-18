@@ -1,0 +1,15 @@
+Create Indexes to Speed Up Read Performance
+Indexes improve search performance by creating a data structure that allows quick lookups.
+
+Steps:
+
+Identify columns you often use in WHERE, JOIN, or ORDER BY clauses.
+Create an index on those columns:
+ 
+ 
+CREATE INDEX idx_employee_name
+ON employee (name);
+Re-run the query with EXPLAIN ANALYZE to see the difference in performance:
+ 
+ 
+EXPLAIN ANALYZE SELECT * FROM employee WHERE name = 'John';

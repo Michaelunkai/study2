@@ -1,0 +1,7 @@
+Test KeyDB Installation
+Verify that KeyDB is running correctly.
+
+ 
+ 
+keydb-cli ping
+You should see PONG if KeyDB is running successfully.

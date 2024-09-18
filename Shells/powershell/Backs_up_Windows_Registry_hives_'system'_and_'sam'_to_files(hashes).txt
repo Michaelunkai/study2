@@ -1,0 +1,4 @@
+#Backs up 'system' registry hive in HKLM to a file named 'system.save' in the current directory:
+reg save HKLM\system ./system.save
+#Backs up 'sam' registry hive in HKLM to a file named 'sam.save' in the current directory.
+    reg save HKLM\sam ./sam.save

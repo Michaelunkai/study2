@@ -1,0 +1,8 @@
+nano /etc/crontabs/root
+
+Example to schedule a reboot every day at 3 AM:
+
+0 3 * * * /sbin/reboot
+
+
+Save and exit nano.

@@ -1,0 +1,1 @@
+aws ssm add-tags-to-resource --resource-type <resource-type> --resource-id <resource-id> --tags Key=<key>,Value=<value>

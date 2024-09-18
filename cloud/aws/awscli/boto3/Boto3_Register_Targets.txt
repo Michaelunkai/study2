@@ -1,0 +1,3 @@
+import boto3
+elb = boto3.client('elbv2')
+elb.register_targets(TargetGroupArn='<target-group-arn>', Targets=[{'Id': '<instance-id>'}])

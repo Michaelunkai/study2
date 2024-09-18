@@ -1,0 +1,65 @@
+Running a Windows Vista VM in Virtualbox
+Locate a Windows Vista iso
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Microsoft Windows Vista
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows Vista (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Microsoft Windows Vista.vdi
+File size: 25.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Windows Vista .iso file
+Click OK
+Make sure the Windows Vista VM is selected and click Start > Normal
+Click Next
+Click Install Now
+Leave the product key blank, click Next > Click No to continue
+Select the version and check the I selected the edition of Windows I purchased box > Click Next
+Check the I accept box, Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files, the VM will reboot
+Enter a username and password > Re-type the password > Click Next
+Give the computer a name > Click Next
+Click Ask me later
+Set the date/time and timezone > Click Next
+Click Home
+Click the Start Button
+Enter your password to login
+Welcome back to Windows Vista
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions-amd64.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Install this driver software anyway button
+After the installation completes select Reboot now > Click Finish
+Upon rebooting, you can now full screen the VM and the interal resolution will automatically change to match the window size
+Download i12bretro Windows SP Download
+Extract the downloaded zip file
+Select Devices > Optical Drives > Select disk image...
+Navigate to the extracted Windows SP file and select i12bretro_Windows_SP.iso
+If the VM doesn't autorun, open My Computer > CD Drive
+Open the Windows Vista folder > Double click SP1 x64.exe
+Follow the dialogs to install Service Pack 1
+Click Finish to reboot and complete the SP1 install
+After logging back in open My Computer > CD Drive
+Open the Windows Vista folder > Double click SP2 x64.exe
+Follow the dialogs to install Service Pack 2
+Once complete, Select Devices > Optical Drives > Remove disk from virtual drive
+Click Finish to reboot and complete the SP2 install
