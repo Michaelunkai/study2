@@ -1,0 +1,26 @@
+Use the framework
+Your first Kuzzle application is inside the app.ts file.
+
+For example, you can add a new API Controller:
+
+import { Backend } from 'kuzzle';
+
+const app = new Backend('playground');
+
+app.controller.register('greeting', {
+  actions: {
+    sayHello: {
+      handler: async request => `Hello, ${request.input.args.name}`
+    }
+  }
+});
+
+app.start()
+  .then(() => {
+    app.log.info('Application started');
+  })
+  .catch(console.error);
+Now try to call your new API action by:
+
+opening the generated URL in your browser: http://localhost:7512/_/greeting/say-hello?name=Yagmur
+using Kourou: npx kourou greeting:sayHello --arg name=Yagmur

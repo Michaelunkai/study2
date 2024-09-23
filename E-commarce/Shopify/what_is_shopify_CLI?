@@ -1,0 +1,15 @@
+Shopify CLI is a command-line interface (CLI) tool that helps developers build Shopify apps and themes more efficiently. It simplifies common development tasks such as:
+
+- **Creating new Shopify apps or themes** from scratch with boilerplate code.
+- **Running apps locally** during development using local servers with secure tunnels to your Shopify store.
+- **Managing Shopify stores** by interacting with themes, apps, and extensions.
+- **Deploying apps** to production with a simple command.
+
+Key features of Shopify CLI include:
+
+- **Theme development**: Build and customize Shopify store themes.
+- **App development**: Develop Shopify apps using frameworks like Node.js, Ruby on Rails, and more.
+- **Development server**: Serve apps locally during development, complete with tunneling.
+- **Shop management**: Manage Shopify stores, authenticate, and interact with Shopify APIs.
+
+In short, Shopify CLI helps streamline the development workflow for building and managing Shopify-based applications or themes.

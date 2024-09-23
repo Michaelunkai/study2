@@ -1,0 +1,1 @@
+sudo add-apt-repository universe && sudo apt install -y libfuse2 && sudo modprobe fuse && sudo groupadd fuse && sudo usermod -a -G fuse "$(whoami)" && echo "Fuse installed and configured successfully"

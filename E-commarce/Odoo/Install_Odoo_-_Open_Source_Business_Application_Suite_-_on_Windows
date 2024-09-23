@@ -1,0 +1,90 @@
+▲A  A▼
+Install Odoo - Open Source Business Application Suite - on Windows
+What is Odoo?
+Odoo is a suite of web based open source business apps. The main Odoo Apps include an Open Source CRM, Website Builder, eCommerce, Warehouse Management, Project Management, Billing & Accounting, Point of Sale, Human Resources, Marketing, Manufacturing. Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get a full-featured Open Source ERP when you install several Apps. - https://github.com/odoo/odoo
+Installation
+Log into the Windows device
+Download Odoo Download
+Download Python Download
+Download PostgreSQL Download
+Download Visual Studio Build Tools Download
+Run the downloaded PostgreSQL installer, accepting all the defaults
+When prompted, enter and confirm a superuser password
+Run the downloaded Python installer, making sure to check the option to add Python to the path
+Run the downloaded VS Build Tools installer
+Select Individual components from the top left > Filter the list to C++ x64/x86 build tools > Check the box next to the option for x64/x86 build tools (Latest)
+Filter the list to Windows SDK > Check the box next to the option for the latest Windows SDK > Click Install at the bottom right
+Once the installation completes close VS Build Tools installer
+Extract the downloaded Odoo .zip archive
+Rename the extracted folder to Odoo
+Cut the Odoo folder to a location it can safely run from, C:\Program Files\Odoo in this example
+Navigate into the Odoo folder > Right click in the white space > New > Text Document
+Name the new file odoo.conf then edit it in a text editor
+Paste the following configuration into odoo.conf
+[options]
+db_user = odoo_rw
+db_password = 0dooDB_rw$
+db_name = odoo
+db_host = localhost
+
+Save the changes to odoo.conf
+Back in the Odoo folder, hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Run the following commands in PowerShell
+# connect to postgres
+&'C:\Program Files\PostgreSQL\16\bin\psql.exe' -U postgres
+# enter the postgres seperuser password set during installation
+# create odoo database user
+create user odoo_rw with password '0dooDB_rw$';
+# create odoo database
+create database odoo with encoding='UTF8' template='template0' owner='odoo_rw';
+# close postgresql connection
+exit
+# prepare and activate the virtual environment
+python -m venv .\odoo-venv
+.\odoo-venv\Scripts\activate
+# install wheel
+pip3 install wheel
+# install setuptools
+pip install --upgrade setuptools
+# install odoo
+pip install -r requirements.txt
+# run odoo
+python .\odoo-bin --config .\odoo.conf -i base
+Open a web browser and navigate to http://DNSorIP:8069
+Login with the username admin and password admin
+Click the user icon at the top right corner of the screen > Preferences
+Update the Email and Email Signature > Click Save
+Click the Account Security tab > Click the Change Password button
+Enter admin as the current password > Click Confirm Password
+Enter and confirm a new password > Click Change Password
+Login using the updated email address and password
+Welcome to Odoo
+Run Odoo on System Startup (Optional, but recommended)
+Press CTRL + C to kill the running Odoo process
+Open a text editor and paste the following
+:: Start Odoo server
+cd /D "%~dp0"
+start "odoo" /b python .\odoo-bin --config .\odoo.conf
+
+Save the file as odoo.bat in the Odoo directory, C:\Program Files\Odoo in this example
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to Odoo and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+Complete the form fields as follows:
+Program/script: "%ProgramFiles%\Odoo\odoo.bat"
+Add arguments:
+Start in: "%ProgramFiles%\Odoo"
+
+Click Next
+Check the Open the Properties dialog checkbox > Click Finish
+In the Properties dialog, click the Change User or Group... button
+Type System in the Object name field > Click OK
+Check the Run with highest privileges box
+Click OK to create the scheduled task
+Right click the Odoo task > Run
+Refresh the open web browser to verify Odoo is now running from the scheduled task
+Source: https://www.odoo.com/documentation/17.0/administration/on_premise/source.html
+
+ 

@@ -1,0 +1,130 @@
+Here’s a detailed step-by-step guide for using the YellowLabTools API based on the documentation you provided:
+
+### Step 1: Set up an HTTP Request Tool
+You will need a tool to send HTTP requests. You can use:
+- **cURL** (command-line tool)
+- **Postman** (GUI tool)
+- **Any programming language** (e.g., Python with `requests` library)
+
+I'll show you the process using **cURL** and **Python**.
+
+### Step 2: Launch a Run
+
+**URL:** `POST https://yellowlab.tools/api/runs`
+
+**Headers:**
+- `Content-Type: application/json`
+
+**Body Parameters:**
+- `url`: The URL you want to test (e.g., `"http://www.google.com"`).
+- `waitForResponse`: Set to `true` or `false` depending on whether you want to wait for the run to finish.
+- (Optional) `device`: Use `"phone"` or `"tablet"` for mobile simulation. Defaults to `"desktop"`.
+- (Optional) `screenshot`: Set to `true` to take a screenshot of the webpage.
+
+**cURL Example:**
+  
+curl -X POST "https://yellowlab.tools/api/runs" \
+-H "Content-Type: application/json" \
+-d '{"url": "http://www.google.com", "waitForResponse": true}'
+
+**Python Example:**
+  
+import requests
+
+url = "https://yellowlab.tools/api/runs"
+headers = {
+    "Content-Type": "application/json"
+}
+data = {
+    "url": "http://www.google.com",
+    "waitForResponse": True
+}
+
+response = requests.post(url, headers=headers, json=data)
+print(response.json())
+
+### Step 3: Check the Status of the Run
+
+If `waitForResponse` is set to `false`, the API responds with a `runId`, which you can use to check the status of the run.
+
+**URL:** `GET https://yellowlab.tools/api/runs/<runId>`
+
+**cURL Example:**
+  
+curl -X GET "https://yellowlab.tools/api/runs/abc123"
+
+**Python Example:**
+  
+run_id = "abc123"
+status_url = f"https://yellowlab.tools/api/runs/{run_id}"
+
+status_response = requests.get(status_url)
+print(status_response.json())
+
+The status response includes:
+- `awaiting`: The run is in a queue.
+- `running`: The run is processing.
+- `complete`: The run is finished, and results can be retrieved.
+- `failed`: There was an error.
+
+### Step 4: Retrieve the Result
+
+Once the run is complete, you can retrieve the full result.
+
+**URL:** `GET https://yellowlab.tools/api/results/<runId>`
+
+**cURL Example:**
+  
+curl -X GET "https://yellowlab.tools/api/results/abc123"
+
+**Python Example:**
+  
+result_url = f"https://yellowlab.tools/api/results/{run_id}"
+
+result_response = requests.get(result_url)
+print(result_response.json())
+
+### Step 5: Retrieve a Part of the Result
+
+If you don’t need the full JSON result, you can retrieve a specific part by appending it to the result URL:
+
+- General scores: `https://yellowlab.tools/api/results/<runId>/generalScores`
+- YLT rules: `https://yellowlab.tools/api/results/<runId>/rules`
+- JavaScript execution tree: `https://yellowlab.tools/api/results/<runId>/javascriptExecutionTree`
+- Phantomas result: `https://yellowlab.tools/api/results/<runId>/phantomas`
+
+**Example:**
+  
+curl -X GET "https://yellowlab.tools/api/results/abc123/generalScores"
+
+**Python Example:**
+  
+part_url = f"https://yellowlab.tools/api/results/{run_id}/generalScores"
+
+part_response = requests.get(part_url)
+print(part_response.json())
+
+### Step 6: Retrieve the Screenshot (Optional)
+
+If you set the `screenshot` parameter to `true` in the initial run, you can retrieve the screenshot with the following URL:
+
+**URL:** `GET https://yellowlab.tools/api/results/<runId>/screenshot.jpg`
+
+**Example:**
+  
+curl -X GET "https://yellowlab.tools/api/results/abc123/screenshot.jpg" --output screenshot.jpg
+
+### Step 7: Handle Anti-Flooding Restrictions
+
+The API enforces rate limits:
+- No more than 25 runs per 24 hours.
+- No more than 200 tests per month.
+
+If you exceed these limits, you will be blocked. Contact the API author for an API key if needed.
+
+### Final Notes:
+- Always ensure you're sending valid JSON in your request body.
+- Use basic authentication by including `authUser` and `authPass` if required by the target URL.
+- You can customize the results by excluding specific fields using the `exclude` parameter.
+
+This step-by-step guide should help you get started with the YellowLabTools API.

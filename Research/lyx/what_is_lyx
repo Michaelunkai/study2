@@ -1,0 +1,8 @@
+LyX is a **document processor** that combines the power of **LaTeX** with a user-friendly graphical interface. It allows you to create high-quality academic and technical documents such as research papers, books, theses, and articles without needing to know LaTeX's complex syntax.
+
+Key features of **LyX** include:
+
+- **WYSIWYM (What You See Is What You Mean)**: Unlike WYSIWYG editors, LyX focuses on document structure, making it ideal for academic writing, especially with lots of mathematical equations or references.
+- **Automatic Formatting**: LyX handles formatting, citations, bibliographies, and more with little manual intervention, producing professional-looking documents.
+- **Math Support**: LyX has robust support for writing mathematical formulas and equations.
+- **Integration with LaTeX**: LyX fully integrates with LaTeX, so you get all the power of LaTeX's high-quality typesetting while working with a more visual interface.

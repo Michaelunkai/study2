@@ -1,0 +1,7 @@
+ReplicationSet up replication for high availability.Master Configuration:[mysqld]
+server-id = 1
+log_bin = /var/log/my /my -bin.log
+binlog_do_db = mydatabaseSlave Configuration:[mysqld]
+server-id = 2
+replicate-do-db = mydatabaseStart the replication process on the slave:CHANGE MASTER TO MASTER_HOST='master_host', MASTER_USER='replication_user', MASTER_PASSWORD='replication_password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=107;
+START SLAVE;

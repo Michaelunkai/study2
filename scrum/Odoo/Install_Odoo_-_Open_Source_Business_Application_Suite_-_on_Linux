@@ -1,0 +1,91 @@
+▲A  A▼
+Install Odoo - Open Source Business Application Suite - on Linux
+What is Odoo?
+Odoo is a suite of web based open source business apps. The main Odoo Apps include an Open Source CRM, Website Builder, eCommerce, Warehouse Management, Project Management, Billing & Accounting, Point of Sale, Human Resources, Marketing, Manufacturing. Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get a full-featured Open Source ERP when you install several Apps. - https://github.com/odoo/odoo
+Installation
+Log into the Linux device
+Run the following commands in terminal
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade
+# install prerequisites
+sudo apt install wget git apt-transport-https -y
+# install postgre 
+sudo apt install postgresql postgresql-client -y
+# enable the postgresql service and start it
+sudo systemctl enable postgresql --now
+# connect to postgresql
+sudo -u postgres psql postgres
+# create odoo database user
+create user odoo_rw with password '0dooDB_rw$';
+# create odoo database
+create database odoo with encoding='UTF8' template='template0' owner='odoo_rw';
+# close postgresql connection
+exit
+# install  
+sudo apt install python3-full python3-pip libldap2-dev libpq-dev libsasl2-dev -y
+# create odoo user
+sudo useradd -M odoo
+# create /opt/odoo directory
+sudo mkdir /opt/odoo -p
+# set owner of /opt/odoo
+sudo chown odoo /opt/odoo -R && sudo chgrp odoo /opt/odoo -R && sudo usermod -d /opt/odoo odoo
+# switch to odoo user
+sudo su - odoo
+# clone odoo from github
+git clone https://github.com/odoo/odoo.git .
+# prepare the working directory
+python3 -m venv odoo-venv
+. odoo-venv/bin/activate
+# install wheel
+pip3 install wheel
+# install odoo
+pip install -r requirements.txt
+# create a config file
+touch ./odoo.conf
+# write database config to config file
+echo "[options]\ndb_user = odoo_rw\ndb_password = 0dooDB_rw$\ndb_name = odoo\ndb_host = localhost" > ./odoo.conf
+# run odoo
+./odoo-bin --config ./odoo.conf -i base
+Open a web browser and navigate to http://DNSorIP:8069
+Login with the username admin and password admin
+Click the user icon at the top right corner of the screen > Preferences
+Update the Email and Email Signature > Click Save
+Click the Account Security tab > Click the Change Password button
+Enter admin as the current password > Click Confirm Password
+Enter and confirm a new password > Click Change Password
+Login using the updated email address and password
+Welcome to Odoo
+Running Odoo as a Service
+Back in the Terminal, press CTRL+C to kill the running Odoo process
+Continue with the following commands in terminal
+# exit the odoo user shell
+exit
+# create odoo service file
+sudo nano /etc/systemd/system/odoo.service
+Paste the following into odoo.service
+[Unit]
+Description=Odoo
+Requires=postgre .service
+After=network.target postgre .service
+
+[Service]
+User=odoo
+Group=odoo
+ExecStart=/opt/odoo/odoo-venv/bin/python3 /opt/odoo/odoo-bin -c /opt/odoo/odoo.conf
+
+[Install]
+WantedBy=multi-user.target
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# reload systemd services
+sudo systemctl daemon-reload
+# start odoo service on boot and now
+sudo systemctl enable odoo --now
+Back in the web browser, refresh the Odoo tab
+If prompted, log back in using the updated email address and password
+Source: https://www.odoo.com/documentation/17.0/administration/on_premise/source.html
+
+ 

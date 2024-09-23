@@ -1,0 +1,15 @@
+**Vitess** is an open-source database clustering system designed to scale and manage large clusters of MySQL databases. It was originally developed at YouTube to handle scaling issues for massive amounts of data and traffic.
+
+### Key Features of Vitess:
+1. **Horizontal Scalability:** Vitess allows you to scale MySQL horizontally across multiple servers using sharding.
+2. **Fault Tolerance:** Vitess automatically manages failovers to ensure high availability.
+3. **Query Routing & Load Balancing:** Vitess routes queries to the correct database shards and balances the load across instances.
+4. **Supports Microservices:** Vitess can be used in environments with microservices architecture by providing a shared data store.
+5. **Observability:** It includes built-in monitoring and debugging tools.
+
+### Use Cases:
+- Large-scale applications needing high availability and fault tolerance.
+- Systems requiring horizontal scalability for database performance.
+- Migrating monolithic databases to microservice-based architectures.
+
+Vitess powers many high-profile services like YouTube, Slack, and Square due to its ability to handle large-scale data traffic efficiently.

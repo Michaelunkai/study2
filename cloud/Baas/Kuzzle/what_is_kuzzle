@@ -1,0 +1,17 @@
+**Kuzzle** is a Backend as a Service (BaaS) that provides a scalable backend for building real-time, interactive, and multi-user applications. It simplifies the development of mobile, web, and IoT applications by offering a set of core backend functionalities that developers can interact with through various protocols, such as WebSocket, HTTP, and MQTT.
+
+### Key Features of Kuzzle:
+1. **Real-time Engine**: Allows for real-time data synchronization and pub/sub messaging across connected clients.
+2. **Multi-Protocol Support**: Supports multiple protocols like HTTP, WebSocket, and MQTT, enabling flexible communication between clients and the backend.
+3. **Data Storage & Search**: Provides an API to store, search, and manage data in Elasticsearch, making it ideal for high-performance search-driven applications.
+4. **Authentication & Security**: Comes with built-in authentication mechanisms (like OAuth, JWT) and provides fine-grained role-based access control (RBAC) for securing data.
+5. **API & SDKs**: Offers a powerful API that can be accessed via multiple SDKs (Node.js, Java, Android, iOS, etc.) for easier application development.
+6. **Scalability**: Built with scalability in mind, Kuzzle can handle large-scale applications and multiple concurrent connections.
+7. **Extensibility**: Developers can extend Kuzzle’s capabilities by creating custom plugins and integrations.
+
+### Use Cases of Kuzzle:
+- **Real-time Applications**: Chat applications, collaboration tools, and online gaming.
+- **IoT Applications**: Smart devices, sensors, and connected home applications.
+- **Mobile & Web Apps**: E-commerce, social platforms, and content management systems that require backend support for authentication, real-time data, and search capabilities.
+
+In essence, Kuzzle provides all the backend functionalities developers typically need, so they can focus more on building the client-side and business logic of their applications.

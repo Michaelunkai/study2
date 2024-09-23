@@ -1,0 +1,1 @@
+docker run -d --name directus -p 8055:8055 -v directus_data:/directus/data directus/directus && gcl 8055

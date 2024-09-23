@@ -1,0 +1,1 @@
+redis-cli setex user:1000 3600 '{"name": "John Doe", "age": 30}'

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update and install required packages
 sudo apt update
@@ -51,7 +51,7 @@ sudo systemctl restart apache2
 # Fix missing vendor files by running composer install
 cd /var/www/html/espocrm
 curl -sS https://getcomposer.org/installer | php
-php composer.phar install
+  composer.phar install
 
 # Secure installation
 sudo chown -R www-data:www-data /var/www/html/espocrm

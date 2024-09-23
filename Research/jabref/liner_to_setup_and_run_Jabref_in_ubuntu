@@ -1,0 +1,5 @@
+ mkdir -p ~/jabref_project && echo '#!/bin/bash
+sudo add-apt-repository ppa:jabref/jabref -y
+sudo apt install -y jabref
+mkdir -p ~/jabref_project/library && echo "% BibTeX example for research library" > ~/jabref_project/library/research.bib
+jabref ~/jabref_project/library/research.bib' > ~/jabref_project/jabref_setup_install_and_run_tool_for_research_with_bibtex_library.sh && chmod +x ~/jabref_project/jabref_setup_install_and_run_tool_for_research_with_bibtex_library.sh && ~/jabref_project/jabref_setup_install_and_run_tool_for_research_with_bibtex_library.sh

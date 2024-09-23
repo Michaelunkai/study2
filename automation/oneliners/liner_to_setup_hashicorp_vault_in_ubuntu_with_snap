@@ -1,0 +1,1 @@
+ snap install vault && vault version

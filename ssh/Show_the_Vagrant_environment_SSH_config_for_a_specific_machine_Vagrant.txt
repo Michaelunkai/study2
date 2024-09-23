@@ -1,1 +1,1 @@
-vagrant s -config machine_name
+vagrant ssh-config machine_name

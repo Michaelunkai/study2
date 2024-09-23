@@ -1,0 +1,20 @@
+KeyDB vs. Redis: Key Differences
+Multi-threading:
+
+Redis: Redis is single-threaded, meaning it processes commands one at a time on a single core. This can be a limiting factor in terms of performance, especially on systems with multiple CPU cores.
+KeyDB: KeyDB is multi-threaded, allowing it to execute multiple commands in parallel across different CPU cores. This can significantly increase throughput and reduce latency in high-load scenarios.
+Active-Active Replication:
+
+Redis: Redis typically uses active-passive replication, where the master node handles all write operations, and replicas are read-only.
+KeyDB: KeyDB supports active-active replication, allowing multiple nodes to accept write operations simultaneously, which can improve availability and fault tolerance.
+Compatibility:
+
+Redis: As the original project, Redis has a vast ecosystem of modules, clients, and tools that are well-supported.
+KeyDB: KeyDB is fully compatible with Redis, meaning it can be used as a drop-in replacement. It supports Redis commands, data types, and even modules like Redis' Streams, HyperLogLog, and Pub/Sub.
+Persistence:
+
+Redis and KeyDB: Both Redis and KeyDB support similar persistence mechanisms, including RDB (point-in-time snapshots) and AOF (Append-Only File) logging for data durability.
+Performance:
+
+Redis: Performance in Redis is excellent for single-threaded workloads, but it may not fully utilize multi-core systems.
+KeyDB: Due to its multi-threaded nature, KeyDB can outperform Redis in environments where high concurrency and multi-core utilization are critical.

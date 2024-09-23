@@ -1,0 +1,1 @@
+cd && git clone https://github.com/eth-sri/securify.git && cd securify && ./gradlew build && ./securify-analyze /root/contracts/MySmartContract.sol

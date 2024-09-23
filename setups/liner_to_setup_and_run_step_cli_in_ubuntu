@@ -1,0 +1,1 @@
+curl -L https://github.com/smallstep/cli/releases/download/v0.22.0/step-cli_0.22.0_amd64.deb -o step-cli.deb && sudo dpkg -i step-cli.deb && step version

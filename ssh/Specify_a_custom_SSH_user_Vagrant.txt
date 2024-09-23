@@ -1,1 +1,1 @@
-vagrant s  --username=vagrant
+vagrant ssh --username=vagrant

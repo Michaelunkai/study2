@@ -1,0 +1,9 @@
+ORM (Object-Relational Mapping) is a programming technique used to interact with databases by allowing developers to work with database records as if they were objects in their programming language. It helps map between relational database tables and programming language objects, simplifying database interactions by abstracting SQL queries.
+
+With ORM, developers can perform database operations like Create, Read, Update, and Delete (CRUD) without writing raw SQL queries, as the ORM library handles these interactions behind the scenes.
+
+Examples of ORM libraries:
+- **SQLAlchemy** (Python)
+- **Hibernate** (Java)
+- **Entity Framework** (C#)
+

@@ -1,0 +1,1 @@
+ docker run --name wiz -it -d -v  ~/wizdata:/wiz/storage -p 8080:80 wiznote/wizserver && gcl 8080

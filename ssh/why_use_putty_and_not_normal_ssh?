@@ -1,0 +1,15 @@
+PuTTY is often used instead of the normal SSH client for the following reasons:
+
+1. **Windows Compatibility**: PuTTY is a dedicated SSH client for Windows, whereas native SSH support on Windows was introduced only with Windows 10's PowerShell. Older versions of Windows lacked a native SSH client.
+
+2. **User-Friendly Interface**: PuTTY offers a graphical user interface (GUI) that makes it easier for users unfamiliar with command-line interfaces to configure and manage SSH sessions.
+
+3. **Session Management**: PuTTY allows saving session profiles, including connection settings, port forwarding, and authentication, which can be handy for users who frequently connect to different servers.
+
+4. **Portability**: PuTTY is lightweight and can be run as a portable application without needing installation, which is useful for users working on systems where they cannot install software.
+
+5. **Additional Protocols**: PuTTY supports other protocols like Telnet and Serial communication, making it more versatile than a standard SSH client.
+
+6. **Key Management**: PuTTY integrates well with PuTTYgen (for generating SSH keys) and Pageant (for SSH key management), streamlining public key authentication for SSH connections.
+
+Despite these benefits, the native SSH client is often preferred by those comfortable with the command line, especially on Linux, macOS, and modern Windows versions.

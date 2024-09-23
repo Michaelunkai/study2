@@ -1,0 +1,26 @@
+Troubleshooting
+Here are some common issues you may encounter:
+
+Issue 8.1: Permission Errors During npm Install
+If you encounter permission errors, use nvm to install Node.js without needing sudo:
+
+ 
+ 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/. rc
+nvm install --lts
+Reinstall StrongLoop without using sudo:
+
+ 
+ 
+npm install -g strongloop
+Issue 8.2: Port Already in Use
+If the default port 3000 is already in use, specify a different port:
+
+ 
+ 
+PORT=3001 node .
+Issue 8.3: Application Fails to Start
+Check Logs: Look for error messages in the terminal.
+Verify Dependencies: Ensure all required npm packages are installed.
+Node Version Compatibility: Ensure that your Node.js version is compatible with StrongLoop.

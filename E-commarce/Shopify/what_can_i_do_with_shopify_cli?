@@ -1,0 +1,15 @@
+With Shopify CLI, you can perform a variety of tasks to streamline app and theme development for Shopify stores:
+
+1. **Create Shopify Apps**: Quickly generate boilerplate code for new Shopify apps using supported frameworks like Node.js and Ruby on Rails.
+
+2. **Create and Customize Themes**: Develop and modify Shopify store themes locally, and preview changes before pushing them live.
+
+3. **Serve Apps Locally**: Run apps locally with a secure tunnel to your Shopify store, allowing you to test the app in a live environment during development.
+
+4. **Deploy Apps**: Deploy your app to Shopify for production or staging environments using a simple command.
+
+5. **Shop Management**: Manage themes, apps, and storefronts by interacting with your Shopify store directly from the command line.
+
+6. **Connect to Shopify API**: Use CLI commands to authenticate and make requests to the Shopify API, facilitating development workflows.
+
+7. **Automate Common Tasks**: Automate repetitive tasks like generating models, migrations, and scaffolding for your app.

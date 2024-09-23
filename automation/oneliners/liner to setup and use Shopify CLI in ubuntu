@@ -1,0 +1,1 @@
+cd && wget https://github.com/Shopify/shopify-cli/releases/download/v2.36.0/shopify-cli-2.36.0.deb && getruby && sudo dpkg -i shopify-cli-2.36.0.deb && shopify version

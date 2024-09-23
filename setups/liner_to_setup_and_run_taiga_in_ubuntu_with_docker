@@ -1,0 +1,1 @@
+git clone https://github.com/taigaio/taiga-docker.git && cd taiga-docker && ./launch-taiga.sh && gcl 9000

@@ -1,1 +1,1 @@
-vagrant s  --timeout=30
+vagrant ssh --timeout=30

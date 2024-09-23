@@ -1,1 +1,1 @@
-vagrant s  machine_name
+vagrant ssh machine_name

@@ -1,1 +1,1 @@
-vagrant s
+vagrant ssh

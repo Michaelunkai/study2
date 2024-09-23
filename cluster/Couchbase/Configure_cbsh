@@ -1,0 +1,44 @@
+Configure cbsh
+For a seamless experience, configure cbsh to connect to your Couchbase cluster automatically.
+
+Create Configuration Directory
+
+ 
+ 
+mkdir -p ~/.cbsh
+Create the Configuration File
+
+Open ~/.cbsh/config in your favorite text editor:
+
+ 
+ 
+nano ~/.cbsh/config
+Add Cluster Configuration
+
+Replace the placeholder values with your actual Couchbase Server details:
+
+toml
+ 
+version = 1
+
+[[cluster]]
+identifier = "my-local-cb-node"
+hostnames = ["127.0.0.1"]  # Replace with your Couchbase Server IP if remote
+default-bucket = "default"  # Replace with your default bucket name
+username = "Administrator"  # Your Couchbase admin username
+password = "password"        # Your Couchbase admin password
+Example:
+
+toml
+ 
+version = 1
+
+[[cluster]]
+identifier = "my-local-cb-node"
+hostnames = ["127.0.0.1"]
+default-bucket = "travel-sample"
+username = "Administrator"
+password = "your_secure_password"
+Save and Exit
+
+If using nano, press CTRL + O to write changes and CTRL + X to exit.

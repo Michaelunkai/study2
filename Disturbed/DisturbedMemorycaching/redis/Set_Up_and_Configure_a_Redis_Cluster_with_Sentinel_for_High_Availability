@@ -1,0 +1,341 @@
+To set up and configure a Redis Cluster with Sentinel for high availability in Ubuntu, follow these step-by-step instructions. This guide will cover the installation of Redis, configuration of Redis instances, setting up Redis Sentinel, and configuring the cluster for high availability.
+
+Step 1: Install Redis
+Update the package lists and install Redis:
+
+sh
+ 
+sudo apt update
+sudo apt install redis-server
+Verify the Redis installation:
+
+sh
+ 
+redis-server --version
+Step 2: Configure Redis Instances
+Create directories for each Redis instance:
+
+sh
+ 
+sudo mkdir -p /etc/redis/redis1 /etc/redis/redis2 /etc/redis/redis3
+sudo mkdir -p /var/lib/redis1 /var/lib/redis2 /var/lib/redis3
+Copy the default Redis configuration file to each instance directory:
+
+sh
+ 
+sudo cp /etc/redis/redis.conf /etc/redis/redis1/redis1.conf
+sudo cp /etc/redis/redis.conf /etc/redis/redis2/redis2.conf
+sudo cp /etc/redis/redis.conf /etc/redis/redis3/redis3.conf
+Edit each configuration file to set different ports and data directories:
+
+For Redis instance 1 (/etc/redis/redis1/redis1.conf):
+
+sh
+ 
+sudo nano /etc/redis/redis1/redis1.conf
+Change the following lines:
+
+conf
+ 
+port 6379
+dir /var/lib/redis1
+pidfile /var/run/redis/redis1.pid
+For Redis instance 2 (/etc/redis/redis2/redis2.conf):
+
+sh
+ 
+sudo nano /etc/redis/redis2/redis2.conf
+Change the following lines:
+
+conf
+ 
+port 6380
+dir /var/lib/redis2
+pidfile /var/run/redis/redis2.pid
+For Redis instance 3 (/etc/redis/redis3/redis3.conf):
+
+sh
+ 
+sudo nano /etc/redis/redis3/redis3.conf
+Change the following lines:
+
+conf
+ 
+port 6381
+dir /var/lib/redis3
+pidfile /var/run/redis/redis3.pid
+Step 3: Start Redis Instances
+Create systemd service files for each Redis instance:
+
+For Redis instance 1 (/etc/systemd/system/redis1.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis1.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-server /etc/redis/redis1/redis1.conf
+ExecStop=/usr/bin/redis-cli -p 6379 shutdown
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+For Redis instance 2 (/etc/systemd/system/redis2.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis2.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-server /etc/redis/redis2/redis2.conf
+ExecStop=/usr/bin/redis-cli -p 6380 shutdown
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+For Redis instance 3 (/etc/systemd/system/redis3.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis3.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-server /etc/redis/redis3/redis3.conf
+ExecStop=/usr/bin/redis-cli -p 6381 shutdown
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and start the services:
+
+sh
+ 
+sudo systemctl daemon-reload
+sudo systemctl start redis1
+sudo systemctl start redis2
+sudo systemctl start redis3
+Enable the services to start on boot:
+
+sh
+ 
+sudo systemctl enable redis1
+sudo systemctl enable redis2
+sudo systemctl enable redis3
+Verify that all Redis instances are running:
+
+sh
+ 
+sudo systemctl status redis1
+sudo systemctl status redis2
+sudo systemctl status redis3
+Step 4: Configure Redis Sentinel
+Create Sentinel configuration files:
+
+sh
+ 
+sudo mkdir -p /etc/redis/sentinel1 /etc/redis/sentinel2 /etc/redis/sentinel3
+sudo cp /etc/redis/sentinel.conf /etc/redis/sentinel1/sentinel1.conf
+sudo cp /etc/redis/sentinel.conf /etc/redis/sentinel2/sentinel2.conf
+sudo cp /etc/redis/sentinel.conf /etc/redis/sentinel3/sentinel3.conf
+Edit each Sentinel configuration file:
+
+For Sentinel instance 1 (/etc/redis/sentinel1/sentinel1.conf):
+
+sh
+ 
+sudo nano /etc/redis/sentinel1/sentinel1.conf
+Change the following lines:
+
+conf
+ 
+port 26379
+dir /var/lib/redis1
+sentinel monitor mymaster 127.0.0.1 6379 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 10000
+sentinel parallel-syncs mymaster 1
+For Sentinel instance 2 (/etc/redis/sentinel2/sentinel2.conf):
+
+sh
+ 
+sudo nano /etc/redis/sentinel2/sentinel2.conf
+Change the following lines:
+
+conf
+ 
+port 26380
+dir /var/lib/redis2
+sentinel monitor mymaster 127.0.0.1 6379 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 10000
+sentinel parallel-syncs mymaster 1
+For Sentinel instance 3 (/etc/redis/sentinel3/sentinel3.conf):
+
+sh
+ 
+sudo nano /etc/redis/sentinel3/sentinel3.conf
+Change the following lines:
+
+conf
+ 
+port 26381
+dir /var/lib/redis3
+sentinel monitor mymaster 127.0.0.1 6379 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 10000
+sentinel parallel-syncs mymaster 1
+Step 5: Start Redis Sentinel
+Create systemd service files for each Sentinel instance:
+
+For Sentinel instance 1 (/etc/systemd/system/redis-sentinel1.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis-sentinel1.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis Sentinel
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-sentinel /etc/redis/sentinel1/sentinel1.conf
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+For Sentinel instance 2 (/etc/systemd/system/redis-sentinel2.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis-sentinel2.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis Sentinel
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-sentinel /etc/redis/sentinel2/sentinel2.conf
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+For Sentinel instance 3 (/etc/systemd/system/redis-sentinel3.service):
+
+sh
+ 
+sudo nano /etc/systemd/system/redis-sentinel3.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=Redis Sentinel
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redis-sentinel /etc/redis/sentinel3/sentinel3.conf
+User=redis
+Group=redis
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and start the Sentinel services:
+
+sh
+ 
+sudo systemctl daemon-reload
+sudo systemctl start redis-sentinel1
+sudo systemctl start redis-sentinel2
+sudo systemctl start redis-sentinel3
+Enable the Sentinel services to start on boot:
+
+sh
+ 
+sudo systemctl enable redis-sentinel1
+sudo systemctl enable redis-sentinel2
+sudo systemctl enable redis-sentinel3
+Verify that all Sentinel instances are running:
+
+sh
+ 
+sudo systemctl status redis-sentinel1
+sudo systemctl status redis-sentinel2
+sudo systemctl status redis-sentinel3
+Step 6: Verify the Redis Cluster with Sentinel
+Connect to the Redis master instance:
+
+sh
+ 
+redis-cli -p 6379
+Check the role of the instance:
+
+sh
+ 
+info replication
+You should see role:master for the master instance.
+
+Simulate a failure and check Sentinel failover:
+
+sh
+ 
+sudo systemctl stop redis1
+Check the Sentinel logs and verify that a new master is elected:
+
+sh
+ 
+sudo journalctl -u redis-sentinel1 -f
+Look for messages indicating that a failover has occurred and a new master has been elected.
+
+Start the stopped Redis instance:
+
+sh
+ 
+sudo systemctl start redis1
+Verify that the stopped Redis instance has joined as a replica:
+
+sh
+ 
+redis-cli -p 6379
+info replication
+You should see role:slave for the previously stopped instance.
+
+Conclusion
+You have successfully set up and configured a Redis Cluster with Sentinel for high availability on Ubuntu. The cluster will now automatically handle failovers, ensuring continuous availability of your Redis instances.

@@ -1,0 +1,1 @@
+mv key.pem /root/ && chmod 600 /root/key.pem && ssh -i /root/key.pem ubuntu@54.173.176.93

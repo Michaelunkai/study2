@@ -1,0 +1,40 @@
+Basic cbsh Commands
+Here are some basic commands to get you started:
+
+List Buckets
+
+ 
+ 
+> buckets
+Sample  :
+
+ 
+ 
+───┬─────────┬───────────────┬───────────┬──────────┬──────────────────────┬───────────┬───────────────┬────────┬───────
+ # │ cluster │     name      │   type    │ replicas │ min_durability_level │ ram_quota │ flush_enabled │ status │ cloud
+───┼─────────┼───────────────┼───────────┼──────────┼──────────────────────┼───────────┼───────────────┼────────┼───────
+ 0 │ default │ beer-sample   │ couchbase │        1 │ none                 │  209.7 MB │ false         │        │ false
+ 1 │ default │ default       │ couchbase │        1 │ none                 │  104.9 MB │ true          │        │ false
+ 2 │ default │ targetBucket  │ couchbase │        0 │ none                 │  104.9 MB │ true          │        │ false
+ 3 │ default │ travel-sample │ couchbase │        1 │ none                 │  209.7 MB │ false         │        │ false
+───┴─────────┴───────────────┴───────────┴──────────┴──────────────────────┴───────────┴───────────────┴────────┴───────
+Perform a N1QL Query
+
+ 
+ 
+> query "SELECT * FROM `travel-sample` LIMIT 5;"
+Insert a Document
+
+ 
+ 
+> doc insert travel-sample mydoc '{"name": "John Doe", "email": "john.doe@example.com"}'
+Get a Document
+
+ 
+ 
+> doc get travel-sample mydoc
+List Users
+
+ 
+ 
+> users

@@ -1,0 +1,57 @@
+If you prefer to build cbsh from source instead of using precompiled binaries, follow these steps.
+
+Step 3.1: Install Rust and Cargo
+Install Rust via rustup
+
+ 
+ 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+Follow the on-screen instructions. After installation, reload your shell configuration:
+
+ 
+ 
+source $HOME/.cargo/env
+Verify Installation
+
+ 
+ 
+rustc --version
+cargo --version
+Step 3.2: Clone the couchbase-shell Repository
+ 
+ 
+git clone https://github.com/couchbaselabs/couchbase-shell.git
+cd couchbase-shell
+Step 3.3: Build cbsh
+Build in Debug Mode
+
+ 
+ 
+cargo build
+Note: Debug builds are slower and larger.
+
+Build in Release Mode
+
+For optimized performance:
+
+ 
+ 
+cargo build --release
+The binary will be located at target/release/cbsh.
+
+Step 3.4: Install cbsh Binary
+Move the Binary to /usr/local/bin
+
+ 
+ 
+sudo mv target/release/cbsh /usr/local/bin/
+Grant Execute Permissions
+
+ 
+ 
+sudo chmod +x /usr/local/bin/cbsh
+Verify Installation
+
+ 
+ 
+cbsh --version

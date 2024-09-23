@@ -1,0 +1,15 @@
+Strings:
+
+redis-cli set mykey "value"
+Hashes:
+
+redis-cli hset myhash field1 "value1"
+Lists:
+
+redis-cli lpush mylist "value1"
+Sets:
+
+redis-cli sadd myset "value1"
+Sorted Sets:
+
+redis-cli zadd myzset 1 "value1"

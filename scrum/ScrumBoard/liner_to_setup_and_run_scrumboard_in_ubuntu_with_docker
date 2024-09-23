@@ -1,0 +1,1 @@
+git clone https://github.com/techtter/scrum-board.git && cd scrum-board && dcu && gc http://localhost:4200/

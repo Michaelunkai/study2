@@ -1,0 +1,26 @@
+**OpenBazaar-go** is the backend server daemon for the **OpenBazaar** platform, a decentralized, peer-to-peer marketplace that allows users to buy and sell goods without intermediaries. The platform uses blockchain technology, specifically cryptocurrencies like Bitcoin, to facilitate transactions.
+
+### Key Features of OpenBazaar-go:
+- **Decentralized Marketplace:** Unlike traditional marketplaces that rely on centralized servers (e.g., Amazon or eBay), OpenBazaar is decentralized, meaning there is no central authority controlling the platform.
+- **Cryptocurrency Payments:** The server facilitates transactions using cryptocurrencies like Bitcoin, ZCash, and others, providing privacy and security.
+- **Integration with IPFS:** The server uses a modified version of the **InterPlanetary File System (IPFS)**, a peer-to-peer hypermedia protocol, for distributed data storage and content sharing.
+- **DHT (Distributed Hash Table):** The server operates using a DHT, which enables decentralized discovery of peers and data on the network.
+- **Peer-to-Peer Communication:** OpenBazaar-go enables users to directly interact, negotiate, and transact with each other without middlemen.
+- **Multi-Currency Wallet:** OpenBazaar-go has built-in wallet functionality for managing multiple cryptocurrency balances.
+
+### Architecture
+- **OpenBazaar-go Daemon:** This is the core component of the OpenBazaar server that handles the marketplace operations, including wallet management, order processing, and interactions with the network.
+- **User Interface Integration:** The OpenBazaar-go daemon provides a **JSON API** that can be connected to a user interface, such as the **OpenBazaar Desktop Application**, which allows users to browse the marketplace and interact with the server.
+- **Security and Privacy Features:** It supports Tor integration, enabling anonymous communication and transactions over the network.
+
+### Project Status
+As of March 2023, the **OpenBazaar-go** repository has been archived, meaning active development has ceased, and the codebase is now read-only. Some services, such as the price ticker, may no longer be operational.
+
+### Use Cases
+- **E-commerce:** Allows users to buy and sell goods without relying on centralized platforms.
+- **Private Transactions:** Supports privacy-focused cryptocurrency transactions.
+- **Decentralized Storefronts:** Enables anyone to host their own online store without needing to rely on third-party services.
+
+### Additional Information
+- **Platform:** Primarily used as part of the OpenBazaar marketplace, though it can be run independently.
+- **License:** MIT license, allowing free usage and modification of the code.

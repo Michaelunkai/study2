@@ -1,0 +1,2 @@
+redis-cli set session:12345 "user_data"
+redis-cli expire session:12345 3600

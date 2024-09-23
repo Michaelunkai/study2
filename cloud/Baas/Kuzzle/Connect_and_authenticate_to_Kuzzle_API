@@ -1,0 +1,24 @@
+Connect and authenticate to Kuzzle API
+Commands that needs to send requests to Kuzzle API can specify the Kuzzle server address and authentication informations.
+
+By command line:
+
+
+  --host=host                    [default: localhost] Kuzzle server host
+  --port=port                    [default: 7512] Kuzzle server port
+  --username=username            [default: anonymous] Kuzzle user
+  --password=password            Kuzzle user password
+  --api-key=api-key              Kuzzle user api-key
+  --ssl                          [default: true for port 443] Use SSL to connect to Kuzzle
+  --protocol                     [default: ws] Protocol used to connect to Kuzzle ( `http` or `ws` )
+
+By environment variables:
+
+
+  KUZZLE_HOST                [default: localhost] Kuzzle server host
+  KUZZLE_PORT                [default: 7512] Kuzzle server port
+  KUZZLE_USERNAME            [default: anonymous] Kuzzle user
+  KUZZLE_PASSWORD            Kuzzle user password
+  KUZZLE_API_KEY             Kuzzle user api-key
+  KUZZLE_SSL                 Use SSL to connect to Kuzzle
+  KUZZLE_PROTOCOL            Protocol used to connect to Kuzzle ( `http` or `ws` )

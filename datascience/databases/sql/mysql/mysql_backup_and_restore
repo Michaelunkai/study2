@@ -1,0 +1,1 @@
+Backup and RestoreLearn how to back up and restore your databases.Backup:mysqldump -u root -p mydatabase > mydatabase_backup.sqlRestore:mysql -u root -p mydatabase < mydatabase_backup.sql

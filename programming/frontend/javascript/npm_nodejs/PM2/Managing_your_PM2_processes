@@ -1,0 +1,22 @@
+Managing your PM2 processes:
+
+List running processes:
+
+ 
+ 
+pm2 list
+Stop a process:
+
+ 
+ 
+pm2 stop <process-id or process-name>
+Restart a process:
+
+ 
+ 
+pm2 restart <process-id or process-name>
+Delete a process:
+
+ 
+ 
+pm2 delete <process-id or process-name>

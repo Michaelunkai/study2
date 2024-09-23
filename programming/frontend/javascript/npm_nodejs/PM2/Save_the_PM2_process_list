@@ -1,0 +1,5 @@
+Save the PM2 process list: To keep your PM2 processes alive even after a reboot, save the PM2 process list:
+
+ 
+ 
+pm2 save

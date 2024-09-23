@@ -1,0 +1,6 @@
+GHCup is a toolchain management tool for **Haskell**. It helps in installing and managing different versions of **Glasgow Haskell Compiler (GHC)**, **Cabal**, **Stack**, and related Haskell tools. GHCup simplifies the setup and management of Haskell development environments by automating the process of installing and switching between toolchain components, ensuring compatibility and ease of use for developers.
+
+With GHCup, you can:
+- Install and manage multiple versions of GHC.
+- Install and manage Haskell build tools like Cabal and Stack.
+- Set up your system environment for Haskell development.

@@ -1,0 +1,13 @@
+You can connect to your fork of YellowLabTools by changing the GitHub repository in the Dockerfile and rebuilding the image.
+
+Dockerfile:
+
+-  && git clone https://github.com/YellowLabTools/YellowLabTools-server.git -b ${VERSION} . \
++  && git clone https://github.com/kevinfarrugia/YellowLabTools-server.git -b ${VERSION} . \
+Build:
+
+docker build -t yellowlabtools .
+
+Run:
+
+docker run --privileged -p 8383:8383 yellowlabtools

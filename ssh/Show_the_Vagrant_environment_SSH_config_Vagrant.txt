@@ -1,1 +1,1 @@
-vagrant s -config
+vagrant ssh-config

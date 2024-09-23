@@ -1,0 +1,3 @@
+GnuTLS (GNU Transport Layer Security) is an open-source software library that implements the SSL, TLS, and DTLS protocols, providing secure communication over a computer network. It allows applications to securely encrypt data over connections, authenticate peers, and ensure data integrity. GnuTLS is often used to add SSL/TLS support to client and server applications and can handle certificate generation, private key management, and encryption.
+
+It supports a wide variety of cryptographic algorithms and is designed to be used in a wide range of applications, from simple command-line tools to complex network services.

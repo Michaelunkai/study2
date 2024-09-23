@@ -1,0 +1,43 @@
+The core of Yellow Lab Tools can be executed as a standalone from the command line. It simply analyzes a page and outputs the JSON when the test is complete.
+
+Requirements
+You need NodeJS (version 12 is just fine).
+On Linux, you also need libjpeg and fontconfig: sudo apt-get install libjpeg-dev libfontconfig.
+Install Yellow Lab Tools
+Install Yellow Lab Tools globally (with the -g flag), so the yellowlabtools CLI is automatically added to your PATH.
+
+npm install -g yellowlabtools
+Run
+Now you can launch this command from anywhere on your computer:
+
+yellowlabtools www.google.fr
+To save the result in a file:
+
+yellowlabtools www.google.fr > resultFile.json
+Result
+See the JSON output format here.
+
+The result is printed directly to the stdout, and is JSON. Don't hesitate to ask if you would like another output format.
+
+Options
+You can launch the test with optional parameters like this:
+
+yellowlabtools www.google.fr --screenshot=/my/path/screenshot.png
+device
+--device= Use "phone" or "tablet" to simulate a mobile device (by user-agent and viewport size). Default is "desktop".
+
+screenshot
+--screenshot= Will take a screenshot and use this value as the output path. It needs to end with ".png".
+
+proxy
+--proxy= Uses the defined HTTP proxy to access the website. Syntax is host:port.
+
+cookie
+--cookie= Adds a cookie for a domain. Multiple cookies can be set, using a pipe separator.
+Example: --cookie="bar1=foo1;domain=.domain1.com|bar2=foo2;domain=www.domain2.com".
+
+reporter
+--reporter The default output is JSON. You can switch to XML by setting --reporter=xml.
+
+basic HTTP authentication
+--auth-user and --auth-pass Authentication username and password. If your authentication is not basic (form based), you might be able to copy the session cookie from your browser, paste it in the --cookie parameter and launch a run before your cookie expires.

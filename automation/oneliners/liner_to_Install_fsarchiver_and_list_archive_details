@@ -1,0 +1,1 @@
+sudo apt install -y fsarchiver && sudo fsarchiver savefs /backup/mybackup.fsa /dev/sdX1 && sudo fsarchiver archinfo /backup/mybackup.fsa

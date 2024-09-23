@@ -1,0 +1,29 @@
+Here's how to add an "Allow SSH" rule in the pfSense firewall:
+
+Step 1: Accessing the Firewall Rules Interface
+
+Log in to the pfSense web interface.
+Navigate to Firewall > Rules.
+Step 2: Adding the Allow SSH Rule
+
+In the Rules tab, select the interface where you want to add the rule (usually WAN for inbound traffic).
+Click on the "+" button to add a new rule.
+In the Description field, enter a descriptive name for the rule, such as "Allow SSH."
+Set the Action to "Pass" to allow traffic that matches this rule.
+Set the Interface(s) to "WAN" or the appropriate interface where the SSH traffic will be coming from.
+In the Address Family dropdown, select "IPv4" or "IPv6" depending on your network configuration.
+In the Protocol dropdown, select "TCP."
+In the Destination Port Range, enter "SSH" or port "22."
+Optionally, you can specify the source IP address or range under the Source section to restrict SSH access to specific IPs.
+Leave the rest of the fields at their default settings or adjust them as needed.
+Click on the "Save" button to save the rule.
+Step 3: Applying the Changes
+
+After saving the rule, click on the "Apply Changes" button to apply the configuration changes to the firewall.
+Wait for the changes to be applied, and the rule will take effect immediately.
+Verification: Testing SSH Access
+To verify that the SSH rule is working:
+
+Attempt to SSH into your pfSense firewall from a remote location using the configured WAN IP address.
+If the connection is successful, the SSH rule is working correctly.
+That's it! You've successfully added an "Allow SSH" rule to the pfSense firewall, allowing SSH traffic to pass through the WAN interface. Adjust the rule as needed based on your network security requirements.

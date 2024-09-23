@@ -1,0 +1,28 @@
+**Server-Sent Events (SSE)** is a standard for enabling real-time, one-way communication from a server to a client over HTTP. It's often used to push real-time updates, such as live sports scores, stock prices, or notifications, from the server to the client's browser. 
+
+### How SSE Works:
+1. **Client initiates connection**: The client (usually a web browser) makes an HTTP request to the server to establish an SSE connection.
+2. **Server keeps the connection open**: Instead of sending a one-time response, the server keeps the connection open and continuously sends updates whenever new data is available.
+3. **Messages are sent in plain text**: The server sends data in the form of text-based messages (UTF-8), prefixed with "data:", and each message ends with two newline characters (`\n\n`).
+4. **Client receives updates**: The browser listens for these messages and updates the content in real-time without needing to refresh the page or re-establish the connection.
+
+### Key Features of SSE:
+- **One-way communication**: Data flows from the server to the client only.
+- **Persistent connection**: A single connection stays open and can handle multiple updates.
+- **Automatic reconnection**: If the connection is lost, the browser will attempt to reconnect automatically.
+- **Lightweight and efficient**: It uses a simple HTTP connection and is less complex compared to full-duplex protocols like WebSockets.
+
+### Use Cases:
+- Real-time notifications or alerts.
+- Live sports scores or stock updates.
+- Social media feeds or comment streams.
+- Real-time dashboard or monitoring tools.
+
+### Advantages of SSE:
+- **Easy to implement**: Since SSE is built on top of standard HTTP, it’s simpler to set up compared to WebSockets.
+- **Automatic reconnection**: Browsers natively support reconnection if the connection is lost.
+- **Lower overhead**: SSE works well for applications where real-time updates are needed but don’t require full bi-directional communication like chat apps.
+
+### Disadvantages of SSE:
+- **One-way communication**: Unlike WebSockets, SSE only allows the server to send data to the client, not vice versa.
+- **Not suitable for high-frequency updates**: SSE might not be ideal for very frequent or large data streams compared to WebSockets.

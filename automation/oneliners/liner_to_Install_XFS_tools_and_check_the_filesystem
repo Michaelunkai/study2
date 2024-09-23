@@ -1,0 +1,1 @@
+sudo apt install -y xfsprogs && sudo mkfs.xfs /dev/sdX && sudo xfs_check /dev/sdX

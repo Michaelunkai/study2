@@ -1,0 +1,21 @@
+Using LoopBack API Explorer
+The LoopBack API Explorer allows you to interact with your APIs, view the available endpoints, and execute requests directly from the browser.
+
+Step 6.1: Access the API Explorer
+To access the API Explorer, navigate to the following URL in your web browser:
+
+ 
+ 
+http://localhost:3000/explorer
+The API Explorer interface will show you all available API endpoints, including routes for your models, and let you test them interactively.
+
+Step 6.2: Customizing the Explorer Path
+If you wish to customize the URL path where the API Explorer is served (e.g., changing /explorer to /api-docs), you can modify the configuration in the server.js file:
+
+javascript
+ 
+const explorer = require('@loopback/openapi-v3').RestExplorerComponent;
+app.component(explorer);
+app.configure(RestExplorerBindings.COMPONENT).to({
+  path: '/api-docs',
+});

@@ -1,0 +1,6 @@
+Create and add to a stream (Redis):
+
+redis-cli xadd mystream * field1 value1 field2 value2
+Read from a stream (Redis):
+
+redis-cli xread count 2 streams mystream 0

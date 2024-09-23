@@ -1,0 +1,1 @@
+sudo apt install -y lvm2 && sudo pvcreate /dev/sdX && sudo vgcreate myvg /dev/sdX && sudo lvcreate -L 10G -n mylv myvg && sudo mkfs.ext4 /dev/myvg/mylv && sudo lvdisplay

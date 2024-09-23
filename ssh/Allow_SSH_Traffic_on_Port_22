@@ -1,0 +1,7 @@
+Allow SSH Traffic on Port 22
+First, find the security group associated with your instance:
+
+ 
+ 
+aws ec2 describe-instances --instance-ids i-009fcde35497c522d --query 'Reservations[*].Instances[*].SecurityGroups[*].GroupId' --output text
+Replace i-009fcde35497c522d with your instance ID. This command will return the security group ID(s). Let's assume the security group ID is sg-0123456789abcdef0.

@@ -1,1 +1,1 @@
-vagrant s  --port=2222
+vagrant ssh --port=2222

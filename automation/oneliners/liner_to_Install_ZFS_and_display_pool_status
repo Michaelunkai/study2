@@ -1,0 +1,1 @@
+sudo apt install -y zfsutils-linux && sudo zpool create mypool /dev/sdX && sudo zpool status mypool
