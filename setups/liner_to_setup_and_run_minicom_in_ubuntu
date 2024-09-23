@@ -1,0 +1,1 @@
+sudo apt install minicom -y && sudo minicom -s &&  sudo minicom
