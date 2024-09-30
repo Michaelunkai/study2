@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Install Dependencies
 sudo apt install -y libgtk-3-0 libdbus-glib-1-2 wget tar

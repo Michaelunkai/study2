@@ -1,0 +1,1 @@
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location westeurope --sku Standard_LRS && az storage container create --name my-container --account-name mystorageaccount && az storage blob upload --container-name my-container --file ./my-file --name my-blob

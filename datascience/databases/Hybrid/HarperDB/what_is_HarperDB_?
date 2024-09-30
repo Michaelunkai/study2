@@ -1,0 +1,9 @@
+**HarperDB** is a data management platform that integrates both **SQL** and **NoSQL** databases, offering flexibility in handling structured and unstructured data. Its key features include:
+
+1. **SQL and NoSQL Support**: You can run standard SQL queries (like joins, inserts, updates, deletes) on both structured and unstructured data.
+2. **Fully Indexed**: HarperDB automatically indexes all data, ensuring efficient search and retrieval.
+3. **No Data Duplication**: Data is stored without duplication, optimizing storage usage.
+4. **Cloud-Hosted**: All data can be hosted in the cloud, allowing access from anywhere.
+5. **Cross-Platform**: HarperDB can run on any device, supporting development across multiple platforms.
+
+In essence, HarperDB simplifies database management by combining the power of SQL and NoSQL in one platform, ensuring high performance and flexibility.

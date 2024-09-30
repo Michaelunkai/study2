@@ -1,0 +1,1 @@
+cd && wget https://get.filebot.net/filebot/FileBot_4.9.6/FileBot_4.9.6_amd64.deb && sudo dpkg -i FileBot_4.9.6_amd64.deb && sudo apt --fix-broken install && filebot --version 

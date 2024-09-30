@@ -1,0 +1,1 @@
+sudo apt install -y libsecret-1-dev gnome-keyring dbus-x11 && getyarn && export $(dbus-launch) && echo "123456" | gnome-keyring-daemon --unlock --components=secrets && yarn global add @zendesk/zcli && zcli --version

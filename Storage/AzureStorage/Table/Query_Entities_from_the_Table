@@ -1,0 +1,1 @@
+az storage entity query --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>"

@@ -1,0 +1,1 @@
+gsutil mb -l us-central1 gs://my-bucket && gsutil cp ./my-file gs://my-bucket

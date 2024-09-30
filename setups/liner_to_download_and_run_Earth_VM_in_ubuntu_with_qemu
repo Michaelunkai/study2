@@ -1,0 +1,1 @@
+getqemu && wget https://download.vulnhub.com/theplanets/Earth.ova && tar -xvf Earth.ova && sudo apt install -y qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && qemu-img convert -f vmdk Earth_dev-disk001.vmdk -O qcow2 Earth.qcow2 && qemu-system-x86_64 -hda Earth.qcow2 -m 2048 -enable-kvm -cpu host -smp 2 -net nic -net user

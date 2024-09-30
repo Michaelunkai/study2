@@ -1,0 +1,1 @@
+ aws ecs describe-services --cluster my-cluster-ad350c48 --services my-service

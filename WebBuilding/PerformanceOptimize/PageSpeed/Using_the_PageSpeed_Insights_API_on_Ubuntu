@@ -1,0 +1,76 @@
+Install Necessary Tools (Curl and jq)
+Before using the PageSpeed Insights API, you’ll need to install the following tools:
+
+ 
+ 
+sudo apt update
+sudo apt install curl jq
+Curl: Used for making API requests.
+jq: Used for parsing JSON responses.
+Step 2: Create a Script to Use the PageSpeed Insights API
+Create a bash script to easily make API requests and display the results.
+
+Create a Script File:
+
+Use nano to create the script file:
+
+ 
+ 
+nano pagespeed_insights.sh
+Add the Following Content to the Script:
+
+Replace YOUR_API_KEY_HERE with the provided API key: 
+
+ 
+ 
+#!/bin/bash
+
+# Your actual API key
+API_KEY="<>"
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <URL>"
+  exit 1
+fi
+
+URL="$1"
+API_URL="https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${URL}&key=${API_KEY}"
+
+echo "Analyzing $URL..."
+RESPONSE=$(curl -s "$API_URL")
+
+# Extract scores
+LCP=$(echo "$RESPONSE" | jq '.lighthouseResult.audits."largest-contentful-paint".displayValue')
+FID=$(echo "$RESPONSE" | jq '.lighthouseResult.audits."max-potential-fid".displayValue')
+CLS=$(echo "$RESPONSE" | jq '.lighthouseResult.audits."cumulative-layout-shift".displayValue')
+PERFORMANCE_SCORE=$(echo "$RESPONSE" | jq '.lighthouseResult.categories.performance.score')
+
+echo "Performance Score: $((PERFORMANCE_SCORE * 100))"
+echo "Largest Contentful Paint (LCP): $LCP"
+echo "First Input Delay (FID): $FID"
+echo "Cumulative Layout Shift (CLS): $CLS"
+Save and Exit:
+
+Press CTRL + O to write the changes.
+Press Enter to confirm the file name.
+Press CTRL + X to exit the editor.
+Make the Script Executable:
+
+ 
+ 
+chmod +x pagespeed_insights.sh
+Step 3: Use the Script to Analyze Website Performance
+Run the script and provide the URL of the website you want to analyze:
+
+ 
+ 
+./pagespeed_insights.sh https://www.example.com
+Sample  :
+
+java
+ 
+Analyzing https://www.example.com...
+Performance Score: 85
+Largest Contentful Paint (LCP): 2.5 s
+First Input Delay (FID): 12 ms
+Cumulative Layout Shift (CLS): 0.05

@@ -1,0 +1,137 @@
+Setting Up, Running, and Managing AWS ECS Clusters Using the AWS CLI
+This tutorial covers the complete process for setting up, running, and managing Amazon ECS (Elastic Container Service) clusters using the AWS CLI. We will also include additional steps for monitoring, scaling, updating, backing up, restoring, managing security, troubleshooting, and deleting ECS clusters.
+
+1. Install and Configure AWS CLI
+Install AWS CLI
+
+On Windows/Mac/Linux: Use the installer or package manager. For example, on Ubuntu:
+
+ 
+ 
+sudo apt-get update
+sudo apt-get install awscli
+Verify Installation:
+
+ 
+ 
+aws --version
+Configure AWS CLI
+
+Set up your credentials and default configuration:
+
+ 
+ 
+aws configure
+You’ll be prompted to enter:
+
+AWS Access Key ID
+AWS Secret Access Key
+Default region name
+Default output format
+2. Set Up an Amazon ECS Cluster
+Create a Cluster
+
+ 
+ 
+aws ecs create-cluster --cluster-name my-cluster
+Create a Task Definition
+
+Create a JSON file named task-definition.json with the following content:
+
+json
+ 
+{
+  "family": "my-task",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "nginx:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true
+    }
+  ]
+}
+Register the task definition:
+
+ 
+ 
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+Run a Task
+
+ 
+ 
+aws ecs create-service --cluster my-cluster --service-name my-service --task-definition my-task --desired-count 1
+3. Monitor Your ECS Clusters
+List Services
+
+ 
+ 
+aws ecs list-services --cluster my-cluster
+Describe Service
+
+ 
+ 
+aws ecs describe-services --cluster my-cluster --services my-service
+4. Scale Your ECS Clusters
+Update Desired Count
+
+ 
+ 
+aws ecs update-service --cluster my-cluster --service my-service --desired-count 3
+5. Update Your ECS Clusters
+Register New Task Definition
+
+Modify task-definition.json and register it:
+
+ 
+ 
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+Update Service
+
+ 
+ 
+aws ecs update-service --cluster my-cluster --service my-service --task-definition my-task
+6. Backup and Restore Your ECS Clusters
+Create an AMI
+
+Use the AWS Management Console or CLI to create an AMI of your ECS instances.
+
+Backup Task Definitions
+
+ 
+ 
+aws ecs describe-task-definition --task-definition my-task > task-definition-backup.json
+7. Manage ECS Cluster Security
+List Security Groups
+
+ 
+ 
+aws ec2 describe-security-groups
+Update Security Group
+
+ 
+ 
+aws ec2 authorize-security-group-ingress --group-id sg-xxxxxx --protocol tcp --port 80 --cidr 0.0.0.0/0
+8. Troubleshoot ECS Cluster Issues
+View Logs
+
+ 
+ 
+aws logs describe-log-streams --log-group-name /ecs/my-cluster
+Inspect ECS Events
+
+ 
+ 
+aws ecs describe-services --cluster my-cluster --services my-service --query "services[0].events"
+9. Delete Your ECS Clusters
+Delete Service
+
+ 
+ 
+aws ecs delete-service --cluster my-cluster --service my-service
+Delete Cluster
+
+ 
+ 
+aws ecs delete-cluster --cluster my-cluster

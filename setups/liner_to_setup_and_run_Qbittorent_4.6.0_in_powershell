@@ -1,0 +1,1 @@
+ choco install wget -y; wget https://sourceforge.net/projects/qbittorrent/files/latest/download/qbittorrent_4.6.0_x64_setup.exe; Start-Process -FilePath "C:\Users\micha\Downloads\qbittorrent_4.6.0_x64_setup.exe" -Wait

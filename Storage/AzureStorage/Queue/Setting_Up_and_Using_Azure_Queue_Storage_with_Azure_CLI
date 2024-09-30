@@ -1,0 +1,139 @@
+### Setting Up and Using Azure Queue Storage with Azure CLI
+
+Azure Queue Storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. Here’s a step-by-step guide on how to set up and use Queue Storage with the Azure CLI.
+
+#### Prerequisites
+- Azure subscription: If you don't have an Azure subscription, create a free account before you begin.
+- Azure CLI: Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your local machine.
+
+#### Steps to Set Up and Use Azure Queue Storage
+
+1. **Login to Azure**
+     
+   az login
+
+2. **Create a Resource Group**
+     
+   az group create --name myResourceGroup --location eastus
+
+3. **Create a Storage Account**
+     
+   az storage account create \
+     --name mystorageaccount \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --sku Standard_LRS
+
+4. **Retrieve Storage Account Connection String**
+     
+   CONNECTION_STRING=$(az storage account show-connection-string \
+     --resource-group myResourceGroup \
+     --name mystorageaccount \
+     --query connectionString \
+     --output tsv)
+
+5. **Create a Queue**
+     
+   az storage queue create \
+     --name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+6. **Insert a Message into the Queue**
+     
+   az storage message put \
+     --queue-name myqueue \
+     --content "Hello, Azure Queue Storage!" \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+7. **Peek at Messages in the Queue**
+     
+   az storage message peek \
+     --queue-name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+8. **Get Messages from the Queue**
+     
+   az storage message get \
+     --queue-name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+9. **Delete a Message from the Queue**
+     
+   az storage message delete \
+     --queue-name myqueue \
+     --id <message-id> \
+     --pop-receipt <pop-receipt> \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+#### Example Commands and Workflow
+
+1. **Login**
+     
+   az login
+
+2. **Create a Resource Group**
+     
+   az group create --name myResourceGroup --location eastus
+
+3. **Create a Storage Account**
+     
+   az storage account create \
+     --name mystorageaccount \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --sku Standard_LRS
+
+4. **Retrieve Connection String**
+     
+   CONNECTION_STRING=$(az storage account show-connection-string \
+     --resource-group myResourceGroup \
+     --name mystorageaccount \
+     --query connectionString \
+     --output tsv)
+
+5. **Create a Queue**
+     
+   az storage queue create \
+     --name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+6. **Insert a Message**
+     
+   az storage message put \
+     --queue-name myqueue \
+     --content "Hello, Azure Queue Storage!" \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+7. **Peek at Messages**
+     
+   az storage message peek \
+     --queue-name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+8. **Get Messages**
+     
+   az storage message get \
+     --queue-name myqueue \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+9. **Delete a Message**
+     
+   az storage message delete \
+     --queue-name myqueue \
+     --id <message-id> \
+     --pop-receipt <pop-receipt> \
+     --account-name mystorageaccount \
+     --connection-string $CONNECTION_STRING
+
+Replace `<message-id>` and `<pop-receipt>` with the actual message ID and pop receipt you get from the `az storage message get` command.
+
+These commands will help you set up and use Azure Queue Storage with Azure CLI effectively. If you have any specific requirements or need further customization, feel free to ask!

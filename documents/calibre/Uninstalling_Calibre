@@ -1,0 +1,11 @@
+ Uninstalling Calibre
+If you installed Calibre using the official installer:
+
+ 
+ 
+sudo calibre-uninstall
+If you installed via the Ubuntu repository:
+
+ 
+ 
+sudo apt remove calibre

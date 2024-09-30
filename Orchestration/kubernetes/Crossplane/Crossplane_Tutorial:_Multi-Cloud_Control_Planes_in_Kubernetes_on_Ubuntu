@@ -1,0 +1,127 @@
+Crossplane Tutorial: Multi-Cloud Control Planes in Kubernetes on Ubuntu
+Prerequisites
+Kubernetes Cluster: Ensure you have a running Kubernetes cluster. You can use Minikube, Kind, or a managed Kubernetes service.
+kubectl: Ensure kubectl is installed and configured to interact with your cluster.
+Helm: Ensure Helm is installed for installing Crossplane.
+Step 1: Install Crossplane CLI
+First, install the Crossplane CLI. This tool helps with managing Crossplane resources.
+
+ 
+ 
+curl -sL https://raw.githubusercontent.com/crossplane/crossplane/release-1.10/install.sh | sh
+sudo mv kubectl-crossplane /usr/local/bin/
+Step 2: Install Crossplane Helm Chart
+Add the Crossplane Helm repository and install Crossplane into your Kubernetes cluster.
+
+ 
+ 
+helm repo add crossplane-stable https://charts.crossplane.io/stable
+helm repo update
+kubectl create namespace crossplane-system
+helm install crossplane --namespace crossplane-system crossplane-stable/crossplane
+Step 3: Install Provider Configurations
+Crossplane needs providers to manage resources in various clouds. Here, we will install AWS and GCP providers as examples.
+
+AWS Provider
+ 
+ 
+kubectl crossplane install provider crossplane/provider-aws:latest
+GCP Provider
+ 
+ 
+kubectl crossplane install provider crossplane/provider-gcp:latest
+Step 4: Configure Provider Credentials
+You need to configure your cloud provider credentials so that Crossplane can manage resources.
+
+AWS Credentials
+Create a Kubernetes secret with your AWS credentials.
+
+ 
+ 
+kubectl create secret generic aws-creds -n crossplane-system --from-literal=key=<AWS_ACCESS_KEY_ID> --from-literal=secret=<AWS_SECRET_ACCESS_KEY>
+Create a ProviderConfig for AWS.
+
+ 
+ 
+apiVersion: aws.crossplane.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: aws-provider
+spec:
+  region: us-west-2
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: aws-creds
+      key: key
+GCP Credentials
+Create a Kubernetes secret with your GCP credentials.
+
+ 
+ 
+kubectl create secret generic gcp-creds -n crossplane-system --from-file=creds=path/to/your/gcp-keyfile.json
+Create a ProviderConfig for GCP.
+
+ 
+ 
+apiVersion: gcp.crossplane.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: gcp-provider
+spec:
+  projectID: your-gcp-project-id
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: gcp-creds
+      key: creds
+Step 5: Create Managed Resources
+Now you can create managed resources using Crossplane. Here are examples for creating an S3 bucket in AWS and a CloudSQL instance in GCP.
+
+AWS S3 Bucket
+Create an S3 bucket using a Bucket resource.
+
+ 
+ 
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  name: example-bucket
+spec:
+  forProvider:
+    acl: private
+  providerConfigRef:
+    name: aws-provider
+GCP CloudSQL Instance
+Create a CloudSQL instance using a CloudSQLInstance resource.
+
+ 
+ 
+apiVersion: database.gcp.crossplane.io/v1beta1
+kind: CloudSQLInstance
+metadata:
+  name: example-cloud 
+spec:
+  forProvider:
+    databaseVersion: MYSQL_5_7
+    region: us-central1
+    settings:
+      tier: db-f1-micro
+  providerConfigRef:
+    name: gcp-provider
+Step 6: Apply Resources
+Apply the resources using kubectl.
+
+ 
+ 
+kubectl apply -f example-bucket. 
+kubectl apply -f example-cloud . 
+Step 7: Verify Resource Creation
+You can verify the creation of resources by checking the status of the resources.
+
+ 
+ 
+kubectl get bucket
+kubectl get cloud instance

@@ -1,0 +1,23 @@
+Rename Files Using FileBot
+Navigate to your Downloads folder:
+
+ 
+ 
+cd ~/Downloads
+Run the following command to rename all .mp4 files using FileBot:
+
+ 
+ 
+filebot -rename *.mp4 --db TheTVDB --format "{n} - S{S.pad(2)}E{E.pad(2)} - {t}"
+Explanation:
+
+-rename: Tells FileBot to rename the files.
+*.mp4: Selects all .mp4 files in the current directory.
+--db TheTVDB: Uses TheTVDB as the source of TV show information.
+--format "{n} - S{S.pad(2)}E{E.pad(2)} - {t}": Formats the renamed file as Show Name - S01E01 - Episode Title.mp4.
+For recursive renaming (if files are in subdirectories), use the following command:
+
+ 
+ 
+filebot -rename . --db TheTVDB --format "{n} - S{S.pad(2)}E{E.pad(2)} - {t}" --action move
+This will rename all video files in the current directory and its subdirectories.

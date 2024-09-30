@@ -1,0 +1,1 @@
+cd && git clone https://github.com/meltano/meltano.git && cd meltano && venv && pip install -e . && meltano init my_project && cd my_project 

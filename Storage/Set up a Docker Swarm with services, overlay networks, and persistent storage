@@ -1,0 +1,1 @@
+docker swarm init && docker network create --driver overlay my_overlay_network && docker volume create my_volume && docker service create --name my_service --replicas 3 --network my_overlay_network --mount type=volume,source=my_volume,target=/data alpine sleep 1000

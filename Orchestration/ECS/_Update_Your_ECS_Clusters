@@ -1,0 +1,13 @@
+Update Your ECS Clusters
+Register New Task Definition
+
+Modify task-definition.json and register it:
+
+ 
+ 
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+Update Service
+
+ 
+ 
+aws ecs update-service --cluster my-cluster --service my-service --task-definition my-task

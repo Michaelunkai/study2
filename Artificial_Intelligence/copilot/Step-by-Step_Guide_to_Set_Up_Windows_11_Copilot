@@ -1,0 +1,85 @@
+Step-by-Step Guide to Set Up Windows 11 Copilot
+Ensure Your Windows 11 is Up-to-Date
+Open Settings:
+Press Win + I to open the Settings app.
+Go to Windows Update:
+Navigate to Update & Security > Windows Update.
+Check for Updates:
+Click on Check for updates and install any available updates. Windows Copilot is available in the latest versions of Windows 11.
+Join the Windows Insider Program (If Necessary)
+Open Settings:
+Press Win + I to open the Settings app.
+Navigate to Update & Security:
+Go to Update & Security > Windows Insider Program.
+Get Started:
+Click on Get started.
+Link your Microsoft account and follow the prompts to join the Dev Channel, which receives the latest updates and features.
+Restart Your PC
+After joining the Windows Insider Program, restart your PC to ensure all settings and updates are applied.
+Check for Updates Again
+Open Settings:
+Press Win + I to open the Settings app.
+Go to Windows Update:
+Navigate to Update & Security > Windows Update.
+Check for Updates:
+Click on Check for updates again to ensure you have the latest updates installed.
+Enable Copilot Manually Using Registry Editor
+Open Registry Editor:
+Press Win + R, type regedit.exe, and click OK.
+Navigate to the Path:
+Go to HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows.
+Create a New Registry Key:
+Right-click on Windows > New > Key.
+Name the key WindowsCopilot.
+Create a New DWORD Value:
+Right-click on the WindowsCopilot key > New > DWORD (32-bit) Value.
+Name the value TurnOffWindowsCopilot.
+Set the Value:
+Double-click on TurnOffWindowsCopilot.
+Set the value to 0 and click OK.
+Close Registry Editor and Restart:
+Close all registry windows and restart the PC to save the changes.
+Enable Windows Copilot through Group Policy Editor (If Not Visible)
+Open the Run Dialog Box:
+Press Win + R to open the Run dialog box.
+Open Group Policy Editor:
+Type gpedit.msc and press Enter.
+Navigate to Windows Copilot Settings:
+Go to Computer Configuration > Administrative Templates > Windows Components > Windows Copilot.
+Enable Windows Copilot:
+Double-click on Enable Windows Copilot.
+Select Enabled and click Apply and then OK.
+Close the Group Policy Editor:
+Restart your PC.
+Restart Your PC Again
+After enabling Windows Copilot through Group Policy Editor, restart your PC once more.
+Check Taskbar Settings Again
+Open Settings:
+Press Win + I to open the Settings app.
+Go to Personalization:
+Navigate to Personalization > Taskbar.
+Ensure Copilot is Enabled:
+Make sure the Windows Copilot toggle is turned on.
+Open Windows Copilot
+Click on the Copilot Icon:
+Find the Copilot icon in the taskbar (it looks like a chat bubble with a star).
+Access Copilot Sidebar:
+The Copilot sidebar will open on the right side of your screen.
+Set Up and Customize Windows Copilot
+Follow On-Screen Instructions:
+Complete the initial setup by following the on-screen instructions.
+Customize Settings:
+Adjust the settings within the sidebar to customize the types of assistance Copilot provides.
+Using Windows Copilot
+Access Copilot:
+Click the Copilot icon or use the keyboard shortcut Win + C.
+Enter Your Query:
+Type your query or command in the Copilot sidebar, and it will provide assistance accordingly.
+Tips for Using Windows Copilot
+Voice Commands:
+Use voice commands if you have a microphone connected to your PC.
+Integration with Microsoft Edge:
+Copilot can help with tasks like finding information online, opening apps, setting reminders, and more.
+Personalization:
+Over time, Copilot will learn your preferences and provide more personalized assistance.
+By following these steps, you should be able to set up and start using Windows 11 Copilot to enhance your productivity and overall user experience on Windows 11.

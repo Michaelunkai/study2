@@ -1,0 +1,21 @@
+**FileBot** is a powerful tool used for organizing and renaming media files like TV shows, movies, and anime. It helps users match their media files with accurate metadata (such as episode names and movie titles) by connecting to various online databases, including **TheTVDB**, **TMDB**, **IMDb**, and more.
+
+### Key Features:
+1. **Automated Renaming**: FileBot automatically renames files based on information from online databases. For TV shows, it retrieves the show name, season, episode, and episode title, then renames files accordingly.
+   
+2. **Subtitle Downloading**: In addition to renaming, FileBot can also download and sync subtitles for your media files from various subtitle repositories.
+
+3. **Batch Processing**: It supports batch renaming, allowing users to process many files at once, making it ideal for large media collections.
+
+4. **Cross-Platform**: FileBot is available for Windows, macOS, and Linux, making it accessible to a wide range of users.
+
+5. **Custom Naming Scheme**: You can customize how FileBot renames files using patterns, enabling a high level of flexibility for media file organization.
+
+6. **GUI and CLI**: FileBot comes with both a graphical user interface (GUI) for user-friendly interaction and a command-line interface (CLI) for automation scripts.
+
+### Use Cases:
+- Renaming a TV show's episode files like `S01E01.mp4` to `Show Name - S01E01 - Episode Title.mp4`.
+- Automatically moving renamed files into properly organized folder structures.
+- Fetching and embedding metadata like release date, cast information, or plot summaries.
+
+For more information and details on how to download and use FileBot, you can visit the [FileBot official website](https://www.filebot.net/).

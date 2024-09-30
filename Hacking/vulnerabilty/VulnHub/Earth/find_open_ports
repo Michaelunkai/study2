@@ -1,0 +1,254 @@
+ nmap -p- -sV -sC -T4 192.168.1.234
+Starting Nmap 7.80 ( https://nmap.org ) at 2024-09-24 21:17 IDT
+Nmap scan report for Samsung.lan (192.168.1.234)
+Host is up (0.013s latency).
+Not shown: 65523 closed ports
+PORT      STATE SERVICE             VERSION
+7000/tcp  open  rtsp                AirTunes rtspd 377.40.00
+|_irc-info: Unable to open connection
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+7678/tcp  open  upnp                Samsung AllShare upnpd 1.0 (UPnP 1.1)
+8001/tcp  open  vcom-tunnel?
+| fingerprint-strings:
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq:
+|     HTTP/1.0 403 Forbidden
+|     content-type: text/html
+|     content-length: 173
+|     <html><head><meta charset=utf-8 http-equiv="Content-Language" content="en"/><link rel="stylesheet" type="text/css" href="/error.css"/></head><body><h1>403</h1></body></html>
+|   FourOhFourRequest:
+|     HTTP/1.0 404 Not Found
+|     content-type: application/json; charset=utf-8
+|     content-length: 29
+|     <html><body>404</body></html>
+|   GetRequest:
+|     HTTP/1.0 401 Unauthorized
+|     content-length: 29
+|     <html><body>401</body></html>
+|   HTTPOptions, RTSPRequest:
+|     HTTP/1.0 200 OK
+|     content-type: application/json; charset=utf-8
+|     access-control-allow-headers: content-type
+|_    content-length: 3
+8002/tcp  open  ssl/teradataordbms?
+| fingerprint-strings:
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq:
+|     HTTP/1.0 403 Forbidden
+|     content-type: text/html
+|     content-length: 173
+|     <html><head><meta charset=utf-8 http-equiv="Content-Language" content="en"/><link rel="stylesheet" type="text/css" href="/error.css"/></head><body><h1>403</h1></body></html>
+|   GetRequest:
+|     HTTP/1.0 401 Unauthorized
+|     content-length: 29
+|     <html><body>401</body></html>
+|   HTTPOptions, RTSPRequest:
+|     HTTP/1.0 200 OK
+|     content-type: application/json; charset=utf-8
+|     access-control-allow-headers: content-type
+|_    content-length: 3
+| ssl-cert: Subject: commonName=Samsung SmartViewSDK Cert. G2/organizationName=Samsung Electronics/countryName=KR
+| Not valid before: 2022-04-07T01:30:51
+|_Not valid after:  2072-03-25T01:30:51
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn:
+|_  http/1.1
+8080/tcp  open  http-proxy          WebServer
+| fingerprint-strings:
+|   FourOhFourRequest:
+|     HTTP/1.0 404 Not Found
+|     Content-Type: text/html
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 341
+|     Connection: close
+|     Date: Tue, 24 Sep 2024 18:18:26 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>404 Not Found</title>
+|     </head>
+|     <body>
+|     <h1>404 Not Found</h1>
+|     </body>
+|     </html>
+|   GetRequest:
+|     HTTP/1.0 403 Forbidden
+|     Content-Type: text/html
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 341
+|     Connection: close
+|     Date: Tue, 24 Sep 2024 18:18:26 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>403 Forbidden</title>
+|     </head>
+|     <body>
+|     <h1>403 Forbidden</h1>
+|     </body>
+|     </html>
+|   HTTPOptions:
+|     HTTP/1.0 200 OK
+|     Allow: OPTIONS, GET, HEAD, POST
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Content-Type
+|     Content-Length: 0
+|     Connection: close
+|     Date: Tue, 24 Sep 2024 18:18:26 GMT
+|     Server: WebServer
+|   RTSPRequest:
+|     HTTP/1.0 400 Bad Request
+|     Content-Type: text/html
+|     Content-Length: 345
+|     Connection: close
+|     Date: Tue, 24 Sep 2024 18:18:26 GMT
+|     Server: WebServer
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>400 Bad Request</title>
+|     </head>
+|     <body>
+|     <h1>400 Bad Request</h1>
+|     </body>
+|_    </html>
+|_http-server-header: WebServer
+|_http-title: 403 Forbidden
+8187/tcp  open  upnp                Samsung AllShare upnpd 1.0 (UPnP 1.1)
+9197/tcp  open  upnp                Samsung AllShare upnpd 1.0 (UPnP 1.1)
+9999/tcp  open  abyss?
+15500/tcp open  unknown
+26101/tcp open  tcpwrapped
+38347/tcp open  reverse-ssl         SSL/TLS ClientHello
+| fingerprint-strings:
+|   NULL:
+|_    l9]N
+40351/tcp open  ssl/unknown
+| ssl-cert: Subject: commonName=OCF Device: 2022_TV (578f50a3-276f-4f80-ab91-f4ed9fef9c8f)/organizationName=Samsung Electronics/countryName=KR
+| Not valid before: 2021-12-22T11:19:36
+|_Not valid after:  2069-12-31T14:59:59
+4 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8001-TCP:V=7.80%I=7%D=9/24%Time=66F30272%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,4E,"HTTP/1\.0\x20401\x20Unauthorized\r\ncontent-length:\x2029\
+SF:r\n\r\n<html><body>401</body></html>")%r(FourOhFourRequest,7A,"HTTP/1\.
+SF:0\x20404\x20Not\x20Found\r\ncontent-type:\x20application/json;\x20chars
+SF:et=utf-8\r\ncontent-length:\x2029\r\n\r\n<html><body>404</body></html>"
+SF:)%r(HTTPOptions,84,"HTTP/1\.0\x20200\x20OK\r\ncontent-type:\x20applicat
+SF:ion/json;\x20charset=utf-8\r\naccess-control-allow-headers:\x20content-
+SF:type\r\ncontent-length:\x203\r\n\r\n200")%r(RTSPRequest,84,"HTTP/1\.0\x
+SF:20200\x20OK\r\ncontent-type:\x20application/json;\x20charset=utf-8\r\na
+SF:ccess-control-allow-headers:\x20content-type\r\ncontent-length:\x203\r\
+SF:n\r\n200")%r(RPCCheck,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type
+SF::\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><meta\x20ch
+SF:arset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"en\"/><link
+SF:\x20rel=\"stylesheet\"\x20type=\"text/ \"\x20href=\"/error\. \"/></
+SF:head><body><h1>403</h1></body></html>")%r(DNSVersionBindReqTCP,F5,"HTTP
+SF:/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-leng
+SF:th:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\"Co
+SF:ntent-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20type
+SF:=\"text/ \"\x20href=\"/error\. \"/></head><body><h1>403</h1></body>
+SF:</html>")%r(DNSStatusRequestTCP,F5,"HTTP/1\.0\x20403\x20Forbidden\r\nco
+SF:ntent-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><
+SF:meta\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"e
+SF:n\"/><link\x20rel=\"stylesheet\"\x20type=\"text/ \"\x20href=\"/error\
+SF:. \"/></head><body><h1>403</h1></body></html>")%r(Help,F5,"HTTP/1\.0\
+SF:x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-length:\x2
+SF:0173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\"Content-
+SF:Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20type=\"tex
+SF:t/ \"\x20href=\"/error\. \"/></head><body><h1>403</h1></body></html
+SF:>")%r(SSLSessionReq,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\
+SF:x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><meta\x20char
+SF:set=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"en\"/><link\x
+SF:20rel=\"stylesheet\"\x20type=\"text/ \"\x20href=\"/error\. \"/></he
+SF:ad><body><h1>403</h1></body></html>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8002-TCP:V=7.80%T=SSL%I=7%D=9/24%Time=66F30282%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,4E,"HTTP/1\.0\x20401\x20Unauthorized\r\ncontent-length:\
+SF:x2029\r\n\r\n<html><body>401</body></html>")%r(HTTPOptions,84,"HTTP/1\.
+SF:0\x20200\x20OK\r\ncontent-type:\x20application/json;\x20charset=utf-8\r
+SF:\naccess-control-allow-headers:\x20content-type\r\ncontent-length:\x203
+SF:\r\n\r\n200")%r(RTSPRequest,84,"HTTP/1\.0\x20200\x20OK\r\ncontent-type:
+SF:\x20application/json;\x20charset=utf-8\r\naccess-control-allow-headers:
+SF:\x20content-type\r\ncontent-length:\x203\r\n\r\n200")%r(RPCCheck,F5,"HT
+SF:TP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-le
+SF:ngth:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\"
+SF:Content-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20ty
+SF:pe=\"text/ \"\x20href=\"/error\. \"/></head><body><h1>403</h1></bod
+SF:y></html>")%r(DNSVersionBindReqTCP,F5,"HTTP/1\.0\x20403\x20Forbidden\r\
+SF:ncontent-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><hea
+SF:d><meta\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=
+SF:\"en\"/><link\x20rel=\"stylesheet\"\x20type=\"text/ \"\x20href=\"/err
+SF:or\. \"/></head><body><h1>403</h1></body></html>")%r(DNSStatusRequest
+SF:TCP,F5,"HTTP/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\n
+SF:content-length:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20htt
+SF:p-equiv=\"Content-Language\"\x20content=\"en\"/><link\x20rel=\"styleshe
+SF:et\"\x20type=\"text/ \"\x20href=\"/error\. \"/></head><body><h1>403
+SF:</h1></body></html>")%r(Help,F5,"HTTP/1\.0\x20403\x20Forbidden\r\nconte
+SF:nt-type:\x20text/html\r\ncontent-length:\x20173\r\n\r\n<html><head><met
+SF:a\x20charset=utf-8\x20http-equiv=\"Content-Language\"\x20content=\"en\"
+SF:/><link\x20rel=\"stylesheet\"\x20type=\"text/ \"\x20href=\"/error\.cs
+SF:s\"/></head><body><h1>403</h1></body></html>")%r(SSLSessionReq,F5,"HTTP
+SF:/1\.0\x20403\x20Forbidden\r\ncontent-type:\x20text/html\r\ncontent-leng
+SF:th:\x20173\r\n\r\n<html><head><meta\x20charset=utf-8\x20http-equiv=\"Co
+SF:ntent-Language\"\x20content=\"en\"/><link\x20rel=\"stylesheet\"\x20type
+SF:=\"text/ \"\x20href=\"/error\. \"/></head><body><h1>403</h1></body>
+SF:</html>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.80%I=7%D=9/24%Time=66F30271%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,234,"HTTP/1\.0\x20403\x20Forbidden\r\nContent-Type:\x20text/ht
+SF:ml\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Header
+SF:s:\x20Content-Type\r\nContent-Length:\x20341\r\nConnection:\x20close\r\
+SF:nDate:\x20Tue,\x2024\x20Sep\x202024\x2018:18:26\x20GMT\r\nServer:\x20We
+SF:bServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20encoding=\"iso-8859-1\"\?>
+SF:\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Tran
+SF:sitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\"http://www\.w3\.o
+SF:rg/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<html\x20xmlns=\"http://w
+SF:ww\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20lang=\"en\">\n\x20<head>
+SF:\n\x20\x20<title>403\x20Forbidden</title>\n\x20</head>\n\x20<body>\n\x2
+SF:0\x20<h1>403\x20Forbidden</h1>\n\x20</body>\n</html>\n")%r(HTTPOptions,
+SF:DE,"HTTP/1\.0\x20200\x20OK\r\nAllow:\x20OPTIONS,\x20GET,\x20HEAD,\x20PO
+SF:ST\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Header
+SF:s:\x20Content-Type\r\nContent-Length:\x200\r\nConnection:\x20close\r\nD
+SF:ate:\x20Tue,\x2024\x20Sep\x202024\x2018:18:26\x20GMT\r\nServer:\x20WebS
+SF:erver\r\n\r\n")%r(RTSPRequest,1EE,"HTTP/1\.0\x20400\x20Bad\x20Request\r
+SF:\nContent-Type:\x20text/html\r\nContent-Length:\x20345\r\nConnection:\x
+SF:20close\r\nDate:\x20Tue,\x2024\x20Sep\x202024\x2018:18:26\x20GMT\r\nSer
+SF:ver:\x20WebServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20encoding=\"iso-8
+SF:859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\
+SF:.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\"http://
+SF:www\.w3\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<html\x20xmlns=
+SF:\"http://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20lang=\"en\">\n
+SF:\x20<head>\n\x20\x20<title>400\x20Bad\x20Request</title>\n\x20</head>\n
+SF:\x20<body>\n\x20\x20<h1>400\x20Bad\x20Request</h1>\n\x20</body>\n</html
+SF:>\n")%r(FourOhFourRequest,234,"HTTP/1\.0\x20404\x20Not\x20Found\r\nCont
+SF:ent-Type:\x20text/html\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-
+SF:Control-Allow-Headers:\x20Content-Type\r\nContent-Length:\x20341\r\nCon
+SF:nection:\x20close\r\nDate:\x20Tue,\x2024\x20Sep\x202024\x2018:18:26\x20
+SF:GMT\r\nServer:\x20WebServer\r\n\r\n<\?xml\x20version=\"1\.0\"\x20encodi
+SF:ng=\"iso-8859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20X
+SF:HTML\x201\.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd\">\n<html
+SF:\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en\"\x20lang
+SF:=\"en\">\n\x20<head>\n\x20\x20<title>404\x20Not\x20Found</title>\n\x20<
+SF:/head>\n\x20<body>\n\x20\x20<h1>404\x20Not\x20Found</h1>\n\x20</body>\n
+SF:</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port38347-TCP:V=7.80%I=7%D=9/24%Time=66F30271%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,72,"\x16\x03\x03\0m\x01\0\0i\x03\x03f\xf3\x02l9\]N\xbe\]\[\xfa\xcc\
+SF:xdaaqK\x98E\x07\xec&\xc9\x02&\xb0\xb2\xe7\x06\x9cZ\xbag\0\0\x18\0=\0\x9
+SF:c\xc0/\xc00\xc0\+\xc0\xae\xc0\xac\xc0#\xc0\$\xc0,\xc0'\0\xff\x01\0\0\(\
+SF:0\r\0\x0e\0\x0c\x04\x03\x04\x01\x03\x03\x03\x01\x02\x03\x02\x01\0\n\0\x
+SF:04\0\x02\0\x17\0\x0b\0\x02\x01\0\0\x16\0\0\0\x17\0\0");
+MAC Address: 68:FC:CA:05:23:92 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 251.88 seconds

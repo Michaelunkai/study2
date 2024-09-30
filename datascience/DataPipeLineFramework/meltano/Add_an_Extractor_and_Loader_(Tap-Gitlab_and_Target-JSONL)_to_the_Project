@@ -1,0 +1,7 @@
+Add an Extractor and Loader (Tap-Gitlab and Target-JSONL) to the Project
+Meltano works with extractors and loaders to create ELT pipelines. Here, we'll add tap-gitlab (extractor) and target-jsonl (loader) to your project:
+
+ 
+ 
+meltano add extractor tap-gitlab
+meltano add loader target-jsonl

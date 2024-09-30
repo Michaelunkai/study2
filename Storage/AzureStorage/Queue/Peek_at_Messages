@@ -1,0 +1,4 @@
+az storage message peek \
+  --queue-name myqueue \
+  --account-name mystorageaccount \
+  --connection-string $CONNECTION_STRING

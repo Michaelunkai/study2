@@ -1,0 +1,1 @@
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus --sku Standard_LRS && az storage container create --name $web --account-name mystorageaccount && az storage blob upload-batch --destination $web --source ./website

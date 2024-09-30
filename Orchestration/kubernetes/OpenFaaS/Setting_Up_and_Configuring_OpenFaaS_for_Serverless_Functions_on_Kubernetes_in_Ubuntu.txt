@@ -1,0 +1,36 @@
+# Setting Up and Configuring OpenFaaS for Serverless Functions on Kubernetes in Ubuntu
+Follow these steps to set up OpenFaaS for serverless functions on a Kubernetes cluster running on Ubuntu.
+## Step 1: Start Minikube as Root
+Use the `--force` flag to start Minikube with the Docker driver as root:
+1. **Start Minikube with the Docker driver**:
+    minikube start --driver=docker --force
+## Step 2: Deploy OpenFaaS
+1. **Add OpenFaaS Helm repository**:
+    helm repo add openfaas https://openfaas.github.io/faas-netes/
+    helm repo update
+2. **Create a namespace for OpenFaaS**:
+    kubectl create namespace openfaas
+    kubectl create namespace openfaas-fn
+3. **Install OpenFaaS**:
+    helm upgrade openfaas --install openfaas/openfaas         --namespace openfaas         --set functionNamespace=openfaas-fn         --set generateBasicAuth=true
+## Step 3: Retrieve Admin Password
+1. **Retrieve the admin password**:
+    PASSWORD=$(kubectl get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode)
+    echo $PASSWORD
+## Step 4: Access OpenFaaS
+1. **Forward the gateway service to your local machine on a different port (e.g., 8081) to avoid port conflicts**:
+    kubectl port-forward -n openfaas svc/gateway 8081:8080 &
+2. **Install `faas-cli`**:
+    curl -sSL https://cli.openfaas.com | sudo sh
+3. **Log in to the OpenFaaS gateway**:
+    echo $PASSWORD | faas-cli login --password-stdin
+## Step 5: Deploy a Function
+1. **Create a new function**:
+    faas-cli new --lang python3 myfunction
+2. **Build and deploy the function**:
+    faas-cli up -f myfunction.yml
+## Step 6: Invoke the Function
+You can invoke your deployed function using the OpenFaaS UI or via the command line:
+    echo -n "Hello, OpenFaaS!" | faas-cli invoke myfunction
+## Explanation
+In this tutorial, we set up a Kubernetes cluster with Minikube, deployed OpenFaaS, and created a serverless function, enabling scalable and efficient serverless computing.

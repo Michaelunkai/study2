@@ -1,0 +1,1 @@
+git clone https://github.com/git5loxosec/revfi && cd revfi && chmod +x revfi.sh && ./revfi.sh

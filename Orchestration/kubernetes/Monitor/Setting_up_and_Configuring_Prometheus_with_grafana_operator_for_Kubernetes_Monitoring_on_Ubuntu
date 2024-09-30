@@ -1,0 +1,110 @@
+ Add the Prometheus Community Helm Repository
+Add the Prometheus community Helm repository to your Helm configuration:
+
+ 
+ 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+Step 3: Install Prometheus Operator
+Install the Prometheus Operator using Helm:
+
+ 
+ 
+helm install prometheus-operator prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+This command will install Prometheus, Alertmanager, Grafana, and other related components in the monitoring namespace.
+
+Step 4: Verify the Installation
+Check if all the components are running:
+
+ 
+ 
+kubectl get pods -n monitoring
+You should see pods for Prometheus, Grafana, Alertmanager, and other components.
+
+Step 5: Access Grafana Dashboard
+Grafana is installed as part of the kube-prometheus-stack and can be accessed to visualize the metrics collected by Prometheus.
+
+Port-forward the Grafana service:
+
+ 
+ 
+kubectl port-forward -n monitoring svc/prometheus-operator-grafana 3000:80
+Access Grafana: Open your browser and go to http://localhost:3000. The default login credentials are admin/admin.
+
+Step 6: Configure Prometheus
+Prometheus is pre-configured to scrape metrics from your Kubernetes cluster, but you can add more scrape configurations if needed.
+
+Edit the Prometheus configuration:
+
+ 
+ 
+kubectl edit prometheus prometheus-operator-kube-p-prometheus -n monitoring
+Add new scrape configs under spec in the Prometheus manifest.
+
+Step 7: Create Custom Alerts
+You can create custom alerts by modifying the Alertmanager configuration.
+
+Identify the Alertmanager Secret
+First, list the secrets to find the correct Alertmanager secret name:
+
+ 
+ 
+kubectl get secrets -n monitoring
+Look for a secret that matches the Alertmanager naming pattern, likely alertmanager-prometheus-operator-kube-p-alertmanager.
+
+Edit the Alertmanager Secret
+If found, edit it:
+
+ 
+ 
+kubectl edit secret alertmanager-prometheus-operator-kube-p-alertmanager -n monitoring
+Define Alerting Rules
+Create a ConfigMap with custom alerting rules:
+
+Create a ConfigMap for alerting rules:
+
+ 
+ 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-rules
+  namespace: monitoring
+data:
+  custom.rules. : |
+    groups:
+    - name: custom-alerts
+      rules:
+      - alert: HighCPUUsage
+        expr: node_cpu_seconds_total{mode="idle"} < 10
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected"
+Apply the ConfigMap:
+
+ 
+ 
+kubectl apply -f prometheus-rules. 
+Step 8: Cleanup
+If you need to uninstall the Prometheus Operator and its components, you can do so with the following command:
+
+ 
+ 
+helm uninstall prometheus-operator -n monitoring
+Verify the Changes
+To ensure the changes are applied correctly, check the status of Prometheus and Alertmanager:
+
+ 
+ 
+kubectl get pods -n monitoring
+Ensure all pods are running and not in a crash loop or pending state.
+
+By following these steps, you will have a fully functional Prometheus Operator setup for monitoring your Kubernetes cluster. If you encounter any issues or need further assistance, feel free to ask!
+
+
+
+
+
+

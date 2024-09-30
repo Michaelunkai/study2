@@ -1,0 +1,83 @@
+Basic IPFS Commands
+Here are some fundamental commands to interact with IPFS:
+
+1. Adding Files to IPFS
+To add a file to IPFS, use the ipfs add command.
+
+ 
+ 
+ipfs add /path/to/your/file
+Example:
+
+ 
+ 
+ipfs add myfile.txt
+ :
+
+ 
+added QmX... myfile.txt
+The hash (QmX...) is the content identifier (CID) for your file.
+
+2. Retrieving Files from IPFS
+To retrieve a file using its CID:
+
+ 
+ 
+ipfs cat <CID> > output_file
+Example:
+
+ 
+ 
+ipfs cat QmX... > downloaded_myfile.txt
+3. Pinning Files
+Pinning ensures that your node retains a copy of the file.
+
+ 
+ 
+ipfs pin add <CID>
+Example:
+
+ 
+ 
+ipfs pin add QmX...
+4. Listing Pinned Files
+ 
+ 
+ipfs pin ls
+5. Removing Pinned Files
+ 
+ 
+ipfs pin rm <CID>
+6. Viewing IPFS Configuration
+ 
+ 
+ipfs config show
+7. Connecting to Peers
+To manually connect to another IPFS node:
+
+ 
+ 
+ipfs swarm connect /ip4/<IP>/tcp/<PORT>/ipfs/<PEER_ID>
+Example:
+
+ 
+ 
+ipfs swarm connect /ip4/192.168.1.2/tcp/4001/ipfs/QmPeerID
+8. Checking Node Status
+ 
+ 
+ipfs id
+ :
+
+json
+ 
+{
+  "ID": "Qm...",
+  "PublicKey": "CA...",
+  "Addresses": [
+    "/ip4/127.0.0.1/tcp/4001",
+    "/ip4/192.168.1.2/tcp/4001"
+  ],
+  "AgentVersion": "go-ipfs/0.18.0",
+  "ProtocolVersion": "ipfs/0.1.0"
+}

@@ -1,0 +1,6 @@
+4: Create a File Share
+Create a file share in the storage account. Replace yourFileShareName with the desired name for your file share:
+
+ 
+ 
+az storage share create --name yourFileShareName --account-name yourStorageAccountName

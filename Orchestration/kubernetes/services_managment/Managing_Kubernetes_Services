@@ -1,0 +1,16 @@
+6.1 Exposing Services:
+
+Expose the nginx deployment as a Kubernetes service:
+
+kubectl expose deployment nginx-deployment --type=LoadBalancer --port=80 --target-port=80
+
+This command creates a service with type LoadBalancer, making the nginx deployment accessible from outside the cluster.
+
+6.2 Viewing Services:
+
+View the services in the Kubernetes cluster:
+
+
+kubectl get services
+
+This command lists all services, including the newly created nginx service.

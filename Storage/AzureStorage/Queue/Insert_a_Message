@@ -1,0 +1,5 @@
+az storage message put \
+  --queue-name myqueue \
+  --content "Hello, Azure Queue Storage!" \
+  --account-name mystorageaccount \
+  --connection-string $CONNECTION_STRING

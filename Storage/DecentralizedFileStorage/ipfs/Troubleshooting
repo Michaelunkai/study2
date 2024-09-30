@@ -1,0 +1,35 @@
+Troubleshooting
+Here are common issues and their solutions:
+
+1. Daemon Fails to Start
+Check Logs:
+
+ 
+ 
+journalctl -u ipfs -f
+Possible Causes:
+
+Port conflicts: Ensure ports 4001, 5001, and 8080 are not in use.
+Insufficient permissions: Ensure the user has read/write access to the IPFS repository.
+2. Unable to Connect to Peers
+Solutions:
+Verify network connectivity.
+Check firewall settings.
+Ensure that other nodes are online and reachable.
+3. High Resource Usage
+Solutions:
+Limit the number of connections:
+
+ 
+ 
+ipfs config --json Swarm.ConnMgr.HighWater 100
+Optimize the repository size by pruning:
+
+ 
+ 
+ipfs repo gc
+4. Files Not Being Retrieved
+Solutions:
+Ensure the file is pinned or cached on enough nodes.
+Verify the CID is correct.
+Check your network connection.

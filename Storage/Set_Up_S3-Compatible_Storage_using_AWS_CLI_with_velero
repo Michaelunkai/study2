@@ -1,0 +1,24 @@
+Install AWS CLI (if not already installed):
+
+sudo apt update
+sudo apt install awscli -y
+Configure AWS CLI with your credentials:
+
+aws configure
+Provide the following when prompted:
+
+AWS Access Key ID: AKIAUELNKO5HAWT2TA6F
+AWS Secret Access Key: xezbjCT1Z3+NXeWru4B3Hh55fG6fB6MKDoLrTIhG
+Default region name: us-east-1
+Create an S3 bucket:
+
+aws s3api create-bucket --bucket velero-backup-bucket --region us-east-1 --create-bucket-configuration LocationConstraint=us-east-1
+Create an IAM user with S3 access:
+
+aws iam create-user --user-name velero
+Attach the necessary policies to the IAM user:
+
+aws iam attach-user-policy --user-name velero --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+Create access keys for the IAM user:
+
+aws iam create-access-key --user-name velero

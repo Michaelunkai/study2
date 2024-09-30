@@ -1,0 +1,22 @@
+OpenShift and Kubernetes are both container orchestration platforms, but they differ in several key aspects:
+Kubernetes Overview
+Kubernetes is an open-source container orchestration system originally developed by Google.
+It automates deployment, scaling, and management of containerized applications.
+Kubernetes provides a flexible and extensible platform for running distributed systems.
+It offers a wide range of features like automatic bin-packing, self-healing, horizontal scaling, and rolling updates.
+OpenShift Overview
+OpenShift is a commercial container platform developed by Red Hat, built on top of Kubernetes.
+It extends Kubernetes with additional features and tools for developers and operations teams.
+OpenShift provides a more opinionated and user-friendly experience compared to Kubernetes.
+It includes built-in CI/CD pipelines, developer tools, and enhanced security features.
+Key Differences
+Platform Support: Kubernetes can be installed on various platforms, while OpenShift is primarily designed for Red Hat Enterprise Linux (RHEL) and its derivatives.
+User Interface: OpenShift offers a comprehensive web console with a user-friendly interface, while Kubernetes has a more complex web interface.
+Security: OpenShift has stricter security policies, such as prohibiting running containers as root and providing secure-by-default options. Kubernetes requires manual configuration for authentication and authorization.
+Updates and Releases: Kubernetes has more frequent releases (around 4 per year) compared to OpenShift (around 3 per year). Kubernetes supports concurrent updates, while OpenShift's DeploymentConfig does not.
+Networking: OpenShift includes an out-of-the-box networking solution (Open vSwitch) with native plugins, while Kubernetes relies on third-party network plugins.
+Templates: OpenShift templates are less flexible compared to Kubernetes' Helm templates.
+Container Image Management: OpenShift provides Image Streams for managing container images, which Kubernetes lacks.
+Support and Community: Kubernetes has a larger active community, while OpenShift has a smaller community primarily focused on Red Hat developers.
+Deployment Models: OpenShift combines descriptive and prescriptive deployment models, offering more control over execution schedules and complex deployment scenarios like blue-green or canary deployments. Kubernetes primarily uses a descriptive model.
+In summary, Kubernetes is a more flexible and open-source platform, while OpenShift is a more opinionated and enterprise-ready solution built on top of Kubernetes, with additional features and tools tailored for developers and operations teams

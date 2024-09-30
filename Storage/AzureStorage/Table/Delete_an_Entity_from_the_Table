@@ -1,0 +1,1 @@
+az storage entity delete --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --partition-key partition1 --row-key 001

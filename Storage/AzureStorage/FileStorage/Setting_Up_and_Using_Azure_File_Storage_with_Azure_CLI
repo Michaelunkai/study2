@@ -1,0 +1,76 @@
+# Comprehensive Guide to Setting Up and Using Azure File Storage with Azure CLI
+
+Azure File Storage allows you to create file shares in the cloud, enabling file sharing across multiple instances and applications. This guide will walk you through the process of setting up and using Azure File Storage with Azure CLI, including creating resource groups, storage accounts, file shares, and performing various file operations.
+
+## Prerequisites
+
+1. **Azure Account:** Ensure you have an active Azure account. If not, sign up for a free account [here](https://azure.microsoft.com/free/).
+2. **Azure CLI:** Install the Azure CLI. You can find installation instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+
+## Step 1: Log in to Azure
+
+Open your terminal and log in to your Azure account:
+  
+az login
+
+## Step 2: Create a Resource Group
+
+Create a resource group to contain your storage account. Replace `yourResourceGroupName` and `yourLocation` with your desired resource group name and location:
+  
+az group create --name yourResourceGroupName --location yourLocation
+
+## Step 3: Create a Storage Account
+
+Create a storage account within the resource group. Replace `yourStorageAccountName` with a unique name for your storage account:
+  
+az storage account create --name yourStorageAccountName --resource-group yourResourceGroupName --location yourLocation --sku Standard_LRS
+
+## Step 4: Create a File Share
+
+Create a file share in the storage account. Replace `yourFileShareName` with the desired name for your file share:
+  
+az storage share create --name yourFileShareName --account-name yourStorageAccountName
+
+## Step 5: Get Storage Account Key
+
+Retrieve the storage account key, which is necessary for interacting with the file share:
+  
+az storage account keys list --resource-group yourResourceGroupName --account-name yourStorageAccountName --query "[0].value" --output tsv
+
+## Step 6: Upload a File to the File Share
+
+Upload a file to the file share. Replace `yourFileName` with the path to the file you want to upload:
+  
+az storage file upload --account-name yourStorageAccountName --account-key yourAccountKey --share-name yourFileShareName --source yourFileName
+
+## Step 7: List Files in the File Share
+
+List the files in your file share to verify the upload:
+  
+az storage file list --account-name yourStorageAccountName --account-key yourAccountKey --share-name yourFileShareName --output table
+
+## Step 8: Download a File from the File Share
+
+Download a file from the file share. Replace `yourFileName` with the name of the file you want to download:
+  
+az storage file download --account-name yourStorageAccountName --account-key yourAccountKey --share-name yourFileShareName --path yourFileName --dest yourLocalDestinationPath
+
+## Step 9: Delete a File from the File Share
+
+Delete a file from the file share. Replace `yourFileName` with the name of the file you want to delete:
+  
+az storage file delete --account-name yourStorageAccountName --account-key yourAccountKey --share-name yourFileShareName --path yourFileName
+
+## Step 10: Delete the File Share
+
+If you no longer need the file share, delete it using the following command:
+  
+az storage share delete --account-name yourStorageAccountName --account-key yourAccountKey --name yourFileShareName
+
+## Step 11: Clean Up Resources
+
+To avoid incurring charges, delete the resource group, which will delete all resources within it:
+  
+az group delete --name yourResourceGroupName --yes --no-wait
+
+By following these steps, you can set up and use Azure File Storage with Azure CLI efficiently. If you encounter any issues or have specific requirements, feel free to ask for further assistance!

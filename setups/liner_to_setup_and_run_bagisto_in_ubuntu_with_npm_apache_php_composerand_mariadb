@@ -1,0 +1,32 @@
+sudo apt update && \
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - && \
+sudo apt install -y php apache2 mariadb-server nodejs unzip curl wget && \
+sudo systemctl start mariadb && sudo systemctl enable mariadb && \
+mysql -u root -p -e "CREATE USER IF NOT EXISTS 'bagisto'@'localhost' IDENTIFIED BY 'YourStrongPasswordHere'; CREATE DATABASE IF NOT EXISTS bagisto; GRANT ALL PRIVILEGES ON bagisto.* TO 'bagisto'@'localhost'; FLUSH PRIVILEGES;" && \
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer && \
+cd /var/www/html/ && \
+wget https://github.com/bagisto/bagisto/archive/v1.4.3.zip && \
+sudo unzip v1.4.3.zip && \
+sudo mv bagisto-1.4.3/ bagisto/ && \
+cd bagisto && \
+sudo composer install && \
+sudo chown -R www-data:www-data /var/www/html/bagisto/ && \
+sudo chmod -R 755 /var/www/html/bagisto/ && \
+sudo bash -c "cat > /etc/apache2/sites-available/bagisto.conf" <<EOF
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot /var/www/html/bagisto/public
+
+    <Directory /var/www/html/bagisto>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/error.log
+    CustomLog \${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOF
+&& \
+sudo a2enmod rewrite && \
+sudo a2ensite bagisto.conf && \
+sudo systemctl reload apache2

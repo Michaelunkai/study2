@@ -1,0 +1,1 @@
+down; wget https://archive.org/download/cpt822/CiscoPacketTracer822_64bit_setup_signed.exe -OutFile "$env:USERPROFILE\Downloads\CiscoPacketTracer822_64bit_setup_signed.exe"; Start-Process -FilePath "$env:USERPROFILE\Downloads\CiscoPacketTracer822_64bit_setup_signed.exe" -Wait; Remove-Item "$env:USERPROFILE\Downloads\CiscoPacketTracer822_64bit_setup_signed.exe"

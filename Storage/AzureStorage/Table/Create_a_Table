@@ -1,0 +1,6 @@
+Create a Table
+Tables in Azure Storage are ideal for storing structured, non-relational data. Replace mystorageaccount with your storage account name and mytable with your desired table name.
+
+ 
+ 
+az storage table create --name mytable --account-name my

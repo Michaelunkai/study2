@@ -1,0 +1,10 @@
+Bagisto is an open-source eCommerce platform built on Laravel, one of the most popular PHP frameworks. It provides a flexible and modular solution for building online stores, offering features such as:
+
+- Multi-vendor support
+- Multi-channel inventory management
+- Product management
+- Order management
+- Customer management
+- Various payment gateway integrations
+
+It is particularly suited for developers who want to build custom eCommerce solutions and extend functionality using Laravel's structure. Bagisto is designed to be scalable and customizable, making it a good fit for small businesses as well as large enterprises.

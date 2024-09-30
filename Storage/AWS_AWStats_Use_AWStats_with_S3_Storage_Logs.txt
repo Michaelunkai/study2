@@ -1,0 +1,1 @@
+aws s3api put-bucket-logging --bucket mybucket --bucket-logging-status file://logging.json

@@ -8,7 +8,7 @@ from datetime import datetime
 from google.auth.transport.requests import Request
 
 # Replace with your Playlist ID
-PLAYLIST_ID = "PLR3nd3FqtxEPs2fNcFtg2OBo0xeul5O0W"
+PLAYLIST_ID = "PLY8Bm7EI5jJXynRQUem7v27jE4Jva9UDW"
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 
 # Path to the OAuth client credentials file
@@ -19,7 +19,7 @@ CHANNEL_IDS_FILE = "channel_ids.json"
 
 # List of channel names
 CHANNEL_NAMES = [
-    "Patrick Cc:", "Visual Venture", "Johnny Harris", "Alex Meyers",
+    "Patrick Cc:", "Visual Venture", "Johnny Harris","moon-real", "Alex Meyers",
     "Karsten Runquist", "SunnyV2", "penguinz0", "JRE Clips",
     "Kurzgesagt â€“ In a Nutshell", "SpookyRice", "Fireship", "Cr1tiKaL Stream",
     "DuduFaruk", "YMS", "Eddy Burback", "ralphthemoviemaker", "Tell Us More",

@@ -1,0 +1,48 @@
+Here are the **top 15 ZCLI commands** you can use to manage Zendesk from the command line:
+
+1. **`zcli login`**
+   - Logs you into your Zendesk account by prompting for your Zendesk subdomain, email, and password.
+
+2. **`zcli logout`**
+   - Logs you out of your Zendesk account and removes your active profile.
+
+3. **`zcli apps:create`**
+   - Creates a new Zendesk app project with boilerplate code in your local environment.
+
+4. **`zcli apps:validate`**
+   - Validates your Zendesk app to check for errors or issues before packaging or uploading.
+
+5. **`zcli apps:package`**
+   - Packages your Zendesk app into a `.zip` file that can be uploaded and installed.
+
+6. **`zcli apps:install`**
+   - Installs a locally packaged Zendesk app to your Zendesk account.
+
+7. **`zcli apps:update`**
+   - Updates a previously installed Zendesk app with the latest local changes.
+
+8. **`zcli apps:uninstall`**
+   - Uninstalls a previously installed Zendesk app from your Zendesk account.
+
+9. **`zcli apps:serve`**
+   - Runs a local server to test and develop your Zendesk app. It enables real-time changes for development.
+
+10. **`zcli themes:create`**
+    - Creates a new Zendesk Guide theme project in your local environment.
+
+11. **`zcli themes:validate`**
+    - Validates your Zendesk Guide theme for any errors before uploading it to Zendesk.
+
+12. **`zcli themes:publish`**
+    - Publishes your theme to your Zendesk Guide account, making it available in your Help Center.
+
+13. **`zcli profiles:list`**
+    - Lists all saved profiles (subdomains) used with the ZCLI.
+
+14. **`zcli autocomplete`**
+    - Provides instructions for enabling shell autocomplete for ZCLI commands in bash, zsh, etc.
+
+15. **`zcli help`**
+    - Displays the help information for ZCLI, including a list of all available commands and their descriptions.
+
+These commands are essential for managing Zendesk apps, themes, and your account from the command line using ZCLI.

@@ -1,0 +1,1 @@
+ sudo apt install -y python3-pip && pip install apache-superset && superset db upgrade && superset fab create-admin && superset run

@@ -1,0 +1,73 @@
+Initializing and Running IPFS
+After installation, you need to initialize the IPFS repository and start the IPFS daemon.
+
+Step 1: Initialize IPFS
+ 
+ 
+ipfs init
+ :
+
+arduino
+ 
+initializing IPFS node at /home/username/.ipfs
+generating 2048-bit RSA keypair...done
+peer identity: Qm...
+to get started, enter:
+
+	ipfs cat /ipfs/Qm...
+This command creates the necessary configuration files and generates a unique peer identity for your node.
+
+Step 2: Start the IPFS Daemon
+The IPFS daemon is the background service that connects your node to the IPFS network.
+
+ 
+ 
+ipfs daemon
+ :
+
+ 
+ 
+Initializing daemon...
+API server listening on /ip4/127.0.0.1/tcp/5001
+Gateway server listening on /ip4/0.0.0.0/tcp/8080
+...
+Optional: To run the daemon in the background, use & or a process manager like systemd.
+
+ 
+ 
+ipfs daemon &
+Using systemd:
+
+Create a systemd service file:
+
+ 
+ 
+sudo nano /etc/systemd/system/ipfs.service
+Add the following content:
+
+ini
+ 
+[Unit]
+Description=IPFS daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ipfs daemon
+Restart=on-failure
+User=your_username
+Environment=IPFS_PATH=/home/your_username/.ipfs
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and enable the service:
+
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl enable ipfs
+sudo systemctl start ipfs
+Check the status:
+
+ 
+ 
+sudo systemctl status ipfs

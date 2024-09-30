@@ -1,0 +1,1 @@
+sudo apt install git-lfs -y && git lfs install && git lfs version

@@ -1,0 +1,7 @@
+ Retrieve Storage Account Connection String
+You'll need the connection string to interact with the storage account. Replace mystorageaccount with your storage account name.
+
+ 
+ 
+az storage account show-connection-string --name mystorageaccount --resource-group myResourceGroup
+Take note of the connection string that is returned, as you will use it in the following steps.
