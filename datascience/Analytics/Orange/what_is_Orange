@@ -1,0 +1,14 @@
+Orange (GUI) is an open-source data visualization, machine learning, and data mining toolkit that provides an intuitive, easy-to-use graphical user interface (GUI). It allows users to create data analysis workflows through a visual programming environment by connecting widgets that represent different data processing, visualization, and modeling tasks. Orange is commonly used for:
+
+- Data analysis
+- Data visualization
+- Machine learning
+- Exploratory data analysis
+
+Key features include:
+
+- Interactive workflows for data preprocessing, feature scoring, and visualization.
+- Integration of various machine learning algorithms and techniques.
+- Extensive support for add-ons, such as bioinformatics or text mining.
+
+It’s popular among both beginners and experienced data scientists due to its simplicity and flexibility.

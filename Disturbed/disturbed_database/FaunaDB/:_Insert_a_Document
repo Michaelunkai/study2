@@ -1,0 +1,8 @@
+fauna eval '
+Create(
+  Collection("my_collection"),
+  {
+    data: { name: "John Doe", age: 30 }
+  }
+)
+' --database my_database

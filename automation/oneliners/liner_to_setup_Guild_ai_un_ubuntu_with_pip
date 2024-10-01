@@ -1,0 +1,1 @@
+ venv && pip install --upgrade pip && pip install guildai && guild --version

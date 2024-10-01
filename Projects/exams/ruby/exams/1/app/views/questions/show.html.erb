@@ -1,0 +1,23 @@
+<p>
+  <strong>Question:</strong>
+  <%= @question.content %>
+</p>
+
+<p>
+  <strong>Choices:</strong>
+  <ul>
+    <% @question.choices.each do |choice| %>
+      <li><%= choice.content %></li>
+    <% end %>
+  </ul>
+</p>
+
+<button onclick="document.getElementById('hint').style.display='block'">Hint</button>
+<div id="hint" style="display:none;">
+  <p><strong>Hint:</strong> <%= @question.hint %></p>
+</div>
+
+<button onclick="document.getElementById('answer').style.display='block'">Answer</button>
+<div id="answer" style="display:none;">
+  <p><strong>Answer:</strong> <%= @question.correct_answer %></p>
+</div>

@@ -1,0 +1,1 @@
+git clone https://github.com/diffgram/diffgram.git && cd diffgram && pip install -r requirements.txt && python install.py && gcl 8085

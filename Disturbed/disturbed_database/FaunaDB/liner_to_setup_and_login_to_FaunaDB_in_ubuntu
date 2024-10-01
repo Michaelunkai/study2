@@ -1,0 +1,1 @@
+getnpm && sudo npm install -g fauna-shell && fauna cloud-login

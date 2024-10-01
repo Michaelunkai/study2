@@ -1,0 +1,6 @@
+fauna eval '
+Map(
+  Paginate(Documents(Collection("my_collection"))),
+  Lambda("X", Get(Var("X")))
+)
+' --database my_database

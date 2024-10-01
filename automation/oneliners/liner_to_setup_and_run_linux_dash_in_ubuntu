@@ -1,0 +1,1 @@
+git clone --depth 1 https://github.com/tariqbuilds/linux-dash.git && cd linux-dash/app/server &&  npm install -g npm@10.8.3 && npm install --production && export LINUX_DASH_SERVER_PORT=8080 && export LINUX_DASH_SERVER_HOST=127.0.0.1 && node index.js

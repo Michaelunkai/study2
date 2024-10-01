@@ -1,0 +1,1 @@
+docker run -d -p 3005:3000 -p 3006:3001 linuxserver/libreoffice && gcl 3005

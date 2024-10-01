@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Script: install_setup_and_run_datafusion_pipeline_on_ubuntu.sh
 # Description: Installs dependencies, sets up Apache Arrow DataFusion in Rust, creates a data pipeline, and runs a sample query on Ubuntu.
@@ -58,7 +58,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let ctx = SessionContext::new();
 
     // Register a CSV file as a table
-    ctx.register_csv("sales", "data/sales.csv", CsvReadOptions::new()).await?;
+    ctx.register_ ("sales", "data/sales. ", CsvReadOptions::new()).await?;
 
     // Create a SQL query
     let df = ctx.sql("SELECT region, SUM(amount) as total_sales FROM sales GROUP BY region").await?;

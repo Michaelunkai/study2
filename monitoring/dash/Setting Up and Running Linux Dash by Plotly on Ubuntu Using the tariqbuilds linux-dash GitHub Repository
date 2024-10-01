@@ -1,0 +1,301 @@
+# **Complete Step-by-Step Guide to Setting Up and Running Linux Dash by Plotly on Ubuntu Using the tariqbuilds/linux-dash GitHub Repository**
+
+This tutorial will guide you through the process of setting up and running **Linux Dash by Plotly**, a low-overhead web dashboard for monitoring Linux systems, using the **tariqbuilds/linux-dash** GitHub repository on an **Ubuntu** system. The tutorial includes all the necessary steps, from cloning the repository to securing and running the dashboard via Node.js.
+
+---
+
+### **Prerequisites**
+
+Make sure your system is up to date and that you have the following installed:
+
+- **Operating System:** Ubuntu (any recent version will work)
+- **Node.js:** Required to run the Node.js server (recommended option)
+- **Git:** Needed to clone the repository
+- **npm (Node Package Manager)**: Installed automatically with Node.js
+
+---
+
+## **Step 1: Update Your System**
+
+Before installing anything, it's always a good idea to update your system to ensure you're working with the latest packages.
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+---
+
+## **Step 2: Install Git**
+
+To clone the **Linux Dash** repository, you'll need **Git**. If Git isn't installed on your system yet, you can install it using this command:
+
+```bash
+sudo apt install git -y
+```
+
+---
+
+## **Step 3: Install Node.js and npm (Node Package Manager)**
+
+Since Linux Dash recommends using Node.js for the server, you will need to install Node.js along with npm (the Node Package Manager).
+
+1. **Add NodeSource PPA:**
+
+   Adding this PPA ensures that you will get the latest stable version of Node.js.
+
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+   ```
+
+2. **Install Node.js:**
+
+   After adding the PPA, install Node.js with the following command:
+
+   ```bash
+   sudo apt install -y nodejs
+   ```
+
+3. **Verify Installation:**
+
+   Check if Node.js and npm have been installed correctly:
+
+   ```bash
+   node -v
+   npm -v
+   ```
+
+   This should return the version numbers of both Node.js and npm.
+
+---
+
+## **Step 4: Clone the Linux Dash Repository from GitHub**
+
+You will need to clone the **linux-dash** repository to your system. Execute the following command to clone it:
+
+```bash
+git clone --depth 1 https://github.com/tariqbuilds/linux-dash.git
+```
+
+The `--depth 1` flag is used to clone only the latest commit, making the cloning process faster and reducing disk space usage.
+
+---
+
+## **Step 5: Navigate to the Server Directory**
+
+Now that the repository is cloned, navigate to the directory where the server files are located:
+
+```bash
+cd linux-dash/app/server
+```
+
+---
+
+## **Step 6: Install Required Node.js Dependencies**
+
+To run Linux Dash, you need to install the necessary dependencies using **npm**. Run the following command:
+
+```bash
+npm install --production
+```
+
+The `--production` flag ensures that only the essential dependencies for running the app in production are installed.
+
+---
+
+## **Step 7: (Optional) Set Environment Variables for Custom Host and Port**
+
+By default, Linux Dash runs on **port 80** and listens on all network interfaces (`0.0.0.0`). You can change the port and host by setting the following environment variables.
+
+1. **Change Port:**
+
+   To run the server on a custom port (e.g., 8080), execute this command:
+
+   ```bash
+   export LINUX_DASH_SERVER_PORT=8080
+   ```
+
+2. **Change Host:**
+
+   To bind Linux Dash to a specific IP address (e.g., `localhost`), run this command:
+
+   ```bash
+   export LINUX_DASH_SERVER_HOST=127.0.0.1
+   ```
+
+You can skip this step if you prefer to use the default settings.
+
+---
+
+## **Step 8: Start the Linux Dash Server**
+
+Start the Linux Dash server using the following command:
+
+```bash
+node index.js
+```
+
+**Note:** If you are running Linux Dash on port 80 (the default port), you may need to run the command with `sudo`:
+
+```bash
+sudo node index.js
+```
+
+---
+
+## **Step 9: Access the Linux Dash Dashboard in Your Browser**
+
+Once the server is running, open a web browser and navigate to:
+
+```
+http://<your_server_ip>:<port>
+```
+
+- If you're using the default port (80), the URL would be:
+  
+  ```
+  http://localhost:80
+  ```
+
+- If you're using a custom port like **8080**, the URL would be:
+
+  ```
+  http://localhost:8080
+  ```
+
+You should see the Linux Dash dashboard displaying your system's monitoring information.
+
+---
+
+## **Optional: Set Up Linux Dash as a Background Service Using systemd**
+
+If you want to ensure Linux Dash runs continuously and restarts after a system reboot, you can set it up as a **systemd** service.
+
+### **1. Create a systemd Service File**
+
+Create the service file using **nano**:
+
+```bash
+sudo nano /etc/systemd/system/linux-dash.service
+```
+
+### **2. Add the Following Configuration to the File**
+
+Make sure to replace `/path/to/linux-dash/app/server` with the actual path where your `linux-dash` server is located:
+
+```ini
+[Unit]
+Description=Linux Dash Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /path/to/linux-dash/app/server/index.js
+WorkingDirectory=/path/to/linux-dash/app/server
+Restart=always
+User=www-data
+Environment=LINUX_DASH_SERVER_PORT=80
+# Add other environment variables here if needed
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Save and close the file (`CTRL + O`, then `CTRL + X`).
+
+---
+
+### **3. Reload the systemd Daemon**
+
+After creating the service file, reload the **systemd** daemon to apply the changes:
+
+```bash
+sudo systemctl daemon-reload
+```
+
+---
+
+### **4. Start and Enable the Service**
+
+Start the **linux-dash** service:
+
+```bash
+sudo systemctl start linux-dash
+```
+
+Enable the service so it starts on boot:
+
+```bash
+sudo systemctl enable linux-dash
+```
+
+---
+
+### **5. Check the Service Status**
+
+To verify that the service is running properly, use the following command:
+
+```bash
+sudo systemctl status linux-dash
+```
+
+If the service is running successfully, you should see an **active (running)** status.
+
+---
+
+## **Security Measures for Linux Dash**
+
+Linux Dash does **not** provide built-in authentication or security features. To secure your dashboard, consider the following options:
+
+1. **Use a Reverse Proxy (Nginx/Apache):**
+   Set up a reverse proxy with **Nginx** or **Apache** to secure the dashboard with authentication.
+
+2. **Firewall Configuration:**
+   Restrict access to specific IP addresses using **ufw** (Uncomplicated Firewall):
+
+   ```bash
+   sudo ufw allow 80/tcp
+   sudo ufw enable
+   ```
+
+3. **HTTPS Encryption:**
+   Use **SSL certificates** from Let's Encrypt to encrypt data between the server and clients.
+
+4. **VPN Access:**
+   Limit dashboard access to users connected via a **VPN** for added security.
+
+---
+
+## **Troubleshooting**
+
+- **Port Already in Use:**
+  
+  If you encounter a "port in use" error, you can either choose a different port or identify the process using the port and stop it:
+
+  ```bash
+  sudo lsof -i :80
+  sudo kill <PID>
+  ```
+
+- **Permission Issues:**
+  
+  Running the server on port 80 may require `sudo`. If you don't want to run it with `sudo`, use a higher port (e.g., 8080).
+
+- **Dependency Issues:**
+  
+  If `npm install` fails, make sure you have the required build tools installed:
+
+  ```bash
+  sudo apt install build-essential
+  ```
+
+---
+
+## **Conclusion**
+
+In this tutorial, you've learned how to set up and run **Linux Dash** by Plotly on an **Ubuntu** system using the **tariqbuilds/linux-dash** GitHub repository. You've also learned how to secure your Linux Dash instance, run it as a background service, and troubleshoot common issues.
+
+Linux Dash provides a lightweight and intuitive dashboard to monitor your system's performance, and it's easy to set up using Node.js. Make sure to secure your installation properly to avoid unauthorized access.
+
+---
+
+Happy monitoring!

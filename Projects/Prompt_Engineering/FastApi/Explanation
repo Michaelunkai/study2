@@ -1,0 +1,1 @@
+This FastAPI application collects API keys and user prompts, sends the prompts to the OpenAI API, and displays the AI-generated responses in a web interface. It handles both successful and error responses, enhancing user interaction and experience.

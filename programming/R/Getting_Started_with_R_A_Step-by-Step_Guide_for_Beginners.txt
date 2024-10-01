@@ -21,13 +21,11 @@ Body:
      - Use logical operators such as greater than (>), less than (<), and equal to (==).
 4. Importing and Exporting Data:
    - Importing CSV Files:
-     ```R
+      R
      mydata <- read.csv("path/to/yourfile.csv", header = TRUE, sep = ",")
-     ```
    - Exporting Data:
-     ```R
-     write.csv(mydata, "path/to/savefile.csv")
-     ```
+      R
+     write. (mydata, "path/to/savefile. ")
 5. Data Manipulation:
    - Using dplyr Package:
      - Install and load the package: install.packages("dplyr") and library(dplyr).
@@ -36,41 +34,35 @@ Body:
    - Using ggplot2 Package:
      - Install and load the package: install.packages("ggplot2") and library(ggplot2).
      - Create basic plots:
-       ```R
+        R
        ggplot(data = mydata, aes(x = variable1, y = variable2)) + geom_point()
-       ```
 7. Writing Functions:
    - Creating Functions:
-     ```R
+      R
      my_function <- function(arg1, arg2) {
        result <- arg1 + arg2
        return(result)
      }
      my_function(3, 4)
-     ```
 8. Running Statistical Analyses:
    - Descriptive Statistics:
-     ```R
+      R
      summary(mydata)
-     ```
    - Linear Regression:
-     ```R
+      R
      model <- lm(dependent_var ~ independent_var, data = mydata)
      summary(model)
-     ```
 9. Using Packages:
    - Installing and Loading Packages:
-     ```R
+      R
      install.packages("package_name")
      library(package_name)
-     ```
 10. Getting Help:
    - Built-in Help System:
-     ```R
+      R
      help.start()
      help("function_name")
      ?function_name
-     ```
 Conclusion:
 This guide provides a comprehensive overview of starting with R, from installation to performing basic operations and statistical analyses. For further learning, consider exploring advanced topics and additional resources on platforms like DataCamp and other R programming tutorials.
 Sources:

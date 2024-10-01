@@ -1,0 +1,1 @@
+fauna create-index my_index --collection my_collection --terms fieldName --database my_database

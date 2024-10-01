@@ -1,0 +1,1 @@
+fauna create-collection my_collection --database my_database

@@ -1,0 +1,1 @@
+sudo apt update && wget https://cdn.downloads.dataiku.com/public/dss/13.1.1/dataiku-dss-13.1.1.tar.gz && tar xzf dataiku-dss-13.1.1.tar.gz && sudo ./dataiku-dss-13.1.1/scripts/install/install-deps.sh && ./dataiku-dss-13.1.1/installer.sh -d ./data_dir -p 11000 && ./data_dir/bin/dss start && echo "DSS is running at http://localhost:11000"

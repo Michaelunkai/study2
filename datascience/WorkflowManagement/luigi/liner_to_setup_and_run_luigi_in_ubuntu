@@ -1,0 +1,1 @@
+pip3 install luigi && luigid && gcl 8082

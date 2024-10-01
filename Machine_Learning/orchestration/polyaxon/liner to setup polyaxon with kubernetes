@@ -1,0 +1,1 @@
+ranch && helm repo add polyaxon https://charts.polyaxon.com && helm repo update && kubectl create namespace polyaxon && echo -e '# values.yaml\nglobal:\n  polyaxonUrl: "http://localhost"\n  polyaxonNamespace: "polyaxon"' >> values.yaml && helm install polyaxon polyaxon/polyaxon -n polyaxon -f values.yaml &&  polyaxon port-forward --namespace=polyaxon

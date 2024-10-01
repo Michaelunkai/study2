@@ -4,3 +4,5 @@ with all tools used and the specific thing the script/code does... dont add venv
 dont use nano, add the neccery text to neccery files!
 make sure to install all neccesery depandencies
 dont use placeholders!
+skip any docker realted installations, same for nodejs/npm, php, apache, venv, R, kubernetes.
+

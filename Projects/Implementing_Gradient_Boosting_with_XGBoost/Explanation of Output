@@ -1,0 +1,4 @@
+Explanation of Output:
+Accuracy: Displays the XGBoost model's accuracy on the test dataset.
+Classification Report: Detailed report showing precision, recall, and F1-score for each class.
+Confusion Matrix Plot: Visual representation of the confusion matrix.

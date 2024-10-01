@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .movie-poster {
+            max-width: 300px;
+        }
+        .review {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #333;
+        }
+        .trailer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ movie.title }}</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" class="img-fluid movie-poster" alt="{{ movie.title }}">
+            </div>
+            <div class="col-md-8">
+                <p><strong>Overview:</strong> {{ movie.overview }}</p>
+                <p><strong>IMDb Rating:</strong> {{ omdb.imdbRating }}</p>
+                <p><strong>Rotten Tomatoes:</strong> {{ omdb.Ratings[1].Value if omdb.Ratings and len(omdb.Ratings) > 1 else 'N/A' }}</p>
+                {% if videos %}
+                    <div class="trailer">
+                        <h4>Trailer</h4>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ videos[0].key }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                {% endif %}
+                <h3>Reviews</h3>
+                <div class="reviews">
+                    {% for review in reviews %}
+                        <div class="review">
+                            <strong>{{ review.author }}:</strong>
+                            <p>{{ review.content }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <a href="/" class="btn btn-secondary mt-3">Back to Search</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+</html>

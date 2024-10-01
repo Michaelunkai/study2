@@ -1,0 +1,177 @@
+### Comprehensive Guide to Setup, Run, and Use Pachyderm with Docker, Kubernetes, Minikube, Helm, and Pachyderm CLI on Ubuntu
+
+This tutorial will provide a detailed step-by-step guide on how to set up, run, and use Pachyderm, a data versioning and pipeline tool, on Ubuntu using Docker, Kubernetes (with Minikube), Helm, and Pachyderm CLI. The tutorial includes all necessary installation commands and configurations.
+
+---
+
+### Step 1: Install Docker (Pachyderm Requires Docker)
+Docker is required to run Pachyderm on your machine. Follow these steps to install Docker:
+
+  
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
+After installing Docker, you may need to log out and back in to apply the group changes.
+
+---
+
+### Step 2: Install `kubectl` (Kubernetes Command-Line Tool)
+Pachyderm operates on a Kubernetes cluster, and `kubectl` is the command-line tool to interact with Kubernetes.
+
+  
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+---
+
+### Step 3: Install a Local Kubernetes Cluster Using Minikube
+Minikube is used to run a local Kubernetes cluster. You will install it and start the cluster using the following commands:
+
+  
+sudo apt-get update
+sudo apt-get install -y conntrack
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start --driver=docker
+
+---
+
+### Step 4: Install Helm (Pachyderm Installation Requires Helm)
+Helm is a package manager for Kubernetes. Pachyderm uses Helm for deployment, so you’ll need to install it using the following command:
+
+  
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+---
+
+### Step 5: Add Pachyderm Helm Repository
+To deploy Pachyderm, add the Pachyderm Helm chart repository and update it.
+
+  
+helm repo add pachyderm https://helm.pachyderm.com
+helm repo update
+
+---
+
+### Step 6: Deploy Pachyderm Using Helm
+Now, you will use Helm to install Pachyderm on your Kubernetes cluster.
+
+  
+helm install pachd pachyderm/pachyderm --namespace default --set deployTarget=LOCAL
+
+This command deploys Pachyderm on the default namespace using Minikube as the Kubernetes platform.
+
+---
+
+### Step 7: Verify Pachyderm Deployment
+After deployment, verify that the Pachyderm pods are running by listing all the pods in the namespace:
+
+  
+kubectl get pods
+
+You should see Pachyderm-related pods (e.g., `pachd`) running in the output.
+
+---
+
+### Step 8: Install Pachyderm CLI (`pachctl`)
+The Pachyderm CLI (`pachctl`) allows you to interact with the Pachyderm deployment. Install it using the following commands:
+
+  
+sudo apt-get install -y curl
+curl -o /tmp/pachctl.deb -L https://github.com/pachyderm/pachyderm/releases/download/v2.0.0/pachctl_2.0.0_amd64.deb
+sudo dpkg -i /tmp/pachctl.deb
+
+---
+
+### Step 9: Configure Pachyderm CLI (`pachctl`)
+To interact with your local Pachyderm deployment, configure `pachctl` to point to your Minikube cluster:
+
+  
+pachctl config set context `kubectl config current-context` --namespace default
+
+---
+
+### Step 10: Verify Pachyderm Setup
+You can now use the `pachctl` command-line tool to verify that everything is set up correctly by listing the repositories:
+
+  
+pachctl list repo
+
+You should see an empty list if this is a fresh installation.
+
+---
+
+### Step 11: Create a Pachyderm Pipeline
+You can now create a sample pipeline. First, create a JSON file for the pipeline configuration.
+
+  
+nano pipeline.json
+
+Paste the following content into the file:
+
+ json
+{
+  "pipeline": {
+    "name": "example-pipeline"
+  },
+  "input": {
+    "pfs": {
+      "glob": "/*",
+      "repo": "example-repo"
+    }
+  },
+  "transform": {
+    "cmd": [ "bash" ],
+    "stdin": [
+      "echo 'Processing input data'",
+      "cat /pfs/example-repo/* > /pfs/out/output.txt"
+    ]
+  }
+}
+
+This pipeline takes data from `example-repo`, processes it using the bash command, and stores the result in the output.
+
+---
+
+### Step 12: Create a Pachyderm Repository
+To store data, create a repository called `example-repo`:
+
+  
+pachctl create repo example-repo
+
+---
+
+### Step 13: Create the Pipeline
+Now, create the pipeline using the `pipeline.json` file created earlier:
+
+  
+pachctl create pipeline -f pipeline.json
+
+---
+
+### Step 14: Add Data to the Repository
+Add some sample data to the repository for the pipeline to process:
+
+  
+echo "Sample data" | pachctl put file example-repo@master:/data.txt
+
+---
+
+### Step 15: View Pipeline Output
+Once the pipeline processes the data, you can view the output by running the following commands:
+
+  
+pachctl list file example-pipeline@master:/output.txt
+pachctl get file example-pipeline@master:/output.txt
+
+You should see the processed data in the output.
+
+---
+
+This completes the full setup, run, and use of Pachyderm in Ubuntu using Docker, Kubernetes (Minikube), Helm, and Pachyderm CLI.x

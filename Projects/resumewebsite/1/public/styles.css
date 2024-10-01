@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #191970; /* Dark navy blue background color */
+    color: #fff; /* White text color */
+}
+
+.container {
+    display: flex;
+}
+
+.menu {
+    flex: 0 0 20%;
+    padding: 20px;
+    /* Updated styles to show the menu on the left side */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto; /* Enable scrolling if the menu is taller than the viewport */
+    background: rgba(0, 0, 0, 0.8); /* Adjust the opacity as needed */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20%; /* Adjust content area to make space for the menu */
+}
+
+h1 {
+    font-size: 48px;
+}
+
+/* Styles for the Skills page */
+.skills {
+    margin-top: 20px;
+}
+
+.skills h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.skills p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
