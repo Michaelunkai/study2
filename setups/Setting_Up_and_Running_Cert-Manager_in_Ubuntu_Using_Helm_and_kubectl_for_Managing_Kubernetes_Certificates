@@ -1,0 +1,137 @@
+# Step-by-Step Guide to Setting Up and Running Cert-Manager in Ubuntu Using Helm and kubectl for Managing Kubernetes Certificates
+
+Cert-manager is a Kubernetes tool that automates the creation, renewal, and management of TLS certificates. This tutorial will walk you through the step-by-step process of setting up and running Cert-Manager in Ubuntu using Helm and kubectl, ensuring a fully functional certificate management system for your Kubernetes cluster.
+
+### Step 1: Install Prerequisites (kubectl and Helm)
+Before setting up Cert-Manager, you need to have `kubectl` and `helm` installed on your Ubuntu machine.
+
+#### Install `kubectl`:
+Download and install the latest version of `kubectl`:
+
+  
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+#### Install `helm`:
+Download and install the latest version of Helm:
+
+  
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version
+
+### Step 2: Add Cert-Manager Helm Repository
+Add the official Helm repository for Cert-Manager and update Helm repositories:
+
+  
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+### Step 3: Install Cert-Manager Custom Resource Definitions (CRDs)
+Cert-Manager relies on Custom Resource Definitions (CRDs) to define certificate-related resources. Install them using the following command:
+
+  
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.12.0/cert-manager.crds.yaml
+
+### Step 4: Install Cert-Manager using Helm
+Now, install Cert-Manager into your Kubernetes cluster using Helm. This will deploy Cert-Manager into the `cert-manager` namespace:
+
+  
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.12.0
+
+### Step 5: Verify Cert-Manager Installation
+Check that Cert-Manager has been successfully installed and that all the related pods are running:
+
+  
+kubectl get pods --namespace cert-manager
+
+You should see the following pods running:
+- `cert-manager`
+- `cert-manager-cainjector`
+- `cert-manager-webhook`
+
+### Step 6: Set Up a ClusterIssuer or Issuer (Let’s Encrypt Example)
+To issue certificates using Cert-Manager, you need to configure either an Issuer or a ClusterIssuer. In this step, we will configure a Let's Encrypt staging ClusterIssuer.
+
+Create a configuration file called `letsencrypt-staging.yaml`:
+
+  
+nano letsencrypt-staging. 
+
+Add the following content to configure Let's Encrypt staging:
+
+  
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    # The ACME server URL for Let's Encrypt staging environment
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: your-email@example.com
+    # Name of the secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+
+Apply this configuration to your Kubernetes cluster:
+
+  
+kubectl apply -f letsencrypt-staging.yaml
+
+### Step 7: Create a Certificate Resource for Your Domain
+Now, let's create a certificate resource for a domain. Create a new file called `certificate.yaml`:
+
+  
+nano certificate. 
+
+Add the following YAML content to generate a TLS certificate for the domain `example.com`:
+
+  
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-com
+  namespace: default
+spec:
+  secretName: example-com-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: example.com
+  dnsNames:
+  - example.com
+
+Apply this configuration to your cluster:
+
+  
+kubectl apply -f certificate.yaml
+
+### Step 8: Verify the Certificate Creation
+After applying the certificate configuration, check the status of the certificate to ensure it was successfully issued:
+
+  
+kubectl describe certificate example-com
+
+If successful, Cert-Manager will issue the certificate and store it in the `example-com-tls` secret.
+
+### Step 9: Manage and Renew Certificates
+Cert-Manager will automatically renew certificates when they are nearing expiry. You can view the current certificates using:
+
+  
+kubectl get certificates --namespace default
+
+### Conclusion:
+You have successfully set up and run Cert-Manager on your Ubuntu system using Helm and kubectl to manage Kubernetes certificates. Cert-Manager will handle certificate issuance and automatic renewal for your Kubernetes cluster, ensuring seamless TLS management.
+
+This setup works well with various Certificate Authorities like Let's Encrypt, and Cert-Manager offers advanced features such as automated certificate renewal and handling for wildcard certificates.
+

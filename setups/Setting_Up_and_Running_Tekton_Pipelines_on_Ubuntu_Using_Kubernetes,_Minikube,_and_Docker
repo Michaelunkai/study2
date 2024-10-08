@@ -1,0 +1,100 @@
+To set up and run Tekton Pipelines on Ubuntu, follow these steps:
+
+### Step 1: Install Kubernetes (Minikube)
+Tekton requires a Kubernetes cluster to run. We’ll set up a local cluster using Minikube.
+
+1. **Update system and install prerequisites**:
+     
+   sudo apt-get update
+   sudo apt-get install -y apt-transport-https ca-certificates curl
+
+2. **Install Docker (if not already installed)**:
+     
+   sudo apt-get install -y docker.io
+   sudo systemctl start docker
+   sudo systemctl enable docker
+
+3. **Install Minikube**:
+     
+   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+4. **Start Minikube**:
+     
+   minikube start --driver=docker
+
+### Step 2: Install kubectl (Kubernetes CLI)
+1. **Download and install kubectl**:
+     
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   chmod +x kubectl
+   sudo mv kubectl /usr/local/bin/
+
+2. **Verify installation**:
+     
+   kubectl version --client
+
+### Step 3: Install Tekton Pipelines
+1. **Install Tekton Pipelines CRDs** (Custom Resource Definitions):
+     
+   kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+
+2. **Verify Tekton installation**:
+     
+   kubectl get pods --namespace tekton-pipelines
+
+### Step 4: Create and Run a Tekton Pipeline
+Now that Tekton is installed, let’s create a simple pipeline.
+
+1. **Create a Pipeline Resource file**:
+     
+   nano pipeline. 
+
+2. **Add the following pipeline definition** to the `pipeline.yaml` file:
+
+     
+   apiVersion: tekton.dev/v1beta1
+   kind: Pipeline
+   metadata:
+     name: hello-world-pipeline
+   spec:
+     tasks:
+     - name: echo-task
+       taskSpec:
+         steps:
+         - name: echo
+           image: ubuntu
+           script: |
+             echo "Hello, Tekton!"
+
+3. **Create the Pipeline**:
+     
+   kubectl apply -f pipeline.yaml
+
+4. **Create a PipelineRun to execute the Pipeline**:
+     
+   nano pipelinerun. 
+
+5. **Add the following PipelineRun definition** to `pipelinerun.yaml`:
+
+     
+   apiVersion: tekton.dev/v1beta1
+   kind: PipelineRun
+   metadata:
+     name: hello-world-pipelinerun
+   spec:
+     pipelineRef:
+       name: hello-world-pipeline
+
+6. **Run the PipelineRun**:
+     
+   kubectl apply -f pipelinerun.yaml
+
+7. **Check the PipelineRun status**:
+     
+   kubectl get pipelinerun
+   kubectl logs <POD-NAME> -c step-echo
+
+This setup runs a simple Tekton pipeline that echoes "Hello, Tekton!" on a Minikube Kubernetes cluster.
+
+Let me know if you need more complex pipeline examples or additional steps!

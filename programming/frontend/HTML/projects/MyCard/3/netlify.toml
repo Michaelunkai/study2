@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "http://*"
+  to = "https://michacard.netlify.app/:splat"
+  status = 301
+  force = true

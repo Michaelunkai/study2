@@ -1,0 +1,25 @@
+Certainly! Below is a step-by-step guide with a detailed title.
+
+### Tutorial: "How to Resolve Docker Certificate Error by Setting System Date and Time Correctly Using `timedatectl` on Ubuntu Linux"
+
+This tutorial will guide you through resolving the Docker certificate validation error by adjusting the system date and time using the `timedatectl` command on an Ubuntu Linux system.
+
+#### Step 1: Disable Automatic Time Synchronization
+First, you need to disable automatic time synchronization to set the system time manually.
+
+  
+sudo timedatectl set-ntp false
+
+#### Step 2: Set the Correct Date and Time
+Once NTP (Network Time Protocol) is disabled, manually set the system date and time to the desired value. In this case, set the date to `07/10/2024` and time to `21:04`.
+
+  
+sudo timedatectl set-time '2024-10-07 21:04:00'
+
+#### Step 3: Enable Automatic Time Synchronization Again (Optional)
+If you want your system to automatically synchronize with the correct time from an NTP server, you can re-enable automatic time synchronization.
+
+  
+sudo timedatectl set-ntp true
+
+After completing these steps, retry your Docker command to verify that the certificate error is resolved.

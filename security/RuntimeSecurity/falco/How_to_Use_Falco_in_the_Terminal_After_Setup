@@ -1,0 +1,77 @@
+### How to Use Falco in the Terminal After Setup
+
+After you've set up Falco using the one-liner, you can use Falco in the terminal to monitor and capture security events in real-time. Here's a brief guide on how to use Falco in the terminal after setup.
+
+#### 1. **Check Falco Version**
+   - First, confirm that Falco is properly installed by checking the version:
+       
+     sudo falco --version
+
+#### 2. **Run Falco to Monitor Events**
+   - You can start Falco manually to monitor events:
+       
+     sudo falco
+   - Falco will begin monitoring your system and print detected security events (e.g., if a sensitive file is opened or if unusual system activity is detected).
+   
+#### 3. **Understanding Falco Output**
+   - When running, Falco will output alerts based on its predefined rules. For example:
+     22:30:45.478223543: Notice A shell was spawned in a container with an attached terminal (user=root container_id=4a90a62fce59)
+   - This alert means a shell was started in a container with a terminal attached.
+
+#### 4. **Falco Rule Files**
+   - You can find and customize Falco's rule files in the following directory:
+       
+     /etc/falco/
+   - The main rule file is usually `falco_rules.yaml`. You can modify or add rules as needed for your specific monitoring needs.
+
+#### 5. **Log Files**
+   - By default, Falco logs its events to `/var/log/falco.log`. You can view this log with the following command:
+       
+     sudo tail -f /var/log/falco.log
+
+#### 6. **Falco Command Line Options**
+   - You can use several useful command-line options with Falco:
+     - **`-r <rules file>`**: Load a specific rules file.
+     - **`-v`**: Enable verbose output.
+     - **`-L`**: List all available rules and their descriptions.
+   
+   For example, to list all rules:
+     
+   sudo falco -L
+
+---
+
+### Remade One-Liner Without Echoing URL (Just Running --version)
+
+Here's a revised one-liner that sets up Falco, runs it, and checks its version at the end without echoing the URL for the web UI:
+
+  
+sudo bash -c 'cat > "install-falco-wsl2-setup.sh" << "EOF"
+#!/bin/ 
+# Install required dependencies
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release build-essential cmake linux-headers-generic docker.io
+
+# Add Falco GPG key and repository
+curl -sSL https://falco.org/repo/falcosecurity-packages.asc | sudo gpg --dearmor -o /usr/share/keyrings/falcosecurity-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/falcosecurity-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | sudo tee /etc/apt/sources.list.d/falcosecurity.list
+
+# Update package list and install Falco
+sudo apt update
+sudo apt install -y falco
+
+# Run Falco manually without service (as services are not fully supported in WSL2)
+echo "Starting Falco directly as services are not fully supported in WSL2..."
+sudo falco &
+
+# Run Falco version command
+sudo falco --version
+EOF
+sudo chmod +x "install-falco-wsl2-setup.sh"
+sudo ./install-falco-wsl2-setup.sh'
+
+---
+
+### Summary of the One-Liner:
+- **Installs Falco**: Includes all necessary dependencies and installs Falco using the Falco repository.
+- **Runs Falco**: It runs Falco in the background manually (since services don't work well in WSL2).
+- **Checks Version**: At the end of the script, it runs `falco --version` to verify that Falco has been installed correctly.

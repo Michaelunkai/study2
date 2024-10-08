@@ -1,0 +1,1 @@
+BPF (Berkeley Packet Filter) is a technology for **filtering network packets** and executing **sandboxed programs** in the Linux kernel. It allows user-defined programs to be run in response to kernel events, enabling tasks like network monitoring, performance analysis, and security enforcement.

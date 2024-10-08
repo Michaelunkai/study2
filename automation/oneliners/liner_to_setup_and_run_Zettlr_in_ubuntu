@@ -1,0 +1,1 @@
+wget https://github.com/Zettlr/Zettlr/releases/download/v3.2.2/Zettlr-3.2.2-amd64.deb && apt install -y ./Zettlr-3.2.2-amd64.deb && rm Zettlr-3.2.2-amd64.deb && zettlr --no-sandbox

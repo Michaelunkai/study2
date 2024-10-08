@@ -1,0 +1,24 @@
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH && apt update && apt install openjdk-11-jdk wget tar -y && wget https://downloads.apache.org/zeppelin/zeppelin-0.10.1/zeppelin-0.10.1-bin-all.tgz && tar -xvf zeppelin-0.10.1-bin-all.tgz && mv zeppelin-0.10.1-bin-all /opt/zeppelin && mkdir -p /opt/zeppelin/logs /opt/zeppelin/pid /opt/zeppelin/conf && echo 'export ZEPPELIN_JAVA_OPTS="-Dzeppelin.server.addr=0.0.0.0"
+export HADOOP_CONF_DIR=""
+export ZEPPELIN_LOG_DIR=/opt/zeppelin/logs
+export ZEPPELIN_PID_DIR=/opt/zeppelin/pid' > /opt/zeppelin/conf/zeppelin-env.sh && echo '<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <property>
+    <name>zeppelin.server.port</name>
+    <value>8082</value>
+  </property>
+</configuration>' > /opt/zeppelin/conf/zeppelin-site.xml && echo 'export ZEPPELIN_HOME=/opt/zeppelin' >> ~/.bashrc && echo 'export PATH=$PATH:$ZEPPELIN_HOME/bin' >> ~/.bashrc && source ~/.bashrc && echo '[Unit]
+Description=Apache Zeppelin Service
+After=network.target
+
+[Service]
+Type=forking
+User=root
+Group=root
+EnvironmentFile=/opt/zeppelin/conf/zeppelin-env.sh
+ExecStart=/opt/zeppelin/bin/zeppelin-daemon.sh start
+ExecStop=/opt/zeppelin/bin/zeppelin-daemon.sh stop
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target' > /etc/systemd/system/zeppelin.service && systemctl daemon-reload && systemctl start zeppelin && systemctl enable zeppelin && echo "Apache Zeppelin is running at http://localhost:8082"

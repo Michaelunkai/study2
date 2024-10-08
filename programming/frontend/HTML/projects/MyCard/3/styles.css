@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lobster', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* Blue-Red-Purple-Orange gradient */
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.profile-card {
+    background-color: #f3e5ab; /* Cream color background */
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: scale(1.3); /* Slightly smaller card */
+}
+
+h1 {
+    font-size: 38px; /* Make the name a bit smaller */
+    margin-bottom: 15px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 22px; /* Adjust description size */
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 18px 0;
+    border-radius: 10px;
+    margin: 12px 0;
+    color: white;
+    font-size: 22px; /* Slightly smaller buttons */
+    font-weight: bold;
+    text-align: center;
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+
+.github {
+    background-color: #333;
+}
+
+.portfolio {
+    background-color: #C13584;
+}
+
+.portfolio-website {
+    background-color: #FF5722;
+}
+
+.my-website {
+    background-color: #4CAF50;
+}
+
+.projects {
+    background-color: #1E90FF; /* Blue color for Projects button */
+}

@@ -1,0 +1,24 @@
+mkdir -p ~/goroutine_project && cd ~/goroutine_project && echo 'package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func printNumbers() {
+    for i := 1; i <= 5; i++ {
+        fmt.Printf("Number: %d\n", i)
+        time.Sleep(500 * time.Millisecond)
+    }
+}
+
+func main() {
+    go printNumbers()
+
+    for i := 1; i <= 5; i++ {
+        fmt.Printf("Main Loop: %d\n", i)
+        time.Sleep(1 * time.Second)
+    }
+
+    time.Sleep(3 * time.Second)
+}' > main.go && wget https://golang.org/dl/go1.20.6.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.20.6.linux-amd64.tar.gz && echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && source ~/.bashrc && go run main.go

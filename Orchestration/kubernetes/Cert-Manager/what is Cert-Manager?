@@ -1,0 +1,12 @@
+**Cert-Manager** is an open-source Kubernetes add-on that automates the management and issuance of TLS (Transport Layer Security) certificates within Kubernetes clusters. It simplifies the process of creating, renewing, and managing certificates used to secure communications between services or to provide HTTPS for web applications. Cert-Manager is designed to work with various certificate authorities (CAs), such as Let's Encrypt, HashiCorp Vault, or self-signed certificates.
+
+### Key Features of Cert-Manager:
+1. **Automated Certificate Issuance**: Cert-Manager automatically issues certificates using configured Certificate Authorities (e.g., Let's Encrypt).
+2. **Certificate Renewal**: Cert-Manager automatically renews certificates before they expire, ensuring uninterrupted secure connections.
+3. **Supports ACME (Let's Encrypt)**: Cert-Manager can integrate with Let's Encrypt via the ACME protocol, simplifying the process of getting free certificates.
+4. **Multiple Certificate Authorities**: You can configure multiple Issuers and ClusterIssuers to support different certificate authorities.
+5. **Wildcard Certificates**: Cert-Manager supports issuing wildcard certificates for securing multiple subdomains.
+6. **Ingress Integration**: Cert-Manager can be integrated with Kubernetes Ingress resources to automatically secure them with TLS.
+7. **Flexible Solvers**: Cert-Manager supports different challenge solvers (HTTP01, DNS01, etc.) to validate certificate requests.
+
+By automating certificate management, Cert-Manager helps Kubernetes users ensure secure communication between services, protect web traffic with HTTPS, and reduce the complexity of manually managing certificates.

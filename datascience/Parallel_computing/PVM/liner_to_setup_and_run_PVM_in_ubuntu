@@ -1,0 +1,17 @@
+mkdir -p ~/pvm_setup && cd ~/pvm_setup && echo 'localhost' > pvm_hosts && echo '#include <stdio.h>
+#include <pvm3.h>
+
+int main() {
+    int tid;
+    char msg[] = "Hello from PVM!";
+
+    tid = pvm_mytid(); // Enroll in PVM
+    if (tid < 0) {
+        printf("Error enrolling in PVM.\\n");
+        return 1;
+    }
+
+    printf("%s\\n", msg);
+    pvm_exit(); // Leave PVM
+    return 0;
+}' > hello_pvm.c && sudo apt install -y pvm pvm-dev gcc && export PVM_ALLOW_ROOT=1 && gcc -o hello_pvm hello_pvm.c -lpvm3 && pvm ~/pvm_hosts && ./hello_pvm

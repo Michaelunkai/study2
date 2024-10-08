@@ -1,0 +1,28 @@
+**Full Review of Google's Gemini Model Series Update Released Today (24.9.24): New Computational Improvements, Reduced Costs, and Enhanced Developer Access through Google AI Studio**
+
+Google has officially released a significant update to its Gemini model series today (24.9.24). The latest updates bring impressive computational enhancements, a substantial reduction in operational costs, improved response times, and an increased capacity for developers to perform simultaneous requests. These changes make smarter, more efficient technologies available not only to developers and companies worldwide but also to individual users who can access these models via Google AI Studio. But, are these changes truly game-changing? Let's dive into the details.
+
+**Key Takeaways:**
+- **More affordable:** Over 50% price reduction for Gemini 1.5 Pro (applicable for input/output prompts with less than 128K tokens).
+- **More generous:** Doubled usage limits for Gemini 1.5 Flash and tripled limits for Gemini 1.5 Pro.
+- **Faster:** Output speed has doubled, and latency times have been reduced by a factor of three.
+
+**A Closer Look…**
+
+**Two New Models for Gemini 1.5:**
+The latest update introduces two new models tailored for the production of AI-based applications in complex and large-scale projects. These new models bear the rather unoriginal names of *Gemini-1.5-Pro-002* and *Gemini-1.5-Flash-002*. It seems that no one at Google felt particularly inspired to come up with something more inventive than "002," but at least we're getting upgrades and price reductions.
+
+**Significant Cost Reduction:**
+Google has announced a more than 50% cost reduction for the Gemini 1.5 Pro model, specifically for token usage (input/output). The reduced cost also includes significant savings on cache memory. For developers, this marks a substantial decrease in development costs, especially when working with short token inputs and outputs (less than 128K tokens).
+
+**Increased Usage Limits:**
+To ease the development of AI-powered applications, Google has raised the request-per-minute (RPM) limits for both versions of Gemini. The Flash model now supports up to 2,000 requests per minute, while the Pro model supports up to 1,000 requests per minute, a noticeable improvement over the previous limits of 1,000 and 360, respectively. This upgrade enables developers to execute a larger number of operations faster and more efficiently, facilitating the development of complex and large-scale products.
+
+**Faster Performance:**
+In addition to cost reductions and increased usage limits, Google has enhanced the output speed of the models. Outputs are now delivered twice as fast as in previous versions, with latency times reduced by a third. This means developers can expect faster response times from the models, improving the development process and reducing the wait time for answers and actions.
+
+**Experimental Upgrade to Gemini 1.5 Flash-8B:**
+Alongside updates to the standard models, Google has launched an additional experimental version with the rather intricate name *Gemini-1.5-Flash-8B-Exp-0924*. This version includes significant improvements in textual and multimodal tasks and is now available via Google AI Studio and the Gemini API. The enhancements focus on better performance in text-related tasks and multimedia, with the updates built on positive feedback from developers who tested the previous experimental version.
+
+**What's Next for Google?**
+What do you think of Google's approach? Will they outpace Altman and Anthropic, or will they continue to struggle to keep up?

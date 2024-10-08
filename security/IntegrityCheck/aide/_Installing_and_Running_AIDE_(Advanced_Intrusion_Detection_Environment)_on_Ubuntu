@@ -1,0 +1,53 @@
+### Step-by-Step Tutorial: How to Install, Configure, and Run Advanced Intrusion Detection Environment (AIDE) for File System Integrity Monitoring on Ubuntu Using Cron Automation for Daily Checks
+
+---
+
+#### Step 1: Install AIDE (Advanced Intrusion Detection Environment) on Ubuntu
+
+Start by installing AIDE, which will monitor your file system's integrity.
+
+  
+sudo apt install aide -y
+
+#### Step 2: Initialize the AIDE Database to Create a Snapshot of Your File System
+
+Before AIDE can start monitoring, you need to initialize its database. This creates a snapshot of your file system at the current state.
+
+  
+sudo aideinit
+
+#### Step 3: Move the AIDE Database to the Default Location for Integrity Checks
+
+Once initialized, move the newly created AIDE database to the default location so it can be used for comparison during integrity checks.
+
+  
+sudo mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+
+#### Step 4: Run AIDE to Perform a File System Integrity Check
+
+Now that AIDE is configured, run it to compare the current state of your file system against the database (the baseline).
+
+  
+sudo aide --check
+
+This will output any changes that have been made to your file system since the database was initialized.
+
+#### Step 5: Automate AIDE Checks by Scheduling Daily Integrity Checks Using Cron
+
+To automate the integrity checks, you can set up a cron job to run AIDE every day.
+
+1. Open the crontab file:
+
+     
+   sudo crontab -e
+
+2. Add the following line to run AIDE checks daily at midnight:
+
+     
+   0 0 * * * /usr/bin/aide --check
+
+This will ensure AIDE automatically runs every day and checks the file system for unauthorized or unexpected changes.
+
+---
+
+By following this tutorial, you have successfully installed, configured, and automated AIDE (Advanced Intrusion Detection Environment) on Ubuntu for file system integrity monitoring, using cron to schedule daily checks.

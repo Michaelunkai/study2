@@ -33,95 +33,80 @@ Google Colab (Colaboratory) is a free, cloud-based platform designed for machine
 1. Click the folder icon in the left sidebar.
 2. Upload files from your local machine.
 ### Mounting Google Drive:
-```python
+  
 from google.colab import drive
 drive.mount('/content/drive')
-```
 ### Accessing Uploaded Files:
-```python
+  
 import pandas as pd
-df = pd.read_csv('/content/your_file.csv')
-```
+df = pd.read_ ('/content/your_file. ')
 ## Installing and Importing Libraries
 ### Pre-installed Libraries:
 - Libraries like NumPy, Pandas, Matplotlib, Scikit-learn, and TensorFlow are pre-installed.
 ### Installing Additional Libraries:
-```python
+  
 !pip install library_name
-```
 ### Importing Libraries:
-```python
+  
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-```
 ## Using GPU/TPU Acceleration
 ### Enabling GPU:
 1. Go to Runtime > Change runtime type > Hardware accelerator > GPU.
 ### Checking GPU Availability:
-```python
+  
 import tensorflow as tf
 print(tf.test.gpu_device_name())
-```
 ### Using TPU:
 1. Go to Runtime > Change runtime type > Hardware accelerator > TPU.
 2. Follow Colab's TPU setup instructions.
 ## Data Preprocessing
 ### Loading Data:
-```python
+  
 import pandas as pd
-df = pd.read_csv('/content/your_data.csv')
-```
+df = pd.read_ ('/content/your_data. ')
 ### Handling Missing Values:
-```python
+  
 df.dropna()  # Remove rows with missing values
 df.fillna(value)  # Fill missing values
-```
 ### Encoding Categorical Variables:
-```python
+  
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 df['encoded_column'] = le.fit_transform(df['categorical_column'])
-```
 ### Scaling Features:
-```python
+  
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(features)
-```
 ## Model Training and Evaluation
 ### Splitting Data:
-```python
+  
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-```
 ### Training a Model (Example with Scikit-learn):
-```python
+  
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
 model.fit(X_train, y_train)
-```
 ### Making Predictions:
-```python
+  
 y_pred = model.predict(X_test)
-```
 ### Evaluating the Model:
-```python
+  
 from sklearn.metrics import accuracy_score, classification_report
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
-```
 ## Visualization
 ### Basic Plotting with Matplotlib:
-```python
+  
 import matplotlib.pyplot as plt
 plt.plot(x, y)
 plt.show()
-```
 ### Interactive Plots with Plotly:
-```python
+  
 import plotly.express as px
 fig = px.scatter(df, x='feature1', y='feature2')
 fig.show()
-```
 By following this tutorial, you'll be able to leverage Google Colab's powerful features for your machine learning projects, from data preprocessing to model training and evaluation.

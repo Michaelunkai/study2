@@ -1,0 +1,21 @@
+**GlassFish Server** is an open-source application server that is used to deploy Java-based applications, particularly those using Java EE (Enterprise Edition) technologies. Developed by Sun Microsystems (later acquired by Oracle), GlassFish allows developers to create and run scalable, enterprise-level applications.
+
+### Key Features of GlassFish Server:
+1. **Java EE Support**: Full support for Java EE specifications, such as Servlets, JSP, EJB, JPA, JMS, and others, making it ideal for enterprise-level applications.
+2. **Modular Architecture**: Built using OSGi (Open Service Gateway Initiative), which allows for a modular and scalable architecture.
+3. **Admin Console**: GlassFish comes with a web-based admin console to easily manage applications, server settings, and resources.
+4. **Clustering and Load Balancing**: Supports clustering, load balancing, and session replication for high availability and scalability.
+5. **Developer-friendly**: It integrates well with development tools like NetBeans and supports rapid deployment and debugging of applications.
+6. **Database Connectivity**: Provides support for JDBC for database access and resource management.
+
+In summary, GlassFish is a robust platform for deploying enterprise Java applications with a focus on scalability, performance, and developer productivity.**GlassFish Server** is an open-source application server that is used to deploy Java-based applications, particularly those using Java EE (Enterprise Edition) technologies. Developed by Sun Microsystems (later acquired by Oracle), GlassFish allows developers to create and run scalable, enterprise-level applications.
+
+### Key Features of GlassFish Server:
+1. **Java EE Support**: Full support for Java EE specifications, such as Servlets, JSP, EJB, JPA, JMS, and others, making it ideal for enterprise-level applications.
+2. **Modular Architecture**: Built using OSGi (Open Service Gateway Initiative), which allows for a modular and scalable architecture.
+3. **Admin Console**: GlassFish comes with a web-based admin console to easily manage applications, server settings, and resources.
+4. **Clustering and Load Balancing**: Supports clustering, load balancing, and session replication for high availability and scalability.
+5. **Developer-friendly**: It integrates well with development tools like NetBeans and supports rapid deployment and debugging of applications.
+6. **Database Connectivity**: Provides support for JDBC for database access and resource management.
+
+In summary, GlassFish is a robust platform for deploying enterprise Java applications with a focus on scalability, performance, and developer productivity.

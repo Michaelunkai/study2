@@ -1,0 +1,11 @@
+Cilium is an open-source networking and security project designed to provide visibility, security, and control for cloud-native applications running in Kubernetes and other container orchestration platforms. It uses **eBPF (Extended Berkeley Packet Filter)**, a powerful technology in the Linux kernel, to perform highly efficient networking, load balancing, and security enforcement at the kernel level. 
+
+Key features of Cilium include:
+
+- **Networking for Kubernetes**: Cilium provides advanced networking features like load balancing, IP routing, and overlay networks for containers.
+- **Network Security**: It enforces network policies and security rules using eBPF, enabling security enforcement at the service level with minimal overhead.
+- **Service Mesh**: Cilium can act as a lightweight service mesh, integrating with Envoy and providing observability and security features without requiring sidecar proxies.
+- **Observability**: It offers deep visibility into the networking behavior of applications by tracing requests and network flows between containers and services.
+- **Scalability**: Due to its reliance on eBPF, Cilium can scale better than traditional methods that rely on iptables for packet filtering and routing.
+
+Cilium is widely used in Kubernetes environments to ensure efficient and secure networking at scale.

@@ -1,0 +1,9 @@
+Implement AppArmor Profiles
+Use AppArmor to restrict what applications can do on your system.
+
+Install AppArmor profiles:
+
+sudo apt install apparmor-profiles apparmor-utils
+Enable and enforce a specific profile:
+
+sudo aa-enforce /etc/apparmor.d/usr.sbin.mysqld

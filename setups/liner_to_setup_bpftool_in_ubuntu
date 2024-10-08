@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y build-essential libelf-dev zlib1g-dev pkg-config flex bison clang llvm git && mkdir -p ~/src && cd ~/src && git clone --depth 1 https://github.com/torvalds/linux.git && cd linux/tools/bpf/bpftool && make && sudo make install && bpftool version

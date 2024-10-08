@@ -1,0 +1,1 @@
+curl -fLSs https://circle.ci/cli | sudo bash

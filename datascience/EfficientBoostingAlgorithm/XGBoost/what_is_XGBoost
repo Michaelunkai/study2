@@ -1,0 +1,8 @@
+XGBoost (eXtreme Gradient Boosting) is an optimized machine learning algorithm based on the Gradient Boosting framework. It is designed to be highly efficient, flexible, and portable, and is widely used for supervised learning tasks such as classification and regression. Key features include:
+
+- **Boosting**: XGBoost is a boosting algorithm that builds models in a sequential manner, where each new model attempts to correct the errors of the previous models.
+- **Regularization**: XGBoost incorporates both L1 (Lasso) and L2 (Ridge) regularization to prevent overfitting and improve model generalization.
+- **Parallelization**: XGBoost supports parallel processing, making it faster than traditional boosting algorithms.
+- **Handling Missing Values**: It can handle missing data internally, without requiring explicit preprocessing.
+
+XGBoost is popular due to its speed, accuracy, and ability to work well with large and complex datasets.

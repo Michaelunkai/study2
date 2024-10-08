@@ -1,0 +1,6 @@
+echo '#!/bin/ 
+# Script to download, install, and launch VMware Horizon Client on Ubuntu
+wget https://download3.omnissa.com/software/CART25FQ2_LIN64_DEBPKG_2406/VMware-Horizon-Client-2406-8.13.0-9995429239.x64.deb
+sudo dpkg -i VMware-Horizon-Client-2406-8.13.0-9995429239.x64.deb
+sudo apt-get install -y -f libxss1 libxkbfile1 desktop-file-utils
+vmware-view' > setup_vmware_horizon_install_and_run_ubuntu_client.sh && chmod +x setup_vmware_horizon_install_and_run_ubuntu_client.sh && ./setup_vmware_horizon_install_and_run_ubuntu_client.sh

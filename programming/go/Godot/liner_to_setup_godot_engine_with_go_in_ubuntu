@@ -1,0 +1,1 @@
+getgo && echo -e '\nexport GOPATH=$HOME/go\nexport PATH=$PATH:/usr/local/go/bin:$GOPATH/bin' >> ~/.bashrc && source ~/.bashrc && git clone https://github.com/godotengine/godot.git && cd godot && sudo apt install -y scons python3-dev pkg-config && scons platform=linux

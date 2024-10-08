@@ -1,0 +1,1 @@
+sudo apt install -y libzmq3-dev && pip3 install pyzmq && python3 -c "import zmq; print('Zeromq setup successful')"

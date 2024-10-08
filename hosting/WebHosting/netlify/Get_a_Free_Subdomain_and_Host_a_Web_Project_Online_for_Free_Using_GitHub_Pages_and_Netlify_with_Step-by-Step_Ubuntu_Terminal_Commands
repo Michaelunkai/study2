@@ -1,0 +1,88 @@
+  
+# Tutorial: How to Get a Free Subdomain (michacard.tk) and Host a Web Project (MichaCard) Online for Free Using GitHub Pages and Netlify with Step-by-Step Ubuntu Terminal Commands
+
+# Step 1: Set Up GitHub Repository for Hosting Your MichaCard Project
+# Navigate to the project directory where your index.html and styles.css files are located.
+cd /mnt/c/study/programming/frontend/html/projects/MyCard/3
+
+# Initialize a new Git repository to start version control.
+git init
+
+# Add all project files (index.html, styles.css, etc.) to the repository.
+git add .
+
+# Commit the files with a descriptive message.
+git commit -m "Initial commit for MichaCard project"
+
+# Set up the remote repository on GitHub (Replace YOUR_GITHUB_USERNAME with your actual GitHub username).
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/MichaCard.git
+
+# Set the branch to "main" and push the project to GitHub.
+git branch -M main
+git push -u origin main
+
+# Step 2: Deploy Your Project on GitHub Pages for Free Hosting
+# Go to your GitHub repository at https://github.com/YOUR_GITHUB_USERNAME/MichaCard
+# In your repository, go to "Settings", scroll down to the "GitHub Pages" section, and enable it.
+# Set the source to the "main" branch, or use a "docs" folder if preferred.
+# Your project will now be accessible at: https://YOUR_GITHUB_USERNAME.github.io/MichaCard/
+
+# Step 3: Obtain a Free Custom Subdomain (michacard.tk) Using Freenom
+# Visit https://www.freenom.com and search for "michacard.tk".
+# Register the domain and configure it.
+
+# Step 4: Set Up DNS with Freenom for Your Custom Domain
+# Log in to your Freenom account and navigate to "My Domains" > "Manage Domain".
+# Go to the "Manage Freenom DNS" section.
+# Add a CNAME record with the following details:
+# Name: www
+# Type: CNAME
+# Target: YOUR_GITHUB_USERNAME.github.io
+
+# Step 5: Add Custom Domain Configuration to GitHub Pages
+# In your project directory, create a CNAME file to configure the custom domain.
+nano CNAME
+
+# Add the following content to the CNAME file:
+michacard.tk
+
+# Save the CNAME file by pressing `Ctrl + O`, and then exit by pressing `Ctrl + X`.
+
+# Step 6: Push the CNAME File to Your GitHub Repository
+# Add the CNAME file to the Git repository.
+git add CNAME
+
+# Commit the new CNAME file.
+git commit -m "Add custom domain configuration for michacard.tk"
+
+# Push the changes to GitHub to finalize the custom domain setup.
+git push origin main
+
+# Step 7: Deploy Your Project Using Netlify for an Additional Short Domain
+# Install the Netlify CLI on your system to deploy your project.
+npm install -g netlify-cli
+
+# Deploy the project using Netlify by specifying the project directory.
+netlify deploy --dir="/mnt/c/study/programming/frontend/html/projects/MyCard/3"
+
+# Follow the prompts:
+# - When asked to link the directory to a Netlify site, select the option to link to your existing site.
+# - Choose "michacard" from the list of recently updated sites.
+# Once linked, you will see:
+# Admin URL: https://app.netlify.com/sites/michacard
+# Site URL: https://michacard.netlify.app
+
+# Step 8: Deploy the Project to the Main Netlify URL
+# Deploy your changes to the main site URL by using the --prod flag.
+netlify deploy --prod
+
+# When prompted, enter the publish directory as "." (current directory):
+# ? Publish directory (.)
+.
+
+# Step 9: Verify Your Deployment
+# Your MichaCard project should now be accessible from:
+# - GitHub Pages URL: https://michacard.tk
+# - Netlify Site URL: https://michacard.netlify.app
+
+# You've successfully deployed your project for free using GitHub Pages, obtained a custom subdomain (michacard.tk), and set up a secondary short domain using Netlify.

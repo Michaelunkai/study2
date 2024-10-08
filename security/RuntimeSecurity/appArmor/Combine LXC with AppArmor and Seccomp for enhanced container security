@@ -1,0 +1,18 @@
+Combine LXC with AppArmor and Seccomp for enhanced container security.
+
+Install LXC and necessary tools:
+
+sudo apt install lxc apparmor-utils
+Create a secure container:
+
+lxc-create -n mycontainer -t download -- --dist ubuntu --release focal --arch amd64
+Configure AppArmor and Seccomp for the container:
+
+lxc profile edit default
+Add the following lines to the profile:
+
+config:
+  raw.lxc: |
+    lxc.apparmor.profile = generated
+    lxc.apparmor.allow_nesting = 1
+    lxc.seccomp.profile = /path/to/seccomp.profile

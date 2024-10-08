@@ -1,0 +1,19 @@
+mkdir -p ~/keycloak_setup && cd ~/keycloak_setup && \
+sudo apt-get install default-jdk -y && \
+wget https://github.com/keycloak/keycloak/releases/download/15.0.2/keycloak-15.0.2.tar.gz && \
+tar -xvzf keycloak-15.0.2.tar.gz && sudo rm -rf /opt/keycloak && sudo mv keycloak-15.0.2 /opt/keycloak && \
+if ! getent group keycloak > /dev/null; then sudo groupadd keycloak; fi && \
+sudo useradd -r -g keycloak -d /opt/keycloak -s /sbin/nologin keycloak || true && \
+sudo chown -R keycloak: /opt/keycloak && sudo chmod o+x /opt/keycloak/bin/ && \
+sudo mkdir -p /etc/keycloak && \
+if [ -f /opt/keycloak/docs/contrib/scripts/systemd/wildfly.conf ]; then sudo cp /opt/keycloak/docs/contrib/scripts/systemd/wildfly.conf /etc/keycloak/keycloak.conf; fi && \
+if [ -f /opt/keycloak/docs/contrib/scripts/systemd/launch.sh ]; then sudo cp /opt/keycloak/docs/contrib/scripts/systemd/launch.sh /opt/keycloak/bin/; fi && \
+sudo chown keycloak: /opt/keycloak/bin/launch.sh && \
+echo -e '#!/bin/bash\n\nif [ "x$WILDFLY_HOME" = "x" ]; then\nWILDFLY_HOME="/opt/keycloak"\nfi\n\nif [[ "$1" == "domain" ]]; then\n$WILDFLY_HOME/bin/domain.sh -c $2 -b $3\nelse\n$WILDFLY_HOME/bin/standalone.sh -Djboss.http.port=8083 -b $3\nfi' | sudo tee /opt/keycloak/bin/launch.sh && \
+if [ -f /opt/keycloak/docs/contrib/scripts/systemd/wildfly.service ]; then sudo cp /opt/keycloak/docs/contrib/scripts/systemd/wildfly.service /etc/systemd/system/keycloak.service; fi && \
+echo -e '[Unit]\nDescription=The Keycloak Server\nAfter=syslog.target network.target\nBefore=httpd.service\n[Service]\nEnvironment=LAUNCH_JBOSS_IN_BACKGROUND=1\nEnvironmentFile=/etc/keycloak/keycloak.conf\nUser=keycloak\nGroup=keycloak\nLimitNOFILE=102642\nPIDFile=/var/run/keycloak/keycloak.pid\nExecStart=/opt/keycloak/bin/launch.sh $WILDFLY_MODE $WILDFLY_CONFIG 127.0.0.1\nStandardOutput=null\n[Install]\nWantedBy=multi-user.target' | sudo tee /etc/systemd/system/keycloak.service && \
+sudo systemctl daemon-reload && sudo systemctl start keycloak && sudo systemctl enable keycloak && \
+/opt/keycloak/bin/add-user-keycloak.sh -u admin && \
+sudo systemctl restart keycloak && \
+/opt/keycloak/bin/kcadm.sh config credentials --server http://localhost:8083/auth --realm master --user admin && \
+/opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE

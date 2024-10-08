@@ -1,0 +1,48 @@
+# Automatically generated
+# duptype id depth size device inode priority name
+DUPTYPE_FIRST_OCCURRENCE 611 1 37 83 5348024557711724 3 /mnt/c/study/setups/liner_to_setup_and_run_JXplorer_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -611 3 37 83 5910974511134869 3 /mnt/c/study/networking/protocols/LDAP/liner_to_setup_and_run_JXplorer_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -611 2 37 83 7036874417977604 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_JXplorer_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 513 1 41 83 3377699720607758 3 /mnt/c/study/setups/liner_to_setup_MTR_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -513 2 41 83 4785074604161017 3 /mnt/c/study/networking/MTR/liner_to_setup_MTR_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -513 2 41 83 6192449487714232 3 /mnt/c/study/automation/oneliners/liner_to_setup_MTR_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 758 1 44 83 10977524091781175 3 /mnt/c/study/setups/liner_to_setup_and_run_nethogs_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -758 2 44 83 24769797950610736 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_nethogs_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -758 2 44 83 37717646879301763 3 /mnt/c/study/networking/nethogs/liner_to_setup_and_run_nethogs_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 886 1 46 83 3659174697312501 3 /mnt/c/study/setups/liner_to_setup_iptraf-ng_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -886 2 46 83 6473924464418059 3 /mnt/c/study/networking/iptraf-ng/liner_to_setup_iptraf-ng_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -886 2 46 83 10696049115076019 3 /mnt/c/study/automation/oneliners/liner_to_setup_iptraf-ng_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 500 1 51 83 4785074604326312 3 /mnt/c/study/setups/liner_to_setup_GNU_paraller_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -500 2 51 83 5910974510954119 3 /mnt/c/study/automation/oneliners/liner_to_setup_GNU_paraller_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -500 3 51 83 4503599627615653 3 /mnt/c/study/datascience/Parallel_computing/GNUparaller/liner_to_setup_GNU_paraller_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 932 1 87 83 4503599627615575 3 /mnt/c/study/setups/liner_to_setup_ray_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -932 3 87 83 4785074604326226 3 /mnt/c/study/datascience/Parallel_computing/Ray/liner_to_setup_ray_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -932 2 87 83 23362423067031423 3 /mnt/c/study/automation/oneliners/liner_to_setup_ray_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 471 1 111 83 4503599627615671 3 /mnt/c/study/setups/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -471 3 111 83 6755399441300705 3 /mnt/c/study/datascience/Parallel_computing/tensorflow/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -471 2 111 83 13792273859067100 3 /mnt/c/study/automation/oneliners/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 549 1 115 83 6192449488018604 3 /mnt/c/study/setups/liner_to_setup_Zeromq_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -549 3 115 83 5066549581175592 3 /mnt/c/study/datascience/Parallel_computing/Zeromq/liner_to_setup_Zeromq_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -549 2 115 83 5066549581175874 3 /mnt/c/study/automation/oneliners/liner_to_setup_Zeromq_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 717 1 293 83 45317471250487455 3 /mnt/c/study/setups/liner_to_setup_and_run_impacket_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 6473924464416446 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_impacket_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 10696049115076680 3 /mnt/c/study/docker/guides/liner_to_setup_and_run_impacket_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 5629499534284516 3 /mnt/c/study/networking/Impacket/liner_to_setup_and_run_impacket_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 637 1 536 83 4785074604577222 3 /mnt/c/study/setups/liner_to_setup_and_run_PVM_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -637 2 536 83 5348024557998435 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_PVM_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -637 3 536 83 3659174697734345 3 /mnt/c/study/datascience/Parallel_computing/PVM/liner_to_setup_and_run_PVM_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 713 1 663 83 5066549581133614 3 /mnt/c/study/setups/liner_to_setup_and_run_goroutine_project
+DUPTYPE_WITHIN_SAME_TREE -713 2 663 83 18858823439955638 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_goroutine_project
+DUPTYPE_WITHIN_SAME_TREE -713 3 663 83 2533274790736447 3 /mnt/c/study/programming/go/goroutine/liner_to_setup_and_run_goroutine_project
+DUPTYPE_FIRST_OCCURRENCE 618 1 746 83 41939771529927064 3 /mnt/c/study/setups/liner_to_setup_and_run_LDAP_apache_directory
+DUPTYPE_WITHIN_SAME_TREE -618 3 746 83 29836347531368226 3 /mnt/c/study/networking/protocols/LDAP/liner_to_setup_and_run_LDAP_apache_directory
+DUPTYPE_WITHIN_SAME_TREE -618 2 746 83 35184372088866577 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_LDAP_apache_directory
+DUPTYPE_FIRST_OCCURRENCE 10042 3 1099 83 2251799813918858 3 /mnt/c/study/hosting/NAS/owncloud/Setting up LDAP Authentication for ownCloud
+DUPTYPE_WITHIN_SAME_TREE -10042 3 1099 83 13510798882145492 3 /mnt/c/study/networking/protocols/LDAP/Setting_up_LDAP_Authentication_for_ownCloud
+DUPTYPE_FIRST_OCCURRENCE 10035 3 1226 83 1970324837199572 3 /mnt/c/study/hosting/NAS/nextcloud/Setting up LDAP Authentication for NextCloud
+DUPTYPE_WITHIN_SAME_TREE -10035 3 1226 83 17451448556094671 3 /mnt/c/study/networking/protocols/LDAP/Setting_up_LDAP_Authentication_for_NextCloud
+DUPTYPE_FIRST_OCCURRENCE 10057 3 1635 83 6755399441290626 3 /mnt/c/study/hosting/WebServers/apache/Enabling_LDAP_Active_Directory_Authentication_in_Apache_Guacamole
+DUPTYPE_WITHIN_SAME_TREE -10057 3 1635 83 23925373020439599 3 /mnt/c/study/networking/protocols/LDAP/Enabling_LDAP_Active_Directory_Authentication_in_Apache_Guacamole
+DUPTYPE_FIRST_OCCURRENCE 10631 3 3279 83 3940649674191821 3 /mnt/c/study/networking/protocols/FTP/Installing_Free_Filezilla_FTP_Server_with_LDAP_Authentication_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -10631 3 3279 83 13792273858855986 3 /mnt/c/study/networking/protocols/LDAP/Installing_Free_Filezilla_FTP_Server_with_LDAP_Authentication_on_Ubuntu
+# end of file

@@ -1,0 +1,1 @@
+cd && git clone https://github.com/getredash/setup.git && &cd setup && apt install pwgen -y && ./setup.sh && gcl
