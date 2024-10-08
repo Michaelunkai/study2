@@ -1,0 +1,1 @@
+curl -sL https://github.com/digitalocean/doctl/releases/download/v1.97.0/doctl-1.97.0-linux-amd64.tar.gz | sudo tar -xzv -C /usr/local/bin && doctl auth init
