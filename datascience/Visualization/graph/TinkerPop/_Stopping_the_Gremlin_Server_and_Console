@@ -1,0 +1,20 @@
+ Stopping the Gremlin Server and Console
+To stop the Gremlin Server and exit the Console, follow these steps:
+
+Stop the Gremlin Server: Press Ctrl+C in the terminal where the server is running.
+Exit the Gremlin Console: Type :exit at the Gremlin Console prompt.
+Step 9: Integrating Apache TinkerPop in a Java Project Using Maven
+If you want to use TinkerPop in a Java project, you can add it as a dependency in your pom.xml. Here’s how you add the core and driver libraries for Apache TinkerPop Gremlin:
+
+xml
+ 
+<dependency>
+    <groupId>org.apache.tinkerpop</groupId>
+    <artifactId>gremlin-core</artifactId>
+    <version>3.6.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.tinkerpop</groupId>
+    <artifactId>gremlin-driver</artifactId>
+    <version>3.6.0</version>
+</dependency>

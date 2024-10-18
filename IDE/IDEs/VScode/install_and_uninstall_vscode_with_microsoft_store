@@ -1,0 +1,6 @@
+winget install --id Microsoft.VisualStudioCode -e
+
+
+to uninstall : 
+
+Get-AppxPackage *Code* | Remove-AppxPackage

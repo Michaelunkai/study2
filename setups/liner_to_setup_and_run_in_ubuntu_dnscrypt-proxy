@@ -1,0 +1,1 @@
+sudo apt install -y dnscrypt-proxy && sudo systemctl start dnscrypt-proxy && sudo systemctl enable dnscrypt-proxy

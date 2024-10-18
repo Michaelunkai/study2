@@ -1,0 +1,16 @@
+ Install Cloud Foundry CLI
+Open your terminal.
+Update your package list:
+ 
+ 
+sudo apt-get update
+Install Cloud Foundry CLI using the package manager:
+ 
+ 
+wget -O cf-cli.deb "https://packages.cloudfoundry.org/stable?release=debian64&source=github"
+sudo dpkg -i cf-cli.deb
+Step 2: Log in to Cloud Foundry
+In the terminal, run the login command:
+ 
+ 
+cf login

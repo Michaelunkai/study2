@@ -1,0 +1,1 @@
+sudo apt install -y stubby && sudo systemctl start stubby && sudo systemctl enable stubby

@@ -1,0 +1,29 @@
+▲A  A▼
+Setup GoAccess Web Log Analyzer on Linux
+What is GoAccess?
+GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser. It provides fast and valuable HTTP statistics for system administrators that require a visual server report on the fly. - https://goaccess.io/
+
+Installing GoAccess
+Log into the Linux host
+Run the following commands in a terminal window:
+# update software respositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequesities
+sudo apt install gnupg2 -y
+# add goaccess gpg key
+wget -O - https://deb.goaccess.io/gnugpg.key | sudo apt-key add -
+# add goaccess apt repository
+echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/goaccess.list
+# update software repositories again
+sudo apt update
+# install goaccess
+sudo apt install goaccess -y
+# install apache2
+sudo apt install apache2 -y
+# enable the real-time dashboard
+sudo goaccess /var/log/apache2/access.log --log-format=COMBINED -a -o /var/www/html/monitor.html --real-time-html
+View GoAccess Web Dashboard
+Open a web browser and navigate to http://DNSorIP/monitor.html
+ 

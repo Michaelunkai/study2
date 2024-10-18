@@ -1,0 +1,1 @@
+sudo apt install -y python3-pip && pip3 install dash && echo "from dash import Dash; app = Dash(__name__); app.run_server(debug=True)" > dash_app.py && python3 dash_app.py

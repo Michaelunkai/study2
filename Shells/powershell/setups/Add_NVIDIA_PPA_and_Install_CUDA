@@ -1,0 +1,5 @@
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install nvidia-driver-535
+sudo reboot
+sudo apt install nvidia-cuda-toolkit

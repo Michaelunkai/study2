@@ -1,0 +1,1 @@
+ sudo apt install -y git python3 && git clone https://github.com/iphelix/dnschef && cd dnschef && pip install dnslib && sudo python3 dnschef.py -i eth0

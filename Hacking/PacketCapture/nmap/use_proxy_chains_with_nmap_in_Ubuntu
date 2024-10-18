@@ -1,0 +1,49 @@
+Sure! Here’s a step-by-step guide to using ProxyChains with Nmap on Ubuntu:
+
+### Step 1: Install ProxyChains
+1. Open a terminal.
+2. Install ProxyChains using the following command:
+     
+   sudo apt-get update
+   sudo apt-get install proxychains
+
+### Step 2: Configure ProxyChains
+1. Open the ProxyChains configuration file in a text editor:
+     
+   sudo nano /etc/proxychains.conf
+2. In the configuration file, find the line that says `#dynamic_chain` and uncomment it (remove the `#` at the beginning).
+3. Comment out the line `strict_chain` by adding a `#` at the beginning.
+4. Scroll down to the bottom of the file, where the proxy list is, and add your proxy servers. For example, to add a SOCKS5 proxy, add:
+   socks5  127.0.0.1 9050
+   (Replace `127.0.0.1` and `9050` with the IP address and port of your proxy server.)
+
+### Step 3: Install Nmap
+1. If you haven't already installed Nmap, install it using the following command:
+     
+   sudo apt-get install nmap
+
+### Step 4: Run Nmap with ProxyChains
+1. Use the following command format to run Nmap with ProxyChains:
+     
+   proxychains nmap [nmap-options] [target]
+   For example, to scan a target with a basic Nmap scan, you might use:
+     
+   proxychains nmap -sT scanme.nmap.org
+
+### Example Scan
+1. Open a terminal.
+2. Run the following command to test your setup:
+     
+   proxychains nmap -sT scanme.nmap.org
+
+### Tips and Considerations
+- Ensure your proxy server is running and accessible.
+- ProxyChains might slow down the scanning process due to the additional overhead of routing through proxies.
+- For anonymity and security, consider using a chain of proxies.
+
+### Trouble ooting
+- If you encounter issues, check the ProxyChains configuration file for any errors.
+- Ensure the proxy servers you are using are operational.
+- You can enable detailed logging in ProxyChains for more information on what might be going wrong by adding `quiet_mode` to `off` in the `/etc/proxychains.conf` file.
+
+This should give you a solid starting point for using ProxyChains with Nmap on Ubuntu. If you have any specific issues or need further details, feel free to ask!

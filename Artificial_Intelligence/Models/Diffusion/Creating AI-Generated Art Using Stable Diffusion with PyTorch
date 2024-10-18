@@ -6,7 +6,7 @@ This tutorial walks you through creating AI-generated art using the Stable Diffu
 
 ### Full Code
 
-```python
+  
 import torch
 from diffusers import StableDiffusionPipeline
 import os
@@ -37,8 +37,7 @@ if __name__ == "__main__":
     prompt = "a photo of an astronaut riding a horse on mars"
     output_path = "astronaut_rides_horse.png"
     generate_image(prompt, output_path)
-```
 
-### Output Explanation
+###   Explanation
 
 The script generates an image based on the prompt "a photo of an astronaut riding a horse on Mars" and saves it as `astronaut_rides_horse.png`. The image will be generated using GPU acceleration if CUDA is available; otherwise, the CPU will be used. The image is saved in the specified directory, and upon successful completion, a message confirming the save location is printed. If any errors occur during the process, they will be caught and displayed in the console.

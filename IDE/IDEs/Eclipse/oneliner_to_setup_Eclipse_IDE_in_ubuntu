@@ -1,0 +1,1 @@
+sudo apt install openjdk-11-jdk && wget -O eclipse-inst-jre-linux64.tar.gz https://ftp.yz.yamagata-u.ac.jp/pub/eclipse/oomph/epp/2023-03/R/eclipse-inst-jre-linux64.tar.gz && tar -xzf eclipse-inst-jre-linux64.tar.gz && cd eclipse-installer && ./eclipse-inst

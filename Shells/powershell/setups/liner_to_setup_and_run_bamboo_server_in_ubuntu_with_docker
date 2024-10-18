@@ -1,0 +1,1 @@
+ docker run -d --name bamboo -p 8086:8085 atlassian/bamboo-server && gcl 8086

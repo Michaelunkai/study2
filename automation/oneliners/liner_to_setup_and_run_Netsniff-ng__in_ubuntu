@@ -1,0 +1,1 @@
+sudo apt install -y netsniff-ng && sudo netsniff-ng -i eth0

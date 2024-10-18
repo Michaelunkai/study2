@@ -1,0 +1,1 @@
+curl -L https://github.com/codefresh-io/cli/releases/download/v0.74.0/codefresh-v0.74.0-linux-x64.tar.gz -o codefresh.tar.gz && tar -xzvf codefresh.tar.gz && sudo mv codefresh /usr/local/bin && codefresh version

@@ -1,0 +1,1 @@
+codefresh create pipeline --repo <repository_url> --name <pipeline_name>

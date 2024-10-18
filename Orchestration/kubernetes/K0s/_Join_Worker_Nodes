@@ -1,0 +1,28 @@
+Join Worker Nodes (Optional)
+If you want to add worker nodes to your cluster, follow this process. On the worker node:
+
+First, generate a token from the control plane (run on your control node):
+
+ 
+ 
+sudo k0s token create --role=worker
+Install K0s on the worker node as done in Step 1, and then run the following command to join the worker node to the cluster:
+
+ 
+ 
+sudo k0s worker <token>
+Install the worker node as a service:
+
+ 
+ 
+sudo k0s install worker --token-file <token_file>
+Start the worker service:
+
+ 
+ 
+sudo systemctl start k0sworker
+Enable the worker service to start at boot:
+
+ 
+ 
+sudo systemctl enable k0sworker

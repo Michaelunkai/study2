@@ -1,0 +1,293 @@
+Basic Scan:
+
+ 
+ 
+nmap <target>
+Example:
+
+ 
+nmap 192.168.1.1
+Scan Specific Ports:
+
+ 
+ 
+nmap -p <port1,port2,...> <target>
+Example:
+
+ 
+ 
+nmap -p 22,80,443 192.168.1.1
+Scan a Range of IPs:
+
+ 
+ 
+nmap <starting-IP>-<ending-IP>
+Example:
+
+ 
+nmap 192.168.1.1-192.168.1.10
+Scan a Subnet:
+
+ 
+ 
+nmap <IP/subnet>
+Example:
+
+ 
+nmap 192.168.1.0/24
+Aggressive Scan:
+
+ 
+ 
+nmap -A <target>
+Example:
+
+ 
+ 
+nmap -A 192.168.1.1
+OS Detection:
+
+mathematica
+ 
+nmap -O <target>
+Example:
+
+mathematica
+ 
+nmap -O 192.168.1.1
+Service Version Detection:
+
+ 
+ 
+nmap -sV <target>
+Example:
+
+ 
+nmap -sV 192.168.1.1
+Scan All TCP Ports:
+
+ 
+ 
+nmap -p- <target>
+Example:
+
+ 
+ 
+nmap -p- 192.168.1.1
+UDP Scan:
+
+ 
+ 
+nmap -sU <target>
+Example:
+
+ 
+nmap -sU 192.168.1.1
+TCP Connect Scan:
+
+ 
+ 
+nmap -sT <target>
+Example:
+
+ 
+nmap -sT 192.168.1.1
+SYN Scan:
+
+ 
+ 
+nmap -sS <target>
+Example:
+
+ 
+nmap -sS 192.168.1.1
+Scan for Specific Service/Version Information:
+
+ 
+ 
+nmap -sV --version-intensity <level> <target>
+Example:
+
+ 
+ 
+nmap -sV --version-intensity 5 192.168.1.1
+Scan Multiple Targets from a File:
+
+ 
+ 
+nmap -iL <inputfile>
+Example:
+
+ 
+nmap -iL targets.txt
+  in Normal Format:
+
+ 
+ 
+nmap -oN <outputfile> <target>
+Example:
+
+graphql
+ 
+nmap -oN output.txt 192.168.1.1
+  in XML Format:
+
+ 
+ 
+nmap -oX <outputfile> <target>
+Example:
+
+ 
+ 
+nmap -oX output.xml 192.168.1.1
+Scan with Specific Timing Template:
+
+ 
+ 
+nmap -T<0-5> <target>
+Example:
+
+ 
+nmap -T4 192.168.1.1
+Evade Firewalls with Fragmentation:
+
+ 
+ 
+nmap -f <target>
+Example:
+
+ 
+nmap -f 192.168.1.1
+Scan for Most Common Ports:
+
+ 
+ 
+nmap --top-ports <number> <target>
+Example:
+
+ 
+ 
+nmap --top-ports 100 192.168.1.1
+Scan with NSE Scripts:
+
+ 
+ 
+nmap --script <scriptname> <target>
+Example:
+
+arduino
+ 
+nmap --script http-enum 192.168.1.1
+Traceroute:
+
+ 
+ 
+nmap --traceroute <target>
+Example:
+
+ 
+ 
+nmap --traceroute 192.168.1.1
+Disable DNS Resolution:
+
+ 
+ 
+nmap -n <target>
+Example:
+
+ 
+nmap -n 192.168.1.1
+Ping Scan:
+
+ 
+ 
+nmap -sn <target>
+Example:
+
+ 
+nmap -sn 192.168.1.0/24
+List Scan:
+
+ 
+ 
+nmap -sL <target>
+Example:
+
+ 
+nmap -sL 192.168.1.0/24
+Detect Firewall:
+
+ 
+ 
+nmap --script=firewalk <target>
+Example:
+
+ 
+ 
+nmap --script=firewalk 192.168.1.1
+Scan for Open Ports Only:
+
+arduino
+ 
+nmap --open <target>
+Example:
+
+arduino
+ 
+nmap --open 192.168.1.1
+Save   in All Formats:
+
+ 
+ 
+nmap -oA <basename> <target>
+Example:
+
+ 
+nmap -oA scan_output 192.168.1.1
+Banners Grabbing:
+
+ 
+ 
+nmap -sV --script=banner <target>
+Example:
+
+ 
+ 
+nmap -sV --script=banner 192.168.1.1
+Detect Web Application Firewall:
+
+ 
+ 
+nmap --script=http-waf-detect <target>
+Example:
+
+ 
+ 
+nmap --script=http-waf-detect 192.168.1.1
+Scan for Default Credentials:
+
+ 
+ 
+nmap --script=default-credentials <target>
+Example:
+
+ 
+ 
+nmap --script=default-credentials 192.168.1.1
+Perform a Slow Comprehensive Scan:
+
+ 
+ 
+nmap -sS -sU -T2 -A -v <target>
+Example:
+
+ 
+ 
+nmap -sS -sU -T2 -A -v 192.168.1.1
+These commands cover a broad range of Nmap's capabilities, making it a powerful tool for network security and management.
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+To install PowerToys using winget, you can use the following command:
+
+ 
+ 
+winget install --id Microsoft.PowerToys
+
+
+To uninstall PowerToys using winget, you can use the following command:
+
+ 
+ 
+winget uninstall --id Microsoft.PowerToys

@@ -1,0 +1,6 @@
+: Download and Configure Rules
+Suricata uses rule sets to detect malicious activity. Download and configure the Emerging Threats ruleset:
+
+ 
+ 
+sudo suricata-update

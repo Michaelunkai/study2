@@ -1,0 +1,1 @@
+curl -sSL https://get.garden.io/install.sh | bash &&   export PATH=$PATH:$HOME/.garden/bin && garden version

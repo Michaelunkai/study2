@@ -7,7 +7,7 @@ def plot_activation_function(func, x):
     plt.plot(x, y)
     plt.title(func.__name__)
     plt.xlabel('Input')
-    plt.ylabel('Output')
+    plt.ylabel(' ')
     plt.grid()
     plt.show()
 

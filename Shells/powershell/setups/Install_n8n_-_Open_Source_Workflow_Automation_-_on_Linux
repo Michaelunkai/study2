@@ -1,0 +1,91 @@
+▲A  A▼
+Install n8n - Open Source Workflow Automation - on Linux
+What is n8n?
+n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, be available to self-host, and allow you to add your own custom functions, logic and apps. n8n's node-based approach makes it highly versatile, enabling you to connect anything to everything. -https://github.com/n8n-io/n8n
+Installing n8n
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# install mariadb
+sudo apt install mariadb-server mariadb-client -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the n8n database and database user
+CREATE DATABASE n8n;
+GRANT ALL ON n8n.* to 'n8n_rw'@'localhost' IDENTIFIED BY 'n8n_N8N!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# set environmental variables
+export DB_TYPE="my db"
+export DB_MYSQLDB_DATABASE="n8n"
+export DB_MYSQLDB_HOST="localhost"
+export DB_MYSQLDB_USER="n8n_rw"
+export DB_MYSQLDB_PASSWORD="n8n_N8N!"
+export GENERIC_TIMEZONE="America/New_York"
+# install n8n
+sudo npm install n8n --location=global
+# audit and fix vulnerabilities
+sudo npm audit fix
+# run n8n
+n8n
+Open a web browser and navigate to http://DNSorIP:5678
+Complete the form with an email, first name, last name and password > Click next
+Complete the questionnaire > Click continue
+Click Get started
+Welcome to n8n
+Running n8n as a Service
+Press CTRL+C to end the running n8n process
+Continue with the following commands
+# create n8n service file
+sudo nano /etc/systemd/system/n8n.service
+Paste the following configuration into n8n.service
+[Unit]
+Description=n8n
+After=mariadb.service
+
+[Service]
+User=root
+Group=root
+Environment=DB_TYPE=my db
+Environment=DB_MYSQLDB_DATABASE=n8n
+Environment=DB_MYSQLDB_HOST=localhost
+Environment=DB_MYSQLDB_USER=n8n_rw
+Environment=DB_MYSQLDB_PASSWORD=n8n_N8N!
+Environment=GENERIC_TIMEZONE=America/New_York
+ExecStart=n8n
+WorkingDirectory=/usr/bin
+
+[Install]
+WantedBy=multi-user.target
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# reload systemd services
+sudo systemctl daemon-reload
+# start n8n service on boot and now
+sudo systemctl enable n8n --now
+Back in the web browser, refresh n8n to verify it is now running a service
+Log in using the email address and password setup earlier
+Source: https://docs.n8n.io/hosting/installation/npm/
+
+ 

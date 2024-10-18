@@ -1,0 +1,1 @@
+ghcup install ghc 9.6.5 && ghcup set ghc 9.6.5 && ghcup install cabal 3.8.2.0 && ghcup set cabal 3.8.2.0 && clear && ghc --version && cabal --version

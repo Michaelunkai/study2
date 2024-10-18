@@ -1,0 +1,1 @@
+sudo apt install -y netdiscover && sudo netdiscover -i eth0

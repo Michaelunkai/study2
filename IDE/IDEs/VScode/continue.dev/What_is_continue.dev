@@ -1,0 +1,11 @@
+[Continue.dev](https://continue.dev) is an open-source AI code assistant designed to enhance productivity by integrating with your Integrated Development Environment (IDE). It supports VS Code and JetBrains, allowing developers to connect various AI models to create custom autocomplete and chat experiences within their coding environment.
+
+Key features of Continue.dev include:
+1. **Autocomplete**: It can autocomplete single lines or entire sections of code in any programming language as you type.
+2. **Code Understanding**: You can attach code or other context to ask questions about functions, files, or the entire codebase.
+3. **Refactoring**: Highlight sections of code and use natural language commands to rewrite them.
+4. **Contextual Assistance**: Quickly use documentation and other context to understand and fix code.
+
+Continue.dev provides flexibility by allowing the use of different models, whether open-source or commercial, and offers extensive configuration options to fit into existing development workflows. It supports various contexts, including codebases, documentation, and project management tools like GitLab Issues and Confluence pages.
+
+For installation and more details, you can explore their [GitHub repository](https://github.com/continuedev/continue) or visit the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Continue.continue)【6†source】【7†source】【8†source】【9†source】【10†source】.

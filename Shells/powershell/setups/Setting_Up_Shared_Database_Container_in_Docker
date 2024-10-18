@@ -1,0 +1,96 @@
+▲A  A▼
+Setting Up Shared Database Container in Docker
+The Objective
+To setup a single database container that can be used with multiple applications and frontends.
+
+Preparation
+Pull the Docker images used in the examples by running the following commands in a terminal
+# mariadb
+docker pull mariadb
+#  myadmin
+docker pull  myadmin
+# wordpress
+docker pull wordpress
+Method 1 - Container Links
+This method utilizes the --link flag. Container links are a "legacy feature" of Docker and may become deprecated in a future release. Further reading https://docs.docker.com/network/links/
+
+Run the following commands in a terminal to setup the container stack using --link
+# create working directories
+mkdir ~/docker/mariadb -p && mkdir ~/docker/wordpress -p
+# set permissions on working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@ss -v ~/docker/mariadb:/var/lib/mysql --restart=unless-stopped mariadb:latest
+# run phpmyadmin container linked to the mariadb container
+docker run -d --name phpmyadmin --link mariadb -e PMA_HOST=mariadb -p 8080:80 --restart=unless-stopped phpmyadmin
+# connect to mysql CLI inside the mariadb container
+docker exec -it mariadb mysql --user root -pr00tp@ss
+# create a new database and service account for wordpress
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL ON wordpress.* TO 'wordpress_rw'@'%' IDENTIFIED BY 'W0rdPr3ss!!';
+FLUSH PRIVILEGES;
+EXIT;
+# run the wordpress docker container
+docker run -d --name wordpress --link mariadb -p 8880:80 -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_USER=wordpress_rw -e WORDPRESS_DB_PASSWORD='W0rdPr3ss!!' -e WORDPRESS_DB_NAME=wordpress -v ~/docker/wordpress:/var/www/html --restart unless-stopped wordpress
+Remove the created containers by running the following commands
+# remove the containers
+docker rm wordpress -f && docker rm phpmyadmin -f && docker rm mariadb -f
+# remove working directories
+sudo rm ~/docker/mariadb -R && sudo rm ~/docker/wordpress -R
+Method 2 - Docker Networking
+Create a Docker network and connect each of the containers to it so they can communicate.
+
+Run the following commands in a terminal to setup the container stack using Docker networking
+# create working directories
+mkdir ~/docker/mariadb -p && mkdir ~/docker/wordpress -p
+# set permissions on working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# create the docker network
+docker network create containers
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@ss -v ~/docker/mariadb:/var/lib/mysql --network containers --restart=unless-stopped mariadb:latest
+# run phpmyadmin container
+docker run -d --name phpmyadmin -e PMA_HOST=mariadb -p 8080:80 --restart=unless-stopped --network containers phpmyadmin
+# connect to mysql CLI inside the mariadb container
+docker exec -it mariadb mysql --user root -pr00tp@ss
+# create a new database and service account for wordpress
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL ON wordpress.* TO 'wordpress_rw'@'%' IDENTIFIED BY 'W0rdPr3ss!!';
+FLUSH PRIVILEGES;
+EXIT;
+# run the wordpress docker container
+docker run -d --name wordpress -p 8880:80 -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_USER=wordpress_rw -e WORDPRESS_DB_PASSWORD='W0rdPr3ss!!' -e WORDPRESS_DB_NAME=wordpress -v ~/docker/wordpress:/var/www/html --network containers --restart=unless-stopped wordpress
+Remove the created containers and network by running the following commands
+# remove the containers
+docker rm wordpress -f && docker rm phpmyadmin -f && docker rm mariadb -f
+# remove docker network
+docker network rm containers
+# remove working directories
+sudo rm ~/docker/mariadb -R && sudo rm ~/docker/wordpress -R
+Method 3 - Exposing Host Ports
+Expose ports on the host into the container and connect other containers to the host's exposed port
+
+Run the following commands in a terminal to setup the container stack using exposed ports on the host
+# create working directories
+mkdir ~/docker/mariadb -p && mkdir ~/docker/wordpress -p
+# set permissions on working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@ss -v ~/docker/mariadb:/var/lib/mysql -p 3306:3306 --restart=unless-stopped mariadb:latest
+# run phpmyadmin container
+docker run -d --name phpmyadmin -e PMA_HOST=$(hostname -f) -p 8080:80 --restart=unless-stopped phpmyadmin
+# connect to mysql CLI inside the mariadb container
+docker exec -it mariadb mysql --user root -pr00tp@ss
+# create a new database and service account for wordpress
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL ON wordpress.* TO 'wordpress_rw'@'%' IDENTIFIED BY 'W0rdPr3ss!!';
+FLUSH PRIVILEGES;
+EXIT;
+# run the wordpress docker container
+docker run -d --name wordpress -p 8880:80 -e WORDPRESS_DB_HOST=$(hostname -f) -e WORDPRESS_DB_USER=wordpress_rw -e WORDPRESS_DB_PASSWORD='W0rdPr3ss!!' -e WORDPRESS_DB_NAME=wordpress -v ~/docker/wordpress:/var/www/html --restart=unless-stopped wordpress
+Remove the created containers and network by running the following commands
+# remove the containers
+docker rm wordpress -f && docker rm phpmyadmin -f && docker rm mariadb -f
+# remove working directories
+sudo rm ~/docker/mariadb -R && sudo rm ~/docker/wordpress -R
+ 

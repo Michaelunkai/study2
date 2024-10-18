@@ -1,0 +1,30 @@
+▲A  A▼
+Running Hoppscotch in Docker - Browser Based Open Source Alternative to Postman
+What is Hoppscotch?
+Hoppscotch is light-weight, web based API development suite. It was built from ground up with ease of use and accessibility in mind providing all the functionality needed for API developers with minimalist, unobtrusive UI. It is free-to-use and as an added perk completely Open Source! - https://docs.hoppscotch.io/
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Hoppscotch
+Now that Docker is installed, run the following commands to setup the Hoppscotch Docker container and run it
+# run the hoppscotch docker container
+docker run -d --name hoppscotch -p 3000:3000 --restart=unless-stopped hoppscotch/hoppscotch:latest
+Open a web browser and navigate to http://DNSorIP:3000
+Welcome to Hoppscotch running in Docker
+Documentation: https://hub.docker.com/r/hoppscotch/hoppscotch
+
+ 

@@ -1,0 +1,13 @@
+
+
+1)
+pip install jupyter
+
+
+2) if using root:
+jupyter notebook --allow-root
+
+
+3)in web browser:
+open the site that is shows in in the running notepbook window
+

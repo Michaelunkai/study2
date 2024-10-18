@@ -1,0 +1,17 @@
+Running Gremlin Queries for Graph Processing
+With both the Gremlin Server and Console running, you can now interact with your graph database by running Gremlin queries. To add a vertex to the graph with the label person and the property name set to Michael, use the following command:
+
+ 
+ 
+gremlin> g.addV('person').property('name', 'Michael')
+Add more vertices and connect them with edges. For example, to create a relationship between two people:
+
+ 
+ 
+gremlin> g.addV('person').property('name', 'Sarah')
+gremlin> g.V().has('name', 'Michael').addE('knows').to(g.V().has('name', 'Sarah'))
+Retrieve all vertices with their names using:
+
+ 
+ 
+gremlin> g.V().values('name')

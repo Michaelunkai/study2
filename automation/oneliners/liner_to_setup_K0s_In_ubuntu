@@ -1,0 +1,1 @@
+curl -sSLf https://get.k0s.sh | sudo sh && k0s version

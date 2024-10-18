@@ -1,0 +1,66 @@
+▲A  A▼
+Quickly Deploy an Apache/PHP/MySQL Development Environment in Docker
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Setting Up the Development Environment
+Continue with the following commands in a terminal window
+# create working directories
+mkdir ~/docker/apache2/www/html -p && mkdir ~/docker/apache2/{conf,php,ext} -p && mkdir ~/docker/mariadb -p
+# extract apache conf container
+docker run --rm php:apache tar -cC /etc/apache2 . | tar -xC ~/docker/apache2/conf
+# extract php config from container
+docker run --rm php:apache tar -cC /usr/local/etc/php . | tar -xC ~/docker/apache2/php
+# extract php extensions from container
+docker run --rm php:apache tar -cC /usr/local/lib/php/extensions . | tar -xC ~/docker/apache2/ext
+# copy the production php.ini
+cp ~/docker/apache2/ / .ini-development ~/docker/apache2/ / .ini
+# enable mysqli php extension
+sed -i "s/;extension=mysqli/extension=mysqli/" ~/docker/apache2/php/php.ini
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD='r00tp@$$' -v ~/docker/mariadb:/var/lib/mysql -p 3306:3306 --restart unless-stopped mariadb:latest
+# run the php:apache container
+docker run -d --name www -v ~/docker/apache2/www:/var/www -v ~/docker/apache2/conf:/etc/apache2 -v ~/docker/apache2/php:/usr/local/etc/php -v ~/docker/apache2/ext:/usr/local/lib/php/extensions -p 8080:80 --restart unless-stopped php:apache
+# install the mysqli extension
+docker exec -it www docker-php-ext-install mysqli
+# restart the apache2 container
+docker restart www
+# create simple phpinfo page
+echo -e "<?php\n\tphpinfo();\n?>" > ~/docker/apache2/www/html/phpinfo.php
+Open a web browser and navigate to http://DNSorIP/phpinfo.php
+Adding  MyAdmin (optional)
+Continue with the following commands in a terminal window
+# download  myadmin
+wget -O /tmp/phpmyadmin.tar.gz https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.gz
+# create phpmyadmin directory
+mkdir ~/docker/apache2/www/html/ myadmin -p
+# extract downloaded phpmyadmin archive
+tar xf /tmp/phpmyadmin.tar.gz --strip-components=1 -C ~/docker/apache2/www/html/phpmyadmin
+# copy sample config file
+cp ~/docker/apache2/www/html/ myadmin/config.sample.inc.  ~/docker/apache2/www/html/ myadmin/config.inc. 
+# generate a random string
+# copy the output string to the clipboard
+openssl rand -base64 16
+# edit phpmyadmin config
+nano ~/docker/apache2/www/html/ myadmin/config.inc. 
+Paste the generated string in the blowfish_secret value
+Update the Server host from localhost to the Docker host's DNS or IP
+Press CTRL+O, Enter, CTRL+X to write the changes
+In a new tab, navigate to http://DNSorIP/phpmyadmin
+Login with the username root and the password r00tp@$$
+ 

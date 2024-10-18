@@ -1,0 +1,1 @@
+cd && git clone https://github.com/Screetsec/TheFatRat.git && cd TheFatRat && chmod +x setup.sh && apt-get remove --purge gcc mingw-w64 -y && apt-get autoremove -y && apt-get install -f && yes 2 | ./setup.sh && ./fatrat

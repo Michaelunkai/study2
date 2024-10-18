@@ -1,0 +1,1 @@
+sudo apt install zeroc-ice-utils -y && icegridadmin --version

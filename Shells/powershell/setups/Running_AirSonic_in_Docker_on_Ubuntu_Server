@@ -1,0 +1,36 @@
+▲A  A▼
+Running AirSonic in Docker on Ubuntu Server
+What is AirSonic
+Airsonic is a free, web-based media streamer, providing ubiquitous access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room. -https://airsonic.github.io/
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running AirSonic
+Now that Docker is installed, run the following commands to setup the AirSonic Docker container and run it
+# create working directories
+mkdir /home/$USER/docker/airsonic/data -p && mkdir /home/$USER/docker/airsonic/music -p && mkdir /home/$USER/docker/airsonic/playlists -p && mkdir /home/$USER/docker/airsonic/podcasts -p
+# run the airsonic container
+docker run -d --name=airsonic -v /home/$USER/docker/airsonic/data:/airsonic/data -v /home/$USER/docker/airsonic/music:/airsonic/music -v /home/$USER/docker/airsonic/playlists:/airsonic/playlists -v /home/$USER/docker/airsonic/podcasts:/airsonic/podcasts -p 4040:4040 airsonic/airsonic
+Open a web browser and navigate to http://DNSorIP:4040
+Login to AirSonic with username admin and password admin
+Welcome to AirSonic running in a Docker container
+Click the Change administrator password link
+Check the Change password box
+Input the new password twice and click the Save button
+Documentation: https://hub.docker.com/r/airsonic/airsonic
+
+ 

@@ -1,0 +1,1 @@
+ tensorboard --logdir=/root/tensorboard_logs && echo "TensorBoard running at http://localhost:6006"

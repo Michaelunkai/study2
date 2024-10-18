@@ -1,0 +1,25 @@
+Install Docker with NVIDIA GPU Support
+Using Docker for AI development allows for containerized environments that are portable and scalable. NVIDIA’s Docker toolkit enables GPU acceleration.
+
+Install Docker:
+
+ 
+ 
+sudo apt install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+Install NVIDIA Docker Toolkit:
+
+ 
+ 
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt update
+sudo apt install -y nvidia-docker2
+sudo systemctl restart docker
+Run a GPU-accelerated container:
+
+ 
+ 
+docker run --gpus all nvidia/cuda:11.2-base nvidia-smi

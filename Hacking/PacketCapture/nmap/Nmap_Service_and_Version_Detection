@@ -1,0 +1,4 @@
+nmap -sV -sC -p- 192.168.1.193
+
+
+This command detects the version of services running on the open ports.

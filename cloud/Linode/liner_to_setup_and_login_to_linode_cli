@@ -1,0 +1,1 @@
+sudo apt install -y python3-pip && pip3 install linode-cli && linode-cli configure --token YOUR_ACTUAL_LINODE_API_TOKEN && linode-cli linodes list

@@ -1,0 +1,46 @@
+Top 15 VS Code Extensions for AI
+1. Copilot by GitHub:
+   - Provides AI-powered code suggestions and completions.
+   - Integrates seamlessly with VS Code for various programming languages.
+2. TabNine:
+   - AI-powered code completion tool.
+   - Supports multiple programming languages and frameworks.
+3. Kite:
+   - AI-driven code completion and documentation tool.
+   - Offers support for Python, JavaScript, and more.
+4. Codota:
+   - AI-based code completion for Java and Kotlin.
+   - Helps developers write code faster with relevant suggestions.
+5. IntelliCode by Microsoft:
+   - AI-powered code recommendations based on best practices.
+   - Supports multiple languages and integrates with VS Code.
+6. DeepCode:
+   - AI-based code review and analysis tool.
+   - Provides intelligent code suggestions and error detection.
+7. Visual Studio IntelliCode:
+   - AI-assisted code completion and recommendations.
+   - Enhances productivity by offering relevant code snippets.
+8. CodeGeeX:
+   - AI-powered code completion and generation.
+   - Supports multiple languages and improves coding efficiency.
+9. Tabby:
+   - AI-based autocompletion and code generation.
+   - Enhances coding speed and accuracy with intelligent suggestions.
+10. AI Doc Writer:
+    - Automatically generates documentation for code using AI.
+    - Supports multiple programming languages and improves code readability.
+11. Cody by Sourcegraph:
+    - AI-powered code search and intelligence tool.
+    - Helps developers find and understand code across repositories.
+12. GPT-3 by OpenAI:
+    - Integrates GPT-3 for advanced code completions and suggestions.
+    - Supports multiple programming languages in VS Code.
+13. Polaris:
+    - AI-powered code analysis and recommendations.
+    - Provides insights and suggestions to improve code quality.
+14. CodeWP:
+    - AI-driven code generation and completion for WordPress development.
+    - Enhances coding efficiency with intelligent suggestions.
+15. Codeium:
+    - AI-powered code completion and navigation tool.
+    - Supports various programming languages and integrates with VS Code.

@@ -1,0 +1,87 @@
+Setting Up and Configuring Dgraph for Graph Databases on Ubuntu
+Step 1: Install Dgraph
+You can install Dgraph directly using a single command:
+
+ 
+ 
+yes | curl -sSf https://get.dgraph.io |  
+Step 2: Verify the Installation
+Verify that Dgraph is installed correctly by checking its version.
+
+ 
+ 
+dgraph version
+You should see output indicating the installed version of Dgraph.
+
+Step 3: Create Directories for Dgraph Data and Logs
+Create directories to store Dgraph data and logs.
+
+ 
+ 
+sudo mkdir -p /var/lib/dgraph
+sudo mkdir -p /var/log/dgraph
+sudo chown -R $USER:$USER /var/lib/dgraph
+sudo chown -R $USER:$USER /var/log/dgraph
+Step 4: Start the Zero Server
+Dgraph uses a Zero server to manage cluster membership and assignments. Start the Zero server with the following command:
+
+ 
+ 
+dgraph zero --my=localhost:5080 --log_dir /var/log/dgraph
+Step 5: Start the Alpha Server
+In a new terminal, start the Alpha server. The Alpha server is responsible for serving queries and mutations.
+
+ 
+ 
+dgraph alpha --my=localhost:7080 --zero=localhost:5080 --log_dir /var/log/dgraph
+Step 6: Run Ratel UI (Optional)
+Dgraph provides a web-based UI called Ratel for interacting with the database. You can run it using Docker or as a standalone application. Here’s how to run it using Docker:
+
+ 
+ 
+docker run -p 8000:8000 dgraph/ratel
+Access the Ratel UI by navigating to http://localhost:8000 in your web browser.
+
+Step 7: Verify the Setup
+You can now verify your Dgraph setup by accessing the Ratel UI or using curl to interact with the Dgraph server.
+
+Example: Adding Data
+Here’s a basic example of how to add data to Dgraph using curl.
+
+Create a JSON file data.json with the following content:
+
+json
+ 
+{
+  "set": [
+    {
+      "uid": "_:alice",
+      "name": "Alice",
+      "friend": [
+        {
+          "uid": "_:bob",
+          "name": "Bob"
+        }
+      ]
+    }
+  ]
+}
+Run the following curl command to add the data:
+
+ 
+ 
+curl -X POST localhost:8080/mutate?commitNow=true -d '@data.json' -H "Content-Type: application/json"
+Example: Querying Data
+Create a JSON file query.json with the following content:
+
+json
+ 
+{
+  "query": "{ me(func: has(name)) { name friend { name } } }"
+}
+Run the following curl command to query the data:
+
+ 
+ 
+curl -X POST localhost:8080/query -d '@query.json' -H "Content-Type: application/json"
+You should see the results of your query.

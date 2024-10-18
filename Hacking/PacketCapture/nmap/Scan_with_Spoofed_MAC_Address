@@ -1,0 +1,8 @@
+Scan with Spoofed MAC Address:
+
+nmap --spoof-mac <mac_address> <target>
+Example:
+
+nmap --spoof-mac 00:11:22:33:44:55 192.168.1.1
+This command changes the source MAC address of the scan to the specified address, useful for testing and evading MAC address filters.
+

@@ -1,0 +1,47 @@
+Install tcpdump:
+
+arduino
+ 
+sudo apt-get install tcpdump
+Check Current Network Interface:
+
+ 
+ 
+ip -o -4 route show to default | awk '{print $5}'
+This command will display the name of your default network interface.
+
+Capture Traffic:
+
+ 
+ 
+sudo tcpdump -i <interface>
+Advanced Filters:
+
+By Protocol (e.g., HTTP):
+ 
+ 
+sudo tcpdump -i <interface> port 80
+By Packet Size (e.g., larger than 1000 bytes):
+ 
+ 
+sudo tcpdump -i <interface> greater 1000
+By IP Address (e.g., specific IP address):
+ 
+ 
+sudo tcpdump -i <interface> src <ip_address>
+sudo tcpdump -i <interface> dst <ip_address>
+Combining Filters:
+
+ 
+ 
+sudo tcpdump -i <interface> src <ip_address> and tcp
+Save Capture to a File:
+
+ 
+ 
+sudo tcpdump -i <interface> -w capture.pcap
+Analyze Capture File:
+
+ 
+sudo tcpdump -r capture.pcap
+Remember to replace <interface> with the actual interface name you found in step 2 and <ip_address> with the specific IP address you want to filter by. Also, use sudo to run tcpdump with root privileges.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update package list and install OpenJDK 11
 sudo apt update
@@ -29,7 +29,7 @@ User=metabase
 Type=simple
 Restart=always
 RestartSec=10
-StandardOutput=syslog
+Standard =syslog
 StandardError=syslog
 SyslogIdentifier=metabase
 

@@ -1,0 +1,1 @@
+cd /mnt/c/study/docker/compose/grafana && dcu && gc http://localhost:3000

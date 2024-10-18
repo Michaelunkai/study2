@@ -1,0 +1,1 @@
+sudo apt install -y pktstat && sudo pktstat -i eth0

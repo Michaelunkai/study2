@@ -1,0 +1,5 @@
+curl -fsSL https://code-server.dev/install.sh | sh && cat '/root/.config/code-server/config.yaml' && code-server
+
+
+now open in webrowser : localhost:8080
+and enter the password showing in the terminal

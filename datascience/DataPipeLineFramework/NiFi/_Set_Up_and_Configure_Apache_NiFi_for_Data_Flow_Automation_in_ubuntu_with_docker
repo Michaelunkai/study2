@@ -1,0 +1,77 @@
+*install docker and docker compose
+
+
+than: 
+
+mkdir ~/nifi-docker
+cd ~/nifi-docker
+nano docker-compose.yml
+
+
+Add the following content to docker-compose.yml:
+version: '3.7'
+
+services:
+  nifi:
+    image: apache/nifi:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+    volumes:
+      - nifi_data:/opt/nifi/nifi-current/logs
+      - nifi_conf:/opt/nifi/nifi-current/conf
+
+volumes:
+  nifi_data:
+  nifi_conf:
+
+
+Run Apache NiFi
+Start the NiFi container using Docker Compose:
+
+sudo docker-compose up -d
+sudo docker-compose ps
+
+
+Configure Apache NiFi
+Create a basic data flow:
+Open the NiFi UI.
+Drag and drop processors, connections, and other components to create a data flow.
+Configure each processor by double-clicking it and setting the necessary properties.
+Start the processors to begin data flow automation.
+Step 6: Persistent Storage Configuration (Optional)
+Edit docker-compose.yml to mount external volumes for persistent storage:
+
+version: '3.7'
+
+services:
+  nifi:
+    image: apache/nifi:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+    volumes:
+      - /path/to/your/local/nifi_data:/opt/nifi/nifi-current/logs
+      - /path/to/your/local/nifi_conf:/opt/nifi/nifi-current/conf
+
+volumes:
+  nifi_data:
+  nifi_conf:
+
+
+
+Save and exit the editor, then restart the container:
+
+sudo docker-compose down
+sudo docker-compose up -d
+
+
+Secure Apache NiFi (Optional)
+Generate TLS certificates and configure NiFi to use HTTPS.
+Set up user authentication and authorization.
+Refer to the Apache NiFi Administration Guide for detailed instructions.
+By following these steps, you should have Apache NiFi set up and configured on your Ubuntu system using Docker. This setup allows you to create and automate data flows efficiently.
+
+

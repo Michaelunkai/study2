@@ -1,0 +1,1 @@
+getjava &&  sudo apt install -y snapd && sudo snap install netbeans --classic && netbeans

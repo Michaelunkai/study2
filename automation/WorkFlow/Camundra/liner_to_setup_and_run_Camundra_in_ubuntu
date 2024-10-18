@@ -1,0 +1,1 @@
+ wget https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.17/camunda-bpm-tomcat-7.17.0.zip && unzip camunda-bpm-tomcat-7.17.0.zip && ./start-camunda.sh && echo "Access Camunda BPM at http://localhost:8080/camunda"

@@ -1,0 +1,1 @@
+sudo apt install -y driftnet && sudo driftnet -i eth0

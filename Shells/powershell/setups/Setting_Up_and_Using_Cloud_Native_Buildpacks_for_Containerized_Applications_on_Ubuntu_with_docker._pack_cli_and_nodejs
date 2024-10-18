@@ -1,0 +1,160 @@
+Sure! Here's the revised tutorial with long titles and detailed steps, including all tools involved:
+
+---
+
+# Setting Up and Using Cloud Native Buildpacks for Containerized Applications on Ubuntu
+
+This tutorial will guide you through the process of setting up and using Cloud Native Buildpacks to containerize applications on Ubuntu. We will cover installing necessary tools (Docker, Pack CLI), creating a sample application, building the application using Buildpacks, running the application, and cleaning up.
+
+## Tools Involved
+- **Docker**: A platform for developing, shipping, and running applications in containers.
+- **Pack CLI**: A command-line interface for building apps using Buildpacks.
+- **Node.js**: A JavaScript runtime used for building the sample application.
+
+### Step 1: Installing Prerequisites on Ubuntu
+
+#### 1.1: Install Docker
+
+Docker is a platform for developing, shipping, and running applications in containers. Follow these steps to install Docker:
+
+1. **Update your package list**:
+      
+    sudo apt update
+
+2. **Install Docker**:
+      
+    sudo apt install docker.io
+
+3. **Start Docker service**:
+      
+    sudo systemctl start docker
+
+4. **Enable Docker to start on boot**:
+      
+    sudo systemctl enable docker
+
+5. **Add your user to the Docker group**:
+      
+    sudo usermod -aG docker $USER
+
+6. **Log out and log back in** to apply the group changes.
+
+#### 1.2: Install Pack CLI
+
+Pack CLI is a command-line interface for building apps using Buildpacks. Follow these steps to install Pack CLI:
+
+1. **Download and install Pack CLI**:
+      
+    curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.28.0/pack-v0.28.0-linux.tgz" | sudo tar -C /usr/local/bin/ --no-same-owner -xzv pack
+
+### Step 2: Verifying Installations
+
+#### 2.1: Verify Docker Installation
+
+Run the following command to check if Docker is installed correctly:
+
+  
+docker --version
+
+#### 2.2: Verify Pack CLI Installation
+
+Run the following command to check if Pack CLI is installed correctly:
+
+  
+pack --version
+
+### Step 3: Creating a Sample Node.js Application
+
+We will create a simple Node.js application as our sample project.
+
+#### 3.1: Create the Project Directory
+
+1. **Create a new directory for your application**:
+      
+    mkdir my-node-app
+    cd my-node-app
+
+#### 3.2: Initialize a New Node.js Project
+
+1. **Initialize a new Node.js project**:
+      
+    npm init -y
+
+#### 3.3: Create an `index.js` File
+
+1. **Create and open the `index.js` file**:
+      
+    nano index.js
+
+2. **Add the following code to `index.js`**:
+     javascript
+    const http = require('http');
+
+    const hostname = '127.0.0.1';
+    const port = 3000;
+
+    const server = http.createServer((req, res) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('Hello World\n');
+    });
+
+    server.listen(port, hostname, () => {
+      console.log(`Server running at http://${hostname}:${port}/`);
+    });
+
+3. **Save and close the file**.
+
+#### 3.4: Install Project Dependencies
+
+1. **Install dependencies**:
+      
+    npm install
+
+### Step 4: Building the Application Using Cloud Native Buildpacks
+
+#### 4.1: Build Your Application
+
+1. **Use Pack CLI to build your application**:
+      
+    pack build my-node-app --builder paketobuildpacks/builder:base
+
+    This command uses the Paketo Buildpacks builder to create a Docker image named `my-node-app`.
+
+### Step 5: Running the Containerized Application
+
+#### 5.1: Run the Docker Container
+
+1. **Run the Docker container**:
+      
+    docker run -d -p 3000:3000 my-node-app
+
+#### 5.2: Verify the Application is Running
+
+1. **Open your browser and navigate to** `http://localhost:3000` or run:
+      
+    curl http://localhost:3000
+
+    You should see the `Hello World` message.
+
+### Step 6: Cleaning Up
+
+#### 6.1: Stop and Remove the Running Container
+
+1. **List running containers**:
+      
+    docker ps
+
+2. **Stop the container**:
+      
+    docker stop <container_id>
+
+3. **Remove the container**:
+      
+    docker rm <container_id>
+
+    Replace `<container_id>` with the actual ID of the running container obtained from `docker ps`.
+
+---
+
+This guide should help you get started with setting up and using Cloud Native Buildpacks for containerized applications on Ubuntu. If you have any questions or run into issues, feel free to ask!

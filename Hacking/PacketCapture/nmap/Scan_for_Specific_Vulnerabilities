@@ -1,0 +1,7 @@
+Scan for Specific Vulnerabilities:
+
+nmap --script vuln --script-args vulns.showall <target>
+Example:
+
+nmap --script vuln --script-args vulns.showall 192.168.1.1
+Scans for specific vulnerabilities and displays detailed information.

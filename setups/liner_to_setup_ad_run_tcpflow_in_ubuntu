@@ -1,0 +1,1 @@
+sudo apt install -y tcpflow && sudo tcpflow -c -i eth0

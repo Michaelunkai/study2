@@ -1,0 +1,33 @@
+▲A  A▼
+Running Homepage Application Dashboard Using Docker
+What is Homepage?
+[Homepage is] a modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. -https://github.com/benphelps/homepage
+Installing Docker
+Log into the Linux Docker host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Homepage Application Dashboard
+Continue with the following commands in a terminal window
+# list current uid and gid, note these for later
+id $user
+# make a homepage directory to mount in the container
+mkdir ~/homepage -p
+# run the homepage docker image
+# replace PUID, GUID with the output of the id $user command above
+docker run -d --name=homepage -e PUID=1000 -e PGID=1000 -p 8006:3000 -v ~/homepage:/app/config -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped ghcr.io/benphelps/homepage
+Open a web browser and navigate to http://DNSorIP:8006
+Source: https://gethomepage.dev/en/installation/docker
+
+ 

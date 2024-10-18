@@ -1,0 +1,47 @@
+▲A  A▼
+Run BookStack - Documentation/Wiki Platform - in Docker
+What is BookStack?
+BookStack is an opinionated wiki system that provides a pleasant and simple out-of-the-box experience. New users to an instance should find the experience intuitive and only basic word-processing skills should be required to get involved in creating content on BookStack. The platform should provide advanced power features to those that desire it but they should not interfere with the core simple user experience. -https://github.com/BookStackApp/BookStack
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running BookStack
+Continue with the following commands in a terminal window
+# list current uid and gid, note these for later
+id $user
+# create working directories
+mkdir ~/docker/bookstack/config -p && mkdir ~/docker/mariadb -p
+# set ownership on the working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@$$ -e MYSQL_USER=bookstack_rw -e MYSQL_PASSWORD='B00k$t@ck!' -e MYSQL_DATABASE=bookstack -v ~/docker/mariadb:/var/lib/mysql -p 3306:3306 --restart=unless-stopped mariadb:latest
+# run the bookstack docker image
+# replace PUID, GUID with the output of the id $user command above
+# replace DB_HOST and APP_URL with the docker host DNS name or IP address
+docker run -d --name bookstack -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e APP_URL=http://ubuntuserver.local:6875 -e DB_HOST=172.17.0.1 -e DB_PORT=3306 -e DB_USER=bookstack_rw -e DB_PASS='B00k$t@ck!' -e DB_DATABASE=bookstack -p 6875:80 -v ~/docker/bookstack/config:/config --restart unless-stopped lscr.io/linuxserver/bookstack:latest
+Open a web browser and navigate to http://DNSorIP:6875
+Login with the username admin@admin.com and the password password
+Click the user dropdown at the top right > My Account
+Update the user name and email address as needed > Click Save
+Select Access & Security from the left navigation menu
+Enter and confirm a new password > Click Update
+Click the user dropdown at the top right > Logout
+Log back in using the updated email address and password
+Welcome to BookStack
+Documentation: https://hub.docker.com/r/linuxserver/bookstack
+
+ 

@@ -1,0 +1,86 @@
+▲A  A▼
+Roll Your Own LAN Instant Messaging Platform with OpenFire on Linux
+What is OpenFire?
+Openfire is a real time collaboration (RTC) server licensed under the Open Source Apache License. It uses the only widely adopted open protocol for instant messaging, XMPP Openfire is incredibly easy to setup and administer, but offers rock-solid security and performance. -https://igniterealtime.org/projects/openfire/
+OpenFire Download and Installation
+Log into the Linux based device
+Run the following commands in the terminal
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install openjdk
+sudo apt install default-jdk -y
+# install MySQL
+sudo apt install mariadb-server mariadb-client -y
+# lookup the latest .deb download URL
+regex='">(openfire_[^/]*_all\.deb)<\/a>' && response=$(curl -s https://www.igniterealtime.org/downloads/) && [[ $response =~ $regex ]] && downloadURL="https://www.igniterealtime.org/downloadServlet?filename=openfire/${BASH_REMATCH[1]}"
+# download openfire
+wget -O OpenFire.deb $downloadURL
+# install openfire
+sudo dpkg -i ./OpenFire.deb
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to switch to unix_socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the OpenFire database and database user
+CREATE DATABASE openfire;
+GRANT ALL ON openfire.* TO 'openfire_rw'@'localhost' IDENTIFIED BY 'Op3nF1re';
+FLUSH PRIVILEGES;
+use openfire;
+source /usr/ are/openfire/resources/database/openfire_my . ;
+EXIT;
+exit
+Open a web browser and navigate to http://DNSorIP:9090/setup/index.jsp
+Select a language > Click Continue
+Set the XMPP domain name and input the server fully qualified domain name > Click Continue
+Select Standard Database Connection > Click Continue
+Complete the Database Settings form as follows
+Database Driver Presets: MySQL
+JDBC Driver Class: com.mysql.jdbc.Driver
+Database URL: jdbc:my ://127.0.0.1/openfire?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8
+Username: openfire_rw
+Password: Op3nF1re
+
+Click Continue
+Select Default on the Profile Settings page > Click Continue
+Input an admin email address and password > Click Continue
+Click the Login to the admin console button
+Login with username admin and the password created previously
+Click the Users/Groups tab
+Click Create New User in the left navigation menu
+Create a username and password for the new user
+Follow the steps to create as many users as needed, at least 2 are needed for testing
+Setting Up A XMPP Client
+Run the following commands in the open terminal window
+# install pidgin
+sudo apt install pidgin -y
+Launch Pidgin
+Click Add...
+Select XMPP from the protocol dropdown
+Input the first username created above along with the XMPP domain setup in OpenFire and the user's password
+Click the Advanced tab > Select Use encryption if available from the Connection security dropdown
+Enter the OpenFire fully qualified server name in the server field
+Click the Add button
+Click Accept on the self-signed certificate popup
+Install and launch Pidgin on a second device
+Click Add...
+Select XMPP from the protocol dropdown
+Input the second username created above along with the XMPP domain setup in OpenFire and the user's password
+Click the Advanced tab > Select Use encryption if available from the Connection security dropdown
+Enter the OpenFire fully qualified server name in the server field
+Click the Add button
+Click Accept on the self-signed certificate popup
+From one of the devices, select Buddies > Add Buddy
+Input the opposite devices username
+On the second device accept the message request and the two devices should be able to send and receive instant messages using the OpenFire XMPP server
+ 

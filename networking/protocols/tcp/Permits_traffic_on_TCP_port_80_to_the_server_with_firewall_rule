@@ -1,0 +1,17 @@
+Create a Firewall Rule
+Script:
+
+# Create a firewall rule to allow inbound HTTP traffic
+New-NetFirewallRule `
+    -DisplayName "Allow HTTP Inbound" `
+    -Direction Inbound `
+    -Protocol TCP `
+    -LocalPort 80 `
+    -Action Allow
+
+
+
+
+Explanation:
+Create a firewall rule allowing inbound HTTP traffic.
+Permits traffic on TCP port 80 to the server.

@@ -1,0 +1,17 @@
+TabNine AI is an AI-powered code completion tool designed to help developers write code faster and more efficiently. Here are some key features and aspects of TabNine AI:
+
+1. **AI-Based Code Completion**: TabNine uses machine learning models to provide context-aware code completions. It can suggest the next line or part of the code based on what you've written so far.
+
+2. **Supports Multiple Languages**: TabNine supports a wide range of programming languages, including Python, JavaScript, TypeScript, Java, C++, Go, and many others. This makes it a versatile tool for developers working in different languages.
+
+3. **Integration with IDEs**: TabNine integrates with popular Integrated Development Environments (IDEs) like Visual Studio Code, IntelliJ IDEA, PyCharm, Sublime Text, and others. This allows seamless use within your preferred development environment.
+
+4. **Context-Aware Suggestions**: The AI model behind TabNine can understand the context of your code, including variable names, function definitions, and more, to provide relevant suggestions.
+
+5. **Customization and Control**: Users can customize TabNine's behavior, such as adjusting the completion suggestions, enabling or disabling specific features, and controlling the balance between local and cloud-based AI models.
+
+6. **Privacy and Security**: TabNine offers options for both local and cloud-based completions. The local model runs entirely on your machine, ensuring that your code remains private and secure. The cloud model, on the other hand, leverages more powerful AI capabilities but may require sending code snippets to TabNine's servers.
+
+7. **Free and Paid Plans**: TabNine offers both free and paid plans. The free version provides basic AI completions, while the paid versions (TabNine Pro) offer more advanced features, such as deeper code understanding and enhanced AI models.
+
+Overall, TabNine AI aims to enhance developer productivity by reducing the amount of boilerplate code they need to write and by speeding up the coding process with intelligent, context-aware suggestions.

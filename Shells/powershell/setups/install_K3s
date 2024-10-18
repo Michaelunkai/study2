@@ -1,0 +1,21 @@
+ Install K3s
+Download and install K3s:
+
+curl -sfL https://get.k3s.io | sh -
+Verify the installation:
+
+sudo k3s kubectl get node
+This command should list the node with a status of Ready.
+
+Step 3: Configure K3s (Optional)
+Modify the default configuration (if needed). K3s configuration file is located at /etc/rancher/k3s/config.yaml. Create or edit this file to set custom configurations. For example:
+
+write-kubeconfig-mode: "0644"
+
+Restart K3s to apply changes:
+sudo systemctl restart k3s
+
+
+Configure kubectl to use K3s
+export KUBECONFIG=/etc/rancher/k3s/k3s. 
+

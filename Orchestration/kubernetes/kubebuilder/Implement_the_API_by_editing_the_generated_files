@@ -1,0 +1,7 @@
+nano api/v1/guestbook_types.go
+
+#  Run and build the project
+make
+
+# Deploy the project to a Kubernetes cluster
+make install

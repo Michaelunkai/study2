@@ -1,0 +1,1 @@
+cd && wget https://packages.couchbase.com/releases/7.2.0/couchbase-server-enterprise_7.2.0-ubuntu20.04_amd64.deb && sudo dpkg -i couchbase-server-enterprise_7.2.0-ubuntu20.04_amd64.deb && sudo apt-get install -f && sudo systemctl enable couchbase-server && sudo systemctl start couchbase-server && gcl 8091

@@ -1,0 +1,395 @@
+Develop the Angular CRUD Application
+5.1. Generate Components and Services
+Generate a Service for API Calls:
+
+ 
+ 
+ng generate service services/user
+Generate Components:
+
+For CRUD operations, we'll create the following components:
+
+List Users:
+
+ 
+ 
+ng generate component components/user-list
+Add User:
+
+ 
+ 
+ng generate component components/add-user
+Edit User:
+
+ 
+ 
+ng generate component components/edit-user
+User Details (Optional):
+
+ 
+ 
+ng generate component components/user-details
+5.2. Implement the User Service
+Open src/app/services/user.service.ts and implement CRUD methods.
+
+typescript
+ 
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface User {
+  id?: number;
+  name: string;
+  email: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private apiUrl = 'http://localhost:3000/users';
+
+  constructor(private http: HttpClient) { }
+
+  // Get all users
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
+  }
+
+  // Get user by ID
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${id}`);
+  }
+
+  // Add new user
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, user);
+  }
+
+  // Update user
+  updateUser(id: number, user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+  }
+
+  // Delete user
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+5.3. Configure Routing
+Open src/app/app-routing.module.ts and define routes for the components.
+
+typescript
+ 
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+// import { UserDetailsComponent } from './components/user-details/user-details.component'; // Optional
+
+const routes: Routes = [
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'users', component: UserListComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'edit-user/:id', component: EditUserComponent },
+  // { path: 'user-details/:id', component: UserDetailsComponent } // Optional
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+5.4. Import Necessary Modules
+Open src/app/app.module.ts and import necessary Angular modules.
+
+typescript
+ 
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // For template-driven forms
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+// import { UserDetailsComponent } from './components/user-details/user-details.component'; // Optional
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    UserListComponent,
+    AddUserComponent,
+    EditUserComponent,
+    // UserDetailsComponent // Optional
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule // Import HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+5.5. Implement User List Component
+Open src/app/components/user-list/user-list.component.ts and implement the logic to display users.
+
+typescript
+ 
+import { Component, OnInit } from '@angular/core';
+import { UserService, User } from '../../services/user.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component. ']
+})
+export class UserListComponent implements OnInit {
+  users: User[] = [];
+  error: string = '';
+
+  constructor(private userService: UserService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.userService.getUsers().subscribe({
+      next: (data) => this.users = data,
+      error: (err) => this.error = err.message
+    });
+  }
+
+  deleteUser(id: number | undefined) {
+    if (id !== undefined && confirm('Are you sure to delete this user?')) {
+      this.userService.deleteUser(id).subscribe({
+        next: () => this.loadUsers(),
+        error: (err) => this.error = err.message
+      });
+    }
+  }
+
+  editUser(id: number | undefined) {
+    if (id !== undefined) {
+      this.router.navigate(['/edit-user', id]);
+    }
+  }
+
+  // Optional: view user details
+  // viewUser(id: number | undefined) {
+  //   if (id !== undefined) {
+  //     this.router.navigate(['/user-details', id]);
+  //   }
+  // }
+}
+Create the Template:
+
+Open src/app/components/user-list/user-list.component.html and design the user list UI.
+
+html
+ 
+<div class="container mt-4">
+  <h2>User List</h2>
+  <a routerLink="/add-user" class="btn btn-primary mb-3">Add User</a>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="editUser(user.id)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+          <!-- Optional: <button class="btn btn-info btn-sm" (click)="viewUser(user.id)">View</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+</div>
+5.6. Implement Add User Component
+Open src/app/components/add-user/add-user.component.ts and implement the logic to add a new user.
+
+typescript
+ 
+import { Component } from '@angular/core';
+import { UserService, User } from '../../services/user.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component. ']
+})
+export class AddUserComponent {
+  user: User = { name: '', email: '' };
+  error: string = '';
+
+  constructor(private userService: UserService, private router: Router) { }
+
+  addUser() {
+    if (this.user.name && this.user.email) {
+      this.userService.addUser(this.user).subscribe({
+        next: () => this.router.navigate(['/users']),
+        error: (err) => this.error = err.message
+      });
+    } else {
+      this.error = 'Name and Email are required.';
+    }
+  }
+}
+Create the Template:
+
+Open src/app/components/add-user/add-user.component.html and design the add user form.
+
+html
+ 
+<div class="container mt-4">
+  <h2>Add User</h2>
+  
+  <form (ngSubmit)="addUser()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input [(ngModel)]="user.name" name="name" type="text" class="form-control" id="name" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="email" required>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Add</button>
+    <a routerLink="/users" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+
+  <div *ngIf="error" class="alert alert-danger mt-3">
+    {{ error }}
+  </div>
+</div>
+5.7. Implement Edit User Component
+Open src/app/components/edit-user/edit-user.component.ts and implement the logic to edit an existing user.
+
+typescript
+ 
+import { Component, OnInit } from '@angular/core';
+import { UserService, User } from '../../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component. ']
+})
+export class EditUserComponent implements OnInit {
+  user: User = { name: '', email: '' };
+  id: number = 0;
+  error: string = '';
+
+  constructor(
+    private userService: UserService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.userService.getUser(this.id).subscribe({
+      next: (data) => this.user = data,
+      error: (err) => this.error = err.message
+    });
+  }
+
+  updateUser() {
+    if (this.user.name && this.user.email) {
+      this.userService.updateUser(this.id, this.user).subscribe({
+        next: () => this.router.navigate(['/users']),
+        error: (err) => this.error = err.message
+      });
+    } else {
+      this.error = 'Name and Email are required.';
+    }
+  }
+}
+Create the Template:
+
+Open src/app/components/edit-user/edit-user.component.html and design the edit user form.
+
+html
+ 
+<div class="container mt-4">
+  <h2>Edit User</h2>
+  
+  <form (ngSubmit)="updateUser()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input [(ngModel)]="user.name" name="name" type="text" class="form-control" id="name" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="email" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a routerLink="/users" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+
+  <div *ngIf="error" class="alert alert-danger mt-3">
+    {{ error }}
+  </div>
+</div>
+5.8. (Optional) Implement User Details Component
+If you want to view detailed information about a user, implement the UserDetailsComponent.
+
+Step 6: Run the Application
+To run the application, you'll need to start both the Angular frontend and the json-server backend.
+
+Open Two Terminal Windows or Tabs:
+
+Terminal 1: For the Angular application.
+Terminal 2: For the json-server backend.
+Start json-server Backend:
+
+In Terminal 2, navigate to your project directory and run:
+
+ 
+ 
+npm run json-server
+You should see output indicating that json-server is running at http://localhost:3000.
+
+Start Angular Frontend:
+
+In Terminal 1, navigate to your project directory and run:
+
+ 
+ 
+ng serve --open
+Options:
+--open: Automatically opens the application in your default browser.
+By default, Angular runs on http://localhost:4200.
+Interact with the Application:
+
+View Users: Navigate to http://localhost:4200/users to see the list of users.
+Add User: Click on "Add User" to create a new user.
+Edit User: Click on "Edit" to modify an existing user.
+Delete User: Click on "Delete" to remove a user.

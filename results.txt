@@ -1,48 +1,1107 @@
 # Automatically generated
 # duptype id depth size device inode priority name
-DUPTYPE_FIRST_OCCURRENCE 611 1 37 83 5348024557711724 3 /mnt/c/study/setups/liner_to_setup_and_run_JXplorer_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -611 3 37 83 5910974511134869 3 /mnt/c/study/networking/protocols/LDAP/liner_to_setup_and_run_JXplorer_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -611 2 37 83 7036874417977604 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_JXplorer_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 513 1 41 83 3377699720607758 3 /mnt/c/study/setups/liner_to_setup_MTR_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -513 2 41 83 4785074604161017 3 /mnt/c/study/networking/MTR/liner_to_setup_MTR_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -513 2 41 83 6192449487714232 3 /mnt/c/study/automation/oneliners/liner_to_setup_MTR_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 758 1 44 83 10977524091781175 3 /mnt/c/study/setups/liner_to_setup_and_run_nethogs_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -758 2 44 83 24769797950610736 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_nethogs_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -758 2 44 83 37717646879301763 3 /mnt/c/study/networking/nethogs/liner_to_setup_and_run_nethogs_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 886 1 46 83 3659174697312501 3 /mnt/c/study/setups/liner_to_setup_iptraf-ng_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -886 2 46 83 6473924464418059 3 /mnt/c/study/networking/iptraf-ng/liner_to_setup_iptraf-ng_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -886 2 46 83 10696049115076019 3 /mnt/c/study/automation/oneliners/liner_to_setup_iptraf-ng_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 500 1 51 83 4785074604326312 3 /mnt/c/study/setups/liner_to_setup_GNU_paraller_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -500 2 51 83 5910974510954119 3 /mnt/c/study/automation/oneliners/liner_to_setup_GNU_paraller_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -500 3 51 83 4503599627615653 3 /mnt/c/study/datascience/Parallel_computing/GNUparaller/liner_to_setup_GNU_paraller_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 932 1 87 83 4503599627615575 3 /mnt/c/study/setups/liner_to_setup_ray_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -932 3 87 83 4785074604326226 3 /mnt/c/study/datascience/Parallel_computing/Ray/liner_to_setup_ray_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -932 2 87 83 23362423067031423 3 /mnt/c/study/automation/oneliners/liner_to_setup_ray_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 471 1 111 83 4503599627615671 3 /mnt/c/study/setups/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
-DUPTYPE_WITHIN_SAME_TREE -471 3 111 83 6755399441300705 3 /mnt/c/study/datascience/Parallel_computing/tensorflow/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
-DUPTYPE_WITHIN_SAME_TREE -471 2 111 83 13792273859067100 3 /mnt/c/study/automation/oneliners/liner_to_setup,_run,_and_use_TensorFlow_with_Multi-GPU_Support_in_Ubuntu
-DUPTYPE_FIRST_OCCURRENCE 549 1 115 83 6192449488018604 3 /mnt/c/study/setups/liner_to_setup_Zeromq_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -549 3 115 83 5066549581175592 3 /mnt/c/study/datascience/Parallel_computing/Zeromq/liner_to_setup_Zeromq_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -549 2 115 83 5066549581175874 3 /mnt/c/study/automation/oneliners/liner_to_setup_Zeromq_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 717 1 293 83 45317471250487455 3 /mnt/c/study/setups/liner_to_setup_and_run_impacket_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 6473924464416446 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_impacket_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 10696049115076680 3 /mnt/c/study/docker/guides/liner_to_setup_and_run_impacket_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -717 2 293 83 5629499534284516 3 /mnt/c/study/networking/Impacket/liner_to_setup_and_run_impacket_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 637 1 536 83 4785074604577222 3 /mnt/c/study/setups/liner_to_setup_and_run_PVM_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -637 2 536 83 5348024557998435 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_PVM_in_ubuntu
-DUPTYPE_WITHIN_SAME_TREE -637 3 536 83 3659174697734345 3 /mnt/c/study/datascience/Parallel_computing/PVM/liner_to_setup_and_run_PVM_in_ubuntu
-DUPTYPE_FIRST_OCCURRENCE 713 1 663 83 5066549581133614 3 /mnt/c/study/setups/liner_to_setup_and_run_goroutine_project
-DUPTYPE_WITHIN_SAME_TREE -713 2 663 83 18858823439955638 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_goroutine_project
-DUPTYPE_WITHIN_SAME_TREE -713 3 663 83 2533274790736447 3 /mnt/c/study/programming/go/goroutine/liner_to_setup_and_run_goroutine_project
-DUPTYPE_FIRST_OCCURRENCE 618 1 746 83 41939771529927064 3 /mnt/c/study/setups/liner_to_setup_and_run_LDAP_apache_directory
-DUPTYPE_WITHIN_SAME_TREE -618 3 746 83 29836347531368226 3 /mnt/c/study/networking/protocols/LDAP/liner_to_setup_and_run_LDAP_apache_directory
-DUPTYPE_WITHIN_SAME_TREE -618 2 746 83 35184372088866577 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_LDAP_apache_directory
-DUPTYPE_FIRST_OCCURRENCE 10042 3 1099 83 2251799813918858 3 /mnt/c/study/hosting/NAS/owncloud/Setting up LDAP Authentication for ownCloud
-DUPTYPE_WITHIN_SAME_TREE -10042 3 1099 83 13510798882145492 3 /mnt/c/study/networking/protocols/LDAP/Setting_up_LDAP_Authentication_for_ownCloud
-DUPTYPE_FIRST_OCCURRENCE 10035 3 1226 83 1970324837199572 3 /mnt/c/study/hosting/NAS/nextcloud/Setting up LDAP Authentication for NextCloud
-DUPTYPE_WITHIN_SAME_TREE -10035 3 1226 83 17451448556094671 3 /mnt/c/study/networking/protocols/LDAP/Setting_up_LDAP_Authentication_for_NextCloud
-DUPTYPE_FIRST_OCCURRENCE 10057 3 1635 83 6755399441290626 3 /mnt/c/study/hosting/WebServers/apache/Enabling_LDAP_Active_Directory_Authentication_in_Apache_Guacamole
-DUPTYPE_WITHIN_SAME_TREE -10057 3 1635 83 23925373020439599 3 /mnt/c/study/networking/protocols/LDAP/Enabling_LDAP_Active_Directory_Authentication_in_Apache_Guacamole
-DUPTYPE_FIRST_OCCURRENCE 10631 3 3279 83 3940649674191821 3 /mnt/c/study/networking/protocols/FTP/Installing_Free_Filezilla_FTP_Server_with_LDAP_Authentication_on_Ubuntu
-DUPTYPE_WITHIN_SAME_TREE -10631 3 3279 83 13792273858855986 3 /mnt/c/study/networking/protocols/LDAP/Installing_Free_Filezilla_FTP_Server_with_LDAP_Authentication_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 5311 2 15 127 4222124650902252 3 /mnt/c/study/networking/Ports/Show_which_programs_are_listening_on_TCP_and_UDP_ports_with_netcat
+DUPTYPE_WITHIN_SAME_TREE -5311 3 15 127 2814749767225626 3 /mnt/c/study/networking/protocols/tcp/Show_which_programs_are_listening_on_TCP_and_UDP_ports_with_netcat
+DUPTYPE_FIRST_OCCURRENCE 304 1 15 127 2251799813962094 3 /mnt/c/study/setups/Run_the_setup_script_to_configure_OpenVAS
+DUPTYPE_WITHIN_SAME_TREE -304 3 15 127 7599824371682587 3 /mnt/c/study/Shells/powershell/setups/Run_the_setup_script_to_configure_OpenVAS
+DUPTYPE_FIRST_OCCURRENCE 7013 3 24 127 5348024557614699 3 /mnt/c/study/Hacking/PacketCapture/nmap/scan_the_local_network_to_discover_live_hosts
+DUPTYPE_WITHIN_SAME_TREE -7013 3 24 127 2251799813752210 3 /mnt/c/study/Hacking/info_gathering/nmap/scan_the_local_network_to_discover_live_hosts
+DUPTYPE_FIRST_OCCURRENCE 381 1 26 127 1970324837251633 3 /mnt/c/study/setups/install_in_windows_with_choco
+DUPTYPE_WITHIN_SAME_TREE -381 3 26 127 6473924464839889 3 /mnt/c/study/Shells/powershell/setups/install_in_windows_with_choco
+DUPTYPE_FIRST_OCCURRENCE 212 1 30 127 2251799813961702 3 /mnt/c/study/setups/AWS_AWStats_Setup_S3_Bucket_for_AWStats.txt
+DUPTYPE_WITHIN_SAME_TREE -212 3 30 127 8162774325103877 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_S3_Bucket_for_AWStats.txt
+DUPTYPE_FIRST_OCCURRENCE 7426 3 30 127 10977524092150970 3 /mnt/c/study/IDE/IDEs/Eclipse/Install_Eclipse_IDE_SnapInstall.txt
+DUPTYPE_WITHIN_SAME_TREE -7426 3 30 127 5066549581032391 3 /mnt/c/study/linux/Package_Manager/snap/Install_Eclipse_IDE_SnapInstall.txt
+DUPTYPE_FIRST_OCCURRENCE 11329 3 30 127 4222124650901064 3 /mnt/c/study/linux/Package_Manager/snap/snap_install_pycharm-community.txt
+DUPTYPE_WITHIN_SAME_TREE -11329 4 30 127 10696049115313687 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/snap_install_pycharm-community.txt
+DUPTYPE_FIRST_OCCURRENCE 220 1 30 127 2251799813961735 3 /mnt/c/study/setups/Check_the_sync_status
+DUPTYPE_WITHIN_SAME_TREE -220 3 30 127 7318349394971915 3 /mnt/c/study/Shells/powershell/setups/Check_the_sync_status
+DUPTYPE_FIRST_OCCURRENCE 460 1 31 127 1688849860541004 3 /mnt/c/study/setups/liner_to_Install_Envoy_on_mac_OSX
+DUPTYPE_WITHIN_SAME_TREE -460 3 31 127 9570149208657075 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Envoy_on_mac_OSX
+DUPTYPE_FIRST_OCCURRENCE 786 1 31 127 2533274790677419 3 /mnt/c/study/setups/liner_to_setup_and_run_Zim_note_app_in_ubuntu_with_apt
+DUPTYPE_WITHIN_SAME_TREE -786 3 31 127 8725724278525331 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Zim_note_app_in_ubuntu_with_apt
+DUPTYPE_FIRST_OCCURRENCE 11330 3 33 127 4222124650901065 3 /mnt/c/study/linux/Package_Manager/snap/snap_install_pycharm-professional.txt
+DUPTYPE_WITHIN_SAME_TREE -11330 4 33 127 6473924464655395 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/snap_install_pycharm-professional.txt
+DUPTYPE_FIRST_OCCURRENCE 1131 1 34 127 1970324837258887 3 /mnt/c/study/setups/liner_to_stup_kourou_in_ubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -1131 3 34 127 7881299348393200 3 /mnt/c/study/Shells/powershell/setups/liner_to_stup_kourou_in_ubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 698 1 35 127 3377699720808459 3 /mnt/c/study/setups/liner_to_setup_and_run_Elixir_IEx_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -698 3 35 127 7318349394972127 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Elixir_IEx_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7490 3 35 127 14355223812680738 3 /mnt/c/study/IDE/IDEs/Sublime/Install_Sublime_Text_editor_SnapInstall.txt
+DUPTYPE_WITHIN_SAME_TREE -7490 3 35 127 9288674231888948 3 /mnt/c/study/IDE/IDEs/Sublime/snap_install_sublime-text.txt
+DUPTYPE_WITHIN_SAME_TREE -7490 3 35 127 4785074604321868 3 /mnt/c/study/linux/Package_Manager/snap/Install_Sublime_Text_editor_SnapInstall.txt
+DUPTYPE_FIRST_OCCURRENCE 427 1 35 127 9570149208599781 3 /mnt/c/study/setups/liner to setup and run emacs in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -427 2 35 127 16325548649319155 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_emacs_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -427 3 35 127 9288674231889123 3 /mnt/c/study/IDE/IDEs/emacs/liner_to_setup_and_run_emacs_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 429 1 35 127 10696049115442308 3 /mnt/c/study/setups/liner to setup and run geany in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -429 3 35 127 10696049115442302 3 /mnt/c/study/IDE/IDEs/Geany/liner_to_setup_and_run_geany_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -429 2 35 127 10977524092152948 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_geany_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 819 1 37 127 3096224744098832 3 /mnt/c/study/setups/liner_to_setup_and_run_eva_in_uuntu_with_rust_and_cargo
+DUPTYPE_WITHIN_SAME_TREE -819 3 37 127 7599824371682761 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_eva_in_uuntu_with_rust_and_cargo
+DUPTYPE_FIRST_OCCURRENCE 845 1 37 127 3377699720809647 3 /mnt/c/study/setups/liner_to_setup_and_run_jami_in_ubuntu_with_snap
+DUPTYPE_WITHIN_SAME_TREE -845 3 37 127 7599824371682799 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_jami_in_ubuntu_with_snap
+DUPTYPE_FIRST_OCCURRENCE 416 1 37 127 10696049115456328 3 /mnt/c/study/setups/liner to setup and run anjuta in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -416 3 37 127 11258999068877634 3 /mnt/c/study/IDE/IDEs/anjuta/liner_to_setup_and_run_anjuta_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -416 2 37 127 8162774324722166 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_anjuta_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 811 1 37 127 3377699720809461 3 /mnt/c/study/setups/liner_to_setup_and_run_deluge_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -811 3 37 127 8444249301814759 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_deluge_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 717 1 37 127 3096224744097973 3 /mnt/c/study/setups/liner_to_setup_and_run_Jmeter_with_apt_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -717 3 37 127 7318349394972103 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Jmeter_with_apt_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 411 1 37 127 15199648742683672 3 /mnt/c/study/setups/liner to setup and run Octave in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -411 2 37 127 12666373952092087 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Octave_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -411 3 37 127 10414574138602504 3 /mnt/c/study/datascience/Data_Analysis/Octave/liner_to_setup_and_run_Octave_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7010 3 38 127 7318349394589274 3 /mnt/c/study/Hacking/PacketCapture/nmap/find_all_open_ports
+DUPTYPE_WITHIN_SAME_TREE -7010 3 38 127 1970324837041527 3 /mnt/c/study/Hacking/info_gathering/nmap/find_all_open_ports
+DUPTYPE_FIRST_OCCURRENCE 423 1 38 127 7318349394589376 3 /mnt/c/study/setups/liner to setup and run bmon in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -423 2 38 127 10977524091827894 3 /mnt/c/study/automation/oneliners/liner to setup and run bmon in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -423 3 38 127 9570149208274619 3 /mnt/c/study/Hacking/PacketCapture/bmon/liner_to_setup_and_run_bmon_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 851 1 38 127 2533274790677784 3 /mnt/c/study/setups/liner_to_setup_and_run_kermit_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -851 3 38 127 7318349394972066 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_kermit_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 452 1 40 127 2251799813962306 3 /mnt/c/study/setups/liner_that__installs_and_updates_Node.js_to_the_latest_stable_version_globally,_then_refreshes_the_shell
+DUPTYPE_WITHIN_SAME_TREE -452 3 40 127 7036874418261364 3 /mnt/c/study/Shells/powershell/setups/liner_that__installs_and_updates_Node.js_to_the_latest_stable_version_globally,_then_refreshes_the_shell
+DUPTYPE_FIRST_OCCURRENCE 11190 3 40 127 4785074604321843 3 /mnt/c/study/linux/Package_Manager/snap/Install_PyCharm_Community_Edition_SnapInstall.txt
+DUPTYPE_WITHIN_SAME_TREE -11190 4 40 127 7881299348207117 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/Install_PyCharm_Community_Edition_SnapInstall.txt
+DUPTYPE_FIRST_OCCURRENCE 797 1 41 127 2533274790677446 3 /mnt/c/study/setups/liner_to_setup_and_run_brave_browser_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -797 3 41 127 7881299348393373 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_brave_browser_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 422 1 41 127 11258999068863626 3 /mnt/c/study/setups/liner to setup and run bluefish in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -422 2 41 127 8725724278304348 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_bluefish_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -422 3 41 127 14636698789391419 3 /mnt/c/study/IDE/IDEs/bluefish/liner_to_setup_and_run_bluefish_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 405 1 41 127 11258999068863709 3 /mnt/c/study/setups/liner to setup and run KDevelop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -405 2 41 127 20266198323602271 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_KDevelop_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -405 3 41 127 11821949022282718 3 /mnt/c/study/IDE/IDEs/KDevelop/liner_to_setup_and_run_KDevelop_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 582 1 41 127 3377699720607758 3 /mnt/c/study/setups/liner_to_setup_MTR_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -582 3 41 127 7881299348393435 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_MTR_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 935 1 41 127 2251799813962300 3 /mnt/c/study/setups/liner_to_setup_and_run_synaptic_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -935 3 41 127 8162774325103985 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_synaptic_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7012 3 41 127 8444249301431901 3 /mnt/c/study/Hacking/PacketCapture/nmap/nmap vulnerability scan for public ip
+DUPTYPE_WITHIN_SAME_TREE -7012 3 41 127 1970324837041553 3 /mnt/c/study/Hacking/info_gathering/nmap/nmap vulnerability scan for public ip
+DUPTYPE_FIRST_OCCURRENCE 419 1 42 127 8725724278526461 3 /mnt/c/study/setups/liner to setup and run argus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -419 3 42 127 9570149208658427 3 /mnt/c/study/networking/Audit/argus/liner_to_setup_and_run_argus_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -419 2 42 127 9007199254852714 3 /mnt/c/study/automation/oneliners/liner to setup and run argus in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 440 1 42 127 7036874417878713 3 /mnt/c/study/setups/liner to setup and run ntopng in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -440 3 42 127 7036874417878712 3 /mnt/c/study/Hacking/PacketCapture/ntopng/liner_to_setup_and_run_ntopng_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -440 2 42 127 10696049115117175 3 /mnt/c/study/automation/oneliners/liner to setup and run ntopng in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 11191 3 43 127 4785074604321845 3 /mnt/c/study/linux/Package_Manager/snap/Install_PyCharm_Professional_Edition_SnapInstall.txt
+DUPTYPE_WITHIN_SAME_TREE -11191 4 43 127 12103423998866964 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/Install_PyCharm_Professional_Edition_SnapInstall.txt
+DUPTYPE_FIRST_OCCURRENCE 994 1 43 127 1970324837251645 3 /mnt/c/study/setups/liner_to_setup_dpkg_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -994 3 43 127 7881299348393178 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_dpkg_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1058 1 43 127 10696049115400372 3 /mnt/c/study/setups/liner_to_setup_ngrep_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1058 3 43 127 27584547717715461 3 /mnt/c/study/Hacking/PacketCapture/ngrep/liner_to_setup_ngrep_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 412 1 43 127 9570149208599790 3 /mnt/c/study/setups/liner to setup and run QtCreator in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -412 2 43 127 11258999068863720 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_QtCreator_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -412 3 43 127 10696049115442409 3 /mnt/c/study/IDE/IDEs/QtCreator/liner_to_setup_and_run_QtCreator_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 393 1 43 127 1125899906917192 3 /mnt/c/study/setups/liner to setup Varnish cache in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -393 2 43 127 3096224743891781 3 /mnt/c/study/FilesystemManagement/Varnish/liner_to_setup_Varnish_cache_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -393 3 43 127 9007199255235683 3 /mnt/c/study/Shells/powershell/setups/liner to setup Varnish cache in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -393 2 43 127 2251799813758792 3 /mnt/c/study/automation/oneliners/liner_to_setup_Varnish_cache_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 394 1 44 127 9288674231947757 3 /mnt/c/study/setups/liner to setup Xpra in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -394 3 44 127 10414574138790379 3 /mnt/c/study/Remote/RemoteDesktop/Xpra/liner_to_setup_Xpra_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -394 2 44 127 13510798882607576 3 /mnt/c/study/automation/oneliners/liner to setup Xpra in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 439 1 45 127 8725724278142699 3 /mnt/c/study/setups/liner to setup and run nload in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -439 2 45 127 9007199254853341 3 /mnt/c/study/automation/oneliners/liner to setup and run nload in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -439 3 45 127 8162774324721386 3 /mnt/c/study/Hacking/PacketCapture/nload/liner_to_setup_and_run_nload_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1174 1 45 127 1970324837259730 3 /mnt/c/study/setups/one_liner_to_setup_and_run_in_ubuntu_(witout_update_command)_:___Hexchat
+DUPTYPE_WITHIN_SAME_TREE -1174 3 45 127 7036874418261235 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_in_ubuntu_(witout_update_command)_:___Hexchat
+DUPTYPE_FIRST_OCCURRENCE 208 1 45 127 2251799813961691 3 /mnt/c/study/setups/AWS_AWStats_Setup_Apache_Access_Logs.txt
+DUPTYPE_WITHIN_SAME_TREE -208 3 45 127 9288674231946498 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_Apache_Access_Logs.txt
+DUPTYPE_FIRST_OCCURRENCE 401 1 46 127 5066549580986515 3 /mnt/c/study/setups/liner to setup and run EtherApe in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -401 2 46 127 6755399441197863 3 /mnt/c/study/monitoring/EtherApe/liner_to_setup_and_run_EtherApe_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -401 2 46 127 3096224743935179 3 /mnt/c/study/automation/oneliners/liner to setup and run EtherApe in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 979 1 47 127 2814749767389293 3 /mnt/c/study/setups/liner_to_setup_caffe_with_docker_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -979 3 47 127 7036874418261432 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_caffe_with_docker_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 437 1 47 127 9288674231887789 3 /mnt/c/study/setups/liner to setup and run n8n in uubuntu with npm
+DUPTYPE_WITHIN_SAME_TREE -437 2 47 127 7881299348149017 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_n8n_in_uubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -437 3 47 127 5910974511338159 3 /mnt/c/study/automation/WorkFlow/n8n/liner_to_setup_and_run_n8n_in_uubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 426 1 47 127 5910974511197752 3 /mnt/c/study/setups/liner to setup and run dnstop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -426 4 47 127 26458647811075411 3 /mnt/c/study/networking/protocols/DNS/dnstop/liner_to_setup_and_run_dnstop_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -426 2 47 127 16044073672619691 3 /mnt/c/study/automation/oneliners/liner to setup and tun dnstop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -426 2 47 127 12666373952091710 3 /mnt/c/study/automation/oneliners/liner to setup and run dnstop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -426 3 47 127 9288674231563950 3 /mnt/c/study/Hacking/PacketCapture/dnstop/liner_to_setup_and_tun_dnstop_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -426 1 47 127 10977524091827887 3 /mnt/c/study/setups/liner to setup and tun dnstop in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 559 1 47 127 2251799813962299 3 /mnt/c/study/setups/liner_to_setup_GDebi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -559 3 47 127 8725724278525296 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_GDebi_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7006 3 48 127 6473924464457326 3 /mnt/c/study/Hacking/PacketCapture/nmap/Stealth_Scan_with_Fragmented_Packets
+DUPTYPE_WITHIN_SAME_TREE -7006 3 48 127 1970324837041470 3 /mnt/c/study/Hacking/info_gathering/nmap/Stealth_Scan_with_Fragmented_Packets
+DUPTYPE_FIRST_OCCURRENCE 430 1 48 127 9570149208274662 3 /mnt/c/study/setups/liner to setup and run iftop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -430 3 48 127 9570149208274661 3 /mnt/c/study/Hacking/PacketCapture/iftop/liner_to_setup_and_run_iftop_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -430 2 48 127 9570149208274615 3 /mnt/c/study/automation/oneliners/liner to setup and run iftop in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 435 1 48 127 9288674231563937 3 /mnt/c/study/setups/liner to setup and run iptraf-ng in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -435 2 48 127 8444249301431961 3 /mnt/c/study/automation/oneliners/liner to setup and run iptraf-ng in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -435 3 48 127 9288674231563936 3 /mnt/c/study/Hacking/PacketCapture/iptraf-ng/liner_to_setup_and_run_iptraf-ng_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 414 1 48 127 7599824371461947 3 /mnt/c/study/setups/liner to setup and run Slurm in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -414 3 48 127 9851624185147155 3 /mnt/c/study/networking/Traffic/slurm/liner_to_setup_and_run_Slurm_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -414 2 48 127 7881299348172458 3 /mnt/c/study/automation/oneliners/liner to setup and run Slurm in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 794 1 48 127 2533274790677442 3 /mnt/c/study/setups/liner_to_setup_and_run_bleachbit_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -794 3 48 127 7036874418261404 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_bleachbit_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 817 1 49 127 3377699720809479 3 /mnt/c/study/setups/liner_to_setup_and_run_ethars_in_ubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -817 3 49 127 9007199255236075 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_ethars_in_ubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 431 1 49 127 16607023626393190 3 /mnt/c/study/setups/liner to setup and run in ubuntu AdminJS
+DUPTYPE_WITHIN_SAME_TREE -431 3 49 127 12103423999008816 3 /mnt/c/study/WebBuilding/Tools/AdminJS/liner_to_setup_and_run_in_ubuntu_AdminJS
+DUPTYPE_WITHIN_SAME_TREE -431 2 49 127 18295873486241306 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_in_ubuntu_AdminJS
+DUPTYPE_FIRST_OCCURRENCE 631 1 49 127 2251799813836705 3 /mnt/c/study/setups/liner_to_setup_ZeroRPC_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -631 3 49 127 7318349394971898 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_ZeroRPC_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 555 1 49 127 3096224744095395 3 /mnt/c/study/setups/liner_to_setup_Flatpak_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -555 3 49 127 9007199255236034 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_Flatpak_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 781 1 49 127 1970324837256098 3 /mnt/c/study/setups/liner_to_setup_and_run_Yersinia_in_GUI_mode_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -781 3 49 127 8162774325103839 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Yersinia_in_GUI_mode_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 782 1 49 127 1970324837256100 3 /mnt/c/study/setups/liner_to_setup_and_run_Yersinia_in_interactive_mode_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -782 3 49 127 9570149208657120 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Yersinia_in_interactive_mode_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 443 1 49 127 11258999068739684 3 /mnt/c/study/setups/liner to setup and run webstorm with snap in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -443 4 49 127 7881299348211694 3 /mnt/c/study/IDE/IDEs/JetBrains/webstorm/liner_to_setup_and_run_webstorm_with_snap_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -443 2 49 127 8725724278343655 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_webstorm_with_snap_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 434 1 50 127 8444249301432058 3 /mnt/c/study/setups/liner to setup and run iptraf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -434 2 50 127 12103423998670580 3 /mnt/c/study/automation/oneliners/liner to setup and run iptraf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -434 3 50 127 11821949021959929 3 /mnt/c/study/Hacking/PacketCapture/iptraf/liner_to_setup_and_run_iptraf_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 433 1 50 127 9851624184985232 3 /mnt/c/study/setups/liner to setup and run in ubuntu tcpick
+DUPTYPE_WITHIN_SAME_TREE -433 2 50 127 8725724278142590 3 /mnt/c/study/automation/oneliners/liner to setup and run in ubuntu tcpick
+DUPTYPE_WITHIN_SAME_TREE -433 3 50 127 8162774324721295 3 /mnt/c/study/Hacking/PacketCapture/tcpick/liner_to_setup_and_run_in_ubuntu_tcpick
+DUPTYPE_FIRST_OCCURRENCE 398 1 51 127 16044073672971896 3 /mnt/c/study/setups/liner to setup and run CloudCommander in ubuntu with npm
+DUPTYPE_WITHIN_SAME_TREE -398 2 51 127 19984723346920044 3 /mnt/c/study/FilesystemManagement/CloudCommander/liner_to_setup_and_run_CloudCommander_in_ubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -398 2 51 127 11540474045601358 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_CloudCommander_in_ubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 446 1 52 127 9570149208274573 3 /mnt/c/study/setups/liner to setupp and run pktstat in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -446 3 52 127 7881299348010646 3 /mnt/c/study/Hacking/PacketCapture/pktstat/liner_to_setupp_and_run_pktstat_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -446 2 52 127 9007199254853041 3 /mnt/c/study/automation/oneliners/liner to setupp and run pktstat in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 771 1 52 127 3377699720809302 3 /mnt/c/study/setups/liner_to_setup_and_run_TimeShift_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -771 3 52 127 7318349394972131 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_TimeShift_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 549 1 53 127 1970324837126060 3 /mnt/c/study/setups/liner_to_setup_D-Bus_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -549 3 53 127 8444249301814469 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_D-Bus_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 634 1 53 127 2533274790547347 3 /mnt/c/study/setups/liner_to_setup__Capn_Proto_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -634 3 53 127 8162774325104009 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup__Capn_Proto_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7428 3 53 127 9288674231887037 3 /mnt/c/study/IDE/IDEs/Eclipse/winget_install_EclipseAdoptium.Temurin.11.JDK.txt
+DUPTYPE_WITHIN_SAME_TREE -7428 3 53 127 2533274790485998 3 /mnt/c/study/Shells/powershell/winget/winget_install_EclipseAdoptium.Temurin.11.JDK.txt
+DUPTYPE_FIRST_OCCURRENCE 7429 3 53 127 10414574138729664 3 /mnt/c/study/IDE/IDEs/Eclipse/winget_install_EclipseAdoptium.Temurin.17.JDK.txt
+DUPTYPE_WITHIN_SAME_TREE -7429 3 53 127 2814749767196658 3 /mnt/c/study/Shells/powershell/winget/winget_install_EclipseAdoptium.Temurin.17.JDK.txt
+DUPTYPE_FIRST_OCCURRENCE 10325 3 53 127 2533274790486061 3 /mnt/c/study/Shells/powershell/winget/winget_install_JetBrains.PyCharm.Professional.txt
+DUPTYPE_WITHIN_SAME_TREE -10325 4 53 127 11258999068736573 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/winget_install_JetBrains.PyCharm.Professional.txt
+DUPTYPE_FIRST_OCCURRENCE 1023 1 54 127 5910974511206777 3 /mnt/c/study/setups/liner_to_setup_in_linx_Visual_Studio_Code_with_Jupyter_Extension
+DUPTYPE_WITHIN_SAME_TREE -1023 2 54 127 28991922601505681 3 /mnt/c/study/hosting/jupyter/liner_to_setup_in_linx_Visual_Studio_Code_with_Jupyter_Extension
+DUPTYPE_WITHIN_SAME_TREE -1023 3 54 127 10133099162021121 3 /mnt/c/study/IDE/IDEs/jupyter/liner to setup in linx Visual Studio Code with Jupyter Extension
+DUPTYPE_WITHIN_SAME_TREE -1023 3 54 127 10133099162021123 3 /mnt/c/study/IDE/IDEs/jupyter/liner_to_setup_in_linx_Visual_Studio_Code_with_Jupyter_Extension
+DUPTYPE_FIRST_OCCURRENCE 436 1 54 127 17169973579814599 3 /mnt/c/study/setups/liner to setup and run log.io in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -436 2 54 127 13229323905711247 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_log.io_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -436 2 54 127 10414574138758484 3 /mnt/c/study/Centralized_Logging/log.io/liner_to_setup_and_run_log.io_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 219 1 54 127 2251799813961732 3 /mnt/c/study/setups/C:studylinuxPackage_Managersnap
+DUPTYPE_WITHIN_SAME_TREE -219 3 54 127 7881299348393226 3 /mnt/c/study/Shells/powershell/setups/C:studylinuxPackage_Managersnap
+DUPTYPE_FIRST_OCCURRENCE 574 1 55 127 3096224744120307 3 /mnt/c/study/setups/liner_to_setup_K0s_In_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -574 3 55 127 7318349394972122 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_K0s_In_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 395 1 55 127 2814749767226979 3 /mnt/c/study/setups/liner to setup ad run tcpflow in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -395 4 55 127 10977524091836001 3 /mnt/c/study/networking/protocols/tcp/tcpflow/liner_to_setup_ad_run_tcpflow_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -395 2 55 127 3096224743937621 3 /mnt/c/study/automation/oneliners/liner to setup ad run tcpflow in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 421 1 55 127 10133099162079710 3 /mnt/c/study/setups/liner to setup and run beekeeper-studio in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -421 2 55 127 25051272927443964 3 /mnt/c/study/automation/oneliners/liner to setup and run beekeeper-studio in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -421 4 55 127 4503599627644500 3 /mnt/c/study/datascience/databases/sql/beekeeper/liner_to_setup_and_run_beekeeper-studio_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 553 1 56 127 2251799813963420 3 /mnt/c/study/setups/liner_to_setup_Embark_with_npm_and_compile_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -553 3 56 127 7599824371682687 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_Embark_with_npm_and_compile_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 400 1 56 127 8725724278165884 3 /mnt/c/study/setups/liner to setup and run Dnsenum in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -400 2 56 127 4222124650717683 3 /mnt/c/study/automation/oneliners/liner to setup and run Dnsenum in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -400 4 56 127 15762598695932257 3 /mnt/c/study/networking/protocols/DNS/Dnsenum/liner_to_setup_and_run_Dnsenum_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1115 1 57 127 1970324837258861 3 /mnt/c/study/setups/liner_to_setup_truffle_with_npm_and_compile_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1115 3 57 127 7318349394971879 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_truffle_with_npm_and_compile_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 420 1 57 127 8162774325105170 3 /mnt/c/study/setups/liner to setup and run arp-scan in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -420 2 57 127 13792273859318288 3 /mnt/c/study/automation/oneliners/liner to setup and run arp-scan in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -420 4 57 127 8162774325105169 3 /mnt/c/study/networking/protocols/ARP/arp-scan/liner_to_setup_and_run_arp-scan_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 211 1 57 127 2251799813961697 3 /mnt/c/study/setups/AWS_AWStats_Setup_Reverse_DNS_Lookups.txt
+DUPTYPE_WITHIN_SAME_TREE -211 3 57 127 7318349394971908 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_Reverse_DNS_Lookups.txt
+DUPTYPE_FIRST_OCCURRENCE 798 1 58 127 2533274790677448 3 /mnt/c/study/setups/liner_to_setup_and_run_browserless_debugger_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -798 3 58 127 7599824371682718 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_browserless_debugger_in_ubuntu_with_docker
+DUPTYPE_FIRST_OCCURRENCE 756 1 58 127 1407374883834554 3 /mnt/c/study/setups/liner_to_setup_and_run_Remix_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -756 3 58 127 8444249301814378 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Remix_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 820 1 59 127 3096224744098833 3 /mnt/c/study/setups/liner_to_setup_and_run_ferdium_in_ubuntu_with_snap
+DUPTYPE_WITHIN_SAME_TREE -820 3 59 127 7881299348393418 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_ferdium_in_ubuntu_with_snap
+DUPTYPE_FIRST_OCCURRENCE 780 1 59 127 2251799813966753 3 /mnt/c/study/setups/liner_to_setup_and_run_Xournal_in_ubuntu_with_apt
+DUPTYPE_WITHIN_SAME_TREE -780 3 59 127 7036874418261376 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Xournal_in_ubuntu_with_apt
+DUPTYPE_FIRST_OCCURRENCE 409 1 60 127 5910974511038955 3 /mnt/c/study/setups/liner to setup and run Netsniff-ng  in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -409 1 60 127 10133099161695912 3 /mnt/c/study/setups/liner to setup and run erherape in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -409 3 60 127 8725724278142615 3 /mnt/c/study/Hacking/PacketCapture/erherape/liner_to_setup_and_run_erherape_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -409 2 60 127 10133099161695908 3 /mnt/c/study/automation/oneliners/liner to setup and run erherape in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -409 2 60 127 6755399441169748 3 /mnt/c/study/automation/oneliners/liner to setup and run Netsniff-ng  in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -409 3 60 127 3940649674064173 3 /mnt/c/study/Hacking/PacketCapture/Netsniff-ng/liner_to_setup_and_run_Netsniff-ng__in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1111 1 60 127 1970324837125851 3 /mnt/c/study/setups/liner_to_setup_thrift_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1111 3 60 127 7599824371682500 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_thrift_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1107 1 61 127 1970324837258851 3 /mnt/c/study/setups/liner_to_setup_surge_with_npm_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1107 3 61 127 7318349394971876 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_surge_with_npm_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6994 3 61 127 11258999068538459 3 /mnt/c/study/Hacking/PacketCapture/nmap/Full_Port_Scan
+DUPTYPE_WITHIN_SAME_TREE -6994 3 61 127 1970324837041369 3 /mnt/c/study/Hacking/info_gathering/nmap/Full_Port_Scan
+DUPTYPE_FIRST_OCCURRENCE 474 1 62 127 3096224743968666 3 /mnt/c/study/setups/liner_to_Teach_me_to_setup_Protobuf_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -474 3 62 127 8444249301814719 3 /mnt/c/study/Shells/powershell/setups/liner_to_Teach_me_to_setup_Protobuf_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 809 1 63 127 3377699720809455 3 /mnt/c/study/setups/liner_to_setup_and_run_create_react_app_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -809 3 63 127 7318349394972133 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_create_react_app_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 665 1 63 127 2533274790676265 3 /mnt/c/study/setups/liner_to_setup_and_run_Aptitude_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -665 3 63 127 7881299348393360 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Aptitude_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1015 1 63 127 1970324837251646 3 /mnt/c/study/setups/liner_to_setup_gnome-software_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1015 3 63 127 8725724278525147 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_gnome-software_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 389 1 65 127 1970324837251641 3 /mnt/c/study/setups/kiner_to_setup_Vagrant_in_macOS
+DUPTYPE_WITHIN_SAME_TREE -389 3 65 127 8444249301814489 3 /mnt/c/study/Shells/powershell/setups/kiner_to_setup_Vagrant_in_macOS
+DUPTYPE_FIRST_OCCURRENCE 410 1 65 127 10414574138636435 3 /mnt/c/study/setups/liner to setup and run Node-RED in ubuntu with npm
+DUPTYPE_WITHIN_SAME_TREE -410 2 65 127 9570149208503557 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Node-RED_in_ubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -410 3 65 127 10133099161925750 3 /mnt/c/study/automation/WorkFlow/Node-RED/liner_to_setup_and_run_Node-RED_in_ubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 1099 1 67 127 3096224744101464 3 /mnt/c/study/setups/liner_to_setup_slack-term_with_snap
+DUPTYPE_WITHIN_SAME_TREE -1099 3 67 127 8444249301814742 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_slack-term_with_snap
+DUPTYPE_FIRST_OCCURRENCE 205 1 68 127 2251799813961684 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_for_FastCGI.txt
+DUPTYPE_WITHIN_SAME_TREE -205 3 68 127 7318349394971902 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_for_FastCGI.txt
+DUPTYPE_FIRST_OCCURRENCE 442 1 68 127 6473924464457458 3 /mnt/c/study/setups/liner to setup and run tracepath in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -442 2 68 127 11258999068538606 3 /mnt/c/study/automation/oneliners/liner to setup and run tracepath in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -442 3 68 127 9007199254853359 3 /mnt/c/study/Hacking/PacketCapture/tracepath/liner_to_setup_and_run_tracepath_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 438 1 70 127 9007199254853300 3 /mnt/c/study/setups/liner to setup and run netspeed in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -438 3 70 127 14073748835645107 3 /mnt/c/study/Hacking/PacketCapture/netspeed/liner_to_setup_and_run_netspeed_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -438 2 70 127 10414574138406567 3 /mnt/c/study/automation/oneliners/liner to setup and run netspeed in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 214 1 70 127 2251799813961711 3 /mnt/c/study/setups/AWS_AWStats_Setup_VPC_for_AWStats.txt
+DUPTYPE_WITHIN_SAME_TREE -214 3 70 127 6755399441550598 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_VPC_for_AWStats.txt
+DUPTYPE_FIRST_OCCURRENCE 385 1 72 127 1970324837251638 3 /mnt/c/study/setups/install_zsh
+DUPTYPE_WITHIN_SAME_TREE -385 3 72 127 7881299348393174 3 /mnt/c/study/Shells/powershell/setups/install_zsh
+DUPTYPE_FIRST_OCCURRENCE 106 1 72 127 1970324837043770 3 /mnt/c/study/Nvidia/liner_to_install_nvidia_cuda_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -106 3 72 127 7881299348393154 3 /mnt/c/study/Shells/powershell/setups/liner_to_install_nvidia_cuda_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4956 2 73 127 18577348463141880 3 /mnt/c/study/hosting/jupyter/Install Jupyter Notebook with iwr.txt
+DUPTYPE_WITHIN_SAME_TREE -4956 3 73 127 9851624185310462 3 /mnt/c/study/IDE/IDEs/jupyter/Install Jupyter Notebook with iwr.txt
+DUPTYPE_FIRST_OCCURRENCE 1173 1 74 127 1407374883838387 3 /mnt/c/study/setups/one_liner_to_setup_and_run_grafana_with_docker_compose
+DUPTYPE_WITHIN_SAME_TREE -1173 3 74 127 6755399441550455 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_grafana_with_docker_compose
+DUPTYPE_FIRST_OCCURRENCE 469 1 74 127 1688849860541017 3 /mnt/c/study/setups/liner_to_Install_and_run_Pyroscope_with_docker
+DUPTYPE_WITHIN_SAME_TREE -469 3 74 127 7036874418261174 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_and_run_Pyroscope_with_docker
+DUPTYPE_FIRST_OCCURRENCE 813 1 75 127 3377699720809465 3 /mnt/c/study/setups/liner_to_setup_and_run_docear_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -813 3 75 127 10133099162078698 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_docear_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1145 1 75 127 1688849860548433 3 /mnt/c/study/setups/one_liner_to_Run_Matomo_-_Google_Analytics_Alternative_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -1145 3 75 127 8444249301814459 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_Run_Matomo_-_Google_Analytics_Alternative_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 206 1 76 127 2251799813961685 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_to_Ignore_Local_IPs.txt
+DUPTYPE_WITHIN_SAME_TREE -206 3 76 127 7881299348393215 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_to_Ignore_Local_IPs.txt
+DUPTYPE_FIRST_OCCURRENCE 202 1 77 127 2251799813961681 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_for_Beanstalk.txt
+DUPTYPE_WITHIN_SAME_TREE -202 3 77 127 7599824371682556 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_for_Beanstalk.txt
+DUPTYPE_FIRST_OCCURRENCE 734 1 77 127 3377699720808920 3 /mnt/c/study/setups/liner_to_setup_and_run_N8N_with_docker
+DUPTYPE_WITHIN_SAME_TREE -734 3 77 127 6192449488129506 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_N8N_with_docker
+DUPTYPE_FIRST_OCCURRENCE 6998 3 77 127 7318349394589283 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_an_IPv6_Network
+DUPTYPE_WITHIN_SAME_TREE -6998 3 77 127 1970324837041404 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_an_IPv6_Network
+DUPTYPE_FIRST_OCCURRENCE 2042 2 77 127 1970324837040963 3 /mnt/c/study/Hacking/exploits/Scan_for_Known_Exploits
+DUPTYPE_WITHIN_SAME_TREE -2042 3 77 127 10414574138406501 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_for_Known_Exploits
+DUPTYPE_FIRST_OCCURRENCE 204 1 78 127 1688849860540371 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_for_Elastic_Transcoder.txt
+DUPTYPE_WITHIN_SAME_TREE -204 3 78 127 7599824371682430 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_for_Elastic_Transcoder.txt
+DUPTYPE_FIRST_OCCURRENCE 441 1 78 127 8444249301815766 3 /mnt/c/study/setups/liner to setup and run redis-commander in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -441 5 78 127 10696049115501013 3 /mnt/c/study/datascience/databases/noSQL/redis/redis-commander/liner_to_setup_and_run_redis-commander_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -441 2 78 127 17451448556417089 3 /mnt/c/study/automation/oneliners/liner to setup and run redis-commander in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 424 1 78 127 15199648742812776 3 /mnt/c/study/setups/liner to setup and run brackets in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -424 2 78 127 2814749767244564 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_brackets_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -424 3 78 127 6473924464697590 3 /mnt/c/study/IDE/IDEs/brackets/liner_to_setup_and_run_brackets_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 792 1 78 127 2533274790677439 3 /mnt/c/study/setups/liner_to_setup_and_run_bamboo_server_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -792 3 78 127 7318349394972058 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_bamboo_server_in_ubuntu_with_docker
+DUPTYPE_FIRST_OCCURRENCE 787 1 79 127 2533274790677422 3 /mnt/c/study/setups/liner_to_setup_and_run_airflow_server_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -787 3 79 127 6755399441550740 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_airflow_server_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 727 1 79 127 1407374883834187 3 /mnt/c/study/setups/liner_to_setup_and_run_LibreOffice-draw_in_ubuntu_with_apt
+DUPTYPE_WITHIN_SAME_TREE -727 3 79 127 8725724278525033 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_LibreOffice-draw_in_ubuntu_with_apt
+DUPTYPE_FIRST_OCCURRENCE 1049 1 80 127 1688849860415309 3 /mnt/c/study/setups/liner_to_setup_msgpack-rpc_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1049 3 80 127 9288674231946365 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_msgpack-rpc_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 557 1 80 127 3377699720806062 3 /mnt/c/study/setups/liner_to_setup_Foundry_with_npm_and_compile_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -557 3 80 127 7036874418261469 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_Foundry_with_npm_and_compile_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 892 1 81 127 3377699720810181 3 /mnt/c/study/setups/liner_to_setup_and_run_orange_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -892 3 81 127 7599824371682800 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_orange_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7009 3 81 127 7881299348010581 3 /mnt/c/study/Hacking/PacketCapture/nmap/command_to_scan_the_target_IP_for_SMB_services,_enumerates_shares,_and_lists_users
+DUPTYPE_WITHIN_SAME_TREE -7009 3 81 127 1970324837041514 3 /mnt/c/study/Hacking/info_gathering/nmap/command_to_scan_the_target_IP_for_SMB_services,_enumerates_shares,_and_lists_users
+DUPTYPE_FIRST_OCCURRENCE 666 1 81 127 3940649674029980 3 /mnt/c/study/setups/liner_to_setup_and_run_Arpspoof
+DUPTYPE_WITHIN_SAME_TREE -666 4 81 127 10696049115501069 3 /mnt/c/study/networking/protocols/ARP/Arpspoof/liner_to_setup_and_run_Arpspoof
+DUPTYPE_FIRST_OCCURRENCE 1183 1 83 127 1407374883838548 3 /mnt/c/study/setups/one_liner_to_setup_and_run_with_docker_wallabag
+DUPTYPE_WITHIN_SAME_TREE -1183 3 83 127 14636698789448826 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_with_docker_wallabag
+DUPTYPE_FIRST_OCCURRENCE 1003 1 83 127 2814749767389433 3 /mnt/c/study/setups/liner_to_setup_freeradius_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1003 3 83 127 7036874418261433 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_freeradius_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 3681 2 84 127 14073748835970283 3 /mnt/c/study/automation/oneliners/one_liner_to_purge_vim_from_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -3681 3 84 127 9851624185310488 3 /mnt/c/study/IDE/IDEs/VIM/one_liner_to_purge_vim_from_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 447 1 86 127 1970324837251647 3 /mnt/c/study/setups/liner__Install_and_Configure_Google_Cloud_SDK_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -447 3 86 127 7318349394971868 3 /mnt/c/study/Shells/powershell/setups/liner__Install_and_Configure_Google_Cloud_SDK_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1116 1 87 127 1970324837258863 3 /mnt/c/study/setups/liner_to_setup_trust_(anbox)_wallet_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1116 3 87 127 7318349394971880 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_trust_(anbox)_wallet_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4955 2 87 127 16888498602877817 3 /mnt/c/study/hosting/jupyter/Install Jupyter Notebook with Invoke-WebRequest.txt
+DUPTYPE_WITHIN_SAME_TREE -4955 3 87 127 9007199255178493 3 /mnt/c/study/IDE/IDEs/jupyter/Install Jupyter Notebook with Invoke-WebRequest.txt
+DUPTYPE_FIRST_OCCURRENCE 823 1 88 127 3096224744098850 3 /mnt/c/study/setups/liner_to_setup_and_run_flaresolverr_in_docker
+DUPTYPE_WITHIN_SAME_TREE -823 3 88 127 7036874418261451 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_flaresolverr_in_docker
+DUPTYPE_FIRST_OCCURRENCE 277 1 88 127 2251799813962034 3 /mnt/c/study/setups/Liner_to_setup_and_run_mercurial
+DUPTYPE_WITHIN_SAME_TREE -277 3 88 127 10414574138789135 3 /mnt/c/study/Shells/powershell/setups/Liner_to_setup_and_run_mercurial
+DUPTYPE_FIRST_OCCURRENCE 408 1 90 127 10414574138729703 3 /mnt/c/study/setups/liner to setup and run NetBeans in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -408 2 90 127 11821949022282952 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_NetBeans_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -408 3 90 127 7881299348333798 3 /mnt/c/study/IDE/IDEs/NetBeans/liner_to_setup_and_run_NetBeans_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1106 1 90 127 1970324837258849 3 /mnt/c/study/setups/liner_to_setup_strongloop_in_ubuntu_with_npm
+DUPTYPE_WITHIN_SAME_TREE -1106 3 90 127 7318349394971875 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_strongloop_in_ubuntu_with_npm
+DUPTYPE_FIRST_OCCURRENCE 7498 3 91 127 5066549580905022 3 /mnt/c/study/IDE/IDEs/VScode/install_C++_extentions_in_VScode
+DUPTYPE_WITHIN_SAME_TREE -7498 3 91 127 3940649674192201 3 /mnt/c/study/programming/.NET/C++/install_C++_extentions_in_VScode
+DUPTYPE_FIRST_OCCURRENCE 1125 1 92 127 1970324837258875 3 /mnt/c/study/setups/liner_to_setup_with_docker_and_run__shlink
+DUPTYPE_WITHIN_SAME_TREE -1125 3 92 127 7881299348393196 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_with_docker_and_run__shlink
+DUPTYPE_FIRST_OCCURRENCE 467 1 92 127 1688849860541015 3 /mnt/c/study/setups/liner_to_Install_and_Verify_.NET_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -467 3 92 127 7599824371682484 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_and_Verify_.NET_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 963 1 94 127 2533274790678615 3 /mnt/c/study/setups/liner_to_setup_and_use_revfi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -963 3 94 127 7036874418261413 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_revfi_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 258 1 94 127 1688849860540628 3 /mnt/c/study/setups/Install_VeraCrypt_for_advanced_disk_encryption
+DUPTYPE_WITHIN_SAME_TREE -258 3 94 127 7318349394971796 3 /mnt/c/study/Shells/powershell/setups/Install_VeraCrypt_for_advanced_disk_encryption
+DUPTYPE_FIRST_OCCURRENCE 1198 1 95 127 13229323905686478 3 /mnt/c/study/setups/one_liner_to_setup_run_and_save_network_puckets_with_tshark_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1198 3 95 127 11821949021953620 3 /mnt/c/study/Hacking/PacketCapture/Tshark/one_liner_to_setup_run_and_save_network_puckets_with_tshark_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 463 1 96 127 2251799813962321 3 /mnt/c/study/setups/liner_to_Install_Oh_My_Zsh
+DUPTYPE_WITHIN_SAME_TREE -463 3 96 127 7036874418261371 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Oh_My_Zsh
+DUPTYPE_FIRST_OCCURRENCE 7423 3 96 127 12384898975704012 3 /mnt/c/study/IDE/IDEs/Eclipse/Install Eclipse IDE StartProcess.txt
+DUPTYPE_WITHIN_SAME_TREE -7423 3 96 127 2251799813774739 3 /mnt/c/study/Shells/powershell/startprocess/Install Eclipse IDE StartProcess.txt
+DUPTYPE_FIRST_OCCURRENCE 10138 3 96 127 2251799813774909 3 /mnt/c/study/Shells/powershell/startprocess/Install PyCharm StartProcess.txt
+DUPTYPE_WITHIN_SAME_TREE -10138 4 96 127 7881299348207097 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/Install PyCharm StartProcess.txt
+DUPTYPE_FIRST_OCCURRENCE 4954 2 96 127 5066549581030063 3 /mnt/c/study/hosting/jupyter/Install Jupyter Notebook StartProcess.txt
+DUPTYPE_WITHIN_SAME_TREE -4954 3 96 127 10696049115442424 3 /mnt/c/study/IDE/IDEs/jupyter/Install Jupyter Notebook StartProcess.txt
+DUPTYPE_FIRST_OCCURRENCE 799 1 97 127 2533274790677451 3 /mnt/c/study/setups/liner_to_setup_and_run_btrfs-progs_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -799 3 97 127 7318349394972063 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_btrfs-progs_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 778 1 98 127 3377699720809366 3 /mnt/c/study/setups/liner_to_setup_and_run_WizNote_with_docker
+DUPTYPE_WITHIN_SAME_TREE -778 3 98 127 7318349394972132 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_WizNote_with_docker
+DUPTYPE_FIRST_OCCURRENCE 11654 3 99 127 2533274790516260 3 /mnt/c/study/networking/protocols/tcp/AWS_ELBv2_Create_Target_Group_With_TCP.txt
+DUPTYPE_WITHIN_SAME_TREE -11654 4 99 127 7036874417934931 3 /mnt/c/study/cloud/aws/awscli/ELB/AWS_ELBv2_Create_Target_Group_With_TCP.txt
+DUPTYPE_FIRST_OCCURRENCE 7005 3 100 127 5910974511036013 3 /mnt/c/study/Hacking/PacketCapture/nmap/Service_and_Version_Detection_with_Intensity_Level
+DUPTYPE_WITHIN_SAME_TREE -7005 3 100 127 1970324837041456 3 /mnt/c/study/Hacking/info_gathering/nmap/Service_and_Version_Detection_with_Intensity_Level
+DUPTYPE_FIRST_OCCURRENCE 731 1 100 127 3377699720808902 3 /mnt/c/study/setups/liner_to_setup_and_run_Mattermost_with_docker
+DUPTYPE_WITHIN_SAME_TREE -731 3 100 127 8162774325104097 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Mattermost_with_docker
+DUPTYPE_FIRST_OCCURRENCE 391 1 100 127 9570149208658396 3 /mnt/c/study/setups/liner to setup Lsyncd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -391 2 100 127 10977524092210139 3 /mnt/c/study/automation/oneliners/liner to setup Lsyncd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -391 2 100 127 8725724278526427 3 /mnt/c/study/backup/Lsyncd/liner_to_setup_Lsyncd_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7489 3 101 127 9007199255178235 3 /mnt/c/study/IDE/IDEs/Sublime/Install_Sublime_Text_StartProcess.txt
+DUPTYPE_WITHIN_SAME_TREE -7489 3 101 127 2814749767196278 3 /mnt/c/study/Shells/powershell/startprocess/Install Sublime Text StartProcess.txt
+DUPTYPE_FIRST_OCCURRENCE 1124 1 102 127 1970324837258873 3 /mnt/c/study/setups/liner_to_setup_wine_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1124 3 102 127 7881299348393195 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_wine_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1266 1 102 127 3940649674236448 3 /mnt/c/study/setups/setup_and_enable_suricata_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1266 3 102 127 8444249301431885 3 /mnt/c/study/Hacking/PacketCapture/suricata/setup_and_enable_suricata_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1158 1 102 127 1407374883838183 3 /mnt/c/study/setups/one_liner_to_setup_Trivy
+DUPTYPE_WITHIN_SAME_TREE -1158 3 102 127 7036874418261103 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_Trivy
+DUPTYPE_FIRST_OCCURRENCE 209 1 102 127 1688849860540381 3 /mnt/c/study/setups/AWS_AWStats_Setup_CloudFront_Logs.txt
+DUPTYPE_WITHIN_SAME_TREE -209 3 102 127 6755399441550463 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_CloudFront_Logs.txt
+DUPTYPE_FIRST_OCCURRENCE 1176 1 103 127 1407374883838447 3 /mnt/c/study/setups/one_liner_to_setup_and_run_linphone_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1176 3 103 127 7881299348393080 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_linphone_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 215 1 103 127 2251799813961716 3 /mnt/c/study/setups/AWS_AWStats_Setup_for_Apache_with_Docker.txt
+DUPTYPE_WITHIN_SAME_TREE -215 3 103 127 9288674231946503 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_for_Apache_with_Docker.txt
+DUPTYPE_FIRST_OCCURRENCE 1170 1 104 127 1407374883838321 3 /mnt/c/study/setups/one_liner_to_setup_and_run_apache2_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1170 3 104 127 7036874418261109 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_apache2_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6996 3 105 127 8162774324721247 3 /mnt/c/study/Hacking/PacketCapture/nmap/Nmap_Service_and_Version_Detection
+DUPTYPE_WITHIN_SAME_TREE -6996 3 105 127 1970324837041372 3 /mnt/c/study/Hacking/info_gathering/nmap/Nmap_Service_and_Version_Detection
+DUPTYPE_FIRST_OCCURRENCE 370 1 106 127 1970324837251621 3 /mnt/c/study/setups/_one_liner_to_setup_and_run_with_docker__kanboard
+DUPTYPE_WITHIN_SAME_TREE -370 3 106 127 7318349394971846 3 /mnt/c/study/Shells/powershell/setups/_one_liner_to_setup_and_run_with_docker__kanboard
+DUPTYPE_FIRST_OCCURRENCE 924 1 106 127 3377699720810508 3 /mnt/c/study/setups/liner_to_setup_and_run_shodan_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -924 3 106 127 7881299348393458 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_shodan_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 407 1 107 127 23362423067123748 3 /mnt/c/study/setups/liner to setup and run Mausezahn in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -407 2 107 127 8162774324723273 3 /mnt/c/study/automation/oneliners/liner to setup and run Mausezahn in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -407 3 107 127 8725724278167261 3 /mnt/c/study/networking/Traffic/Mausezahn/liner_to_setup_and_run_Mausezahn_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1008 1 109 127 1125899906969419 3 /mnt/c/study/setups/liner_to_setup_garden_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1008 3 109 127 8444249301814372 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_garden_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7008 3 111 127 4785074604193395 3 /mnt/c/study/Hacking/PacketCapture/nmap/Vulnerability_Scanning_with_NSE_Scripts
+DUPTYPE_WITHIN_SAME_TREE -7008 3 111 127 1970324837041502 3 /mnt/c/study/Hacking/info_gathering/nmap/Vulnerability_Scanning_with_NSE_Scripts
+DUPTYPE_FIRST_OCCURRENCE 1114 1 112 127 2814749767390826 3 /mnt/c/study/setups/liner_to_setup_torch_with_CPU_only_support_with_pip
+DUPTYPE_WITHIN_SAME_TREE -1114 3 112 127 7599824371682747 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_torch_with_CPU_only_support_with_pip
+DUPTYPE_FIRST_OCCURRENCE 1222 1 113 127 2533274790681925 3 /mnt/c/study/setups/oneliner_to_setup_and_run_postgres_in_debian
+DUPTYPE_WITHIN_SAME_TREE -1222 3 113 127 7036874418261419 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_run_postgres_in_debian
+DUPTYPE_FIRST_OCCURRENCE 1119 1 113 127 2251799813969522 3 /mnt/c/study/setups/liner_to_setup_upgrade_and_login_to_Firebase_CLI_in_linux
+DUPTYPE_WITHIN_SAME_TREE -1119 3 113 127 7599824371682691 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_upgrade_and_login_to_Firebase_CLI_in_linux
+DUPTYPE_FIRST_OCCURRENCE 2622 2 113 127 1970324837058881 3 /mnt/c/study/Shells/powershell/install_and_uninstall_vscode_with_microsoft_store
+DUPTYPE_WITHIN_SAME_TREE -2622 3 113 127 6192449487747644 3 /mnt/c/study/IDE/IDEs/VScode/install_and_uninstall_vscode_with_microsoft_store
+DUPTYPE_FIRST_OCCURRENCE 396 1 114 127 12384898975721426 3 /mnt/c/study/setups/liner to setup and run CLion in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -396 4 114 127 25614222881122210 3 /mnt/c/study/IDE/IDEs/JetBrains/CLion/liner_to_setup_and_run_CLion_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -396 2 114 127 14355223812681734 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_CLion_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 402 1 116 127 10977524092169233 3 /mnt/c/study/setups/liner to setup and run GoLand in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -402 2 116 127 10414574138747025 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_GoLand_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -402 4 116 127 9570149208615950 3 /mnt/c/study/IDE/IDEs/JetBrains/GoLand/liner_to_setup_and_run_GoLand_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1130 1 117 127 1970324837258885 3 /mnt/c/study/setups/liner_to_shrink_all_jpeg_and_png_files_in_my_path
+DUPTYPE_WITHIN_SAME_TREE -1130 3 117 127 7881299348393199 3 /mnt/c/study/Shells/powershell/setups/liner_to_shrink_all_jpeg_and_png_files_in_my_path
+DUPTYPE_FIRST_OCCURRENCE 369 1 118 127 2251799813962276 3 /mnt/c/study/setups/_one-liner_command_to_set_up_Frama-C_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -369 3 118 127 7036874418261358 3 /mnt/c/study/Shells/powershell/setups/_one-liner_command_to_set_up_Frama-C_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1122 1 118 127 1970324837258870 3 /mnt/c/study/setups/liner_to_setup_villain_for_payloads_and_reverese_shell
+DUPTYPE_WITHIN_SAME_TREE -1122 3 118 127 7318349394971882 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_villain_for_payloads_and_reverese_shell
+DUPTYPE_FIRST_OCCURRENCE 801 1 118 127 2533274790677455 3 /mnt/c/study/setups/liner_to_setup_and_run_catboost_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -801 3 118 127 8162774325104033 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_catboost_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 670 1 120 127 1970324837254956 3 /mnt/c/study/setups/liner_to_setup_and_run_Boot-Repair_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -670 3 120 127 7036874418261214 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Boot-Repair_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 403 1 120 127 18577348463212033 3 /mnt/c/study/setups/liner to setup and run IntelliJ in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -403 2 120 127 8444249301346804 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_IntelliJ_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -403 4 120 127 7036874417904431 3 /mnt/c/study/IDE/IDEs/JetBrains/IntelliJ/liner_to_setup_and_run_IntelliJ_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 896 1 123 127 3377699720810214 3 /mnt/c/study/setups/liner_to_setup_and_run_piracy_password_cracking_tool_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -896 3 123 127 9007199255236081 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_piracy_password_cracking_tool_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 377 1 124 127 1970324837251629 3 /mnt/c/study/setups/iner_to_setup_deta_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -377 3 124 127 7881299348393165 3 /mnt/c/study/Shells/powershell/setups/iner_to_setup_deta_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1121 1 124 127 1970324837258869 3 /mnt/c/study/setups/liner_to_setup_vericare_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1121 3 124 127 8444249301814505 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_vericare_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1167 1 124 127 3096224744102213 3 /mnt/c/study/setups/one_liner_to_setup_and_run_Sync_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1167 3 124 127 6755399441550807 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_Sync_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1167 3 124 127 8162774325104088 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_Synk_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 413 1 124 127 12666373952433930 3 /mnt/c/study/setups/liner to setup and run RubyMine in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -413 4 124 127 3659174697692935 3 /mnt/c/study/IDE/IDEs/JetBrains/RubyMine/liner_to_setup_and_run_RubyMine_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -413 2 124 127 23643898044149638 3 /mnt/c/study/setups/RubyMine/liner_to_setup_and_run_RubyMine_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -413 3 124 127 18858823440068455 3 /mnt/c/study/automation/oneliners/RubyMine/liner_to_setup_and_run_RubyMine_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -413 2 124 127 23925373020858206 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_RubyMine_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1129 1 125 127 1970324837258882 3 /mnt/c/study/setups/liner_to_shrink_all_ipynb_files_in_my_path
+DUPTYPE_WITHIN_SAME_TREE -1129 3 125 127 9007199255235822 3 /mnt/c/study/Shells/powershell/setups/liner_to_shrink_all_ipynb_files_in_my_path
+DUPTYPE_FIRST_OCCURRENCE 6999 3 125 127 7318349394589284 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_for_Heartbleed_Vulnerability
+DUPTYPE_WITHIN_SAME_TREE -6999 3 125 127 1970324837041407 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_for_Heartbleed_Vulnerability
+DUPTYPE_FIRST_OCCURRENCE 1112 1 126 127 1970324837258857 3 /mnt/c/study/setups/liner_to_setup_tiddlywiki_and_run_in_ubuntuwith_npm
+DUPTYPE_WITHIN_SAME_TREE -1112 3 126 127 7599824371682534 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_tiddlywiki_and_run_in_ubuntuwith_npm
+DUPTYPE_FIRST_OCCURRENCE 961 1 127 127 3096224744099924 3 /mnt/c/study/setups/liner_to_setup_and_use_Starship_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -961 3 127 127 7318349394972111 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_Starship_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 406 1 127 127 3096224744091781 3 /mnt/c/study/setups/liner to setup and run MRTG in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -406 2 127 127 29836347531349735 3 /mnt/c/study/automation/oneliners/liner to setup and run MRTG in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -406 3 127 127 10133099161857953 3 /mnt/c/study/networking/Router/MRTG/liner_to_setup_and_run_MRTG_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 399 1 128 127 9007199255192881 3 /mnt/c/study/setups/liner to setup and run DataGrip in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -399 4 128 127 9007199255192723 3 /mnt/c/study/IDE/IDEs/JetBrains/DataGrip/liner_to_setup_and_run_DataGrip_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -399 2 128 127 11258999068864330 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_DataGrip_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 968 1 132 127 3096224744099931 3 /mnt/c/study/setups/liner_to_setup_apache_superset_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -968 3 132 127 7318349394972113 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_apache_superset_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 812 1 134 127 3377699720809464 3 /mnt/c/study/setups/liner_to_setup_and_run_diffgram_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -812 3 134 127 7318349394972137 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_diffgram_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 719 1 139 127 3377699720808722 3 /mnt/c/study/setups/liner_to_setup_and_run_Keyploy_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -719 3 139 127 7318349394972128 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Keyploy_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1085 1 140 127 2251799813969460 3 /mnt/c/study/setups/liner_to_setup_redpanda_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1085 3 140 127 7881299348393346 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_redpanda_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6992 3 143 127 10977524091827798 3 /mnt/c/study/Hacking/PacketCapture/nmap/Custom_Scan_with_Specific_NSE_Script_Arguments
+DUPTYPE_WITHIN_SAME_TREE -6992 3 143 127 1970324837041366 3 /mnt/c/study/Hacking/info_gathering/nmap/Custom_Scan_with_Specific_NSE_Script_Arguments
+DUPTYPE_FIRST_OCCURRENCE 1132 1 145 127 2814749767390858 3 /mnt/c/study/setups/liner_to_update_mongoDB_atlas_and_atlas_cli
+DUPTYPE_WITHIN_SAME_TREE -1132 3 145 127 7318349394972092 3 /mnt/c/study/Shells/powershell/setups/liner_to_update_mongoDB_atlas_and_atlas_cli
+DUPTYPE_FIRST_OCCURRENCE 203 1 146 127 2251799813961682 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_for_CloudWatch_Logs.txt
+DUPTYPE_WITHIN_SAME_TREE -203 3 146 127 7318349394971901 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_for_CloudWatch_Logs.txt
+DUPTYPE_FIRST_OCCURRENCE 1156 1 148 127 1407374883838156 3 /mnt/c/study/setups/one_liner_to_setup_Navidrome_self-hosted_music_streaming_server_that_lets_you_listen_to_your_music_collection_from_anywhere
+DUPTYPE_WITHIN_SAME_TREE -1156 3 148 127 7599824371682413 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_Navidrome_self-hosted_music_streaming_server_that_lets_you_listen_to_your_music_collection_from_anywhere
+DUPTYPE_FIRST_OCCURRENCE 99 1 149 127 1970324837043762 3 /mnt/c/study/Nvidia/Add_NVIDIA_PPA_and_Install_CUDA
+DUPTYPE_WITHIN_SAME_TREE -99 3 149 127 7599824371682495 3 /mnt/c/study/Shells/powershell/setups/Add_NVIDIA_PPA_and_Install_CUDA
+DUPTYPE_FIRST_OCCURRENCE 207 1 149 127 2251799813961686 3 /mnt/c/study/setups/AWS_AWStats_Setup_AWStats_with_Lambda_for_Automated_Updates.txt
+DUPTYPE_WITHIN_SAME_TREE -207 3 149 127 7881299348393217 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_Scheduled_Updates_with_Lambda.txt
+DUPTYPE_WITHIN_SAME_TREE -207 3 149 127 7599824371682560 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_AWStats_with_Lambda_for_Automated_Updates.txt
+DUPTYPE_FIRST_OCCURRENCE 560 1 150 127 3096224744095419 3 /mnt/c/study/setups/liner_to_setup_GHC_and_Cabel_with_ghcup
+DUPTYPE_WITHIN_SAME_TREE -560 3 150 127 7036874418261443 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_GHC_and_Cabel_with_ghcup
+DUPTYPE_FIRST_OCCURRENCE 4966 2 152 127 10696049115245146 3 /mnt/c/study/hosting/jupyter/run_jupyter_server
+DUPTYPE_WITHIN_SAME_TREE -4966 3 152 127 9007199255178509 3 /mnt/c/study/IDE/IDEs/jupyter/run_jupyter_server
+DUPTYPE_FIRST_OCCURRENCE 1042 1 153 127 2533274790679313 3 /mnt/c/study/setups/liner_to_setup_libssl_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1042 3 153 127 7318349394972070 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_libssl_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1293 1 153 127 10696049115294903 3 /mnt/c/study/setups/setup_cassandra_with_docker
+DUPTYPE_WITHIN_SAME_TREE -1293 2 153 127 8162774325104937 3 /mnt/c/study/automation/oneliners/setup_cassandra_with_docker
+DUPTYPE_WITHIN_SAME_TREE -1293 4 153 127 4785074604292931 3 /mnt/c/study/datascience/databases/noSQL/cassandra/setup_cassandra_with_docker
+DUPTYPE_FIRST_OCCURRENCE 1197 1 154 127 1688849860549546 3 /mnt/c/study/setups/one_liner_to_setup_polaris_music_straming_server_in_debian
+DUPTYPE_WITHIN_SAME_TREE -1197 3 154 127 7318349394971836 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_polaris_music_straming_server_in_debian
+DUPTYPE_FIRST_OCCURRENCE 800 1 155 127 2533274790677452 3 /mnt/c/study/setups/liner_to_setup_and_run_calibre_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -800 3 155 127 7036874418261408 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_calibre_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1227 1 155 127 1407374883839538 3 /mnt/c/study/setups/oneliner_to_setup_apache_pulsar_in_linux
+DUPTYPE_WITHIN_SAME_TREE -1227 3 155 127 9570149208657019 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_apache_pulsar_in_linux
+DUPTYPE_FIRST_OCCURRENCE 696 1 155 127 1688849860390227 3 /mnt/c/study/setups/liner_to_setup_and_run_ECS_CLI_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -696 3 155 127 7599824371682428 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_ECS_CLI_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 730 1 159 127 3096224744098241 3 /mnt/c/study/setups/liner_to_setup_and_run_MaryTTS_text_to_audio_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -730 3 159 127 7318349394972104 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_MaryTTS_text_to_audio_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 790 1 159 127 2533274790677434 3 /mnt/c/study/setups/liner_to_setup_and_run_atomic_wallet_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -790 3 159 127 7599824371682712 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_atomic_wallet_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 500 1 160 127 2814749767383765 3 /mnt/c/study/setups/liner_to_enter_installation_of_macos_big_slur_with_docker_and_qemu
+DUPTYPE_WITHIN_SAME_TREE -500 3 160 127 7318349394972079 3 /mnt/c/study/Shells/powershell/setups/liner_to_enter_installation_of_macos_big_slur_with_docker_and_qemu
+DUPTYPE_FIRST_OCCURRENCE 788 1 162 127 2533274790677424 3 /mnt/c/study/setups/liner_to_setup_and_run_already_created_geth_wallet
+DUPTYPE_WITHIN_SAME_TREE -788 3 162 127 10133099162078613 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_already_created_geth_wallet
+DUPTYPE_FIRST_OCCURRENCE 6957 3 164 127 1970324837040745 3 /mnt/c/study/Hacking/Intrusion_Detection/suricata/_Download_and_Configure_Rules
+DUPTYPE_WITHIN_SAME_TREE -6957 3 164 127 7036874417878607 3 /mnt/c/study/Hacking/PacketCapture/suricata/_Download_and_Configure_Rules
+DUPTYPE_FIRST_OCCURRENCE 465 1 169 127 2251799813962325 3 /mnt/c/study/setups/liner_to_Install_Ruby,_Travis_CLI,_and_enables_Travis_CI_for_a_repo
+DUPTYPE_WITHIN_SAME_TREE -465 3 169 127 7036874418261373 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Ruby,_Travis_CLI,_and_enables_Travis_CI_for_a_repo
+DUPTYPE_FIRST_OCCURRENCE 210 1 170 127 2251799813961696 3 /mnt/c/study/setups/AWS_AWStats_Setup_Logging_for_VPC_Endpoints.txt
+DUPTYPE_WITHIN_SAME_TREE -210 3 170 127 7599824371682563 3 /mnt/c/study/Shells/powershell/setups/AWS_AWStats_Setup_Logging_for_VPC_Endpoints.txt
+DUPTYPE_FIRST_OCCURRENCE 965 1 170 127 2814749767389272 3 /mnt/c/study/setups/liner_to_setup_ans_start_EMQX_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -965 3 170 127 7318349394972086 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_ans_start_EMQX_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6959 3 171 127 1970324837040750 3 /mnt/c/study/Hacking/Intrusion_Detection/suricata/_Run_Suricata
+DUPTYPE_WITHIN_SAME_TREE -6959 3 171 127 8162774324721234 3 /mnt/c/study/Hacking/PacketCapture/suricata/_Run_Suricata
+DUPTYPE_FIRST_OCCURRENCE 4965 2 172 127 4785074604321328 3 /mnt/c/study/hosting/jupyter/run_jupyter_notebook_with_python
+DUPTYPE_WITHIN_SAME_TREE -4965 3 172 127 9288674231889164 3 /mnt/c/study/IDE/IDEs/jupyter/run_jupyter_notebook_with_python
+DUPTYPE_FIRST_OCCURRENCE 6956 3 173 127 1970324837040743 3 /mnt/c/study/Hacking/Intrusion_Detection/suricata/Test_Suricata_Configuration
+DUPTYPE_WITHIN_SAME_TREE -6956 3 173 127 7036874417878606 3 /mnt/c/study/Hacking/PacketCapture/suricata/Test_Suricata_Configuration
+DUPTYPE_FIRST_OCCURRENCE 793 1 173 127 2533274790677440 3 /mnt/c/study/setups/liner_to_setup_and_run_bitping_in_proxmox_ubuntu_container
+DUPTYPE_WITHIN_SAME_TREE -793 3 173 127 8162774325104027 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_bitping_in_proxmox_ubuntu_container
+DUPTYPE_FIRST_OCCURRENCE 702 1 176 127 3096224744097833 3 /mnt/c/study/setups/liner_to_setup_and_run_Filebot_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -702 3 176 127 7036874418261446 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Filebot_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1218 1 180 127 1970324837260576 3 /mnt/c/study/setups/oneliner_to_setup_and_run_YACHT_with_docker
+DUPTYPE_WITHIN_SAME_TREE -1218 3 180 127 8444249301814518 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_run_YACHT_with_docker
+DUPTYPE_FIRST_OCCURRENCE 6993 3 180 127 5910974511035993 3 /mnt/c/study/Hacking/PacketCapture/nmap/Detect_HTTP_Methods
+DUPTYPE_WITHIN_SAME_TREE -6993 3 180 127 1970324837041367 3 /mnt/c/study/Hacking/info_gathering/nmap/Detect_HTTP_Methods
+DUPTYPE_FIRST_OCCURRENCE 796 1 181 127 2814749767388099 3 /mnt/c/study/setups/liner_to_setup_and_run_botpress
+DUPTYPE_WITHIN_SAME_TREE -796 3 181 127 6755399441550771 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_botpress
+DUPTYPE_FIRST_OCCURRENCE 9506 3 183 127 1970324837060085 3 /mnt/c/study/Shells/powershell/IWR/Install PyCharm with iwr.txt
+DUPTYPE_WITHIN_SAME_TREE -9506 4 183 127 10133099161892364 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/Install PyCharm with iwr.txt
+DUPTYPE_FIRST_OCCURRENCE 457 1 184 127 2251799813962312 3 /mnt/c/study/setups/liner_to_Install_Envoy_(distroless)_with_docker
+DUPTYPE_WITHIN_SAME_TREE -457 3 184 127 7036874418261368 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Envoy_(distroless)_with_docker
+DUPTYPE_FIRST_OCCURRENCE 1147 1 184 127 1407374883837798 3 /mnt/c/study/setups/one_liner_to_install_Drone_CLI_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1147 3 184 127 7881299348393067 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_install_Drone_CLI_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6958 3 185 127 1970324837040749 3 /mnt/c/study/Hacking/Intrusion_Detection/suricata/_Monitor_Suricata_Logs
+DUPTYPE_WITHIN_SAME_TREE -6958 3 185 127 9288674231563857 3 /mnt/c/study/Hacking/PacketCapture/suricata/_Monitor_Suricata_Logs
+DUPTYPE_FIRST_OCCURRENCE 956 1 189 127 2533274790678603 3 /mnt/c/study/setups/liner_to_setup_and_use_Agnoster_in_ubuntu_+_to_remove_it
+DUPTYPE_WITHIN_SAME_TREE -956 3 189 127 7599824371682724 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_Agnoster_in_ubuntu_+_to_remove_it
+DUPTYPE_FIRST_OCCURRENCE 967 1 192 127 2814749767389274 3 /mnt/c/study/setups/liner_to_setup_apache_pulsar_with_docker_for_linux,mac_in_detatch_mode
+DUPTYPE_WITHIN_SAME_TREE -967 3 192 127 7036874418261431 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_apache_pulsar_with_docker_for_linux,mac_in_detatch_mode
+DUPTYPE_FIRST_OCCURRENCE 898 1 192 127 3096224744099573 3 /mnt/c/study/setups/liner_to_setup_and_run_playright_webui_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -898 3 192 127 7599824371682764 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_playright_webui_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 367 1 195 127 2251799813962274 3 /mnt/c/study/setups/_liner_to_setup_annoy_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -367 3 195 127 7599824371682668 3 /mnt/c/study/Shells/powershell/setups/_liner_to_setup_annoy_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7002 3 196 127 7318349394589287 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_for_SMB_Vulnerabilities
+DUPTYPE_WITHIN_SAME_TREE -7002 3 196 127 1970324837041426 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_for_SMB_Vulnerabilities
+DUPTYPE_FIRST_OCCURRENCE 9598 3 197 127 3377699720615047 3 /mnt/c/study/Shells/powershell/Invoke-WebRequest/Install PyCharm with Invoke-WebRequest.txt
+DUPTYPE_WITHIN_SAME_TREE -9598 4 197 127 18295873486501380 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/Install PyCharm with Invoke-WebRequest.txt
+DUPTYPE_FIRST_OCCURRENCE 7492 3 199 127 13229323905838109 3 /mnt/c/study/IDE/IDEs/Sublime/Install_Sublime_Text_with_iwr.txt
+DUPTYPE_WITHIN_SAME_TREE -7492 3 199 127 15481123719171871 3 /mnt/c/study/Shells/powershell/IWR/Install Sublime Text with iwr.txt
+DUPTYPE_FIRST_OCCURRENCE 1181 1 201 127 2251799813970492 3 /mnt/c/study/setups/one_liner_to_setup_and_run_vscode_web_server
+DUPTYPE_WITHIN_SAME_TREE -1181 3 201 127 7881299348393350 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_vscode_web_server
+DUPTYPE_WITHIN_SAME_TREE -1181 3 201 127 3377699720665337 3 /mnt/c/study/IDE/IDEs/VScode/one_liner_to_setup_and_run_vscode_web_server
+DUPTYPE_FIRST_OCCURRENCE 3002 2 203 127 10977524091842213 3 /mnt/c/study/automation/oneliners/liner_to_scan_network,_save_results,_and_analyze_open_ports
+DUPTYPE_WITHIN_SAME_TREE -3002 3 203 127 6755399441167964 3 /mnt/c/study/Hacking/PacketCapture/nmap/liner_to_scan_network,_save_results,_and_analyze_open_ports
+DUPTYPE_FIRST_OCCURRENCE 417 1 206 127 7881299348011538 3 /mnt/c/study/setups/liner to setup and run apache drill in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -417 2 206 127 8162774324658958 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_apache_drill_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -417 2 206 127 12384898975382004 3 /mnt/c/study/business_intelligence/Drill/liner_to_setup_and_run_apache_drill_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 392 1 206 127 7599824371461954 3 /mnt/c/study/setups/liner to setup TDLib with c++ in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -392 2 206 127 14636698789228314 3 /mnt/c/study/automation/oneliners/liner_to_setup_TDLib_with_c++_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -392 3 206 127 6473924464619334 3 /mnt/c/study/programming/C++/TDLib/liner_to_setup_TDLib_with_c++_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1175 1 207 127 1970324837259733 3 /mnt/c/study/setups/one_liner_to_setup_and_run_jackett_with_docker
+DUPTYPE_WITHIN_SAME_TREE -1175 3 207 127 8444249301814516 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_jackett_with_docker
+DUPTYPE_FIRST_OCCURRENCE 7007 3 209 127 5910974511036015 3 /mnt/c/study/Hacking/PacketCapture/nmap/Timing_and_Performance_Options
+DUPTYPE_WITHIN_SAME_TREE -7007 3 209 127 1970324837041482 3 /mnt/c/study/Hacking/info_gathering/nmap/Timing_and_Performance_Options
+DUPTYPE_FIRST_OCCURRENCE 499 1 210 127 2814749767383764 3 /mnt/c/study/setups/liner_to_download_ubuntu_iso_in_linux
+DUPTYPE_WITHIN_SAME_TREE -499 3 210 127 7318349394972078 3 /mnt/c/study/Shells/powershell/setups/liner_to_download_ubuntu_iso_in_linux
+DUPTYPE_FIRST_OCCURRENCE 7425 3 210 127 16325548649653428 3 /mnt/c/study/IDE/IDEs/Eclipse/Install Eclipse IDE with iwr.txt
+DUPTYPE_WITHIN_SAME_TREE -7425 3 210 127 1970324837060018 3 /mnt/c/study/Shells/powershell/IWR/Install Eclipse IDE with iwr.txt
+DUPTYPE_FIRST_OCCURRENCE 1110 1 211 127 1970324837258855 3 /mnt/c/study/setups/liner_to_setup_thanos
+DUPTYPE_WITHIN_SAME_TREE -1110 3 211 127 7036874418261221 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_thanos
+DUPTYPE_FIRST_OCCURRENCE 538 1 212 127 1970324837301547 3 /mnt/c/study/setups/liner_to_setup_CodeFresh_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -538 3 212 127 7599824371682552 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_CodeFresh_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7491 3 213 127 14355223812680732 3 /mnt/c/study/IDE/IDEs/Sublime/Install_Sublime_Text_with_Invoke-WebRequest.txt
+DUPTYPE_WITHIN_SAME_TREE -7491 3 213 127 3096224743904521 3 /mnt/c/study/Shells/powershell/Invoke-WebRequest/Install Sublime Text with Invoke-WebRequest.txt
+DUPTYPE_FIRST_OCCURRENCE 525 1 213 127 12666373952257438 3 /mnt/c/study/setups/liner_to_run_vscode_in_with_docker
+DUPTYPE_WITHIN_SAME_TREE -525 3 213 127 5348024557623116 3 /mnt/c/study/IDE/IDEs/VScode/liner_to_run_vscode_in_with_docker
+DUPTYPE_FIRST_OCCURRENCE 1127 1 214 127 1970324837258878 3 /mnt/c/study/setups/liner_to_setup_yarn_with_apt_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1127 3 214 127 8444249301814509 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_yarn_with_apt_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4951 2 215 127 35465847065780858 3 /mnt/c/study/hosting/jupyter/Access_the_Jupyter_Notebook
+DUPTYPE_WITHIN_SAME_TREE -4951 3 215 127 9570149208599796 3 /mnt/c/study/IDE/IDEs/jupyter/Access_the_Jupyter_Notebook
+DUPTYPE_FIRST_OCCURRENCE 1215 1 216 127 3096224744103143 3 /mnt/c/study/setups/oneliner_to_setup_and_Run_cockroachDB
+DUPTYPE_WITHIN_SAME_TREE -1215 3 216 127 6755399441550809 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_Run_cockroachDB
+DUPTYPE_FIRST_OCCURRENCE 841 1 217 127 3377699720809584 3 /mnt/c/study/setups/liner_to_setup_and_run_in_ubuntu_pmwiki
+DUPTYPE_WITHIN_SAME_TREE -841 3 217 127 8444249301814766 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_in_ubuntu_pmwiki
+DUPTYPE_FIRST_OCCURRENCE 606 1 218 127 3096224744096858 3 /mnt/c/study/setups/liner_to_setup_RVM_for_ruby_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -606 3 218 127 6755399441550788 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_RVM_for_ruby_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 390 1 219 127 2251799813962298 3 /mnt/c/study/setups/lier_to_setup_theHarvester_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -390 3 219 127 8162774325103983 3 /mnt/c/study/Shells/powershell/setups/lier_to_setup_theHarvester_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 700 1 220 127 3096224744097823 3 /mnt/c/study/setups/liner_to_setup_and_run_FatRat_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -700 3 220 127 8725724278525381 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_FatRat_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 789 1 220 127 2533274790677427 3 /mnt/c/study/setups/liner_to_setup_and_run_ant_media_server_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -789 3 220 127 7881299348393366 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_ant_media_server_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 397 1 223 127 6755399441263784 3 /mnt/c/study/setups/liner to setup and run Camundra in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -397 2 223 127 18014398509619333 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Camundra_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -397 3 223 127 8444249301527773 3 /mnt/c/study/automation/WorkFlow/Camundra/liner_to_setup_and_run_Camundra_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1177 1 223 127 1407374883838453 3 /mnt/c/study/setups/one_liner_to_setup_and_run_miniO_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1177 3 223 127 8162774325103737 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_miniO_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 415 1 224 127 9007199255178305 3 /mnt/c/study/setups/liner to setup and run Sublime text in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -415 3 224 127 10414574138731581 3 /mnt/c/study/IDE/IDEs/Sublime/liner_to_setup_and_run_Sublime_text_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -415 2 224 127 99079191802585996 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Sublime_text_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7424 3 224 127 12947848929125468 3 /mnt/c/study/IDE/IDEs/Eclipse/Install Eclipse IDE with Invoke-WebRequest.txt
+DUPTYPE_WITHIN_SAME_TREE -7424 3 224 127 4222124650746721 3 /mnt/c/study/Shells/powershell/Invoke-WebRequest/Install Eclipse IDE with Invoke-WebRequest.txt
+DUPTYPE_FIRST_OCCURRENCE 279 1 225 127 2251799813962041 3 /mnt/c/study/setups/One-liner_to_Clone,_install,_and_train_DeepPavlov_model_on_custom_data
+DUPTYPE_WITHIN_SAME_TREE -279 3 225 127 6755399441550609 3 /mnt/c/study/Shells/powershell/setups/One-liner_to_Clone,_install,_and_train_DeepPavlov_model_on_custom_data
+DUPTYPE_FIRST_OCCURRENCE 455 1 227 127 2251799813962309 3 /mnt/c/study/setups/liner_to_Clone,_install,_and_run_DeepPavlov_REST_API_server
+DUPTYPE_WITHIN_SAME_TREE -455 3 227 127 7036874418261367 3 /mnt/c/study/Shells/powershell/setups/liner_to_Clone,_install,_and_run_DeepPavlov_REST_API_server
+DUPTYPE_FIRST_OCCURRENCE 1163 1 228 127 1407374883838236 3 /mnt/c/study/setups/one_liner_to_setup_and_rub_pycharm_in_linux
+DUPTYPE_WITHIN_SAME_TREE -1163 4 228 127 17732923533080035 3 /mnt/c/study/IDE/IDEs/JetBrains/PYcharm/one_liner_to_setup_and_rub_pycharm_in_linux
+DUPTYPE_WITHIN_SAME_TREE -1163 3 228 127 7036874418261105 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_rub_pycharm_in_linux
+DUPTYPE_FIRST_OCCURRENCE 466 1 229 127 2251799813962326 3 /mnt/c/study/setups/liner_to_Install_Velero_CLI_for_kubernetes_(without_the_server)
+DUPTYPE_WITHIN_SAME_TREE -466 3 229 127 7036874418261374 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Velero_CLI_for_kubernetes_(without_the_server)
+DUPTYPE_FIRST_OCCURRENCE 7003 3 231 127 9570149208274538 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_for_Specific_Vulnerabilities
+DUPTYPE_WITHIN_SAME_TREE -7003 3 231 127 1970324837041439 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_for_Specific_Vulnerabilities
+DUPTYPE_FIRST_OCCURRENCE 375 1 236 127 1970324837251627 3 /mnt/c/study/setups/enable_ssh_with_bash_one_liner
+DUPTYPE_WITHIN_SAME_TREE -375 3 236 127 8444249301814475 3 /mnt/c/study/Shells/powershell/setups/enable_ssh_with_bash_one_liner
+DUPTYPE_FIRST_OCCURRENCE 1102 1 236 127 1970324837258845 3 /mnt/c/study/setups/liner_to_setup_specflow_with_dotnet_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1102 3 236 127 7599824371682530 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_specflow_with_dotnet_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 379 1 236 127 1970324837251631 3 /mnt/c/study/setups/install_and_delete_powertoys_with_winget_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -379 3 236 127 7599824371682511 3 /mnt/c/study/Shells/powershell/setups/install_and_delete_powertoys_with_winget_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 667 1 237 127 2814749767386923 3 /mnt/c/study/setups/liner_to_setup_and_run_AssetRipper_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -667 3 237 127 7318349394972082 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_AssetRipper_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 450 1 238 127 2251799813962305 3 /mnt/c/study/setups/liner_setup_selenium_and_test_abilliity_to__automate_a_firefox_browser_in_ubuntu_by_launching_it,_navigating_to_Googles_homepage,_and_then_closing_the_browser
+DUPTYPE_WITHIN_SAME_TREE -450 3 238 127 7318349394972019 3 /mnt/c/study/Shells/powershell/setups/liner_setup_selenium_and_test_abilliity_to__automate_a_firefox_browser_in_ubuntu_by_launching_it,_navigating_to_Googles_homepage,_and_then_closing_the_browser
+DUPTYPE_FIRST_OCCURRENCE 4461 2 238 127 5910974511141052 3 /mnt/c/study/docker/guides/run_vscode_container_with_python_installed
+DUPTYPE_WITHIN_SAME_TREE -4461 3 238 127 6192449487772178 3 /mnt/c/study/IDE/IDEs/VScode/run_vscode_container_with_python_installed
+DUPTYPE_FIRST_OCCURRENCE 866 1 240 127 1688849861299246 3 /mnt/c/study/setups/liner_to_setup_and_run_malwarebaytes_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -866 3 240 127 7881299348393150 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_malwarebaytes_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 1209 1 244 127 2251799813971107 3 /mnt/c/study/setups/oneliner_to_setup_CHEF_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1209 3 244 127 7318349394972039 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_CHEF_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1098 1 245 127 1970324837258839 3 /mnt/c/study/setups/liner_to_setup_sitespeed.io_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -1098 3 245 127 7881299348393185 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_sitespeed.io_in_ubuntu_with_docker
+DUPTYPE_FIRST_OCCURRENCE 958 1 246 127 3377699720810575 3 /mnt/c/study/setups/liner_to_setup_and_use_Jan_AI_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -958 3 246 127 7599824371682803 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_Jan_AI_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 418 1 255 127 20266198323510838 3 /mnt/c/study/setups/liner to setup and run apache felix
+DUPTYPE_WITHIN_SAME_TREE -418 2 255 127 4785074604196684 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_apache_felix
+DUPTYPE_WITHIN_SAME_TREE -418 2 255 127 5629499534427196 3 /mnt/c/study/microservices/Felix/liner_to_setup_and_run_apache_felix
+DUPTYPE_FIRST_OCCURRENCE 1210 1 257 127 8162774324894925 3 /mnt/c/study/setups/oneliner_to_setup_Eclipse_IDE_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1210 3 257 127 12103423998993353 3 /mnt/c/study/IDE/IDEs/Eclipse/oneliner_to_setup_Eclipse_IDE_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7004 3 264 127 6473924464457324 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_with_Spoofed_MAC_Address
+DUPTYPE_WITHIN_SAME_TREE -7004 3 264 127 1970324837041444 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_with_Spoofed_MAC_Address
+DUPTYPE_FIRST_OCCURRENCE 1165 1 266 127 1970324837259576 3 /mnt/c/study/setups/one_liner_to_setup_and_run_Katalon_Studio_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1165 3 266 127 7599824371682546 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_Katalon_Studio_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 662 1 268 127 2814749767386908 3 /mnt/c/study/setups/liner_to_setup_and_run_Apache_Minifi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -662 3 268 127 8725724278525360 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Apache_Minifi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -662 3 268 127 15199648742812782 3 /mnt/c/study/automation/WorkFlow/NiFi/liner_to_setup_and_run_Apache_nifi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -662 3 268 127 7036874418109134 3 /mnt/c/study/datascience/DataPipeLineFramework/NiFi/liner_to_setup_and_run_Apache_nifi_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1016 1 268 127 3096224744100172 3 /mnt/c/study/setups/liner_to_setup_godot_engine_with_go_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1016 3 268 127 7318349394972116 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_godot_engine_with_go_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 404 1 273 127 1407374883761377 3 /mnt/c/study/setups/liner to setup and run JIRAServiceDesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -404 3 273 127 7318349394971750 3 /mnt/c/study/Shells/powershell/setups/liner to setup and run JIRAServiceDesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -404 2 273 127 2814749767314648 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_JIRAServiceDesk_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -404 2 273 127 1970324837182688 3 /mnt/c/study/scrum/JIRAServiceDesk/liner_to_setup_and_run_JIRAServiceDesk_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7001 3 275 127 6192449487746662 3 /mnt/c/study/Hacking/PacketCapture/nmap/Scan_for_Open_Ports_and_Perform_Banner_Grabbing
+DUPTYPE_WITHIN_SAME_TREE -7001 3 275 127 1970324837041419 3 /mnt/c/study/Hacking/info_gathering/nmap/Scan_for_Open_Ports_and_Perform_Banner_Grabbing
+DUPTYPE_FIRST_OCCURRENCE 923 1 283 127 2814749767389194 3 /mnt/c/study/setups/liner_to_setup_and_run_shiny_server_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -923 3 283 127 7599824371682740 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_shiny_server_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1169 1 284 127 1407374883838283 3 /mnt/c/study/setups/one_liner_to_setup_and_run_Webmin
+DUPTYPE_WITHIN_SAME_TREE -1169 3 284 127 7036874418261107 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_Webmin
+DUPTYPE_WITHIN_SAME_TREE -1169 3 284 127 7881299348393076 3 /mnt/c/study/Shells/powershell/setups/setup_Webmin_in_debian
+DUPTYPE_FIRST_OCCURRENCE 784 1 284 127 2533274790677415 3 /mnt/c/study/setups/liner_to_setup_and_run_YugabyteDB_with_docker_and_enter_webui
+DUPTYPE_WITHIN_SAME_TREE -784 3 284 127 9570149208657298 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_YugabyteDB_with_docker_and_enter_webui
+DUPTYPE_FIRST_OCCURRENCE 783 1 285 127 2533274790677413 3 /mnt/c/study/setups/liner_to_setup_and_run_YugabyteDB_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -783 3 285 127 7599824371682705 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_YugabyteDB_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1139 1 285 127 1688849860548363 3 /mnt/c/study/setups/one-liner_downloads_the_dotnet-install_script,_installs_the_.NET_runtime_version_8.0.6,_removes_the_script,_and_verifies_installation_in_PowerShell
+DUPTYPE_WITHIN_SAME_TREE -1139 3 285 127 7036874418261176 3 /mnt/c/study/Shells/powershell/setups/one-liner_downloads_the_dotnet-install_script,_installs_the_.NET_runtime_version_8.0.6,_removes_the_script,_and_verifies_installation_in_PowerShell
+DUPTYPE_FIRST_OCCURRENCE 3683 2 286 127 3377699720679822 3 /mnt/c/study/automation/oneliners/one_liner_to_run_jupyter_notebook_with_docker
+DUPTYPE_WITHIN_SAME_TREE -3683 3 286 127 9007199255178503 3 /mnt/c/study/IDE/IDEs/jupyter/one_liner_to_run_jupyter_notebook_with_docker
+DUPTYPE_FIRST_OCCURRENCE 495 1 286 127 2814749767383728 3 /mnt/c/study/setups/liner_to_download_and_setup_vscode_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -495 3 286 127 7036874418261421 3 /mnt/c/study/Shells/powershell/setups/liner_to_download_and_setup_vscode_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -495 3 286 127 44754521297107681 3 /mnt/c/study/IDE/IDEs/VScode/liner_to_download_and_setup_vscode_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 454 1 306 127 2251799813962308 3 /mnt/c/study/setups/liner_ti_setup_google_drive_with_powershell
+DUPTYPE_WITHIN_SAME_TREE -454 3 306 127 8162774325103990 3 /mnt/c/study/Shells/powershell/setups/liner_ti_setup_google_drive_with_powershell
+DUPTYPE_FIRST_OCCURRENCE 679 1 307 127 1688849860544402 3 /mnt/c/study/setups/liner_to_setup_and_run_Couchbase_server_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -679 3 307 127 8162774325103799 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Couchbase_server_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 470 1 312 127 1407374883830362 3 /mnt/c/study/setups/liner_to_Install_the_SPIRE_Server_and_add_spire-server_and_spire-agent_to_path
+DUPTYPE_WITHIN_SAME_TREE -470 3 312 127 7881299348393063 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_the_SPIRE_Server_and_add_spire-server_and_spire-agent_to_path
+DUPTYPE_FIRST_OCCURRENCE 382 1 318 127 1970324837251634 3 /mnt/c/study/setups/install_nano_in_powershell_with_choco
+DUPTYPE_WITHIN_SAME_TREE -382 3 318 127 7599824371682514 3 /mnt/c/study/Shells/powershell/setups/install_nano_in_powershell_with_choco
+DUPTYPE_FIRST_OCCURRENCE 1228 1 320 127 2251799813971521 3 /mnt/c/study/setups/oneliner_to_setup_apache_spark_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1228 3 320 127 7318349394972040 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_apache_spark_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 107 1 324 127 1970324837043771 3 /mnt/c/study/Nvidia/liner_to_setup_and_run_msty_for_nvidia_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -107 3 324 127 7036874418261187 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_msty_for_nvidia_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 852 1 327 127 2533274790677790 3 /mnt/c/study/setups/liner_to_setup_and_run_knime_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -852 3 327 127 8162774325104035 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_knime_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 960 1 329 127 2814749767389266 3 /mnt/c/study/setups/liner_to_setup_and_use_Spaceship_Prompt_in_ubuntu_+_to_remove_it
+DUPTYPE_WITHIN_SAME_TREE -960 3 329 127 8725724278525365 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_Spaceship_Prompt_in_ubuntu_+_to_remove_it
+DUPTYPE_FIRST_OCCURRENCE 432 1 329 127 9288674231889173 3 /mnt/c/study/setups/liner to setup and run in ubuntu Vim with IDE Features (Vundle for Plugins)
+DUPTYPE_WITHIN_SAME_TREE -432 2 329 127 14355223812680934 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_in_ubuntu_Vim_with_IDE_Features_(Vundle_for_Plugins)
+DUPTYPE_WITHIN_SAME_TREE -432 3 329 127 9570149208599827 3 /mnt/c/study/IDE/IDEs/VIM/liner_to_setup_and_run_in_ubuntu_Vim_with_IDE_Features_(Vundle_for_Plugins)
+DUPTYPE_FIRST_OCCURRENCE 12 1 331 127 3096224743867026 3 /mnt/c/study/Android/liner_to_setup_and_run_Android_Studio_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -12 3 331 127 6755399441550782 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Android_Studio_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 6982 3 334 127 16325548649328656 3 /mnt/c/study/Hacking/PacketCapture/Tshark/tshark_and_Termshark_tutorial:_Capture_and_view_wireshark_captures_in_a_console
+DUPTYPE_WITHIN_SAME_TREE -6982 3 334 127 1970324837042897 3 /mnt/c/study/Hacking/PacketCapture/wireshark/tshark_and_Termshark_tutorial:_Capture_and_view_wireshark_captures_in_a_console
+DUPTYPE_FIRST_OCCURRENCE 1164 1 336 127 2251799813970218 3 /mnt/c/study/setups/one_liner_to_setup_and_run_GoAccess_and_open_webui_in_ubntu
+DUPTYPE_WITHIN_SAME_TREE -1164 3 336 127 7599824371682693 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_GoAccess_and_open_webui_in_ubntu
+DUPTYPE_FIRST_OCCURRENCE 677 1 345 127 3377699720808320 3 /mnt/c/study/setups/liner_to_setup_and_run_Cisco_anyconnect_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -677 3 345 127 7318349394972126 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Cisco_anyconnect_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 388 1 348 127 1970324837251640 3 /mnt/c/study/setups/kiner_to_setup_Vagrant_in_linux
+DUPTYPE_WITHIN_SAME_TREE -388 3 348 127 7318349394971864 3 /mnt/c/study/Shells/powershell/setups/kiner_to_setup_Vagrant_in_linux
+DUPTYPE_FIRST_OCCURRENCE 11656 3 349 127 6473924464464137 3 /mnt/c/study/networking/protocols/tcp/Permits_traffic_on_TCP_port_80_to_the_server_with_firewall_rule
+DUPTYPE_WITHIN_SAME_TREE -11656 3 349 127 2814749767411241 3 /mnt/c/study/windows/server/PS/Permits_traffic_on_TCP_port_80_to_the_server_with_firewall_rule
+DUPTYPE_FIRST_OCCURRENCE 1214 1 354 127 2533274790681823 3 /mnt/c/study/setups/oneliner_to_setup_ad_run_neo4j_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1214 3 354 127 7318349394972073 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_ad_run_neo4j_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 357 1 356 127 2251799813962267 3 /mnt/c/study/setups/_Install_Cloud_Foundry_CLI
+DUPTYPE_WITHIN_SAME_TREE -357 3 356 127 7318349394972005 3 /mnt/c/study/Shells/powershell/setups/_Install_Cloud_Foundry_CLI
+DUPTYPE_FIRST_OCCURRENCE 962 1 360 127 3096224744099925 3 /mnt/c/study/setups/liner_to_setup_and_use_composer_with_php
+DUPTYPE_WITHIN_SAME_TREE -962 3 360 127 7881299348393424 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_use_composer_with_php
+DUPTYPE_FIRST_OCCURRENCE 358 1 362 127 2251799813962268 3 /mnt/c/study/setups/_Install_Operator_SDK
+DUPTYPE_WITHIN_SAME_TREE -358 3 362 127 7036874418261350 3 /mnt/c/study/Shells/powershell/setups/_Install_Operator_SDK
+DUPTYPE_FIRST_OCCURRENCE 1044 1 373 127 2814749767390005 3 /mnt/c/study/setups/liner_to_setup_llama.cpp_with_gpt_2_gguf_and_run_webui
+DUPTYPE_WITHIN_SAME_TREE -1044 3 373 127 7881299348393402 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_llama.cpp_with_gpt_2_gguf_and_run_webui
+DUPTYPE_FIRST_OCCURRENCE 946 1 396 127 3096224744099897 3 /mnt/c/study/setups/liner_to_setup_and_run_zeek_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -946 3 396 127 7318349394972109 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_zeek_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 887 1 401 127 2251799813967506 3 /mnt/c/study/setups/liner_to_setup_and_run_notion_desktop_in_ubntu_in_root_user
+DUPTYPE_WITHIN_SAME_TREE -887 3 401 127 7881299348393345 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_notion_desktop_in_ubntu_in_root_user
+DUPTYPE_FIRST_OCCURRENCE 3678 2 407 127 3659174697390474 3 /mnt/c/study/automation/oneliners/one_liner_to_install_snort_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -3678 3 407 127 10414574138406460 3 /mnt/c/study/Hacking/PacketCapture/snort/one_liner_to_install_snort_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 461 1 414 127 2251799813962317 3 /mnt/c/study/setups/liner_to_Install_Envoy_on_rpm-based_distros
+DUPTYPE_WITHIN_SAME_TREE -461 3 414 127 8444249301814650 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Envoy_on_rpm-based_distros
+DUPTYPE_FIRST_OCCURRENCE 982 1 419 127 3096224744099954 3 /mnt/c/study/setups/liner_to_setup_chromedriver_in_windows_with_powershell
+DUPTYPE_WITHIN_SAME_TREE -982 3 419 127 7036874418261458 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_chromedriver_in_windows_with_powershell
+DUPTYPE_FIRST_OCCURRENCE 1109 1 423 127 2533274790680166 3 /mnt/c/study/setups/liner_to_setup_tesseract_in_powershell_with_choco_and_add_to_path
+DUPTYPE_WITHIN_SAME_TREE -1109 3 423 127 7599824371682727 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_tesseract_in_powershell_with_choco_and_add_to_path
+DUPTYPE_FIRST_OCCURRENCE 384 1 423 127 1970324837251636 3 /mnt/c/study/setups/install_tekton_cli_and_tekton_pipelines_with_kubernetes
+DUPTYPE_WITHIN_SAME_TREE -384 3 423 127 7599824371682517 3 /mnt/c/study/Shells/powershell/setups/install_tekton_cli_and_tekton_pipelines_with_kubernetes
+DUPTYPE_FIRST_OCCURRENCE 824 1 427 127 3377699720809507 3 /mnt/c/study/setups/liner_to_setup_and_run_flink_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -824 3 427 127 9007199255236077 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_flink_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 985 1 445 127 3096224744099960 3 /mnt/c/study/setups/liner_to_setup_conda_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -985 3 445 127 7036874418261459 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_conda_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1223 1 454 127 1970324837260619 3 /mnt/c/study/setups/oneliner_to_setup_and_run_postman_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1223 3 454 127 7036874418261239 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_run_postman_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 947 1 463 127 3096224744099898 3 /mnt/c/study/setups/liner_to_setup_and_run_zookeeper_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -947 3 463 127 7599824371682766 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_zookeeper_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1161 1 476 127 1970324837259545 3 /mnt/c/study/setups/one_liner_to_setup_amd_run_lazydocker_in_linux
+DUPTYPE_WITHIN_SAME_TREE -1161 3 476 127 7881299348393201 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_amd_run_lazydocker_in_linux
+DUPTYPE_FIRST_OCCURRENCE 3685 2 480 127 3377699720679824 3 /mnt/c/study/automation/oneliners/one_liner_to_run_vscode_webserver_with_docker_cli
+DUPTYPE_WITHIN_SAME_TREE -3685 3 480 127 15762598695933989 3 /mnt/c/study/IDE/IDEs/VScode/one_liner_to_run_vscode_webserver_with_docker_cli
+DUPTYPE_FIRST_OCCURRENCE 364 1 484 127 2251799813962273 3 /mnt/c/study/setups/_liner_to_setup_Dense_Passage_Retrieval_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -364 3 484 127 7036874418261355 3 /mnt/c/study/Shells/powershell/setups/_liner_to_setup_Dense_Passage_Retrieval_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 445 1 493 127 11821949022282642 3 /mnt/c/study/setups/liner to setup openjdk 23 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -445 2 493 127 11540474045571885 3 /mnt/c/study/programming/java/liner_to_setup_openjdk_23_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -445 2 493 127 7881299348253897 3 /mnt/c/study/automation/oneliners/liner_to_setup_openjdk_23_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 371 1 498 127 1970324837251622 3 /mnt/c/study/setups/_one_liner_to_setup_jenkins_in_kali_not_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -371 3 498 127 7318349394971847 3 /mnt/c/study/Shells/powershell/setups/_one_liner_to_setup_jenkins_in_kali_not_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1213 1 523 127 1970324837260507 3 /mnt/c/study/setups/oneliner_to_setup__everything_needed_for_csharp_development_in_powershell_with_dotnet_and_sdk
+DUPTYPE_WITHIN_SAME_TREE -1213 3 523 127 8725724278525173 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup__everything_needed_for_csharp_development_in_powershell_with_dotnet_and_sdk
+DUPTYPE_FIRST_OCCURRENCE 93 1 535 127 2251799813749564 3 /mnt/c/study/Converting/one-liner_downloads_Inno_Setup,_installs_it_via_Wine,_creates_a_script_to_repackage_an_MSI_file_into_an_EXE
+DUPTYPE_WITHIN_SAME_TREE -93 3 535 127 7036874418261241 3 /mnt/c/study/Shells/powershell/setups/one-liner_downloads_Inno_Setup,_installs_it_via_Wine,_creates_a_script_to_repackage_an_MSI_file_into_an_EXE
+DUPTYPE_FIRST_OCCURRENCE 511 1 541 127 2814749767270882 3 /mnt/c/study/setups/liner_to_purge_qbittorent_from_powershell_and_remove_leftovers
+DUPTYPE_WITHIN_SAME_TREE -511 3 541 127 7318349394972076 3 /mnt/c/study/Shells/powershell/setups/liner_to_purge_qbittorent_from_powershell_and_remove_leftovers
+DUPTYPE_FIRST_OCCURRENCE 2019 2 548 127 1970324837040726 3 /mnt/c/study/Hacking/Intrusion_Detection/liner_to_Implement_advanced_network_security_scan_and_intrusion_detection
+DUPTYPE_WITHIN_SAME_TREE -2019 3 548 127 9570149208274528 3 /mnt/c/study/Hacking/PacketCapture/nmap/One-Liner_to_implement_advanced_network_security_scan_(nmap,_tcpdump,_snort,_scapy,_python)
+DUPTYPE_WITHIN_SAME_TREE -2019 3 548 127 6755399441174775 3 /mnt/c/study/networking/protocols/tcp/One-Liner_to_implement_advanced_network_security_scan_(nmap,_tcpdump,_snort,_scapy,_python)
+DUPTYPE_FIRST_OCCURRENCE 276 1 551 127 2251799813962033 3 /mnt/c/study/setups/Liner_to:_Install_Valgrind,_compile_and_debug_C_code_for_memory_leak_detection,_and_visualize_profiling_results_using_KCacheGrind
+DUPTYPE_WITHIN_SAME_TREE -276 3 551 127 7599824371682574 3 /mnt/c/study/Shells/powershell/setups/Liner_to:_Install_Valgrind,_compile_and_debug_C_code_for_memory_leak_detection,_and_visualize_profiling_results_using_KCacheGrind
+DUPTYPE_FIRST_OCCURRENCE 1040 1 562 127 3096224744100598 3 /mnt/c/study/setups/liner_to_setup_latest_python_and_pip_in_powershell
+DUPTYPE_WITHIN_SAME_TREE -1040 3 562 127 7318349394972117 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_latest_python_and_pip_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 378 1 563 127 1970324837251630 3 /mnt/c/study/setups/install_K3s
+DUPTYPE_WITHIN_SAME_TREE -378 3 563 127 7599824371682510 3 /mnt/c/study/Shells/powershell/setups/install_K3s
+DUPTYPE_FIRST_OCCURRENCE 10903 3 570 127 14355223812458533 3 /mnt/c/study/docker/containers/vscodeWEBserver/docker-compose.yaml
+DUPTYPE_WITHIN_SAME_TREE -10903 4 570 127 2533274790633113 3 /mnt/c/study/IDE/IDEs/VScode/vscodeWEBserver/docker-compose.yaml
+DUPTYPE_FIRST_OCCURRENCE 296 1 574 127 1688849860540772 3 /mnt/c/study/setups/Run_Minecraft_on_Debian
+DUPTYPE_WITHIN_SAME_TREE -296 3 574 127 6755399441550511 3 /mnt/c/study/Shells/powershell/setups/Run_Minecraft_on_Debian
+DUPTYPE_FIRST_OCCURRENCE 997 1 579 127 3659174697521326 3 /mnt/c/study/setups/liner_to_setup_everything_needed_for_c++_deployment_in_powershell_+_vscode_extentions
+DUPTYPE_WITHIN_SAME_TREE -997 3 579 127 8444249301456456 3 /mnt/c/study/IDE/IDEs/VScode/liner_to_setup_everything_needed_for_c++_deployment_in_powershell_+_vscode_extentions
+DUPTYPE_FIRST_OCCURRENCE 278 1 582 127 2251799813962040 3 /mnt/c/study/setups/One-Liner_Command_to_Set_Up_and_Run_Confluence_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -278 3 582 127 8162774325103888 3 /mnt/c/study/Shells/powershell/setups/One-Liner_Command_to_Set_Up_and_Run_Confluence_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 251 1 584 127 1688849860540620 3 /mnt/c/study/setups/Install_PowerShell_Core_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -251 3 584 127 8725724278525069 3 /mnt/c/study/Shells/powershell/setups/Install_PowerShell_Core_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 458 1 587 127 2251799813962313 3 /mnt/c/study/setups/liner_to_Install_Envoy_on_Ubuntu_Linux
+DUPTYPE_WITHIN_SAME_TREE -458 3 587 127 7881299348393337 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Envoy_on_Ubuntu_Linux
+DUPTYPE_FIRST_OCCURRENCE 664 1 591 127 2533274790676264 3 /mnt/c/study/setups/liner_to_setup_and_run_Apollo_GraphQL
+DUPTYPE_WITHIN_SAME_TREE -664 3 591 127 7036874418261391 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Apollo_GraphQL
+DUPTYPE_FIRST_OCCURRENCE 12225 4 600 127 2814749767163536 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/Pythagora/What is pythagora
+DUPTYPE_WITHIN_SAME_TREE -12225 4 600 127 4785074604343346 3 /mnt/c/study/IDE/IDEs/VScode/Pythagora/What is pythagora
+DUPTYPE_FIRST_OCCURRENCE 218 1 614 127 2251799813961731 3 /mnt/c/study/setups/Build_Vitess_Database_System_With_Node_And_Golang_On_Ubuntu_Debian_Automated_One_Liner.sh
+DUPTYPE_WITHIN_SAME_TREE -218 3 614 127 7318349394971913 3 /mnt/c/study/Shells/powershell/setups/Build_Vitess_Database_System_With_Node_And_Golang_On_Ubuntu_Debian_Automated_One_Liner.sh
+DUPTYPE_FIRST_OCCURRENCE 459 1 615 127 1688849860541003 3 /mnt/c/study/setups/liner_to_Install_Envoy_on_Ubuntu_debian
+DUPTYPE_WITHIN_SAME_TREE -459 3 615 127 7881299348393138 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Envoy_on_Ubuntu_debian
+DUPTYPE_FIRST_OCCURRENCE 810 1 637 127 3377699720809458 3 /mnt/c/study/setups/liner_to_setup_and_run_danger_zone_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -810 3 637 127 8725724278525414 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_danger_zone_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 373 1 644 127 1970324837251624 3 /mnt/c/study/setups/adguard_adblocker_setup
+DUPTYPE_WITHIN_SAME_TREE -373 3 644 127 7881299348393161 3 /mnt/c/study/Shells/powershell/setups/adguard_adblocker_setup
+DUPTYPE_FIRST_OCCURRENCE 468 1 647 127 1688849860541016 3 /mnt/c/study/setups/liner_to_Install_and_configure_SaltStack,Salt_Master_and_Minion
+DUPTYPE_WITHIN_SAME_TREE -468 3 647 127 7036874418261173 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_and_configure_SaltStack,Salt_Master_and_Minion
+DUPTYPE_FIRST_OCCURRENCE 1171 1 672 127 1407374883838335 3 /mnt/c/study/setups/one_liner_to_setup_and_run_grafana_and_prometheus_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1171 3 672 127 8162774325103734 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_grafana_and_prometheus_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 349 1 677 127 2251799813962259 3 /mnt/c/study/setups/Setting_and_running_Up_KSQL_with_docker
+DUPTYPE_WITHIN_SAME_TREE -349 3 677 127 8444249301814621 3 /mnt/c/study/Shells/powershell/setups/Setting_and_running_Up_KSQL_with_docker
+DUPTYPE_FIRST_OCCURRENCE 1140 1 709 127 2251799813969677 3 /mnt/c/study/setups/one-liner_installs_Git,_Curl,_Node.js,_clones_the_starknet.js_repository,_installs_dependencies,_creates_a_script_to_start_the_project,_generates_an_example_interaction_script,_and_runs_the_StarkNet_project
+DUPTYPE_WITHIN_SAME_TREE -1140 3 709 127 8725724278525316 3 /mnt/c/study/Shells/powershell/setups/one-liner_installs_Git,_Curl,_Node.js,_clones_the_starknet.js_repository,_installs_dependencies,_creates_a_script_to_start_the_project,_generates_an_example_interaction_script,_and_runs_the_StarkNet_project
+DUPTYPE_FIRST_OCCURRENCE 257 1 749 127 1688849860540627 3 /mnt/c/study/setups/Install_VSCodium_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -257 3 749 127 9288674231946387 3 /mnt/c/study/Shells/powershell/setups/Install_VSCodium_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 1212 1 750 127 1688849860549848 3 /mnt/c/study/setups/oneliner_to_setup_TimescaleDB_for_postgreSQL_16_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1212 3 750 127 7318349394971837 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_TimescaleDB_for_postgreSQL_16_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 101 1 778 127 1970324837043764 3 /mnt/c/study/Nvidia/Install_Docker_with_NVIDIA_GPU_Support
+DUPTYPE_WITHIN_SAME_TREE -101 3 778 127 7599824371682496 3 /mnt/c/study/Shells/powershell/setups/Install_Docker_with_NVIDIA_GPU_Support
+DUPTYPE_FIRST_OCCURRENCE 1184 1 798 127 2533274790681216 3 /mnt/c/study/setups/one_liner_to_setup_and_run_wordpress_in_web_ui_in_ubuntu_with_apache,__mariadb_and_php
+DUPTYPE_WITHIN_SAME_TREE -1184 3 798 127 7318349394972072 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_wordpress_in_web_ui_in_ubuntu_with_apache,__mariadb_and_php
+DUPTYPE_FIRST_OCCURRENCE 425 1 801 127 14073748836028669 3 /mnt/c/study/setups/liner to setup and run cassandra in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -425 4 801 127 34621422135900921 3 /mnt/c/study/datascience/databases/noSQL/cassandra/liner_to_setup_and_run_cassandra_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -425 2 801 127 7318349394832755 3 /mnt/c/study/automation/oneliners/liner to setup and run cassandra in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 12230 4 871 127 2251799813742230 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/codium/What_is_codium_ai
+DUPTYPE_WITHIN_SAME_TREE -12230 4 871 127 11540474045389813 3 /mnt/c/study/IDE/IDEs/VScode/codium/What_is_codium_ai
+DUPTYPE_FIRST_OCCURRENCE 322 1 890 127 2251799813962181 3 /mnt/c/study/setups/Running_Plex_Media_Server_in_Docker_on_Ubuntu_Server
+DUPTYPE_WITHIN_SAME_TREE -322 3 890 127 12103423999053106 3 /mnt/c/study/Shells/powershell/setups/Running_Plex_Media_Server_in_Docker_on_Ubuntu_Server
+DUPTYPE_FIRST_OCCURRENCE 102 1 923 127 1970324837043765 3 /mnt/c/study/Nvidia/Install_cuDNN_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -102 3 923 127 7881299348393153 3 /mnt/c/study/Shells/powershell/setups/Install_cuDNN_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 356 1 952 127 2251799813962266 3 /mnt/c/study/setups/_Configure_and_Use_Cloud_Native_Application_Bundles_(CNAB)_in_Ubuntu_with_porter
+DUPTYPE_WITHIN_SAME_TREE -356 3 952 127 7036874418261347 3 /mnt/c/study/Shells/powershell/setups/_Configure_and_Use_Cloud_Native_Application_Bundles_(CNAB)_in_Ubuntu_with_porter
+DUPTYPE_FIRST_OCCURRENCE 1157 1 960 127 1407374883838178 3 /mnt/c/study/setups/one_liner_to_setup_Spinnaker_with_Kubernetes_for_Continuous_Delivery_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1157 3 960 127 7599824371682414 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_Spinnaker_with_Kubernetes_for_Continuous_Delivery_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 323 1 968 127 2251799813962183 3 /mnt/c/study/setups/Running_Shinobi_CCTV_in_Docker_on_Ubuntu_Server
+DUPTYPE_WITHIN_SAME_TREE -323 3 968 127 7881299348393269 3 /mnt/c/study/Shells/powershell/setups/Running_Shinobi_CCTV_in_Docker_on_Ubuntu_Server
+DUPTYPE_FIRST_OCCURRENCE 471 1 968 127 1407374883830365 3 /mnt/c/study/setups/liner_to_Set_Up_OpenMetrics_with_Node_Exporter_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -471 3 968 127 7881299348393064 3 /mnt/c/study/Shells/powershell/setups/liner_to_Set_Up_OpenMetrics_with_Node_Exporter_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 7026 3 988 127 5066549580865940 3 /mnt/c/study/Hacking/PacketCapture/tcpdump/tcpdump_command_line_tool_with_advanced_filters_and_expressions_to_capture_and_analyze_network_traffic_based_on_specific_protocols_packet_sizes_or_source_destination_ip_addresses
+DUPTYPE_WITHIN_SAME_TREE -7026 3 988 127 23643898043814177 3 /mnt/c/study/networking/protocols/tcp/tcpdump_command_line_tool_with_advanced_filters_and_expressions_to_capture_and_analyze_network_traffic_based_on_specific_protocols_packet_sizes_or_source_destination_ip_addresses
+DUPTYPE_WITHIN_SAME_TREE -7026 4 988 127 3940649674192082 3 /mnt/c/study/networking/protocols/tcp/tcpdump/tcpdump_command_line_tool_with_advanced_filters_and_expressions_to_capture_and_analyze_network_traffic_based_on_specific_protocols_packet_sizes_or_source_destination_ip_addresses
+DUPTYPE_FIRST_OCCURRENCE 453 1 992 127 2251799813962307 3 /mnt/c/study/setups/liner_that_automates-installation-setup-WebPageTest-Docker-DockerCompose-configuration-variables-launch.sh
+DUPTYPE_WITHIN_SAME_TREE -453 3 992 127 9007199255235957 3 /mnt/c/study/Shells/powershell/setups/liner_that_automates-installation-setup-WebPageTest-Docker-DockerCompose-configuration-variables-launch.sh
+DUPTYPE_FIRST_OCCURRENCE 232 1 994 127 3377699720804407 3 /mnt/c/study/setups/Install_EmuDeck_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -232 3 994 127 7599824371682780 3 /mnt/c/study/Shells/powershell/setups/Install_EmuDeck_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 198 1 1024 127 4222124650901855 3 /mnt/c/study/monitoring/.Integrating Snort IDS-IPS with Splunk SIEM on Ubuntu: Step-by-Step Tutorial for Enhanced Network Security Monitoring.swp
+DUPTYPE_WITHIN_SAME_TREE -198 3 1024 127 9007199254853079 3 /mnt/c/study/Hacking/PacketCapture/snort/.Integrating Snort IDS-IPS with Splunk SIEM on Ubuntu: Step-by-Step Tutorial for Enhanced Network Security Monitoring.swp
+DUPTYPE_FIRST_OCCURRENCE 252 1 1057 127 1688849860540621 3 /mnt/c/study/setups/Install_PowerShell_on_Debian_or_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -252 3 1057 127 8162774325103758 3 /mnt/c/study/Shells/powershell/setups/Install_PowerShell_on_Debian_or_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 273 1 1110 127 1688849860540700 3 /mnt/c/study/setups/LICENSE.md
+DUPTYPE_WITHIN_SAME_TREE -273 3 1110 127 8444249301814434 3 /mnt/c/study/Shells/powershell/setups/LICENSE.md
+DUPTYPE_FIRST_OCCURRENCE 269 1 1120 127 1688849860540642 3 /mnt/c/study/setups/Installing_Pi-Hole_Ad-Blocker_on_Debian_or_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -269 3 1120 127 7881299348393118 3 /mnt/c/study/Shells/powershell/setups/Installing_Pi-Hole_Ad-Blocker_on_Debian_or_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1166 1 1170 127 1407374883838265 3 /mnt/c/study/setups/one_liner_to_setup_and_run_Loki_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1166 3 1170 127 7881299348393074 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_run_Loki_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 260 1 1198 127 1688849860540630 3 /mnt/c/study/setups/Install_aaPanel_Powerful_Web_Server_Dashboard_on_Debian
+DUPTYPE_WITHIN_SAME_TREE -260 3 1198 127 7318349394971798 3 /mnt/c/study/Shells/powershell/setups/Install_aaPanel_Powerful_Web_Server_Dashboard_on_Debian
+DUPTYPE_FIRST_OCCURRENCE 352 1 1223 127 2251799813962262 3 /mnt/c/study/setups/Setup_GoAccess_Web_Log_Analyzer_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -352 3 1223 127 7881299348393311 3 /mnt/c/study/Shells/powershell/setups/Setup_GoAccess_Web_Log_Analyzer_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 12224 4 1234 127 2814749767163534 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/Kite/What_is_Kite_AI.txt
+DUPTYPE_WITHIN_SAME_TREE -12224 4 1234 127 5066549581053983 3 /mnt/c/study/IDE/IDEs/VScode/Kite/What_is_Kite_AI.txt
+DUPTYPE_FIRST_OCCURRENCE 1141 1 1235 127 1688849860548366 3 /mnt/c/study/setups/one-liner_installs_Java,_downloads_and_extracts_Apache_Flume,_sets_environment_variables,_creates_a_Flume_configuration_for_collecting_syslog_data,_starts_the_Flume_agent_to_collect_logs,_and_configures_the_system_to_run_it_automatically
+DUPTYPE_WITHIN_SAME_TREE -1141 3 1235 127 7599824371682490 3 /mnt/c/study/Shells/powershell/setups/one-liner_installs_Java,_downloads_and_extracts_Apache_Flume,_sets_environment_variables,_creates_a_Flume_configuration_for_collecting_syslog_data,_starts_the_Flume_agent_to_collect_logs,_and_configures_the_system_to_run_it_automatically
+DUPTYPE_FIRST_OCCURRENCE 270 1 1236 127 1688849860540643 3 /mnt/c/study/setups/Installing_Tabby_(formerly_Terminus)_on_Windows_Linux_MacOS
+DUPTYPE_WITHIN_SAME_TREE -270 3 1236 127 6755399441550495 3 /mnt/c/study/Shells/powershell/setups/Installing_Tabby_(formerly_Terminus)_on_Windows_Linux_MacOS
+DUPTYPE_FIRST_OCCURRENCE 386 1 1280 127 1970324837251639 3 /mnt/c/study/setups/installs_OpenJDK_Tomcat_OpenDJ_deploys_OpenAM_on_Tomcat_updates_configuration_and_starts_services_for_identity_management_on_localhost.sh
+DUPTYPE_WITHIN_SAME_TREE -386 3 1280 127 7599824371682519 3 /mnt/c/study/Shells/powershell/setups/installs_OpenJDK_Tomcat_OpenDJ_deploys_OpenAM_on_Tomcat_updates_configuration_and_starts_services_for_identity_management_on_localhost.sh
+DUPTYPE_FIRST_OCCURRENCE 313 1 1293 127 2251799813962123 3 /mnt/c/study/setups/Running_Homepage_Application_Dashboard_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -313 3 1293 127 7599824371682594 3 /mnt/c/study/Shells/powershell/setups/Running_Homepage_Application_Dashboard_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 363 1 1304 127 2251799813962272 3 /mnt/c/study/setups/_liner_step_to_Configure_and_Use_Apache_Hudi_for_Stream_Processing_on_Data_Lakes_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -363 3 1304 127 7036874418261354 3 /mnt/c/study/Shells/powershell/setups/_liner_step_to_Configure_and_Use_Apache_Hudi_for_Stream_Processing_on_Data_Lakes_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 372 1 1318 127 1970324837251623 3 /mnt/c/study/setups/_setup_DHCP_server
+DUPTYPE_WITHIN_SAME_TREE -372 3 1318 127 8444249301814472 3 /mnt/c/study/Shells/powershell/setups/_setup_DHCP_server
+DUPTYPE_FIRST_OCCURRENCE 329 1 1328 127 2251799813962195 3 /mnt/c/study/setups/Set_Up_and_Configure_Apache_Airflow_for_Workflow_Automation
+DUPTYPE_WITHIN_SAME_TREE -329 3 1328 127 9288674231946571 3 /mnt/c/study/Shells/powershell/setups/Set_Up_and_Configure_Apache_Airflow_for_Workflow_Automation
+DUPTYPE_FIRST_OCCURRENCE 272 1 1340 127 1688849860540693 3 /mnt/c/study/setups/Installing_and_Setting_Up_Squid_Proxy_Server_on_Debian
+DUPTYPE_WITHIN_SAME_TREE -272 3 1340 127 7036874418261153 3 /mnt/c/study/Shells/powershell/setups/Installing_and_Setting_Up_Squid_Proxy_Server_on_Debian
+DUPTYPE_FIRST_OCCURRENCE 791 1 1348 127 2533274790677437 3 /mnt/c/study/setups/liner_to_setup_and_run_bagisto_in_ubuntu_with_npm_apache_php_composerand_mariadb
+DUPTYPE_WITHIN_SAME_TREE -791 3 1348 127 8444249301814681 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_bagisto_in_ubuntu_with_npm_apache_php_composerand_mariadb
+DUPTYPE_FIRST_OCCURRENCE 259 1 1361 127 1688849860540629 3 /mnt/c/study/setups/Install_Zulip_Self-Hosted_Discord_Alternative_on_Debian_or_Ubuntu_Linux
+DUPTYPE_WITHIN_SAME_TREE -259 3 1361 127 8162774325103765 3 /mnt/c/study/Shells/powershell/setups/Install_Zulip_Self-Hosted_Discord_Alternative_on_Debian_or_Ubuntu_Linux
+DUPTYPE_FIRST_OCCURRENCE 301 1 1367 127 2251799813962091 3 /mnt/c/study/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -301 3 1367 127 7318349394971928 3 /mnt/c/study/Shells/powershell/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 7497 3 1379 127 10696049115143710 3 /mnt/c/study/IDE/IDEs/VScode/What_is_codebuddy_vscode_extention
+DUPTYPE_WITHIN_SAME_TREE -7497 4 1379 127 3096224743874197 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/codebuddy/What_is_codebuddy_vscode_extention
+DUPTYPE_WITHIN_SAME_TREE -7497 4 1379 127 3377699720766477 3 /mnt/c/study/IDE/IDEs/VScode/codebuddy/What_is_codebuddy_vscode_extention
+DUPTYPE_FIRST_OCCURRENCE 267 1 1383 127 1688849860540640 3 /mnt/c/study/setups/Installing_HostMon_-_Simple_Host_Monitor_and_Application_Dashboard_-_on_Linux_with_node
+DUPTYPE_WITHIN_SAME_TREE -267 3 1383 127 9288674231946396 3 /mnt/c/study/Shells/powershell/setups/Installing_HostMon_-_Simple_Host_Monitor_and_Application_Dashboard_-_on_Linux_with_node
+DUPTYPE_FIRST_OCCURRENCE 663 1 1427 127 2814749767386909 3 /mnt/c/study/setups/liner_to_setup_and_run_Apache_Zeppeling_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -663 3 1427 127 6755399441550769 3 /mnt/c/study/Shells/powershell/setups/liner_to_setup_and_run_Apache_Zeppeling_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 287 1 1442 127 1688849860540758 3 /mnt/c/study/setups/Run_Draw.io_-_Open_Source_Diagramming_Web_Application_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -287 3 1442 127 8162774325103785 3 /mnt/c/study/Shells/powershell/setups/Run_Draw.io_-_Open_Source_Diagramming_Web_Application_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 286 1 1460 127 1688849860540757 3 /mnt/c/study/setups/Run_DashMachine_Application_Dashboard_in_Docker_on_Debian
+DUPTYPE_WITHIN_SAME_TREE -286 3 1460 127 7599824371682472 3 /mnt/c/study/Shells/powershell/setups/Run_DashMachine_Application_Dashboard_in_Docker_on_Debian
+DUPTYPE_FIRST_OCCURRENCE 12232 4 1478 127 2251799813742232 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/continue.dev/What_is_continue.dev
+DUPTYPE_WITHIN_SAME_TREE -12232 4 1478 127 7036874418028135 3 /mnt/c/study/IDE/IDEs/VScode/continue.dev/What_is_continue.dev
+DUPTYPE_FIRST_OCCURRENCE 464 1 1500 127 2251799813962324 3 /mnt/c/study/setups/liner_to_Install_Python_Dependencies_and_Create_Circuit_Breaker_Pattern_for_HTTP_Requests_in_Python
+DUPTYPE_WITHIN_SAME_TREE -464 3 1500 127 7599824371682684 3 /mnt/c/study/Shells/powershell/setups/liner_to_Install_Python_Dependencies_and_Create_Circuit_Breaker_Pattern_for_HTTP_Requests_in_Python
+DUPTYPE_FIRST_OCCURRENCE 274 1 1504 127 1688849860540710 3 /mnt/c/study/setups/LLaMA-3.1-1T-Instruct-setup-guide.txt
+DUPTYPE_WITHIN_SAME_TREE -274 3 1504 127 8162774325103779 3 /mnt/c/study/Shells/powershell/setups/LLaMA-3.1-1T-Instruct-setup-guide.txt
+DUPTYPE_FIRST_OCCURRENCE 266 1 1505 127 1688849860540638 3 /mnt/c/study/setups/Installing_Drupal_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -266 3 1505 127 7599824371682459 3 /mnt/c/study/Shells/powershell/setups/Installing_Drupal_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 353 1 1639 127 2251799813962263 3 /mnt/c/study/setups/Setup_and_Run_Duply_for_Efficient_Backup_and_Restore_in_Ubuntu_Using_Duply_and_Duplicity_Tools
+DUPTYPE_WITHIN_SAME_TREE -353 3 1639 127 8725724278525280 3 /mnt/c/study/Shells/powershell/setups/Setup_and_Run_Duply_for_Efficient_Backup_and_Restore_in_Ubuntu_Using_Duply_and_Duplicity_Tools
+DUPTYPE_FIRST_OCCURRENCE 292 1 1662 127 2251799813962076 3 /mnt/c/study/setups/Run_HomeDash_-_Server_Monitor_Dashboard_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -292 3 1662 127 8444249301814549 3 /mnt/c/study/Shells/powershell/setups/Run_HomeDash_-_Server_Monitor_Dashboard_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 271 1 1688 127 1688849860540674 3 /mnt/c/study/setups/Installing_WebIssues_Bug_and_Enhancement_Tracker_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -271 3 1688 127 7318349394971808 3 /mnt/c/study/Shells/powershell/setups/Installing_WebIssues_Bug_and_Enhancement_Tracker_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 289 1 1702 127 1688849860540760 3 /mnt/c/study/setups/Run_Homarr_Application_Dashboard_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -289 3 1702 127 7036874418261163 3 /mnt/c/study/Shells/powershell/setups/Run_Homarr_Application_Dashboard_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 1162 1 1718 127 1407374883838234 3 /mnt/c/study/setups/one_liner_to_setup_and_Host_Your_Own_draw.io,_Visio_style_diagram_maker
+DUPTYPE_WITHIN_SAME_TREE -1162 3 1718 127 8444249301814384 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_and_Host_Your_Own_draw.io,_Visio_style_diagram_maker
+DUPTYPE_FIRST_OCCURRENCE 1155 1 1719 127 1407374883838153 3 /mnt/c/study/setups/one_liner_to_setup_ELK_in_ubuntu.txt
+DUPTYPE_WITHIN_SAME_TREE -1155 3 1719 127 7599824371682412 3 /mnt/c/study/Shells/powershell/setups/one_liner_to_setup_ELK_in_ubuntu.txt
+DUPTYPE_FIRST_OCCURRENCE 315 1 1736 127 2251799813962143 3 /mnt/c/study/setups/Running_Hoppscotch_in_Docker_-_Browser_Based_Open_Source_Alternative_to_Postman
+DUPTYPE_WITHIN_SAME_TREE -315 3 1736 127 7036874418261284 3 /mnt/c/study/Shells/powershell/setups/Running_Hoppscotch_in_Docker_-_Browser_Based_Open_Source_Alternative_to_Postman
+DUPTYPE_FIRST_OCCURRENCE 1221 1 1748 127 2814749767392567 3 /mnt/c/study/setups/oneliner_to_setup_and_run_nextcloud_in_debian
+DUPTYPE_WITHIN_SAME_TREE -1221 3 1748 127 7599824371682749 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_run_nextcloud_in_debian
+DUPTYPE_FIRST_OCCURRENCE 308 1 1757 127 2533274790672751 3 /mnt/c/study/setups/Running_Element_Web_-_Browser_Based_Matrix_Synapse_Client_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -308 3 1757 127 7881299348393356 3 /mnt/c/study/Shells/powershell/setups/Running_Element_Web_-_Browser_Based_Matrix_Synapse_Client_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 4117 2 1799 127 5066549581003140 3 /mnt/c/study/datascience/Data_Flow/_Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -4117 3 1799 127 14355223812680990 3 /mnt/c/study/automation/WorkFlow/NiFi/Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -4117 3 1799 127 12103423998995902 3 /mnt/c/study/automation/WorkFlow/NiFi/_Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker
+DUPTYPE_WITHIN_SAME_TREE -4117 3 1799 127 9007199255083715 3 /mnt/c/study/datascience/DataPipeLineFramework/NiFi/_Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker
+DUPTYPE_FIRST_OCCURRENCE 1258 1 1814 127 5629499534500308 3 /mnt/c/study/setups/setup_OpenJDK_and_Metabase_in_Ubuntu_script_for_installing_and_running_Metabase_with_configuration_steps_including_dependencies_Java_tools_PostgreSQL_database_and_security_settings.sh
+DUPTYPE_WITHIN_SAME_TREE -1258 2 1814 127 3377699720774337 3 /mnt/c/study/programming/java/setup_OpenJDK_and_Metabase_in_Ubuntu_script_for_installing_and_running_Metabase_with_configuration_steps_including_dependencies_Java_tools_PostgreSQL_database_and_security_settings.sh
+DUPTYPE_FIRST_OCCURRENCE 449 1 1863 127 2251799813962304 3 /mnt/c/study/setups/liner_for_user_account_management
+DUPTYPE_WITHIN_SAME_TREE -449 3 1863 127 7599824371682674 3 /mnt/c/study/Shells/powershell/setups/liner_for_user_account_management
+DUPTYPE_FIRST_OCCURRENCE 312 1 1903 127 2251799813962113 3 /mnt/c/study/setups/Running_Homepage_Application_Dashboard_Using_Docker
+DUPTYPE_WITHIN_SAME_TREE -312 3 1903 127 7881299348393249 3 /mnt/c/study/Shells/powershell/setups/Running_Homepage_Application_Dashboard_Using_Docker
+DUPTYPE_FIRST_OCCURRENCE 12228 4 1929 127 3096224743874196 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/codeGPT/cody_vs_codegpt
+DUPTYPE_WITHIN_SAME_TREE -12228 4 1929 127 3096224744078926 3 /mnt/c/study/IDE/IDEs/VScode/cody/cody_vs_codegpt
+DUPTYPE_WITHIN_SAME_TREE -12228 4 1929 127 10414574138537294 3 /mnt/c/study/IDE/IDEs/VScode/codeGPT/cody_vs_codegpt
+DUPTYPE_FIRST_OCCURRENCE 291 1 1956 127 2251799813962075 3 /mnt/c/study/setups/Run_HomeDash_-_Server_Monitor_Dashboard_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -291 3 1956 127 7318349394971924 3 /mnt/c/study/Shells/powershell/setups/Run_HomeDash_-_Server_Monitor_Dashboard_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 280 1 1984 127 2533274790672714 3 /mnt/c/study/setups/QA_Regression_Test_Setup_Script_Using_Python_pytest_pytest-html_pytest-xdist_pytest-mock_with_Fixtures_and_Mocking.sh
+DUPTYPE_WITHIN_SAME_TREE -280 3 1984 127 7036874418261387 3 /mnt/c/study/Shells/powershell/setups/Regression_Test_Setup_Script_Using_Python_pytest_pytest-html_pytest-xdist_pytest-mock_with_Fixtures_and_Mocking.sh
+DUPTYPE_WITHIN_SAME_TREE -280 3 1984 127 7318349394972042 3 /mnt/c/study/Shells/powershell/setups/QA_Regression_Test_Setup_Script_Using_Python_pytest_pytest-html_pytest-xdist_pytest-mock_with_Fixtures_and_Mocking.sh
+DUPTYPE_FIRST_OCCURRENCE 6343 3 2038 127 2814749767163533 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/top_5_vscode_AI_extentions
+DUPTYPE_WITHIN_SAME_TREE -6343 3 2038 127 19984723346594613 3 /mnt/c/study/IDE/IDEs/VScode/top_5_vscode_AI_extentions
+DUPTYPE_FIRST_OCCURRENCE 376 1 2042 127 1970324837251628 3 /mnt/c/study/setups/espocrm-setup-apache-mysql-php-fix-errors-auto-password.sh
+DUPTYPE_WITHIN_SAME_TREE -376 3 2042 127 7599824371682508 3 /mnt/c/study/Shells/powershell/setups/espocrm-setup-apache-mysql-php-fix-errors-auto-password.sh
+DUPTYPE_FIRST_OCCURRENCE 246 1 2058 127 1688849860540612 3 /mnt/c/study/setups/Install_MyBB_-_Open_Source_Forum_Software_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -246 3 2058 127 7036874418261128 3 /mnt/c/study/Shells/powershell/setups/Install_MyBB_-_Open_Source_Forum_Software_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 12226 4 2076 127 2814749767163537 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/TabNine/what_is_TabNine_AI?
+DUPTYPE_WITHIN_SAME_TREE -12226 4 2076 127 7881299348175532 3 /mnt/c/study/IDE/IDEs/VScode/TabNine/what_is_TabNine_AI?
+DUPTYPE_FIRST_OCCURRENCE 305 1 2077 127 2251799813962096 3 /mnt/c/study/setups/Running_Agent_DVR_Video_Surveillance_Platform_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -305 3 2077 127 8444249301814556 3 /mnt/c/study/Shells/powershell/setups/Running_Agent_DVR_Video_Surveillance_Platform_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 325 1 2077 127 2251799813962185 3 /mnt/c/study/setups/Running_Ubooquity_eBook_Manager_and_Reader_Using_Docker
+DUPTYPE_WITHIN_SAME_TREE -325 3 2077 127 7318349394971958 3 /mnt/c/study/Shells/powershell/setups/Running_Ubooquity_eBook_Manager_and_Reader_Using_Docker
+DUPTYPE_FIRST_OCCURRENCE 7506 3 2099 127 12666373952118727 3 /mnt/c/study/IDE/IDEs/VScode/top_15_vscode_extensions.txt
+DUPTYPE_WITHIN_SAME_TREE -7506 4 2099 127 2814749767163545 3 /mnt/c/study/Artificial_Intelligence/Coding/VScode/extension/top_15_vscode_extensions.txt
+DUPTYPE_WITHIN_SAME_TREE -7506 4 2099 127 9288674231713492 3 /mnt/c/study/IDE/IDEs/VScode/extension/top_15_vscode_extensions.txt
+DUPTYPE_FIRST_OCCURRENCE 5698 2 2130 127 2814749767382592 3 /mnt/c/study/security/proxy/use_proxy_chains_with_nmap_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -5698 3 2130 127 6473924464457329 3 /mnt/c/study/Hacking/PacketCapture/nmap/use_proxy_chains_with_nmap_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 288 1 2220 127 1688849860540759 3 /mnt/c/study/setups/Run_Homarr_Application_Dashboard_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -288 3 2220 127 8725724278525098 3 /mnt/c/study/Shells/powershell/setups/Run_Homarr_Application_Dashboard_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 268 1 2261 127 1688849860540641 3 /mnt/c/study/setups/Installing_HostMon_-_Simple_Host_Monitor_and_Application_Dashboard_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -268 3 2261 127 7318349394971805 3 /mnt/c/study/Shells/powershell/setups/Installing_HostMon_-_Simple_Host_Monitor_and_Application_Dashboard_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 321 1 2277 127 2251799813962177 3 /mnt/c/study/setups/Running_Pi.Alert_-_A_Network_Intrusion_Monitor_-_Containerized_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -321 3 2277 127 14918173766159665 3 /mnt/c/study/Shells/powershell/setups/Running_Pi.Alert_-_A_Network_Intrusion_Monitor_-_Containerized_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 316 1 2279 127 2251799813962161 3 /mnt/c/study/setups/Running_HostMon_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -316 3 2279 127 9288674231946533 3 /mnt/c/study/Shells/powershell/setups/Running_HostMon_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 326 1 2292 127 2251799813962187 3 /mnt/c/study/setups/Running_phpBB_in_Docker_on_Ubuntu_Server
+DUPTYPE_WITHIN_SAME_TREE -326 3 2292 127 7599824371682628 3 /mnt/c/study/Shells/powershell/setups/Running_phpBB_in_Docker_on_Ubuntu_Server
+DUPTYPE_FIRST_OCCURRENCE 306 1 2295 127 2251799813962098 3 /mnt/c/study/setups/Running_AirSonic_in_Docker_on_Ubuntu_Server
+DUPTYPE_WITHIN_SAME_TREE -306 3 2295 127 8162774325103902 3 /mnt/c/study/Shells/powershell/setups/Running_AirSonic_in_Docker_on_Ubuntu_Server
+DUPTYPE_FIRST_OCCURRENCE 344 1 2301 127 2251799813962243 3 /mnt/c/study/setups/Setting_Up_and_Running_the_JSON_Resume_CLI_Project_in_Ubuntu_Using_Node.js,_npm,_and_Git
+DUPTYPE_WITHIN_SAME_TREE -344 3 2301 127 7881299348393304 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Running_the_JSON_Resume_CLI_Project_in_Ubuntu_Using_Node.js,_npm,_and_Git
+DUPTYPE_FIRST_OCCURRENCE 275 1 2321 127 1688849860540713 3 /mnt/c/study/setups/Lets_Install_Pi.Alert_-_A_Network_Intrusion_Monitor
+DUPTYPE_WITHIN_SAME_TREE -275 3 2321 127 7036874418261156 3 /mnt/c/study/Shells/powershell/setups/Lets_Install_Pi.Alert_-_A_Network_Intrusion_Monitor
+DUPTYPE_FIRST_OCCURRENCE 221 1 2347 127 2251799813961738 3 /mnt/c/study/setups/HarperDB_Setup_Tutorial_on_Ubuntu.pdf
+DUPTYPE_WITHIN_SAME_TREE -221 3 2347 127 7318349394971916 3 /mnt/c/study/Shells/powershell/setups/HarperDB_Setup_Tutorial_on_Ubuntu.pdf
+DUPTYPE_FIRST_OCCURRENCE 310 1 2351 127 2533274790672763 3 /mnt/c/study/setups/Running_Firefly_III_-_Personal_Finance_Manager_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -310 3 2351 127 6755399441550733 3 /mnt/c/study/Shells/powershell/setups/Running_Firefly_III_-_Personal_Finance_Manager_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 341 1 2360 127 2251799813962233 3 /mnt/c/study/setups/Setting_Up_and_Configuring_Dgraph_for_Graph_Databases_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -341 3 2360 127 7599824371682645 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Configuring_Dgraph_for_Graph_Databases_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 303 1 2438 127 2251799813962093 3 /mnt/c/study/setups/Run_n8n_-_Open_Source_Workflow_Automation_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -303 3 2438 127 7036874418261274 3 /mnt/c/study/Shells/powershell/setups/Run_n8n_-_Open_Source_Workflow_Automation_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 350 1 2442 127 2251799813962260 3 /mnt/c/study/setups/Setup,_Run,_and_Use_GnuTLS_in_Ubuntu_for_Secure_Communication,_Certificate_Management,_and_TLS-SSL_Protocol_Implementation
+DUPTYPE_WITHIN_SAME_TREE -350 3 2442 127 7599824371682654 3 /mnt/c/study/Shells/powershell/setups/Setup,_Run,_and_Use_GnuTLS_in_Ubuntu_for_Secure_Communication,_Certificate_Management,_and_TLS-SSL_Protocol_Implementation
+DUPTYPE_FIRST_OCCURRENCE 250 1 2443 127 1688849860540619 3 /mnt/c/study/setups/Install_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -250 3 2443 127 7599824371682444 3 /mnt/c/study/Shells/powershell/setups/Install_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 302 1 2499 127 2251799813962092 3 /mnt/c/study/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -302 3 2499 127 7599824371682585 3 /mnt/c/study/Shells/powershell/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 295 1 2536 127 1688849860540771 3 /mnt/c/study/setups/Run_Microsoft_SQL_Server_Containerized_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -295 3 2536 127 7881299348393134 3 /mnt/c/study/Shells/powershell/setups/Run_Microsoft_SQL_Server_Containerized_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 309 1 2547 127 2251799813962109 3 /mnt/c/study/setups/Running_File_Browser_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -309 3 2547 127 7036874418261280 3 /mnt/c/study/Shells/powershell/setups/Running_File_Browser_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 383 1 2584 127 1970324837251635 3 /mnt/c/study/setups/install_setup_and_run_datafusion_pipeline_on_ubuntu.sh
+DUPTYPE_WITHIN_SAME_TREE -383 3 2584 127 7036874418261203 3 /mnt/c/study/Shells/powershell/setups/install_setup_and_run_datafusion_pipeline_on_ubuntu.sh
+DUPTYPE_FIRST_OCCURRENCE 314 1 2590 127 2251799813962132 3 /mnt/c/study/setups/Running_Homepage_Application_Dashboard_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -314 3 2590 127 7881299348393251 3 /mnt/c/study/Shells/powershell/setups/Running_Homepage_Application_Dashboard_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 320 1 2643 127 2251799813962175 3 /mnt/c/study/setups/Running_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -320 3 2643 127 11258999068921136 3 /mnt/c/study/Shells/powershell/setups/Running_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 249 1 2649 127 1688849860540618 3 /mnt/c/study/setups/Install_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_on_Linux_
+DUPTYPE_WITHIN_SAME_TREE -249 3 2649 127 7881299348393099 3 /mnt/c/study/Shells/powershell/setups/Install_Organizr_-_A_Homelab_Services_Organizer_Dashboard_-_on_Linux_
+DUPTYPE_FIRST_OCCURRENCE 299 1 2660 127 2251799813962089 3 /mnt/c/study/setups/Run_SolidInvoice_-_Open_Source_Invoicing_Software_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -299 3 2660 127 6755399441550614 3 /mnt/c/study/Shells/powershell/setups/Run_SolidInvoice_-_Open_Source_Invoicing_Software_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 343 1 2673 127 2251799813962240 3 /mnt/c/study/setups/Setting_Up_and_Running_Tekton_Pipelines_on_Ubuntu_Using_Kubernetes,_Minikube,_and_Docker
+DUPTYPE_WITHIN_SAME_TREE -343 3 2673 127 9851624185367895 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Running_Tekton_Pipelines_on_Ubuntu_Using_Kubernetes,_Minikube,_and_Docker
+DUPTYPE_FIRST_OCCURRENCE 337 1 2690 127 2251799813962221 3 /mnt/c/study/setups/Setting_Up_OpenWRT_in_Ubuntu_with_qemu
+DUPTYPE_WITHIN_SAME_TREE -337 3 2690 127 10977524092210513 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_OpenWRT_in_Ubuntu_with_qemu
+DUPTYPE_FIRST_OCCURRENCE 201 1 2725 127 2251799813961680 3 /mnt/c/study/setups/
+Running_Kanboard_Visual_Todo_and_Tasks_Management_in_Docker_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -201 3 2725 127 7599824371682555 3 /mnt/c/study/Shells/powershell/setups/
+Running_Kanboard_Visual_Todo_and_Tasks_Management_in_Docker_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 334 1 2793 127 2251799813962209 3 /mnt/c/study/setups/Set_Up_and_Use_LokiJS_for_In-Memory_Database_Operations_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -334 3 2793 127 7318349394971982 3 /mnt/c/study/Shells/powershell/setups/Set_Up_and_Use_LokiJS_for_In-Memory_Database_Operations_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 223 1 2805 127 1688849860540438 3 /mnt/c/study/setups/Implement_GitOps_with_Argo_CD_and_Terraform_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -223 3 2805 127 7599824371682433 3 /mnt/c/study/Shells/powershell/setups/Implement_GitOps_with_Argo_CD_and_Terraform_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 345 1 2855 127 2251799813962248 3 /mnt/c/study/setups/Setting_Up_and_Running_the_ehmicky-test-each_Project_in_Ubuntu_Using_Node.js_and_NPM
+DUPTYPE_WITHIN_SAME_TREE -345 3 2855 127 7318349394971993 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Running_the_ehmicky-test-each_Project_in_Ubuntu_Using_Node.js_and_NPM
+DUPTYPE_FIRST_OCCURRENCE 347 1 2861 127 2251799813962256 3 /mnt/c/study/setups/Setting_Up_and_Using_IBM_Watson_on_Ubuntu_with_python
+DUPTYPE_WITHIN_SAME_TREE -347 3 2861 127 7318349394971995 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Using_IBM_Watson_on_Ubuntu_with_python
+DUPTYPE_FIRST_OCCURRENCE 255 1 2868 127 1688849860540625 3 /mnt/c/study/setups/Install_SolidInvoice_-_Open_Source_Invoicing_Software_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -255 3 2868 127 8444249301814417 3 /mnt/c/study/Shells/powershell/setups/Install_SolidInvoice_-_Open_Source_Invoicing_Software_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 284 1 2945 127 1688849860540754 3 /mnt/c/study/setups/Run_Akaunting_-_Open_Source_Accounting_Software_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -284 3 2945 127 7036874418261158 3 /mnt/c/study/Shells/powershell/setups/Run_Akaunting_-_Open_Source_Accounting_Software_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 298 1 2956 127 1688849860540775 3 /mnt/c/study/setups/Run_Odoo_-_Open_Source_Business_Application_Suite_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -298 3 2956 127 8444249301814449 3 /mnt/c/study/Shells/powershell/setups/Run_Odoo_-_Open_Source_Business_Application_Suite_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 253 1 2956 127 1688849860540622 3 /mnt/c/study/setups/Install_Seafile_Server_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -253 3 2956 127 7036874418261135 3 /mnt/c/study/Shells/powershell/setups/Install_Seafile_Server_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 222 1 2975 127 1688849860540433 3 /mnt/c/study/setups/Host_Your_Own_GitHub_Alternative_with_Gitea
+DUPTYPE_WITHIN_SAME_TREE -222 3 2975 127 6755399441550464 3 /mnt/c/study/Shells/powershell/setups/Host_Your_Own_GitHub_Alternative_with_Gitea
+DUPTYPE_FIRST_OCCURRENCE 7014 3 2981 127 8444249301431920 3 /mnt/c/study/Hacking/PacketCapture/nmap/top_30_nmap_commands
+DUPTYPE_WITHIN_SAME_TREE -7014 3 2981 127 1970324837041555 3 /mnt/c/study/Hacking/info_gathering/nmap/top_30_nmap_commands
+DUPTYPE_FIRST_OCCURRENCE 300 1 2987 127 2251799813962090 3 /mnt/c/study/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -300 3 2987 127 6755399441550615 3 /mnt/c/study/Shells/powershell/setups/Run_miniPaint_-_Browser_Based_Image_Editor_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 229 1 2991 127 1688849860540461 3 /mnt/c/study/setups/Install_ChromeOS_Flex_(CloudReady_2.0)_on_a_Laptop_or_Desktop
+DUPTYPE_WITHIN_SAME_TREE -229 3 2991 127 7881299348393091 3 /mnt/c/study/Shells/powershell/setups/Install_ChromeOS_Flex_(CloudReady_2.0)_on_a_Laptop_or_Desktop
+DUPTYPE_FIRST_OCCURRENCE 285 1 3058 127 1688849860540756 3 /mnt/c/study/setups/Run_BookStack_-_Documentation_Wiki_Platform_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -285 3 3058 127 7599824371682471 3 /mnt/c/study/Shells/powershell/setups/Run_BookStack_-_Documentation_Wiki_Platform_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 290 1 3063 127 2251799813962074 3 /mnt/c/study/setups/Run_Homarr_Application_Dashboard_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -290 3 3063 127 7599824371682579 3 /mnt/c/study/Shells/powershell/setups/Run_Homarr_Application_Dashboard_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 328 1 3095 127 2251799813962191 3 /mnt/c/study/setups/Set_Up_LVS_as_a_NAT_Load_Balancer_on_Ubuntu_using_IPVSADM
+DUPTYPE_WITHIN_SAME_TREE -328 3 3095 127 8162774325103946 3 /mnt/c/study/Shells/powershell/setups/Set_Up_LVS_as_a_NAT_Load_Balancer_on_Ubuntu_using_IPVSADM
+DUPTYPE_FIRST_OCCURRENCE 240 1 3122 127 1688849860540538 3 /mnt/c/study/setups/Install_Kanboard_Visual_Todo_and_Tasks_Management_on_Debian_or_Ubuntu_Linux
+DUPTYPE_WITHIN_SAME_TREE -240 3 3122 127 7036874418261125 3 /mnt/c/study/Shells/powershell/setups/Install_Kanboard_Visual_Todo_and_Tasks_Management_on_Debian_or_Ubuntu_Linux
+DUPTYPE_FIRST_OCCURRENCE 297 1 3145 127 1688849860540773 3 /mnt/c/study/setups/Run_MyBB_-_Open_Source_Forum_Software_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -297 3 3145 127 7881299348393136 3 /mnt/c/study/Shells/powershell/setups/Run_MyBB_-_Open_Source_Forum_Software_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 262 1 3183 127 1688849860540632 3 /mnt/c/study/setups/Install_n8n_-_Open_Source_Workflow_Automation_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -262 3 3183 127 7036874418261143 3 /mnt/c/study/Shells/powershell/setups/Install_n8n_-_Open_Source_Workflow_Automation_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 307 1 3220 127 3096224744093566 3 /mnt/c/study/setups/Running_Drupal_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -307 3 3220 127 7318349394972096 3 /mnt/c/study/Shells/powershell/setups/Running_Drupal_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 360 1 3221 127 2251799813962269 3 /mnt/c/study/setups/_Set_Up_and_Use_Fluent_Bit_for_Lightweight_Log_Collection_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -360 3 3221 127 7036874418261351 3 /mnt/c/study/Shells/powershell/setups/_Set_Up_and_Use_Fluent_Bit_for_Lightweight_Log_Collection_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 263 1 3234 127 1688849860540633 3 /mnt/c/study/setups/Install_n8n_-_Open_Source_Workflow_Automation_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -263 3 3234 127 8162774325103768 3 /mnt/c/study/Shells/powershell/setups/Install_n8n_-_Open_Source_Workflow_Automation_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 264 1 3247 127 1688849860540634 3 /mnt/c/study/setups/Install_openSIS_Student_Information_System_on_Debian_or_Ubuntu_Linux
+DUPTYPE_WITHIN_SAME_TREE -264 3 3247 127 7036874418261145 3 /mnt/c/study/Shells/powershell/setups/Install_openSIS_Student_Information_System_on_Debian_or_Ubuntu_Linux
+DUPTYPE_FIRST_OCCURRENCE 318 1 3277 127 2251799813962171 3 /mnt/c/study/setups/Running_LibrePhotos_-_Self-Hosted_Google_Photos_Alternative_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -318 3 3277 127 9288674231946534 3 /mnt/c/study/Shells/powershell/setups/Running_LibrePhotos_-_Self-Hosted_Google_Photos_Alternative_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 340 1 3429 127 2251799813962230 3 /mnt/c/study/setups/Setting_Up_a_VPN_Travel_Router_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -340 3 3429 127 7318349394971988 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_a_VPN_Travel_Router_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 247 1 3448 127 1688849860540613 3 /mnt/c/study/setups/Install_Odoo_-_Open_Source_Business_Application_Suite_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -247 3 3448 127 8444249301814409 3 /mnt/c/study/Shells/powershell/setups/Install_Odoo_-_Open_Source_Business_Application_Suite_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 265 1 3479 127 1688849860540636 3 /mnt/c/study/setups/Installing_Ajenti_Web_Administration_Panel
+DUPTYPE_WITHIN_SAME_TREE -265 3 3479 127 7318349394971802 3 /mnt/c/study/Shells/powershell/setups/Installing_Ajenti_Web_Administration_Panel
+DUPTYPE_FIRST_OCCURRENCE 281 1 3600 127 2251799813962059 3 /mnt/c/study/setups/Quickly_Deploy_an_Apache_PHP_MySQL_Development_Environment_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -281 3 3600 127 8162774325103890 3 /mnt/c/study/Shells/powershell/setups/Quickly_Deploy_an_Apache_PHP_MySQL_Development_Environment_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 245 1 3609 127 1688849860540605 3 /mnt/c/study/setups/Install_MyBB_-_Open_Source_Forum_Software_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -245 3 3609 127 8444249301814407 3 /mnt/c/study/Shells/powershell/setups/Install_MyBB_-_Open_Source_Forum_Software_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 368 1 3630 127 2251799813962275 3 /mnt/c/study/setups/_manage_AWS_resources_using_CloudFormation_and_the_AWS_CLI
+DUPTYPE_WITHIN_SAME_TREE -368 3 3630 127 7599824371682669 3 /mnt/c/study/Shells/powershell/setups/_manage_AWS_resources_using_CloudFormation_and_the_AWS_CLI
+DUPTYPE_FIRST_OCCURRENCE 231 1 3670 127 1688849860540468 3 /mnt/c/study/setups/Install_Easy!Appointments_on_Linux_[Opensource_Appointment_Scheduler_System]
+DUPTYPE_WITHIN_SAME_TREE -231 3 3670 127 7318349394971780 3 /mnt/c/study/Shells/powershell/setups/Install_Easy!Appointments_on_Linux_[Opensource_Appointment_Scheduler_System]
+DUPTYPE_FIRST_OCCURRENCE 256 1 3688 127 1688849860540626 3 /mnt/c/study/setups/Install_UVdesk_on_Linux_[Opensource_Helpdesk_Ticketing_System]
+DUPTYPE_WITHIN_SAME_TREE -256 3 3688 127 7036874418261138 3 /mnt/c/study/Shells/powershell/setups/Install_UVdesk_on_Linux_[Opensource_Helpdesk_Ticketing_System]
+DUPTYPE_FIRST_OCCURRENCE 225 1 3708 127 1688849860540450 3 /mnt/c/study/setups/Install_Akaunting_-_Open_Source_Accounting_Software_-_On_Linux
+DUPTYPE_WITHIN_SAME_TREE -225 3 3708 127 7036874418261122 3 /mnt/c/study/Shells/powershell/setups/Install_Akaunting_-_Open_Source_Accounting_Software_-_On_Linux
+DUPTYPE_FIRST_OCCURRENCE 311 1 3740 127 3096224744094065 3 /mnt/c/study/setups/Running_Firefly_III_on_Linux_[PHP_Based_Personal_Finance_Manager]
+DUPTYPE_WITHIN_SAME_TREE -311 3 3740 127 8444249301814721 3 /mnt/c/study/Shells/powershell/setups/Running_Firefly_III_on_Linux_[PHP_Based_Personal_Finance_Manager]
+DUPTYPE_FIRST_OCCURRENCE 242 1 3750 127 1688849860540557 3 /mnt/c/study/setups/Install_Lemmy_Self-Hosted_Reddit_Alternative_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -242 3 3750 127 7599824371682438 3 /mnt/c/study/Shells/powershell/setups/Install_Lemmy_Self-Hosted_Reddit_Alternative_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 293 1 3773 127 1688849860540765 3 /mnt/c/study/setups/Run_InvoiceNinja_-_Invoice_and_Payment_Manager_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -293 3 3773 127 7318349394971820 3 /mnt/c/study/Shells/powershell/setups/Run_InvoiceNinja_-_Invoice_and_Payment_Manager_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 11574 3 3834 127 4222124650902432 3 /mnt/c/study/networking/protocols/DHCP/top_50_TCP_IP_commands_for_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -11574 3 3834 127 3659174697358197 3 /mnt/c/study/networking/protocols/tcp/top_50_TCP_IP_commands_for_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 355 1 3862 127 2251799813962265 3 /mnt/c/study/setups/_Configure_and_Use_ArangoDB_for_Multi-Model_Databases_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -355 3 3862 127 8162774325103970 3 /mnt/c/study/Shells/powershell/setups/_Configure_and_Use_ArangoDB_for_Multi-Model_Databases_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 331 1 3943 127 2251799813962201 3 /mnt/c/study/setups/Set_Up_and_Use_AWS_ECS_with_AWS_CLI
+DUPTYPE_WITHIN_SAME_TREE -331 3 3943 127 7599824371682636 3 /mnt/c/study/Shells/powershell/setups/Set_Up_and_Use_AWS_ECS_with_AWS_CLI
+DUPTYPE_FIRST_OCCURRENCE 319 1 3948 127 2251799813962173 3 /mnt/c/study/setups/Running_Matrix_Synapse_Home_Server_in_Docker_on_Ubuntu_Server
+DUPTYPE_WITHIN_SAME_TREE -319 3 3948 127 7036874418261292 3 /mnt/c/study/Shells/powershell/setups/Running_Matrix_Synapse_Home_Server_in_Docker_on_Ubuntu_Server
+DUPTYPE_FIRST_OCCURRENCE 254 1 3992 127 1688849860540623 3 /mnt/c/study/setups/Install_SolidInvoice_-_Open_Source_Invoicing_Software_-_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -254 3 3992 127 7881299348393104 3 /mnt/c/study/Shells/powershell/setups/Install_SolidInvoice_-_Open_Source_Invoicing_Software_-_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 6954 3 4020 127 1970324837040734 3 /mnt/c/study/Hacking/Intrusion_Detection/snort/intrusion_detection_and_prevention_systems_for_unauthorized_access_and_other_network_attacks_in_ubuntu_with_snort
+DUPTYPE_WITHIN_SAME_TREE -6954 3 4020 127 11540474045249082 3 /mnt/c/study/Hacking/PacketCapture/snort/intrusion_detection_and_prevention_systems_for_unauthorized_access_and_other_network_attacks_in_ubuntu_with_snort
+DUPTYPE_FIRST_OCCURRENCE 333 1 4041 127 2251799813962205 3 /mnt/c/study/setups/Set_Up_and_Use_Google_Anthos_for_Hybrid_Cloud_Management_in_Ubuntu_with_kubernetes
+DUPTYPE_WITHIN_SAME_TREE -333 3 4041 127 7881299348393293 3 /mnt/c/study/Shells/powershell/setups/Set_Up_and_Use_Google_Anthos_for_Hybrid_Cloud_Management_in_Ubuntu_with_kubernetes
+DUPTYPE_FIRST_OCCURRENCE 339 1 4045 127 2251799813962226 3 /mnt/c/study/setups/Setting_Up_a_Bug_and_Enhancement_Tracker_Using_Redmine_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -339 3 4045 127 9288674231946579 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_a_Bug_and_Enhancement_Tracker_Using_Redmine_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 336 1 4112 127 2251799813962219 3 /mnt/c/study/setups/Setting_Up_Edge_Computing_in_Ubuntu_Using_Docker,_Kubernetes,_MicroK8s,_MQTT,_and_Ansible
+DUPTYPE_WITHIN_SAME_TREE -336 3 4112 127 7599824371682640 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_Edge_Computing_in_Ubuntu_Using_Docker,_Kubernetes,_MicroK8s,_MQTT,_and_Ansible
+DUPTYPE_FIRST_OCCURRENCE 283 1 4152 127 1688849860540753 3 /mnt/c/study/setups/Roll_Your_Own_LAN_Instant_Messaging_Platform_with_OpenFire_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -283 3 4152 127 8162774325103781 3 /mnt/c/study/Shells/powershell/setups/Roll_Your_Own_LAN_Instant_Messaging_Platform_with_OpenFire_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 11635 3 4249 127 4222124650902648 3 /mnt/c/study/networking/protocols/Transport/UDP_VS_TCP.abw
+DUPTYPE_WITHIN_SAME_TREE -11635 3 4249 127 51228445761458384 3 /mnt/c/study/networking/protocols/tcp/UDP_VS_TCP.abw
+DUPTYPE_FIRST_OCCURRENCE 374 1 4254 127 1970324837251626 3 /mnt/c/study/setups/automate_nodemon_setup_and_run_with_all_dependencies.sh
+DUPTYPE_WITHIN_SAME_TREE -374 3 4254 127 8444249301814474 3 /mnt/c/study/Shells/powershell/setups/automate_nodemon_setup_and_run_with_all_dependencies.sh
+DUPTYPE_FIRST_OCCURRENCE 348 1 4260 127 2251799813962258 3 /mnt/c/study/setups/Setting_Up_and_Using_RiveScript_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -348 3 4260 127 8444249301814620 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Using_RiveScript_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 248 1 4337 127 1688849860540616 3 /mnt/c/study/setups/Install_Odoo_-_Open_Source_Business_Application_Suite_-_on_Windows
+DUPTYPE_WITHIN_SAME_TREE -248 3 4337 127 7318349394971786 3 /mnt/c/study/Shells/powershell/setups/Install_Odoo_-_Open_Source_Business_Application_Suite_-_on_Windows
+DUPTYPE_FIRST_OCCURRENCE 346 1 4340 127 2251799813962254 3 /mnt/c/study/setups/Setting_Up_and_Using_Cloud_Native_Buildpacks_for_Containerized_Applications_on_Ubuntu_with_docker._pack_cli_and_nodejs
+DUPTYPE_WITHIN_SAME_TREE -346 3 4340 127 8725724278525274 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Using_Cloud_Native_Buildpacks_for_Containerized_Applications_on_Ubuntu_with_docker._pack_cli_and_nodejs
+DUPTYPE_FIRST_OCCURRENCE 380 1 4397 127 1970324837251632 3 /mnt/c/study/setups/install_cacti_ubuntu.sh
+DUPTYPE_WITHIN_SAME_TREE -380 3 4397 127 8162774325103824 3 /mnt/c/study/Shells/powershell/setups/install_cacti_ubuntu.sh
+DUPTYPE_FIRST_OCCURRENCE 342 1 4843 127 2251799813962237 3 /mnt/c/study/setups/Setting_Up_and_Running_Cert-Manager_in_Ubuntu_Using_Helm_and_kubectl_for_Managing_Kubernetes_Certificates
+DUPTYPE_WITHIN_SAME_TREE -342 3 4843 127 8725724278525270 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_and_Running_Cert-Manager_in_Ubuntu_Using_Helm_and_kubectl_for_Managing_Kubernetes_Certificates
+DUPTYPE_FIRST_OCCURRENCE 330 1 5050 127 2533274790672852 3 /mnt/c/study/setups/Set_Up_and_Configure_HashiCorp_Vault_with_AppRole_Authentication_and_Custom_TLS_Certificate_in_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -330 3 5050 127 9007199255235982 3 /mnt/c/study/Shells/powershell/setups/Set_Up_and_Configure_HashiCorp_Vault_with_AppRole_Authentication_and_Custom_TLS_Certificate_in_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2086 2 5062 127 2251799813752587 3 /mnt/c/study/Hacking/pentesting/Setting_Up_Ngrok_and_Metasploit_for_Remote_Penetration_Testing_with__reverse_TCP_handleron_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2086 3 5062 127 3377699720646933 3 /mnt/c/study/networking/protocols/tcp/Setting_Up_Ngrok_and_Metasploit_for_Remote_Penetration_Testing_with__reverse_TCP_handleron_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 338 1 5426 127 2251799813962223 3 /mnt/c/study/setups/Setting_Up_Shared_Database_Container_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -338 3 5426 127 8162774325103954 3 /mnt/c/study/Shells/powershell/setups/Setting_Up_Shared_Database_Container_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 327 1 5579 127 2251799813962189 3 /mnt/c/study/setups/Self-Hosted_ACME_(Automated_Certificate_Management_Environment)_Server_with_Step-CA_on_Linux
+DUPTYPE_WITHIN_SAME_TREE -327 3 5579 127 7599824371682633 3 /mnt/c/study/Shells/powershell/setups/Self-Hosted_ACME_(Automated_Certificate_Management_Environment)_Server_with_Step-CA_on_Linux
+DUPTYPE_FIRST_OCCURRENCE 217 1 5817 127 2251799813961730 3 /mnt/c/study/setups/Asterisk_VOIP_Setup_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -217 3 5817 127 6755399441550600 3 /mnt/c/study/Shells/powershell/setups/Asterisk_VOIP_Setup_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1611 2 7198 127 1970324837036934 3 /mnt/c/study/Artificial_Intelligence/OpenAI/codeGPT_vs_chatGPT
+DUPTYPE_WITHIN_SAME_TREE -1611 4 7198 127 7318349394719916 3 /mnt/c/study/IDE/IDEs/VScode/codeGPT/codeGPT_vs_chatGPT
+DUPTYPE_FIRST_OCCURRENCE 335 1 9095 127 2251799813962213 3 /mnt/c/study/setups/Setting_Up,_Running,_and_Using_Argo_Workflows_for_Data_Pipeline_Framework_in_Ubuntu_Using_Kubernetes_and_Minikube
+DUPTYPE_WITHIN_SAME_TREE -335 3 9095 127 7881299348393295 3 /mnt/c/study/Shells/powershell/setups/Setting_Up,_Running,_and_Using_Argo_Workflows_for_Data_Pipeline_Framework_in_Ubuntu_Using_Kubernetes_and_Minikube
+DUPTYPE_FIRST_OCCURRENCE 362 1 9197 127 2251799813962271 3 /mnt/c/study/setups/_Setting_Up_and_Running_OpenBazaar-go_Server_on_Ubuntu_Using_Docker:_Complete_Installation_and_Troubleshooting_Guide_with_DNS_Resolution_Error_Fix
+DUPTYPE_WITHIN_SAME_TREE -362 3 9197 127 7599824371682665 3 /mnt/c/study/Shells/powershell/setups/_Setting_Up_and_Running_OpenBazaar-go_Server_on_Ubuntu_Using_Docker:_Complete_Installation_and_Troubleshooting_Guide_with_DNS_Resolution_Error_Fix
+DUPTYPE_FIRST_OCCURRENCE 294 1 9842 127 1688849860540769 3 /mnt/c/study/setups/Run_Mastodon_-_A_Federated_Twitter_Alternative_-_in_Docker
+DUPTYPE_WITHIN_SAME_TREE -294 3 9842 127 7036874418261165 3 /mnt/c/study/Shells/powershell/setups/Run_Mastodon_-_A_Federated_Twitter_Alternative_-_in_Docker
+DUPTYPE_FIRST_OCCURRENCE 361 1 10588 127 2251799813962270 3 /mnt/c/study/setups/_Setting_Up,_Running,_and_Securing_Infrastructure_as_Code_IaC_with_Terraform_and_Checkov_in_Ubuntu:_A_Step-by-Step
+DUPTYPE_WITHIN_SAME_TREE -361 3 10588 127 8162774325103976 3 /mnt/c/study/Shells/powershell/setups/_Setting_Up,_Running,_and_Securing_Infrastructure_as_Code_IaC_with_Terraform_and_Checkov_in_Ubuntu:_A_Step-by-Step
+DUPTYPE_FIRST_OCCURRENCE 6995 3 16899 127 7318349394589278 3 /mnt/c/study/Hacking/PacketCapture/nmap/NMAP_Port_States.docx
+DUPTYPE_WITHIN_SAME_TREE -6995 3 16899 127 1970324837041371 3 /mnt/c/study/Hacking/info_gathering/nmap/NMAP_Port_States.docx
+DUPTYPE_FIRST_OCCURRENCE 4967 2 87283 127 7881299348138657 3 /mnt/c/study/hosting/jupyter/zest_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4967 3 87283 127 10696049115442447 3 /mnt/c/study/IDE/IDEs/jupyter/zest_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4961 2 87286 127 7599824371427670 3 /mnt/c/study/hosting/jupyter/PuLID_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4961 3 87286 127 8162774325046538 3 /mnt/c/study/IDE/IDEs/jupyter/PuLID_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4953 2 87290 127 7036874418004645 3 /mnt/c/study/hosting/jupyter/IC_Light_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4953 3 87290 127 9007199255178487 3 /mnt/c/study/IDE/IDEs/jupyter/IC_Light_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4959 2 87292 127 6192449487874364 3 /mnt/c/study/hosting/jupyter/MagicTime_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4959 3 87292 127 9570149208599814 3 /mnt/c/study/IDE/IDEs/jupyter/MagicTime_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4957 2 87299 127 10977524091955445 3 /mnt/c/study/hosting/jupyter/InstantMesh_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4957 3 87299 127 10977524092153088 3 /mnt/c/study/IDE/IDEs/jupyter/InstantMesh_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4958 2 87300 127 5910974511163684 3 /mnt/c/study/hosting/jupyter/LivePortrait_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4958 3 87300 127 9007199255178500 3 /mnt/c/study/IDE/IDEs/jupyter/LivePortrait_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4960 2 87301 127 3096224744057168 3 /mnt/c/study/hosting/jupyter/Open_Sora_Plan_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4960 3 87301 127 10133099162021129 3 /mnt/c/study/IDE/IDEs/jupyter/Open_Sora_Plan_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 4952 2 87302 127 12384898975507078 3 /mnt/c/study/hosting/jupyter/AniPortrait_vid2vid_jupyter.ipynb
+DUPTYPE_WITHIN_SAME_TREE -4952 3 87302 127 10414574138731765 3 /mnt/c/study/IDE/IDEs/jupyter/AniPortrait_vid2vid_jupyter.ipynb
+DUPTYPE_FIRST_OCCURRENCE 354 1 300925 127 2251799813962264 3 /mnt/c/study/setups/Test_Automation_Jenkins_Controller_Agent_setup_in_GCP_Ubuntu_VM.docx
+DUPTYPE_WITHIN_SAME_TREE -354 3 300925 127 7036874418261345 3 /mnt/c/study/Shells/powershell/setups/Test_Automation_Jenkins_Controller_Agent_setup_in_GCP_Ubuntu_VM.docx
 # end of file

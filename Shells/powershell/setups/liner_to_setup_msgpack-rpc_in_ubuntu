@@ -1,0 +1,1 @@
+sudo apt-get install -y libmsgpack-dev && echo 'msgpack installed successfully'

@@ -1,0 +1,1 @@
+apt update && apt upgrade -y && apt install curl -y && curl https://bitping.com/install.sh | bash && source ~/.bashrc && bitpingd login --email <> --password <> && bitpingd

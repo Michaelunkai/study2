@@ -1,0 +1,1 @@
+sudo apt install -y iptraf && sudo iptraf -i eth0

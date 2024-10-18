@@ -1,0 +1,37 @@
+▲A  A▼
+Running Ubooquity eBook Manager and Reader Using Docker
+What is Ubooquity?
+Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer. -https://github.com/linuxserver/docker-ubooquity
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Ubooquity
+Continue with the following commands in a terminal window
+# list current uid and gid, note these for later
+id $user
+# create a working directory
+mkdir ~/docker/ubooquity/{config,books,comics,files} -p
+# run the ubooquity docker image
+# replace PUID, GUID with the output of the id $user command above
+docker run -d --name=ubooquity -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -p 2202:2202 -p 2203:2203 -v ~/docker/ubooquity/config:/config -v ~/docker/ubooquity/books:/books -v ~/docker/ubooquity/comics:/comics -v ~/docker/ubooquity/files:/files --restart unless-stopped lscr.io/linuxserver/ubooquity:latest
+Open a web browser and navigate to http://DNSorIP:2203/ubooquity/admin
+Enter and confirm an administrative password
+Navigate to http://DNSorIP:2202/ubooquity
+Welcome to Ubooquity
+Documentation: https://hub.docker.com/r/linuxserver/ubooquity
+
+ 

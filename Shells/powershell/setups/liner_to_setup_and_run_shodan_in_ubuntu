@@ -1,0 +1,1 @@
+pip3 install shodan && shodan init sXUy0EyGCDA0iE7w1Cj6U6uejqRylv70 && gc https://account.shodan.io/login

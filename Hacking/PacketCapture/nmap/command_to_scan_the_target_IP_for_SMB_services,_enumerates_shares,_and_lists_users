@@ -1,0 +1,1 @@
+nmap -p 445 --script smb-os-discovery,smb-enum-shares,smb-enum-users <TARGET_IP>

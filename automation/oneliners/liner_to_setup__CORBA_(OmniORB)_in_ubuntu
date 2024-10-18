@@ -1,0 +1,1 @@
+sudo apt install -y omniorb omniidl && omniNames --version
