@@ -1,0 +1,31 @@
+Enable Resilience with Retries (Optional)
+ 
+ 
+nano src/main/scala/FinagleServerWithRetry.scala
+Paste this content manually:
+
+scala
+ 
+import com.twitter.finagle.{Http, Service, SimpleFilter}
+import com.twitter.finagle.http.{Request, Response}
+import com.twitter.util.{Await, Future}
+
+object RetryFilter extends SimpleFilter[Request, Response] {
+  def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
+    service(request).rescue {
+      case _ => service(request)  // Retry once on failure
+    }
+  }
+}
+
+object FinagleServerWithRetry extends App {
+  val service = (request: Request) => {
+    val response = Response()
+    response.contentString = "Hello from resilient Finagle!"
+    Future.value(response)
+  }
+
+  val retryingService = RetryFilter andThen service
+  val server = Http.serve(":8080", retryingService)
+  Await.ready(server)
+}

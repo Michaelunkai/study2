@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Study Log</title>
+</head>
+<body>
+    <h1>Add Study Log</h1>
+    <form action="{{ url_for("add_log") }}" method="post">
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" list="subjects">
+        <datalist id="subjects">
+            {% for subject in subjects %}
+            <option value="{{ subject }}">
+            {% endfor %}
+        </datalist>
+        <br>
+        <label for="duration">Duration (minutes):</label>
+        <input type="text" name="duration" id="duration">
+        <br>
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes"></textarea>
+        <br>
+        <input type="submit" value="Add Log">
+    </form>
+    <a href="{{ url_for("index") }}">Back to Logs</a>
+</body>
+</html>

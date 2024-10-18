@@ -1,0 +1,52 @@
+# What is Ceph?
+
+Ceph is an open-source distributed storage system that provides excellent performance, reliability, and scalability. It is designed to handle the storage needs of both large-scale enterprises and small-scale deployments. Ceph provides unified storage with support for object, block, and file storage, making it a versatile solution for a wide range of storage needs.
+
+## Key Features of Ceph:
+
+### 1. **Distributed Architecture**
+   - Ceph distributes data across multiple nodes, ensuring high availability and redundancy. This architecture allows Ceph to handle failures gracefully and provide uninterrupted access to data.
+
+### 2. **Scalability**
+   - Ceph is designed to scale horizontally, meaning you can add more storage nodes to the cluster as your storage needs grow. This allows for seamless expansion without disruption.
+
+### 3. **High Performance**
+   - Ceph uses a distributed object store called RADOS (Reliable Autonomic Distributed Object Store), which provides high-performance data storage and retrieval. RADOS manages data replication, recovery, and rebalancing automatically.
+
+### 4. **Unified Storage**
+   - Ceph supports object storage (using the RADOS Gateway), block storage (using the RADOS Block Device), and file storage (using the Ceph File System). This unified approach simplifies management and provides flexibility in how data is stored and accessed.
+
+### 5. **Fault Tolerance**
+   - Ceph ensures data integrity and availability through data replication and erasure coding. It can recover from hardware failures and maintain data consistency across the cluster.
+
+### 6. **Open Source**
+   - Ceph is open-source software, which means it is freely available and can be modified and extended by the community. This also ensures transparency and no vendor lock-in.
+
+## Use Cases for Ceph:
+
+- **Cloud Storage:** Ceph is commonly used in cloud environments to provide scalable and reliable storage for virtual machines, containers, and cloud-native applications.
+- **Big Data:** Ceph's scalability and performance make it an ideal solution for big data storage and analytics.
+- **Backup and Archiving:** Ceph can be used for backup and archiving solutions, providing reliable and cost-effective storage for large amounts of data.
+- **High-Performance Computing (HPC):** Ceph's high-performance capabilities make it suitable for HPC environments, where large datasets need to be stored and accessed quickly.
+
+## Components of Ceph:
+
+### 1. **Ceph Monitors (MON)**
+   - Monitor the state of the cluster and maintain a map of the cluster state.
+
+### 2. **Ceph OSD Daemons (OSD)**
+   - Store data, handle data replication, recovery, rebalancing, and provide data to clients.
+
+### 3. **Ceph Manager (MGR)**
+   - Provide additional monitoring and interface functionalities, such as the Ceph Dashboard.
+
+### 4. **RADOS Gateway (RGW)**
+   - Provides object storage services compatible with S3 and Swift APIs.
+
+### 5. **RADOS Block Device (RBD)**
+   - Provides block storage services that can be used as virtual disks for virtual machines.
+
+### 6. **Ceph File System (CephFS)**
+   - Provides a POSIX-compliant file system interface.
+
+By integrating these components, Ceph provides a powerful and flexible storage solution that can meet the demands of modern data storage needs.

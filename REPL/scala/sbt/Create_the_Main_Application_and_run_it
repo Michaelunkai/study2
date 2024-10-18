@@ -1,0 +1,26 @@
+Create the Main Application
+ 
+ 
+mkdir -p src/main/scala && nano src/main/scala/FinagleServer.scala
+Paste this content manually:
+
+scala
+ 
+import com.twitter.finagle.Http
+import com.twitter.finagle.http.{Request, Response}
+import com.twitter.util.{Await, Future}
+
+object FinagleServer extends App {
+  val service = (request: Request) => {
+    val response = Response()
+    response.contentString = "Hello from Finagle!"
+    Future.value(response)
+  }
+
+  val server = Http.serve(":8080", service)
+  Await.ready(server)
+}
+Step 6: Run the Server
+ 
+ 
+sbt run

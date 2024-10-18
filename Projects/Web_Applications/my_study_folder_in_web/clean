@@ -1,0 +1,1 @@
+rmf node_modules && cd server && rmf node_modules && cd .. && cc && dush

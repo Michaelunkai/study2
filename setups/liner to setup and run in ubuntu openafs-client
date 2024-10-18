@@ -1,0 +1,1 @@
+sudo apt install -y openafs-client openafs-fileserver openafs-dbserver && sudo systemctl start openafs-fileserver && sudo systemctl status openafs-fileserver

@@ -1,0 +1,8 @@
+mkdir ~/finagle-rpc && cd ~/finagle-rpc && echo 'name := "FinagleRPC"
+version := "0.1"
+scalaVersion := "2.12.13"
+
+libraryDependencies ++= Seq(
+  "com.twitter" %% "finagle-http" % "21.6.0",
+  "com.twitter" %% "finagle-core" % "21.6.0"
+)' > build.sbt
