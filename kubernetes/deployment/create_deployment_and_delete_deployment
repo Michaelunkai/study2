@@ -1,4 +1,0 @@
-kubectl create deployment my-deployment --image=my-image:v1
-
-
-kubectl delete deployment my-deployment

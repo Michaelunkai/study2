@@ -1,1 +1,0 @@
-kubectl run busybox --image=busybox --namespace=my-namespace -- /bin/sh -c "while true; do sleep 3600; done"

@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf eq=brightness=0.06:saturation=1.5 output.mp4

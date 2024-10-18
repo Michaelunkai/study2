@@ -1,4 +1,0 @@
-START TRANSACTION;
-INSERT INTO accounts (name, balance) VALUES ('Alice', 1000);
-UPDATE accounts SET balance = balance - 100 WHERE name = 'Alice';
-COMMIT;

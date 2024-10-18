@@ -1,1 +1,0 @@
-fzf --query 'custom-query'

@@ -1,1 +1,0 @@
-sudo apt install gparted -y && sudo gparted

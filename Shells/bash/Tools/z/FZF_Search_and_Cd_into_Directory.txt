@@ -1,1 +1,0 @@
-fzf --bind 'enter:execute(cd {} && ls)' --select-1 --exit-0

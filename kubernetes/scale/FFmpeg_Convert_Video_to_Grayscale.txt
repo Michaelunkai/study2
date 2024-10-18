@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf format=gray output.mp4

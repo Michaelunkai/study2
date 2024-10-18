@@ -1,1 +1,0 @@
-fzf --bind 'ctrl-x:execute(echo {}),ctrl-y:execute(rm -rf {})'

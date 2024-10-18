@@ -1,1 +1,0 @@
-fzf | xargs -o -I {} echo {}

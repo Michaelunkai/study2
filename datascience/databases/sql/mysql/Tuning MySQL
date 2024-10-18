@@ -1,5 +1,0 @@
-Tuning MySQL
-
-Install MySQL:sudo apt install mysql-serverOptimize MySQL configuration:sudo nano /etc/mysql/mysql.conf.d/mysqld.cnfAdjust the following parameters:innodb_buffer_pool_size = 8G
-innodb_log_file_size = 2GRestart MySQL:sudo systemctl restart mysql
-
