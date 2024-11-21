@@ -1,0 +1,30 @@
+Working with User-Defined Functions (UDFs)
+UDFs allow you to create custom functions not provided by Spark's built-in functions.
+
+Step 1: Define a UDF
+Scala:
+
+scala
+ 
+scala> import org.apache.spark. .functions.udf
+scala> val toUpperCase = udf((s: String) => s.toUpperCase)
+Python:
+
+ 
+ 
+>>> from pyspark.sql.functions import udf
+>>> from pyspark.sql.types import StringType
+>>> to_upper_case = udf(lambda s: s.upper(), StringType())
+Step 2: Apply UDF to DataFrame
+Scala:
+
+scala
+ 
+scala> val newDF = df.withColumn("upper_name", toUpperCase(df("name")))
+scala> newDF.show()
+Python:
+
+ 
+ 
+>>> newDF = df.withColumn("upper_name", to_upper_case(df["name"]))
+>>> newDF.show()

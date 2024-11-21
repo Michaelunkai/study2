@@ -1,0 +1,315 @@
+# Automatically generated
+# duptype id depth size device inode priority name
+DUPTYPE_FIRST_OCCURRENCE 16103 4 771 123 11540474045644126 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/The_potential_of_Artificial_Intelligence
+DUPTYPE_WITHIN_SAME_TREE -16103 4 771 123 7881299348720229 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/The_potential_of_Artificial_Intelligence
+DUPTYPE_FIRST_OCCURRENCE 18545 6 1736 123 4785074604295048 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Your recent learnings 12.11
+DUPTYPE_WITHIN_SAME_TREE -18545 6 1736 123 5910974511802788 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Your recent learnings 12.11
+DUPTYPE_FIRST_OCCURRENCE 18561 6 1867 123 9288674232251157 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Recent_Learnings_in_Intermediate_Python:_Dictionaries_&_Pandas
+DUPTYPE_WITHIN_SAME_TREE -18561 6 1867 123 6192449488513576 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Recent_Learnings_in_Intermediate_Python:_Dictionaries_&_Pandas
+DUPTYPE_FIRST_OCCURRENCE 18556 6 2794 123 32369622321828482 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Dictionaries
+DUPTYPE_WITHIN_SAME_TREE -18556 6 2794 123 6473924465224234 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Dictionaries
+DUPTYPE_FIRST_OCCURRENCE 18583 6 2845 123 7036874418061026 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Comparison Operators
+DUPTYPE_WITHIN_SAME_TREE -18583 6 2845 123 6192449488513506 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Comparison Operators
+DUPTYPE_FIRST_OCCURRENCE 18621 6 3060 123 6192449488441190 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop Data Structures Part 1.txt
+DUPTYPE_WITHIN_SAME_TREE -18621 6 3060 123 6192449488513584 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop Data Structures Part 1.txt
+DUPTYPE_FIRST_OCCURRENCE 18603 6 3212 123 3377699720705714 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Histogram.txt
+DUPTYPE_WITHIN_SAME_TREE -18603 6 3212 123 6473924465224187 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Histogram.txt
+DUPTYPE_FIRST_OCCURRENCE 18592 6 3222 123 14636698789106076 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/if, elif, else.txt
+DUPTYPE_WITHIN_SAME_TREE -18592 6 3222 123 6473924465224175 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/if, elif, else.txt
+DUPTYPE_FIRST_OCCURRENCE 18588 6 3244 123 110056715893964678 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Filtering pandas DataFrames
+DUPTYPE_WITHIN_SAME_TREE -18588 6 3244 123 6473924465224184 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Filtering pandas DataFrames
+DUPTYPE_FIRST_OCCURRENCE 18577 6 3323 123 3096224744621370 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean Operators.txt
+DUPTYPE_WITHIN_SAME_TREE -18577 6 3323 123 6473924465224159 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean Operators.txt
+DUPTYPE_FIRST_OCCURRENCE 18629 6 3530 123 10977524092418863 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/for loop.txt
+DUPTYPE_WITHIN_SAME_TREE -18629 6 3530 123 6473924465224248 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/for loop.txt
+DUPTYPE_FIRST_OCCURRENCE 18630 6 3670 123 13510798882421343 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/while loop.txt
+DUPTYPE_WITHIN_SAME_TREE -18630 6 3670 123 6473924465224246 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/while loop.txt
+DUPTYPE_FIRST_OCCURRENCE 18557 6 3714 123 6192449488494683 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Dictionaries,_Part_2
+DUPTYPE_WITHIN_SAME_TREE -18557 6 3714 123 6192449488513565 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Dictionaries,_Part_2
+DUPTYPE_FIRST_OCCURRENCE 18612 6 3766 123 5629499535096077 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/hacker statistics/Random Numbers.txt
+DUPTYPE_WITHIN_SAME_TREE -18612 6 3766 123 6192449488513493 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/hacker statistics/Random Numbers.txt
+DUPTYPE_FIRST_OCCURRENCE 18602 6 3879 123 7881299348077993 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Customization
+DUPTYPE_WITHIN_SAME_TREE -18602 6 3879 123 7318349395356166 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Customization
+DUPTYPE_FIRST_OCCURRENCE 18622 6 3985 123 19140298416472747 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop Data Structures Part 2.txt
+DUPTYPE_WITHIN_SAME_TREE -18622 6 3985 123 6755399441934903 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop Data Structures Part 2.txt
+DUPTYPE_FIRST_OCCURRENCE 18560 6 4779 123 4222124650856947 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Pandas,_Part_1
+DUPTYPE_WITHIN_SAME_TREE -18560 6 4779 123 6473924465224208 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Pandas,_Part_1
+DUPTYPE_FIRST_OCCURRENCE 18595 6 4911 123 6192449488422173 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Basic_plots_with_Matplotlib
+DUPTYPE_WITHIN_SAME_TREE -18595 6 4911 123 6473924465224193 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Basic_plots_with_Matplotlib
+DUPTYPE_FIRST_OCCURRENCE 18559 6 6410 123 5910974511784925 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Pandas, Part 2
+DUPTYPE_WITHIN_SAME_TREE -18559 6 6410 123 6192449488513564 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Pandas, Part 2
+DUPTYPE_FIRST_OCCURRENCE 18564 6 21804 123 5066549581652050 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/access_dictionary_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18564 6 21804 123 6473924465224210 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/access_dictionary_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18570 6 21851 123 4785074604943526 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_manipulation_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18570 6 21851 123 6473924465224209 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_manipulation_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18565 6 21863 123 7036874418503220 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/create_dictionary_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18565 6 21863 123 6192449488513572 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/create_dictionary_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18569 6 21868 123 5066549581657173 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_manipulation_2_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18569 6 21868 123 6473924465224211 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_manipulation_2_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18568 6 21925 123 5348024558367843 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionaries_of_dictionaries_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18568 6 21925 123 6192449488513557 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionaries_of_dictionaries_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18572 6 21970 123 5066549581658714 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_to_dataframe_pandas_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18572 6 21970 123 6473924465224212 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_to_dataframe_pandas_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18566 6 37115 123 6192449488497824 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/csv_to_dataframe_1_pandas_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18566 6 37115 123 6192449488513568 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/csv_to_dataframe_1_pandas_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18567 6 37213 123 6755399441919147 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/csv_to_dataframe_2_pandas_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18567 6 37213 123 4222124651538977 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/csv_to_dataframe_2_pandas_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18571 6 37440 123 5629499535076362 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_to_dataframe_2_pandas_python_explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18571 6 37440 123 6473924465224217 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/dictionary_to_dataframe_2_pandas_python_explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18558 6 185731 123 3659174697430931 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Motivation_for_Dictionaries_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18558 6 185731 123 6473924465224207 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Motivation_for_Dictionaries_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18591 6 235593 123 30680772461518589 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Warmup_Understanding_if_else.docx
+DUPTYPE_WITHIN_SAME_TREE -18591 6 235593 123 6192449488513523 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Warmup_Understanding_if_else.docx
+DUPTYPE_FIRST_OCCURRENCE 18628 6 236179 123 12384898975510740 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/While_Warming_Up.docx
+DUPTYPE_WITHIN_SAME_TREE -18628 6 236179 123 4222124651539001 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/While_Warming_Up.docx
+DUPTYPE_FIRST_OCCURRENCE 18590 6 246219 123 31525197391643859 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Understanding_Boolean_Operators_Corrected.docx
+DUPTYPE_WITHIN_SAME_TREE -18590 6 246219 123 6192449488513526 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Understanding_Boolean_Operators_Corrected.docx
+DUPTYPE_FIRST_OCCURRENCE 18600 6 251777 123 6192449488490779 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Choose_the_Right_Plot_2_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18600 6 251777 123 6473924465224194 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Choose_the_Right_Plot_2_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18599 6 253522 123 7318349395328116 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Choose_the_Right_Plot_1_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18599 6 253522 123 6473924465224197 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Choose_the_Right_Plot_1_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 17561 5 255854 123 14073748836040720 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/exploring_books_table_sql.docx
+DUPTYPE_WITHIN_SAME_TREE -17561 5 255854 123 6192449488513600 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/exploring_books_table_sql.docx
+DUPTYPE_FIRST_OCCURRENCE 17558 5 264744 123 13792273859329527 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/advantages_of_databases.docx
+DUPTYPE_WITHIN_SAME_TREE -17558 5 264744 123 7318349395356223 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/advantages_of_databases.docx
+DUPTYPE_FIRST_OCCURRENCE 18593 6 271361 123 26177172834160632 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/if_Statement_in_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18593 6 271361 123 6192449488513522 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/if_Statement_in_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 17553 5 272465 123 14918173766172565 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/sql_strengths_question_and_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17553 5 272465 123 6473924465224264 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/sql_strengths_question_and_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18507 6 275744 123 11258999068933566 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_7.html
+DUPTYPE_WITHIN_SAME_TREE -18507 6 275744 123 6192449488513436 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_7.html
+DUPTYPE_FIRST_OCCURRENCE 17563 5 278505 123 15199648742883347 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/identifying_false_statement_database_storage.docx
+DUPTYPE_WITHIN_SAME_TREE -17563 5 278505 123 6755399441934913 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/identifying_false_statement_database_storage.docx
+DUPTYPE_FIRST_OCCURRENCE 18585 6 280168 123 9570149208402756 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Driving_Right_One_Liner.docx
+DUPTYPE_WITHIN_SAME_TREE -18585 6 280168 123 6192449488513513 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Driving_Right_One_Liner.docx
+DUPTYPE_FIRST_OCCURRENCE 17544 5 282110 123 8725724278537578 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/Lesson_9.html
+DUPTYPE_WITHIN_SAME_TREE -17544 5 282110 123 5910974511756960 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/Lesson_9.html
+DUPTYPE_FIRST_OCCURRENCE 18512 6 282110 123 31243722414936290 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_9.html
+DUPTYPE_WITHIN_SAME_TREE -18512 6 282110 123 6192449488513402 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_9.html
+DUPTYPE_FIRST_OCCURRENCE 18520 6 286087 123 7599824371238530 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_1.html
+DUPTYPE_WITHIN_SAME_TREE -18520 6 286087 123 14355223813122447 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_1.html
+DUPTYPE_FIRST_OCCURRENCE 18509 6 287649 123 9570149208373523 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_4.html
+DUPTYPE_WITHIN_SAME_TREE -18509 6 287649 123 6192449488513401 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_4.html
+DUPTYPE_FIRST_OCCURRENCE 18508 6 288023 123 3377699720720265 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_10.html
+DUPTYPE_WITHIN_SAME_TREE -18508 6 288023 123 7599824372066672 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_10.html
+DUPTYPE_FIRST_OCCURRENCE 17540 5 288023 123 7881299348405601 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/Lesson_10.html
+DUPTYPE_WITHIN_SAME_TREE -17540 5 288023 123 5348024558332084 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/Lesson_10.html
+DUPTYPE_FIRST_OCCURRENCE 18626 6 288316 123 9570149208971031 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop_Over_List_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18626 6 288316 123 6192449488513589 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop_Over_List_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18576 6 288518 123 24206847997186231 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Add_else_Statement_in_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18576 6 288518 123 6192449488513520 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Add_else_Statement_in_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18514 6 289703 123 5066549580942752 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_1.html
+DUPTYPE_WITHIN_SAME_TREE -18514 6 289703 123 6755399441934723 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_1.html
+DUPTYPE_FIRST_OCCURRENCE 18575 6 290023 123 7318349394771724 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc_corrected.docx
+DUPTYPE_WITHIN_SAME_TREE -18575 6 290023 123 6192449488513574 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc_corrected.docx
+DUPTYPE_FIRST_OCCURRENCE 18513 6 290630 123 2814749767314153 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Installing_Python.html
+DUPTYPE_WITHIN_SAME_TREE -18513 6 290630 123 6192449488513406 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Installing_Python.html
+DUPTYPE_FIRST_OCCURRENCE 18620 6 291596 123 5629499535019929 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Indexes_and_Values_Updated_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18620 6 291596 123 6473924465224238 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Indexes_and_Values_Updated_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18518 6 292392 123 19140298416601972 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_5.html
+DUPTYPE_WITHIN_SAME_TREE -18518 6 292392 123 7036874418645385 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_5.html
+DUPTYPE_FIRST_OCCURRENCE 18516 6 293022 123 3659174697517643 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_3.html
+DUPTYPE_WITHIN_SAME_TREE -18516 6 293022 123 6192449488513410 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_3.html
+DUPTYPE_FIRST_OCCURRENCE 17560 5 293504 123 25895697857888270 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/choosing_unique_identifier.docx
+DUPTYPE_WITHIN_SAME_TREE -17560 5 293504 123 6473924465224261 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/choosing_unique_identifier.docx
+DUPTYPE_FIRST_OCCURRENCE 18517 6 294655 123 3096224744096369 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_4.html
+DUPTYPE_WITHIN_SAME_TREE -18517 6 294655 123 15481123719965056 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_4.html
+DUPTYPE_FIRST_OCCURRENCE 17542 5 294763 123 12103423999065446 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/Lesson_7.html
+DUPTYPE_WITHIN_SAME_TREE -17542 5 294763 123 9288674232330590 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/Lesson_7.html
+DUPTYPE_FIRST_OCCURRENCE 18511 6 294763 123 5629499534408324 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_7.html
+DUPTYPE_WITHIN_SAME_TREE -18511 6 294763 123 6192449488513395 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_7.html
+DUPTYPE_FIRST_OCCURRENCE 18502 6 294855 123 11258999068933560 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_2.html
+DUPTYPE_WITHIN_SAME_TREE -18502 6 294855 123 6192449488513434 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_2.html
+DUPTYPE_FIRST_OCCURRENCE 18609 6 294935 123 139330113471819825 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/line_plot_interpretation_correct_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18609 6 294935 123 6473924465224205 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/line_plot_interpretation_correct_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18522 6 296021 123 9851624185151941 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_3.html
+DUPTYPE_WITHIN_SAME_TREE -18522 6 296021 123 6192449488513425 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_3.html
+DUPTYPE_FIRST_OCCURRENCE 18519 6 296567 123 16325548649527818 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_6.html
+DUPTYPE_WITHIN_SAME_TREE -18519 6 296567 123 6755399441934724 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_6.html
+DUPTYPE_FIRST_OCCURRENCE 18510 6 297391 123 5629499534421401 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_6.html
+DUPTYPE_WITHIN_SAME_TREE -18510 6 297391 123 7036874418645366 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Basics of AI Python Coding/Lesson_6.html
+DUPTYPE_FIRST_OCCURRENCE 17541 5 297391 123 11821949022354787 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/Lesson_6.html
+DUPTYPE_WITHIN_SAME_TREE -17541 5 297391 123 6473924465178289 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/Lesson_6.html
+DUPTYPE_FIRST_OCCURRENCE 18526 6 298724 123 10414574138438515 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_7.html
+DUPTYPE_WITHIN_SAME_TREE -18526 6 298724 123 6192449488513426 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_7.html
+DUPTYPE_FIRST_OCCURRENCE 18523 6 300061 123 7599824371594971 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_4.html
+DUPTYPE_WITHIN_SAME_TREE -18523 6 300061 123 6192449488513424 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_4.html
+DUPTYPE_FIRST_OCCURRENCE 18504 6 300131 123 9570149208669626 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_4.html
+DUPTYPE_WITHIN_SAME_TREE -18504 6 300131 123 5910974511802776 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_4.html
+DUPTYPE_FIRST_OCCURRENCE 18544 6 301794 123 19421773393542630 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Subsetting Lists of Lists.docx
+DUPTYPE_WITHIN_SAME_TREE -18544 6 301794 123 6192449488513483 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Subsetting Lists of Lists.docx
+DUPTYPE_FIRST_OCCURRENCE 18506 6 301796 123 10977524092222908 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_6.html
+DUPTYPE_WITHIN_SAME_TREE -18506 6 301796 123 7036874418645401 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_6.html
+DUPTYPE_FIRST_OCCURRENCE 18574 6 302845 123 8444249302184843 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc_3.docx
+DUPTYPE_WITHIN_SAME_TREE -18574 6 302845 123 6192449488513575 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc_3.docx
+DUPTYPE_FIRST_OCCURRENCE 18578 6 304466 123 8162774324812394 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean_Operators_in_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18578 6 304466 123 6192449488513512 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean_Operators_in_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18524 6 304521 123 56294995342557500 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_5.html
+DUPTYPE_WITHIN_SAME_TREE -18524 6 304521 123 7036874418645395 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_5.html
+DUPTYPE_FIRST_OCCURRENCE 17559 5 305377 123 18295873486700556 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/choice_of_data_type_sql.docx
+DUPTYPE_WITHIN_SAME_TREE -17559 5 305377 123 6473924465224259 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/choice_of_data_type_sql.docx
+DUPTYPE_FIRST_OCCURRENCE 17548 5 305703 123 19984723346963964 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/limiting_results_postgresql_exercise.docx
+DUPTYPE_WITHIN_SAME_TREE -17548 5 305703 123 6192449488513614 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/limiting_results_postgresql_exercise.docx
+DUPTYPE_FIRST_OCCURRENCE 18505 6 307470 123 13510798882618811 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_5.html
+DUPTYPE_WITHIN_SAME_TREE -18505 6 307470 123 6192449488513437 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_5.html
+DUPTYPE_FIRST_OCCURRENCE 17562 5 307986 123 13510798882619410 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/finding_data_types_database.docx
+DUPTYPE_WITHIN_SAME_TREE -17562 5 307986 123 6473924465224254 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/finding_data_types_database.docx
+DUPTYPE_FIRST_OCCURRENCE 18589 6 308424 123 9851624185738528 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Greater_and_Less_Than.docx
+DUPTYPE_WITHIN_SAME_TREE -18589 6 308424 123 6192449488513514 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Greater_and_Less_Than.docx
+DUPTYPE_FIRST_OCCURRENCE 18503 6 310481 123 16044073673014713 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_3.html
+DUPTYPE_WITHIN_SAME_TREE -18503 6 310481 123 5910974511802784 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_3.html
+DUPTYPE_FIRST_OCCURRENCE 18551 6 310845 123 16607023626436078 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/first_2d_numpy_array.docx
+DUPTYPE_WITHIN_SAME_TREE -18551 6 310845 123 6192449488513469 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/first_2d_numpy_array.docx
+DUPTYPE_FIRST_OCCURRENCE 18525 6 311987 123 5629499534520838 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_6.html
+DUPTYPE_WITHIN_SAME_TREE -18525 6 311987 123 6192449488513420 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_6.html
+DUPTYPE_FIRST_OCCURRENCE 17543 5 312308 123 12103423999065449 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/Lesson_8.html
+DUPTYPE_WITHIN_SAME_TREE -17543 5 312308 123 6192449488513377 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/Lesson_8.html
+DUPTYPE_FIRST_OCCURRENCE 18627 6 312473 123 7318349395283884 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop_Over_List_of_Lists_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18627 6 312473 123 6473924465224243 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop_Over_List_of_Lists_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18563 6 312730 123 11540474046001991 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Square_Brackets_(2).docx
+DUPTYPE_WITHIN_SAME_TREE -18563 6 312730 123 6473924465224233 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Square_Brackets_(2).docx
+DUPTYPE_FIRST_OCCURRENCE 18501 6 312815 123 14918173766172087 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_1.html
+DUPTYPE_WITHIN_SAME_TREE -18501 6 312815 123 5910974511802782 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Automating Tasks with Python/Lesson_1.html
+DUPTYPE_FIRST_OCCURRENCE 17546 5 313454 123 15481123719593464 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/aliasing_in_sql_exercise_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17546 5 313454 123 6473924465224266 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/aliasing_in_sql_exercise_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18584 6 316848 123 11540474045328016 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Customize_Further_elif_Statement.docx
+DUPTYPE_WITHIN_SAME_TREE -18584 6 316848 123 6192449488513517 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Customize_Further_elif_Statement.docx
+DUPTYPE_FIRST_OCCURRENCE 17555 5 318959 123 20829148277096455 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/translating_sql_flavors_exercise_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17555 5 318959 123 6192449488513617 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/translating_sql_flavors_exercise_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 17547 5 323517 123 25614222881177081 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/comparing_flavors_sql_server_postgresql.docx
+DUPTYPE_WITHIN_SAME_TREE -17547 5 323517 123 6192449488513618 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/comparing_flavors_sql_server_postgresql.docx
+DUPTYPE_FIRST_OCCURRENCE 18582 6 325949 123 1125899907100690 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Compare_arrays_in_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18582 6 325949 123 6192449488513502 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Compare_arrays_in_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18580 6 326720 123 7599824371495210 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Cars_per_Capita_Advanced.docx
+DUPTYPE_WITHIN_SAME_TREE -18580 6 326720 123 6192449488513509 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Cars_per_Capita_Advanced.docx
+DUPTYPE_FIRST_OCCURRENCE 17550 5 326938 123 19984723346963978 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/querying_books_table_corrected_answer_fixed.docx
+DUPTYPE_WITHIN_SAME_TREE -17550 5 326938 123 6473924465224271 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/querying_books_table_corrected_answer_fixed.docx
+DUPTYPE_FIRST_OCCURRENCE 17557 5 329812 123 15481123719593994 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/viewing_your_query_fixed_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17557 5 329812 123 6192449488513611 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/viewing_your_query_fixed_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 17556 5 331553 123 15199648742883336 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/viewing_your_query_complete_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17556 5 331553 123 6473924465224265 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/viewing_your_query_complete_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18579 6 332003 123 33776997205330395 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean_Operators_with_NumPy.docx
+DUPTYPE_WITHIN_SAME_TREE -18579 6 332003 123 6192449488513527 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Boolean_Operators_with_NumPy.docx
+DUPTYPE_FIRST_OCCURRENCE 17545 5 334221 123 11821949022354798 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/AI/ai_python_beginners/ai_python_for_beginners_lesson5_answers.docx
+DUPTYPE_WITHIN_SAME_TREE -17545 5 334221 123 6192449488513372 3 /mnt/c/study/exams/data_analysis/TUVTECH/AI/ai_python_beginners/ai_python_for_beginners_lesson5_answers.docx
+DUPTYPE_FIRST_OCCURRENCE 18616 6 334735 123 7036874418623245 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Add_Column_to_DataFrame_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18616 6 334735 123 6473924465224242 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Add_Column_to_DataFrame_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18624 6 336149 123 5066549581659226 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop_Over_DataFrame_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18624 6 336149 123 6473924465224237 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop_Over_DataFrame_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18625 6 339015 123 6192449488441536 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop_Over_Dictionary_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18625 6 339015 123 6473924465224241 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop_Over_Dictionary_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18618 6 341118 123 2533274790665486 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Basic_While_Loop_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18618 6 341118 123 6192449488513580 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Basic_While_Loop_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18555 6 341171 123 17169973579857396 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/subsetting_numpy_arrays.docx
+DUPTYPE_WITHIN_SAME_TREE -18555 6 341171 123 6192449488513476 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/subsetting_numpy_arrays.docx
+DUPTYPE_FIRST_OCCURRENCE 18549 6 342852 123 16888498603146732 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/different_ways_importing_python.docx
+DUPTYPE_WITHIN_SAME_TREE -18549 6 342852 123 6192449488513475 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/different_ways_importing_python.docx
+DUPTYPE_FIRST_OCCURRENCE 18586 6 343198 123 14073748835772762 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Driving_Right_in_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18586 6 343198 123 6192449488513518 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Driving_Right_in_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18528 6 344165 123 11540474045644228 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Create a List.docx
+DUPTYPE_WITHIN_SAME_TREE -18528 6 344165 123 5910974511802789 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Create a List.docx
+DUPTYPE_FIRST_OCCURRENCE 18614 6 345053 123 4785074604257781 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/hacker statistics/Roll_the_Dice_Updated_Solution.docx
+DUPTYPE_WITHIN_SAME_TREE -18614 6 345053 123 6192449488513491 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/hacker statistics/Roll_the_Dice_Updated_Solution.docx
+DUPTYPE_FIRST_OCCURRENCE 18533 6 349188 123 16888498603146700 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Help Function .docx
+DUPTYPE_WITHIN_SAME_TREE -18533 6 349188 123 5910974511802814 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Help Function .docx
+DUPTYPE_FIRST_OCCURRENCE 18613 6 349707 123 7881299348763620 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/hacker statistics/Random_Float_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18613 6 349707 123 6192449488513495 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/hacker statistics/Random_Float_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18581 6 350075 123 5348024557809739 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Cars_per_Capita_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18581 6 350075 123 6192449488513504 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Cars_per_Capita_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 17549 5 350162 123 16607023626436093 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/making_queries_distinct_exercise_precise_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17549 5 350162 123 6192449488513613 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/making_queries_distinct_exercise_precise_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18546 6 353692 123 16044073673014761 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/average_vs_median_numpy.docx
+DUPTYPE_WITHIN_SAME_TREE -18546 6 353692 123 6192449488513461 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/average_vs_median_numpy.docx
+DUPTYPE_FIRST_OCCURRENCE 18623 6 354722 123 7318349395284545 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Loop_Over_DataFrame_2_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18623 6 354722 123 6473924465224244 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Loop_Over_DataFrame_2_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18534 6 356457 123 19703248370253261 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Import_Package.docx
+DUPTYPE_WITHIN_SAME_TREE -18534 6 356457 123 6192449488513486 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Import_Package.docx
+DUPTYPE_FIRST_OCCURRENCE 18596 6 357610 123 4503599627549227 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_1_Python_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18596 6 357610 123 6192449488513534 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_1_Python_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18562 6 359930 123 5348024558369020 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Square_Brackets_(1).docx
+DUPTYPE_WITHIN_SAME_TREE -18562 6 359930 123 6473924465224215 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/Square_Brackets_(1).docx
+DUPTYPE_FIRST_OCCURRENCE 18540 6 360832 123 16888498603146710 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Replace List Elements.docx
+DUPTYPE_WITHIN_SAME_TREE -18540 6 360832 123 6192449488513471 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Replace List Elements.docx
+DUPTYPE_FIRST_OCCURRENCE 18573 6 361623 123 7036874418631552 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc.docx
+DUPTYPE_WITHIN_SAME_TREE -18573 6 361623 123 6473924465224229 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Dictionaries & Pandas/loc_and_iloc.docx
+DUPTYPE_FIRST_OCCURRENCE 18537 6 362092 123 15199648742882769 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/List of Lists .docx
+DUPTYPE_WITHIN_SAME_TREE -18537 6 362092 123 5910974511802800 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/List of Lists .docx
+DUPTYPE_FIRST_OCCURRENCE 18541 6 363046 123 16607023626436056 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Selective_Import_math_pi_Function_Explanation.docx
+DUPTYPE_WITHIN_SAME_TREE -18541 6 363046 123 6192449488513466 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Selective_Import_math_pi_Function_Explanation.docx
+DUPTYPE_FIRST_OCCURRENCE 18606 6 365294 123 4222124650722317 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Scatter_Plot_2_Python_Fixed.docx
+DUPTYPE_WITHIN_SAME_TREE -18606 6 365294 123 6755399441934844 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Scatter_Plot_2_Python_Fixed.docx
+DUPTYPE_FIRST_OCCURRENCE 18531 6 366728 123 11540474045644232 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Extend a List .docx
+DUPTYPE_WITHIN_SAME_TREE -18531 6 366728 123 5910974511802791 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Extend a List .docx
+DUPTYPE_FIRST_OCCURRENCE 18521 6 368597 123 7318349394884309 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_2.html
+DUPTYPE_WITHIN_SAME_TREE -18521 6 368597 123 6192449488513422 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Working with Your Own Data and Documents in Python/Lesson_2.html
+DUPTYPE_FIRST_OCCURRENCE 18619 6 368938 123 24488322974026624 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Indexes_and_Values_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18619 6 368938 123 6473924465224251 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Indexes_and_Values_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18547 6 369383 123 19140298416831978 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/baseball_data_2d_numpy.docx
+DUPTYPE_WITHIN_SAME_TREE -18547 6 369383 123 5910974511802826 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/baseball_data_2d_numpy.docx
+DUPTYPE_FIRST_OCCURRENCE 18594 6 369438 123 5910974511780237 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Additional_Customizations_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18594 6 369438 123 6473924465224192 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Additional_Customizations_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18552 6 372219 123 15199648742882799 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/first_numpy_array_python_resized.docx
+DUPTYPE_WITHIN_SAME_TREE -18552 6 372219 123 5910974511802802 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/first_numpy_array_python_resized.docx
+DUPTYPE_FIRST_OCCURRENCE 17564 5 372241 123 16044073673015317 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Relational_Databases/understanding_database_organization.docx
+DUPTYPE_WITHIN_SAME_TREE -17564 5 372241 123 4222124651539010 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Relational_Databases/understanding_database_organization.docx
+DUPTYPE_FIRST_OCCURRENCE 18617 6 376560 123 20547673300384853 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Add_Conditionals_While_Loop.docx
+DUPTYPE_WITHIN_SAME_TREE -18617 6 376560 123 6473924465224250 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Add_Conditionals_While_Loop.docx
+DUPTYPE_FIRST_OCCURRENCE 18553 6 376563 123 15199648742882801 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/numpy_side_effects_vector_arithmetic.docx
+DUPTYPE_WITHIN_SAME_TREE -18553 6 376563 123 6192449488513459 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/numpy_side_effects_vector_arithmetic.docx
+DUPTYPE_FIRST_OCCURRENCE 18538 6 376859 123 16607023626436051 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/List_Methods_2.docx
+DUPTYPE_WITHIN_SAME_TREE -18538 6 376859 123 6192449488513465 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/List_Methods_2.docx
+DUPTYPE_FIRST_OCCURRENCE 17551 5 386276 123 20829148276872788 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/querying_books_table_final_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -17551 5 386276 123 6192449488513616 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/querying_books_table_final_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18515 6 388071 123 18295873486898599 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_2.html
+DUPTYPE_WITHIN_SAME_TREE -18515 6 388071 123 6755399441934727 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/Extending Python with Packages and APIs/Lesson_2.html
+DUPTYPE_FIRST_OCCURRENCE 18535 6 392786 123 18577348463410638 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Inner Workings of Lists.docx
+DUPTYPE_WITHIN_SAME_TREE -18535 6 392786 123 6192449488513480 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Inner Workings of Lists.docx
+DUPTYPE_FIRST_OCCURRENCE 18527 6 393058 123 12103423999065538 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/2d_arithmetic_numpy_answer_output_updated.docx
+DUPTYPE_WITHIN_SAME_TREE -18527 6 393058 123 5910974511802793 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/2d_arithmetic_numpy_answer_output_updated.docx
+DUPTYPE_FIRST_OCCURRENCE 18529 6 394537 123 12666373952486853 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Create_Lists_With_Types.docx
+DUPTYPE_WITHIN_SAME_TREE -18529 6 394537 123 6192449488513450 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Create_Lists_With_Types.docx
+DUPTYPE_FIRST_OCCURRENCE 18604 6 395143 123 57420895249066482 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Interpretation_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18604 6 395143 123 7036874418645516 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Interpretation_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18539 6 396053 123 20266198323674580 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Multiple Arguments.docx
+DUPTYPE_WITHIN_SAME_TREE -18539 6 396053 123 6192449488513487 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Multiple Arguments.docx
+DUPTYPE_FIRST_OCCURRENCE 18554 6 396594 123 14918173766172146 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/subsetting_2d_numpy_arrays.docx
+DUPTYPE_WITHIN_SAME_TREE -18554 6 396594 123 6192449488513454 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/subsetting_2d_numpy_arrays.docx
+DUPTYPE_FIRST_OCCURRENCE 18605 6 396752 123 17451448556131820 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Scatter_Plot_1_Python_Corrected.docx
+DUPTYPE_WITHIN_SAME_TREE -18605 6 396752 123 7318349395356169 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Scatter_Plot_1_Python_Corrected.docx
+DUPTYPE_FIRST_OCCURRENCE 17554 5 405085 123 12384898975776741 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/sql_style_suggestions_and_exercise.docx
+DUPTYPE_WITHIN_SAME_TREE -17554 5 405085 123 6192449488513607 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/sql_style_suggestions_and_exercise.docx
+DUPTYPE_FIRST_OCCURRENCE 17552 5 405101 123 15762598696304526 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/sql/Querying/sql_formatting_exercise_and_suggestions.docx
+DUPTYPE_WITHIN_SAME_TREE -17552 5 405101 123 6192449488513612 3 /mnt/c/study/exams/data_analysis/TUVTECH/sql/Querying/sql_formatting_exercise_and_suggestions.docx
+DUPTYPE_FIRST_OCCURRENCE 18615 6 407134 123 5629499535080482 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/loops/Add_Column_2_DataFrame_Python.docx
+DUPTYPE_WITHIN_SAME_TREE -18615 6 407134 123 6192449488513583 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/loops/Add_Column_2_DataFrame_Python.docx
+DUPTYPE_FIRST_OCCURRENCE 18543 6 409754 123 18577348463410654 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Subset and Conquer.docx
+DUPTYPE_WITHIN_SAME_TREE -18543 6 409754 123 6192449488513481 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Subset and Conquer.docx
+DUPTYPE_FIRST_OCCURRENCE 18598 6 409829 123 3096224743996755 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_3_Python_Compare.docx
+DUPTYPE_WITHIN_SAME_TREE -18598 6 409829 123 6473924465224186 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_3_Python_Compare.docx
+DUPTYPE_FIRST_OCCURRENCE 18610 6 411469 123 5910974511038874 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/line_plot_task_executable_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18610 6 411469 123 6473924465224191 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/line_plot_task_executable_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18550 6 417620 123 16607023626436077 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/explore_baseball_data_numpy_revised.docx
+DUPTYPE_WITHIN_SAME_TREE -18550 6 417620 123 5910974511802811 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/explore_baseball_data_numpy_revised.docx
+DUPTYPE_FIRST_OCCURRENCE 18597 6 422730 123 10414574139145898 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_2_Python_Explained.docx
+DUPTYPE_WITHIN_SAME_TREE -18597 6 422730 123 6473924465224200 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Build_Histogram_2_Python_Explained.docx
+DUPTYPE_FIRST_OCCURRENCE 18542 6 424180 123 17732923533278683 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Slicing and Dicing .docx
+DUPTYPE_WITHIN_SAME_TREE -18542 6 424180 123 6192449488513479 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Slicing and Dicing .docx
+DUPTYPE_FIRST_OCCURRENCE 18608 6 431924 123 7036874418620712 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Ticks_Full_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18608 6 431924 123 6473924465224196 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Ticks_Full_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18532 6 432444 123 13792273859329483 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Familiar Functions.docx
+DUPTYPE_WITHIN_SAME_TREE -18532 6 432444 123 5910974511802795 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Familiar Functions.docx
+DUPTYPE_FIRST_OCCURRENCE 18548 6 440195 123 16888498603146731 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/baseball_height_numpy_conversion.docx
+DUPTYPE_WITHIN_SAME_TREE -18548 6 440195 123 6473924465224129 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/baseball_height_numpy_conversion.docx
+DUPTYPE_FIRST_OCCURRENCE 18601 6 440383 123 4503599627480280 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Colors_Concise_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18601 6 440383 123 6473924465224189 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Colors_Concise_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18611 6 451937 123 52635820644940351 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/matplotlib_line_plot_corrected_answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18611 6 451937 123 6755399441934859 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/matplotlib_line_plot_corrected_answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18607 6 452044 123 7036874417909895 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Matplotlib/Sizes_Concise_Correct_Answer.docx
+DUPTYPE_WITHIN_SAME_TREE -18607 6 452044 123 6473924465224195 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Matplotlib/Sizes_Concise_Correct_Answer.docx
+DUPTYPE_FIRST_OCCURRENCE 18536 6 454148 123 14355223812750800 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/List Methods.docx
+DUPTYPE_WITHIN_SAME_TREE -18536 6 454148 123 6192449488513453 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/List Methods.docx
+DUPTYPE_FIRST_OCCURRENCE 18530 6 459437 123 11821949022354887 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/beginner/introduction to python/Delete List Elements.docx
+DUPTYPE_WITHIN_SAME_TREE -18530 6 459437 123 6473924465224104 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/beginner/introduction to python/Delete List Elements.docx
+DUPTYPE_FIRST_OCCURRENCE 18587 6 634185 123 10696049115866574 3 /mnt/c/study/datascience/Data_Analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Equality_Corrected.docx
+DUPTYPE_WITHIN_SAME_TREE -18587 6 634185 123 6192449488513516 3 /mnt/c/study/exams/data_analysis/TUVTECH/python/intermediate/Logic, Control Flow and Filtering/Equality_Corrected.docx
+# end of file

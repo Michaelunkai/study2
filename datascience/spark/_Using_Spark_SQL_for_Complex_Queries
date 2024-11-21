@@ -1,0 +1,27 @@
+Using Spark SQL for Complex Queries
+You can run SQL queries directly on DataFrames.
+
+Step 1: Register DataFrame as a Temporary View
+Scala:
+
+scala
+ 
+scala> salesDF.createOrReplaceTempView("sales")
+Python:
+
+ 
+ 
+>>> salesDF.createOrReplaceTempView("sales")
+Step 2: Execute SQL Query
+Scala:
+
+scala
+ 
+scala> val resultDF = spark.sql("SELECT category, SUM(revenue) as total_revenue FROM sales GROUP BY category")
+scala> resultDF.show()
+Python:
+
+ 
+ 
+>>> resultDF = spark.sql("SELECT category, SUM(revenue) as total_revenue FROM sales GROUP BY category")
+>>> resultDF.show()

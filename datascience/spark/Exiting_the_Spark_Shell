@@ -1,0 +1,13 @@
+Exiting the Spark Shell
+To exit the Spark Shell:
+
+Scala Spark Shell:
+
+scala
+ 
+scala> :quit
+PySpark Shell:
+
+ 
+ 
+>>> exit()

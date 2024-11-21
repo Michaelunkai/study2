@@ -1,0 +1,36 @@
+ Using Spark Streaming
+Spark Streaming allows processing of live data streams.
+
+Step 1: Import Streaming Libraries
+Scala:
+
+scala
+ 
+scala> import org.apache.spark.streaming._
+Python:
+
+ 
+ 
+>>> from pyspark.streaming import StreamingContext
+Step 2: Create Streaming Context
+Scala:
+
+scala
+ 
+scala> val ssc = new StreamingContext(sc, Seconds(1))
+Python:
+
+ 
+ 
+>>> ssc = StreamingContext(sc, 1)
+Step 3: Start Streaming
+Set up your streaming computations and start the context.
+
+scala
+ 
+scala> ssc.start()
+scala> ssc.awaitTermination()
+ 
+ 
+>>> ssc.start()
+>>> ssc.awaitTermination()

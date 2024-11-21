@@ -1,0 +1,27 @@
+ Debugging and Logging in Spark
+Understanding how to debug and log can help diagnose issues.
+
+Step 1: Set Log Level
+Scala:
+
+scala
+ 
+scala> sc.setLogLevel("ERROR")
+Python:
+
+ 
+ 
+>>> sc.setLogLevel("ERROR")
+Step 2: Use explain() to Understand Query Plan
+Scala:
+
+scala
+ 
+scala> df.explain()
+Python:
+
+ 
+ 
+>>> df.explain()
+Step 3: Check Spark Web UI
+While your application is running, access the Web UI at http://localhost:4040 to view detailed information about jobs and stages.

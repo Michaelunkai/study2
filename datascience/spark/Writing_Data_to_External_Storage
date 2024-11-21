@@ -1,0 +1,25 @@
+Writing Data to External Storage
+You can save DataFrames to various formats and storage systems.
+
+Step 1: Write DataFrame to CSV
+Scala:
+
+scala
+ 
+scala>  DF.write.option("header", "true"). ("path/to/save/ ")
+Python:
+
+ 
+ 
+>>>  DF.write.option("header", "true"). ("path/to/save/ ")
+Step 2: Write DataFrame to Parquet
+Scala:
+
+scala
+ 
+scala>  DF.write.parquet("path/to/save/parquet")
+Python:
+
+ 
+ 
+>>>  DF.write.parquet("path/to/save/parquet")

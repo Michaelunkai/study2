@@ -1,0 +1,29 @@
+ Introduction to Spark's MLlib
+MLlib is Spark's machine learning library.
+
+Step 1: Import MLlib Libraries
+Scala:
+
+scala
+ 
+scala> import org.apache.spark.ml.classification.LogisticRegression
+Python:
+
+ 
+ 
+>>> from pyspark.ml.classification import LogisticRegression
+Step 2: Prepare Data for Modeling
+Assuming you have a DataFrame trainingData.
+
+Scala:
+
+scala
+ 
+scala> val lr = new LogisticRegression().setMaxIter(10)
+scala> val model = lr.fit(trainingData)
+Python:
+
+ 
+ 
+>>> lr = LogisticRegression(maxIter=10)
+>>> model = lr.fit(trainingData)

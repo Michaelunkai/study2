@@ -1,0 +1,18 @@
+Performing Aggregations and Groupings
+Aggregation functions like sum, avg, count, etc., can be used to perform group-wise computations.
+
+Step 1: Group By and Aggregate
+Assuming a DataFrame salesDF with columns item, category, and revenue.
+
+Scala:
+
+scala
+ 
+scala> val aggDF = salesDF.groupBy("category").agg(sum("revenue").as("total_revenue"))
+scala> aggDF.show()
+Python:
+
+ 
+ 
+>>> aggDF = salesDF.groupBy("category").agg({"revenue": "sum"}).withColumnRenamed("sum(revenue)", "total_revenue")
+>>> aggDF.show()
