@@ -1,0 +1,1 @@
+sudo apt install -y cpulimit && sudo cpulimit -e myapp -l 50 && echo "Cpulimit applied to myapp at 50% CPU usage"

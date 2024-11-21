@@ -1,0 +1,8 @@
+0~curl -L https://raw.githubusercontent.com/pingcap/tiup/master/install.sh | sh && source ~/.profile && tiup playground nightly
+
+TiDB does not require any password for the root user by default. To connect to the TiDB instance you set up, you can use the following command:
+
+
+0~mysql --comments --host 127.0.0.1 --port 4000 -u root
+
+

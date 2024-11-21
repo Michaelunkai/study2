@@ -1,0 +1,1 @@
+wget https://download.checkmk.com/checkmk/2.2.0p1/check-mk-raw-2.2.0p1_0.focal_amd64.deb && sudo dpkg -i check-mk-raw-2.2.0p1_0.focal_amd64.deb && sudo omd create mysite && sudo omd start mysite

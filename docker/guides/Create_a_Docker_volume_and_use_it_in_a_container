@@ -1,1 +1,0 @@
-docker volume create my_volume && docker run -d --name my_container -v my_volume:/data alpine sleep 1000 && docker exec my_container sh -c 'echo Hello > /data/hello.txt'

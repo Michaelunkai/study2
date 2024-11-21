@@ -1,0 +1,1 @@
+mkdir annoy && cd annoy && python3 -m venv venv && source venv/bin/activate && pip install annoy && python -c 'from annoy import AnnoyIndex; t = AnnoyIndex(10, "angular"); t.build(10); print(t)'

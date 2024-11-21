@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Define the file path
 file_path="/path/to/your/logfile.txt"

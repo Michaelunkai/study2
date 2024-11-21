@@ -1,0 +1,1 @@
+getr && getlibssl && sudo apt install -y gdebi-core && wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1717-amd64.deb && sudo gdebi rstudio-1.4.1717-amd64.deb && rstudio

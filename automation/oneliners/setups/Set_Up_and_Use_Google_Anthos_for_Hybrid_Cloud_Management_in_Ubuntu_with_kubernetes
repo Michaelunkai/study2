@@ -1,0 +1,113 @@
+Certainly! Here are the revised steps for setting up and using Google Anthos for hybrid cloud management on Ubuntu, with the updated command for installing the Anthos CLI.
+
+### Prerequisites
+
+1. **Google Cloud Account**: Ensure you have a Google Cloud account. If not, sign up for one.
+2. **Billing Account**: Set up a billing account in Google Cloud.
+3. **Google Cloud SDK**: Install the Google Cloud SDK on your Ubuntu machine.
+4. **Kubectl**: Ensure you have `kubectl` installed for managing Kubernetes clusters.
+
+### Step 1: Install Google Cloud SDK
+
+1. **Download and Install**:
+     
+   sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg
+   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+   sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+
+2. **Initialize the SDK**:
+     
+   gcloud init
+
+### Step 2: Set Up Anthos
+
+1. **Enable Anthos API**:
+     
+   gcloud services enable anthos.googleapis.com
+
+2. **Enable Required APIs**:
+     
+   gcloud services enable container.googleapis.com containerregistry.googleapis.com gkeconnect.googleapis.com gkehub.googleapis.com
+
+3. **Install Anthos CLI**:
+     
+   sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin
+
+### Step 3: Create a Kubernetes Cluster
+
+1. **Create a GKE Cluster**:
+     
+   gcloud container clusters create anthos-cluster --zone=us-central1-a --num-nodes=3
+
+2. **Get Credentials for the Cluster**:
+     
+   gcloud container clusters get-credentials anthos-cluster --zone us-central1-a
+
+### Step 4: Connect Your Cluster to Anthos
+
+1. **Register the Cluster**:
+     
+   gcloud container hub memberships register anthos-cluster --gke-cluster=us-central1-a/anthos-cluster --enable-workload-identity
+
+2. **Install Connect Agent**:
+     
+   gcloud components install connect-agent
+   gcloud container hub memberships get-credentials anthos-cluster
+
+### Step 5: Set Up Anthos Config Management
+
+1. **Enable Config Management**:
+     
+   gcloud beta container hub config-management enable
+
+2. **Apply Config Management**:
+     
+   cat <<EOF > config-management.yaml
+   apiVersion: configmanagement.gke.io/v1
+   kind: ConfigManagement
+   metadata:
+     name: config-management
+   spec:
+     configSync:
+       sourceFormat: hierarchy
+       git:
+         syncRepo: <YOUR_GIT_REPO>
+         syncBranch: master
+         policyDir: root
+         secretType: none
+   EOF
+   kubectl apply -f config-management.yaml
+
+### Step 6: Deploy and Manage Applications
+
+1. **Deploy Sample Application**:
+     
+   kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
+   kubectl expose deployment hello-server --type=LoadBalancer --port 80 --target-port 8080
+
+2. **Verify Deployment**:
+     
+   kubectl get services hello-server
+
+### Step 7: Monitor and Manage Your Cluster
+
+1. **Enable Monitoring**:
+     
+   gcloud services enable monitoring.googleapis.com logging.googleapis.com
+
+2. **Set Up Stackdriver**:
+     
+   gcloud beta container clusters update anthos-cluster --zone us-central1-a --logging=SYSTEM,WORKLOAD --monitoring=SYSTEM,WORKLOAD
+
+3. **Access Anthos Dashboard**:
+   - Go to the Google Cloud Console.
+   - Navigate to **Anthos** under the **Hybrid & Multi-Cloud** section.
+   - Use the dashboard to monitor and manage your hybrid cloud environment.
+
+### Additional Tips
+
+- **Documentation**: Regularly refer to the [Google Anthos documentation](https://cloud.google.com/anthos/docs) for the latest updates and detailed information.
+- **Community and Support**: Join the Google Cloud community forums or seek support from Google Cloud Support for any issues or questions.
+
+By following these steps, you should have a working setup of Google Anthos on your Ubuntu machine, enabling you to manage your hybrid cloud environment effectively.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Check if run as root
 if [ "$EUID" -ne 0 ]; then
@@ -21,8 +21,8 @@ apt-get install apache2 mariadb-server php php-mysql php-intl libapache2-mod-php
 
 # Enable PHP MySQL module
 PHP_VER=$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
-phpenmod mysqli
-phpenmod mysql
+ enmod my i
+ enmod my 
 systemctl restart apache2
 
 # Modify php.ini files
@@ -42,7 +42,7 @@ systemctl start mariadb
 systemctl enable mariadb
 
 # Secure MariaDB installation (optional, you can automate this if needed)
-mysql_secure_installation <<EOF
+my _secure_installation <<EOF
 
 y
 YourRootDBPasswordHere
@@ -64,7 +64,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pYourRootDBPasswordHere
 
 # Adjust MariaDB configuration for Cacti
 cat > /etc/mysql/mariadb.conf.d/99-cacti.cnf <<EOL
-[mysqld]
+[my d]
 collation-server = utf8mb4_unicode_ci
 max_heap_table_size = 128M
 tmp_table_size = 64M
@@ -95,8 +95,8 @@ mysql -u cacti -p${CACTI_DB_PASSWORD} cacti < /var/www/html/cacti/cacti.sql
 
 # Configure Cacti
 cat > /var/www/html/cacti/include/config.php <<EOL
-<?php
-\$database_type = 'mysql';
+<? 
+\$database_type = 'my ';
 \$database_default = 'cacti';
 \$database_hostname = 'localhost';
 \$database_username = 'cacti';
@@ -127,22 +127,22 @@ Alias /cacti /var/www/html/cacti
         Order Allow,Deny
         Allow from all
     </IfVersion>
-    <IfModule mod_php.c>
-        php_flag magic_quotes_gpc Off
-        php_flag short_open_tag On
-        php_flag register_globals Off
-        php_flag register_argc_argv On
-        php_flag track_vars On
-        php_value mbstring.func_overload 0
-        php_value include_path .
+    <IfModule mod_ .c>
+         _flag magic_quotes_gpc Off
+         _flag short_open_tag On
+         _flag register_globals Off
+         _flag register_argc_argv On
+         _flag track_vars On
+         _value mbstring.func_overload 0
+         _value include_path .
     </IfModule>
-    DirectoryIndex index.php
+    DirectoryIndex index. 
 </Directory>
 EOL
 
 # Enable Cacti site and required Apache modules
 a2ensite cacti
-a2enmod php${PHP_VER}
+a2enmod  ${PHP_VER}
 a2enmod rewrite
 systemctl restart apache2
 

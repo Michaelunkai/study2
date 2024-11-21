@@ -1,0 +1,9 @@
+cd && sudo apt install -y ruby-full && \
+gem install bundler && \
+git clone https://github.com/danger/danger.git && \
+cd danger && \
+bundle install && \
+gem install danger && \
+danger init && \
+echo -e "warn(\"PR is too large\") if git.lines_of_code > 500\nmessage(\"Great PR! Keep up the good work.\")" > Dangerfile && \
+echo -e "name: Danger\n\non: [pull_request]\n\njobs:\n  danger:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: '2.7'\n      - name: Install Bundler\n        run: gem install bundler\n      - name: Install Dependencies\n        run: bundle install\n      - name: Run Danger\n        run: bundle exec danger\n        env:\n          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}" > .github/workflows/danger.yml

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Script to set up Apache Arrow for In-Memory Data Analytics on Ubuntu without updates
 # Tools used: Apache Arrow, Python, cmake, g++, pip
@@ -22,7 +22,7 @@ sudo make install
 # Step 4: Set up environment variables
 echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH' >> ~/.bashrc
-source ~/.bashrc
+source ~/. rc
 
 # Step 5: Install necessary Python packages
 pip install pyarrow pandas numpy
@@ -59,4 +59,4 @@ print(loaded_table)
 EOF
 
 # Run the example script
-python3 example_arrow_usage.py
+ 3 example_arrow_usage.py

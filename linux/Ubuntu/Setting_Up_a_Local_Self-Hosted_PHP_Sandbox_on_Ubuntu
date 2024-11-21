@@ -1,0 +1,116 @@
+Setting Up a Local Self-Hosted PHP Sandbox on Ubuntu
+Follow these steps to set up a PHP sandbox on your local Ubuntu machine using Apache.
+
+Step 1: Update Your System
+First, ensure your system is up to date.
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Step 2: Install Apache2
+Install the Apache2 web server.
+
+ 
+ 
+sudo apt install apache2 -y
+Step 3: Install PHP
+Install PHP and the necessary PHP modules.
+
+ 
+ 
+sudo apt install   libapache2-mod-   -my  -y
+Step 4: Configure Apache2
+Set up Apache to use PHP.
+
+Create a new virtual host configuration file:
+
+ 
+ 
+sudo nano /etc/apache2/sites-available/ -sandbox.conf
+Add the following content to the file:
+
+apache
+ 
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/ -sandbox
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <Directory /var/www/ -sandbox>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+</VirtualHost>
+Step 5: Enable the Site and Resolve Port Conflicts
+Enable the new virtual host:
+
+ 
+ 
+sudo a2ensite  -sandbox.conf
+Disable the default site (optional):
+
+ 
+ 
+sudo a2dissite 000-default.conf
+Identify the service using port 80:
+
+ 
+ 
+sudo lsof -i :80
+Stop the conflicting service (e.g., nginx):
+
+ 
+ 
+sudo systemctl stop nginx
+sudo systemctl disable nginx
+Step 6: Start and Verify Apache
+Start the Apache service:
+
+ 
+ 
+sudo systemctl start apache2
+sudo systemctl enable apache2
+Verify that Apache is running:
+
+ 
+ 
+sudo systemctl status apache2
+Step 7: Create the PHP Sandbox Directory
+Create the directory for your PHP sandbox:
+
+ 
+ 
+sudo mkdir /var/www/ -sandbox
+Set the appropriate permissions for the directory:
+
+ 
+ 
+sudo chown -R $USER:$USER /var/www/ -sandbox
+sudo chmod -R 755 /var/www/ -sandbox
+Step 8: Create a Sample PHP File
+Create a PHP file to test your setup:
+
+ 
+ 
+nano /var/www/ -sandbox/index. 
+Add the following content:
+
+ 
+ 
+<? 
+echo "Hello, World!";
+?>
+Step 9: Test Your Setup
+Open your web browser and navigate to http://localhost.
+
+You should see the message: "Hello, World!".
+
+If you encounter issues, check the Apache error logs:
+
+ 
+ 
+sudo tail -f /var/log/apache2/error.log
+By following these steps, you should have a functioning PHP sandbox running on your local Ubuntu machine.

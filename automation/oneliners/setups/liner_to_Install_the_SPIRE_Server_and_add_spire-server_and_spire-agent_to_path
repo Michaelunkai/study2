@@ -1,0 +1,1 @@
+wget https://github.com/spiffe/spire/releases/download/v1.9.5/spire-1.9.5-linux-amd64-musl.tar.gz && tar zvxf spire-1.9.5-linux-amd64-musl.tar.gz && sudo cp -r spire-1.9.5/. /opt/spire/ && sudo ln -s /opt/spire/bin/spire-server /usr/bin/spire-server && sudo ln -s /opt/spire/bin/spire-agent /usr/bin/spire-agent

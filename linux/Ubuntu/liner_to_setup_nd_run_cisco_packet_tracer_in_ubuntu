@@ -1,0 +1,1 @@
+ cd && wget https://archive.org/download/cpt822/CiscoPacketTracer822_amd64_signed.deb && sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb && packettracer

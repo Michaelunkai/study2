@@ -1,0 +1,1 @@
+sudo apt install neuron -y && nrniv --version

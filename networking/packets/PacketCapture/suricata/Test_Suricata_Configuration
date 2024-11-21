@@ -1,0 +1,6 @@
+ Test Suricata Configuration
+To ensure Suricata is properly configured, you can test it using the following command:
+
+ 
+ 
+sudo suricata -T -c /etc/suricata/suricata.yaml -v

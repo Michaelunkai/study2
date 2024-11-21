@@ -1,0 +1,1 @@
+getgo && mkdir my-kubebuilder-project && cd my-kubebuilder-project && kubebuilder init --domain example.com --repo my-kubebuilder-project

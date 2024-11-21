@@ -1,0 +1,1 @@
+getnpm && sudo npm install -g log.io && log.io-server

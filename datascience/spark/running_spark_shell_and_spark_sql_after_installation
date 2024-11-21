@@ -1,0 +1,10 @@
+
+shell:
+
+/opt/spark/bin/spark-shell
+
+
+
+spark- :
+
+/opt/spark/bin/spark- 

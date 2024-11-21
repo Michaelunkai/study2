@@ -1,0 +1,17 @@
+Running the Shinobi Container
+Now that Docker is installed, run the following commands to setup the Shinobi Docker container and run it
+# create working directories
+sudo mkdir /home/$USER/docker/shinobi/config -p && sudo mkdir /home/$USER/docker/shinobi/data && sudo mkdir /home/$USER/docker/shinobi/videos
+# run the Run Shinobi docker container
+docker run -d -p 8080:8080 -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro -v /home/$USER/docker/shinobi/config:/config -v /home/$USER/docker/shinobi/data:/var/lib/mysql -v /home/$USER/docker/shinobi/videos:/opt/shinobi/videos -v /dev/shm/shinobiDockerTemp:/dev/shm/streams migoller/shinobidocker
+
+
+
+Open a web browser and navigate to http://DNSorIP:8080/super
+Login with the username admin@shinobi.video and password admin
+Select Preferences from the top navigation menu
+Change the admin user email address and enter and confirm a new password
+Click Save at the top of the page
+Welcome to Shinobi
+
+

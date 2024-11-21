@@ -1,0 +1,1 @@
+wget -qO- https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key add - && echo "deb https://repos.influxdata.com/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list && sudo apt update && sudo apt install -y kapacitor && sudo systemctl start kapacitor && sudo systemctl enable kapacitor && kapacitor version

@@ -1,0 +1,101 @@
+### Comprehensive Troubleshooting Tutorial: Fixing Docker Container Errors for Honeygain in Proxmox Ubuntu CT Including AppArmor, Pivot_Root, OCI Runtime, and Permission Denied Errors
+
+This guide covers troubleshooting steps for resolving Docker container errors in Proxmox Ubuntu Container (CT), specifically focusing on fixing errors such as `OCI runtime create failed`, `error jailing process inside rootfs: pivot_root: permission denied`, `AppArmor access denied`, and managing Honeygain installation via Docker.
+
+#### Step 1: Enable Nesting in Proxmox for the Container
+
+Proxmox containers need to have "nesting" enabled to run Docker properly.
+
+1. On your **Proxmox host**, run the following commands (replace `CTID` with the ID of your Ubuntu container):
+     
+   pct set CTID --features nesting=1
+   pct restart CTID
+   This enables Docker to run inside the container.
+
+#### Step 2: Enable Privileged Mode for the Container
+
+If nesting doesn't resolve the issue, enabling privileged mode in Proxmox can help:
+
+1. On the **Proxmox host**, enable privileged mode:
+     
+   pct set CTID --privileged 1
+   pct restart CTID
+   Privileged mode allows the container to bypass certain restrictions that could cause permission errors.
+
+#### Step 3: Resolve AppArmor Denial Issues in Docker
+
+AppArmor could be restricting Docker processes inside the container. Here are two approaches to fix this:
+
+#### Option A: Disable AppArmor for the Container
+
+1. Open the container’s configuration file on the **Proxmox host**:
+     
+   nano /etc/pve/lxc/CTID.conf
+
+2. Add the following lines to disable AppArmor and security capabilities:
+     
+   lxc.apparmor.profile: unconfined
+   lxc.cap.drop:
+
+3. Save and exit the file, then restart the container:
+     
+   pct restart CTID
+
+#### Option B: Create a Custom AppArmor Profile for Docker
+
+1. Create a custom AppArmor profile:
+     
+   nano /etc/apparmor.d/docker-custom
+
+2. Add the following configuration to allow Docker to work within the container:
+     
+   profile docker-custom flags=(attach_disconnected,mediate_deleted) {
+       capability,
+       network,
+       file,
+       mount,
+       signal,
+   }
+
+3. Load the custom profile:
+     
+   apparmor_parser -r /etc/apparmor.d/docker-custom
+
+4. Restart AppArmor and Docker:
+     
+   systemctl restart apparmor
+   systemctl restart docker
+
+#### Step 4: Clean Up Docker Containers and Images
+
+Before attempting to run Honeygain again, clean up existing Docker containers and images to ensure there are no conflicts.
+
+1. Stop and remove all containers and clean up images:
+     
+   docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true
+   docker system prune -a --volumes --force
+   docker network prune --force
+
+#### Step 5: Run the Honeygain Docker Container
+
+Now, attempt to run the Honeygain Docker container after resolving the previous issues.
+
+1. Run the following command to start Honeygain:
+     
+   docker run -d --name honeygain -e email=michaelovsky55@gmail.com -e password=Aa111111! honeygain/honeygain -tou-accept -email michaelovsky55@gmail.com -pass Aa111111! -device DESKTOP-4IVDSOR
+
+#### Step 6: Ensure Docker Permissions and Group Configuration
+
+If Docker continues to have permission issues, ensure the current user has access to the Docker group.
+
+1. Add your user to the Docker group:
+     
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   newgrp docker
+
+2. Restart the container and re-run the Honeygain Docker command:
+     
+   docker run -d --name honeygain -e email=michaelovsky55@gmail.com -e password=Aa111111! honeygain/honeygain -tou-accept -email michaelovsky55@gmail.com -pass Aa111111! -device DESKTOP-4IVDSOR
+
+This completes the troubleshooting guide, addressing common errors such as `AppArmor denied`, `pivot_root permission denied`, and `OCI runtime create failed`. You should now be able to run the Honeygain Docker container successfully inside your Proxmox Ubuntu CT.

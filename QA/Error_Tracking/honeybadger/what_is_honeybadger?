@@ -1,3 +1,0 @@
-Honeybadger is an error monitoring and alerting service for web applications, primarily used to track and report errors in applications. It provides real-time error notifications and detailed error reporting, allowing developers to quickly identify and resolve issues.
-
-Honeybadger integrates with various programming languages and frameworks, including Ruby, JavaScript, Elixir, and Python. It helps developers monitor their applications in production, track exceptions, and fix bugs before they impact users. Honeybadger can also monitor application performance and uptime, sending notifications through email, Slack, or other channels when issues arise.

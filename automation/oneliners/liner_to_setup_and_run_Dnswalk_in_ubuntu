@@ -1,0 +1,1 @@
+sudo apt install -y dnswalk && dnswalk example.com && echo "DNSwalk completed for example.com"

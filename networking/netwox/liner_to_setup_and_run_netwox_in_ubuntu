@@ -1,0 +1,1 @@
+sudo apt install -y netwox && sudo netwox 7 && echo "Netwox tool 7 executed"

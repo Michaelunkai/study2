@@ -1,0 +1,1 @@
+ cd && git clone https://github.com/sherlock-project/sherlock.git && cd sherlock/sherlock && pip3 install -e .. && python3 sherlock.py

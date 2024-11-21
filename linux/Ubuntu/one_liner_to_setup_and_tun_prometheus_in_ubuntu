@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install prometheus -y && sudo systemctl start prometheus && gc http://localhost:9090

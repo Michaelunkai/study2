@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Install Required Dependencies without update
 echo "Installing Git, PHP, Composer, and necessary PHP extensions..."
@@ -16,7 +16,7 @@ composer install
 # Step 4: Set Up Environment Configuration
 echo "Setting up environment configuration..."
 cp .env.example .env
-php artisan key:generate
+  artisan key:generate
 
 # Step 5: Configure the .env File
 echo "Configuring the .env file..."
@@ -35,7 +35,7 @@ LOG_CHANNEL=daily
 LOG_LEVEL=debug
 
 # Drivers
-DB_CONNECTION=mysql
+DB_CONNECTION=my 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
 FILESYSTEM_DRIVER=local
@@ -146,6 +146,6 @@ php artisan migrate --seed
 
 # Step 8: Serve the Application
 echo "Serving the application..."
-php artisan serve
+  artisan serve
 
 echo "Laravel Boilerplate setup complete! Access the application at http://127.0.0.1:8000"

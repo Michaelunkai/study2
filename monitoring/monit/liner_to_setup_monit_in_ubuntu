@@ -1,0 +1,1 @@
+sudo apt update && apt --fix-broken install && sudo apt install monit -y && sudo systemctl enable monit && sudo systemctl start monit

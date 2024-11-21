@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/ 
 
 # Create script file with the name describing the tools used and purpose
 SCRIPT_NAME="setup_run_iot_starterkit_fixed_errors.sh"
 
 # Add script content to the file
 cat << 'EOF' > $SCRIPT_NAME
-#!/bin/bash
+#!/bin/ 
 
 # Clone the repository
 echo "Cloning the SAP IoT Starter Kit repository..."
@@ -59,9 +59,9 @@ fi
 # Navigate to Python directories and check if the Python script exists
 if [ -d "python_samples" ]; then
     echo "Running Python scripts..."
-    cd python_samples
+    cd  _samples
     if [ -f your_script.py ]; then
-        python3 your_script.py &
+         3 your_script.py &
     else
         echo "Python script not found, skipping Python scripts."
     fi

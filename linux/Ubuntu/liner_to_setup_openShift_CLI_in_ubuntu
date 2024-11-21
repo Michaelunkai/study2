@@ -1,0 +1,1 @@
+curl -sL https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz | sudo tar -xzv -C /usr/local/bin && oc version

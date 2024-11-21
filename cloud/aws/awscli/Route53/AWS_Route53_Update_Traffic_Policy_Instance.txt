@@ -1,1 +1,0 @@
-aws route53 update-traffic-policy-instance --id <instance-id> --ttl <ttl> --traffic-policy-id <policy-id> --traffic-policy-version <version>

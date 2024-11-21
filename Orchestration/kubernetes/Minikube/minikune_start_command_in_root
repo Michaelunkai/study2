@@ -1,1 +1,0 @@
-minikube start --driver=docker --force

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Install necessary dependencies (without sudo apt update)
 echo "Installing necessary dependencies..."
@@ -10,7 +10,7 @@ git clone https://github.com/davisking/dlib.git
 cd dlib
 
 echo "Installing dlib..."
-python3 setup.py install
+ 3 setup.py install
 
 cd ..
 
@@ -40,4 +40,4 @@ for face_location in face_locations:
 
 # Step 6: Run the Face Detection Script
 echo "Running face detection script..."
-python3 face_detect.py
+ 3 face_detect.py

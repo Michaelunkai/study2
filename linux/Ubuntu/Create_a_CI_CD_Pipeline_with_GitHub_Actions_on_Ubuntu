@@ -1,0 +1,93 @@
+### Step-by-Step Guide to Create a CI/CD Pipeline with GitHub Actions on Ubuntu WSL2
+
+This guide will help you set up a CI/CD pipeline for your GitHub repository using GitHub Actions on Ubuntu WSL2. The workflow files will be stored in the `.git/` folder instead of the default `.github/` folder. Additionally, we will add steps to sync every push to your repository on your Ubuntu desktop server and any other server with the repository.
+
+#### 1. Set Up Your GitHub Repository
+Ensure your GitHub repository is set up and accessible. Your repository is located at `/mnt/c/study`.
+
+#### 2. Create the Workflow Directory
+Create a directory for your GitHub Actions workflows inside the `.git/` folder.
+```bash
+mkdir -p /mnt/c/study/.git/workflows
+```
+
+#### 3. Create a Workflow File
+Create a new workflow file in the `.git/workflows` directory. For example, create a file named `ci.yml`.
+```bash
+nano /mnt/c/study/.git/workflows/ci.yml
+```
+
+#### 4. Define the Workflow
+Add the following YAML configuration to the `ci.yml` file. This example runs a simple CI job that triggers on every push to the main branch and syncs the repository to multiple servers.
+```yaml
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Sync to Ubuntu Desktop Server
+      run: |
+        ssh user@ubuntu-desktop 'cd /path/to/repo && git pull origin main'
+
+    - name: Sync to Another Server
+      run: |
+        ssh user@another-server 'cd /path/to/repo && git pull origin main'
+```
+
+#### 5. Commit and Push the Workflow
+Commit the new workflow file to your repository and push the changes.
+```bash
+cd /mnt/c/study
+git add .git/workflows/ci.yml
+git commit -m "Add CI workflow"
+git push origin main
+```
+
+#### 6. Verify the Workflow
+Go to the Actions tab of your GitHub repository to verify that the workflow runs automatically on every push to the main branch.
+
+#### Additional Configuration: Using WSL in GitHub Actions
+If you need to run specific commands in WSL, you can use the `setup-wsl` action. Here is an example of how to set it up in your workflow:
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup WSL
+      uses: Vampire/setup-wsl@v3
+
+    - name: Run script in WSL
+      run: |
+        wsl npm install
+        wsl npm test
+```
+
+This configuration ensures that your commands run within the WSL environment.
+
+### Conclusion
+By following these steps, you can set up a CI/CD pipeline using GitHub Actions that runs on every push to your repository. The workflow files are stored in the `.git/workflows` directory as specified. This setup allows you to automate your build, test, and deployment processes efficiently, and ensures that your repository is synced across multiple servers.

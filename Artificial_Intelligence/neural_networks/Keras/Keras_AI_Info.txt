@@ -1,7 +1,0 @@
-Keras is an open-source software library that provides a Python interface for artificial neural networks. It is designed to enable fast experimentation with deep neural networks and is user-friendly, modular, and extensible. Keras supports multiple backend neural network computation engines, including TensorFlow, Theano, and Microsoft Cognitive Toolkit (CNTK).
-Key features of Keras include:
-1. User-Friendly API: Keras has a high-level API that makes it easy to build and train models with minimal lines of code.
-2. Modularity: Keras models are made by connecting configurable building blocks, making it simple to create and customize complex models.
-3. Extensibility: New modules can be easily added as new classes and functions.
-4. Support for Multiple Backends: Keras supports multiple backend engines, allowing it to run on various hardware and software configurations.
-Keras is widely used in industry and academia for tasks such as image classification, natural language processing, and time series forecasting.

@@ -1,0 +1,165 @@
+How to Install KeyCloak SSO on Ubuntu 20.04. In this article, we will cover the basics of downloading and setting up a Keycloak server. Single sign on (SSO) is a controlling access of  multiple but independent, software systems. SSO is single authentication service to allow users to login to other services, without providing a password to the service that is being logged into.
+What is KeyCloak?
+Keycloak is a free and open source Identity and Access Management solution by RedHat Community. Its aim is to secure modern applications and services without writing any code. It provides a wide range of features including multifactor authentication, SSO, centralized user management, authentication, authorization, social login, and more. Keycloak allows you to add authentication to applications and secure services with minimum fuss. You don’t need to deal with storing users or authenticating users.
+Keycloak provides single sign out, which means users only have to logout once to be logged out of all applications that use Keycloak. Keycloak is an Identity broker as it  authenticate users with existing OpenID Connect or SAML 2.0 Identity Providers. Other important feature is that Keycloak has built in support to connect to existing LDAP or Active Directory servers.
+Install Keycloak on Ubuntu 20.04
+Further down we will proceed with the steps of how to install KeyCloak SSO on Ubuntu 20.04.
+Also Read
+What is Single Sign On and How does SSO Work?
+Try KeyCloak from the Marketplace
+Deploy KeyCloak on Azure
+deploy keycloak toAzure
+Deploy KeyCloak on Ubuntu 24.04 on Azure
+deploy keycloak toAzure
+Deploy KeyCloak on Ubuntu 22.04 on Azure
+How to Install KeyCloak SSO on Ubuntu 20.04
+Getting Started with KeyCloak Server
+Before starting, it is always recommended to update the system packages to the updated version. Run the following command to update all the packages to the latest version:
+apt-get update -y
+apt-get upgrade -y
+Once your system is updated, restart it to apply all the updates.
+Install Java JDK
+Keycloak is a Java based application. So Java JDK must be installed on your server. If not installed, you can install it using the following command:
+apt-get install default-jdk -y
+Once Java is installed, you can verify the Java version using the following command:
+java --version
+You should see the Java version in the following output:
+openjdk 11.0.11 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
+Once you are done, you can proceed to the next step.
+Also Read
+Keycloak WordPress SSO – How to Setup Keycloak Single Sign On for WordPress
+Download Keycloak
+Next, you will need to download the latest version of Keycloak from the GitHub website. You can use the wget command to download it to your system.
+wget https://github.com/keycloak/keycloak/releases/download/15.0.2/keycloak-15.0.2.tar.gz
+Sample output:
+HTTP request sent, awaiting response... 200 OK
+Length: 253994058 (242M) [application/octet-stream]
+Saving to: ‘keycloak-15.0.2.tar.gz’
+keycloak-15.0.2.tar.gz 4%[=> ] 10.81M 54.0MB/s
+keycloak-15.0.2.tar.gz 100%[=================================================================>] 242.23M 42.2MB/s in 5.2s
+2021-11-16 09:23:43 (46.4 MB/s) - ‘keycloak-15.0.2.tar.gz’ saved [253994058/253994058]
+Once the download is completed, extract the downloaded file with the following command:
+tar -xvzf keycloak-15.0.2.tar.gz
+Next, move the extracted directory to the /opt with the following command:
+mv keycloak-15.0.2 /opt/keycloak
+Next, create a dedicated user and group for Keycloak with the following command:
+groupadd keycloak
+useradd -r -g keycloak -d /opt/keycloak -s /sbin/nologin keycloak
+Next, set the ownership of the /opt/keycloak directory to keycloak:
+chown -R keycloak: /opt/keycloak
+chmod o+x /opt/keycloak/bin/
+Once you are finished, you can proceed to the next step.
+Also Read
+Top 10 Best Keycloak Alternatives – Open Source SSO (Pros and Cons)
+Configure Keycloak
+Next, you will need to create a Keycloak configuration directory and copy the sample configuration file. You can create it inside the /etc directory:
+mkdir /etc/keycloak
+Next, copy the sample configuration files from the /opt/keycloak directory using the following command:
+cp /opt/keycloak/docs/contrib/scripts/systemd/wildfly.conf /etc/keycloak/keycloak.conf
+cp /opt/keycloak/docs/contrib/scripts/systemd/launch.  /opt/keycloak/bin/
+Next, set proper ownership using the following command:
+chown keycloak: /opt/keycloak/bin/launch.
+Next, edit the launch.sh file and define your Keycloak path:
+nano /opt/keycloak/bin/launch.
+Change the file as shown below:
+#!/bin/
+if [ "x$WILDFLY_HOME" = "x" ]; then
+WILDFLY_HOME="/opt/keycloak"
+fi
+if [[ "$1" == "domain" ]]; then
+$WILDFLY_HOME/bin/domain.sh -c $2 -b $3
+else
+$WILDFLY_HOME/bin/standalone.sh -c $2 -b $3
+fi
+Save and close the file when you are finished.
+Create a Systemd Service File for Keycloak
+Next, you will need to create a systemd service file to manage the Keycloak service. You can copy the sample systemd service with the following command:
+cp /opt/keycloak/docs/contrib/scripts/systemd/wildfly.service /etc/systemd/system/keycloak.service
+Next, edit the keycloak.service file and define the Keycloak installation path:
+nano /etc/systemd/system/keycloak.service
+Change the file as shown below:
+[Unit]
+Description=The Keycloak Server
+After=syslog.target network.target
+Before=httpd.service
+[Service]
+Environment=LAUNCH_JBOSS_IN_BACKGROUND=1
+EnvironmentFile=/etc/keycloak/keycloak.conf
+User=keycloak
+Group=keycloak
+LimitNOFILE=102642
+PIDFile=/var/run/keycloak/keycloak.pid
+ExecStart=/opt/keycloak/bin/launch.sh $WILDFLY_MODE $WILDFLY_CONFIG $WILDFLY_BIND
+Standard =null
+[Install]
+WantedBy=multi-user.target
+Save and close the file then reload the systemd daemon to apply the changes:
+systemctl daemon-reload
+Next, start the Keycloak service and enable it to start at system reboot:
+systemctl start keycloak
+systemctl enable keycloak
+You can check the status of the Keycloak service with the following command:
+systemctl status keycloak
+You will get the following output:
+● keycloak.service - The Keycloak Server
+Loaded: loaded (/etc/systemd/system/keycloak.service; disabled; vendor preset: enabled)
+Active: active (running) since Tue 2021-11-16 09:30:06 UTC; 4s ago
+Main PID: 4711 (launch.sh)
+Tasks: 25 (limit: 4691)
+Memory: 108.6M
+CGroup: /system.slice/keycloak.service
+├─4711 /bin/bash /opt/keycloak/bin/launch.sh standalone standalone.xml 0.0.0.0
+├─4712 /bin/sh /opt/keycloak/bin/standalone.sh -c standalone.xml -b 0.0.0.0
+└─4819 java -D[Standalone] -server -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=t>
+Nov 16 09:30:06 ubuntu systemd[1]: Started The Keycloak Server.
+At this point, the Keycloak server is started and listens on port 8080. You can check it with the following command:
+ss -antpl | grep 8080
+You will get the following output:
+LISTEN 0 4096 0.0.0.0:8080 0.0.0.0:* users:(("java",pid=4819,fd=421))
+You can also check the Keycloak server log using the following command:
+tail -f /opt/keycloak/standalone/log/server.log
+You will get the following output:
+2021-11-16 09:30:35,612 INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002220: Adding singleton resource org.keycloak.services.resources.WelcomeResource from Application class org.keycloak.services.resources.KeycloakApplication
+2021-11-16 09:30:35,680 INFO [org.wildfly.extension.undertow] (ServerService Thread Pool -- 66) WFLYUT0021: Registered web context: '/auth' for server 'default-server'
+2021-11-16 09:30:35,780 INFO [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: Deployed "keycloak-server.war" (runtime-name : "keycloak-server.war")
+2021-11-16 09:30:35,836 INFO [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2021-11-16 09:30:35,839 INFO [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 15.0.2 (WildFly Core 15.0.1.Final) started in 28538ms - Started 594 of 872 services (584 services are lazy, passive or on-demand)
+2021-11-16 09:30:35,840 INFO [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2021-11-16 09:30:35,841 INFO [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+Also Read
+Top 10 Single Sign On Solutions Open Source (Pros and Cons)
+Create an Admin User for Keycloak
+Next, you will need to create an admin user to access the Keycloak web interface. Run the following command to create an admin user:
+/opt/keycloak/bin/add-user-keycloak.  -u admin
+Set your password as shown below:
+Press ctrl-d (Unix) or ctrl-z (Windows) to exit
+Password:
+Added 'admin' to 'https://net.cloudinfrastructureservices.co.uk/opt/keycloak/standalone/configuration/keycloak-add-user.json', restart server to load user
+Next, restart the Keycloak service to apply the changes:
+systemctl restart keycloak
+Next, you will need to disable the HTTPS for Keycloak. You can disable it with the following command:
+/opt/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin
+You will be asked to provide the admin password as shown below:
+Logging into http://localhost:8080/auth as user admin of realm master
+Enter password: ********
+Next, run the following command to disable the HTTPS:
+/opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE
+Access Keycloak Web Interface
+Now, open your web browser and access the Keycloak web interface using the URL http://your-server-ip:8080/auth/admin. You should see the Keycloak login page:
+Install KeyCloak SSO on Ubuntu 20.04
+Provide your admin username, password and click on the Sign in button. You should see the Keycloak dashboard on the following screen:
+keycloak da board
+Next, you will need to create a realm to manage your applications. Hover the mouse over the Master in the left panel and click on the Add realm. A realm manages a set of users, credentials, roles, and groups. A user belongs to and logs into a realm.
+You should see the following screen:
+Install KeyCloak SSO add realm
+Provide your realm name and click on the Create button to create a realm. You should see the following screen:
+Keycloak realm created
+Next, you will need to create a new user for Keycloak. Click on the Manage => Users. You should see the following screen:
+Keycloak add users
+Next, click on the Add User button. You should see the following screen:
+provide user information
+Provide your user information and click on the Save button. Next, click on the Credentials tab and set a password for the users as shown below:
+Keycloak set user password
+Click on the Set Password to set the password.

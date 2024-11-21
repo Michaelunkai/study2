@@ -1,1 +1,0 @@
-docker run -d --name env_container -e MY_VAR=HelloWorld alpine sh -c 'while true; do echo $MY_VAR; sleep 1; done'

@@ -1,0 +1,28 @@
+Basic Operations
+Step 1: Verify the SparkContext and SparkSession
+In both shells, sc is the SparkContext, and spark is the SparkSession.
+
+Scala:
+
+scala
+ 
+scala> sc
+res0: org.apache.spark.SparkContext = ...
+Python:
+
+ 
+ 
+>>> sc
+<SparkContext master=local[*] appName=PySparkShell>
+Step 2: Check Spark Configuration
+Scala:
+
+scala
+ 
+scala> sc.getConf.getAll.foreach(println)
+Python:
+
+ 
+ 
+>>> for item in sc.getConf().getAll():
+...     print(item)

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Create project folder and necessary subfolders
 mkdir -p ~/qa_advanced_unit_tests/tests

@@ -1,0 +1,13 @@
+##to run docker container of kali with gui, named "kali":
+
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name kali kalilinux/kali-rolling
+
+##to make installation while using docker run:
+
+docker run -it --name kali -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix kalilinux/kali-rolling bash -c "apt update -y && apt upgrade -y && apt install -y gedit && apt install -y firefox-esr && bash"
+
+
+##runing my alpine installation container:
+docker run -it --name installations -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix michadockermisha/backup 
+
+

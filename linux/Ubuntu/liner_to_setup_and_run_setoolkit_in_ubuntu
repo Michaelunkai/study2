@@ -1,0 +1,1 @@
+sudo apt install -y git && git clone https://github.com/trustedsec/social-engineer-toolkit.git /opt/setoolkit && cd /opt/setoolkit && sudo python3 setup.py install && sudo setoolkit

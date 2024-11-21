@@ -1,0 +1,81 @@
+## Comprehensive Guide to Setting Up, Running, and Using Real-ESRGAN AI Upscaler in Ubuntu
+
+This tutorial will walk you through the steps to set up, run, and use Real-ESRGAN, an open-source AI upscaler, on your Ubuntu system. 
+
+### Step 1: Install Prerequisites
+
+First, we need to install some prerequisites. Open your terminal and run the following commands:
+
+  
+sudo apt update
+sudo apt install -y python3 python3-pip git
+
+### Step 2: Clone the Real-ESRGAN Repository
+
+Next, clone the Real-ESRGAN repository from GitHub:
+
+  
+git clone https://github.com/xinntao/Real-ESRGAN.git
+cd Real-ESRGAN
+
+### Step 3: Install Python Dependencies
+
+Navigate to the cloned repository and install the required Python packages:
+
+  
+pip3 install -r requirements.txt
+
+### Step 4: Download Pre-trained Models
+
+Download the pre-trained models for Real-ESRGAN. You can find the models in the `experiments/pretrained_models` directory. Use the following commands to download them:
+
+  
+mkdir -p experiments/pretrained_models
+cd experiments/pretrained_models
+
+# Download the pre-trained model for Real-ESRGAN (for example, RealESRGAN_x4plus.pth)
+wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+
+cd ../../..
+
+### Step 5: Prepare an Input Image
+
+Make sure you have an input image ready for upscaling. For this tutorial, we'll use a sample image. Download a sample image using the following command:
+
+  
+mkdir -p inputs
+wget -O inputs/sample_image.jpg https://via.placeholder.com/256
+
+### Step 6: Upscale the Input Image
+
+Now you're ready to upscale the input image. Use the following command to upscale the image using the pre-trained model:
+
+  
+python3 inference_realesrgan.py -n RealESRGAN_x4plus -i inputs/sample_image.jpg -o results/upscaled_image.jpg
+
+### Step 7: Verify the Output
+
+Navigate to the output directory to view your upscaled image:
+
+  
+xdg-open results/upscaled_image.jpg
+
+### Optional: Run with GPU Support
+
+If you have a compatible NVIDIA GPU and CUDA installed, you can run the upscaler with GPU support for faster processing. Ensure you have installed the necessary CUDA and cuDNN libraries, and then use the following command:
+
+  
+python3 inference_realesrgan.py -n RealESRGAN_x4plus -i inputs/sample_image.jpg -o results/upscaled_image.jpg --half --gpu-id 0
+
+This command uses half-precision for faster processing and specifies GPU ID 0.
+
+### Summary
+
+1. **Install prerequisites**: `sudo apt update && sudo apt install -y python3 python3-pip git`.
+2. **Clone the repository**: `git clone https://github.com/xinntao/Real-ESRGAN.git`.
+3. **Install dependencies**: `pip3 install -r requirements.txt`.
+4. **Download pre-trained models**: `wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth`.
+5. **Prepare an input image**: `wget -O inputs/sample_image.jpg https://via.placeholder.com/256`.
+6. **Upscale the input image**: `python3 inference_realesrgan.py -n RealESRGAN_x4plus -i inputs/sample_image.jpg -o results/upscaled_image.jpg`.
+
+By following these steps, you've successfully set up and used the Real-ESRGAN AI upscaler on your Ubuntu system. If you have any questions or run into issues, feel free to ask!

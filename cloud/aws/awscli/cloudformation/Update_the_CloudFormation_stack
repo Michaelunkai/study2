@@ -1,1 +1,0 @@
-aws cloudformation update-stack --stack-name MyStack-c867ff9c --template-body file://updated-template.yaml

@@ -1,0 +1,1 @@
+sudo apt install -y vim && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && echo -e "set nocompatible\nfiletype off\nset rtp+=~/.vim/bundle/Vundle.vim\ncall vundle#begin()\nPlugin 'VundleVim/Vundle.vim'\ncall vundle#end()\nfiletype plugin indent on" > ~/.vimrc && vim +PluginInstall +qall && vim

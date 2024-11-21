@@ -1,0 +1,210 @@
+Sure, let's redo the steps with `nano` commands for file creation and editing.
+
+### Step 1: Install Dependencies
+
+1. **Update System Packages:**
+     
+   sudo apt-get update
+
+2. **Install Required Packages:**
+     
+   sudo apt-get install -y docker.io docker-compose
+
+3. **Install Go (if not already installed):**
+     
+   wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
+   sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+   echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+   source ~/.profile
+
+### Step 2: Use Docker to Run Cortex
+
+1. **Create a Configuration File:**
+     
+   nano cortex-config. 
+
+   Paste the following content into the file:
+     
+   auth_enabled: true
+
+   distributor:
+     ring:
+       kvstore:
+         store: inmemory
+
+   ingester:
+     lifecycler:
+       address: 127.0.0.1
+       ring:
+         kvstore:
+           store: inmemory
+       final_sleep: 0s
+
+   limits:
+     enforce_metric_name: false
+     reject_old_samples: true
+     reject_old_samples_max_age: 168h
+
+   schema:
+     configs:
+       - from: 2021-03-23
+         store: boltdb
+         object_store: filesystem
+         schema: v10
+         index:
+           prefix: index_
+           period: 168h
+
+   server:
+     http_listen_port: 8080
+
+   storage:
+     engine: boltdb
+     boltdb:
+       directory: /tmp/cortex
+
+   chunk_store_config:
+     max_look_back_period: 0s
+
+   table_manager:
+     retention_deletes_enabled: true
+     retention_period: 168h
+
+   Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+2. **Create a Docker Compose File:**
+     
+   nano docker-compose. 
+
+   Paste the following content into the file:
+     
+   version: "3"
+   services:
+     cortex:
+       image: quay.io/cortexproject/cortex:v1.10.0
+       ports:
+         - 9009:9009
+         - 9095:8080
+       command: -config.file=/etc/cortex/cortex-config. 
+       volumes:
+         - ./cortex-config. :/etc/cortex/cortex-config. 
+         - ./data:/data
+
+   Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+3. **Start Cortex Using Docker Compose:**
+     
+   docker-compose up -d
+
+### Step 3: Configure Prometheus
+
+1. **Install Prometheus:**
+     
+   sudo apt-get install -y prometheus
+
+2. **Modify Prometheus Configuration:**
+     
+   sudo nano /etc/prometheus/prometheus.yml
+
+   Update the `prometheus.yml` file to include Cortex as a remote write target:
+     
+   global:
+     scrape_interval: 15s
+
+   scrape_configs:
+     - job_name: 'prometheus'
+       static_configs:
+         - targets: ['localhost:9090']
+
+   remote_write:
+     - url: "http://localhost:9009/api/prom/pu "
+       basic_auth:
+         username: "your-username"
+         password: "your-password"
+
+   Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+3. **Restart Prometheus:**
+     
+   sudo systemctl restart prometheus
+
+### Step 4: Verify Cortex and Prometheus Integration
+
+1. **Access Cortex:**
+   Open your browser and go to `http://localhost:9095` to access the Cortex UI.
+
+2. **Access Prometheus:**
+   Open your browser and go to `http://localhost:9090` to access the Prometheus UI.
+
+3. **Verify Data Ingestion:**
+   Ensure that metrics are being ingested into Cortex by checking the Cortex UI and querying metrics in Prometheus.
+
+### Step 5: Enable Multi-Tenancy in Cortex
+
+1. **Update Cortex Configuration for Multi-Tenancy:**
+     
+   nano cortex-config. 
+
+   Add the following to your `cortex-config.yaml` file:
+     
+   auth_enabled: true
+
+   distributor:
+     ring:
+       kvstore:
+         store: inmemory
+     auth_enabled: true
+
+   ingester:
+     lifecycler:
+       ring:
+         kvstore:
+           store: inmemory
+
+   limits:
+     enforce_metric_name: false
+     reject_old_samples: true
+     reject_old_samples_max_age: 168h
+     max_tenants: 10
+
+   querier:
+     query_ingesters_within: 10s
+
+   query_frontend:
+     compress_responses: true
+     log_queries_longer_than: 5s
+
+   storage:
+     engine: boltdb
+     boltdb:
+       directory: /tmp/cortex
+
+   table_manager:
+     retention_deletes_enabled: true
+     retention_period: 168h
+
+   Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+2. **Restart Cortex:**
+     
+   docker-compose down
+   docker-compose up -d
+
+### Step 6: Using Multi-Tenancy
+
+1. **Send Data to Cortex with Tenant Headers:**
+   When sending data to Cortex, include the `X-Scope-OrgID` header to specify the tenant ID. For example:
+     
+   curl -XPOST "http://localhost:9009/api/prom/push" \
+     -H "X-Scope-OrgID: tenant1" \
+     -H "Content-Type: application/x-protobuf" \
+     --data-binary @metrics.prom
+
+2. **Query Data for Specific Tenants:**
+   When querying data, include the `X-Scope-OrgID` header to specify the tenant ID. For example:
+     
+   curl -G "http://localhost:9009/api/prom/query" \
+     -H "X-Scope-OrgID: tenant1" \
+     --data-urlencode "query=up"
+
+By following these steps using `nano` for file creation and editing, you should have a working setup of Cortex for multi-tenancy in Prometheus on Ubuntu. This allows you to manage multiple tenants, each with their isolated set of metrics.

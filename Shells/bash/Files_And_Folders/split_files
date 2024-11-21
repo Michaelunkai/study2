@@ -1,6 +1,0 @@
-split -b 120M rockyou.txt small_part_
-
-
-this will split rockyou file to 2 files, one is small_part_aa witch is 120mb 
-
-and the 2th is small_part_ab with around 14mb (rockyou weights 134mb)

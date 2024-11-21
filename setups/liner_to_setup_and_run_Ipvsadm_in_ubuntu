@@ -1,0 +1,1 @@
+sudo apt install -y ipvsadm && sudo ipvsadm -A -t 192.168.1.1:80 -s rr && echo "IPVS rule added for 192.168.1.1:80 with round-robin scheduling"

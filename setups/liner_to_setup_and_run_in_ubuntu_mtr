@@ -1,0 +1,1 @@
+sudo apt install -y mtr && sudo mtr google.com

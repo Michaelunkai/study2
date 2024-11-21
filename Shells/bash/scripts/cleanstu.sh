@@ -1,8 +1,20 @@
-#!/bin/bash
+#!/bin/bash 
 
-# Install missing tools (deborphan)
+# Install missing tools (deborphan, localepurge)
+
 if ! command -v deborphan &> /dev/null; then
     sudo apt-get install -y deborphan
+fi
+
+if ! command -v localepurge &> /dev/null; then
+    # Pre-configure localepurge to keep 'en' locales
+    sudo debconf-set-selections <<EOF
+localepurge   localepurge/nopurge   multiselect     en, en_US.UTF-8
+localepurge   localepurge/dontbothernew     boolean true
+localepurge   localepurge/mandelete boolean true
+localepurge   localepurge/showfreedspace    boolean true
+EOF
+    sudo apt-get install -y localepurge
 fi
 
 # Clean package manager caches and orphaned packages

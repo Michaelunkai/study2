@@ -1,0 +1,1 @@
+sudo git clone https://github.com/pentestmonkey/smtp-user-enum.git /opt/smtp-user-enum && cd /opt/smtp-user-enum && sudo chmod +x smtp-user-enum.pl && ./smtp-user-enum.pl

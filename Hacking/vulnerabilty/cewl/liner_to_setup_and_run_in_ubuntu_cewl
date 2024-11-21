@@ -1,0 +1,1 @@
+sudo apt install -y cewl && cewl http://target.com -m 5 -w wordlist.txt

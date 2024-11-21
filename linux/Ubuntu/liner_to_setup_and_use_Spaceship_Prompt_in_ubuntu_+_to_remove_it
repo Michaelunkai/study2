@@ -1,0 +1,14 @@
+Spaceship Prompt
+Install and Verify:
+ 
+ 
+npm install -g spaceship-prompt
+echo 'autoload -U promptinit; promptinit; prompt spaceship' >> ~/.zshrc
+source ~/.zshrc
+spaceship --version
+Disable and Remove:
+ 
+ 
+sed -i '/autoload -U promptinit; promptinit; prompt spaceship/d' ~/.zshrc
+npm uninstall -g spaceship-prompt
+source ~/.zshrc

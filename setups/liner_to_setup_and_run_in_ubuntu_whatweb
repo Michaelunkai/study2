@@ -1,0 +1,1 @@
+sudo apt install -y whatweb && whatweb http://target.com

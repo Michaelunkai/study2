@@ -1,0 +1,1 @@
+git clone https://gitbox.apache.org/repos/asf/impala.git ~/impala && cd ~/impala && export IMPALA_HOME=$(pwd) && ./bin/bootstrap_development.sh && source ./bin/impala-config.sh && ./buildall.sh -noclean -notests && ./buildall.sh -format && ./buildall.sh -start_minicluster && ./buildall.sh -start_impala_cluster

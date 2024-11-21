@@ -1,0 +1,4 @@
+sudo dpkg --configure -a && sudo apt-get install -f
+
+
+sudo apt purge <problem making apps here>

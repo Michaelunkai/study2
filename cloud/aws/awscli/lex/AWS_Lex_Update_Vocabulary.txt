@@ -1,1 +1,0 @@
-aws lex-models update-vocabulary --vocabulary-name <vocabulary-name> --language-code <language-code> --phrases <phrases-list>

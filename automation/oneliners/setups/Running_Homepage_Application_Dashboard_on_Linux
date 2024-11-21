@@ -1,0 +1,40 @@
+▲A  A▼
+Running Homepage Application Dashboard on Linux
+What is Homepage?
+[Homepage is] a modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. -https://github.com/benphelps/homepage
+Installing NodeJS
+Log into the Linux device
+Run the following commands in a terminal window
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_20.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# test node is working
+node -v
+# test npm is working
+npm -v
+Running Homepage
+Continue with the following commands:
+# install git
+sudo apt install git -y
+# cd back to home
+cd ~
+# clone homepage github repo
+git clone https://github.com/gethomepage/homepage.git ./homepage
+# cd into git clone
+cd homepage
+# checkout the latest tagged release
+git checkout "$(git tag --sort=v:refname | tail -n1)"
+# install dependencies
+npm install
+# copy config files
+cp ./src/skeleton ./config -r
+# build homepage
+npm run build
+# run homepage
+npm start
+Open a web browser and navigate to http://DNSorIP:3000
+Welcome to Homepage
+Source: https://github.com/gethomepage/homepage?tab=readme-ov-file#with-node
+
+ 

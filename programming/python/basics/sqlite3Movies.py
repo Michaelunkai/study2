@@ -1,7 +1,7 @@
-import sqlite3
+import  ite3
 
 # Connect to SQLite database or create it if it doesn't exist
-conn = sqlite3.connect('wishlist.db')
+conn =  ite3.connect('wishlist.db')
 
 # Create a cursor object
 cursor = conn.cursor()

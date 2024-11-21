@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 # Create project directory and navigate to it
 mkdir -p nightwatch-test/tests && cd nightwatch-test
 
@@ -23,7 +23,7 @@ module.exports = {
 """)' > create_nightwatch_test.py
 
 # Run the Python script to create the test
-python3 create_nightwatch_test.py
+ 3 create_nightwatch_test.py
 
 # Update the Nightwatch configuration to point to the 'tests' folder
 sed -i "s#src_folders: \[\],#src_folders: \['tests'\],#" nightwatch.conf.js

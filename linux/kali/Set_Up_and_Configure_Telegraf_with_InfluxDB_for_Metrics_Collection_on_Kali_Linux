@@ -1,0 +1,116 @@
+Set_Up_and_Configure_Telegraf_with_InfluxDB_for_Metrics_Collection_on_Kali_Linux
+This guide will walk you through the process of setting up and configuring Telegraf with InfluxDB for metrics collection on Kali Linux.
+
+Step_1:_Download_and_Install_InfluxDB
+Download the InfluxDB .deb package:
+
+ 
+ 
+wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.0.9-amd64.deb
+Install the package:
+
+ 
+ 
+sudo dpkg -i influxdb2-2.0.9-amd64.deb
+Start and enable InfluxDB service:
+
+ 
+ 
+sudo systemctl start influxdb
+sudo systemctl enable influxdb
+Step_2:_Configure_InfluxDB
+Access InfluxDB CLI:
+
+ 
+ 
+influx
+Create a database:
+
+ 
+ 
+CREATE DATABASE telegraf
+Create a user with permissions:
+
+ 
+ 
+CREATE USER telegraf WITH PASSWORD 'yourpassword'
+GRANT ALL ON telegraf TO telegraf
+Exit the InfluxDB CLI:
+
+ 
+ 
+exit
+Step_3:_Download_and_Install_Telegraf
+Download the Telegraf .deb package:
+
+ 
+ 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.20.4-1_amd64.deb
+Install the package:
+
+ 
+ 
+sudo dpkg -i telegraf_1.20.4-1_amd64.deb
+Step_4:_Configure_Telegraf
+Edit the Telegraf configuration file:
+
+ 
+ 
+sudo nano /etc/telegraf/telegraf.conf
+Locate the [[outputs.influxdb]] section and configure it to use your InfluxDB instance:
+
+ini
+ 
+[[outputs.influxdb]]
+  urls = ["http://localhost:8086"]
+  database = "telegraf"
+  username = "telegraf"
+  password = "yourpassword"
+Save and close the file.
+
+Step_5:_Start_and_Enable_Telegraf
+Start and enable Telegraf service:
+ 
+ 
+sudo systemctl start telegraf
+sudo systemctl enable telegraf
+Step_6:_Verify_the_Setup
+Check Telegraf service status:
+
+ 
+ 
+sudo systemctl status telegraf
+Check InfluxDB for Telegraf data:
+
+ 
+ 
+influx -username telegraf -password 'yourpassword'
+ 
+ 
+USE telegraf
+SHOW MEASUREMENTS
+You should see various measurements indicating that Telegraf is successfully collecting and sending data to InfluxDB.
+
+Step_7:_Optional:_Configure_Grafana_for_Visualization
+If you want to visualize the collected metrics, you can install and configure Grafana:
+
+Add Grafana repository:
+
+ 
+ 
+sudo apt-get install -y software-properties-common
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+Update package list and install Grafana:
+
+ 
+ 
+sudo apt-get update
+sudo apt-get install grafana
+Start and enable Grafana service:
+
+ 
+ 
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+Access Grafana via a web browser at http://localhost:3000 and configure a data source to InfluxDB.

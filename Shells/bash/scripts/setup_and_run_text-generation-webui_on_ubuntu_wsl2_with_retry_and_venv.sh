@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Update and Install Dependencies
 sudo apt update && sudo apt upgrade -y
@@ -37,7 +37,7 @@ fi
 
 # Step 6: Start the Web UI
 if [ -f "server.py" ]; then
-    python server.py &
+      server.py &
     echo "Web UI is running. Access it at http://localhost:7860"
 else
     echo "server.py not found. Exiting..."

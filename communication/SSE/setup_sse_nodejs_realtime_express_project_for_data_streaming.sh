@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Script Name: setup_sse_nodejs_realtime_express_project_for_data_streaming.sh
 # Description: This script automates the setup of a Node.js Server-Sent Events (SSE) project using Express.
@@ -8,7 +8,7 @@
 if ! command -v nvm &> /dev/null; then
   echo "Installing nvm (Node Version Manager)..."
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-  source ~/.bashrc
+  source ~/. rc
 fi
 
 # Step 2: Install the latest LTS version of Node.js

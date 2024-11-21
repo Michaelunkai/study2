@@ -1,0 +1,112 @@
+Sure, let's go through the steps to set up and use Flyway for database versioning on Ubuntu:
+
+### Step 1: Install Java
+Flyway requires Java to be installed. First, ensure you have Java installed on your Ubuntu system.
+
+1. Update your package list:
+     
+   sudo apt update
+
+2. Install Java (OpenJDK in this case):
+     
+   sudo apt install openjdk-11-jre
+
+3. Verify the Java installation:
+     
+   java -version
+
+### Step 2: Download Flyway
+1. Go to the Flyway [official download page](https://flywaydb.org/download/community) and copy the download link for the latest version.
+
+2. Download Flyway using `wget`:
+     
+   wget -O flyway-commandline.tar.gz https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/8.5.5/flyway-commandline-8.5.5-linux-x64.tar.gz
+
+3. Extract the tarball:
+     
+   tar -xzf flyway-commandline.tar.gz
+
+4. Move the Flyway folder to a desired location, e.g., `/opt/flyway`:
+     
+   sudo mv flyway-8.5.5 /opt/flyway
+
+### Step 3: Set Up Environment Variables
+1. Open your profile file for editing (e.g., `.bashrc` or `.profile`):
+     
+   nano ~/. rc
+
+2. Add Flyway to your PATH by adding the following lines:
+     
+   export FLYWAY_HOME=/opt/flyway
+   export PATH=$FLYWAY_HOME:$PATH
+
+3. Source the profile file to apply the changes:
+     
+   source ~/. rc
+
+4. Verify the Flyway installation:
+     
+   flyway -v
+
+### Step 4: Configure Flyway
+1. Create a configuration file named `flyway.conf` in the Flyway directory:
+     
+   nano /opt/flyway/conf/flyway.conf
+
+2. Add the following configuration, adjusting it to your database settings:
+
+   For example, for a PostgreSQL database:
+    plaintext
+   flyway.url=jdbc:postgre ://localhost:5432/your_database
+   flyway.user=your_db_user
+   flyway.password=your_db_password
+
+### Step 5: Create Migration Scripts
+1. Create a directory for your migration scripts within the Flyway directory:
+     
+   mkdir /opt/flyway/ 
+
+2. Create your first migration script in the `/opt/flyway/sql` directory. Flyway uses a specific naming convention for migration files: `V<version_number>__<description>.sql`.
+
+   Example:
+     
+   nano /opt/flyway/ /V1__Create_person_table. 
+
+   Add your SQL statements to this file:
+     
+   CREATE TABLE person (
+       id INT PRIMARY KEY,
+       name VARCHAR(100)
+   );
+
+### Step 6: Apply Migrations
+1. Run Flyway to apply the migrations:
+     
+   flyway migrate
+
+   Flyway will connect to the database using the details in `flyway.conf` and apply any pending migrations.
+
+### Step 7: Verify Migration
+1. You can check the status of applied migrations using:
+     
+   flyway info
+
+2. This will show you which migrations have been applied and their status.
+
+### Step 8: Further Migrations
+1. For any subsequent migrations, create new migration scripts in the `/opt/flyway/sql` directory following the same naming convention.
+
+   Example:
+     
+   nano /opt/flyway/ /V2__Add_email_to_person. 
+
+   Add your SQL statements:
+     
+   ALTER TABLE person ADD email VARCHAR(100);
+
+2. Apply the new migration:
+     
+   flyway migrate
+
+### Conclusion
+You have successfully set up Flyway for database versioning on Ubuntu. You can now manage your database schema changes using Flyway migration scripts.

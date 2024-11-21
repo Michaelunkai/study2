@@ -1,0 +1,184 @@
+### Step-by-Step Guide: Set Up and Configure HashiCorp Vault with AppRole Authentication and Custom TLS Certificate in Ubuntu
+
+#### Step 1: Install HashiCorp Vault
+
+1. **Install HashiCorp Vault using a one-liner command:**
+     
+   cd && curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && sudo apt-get update && sudo apt-get install vault
+
+2. **Verify the installation:**
+     
+   vault --version
+
+#### Step 2: Generate a TLS Certificate with IP SANs
+
+1. **Create an OpenSSL configuration file:**
+
+     
+   sudo nano /etc/vault.d/openssl.cnf
+
+   Add the following content to the file:
+
+    ini
+   [req]
+   distinguished_name = req_distinguished_name
+   x509_extensions = v3_req
+   prompt = no
+
+   [req_distinguished_name]
+   C = US
+   ST = State
+   L = City
+   O = Organization
+   OU = OrganizationalUnit
+   CN = 127.0.0.1
+
+   [v3_req]
+   keyUsage = keyEncipherment, dataEncipherment
+   extendedKeyUsage = serverAuth
+   subjectAltName = @alt_names
+
+   [alt_names]
+   IP.1 = 127.0.0.1
+
+2. **Generate the self-signed certificate:**
+
+     
+   sudo mkdir -p /opt/vault/tls
+   openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /opt/vault/tls/tls.key -out /opt/vault/tls/tls.crt -config /etc/vault.d/openssl.cnf
+
+#### Step 3: Create the Vault Configuration File
+
+1. **Create the configuration file:**
+     
+   sudo nano /etc/vault.d/vault.hcl
+
+2. **Replace the content of the file with the following:**
+
+    hcl
+   # Full configuration options can be found at https://developer.hashicorp.com/vault/docs/configuration
+
+   ui = true
+
+   storage "file" {
+     path = "/opt/vault/data"
+   }
+
+   # HTTPS listener
+   listener "tcp" {
+     address       = "0.0.0.0:8200"
+     tls_cert_file = "/opt/vault/tls/tls.crt"
+     tls_key_file  = "/opt/vault/tls/tls.key"
+   }
+
+   # Example AWS KMS auto unseal
+   #seal "awskms" {
+   #  region = "us-east-1"
+   #  kms_key_id = "REPLACE-ME"
+   #}
+
+3. **Save and exit the file.**
+
+#### Step 4: Start and Initialize the Vault Server
+
+1. **Create the data directory for Vault:**
+     
+   sudo mkdir -p /opt/vault/data
+   sudo chown -R vault:vault /opt/vault/data
+
+2. **Start the Vault server:**
+     
+   sudo systemctl enable vault
+   sudo systemctl start vault
+
+3. **Initialize the Vault using the one-liner command:**
+     
+   vault operator init
+
+   **Example  :**
+
+   WARNING! VAULT_ADDR and -address unset. Defaulting to https://127.0.0.1:8200.
+   Unseal Key 1: ApCEKMsuCMt2FRsbNH6sh42sMnoIObOTDAPXhWtOOoem
+   Unseal Key 2: +TTC2wkoi3TN5b0nVgDiptXyj+3b+Jw5kLTMtJ91CxX6
+   Unseal Key 3: fqB/B3wiOgQ3EtaOlxlrAE9QLSAR/BZkvp0KBL2M99x1
+   Unseal Key 4: gDVlRyur0eapbOYhz57itC9Uwj+/3q/Nxqvt6BX5k2/p
+   Unseal Key 5: ZbPfvmuKHKUUJUjD+QTqfRFDm0sHSk9wphd5VefDLRnt
+
+   Initial Root Token: hvs.5bTWW0Xxiwg9jYJrp9G1hwwF
+
+   **Save these unseal keys and the root token securely.**
+
+4. **Unseal the Vault using the first three unseal keys:**
+
+     
+   vault operator unseal ApCEKMsuCMt2FRsbNH6sh42sMnoIObOTDAPXhWtOOoem
+   vault operator unseal +TTC2wkoi3TN5b0nVgDiptXyj+3b+Jw5kLTMtJ91CxX6
+   vault operator unseal fqB/B3wiOgQ3EtaOlxlrAE9QLSAR/BZkvp0KBL2M99x1
+
+5. **Login to the Vault:**
+     
+   vault login hvs.5bTWW0Xxiwg9jYJrp9G1hwwF
+
+#### Step 5: Enable and Configure AppRole Authentication
+
+1. **Enable the AppRole authentication method:**
+     
+   vault auth enable approle
+
+2. **Create a policy for the AppRole:**
+     
+   sudo nano /etc/vault.d/approle_policy.hcl
+
+3. **Add the following content to the file:**
+
+    hcl
+   path "secret/*" {
+     capabilities = ["read", "list"]
+   }
+
+4. **Apply the policy to Vault:**
+     
+   vault policy write my-approle-policy /etc/vault.d/approle_policy.hcl
+
+5. **Create an AppRole with the policy:**
+     
+   vault write auth/approle/role/my-role token_policies="my-approle-policy"
+
+6. **Fetch the RoleID and SecretID:**
+
+   - **RoleID:**
+       
+     vault read auth/approle/role/my-role/role-id
+   - **SecretID:**
+       
+     vault write -f auth/approle/role/my-role/secret-id
+
+#### Step 6: Test AppRole Authentication
+
+1. **Authenticate using the RoleID and SecretID:**
+     
+   vault write auth/approle/login role_id="<RoleID>" secret_id="<SecretID>"
+   This will return a client token that can be used to access secrets according to the policy.
+
+2. **Access a secret using the client token:**
+     
+   VAULT_TOKEN=<Client Token> vault kv get secret/<your-secret>
+
+#### Step 7: Secure the Vault
+
+1. **Revoke the initial root token:**
+     
+   vault token revoke hvs.5bTWW0Xxiwg9jYJrp9G1hwwF
+
+2. **Configure Vault to start automatically with the system:**
+     
+   sudo systemctl enable vault
+
+3. **(Optional) Disable TLS Verification (for Development only):**
+
+   If you encounter certificate verification issues during development, you can disable TLS verification:
+
+     
+   export VAULT_SKIP_VERIFY=true
+
+Your Vault is now set up with AppRole authentication, using a custom TLS certificate with IP SANs, and ready to manage secrets securely.

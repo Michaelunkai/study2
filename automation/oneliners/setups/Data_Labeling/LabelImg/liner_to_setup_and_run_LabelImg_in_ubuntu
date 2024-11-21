@@ -1,0 +1,3 @@
+LabelImg is a graphical image annotation tool that labels objects in images.
+
+sudo apt install -y python3-pyqt5 && pip3 install labelImg && labelImg

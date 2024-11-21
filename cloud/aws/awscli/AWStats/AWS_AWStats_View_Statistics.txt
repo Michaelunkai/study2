@@ -1,1 +1,0 @@
-sudo nano /etc/apache2/conf-available/awstats.conf

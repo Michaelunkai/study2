@@ -1,0 +1,1 @@
+cd && apt install jq -y && git clone https://github.com/gurock/testrail-docker.git && cd testrail-docker && ./quickstart.sh && gcl 8000

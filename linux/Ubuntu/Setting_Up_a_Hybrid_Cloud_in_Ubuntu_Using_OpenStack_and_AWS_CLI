@@ -1,0 +1,118 @@
+Certainly! Here's the tutorial remade using OpenStack, an open-source cloud platform, instead of VMware Cloud on AWS.
+
+### **Comprehensive Guide: Setting Up a Hybrid Cloud in Ubuntu Using OpenStack and AWS CLI**
+
+---
+
+This guide will walk you through the process of setting up a hybrid cloud in Ubuntu using OpenStack alongside AWS CLI. You will learn how to install the necessary tools, configure OpenStack and AWS, and deploy workloads seamlessly across both platforms.
+
+---
+
+### **Step 1: Install Required Tools on Ubuntu**
+
+Start by installing OpenStack CLI tools and AWS CLI on your Ubuntu system:
+
+  
+sudo apt update
+sudo apt install -y python3-openstackclient awscli
+
+This command installs the OpenStack CLI toolset (`python3-openstackclient`) and AWS CLI.
+
+---
+
+### **Step 2: Configure AWS CLI**
+
+Configure AWS CLI to interact with AWS services:
+
+  
+aws configure
+
+Provide your AWS credentials and preferred settings when prompted.
+
+---
+
+### **Step 3: Set Up OpenStack**
+
+Assuming you have an OpenStack environment ready, you need to source your OpenStack credentials:
+
+  
+source <path-to-openstack-credentials>
+
+Replace `<path-to-openstack-credentials>` with the path to your OpenStack credentials file.
+
+---
+
+### **Step 4: Configure Networking for Hybrid Cloud**
+
+Set up a network in OpenStack that connects to your AWS environment:
+
+  
+openstack network create <network-name>
+openstack subnet create <subnet-name> --network <network-name> --subnet-range <subnet-range>
+
+Replace `<network-name>`, `<subnet-name>`, and `<subnet-range>` with your specific network configurations.
+
+---
+
+### **Step 5: Create an Instance in OpenStack**
+
+Launch a new instance in OpenStack to start your hybrid cloud:
+
+  
+openstack server create --flavor <flavor-id> --image <image-id> --network <network-id> --key-name <key-name> <server-name>
+
+Replace `<flavor-id>`, `<image-id>`, `<network-id>`, `<key-name>`, and `<server-name>` with your specific details.
+
+---
+
+### **Step 6: Set Up AWS Resources**
+
+Now, create a corresponding instance in AWS:
+
+  
+aws ec2 run-instances --image-id <AMI_ID> --count 1 --instance-type <INSTANCE_TYPE> --key-name <KEY_NAME> --security-group-ids <SECURITY_GROUP_ID> --subnet-id <SUBNET_ID>
+
+Replace the placeholders with appropriate AWS configurations.
+
+---
+
+### **Step 7: Integrate OpenStack and AWS Networks**
+
+Configure VPN or Direct Connect for network integration between OpenStack and AWS:
+
+  
+# OpenStack VPN Configuration
+openstack vpn create ...
+
+# AWS VPN Configuration
+aws ec2 create-vpn-connection ...
+
+Use specific commands for setting up VPNs or Direct Connect depending on your requirements.
+
+---
+
+### **Step 8: Deploy and Manage Workloads**
+
+Deploy and manage workloads across your hybrid cloud. Utilize OpenStack Horizon and AWS Management Console for GUI management, or continue using CLI tools for automation.
+
+---
+
+### **Step 9: Monitor Your Hybrid Environment**
+
+Use monitoring tools like OpenStack’s Ceilometer or AWS CloudWatch to keep track of your resources and workloads.
+
+---
+
+### **Step 10: Clean Up Resources**
+
+Terminate instances and clean up your hybrid setup when not needed:
+
+  
+openstack server delete <server-id>
+aws ec2 terminate-instances --instance-ids <instance-id>
+
+Replace `<server-id>` and `<instance-id>` with your specific instance IDs.
+
+---
+
+This setup leverages the flexibility and open-source benefits of OpenStack along with the robust infrastructure of AWS. By following this guide, you can establish a scalable and efficient hybrid cloud environment in Ubuntu, combining the strengths of both OpenStack and AWS.

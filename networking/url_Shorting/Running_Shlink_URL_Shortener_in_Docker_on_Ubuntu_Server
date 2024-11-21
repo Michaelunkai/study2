@@ -1,0 +1,43 @@
+▲A  A▼
+Running Shlink URL Shortener in Docker on Ubuntu Server
+What is Shlink?
+A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain. -https://github.com/shlinkio/shlink
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Shlink Container
+Continue with the following commands in a terminal window
+# create working directories
+mkdir ~/docker/shlink -p && mkdir ~/docker/mariadb -p
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD='r00tp@$$' -e MYSQL_USER=shlinkio_rw -e MYSQL_PASSWORD='$hlink10!' -e MYSQL_DATABASE=shlinkio -v ~/docker/mariadb:/var/lib/mysql --restart=unless-stopped mariadb:latest
+# run the shlink docker container
+docker run -d --name shlink --link mariadb -e DEFAULT_DOMAIN=b.rto:8080 -e USE_HTTPS=false -e DB_DRIVER=maria -e DB_NAME=shlinkio -e DB_USER=shlinkio_rw -e DB_PASSWORD='$hlink10!' -e DB_HOST=mariadb -e DB_PORT=3306 -p 8080:8080 --restart=unless-stopped shlinkio/shlink:stable
+# run the shlink web client
+docker run -d --name shlink-web-client -p 8888:80 -v ~/docker/shlink/servers.json:/usr/share/nginx/html/servers.json --restart=unless-stopped shlinkio/shlink-web-client
+# generate shlink API key
+docker exec -it shlink shlink api-key:generate
+Copy the generated API key to the clipboard
+Open a web browser and navigate to http://DNSorIP:8888
+Click the Add a server button
+Enter a name for the server, the URL should be http://DNSorIP:8080 and paste the copied API key created earlier
+Welcome to Shlink
+Source: https://hub.docker.com/r/ linkio/ link
+Documentation: https:// link.io/documentation/install-docker-image/
+
+ 

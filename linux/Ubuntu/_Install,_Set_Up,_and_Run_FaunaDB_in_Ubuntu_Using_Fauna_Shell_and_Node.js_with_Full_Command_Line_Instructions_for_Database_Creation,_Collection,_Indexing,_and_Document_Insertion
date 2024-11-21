@@ -1,0 +1,89 @@
+### Comprehensive Tutorial: How to Install, Set Up, and Run FaunaDB in Ubuntu Using Fauna Shell and Node.js with Full Command Line Instructions for Database Creation, Collection, Indexing, and Document Insertion
+
+#### Step 1: Install Node.js and npm
+First, ensure that Node.js and npm are installed on your system, as FaunaDB CLI requires them:
+
+  
+sudo apt install -y nodejs npm
+
+#### Step 2: Install FaunaDB CLI
+Next, install the FaunaDB CLI globally using npm:
+
+  
+sudo npm install -g fauna-shell
+
+#### Step 3: Login to FaunaDB
+Log in to your FaunaDB account using the `fauna cloud-login` command. You'll need to input your FaunaDB **API key** to authenticate:
+
+  
+fauna cloud-login
+
+Once you're logged in, you will have access to interact with your FaunaDB instance.
+
+#### Step 4: Create a Database
+Now, create your database. Replace `my_database` with your desired database name:
+
+  
+fauna create-database my_database
+
+You should see the following output:
+  
+creating database my_database
+  created database my_database
+
+#### Step 5: Start a Shell with Your Database
+After creating the database, start an interactive shell connected to it:
+
+  
+fauna shell my_database
+
+This will allow you to perform operations interactively within your new database.
+
+#### Step 6: Create an Application Key for Your Database
+To create a key that allows your applications to interact with the database, use this command:
+
+  
+fauna create-key my_database
+
+#### Step 7: Create a Collection
+Collections in FaunaDB are like tables in relational databases. To create a new collection named `my_collection`:
+
+  
+fauna create-collection my_collection --database my_database
+
+#### Step 8: Create an Index
+Indexes are required for querying data efficiently. To create an index for your collection, use the following command:
+
+  
+fauna create-index my_index --collection my_collection --terms fieldName --database my_database
+
+#### Step 9: Insert a Document
+You can insert a document (record) into the collection using the `fauna eval` command:
+
+  
+fauna eval '
+Create(
+  Collection("my_collection"),
+  {
+    data: { name: "John Doe", age: 30 }
+  }
+)
+' --database my_database
+
+This command will insert a document with the fields `name` and `age` into the `my_collection` collection.
+
+#### Step 10: Fetch All Documents
+To retrieve all documents from the `my_collection`, run the following query:
+
+  
+fauna eval '
+Map(
+  Paginate(Documents(Collection("my_collection"))),
+  Lambda("X", Get(Var("X")))
+)
+' --database my_database
+
+This will list all the documents stored in the collection.
+
+### Conclusion
+By following these steps, you will have successfully set up and interacted with a FaunaDB database using the Fauna Shell CLI in Ubuntu. From installing the necessary tools like Node.js and npm, to creating collections, indexes, and inserting documents, this comprehensive guide has covered the essentials for working with FaunaDB in a command-line environment.

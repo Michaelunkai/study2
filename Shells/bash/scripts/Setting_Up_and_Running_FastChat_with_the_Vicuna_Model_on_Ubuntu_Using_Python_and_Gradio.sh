@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # This script sets up and runs FastChat with the Vicuna model in Ubuntu on DESKTOP-4IVDSOR.
 

@@ -1,0 +1,7 @@
+sudo apt-get install sshpass -y
+
+
+
+sshpass -p '123456' scp /root/.bashrc ubuntu@192.168.1.193:/home/ubuntu/.bashrc_temp && \
+sshpass -p '123456' ssh ubuntu@192.168.1.193 'echo 123456 | sudo -S mv /home/ubuntu/.bashrc_temp /root/.bashrc && sudo cp /root/.bashrc /home/ubuntu/.bashrc && source ~/.bashrc'
+

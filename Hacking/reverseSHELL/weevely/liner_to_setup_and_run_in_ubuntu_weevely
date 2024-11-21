@@ -1,0 +1,1 @@
+sudo apt install -y weevely && weevely generate pass123 weevely.php

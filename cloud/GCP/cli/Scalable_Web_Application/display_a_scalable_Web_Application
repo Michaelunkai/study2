@@ -1,1 +1,0 @@
-gcloud run deploy --image gcr.io/my-project/my-app --platform managed --allow-unauthenticated

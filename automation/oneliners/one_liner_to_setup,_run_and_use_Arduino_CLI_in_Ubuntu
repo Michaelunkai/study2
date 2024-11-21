@@ -1,0 +1,1 @@
+mkdir -p ~/arduino-cli && cd ~/arduino-cli && curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh && export PATH=$PATH:~/arduino-cli/bin && arduino-cli config init && arduino-cli core update-index && arduino-cli board list

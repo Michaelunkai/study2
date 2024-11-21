@@ -1,0 +1,1 @@
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && sudo apt install -y nodejs && npm install -g hexo-cli && hexo init mysite && cd mysite && npm install && hexo server

@@ -1,0 +1,1 @@
+sudo apt install -y knot && sudo systemctl start knot && sudo systemctl enable knot

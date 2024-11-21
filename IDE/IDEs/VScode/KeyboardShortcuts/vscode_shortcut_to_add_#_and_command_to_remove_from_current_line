@@ -1,0 +1,152 @@
+Keyboard Shortcuts to Toggle Line Comment
+Windows/Linux:
+Shortcut: Ctrl + /
+macOS:
+Shortcut: Command + /
+
+
+Certainly! In Visual Studio Code (VS Code), managing comments efficiently can significantly enhance your coding workflow. Here's a comprehensive guide to:
+
+1. **Removing `#` from a line (Uncommenting)**
+2. **Adding `#` to multiple lines**
+3. **Removing `#` from multiple lines**
+
+### **1. Removing `#` from the Current Line (Uncommenting)**
+
+VS Code uses the same shortcut to **toggle** comments, meaning it can both add (`#`) and remove (`#`) comments based on the current state of the line.
+
+#### **Shortcut:**
+- **Windows/Linux:** `Ctrl + /`
+- **macOS:** `Command + /`
+
+#### **How to Uncomment:**
+1. **Single Line:**
+   - Place your cursor on the commented line.
+   - Press `Ctrl + /` (Windows/Linux) or `Command + /` (macOS).
+   - The `#` will be removed, uncommenting the line.
+
+2. **Multiple Lines:**
+   - Select the commented lines.
+   - Press `Ctrl + /` or `Command + /`.
+   - All `#` symbols will be removed from the beginning of each selected line.
+
+#### **Example:**
+
+**Before Uncommenting:**
+  
+# print("Hello, World!")
+
+**After Pressing `Ctrl + /` or `Command + /`:**
+  
+print("Hello, World!")
+
+### **2. Adding `#` to Multiple Lines (Commenting)**
+
+You can comment multiple lines simultaneously using the same toggle shortcut.
+
+#### **Shortcut:**
+- **Windows/Linux:** `Ctrl + /`
+- **macOS:** `Command + /`
+
+#### **How to Comment Multiple Lines:**
+1. **Select the Lines:**
+   - Click and drag to highlight the lines you want to comment.
+   - Alternatively, place the cursor at the start of the first line, hold `Shift`, and use the arrow keys to select additional lines.
+
+2. **Apply the Shortcut:**
+   - Press `Ctrl + /` (Windows/Linux) or `Command + /` (macOS).
+   - A `#` will be added to the beginning of each selected line, commenting them out.
+
+#### **Example:**
+
+**Before Commenting:**
+  
+print("Line 1")
+print("Line 2")
+print("Line 3")
+
+**After Pressing `Ctrl + /` or `Command + /`:**
+  
+# print("Line 1")
+# print("Line 2")
+# print("Line 3")
+
+### **3. Removing `#` from All Selected Lines (Uncommenting Multiple Lines)**
+
+Uncommenting multiple lines is just as straightforward as commenting them.
+
+#### **Shortcut:**
+- **Windows/Linux:** `Ctrl + /`
+- **macOS:** `Command + /`
+
+#### **How to Uncomment Multiple Lines:**
+1. **Select the Commented Lines:**
+   - Highlight all the lines from which you want to remove the `#`.
+
+2. **Apply the Shortcut:**
+   - Press `Ctrl + /` (Windows/Linux) or `Command + /` (macOS).
+   - The `#` will be removed from the beginning of each selected line, uncommenting them.
+
+#### **Example:**
+
+**Before Uncommenting:**
+  
+# print("Line 1")
+# print("Line 2")
+# print("Line 3")
+
+**After Pressing `Ctrl + /` or `Command + /`:**
+  
+print("Line 1")
+print("Line 2")
+print("Line 3")
+
+### **Customizing Shortcuts (Optional)**
+
+If you prefer separate shortcuts for commenting and uncommenting (rather than a toggle), you can customize your keybindings:
+
+1. **Open Keyboard Shortcuts:**
+   - Press `Ctrl + K` then `Ctrl + S` (Windows/Linux) or `Command + K` then `Command + S` (macOS).
+   - Alternatively, go to **File > Preferences > Keyboard Shortcuts**.
+
+2. **Add Specific Shortcuts:**
+   - **Comment Lines:**
+     - Search for `Add Line Comment`.
+     - Click the **pencil icon** next to it.
+     - Press your desired key combination (e.g., `Ctrl + Shift + C`).
+     - Press `Enter` to confirm.
+   
+   - **Uncomment Lines:**
+     - Search for `Remove Line Comment`.
+     - Click the **pencil icon** next to it.
+     - Press your desired key combination (e.g., `Ctrl + Shift + U`).
+     - Press `Enter` to confirm.
+
+3. **Save and Test:**
+   - Ensure your new shortcuts don’t conflict with existing ones.
+   - Test them on single and multiple lines to confirm they work as intended.
+
+> **Note:** Customizing shortcuts allows for more granular control but requires managing potential keybinding conflicts.
+
+### **Additional Tips**
+
+- **Block Comments:**
+  - For languages that support block comments, you can use:
+    - **Windows/Linux:** `Shift + Alt + A`
+    - **macOS:** `Shift + Option + A`
+  - This is useful for commenting out large blocks of code.
+
+- **Language Specificity:**
+  - Ensure that the file type you're working with supports `#` for comments (e.g., Python, Bash, Ruby).
+  - VS Code automatically applies the correct comment syntax based on the file type.
+
+- **Using Extensions:**
+  - Extensions like **Better Comments** can provide enhanced commenting features, such as categorizing comments or adding color codes.
+
+### **Conclusion**
+
+VS Code's **Toggle Line Comment** (`Ctrl + /` or `Command + /`) is a versatile shortcut that efficiently handles both adding and removing `#` comments for single or multiple lines. By selecting the desired lines and applying the shortcut, you can quickly manage your code's commented state without manually adding or deleting `#` symbols.
+
+If you require more specialized behavior, such as distinct shortcuts for commenting and uncommenting, VS Code allows you to customize keybindings to fit your workflow seamlessly.
+
+Feel free to reach out if you need further assistance or have additional questions!

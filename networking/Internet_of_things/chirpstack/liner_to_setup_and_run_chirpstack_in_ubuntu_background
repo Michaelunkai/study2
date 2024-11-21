@@ -1,0 +1,1 @@
+sudo apt install -y git && git clone https://github.com/RAKWireless/ChirpStack_on_Ubuntu.git && cd ChirpStack_on_Ubuntu && sudo ./install.sh && sudo systemctl start chirpstack-network-server && sudo systemctl start chirpstack-gateway-bridge && sudo systemctl start chirpstack-application-server && sudo systemctl status chirpstack-application-server

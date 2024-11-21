@@ -1,0 +1,1 @@
+cd && getwine &&  wget -O heidisql.exe https://www.heidisql.com/downloads/releases/HeidiSQL_12.1.0.6537_Setup.exe && wine heidisql.exe

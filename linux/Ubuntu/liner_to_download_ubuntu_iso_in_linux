@@ -1,0 +1,1 @@
+ wget -O ubuntu-22.04-latest.iso $(curl -s https://releases.ubuntu.com/22.04/ | grep -oP '(?<=href=")[^"]*?ubuntu-22.04.[0-9]+-desktop-amd64\.iso' | head -n 1 | sed 's|^|https://releases.ubuntu.com/22.04/|')^C

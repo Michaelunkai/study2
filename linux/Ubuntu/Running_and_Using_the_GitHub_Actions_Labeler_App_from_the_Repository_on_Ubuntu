@@ -1,0 +1,98 @@
+### Comprehensive Guide: Running and Using the GitHub Actions Labeler App from the Repository on Ubuntu
+
+To run and use the app from the `actions/labeler` GitHub repository on Ubuntu, follow these detailed steps:
+
+### Prerequisites
+1. **Git**: Ensure Git is installed on your system.
+2. **Node.js**: Ensure Node.js is installed, as GitHub Actions often require it.
+
+### Steps
+
+#### 1. Clone the Repository
+First, clone the repository to your local machine:
+  
+git clone https://github.com/actions/labeler.git
+cd labeler
+
+#### 2. Install Dependencies
+Install the necessary dependencies using npm:
+  
+npm install
+
+#### 3. Configure the Workflow
+To use the `labeler` action in your repository, you need to create a workflow configuration file in your GitHub repository.
+
+Create a directory for GitHub Actions workflows if it doesn't exist:
+  
+mkdir -p .github/workflows
+
+Create a new workflow file, e.g., `labeler.yml`:
+  
+nano .github/workflows/labeler.yml
+
+Add the following configuration to the file:
+  
+name: "Pull Request Labeler"
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Pull Request Labeler
+      uses: actions/labeler@v3
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        configuration-path: .github/labeler.yml
+
+#### 4. Configure Labeler Rules
+Create a configuration file for the labeler action:
+  
+nano .github/labeler.yml
+
+Add your labeling rules. For example:
+  
+# Example label configuration
+bug:
+  - 'src/**/*.js'
+  - 'tests/**/*.js'
+
+documentation:
+  - 'docs/**/*.md'
+  - 'README.md'
+
+#### 5. Commit and Push Changes
+Commit and push the changes to your GitHub repository:
+  
+git add .github/
+git commit -m "Add labeler workflow"
+git push origin main
+
+#### 6. Verify the Action
+After pushing the changes, GitHub will automatically run the workflow whenever a pull request is opened, synchronized, or reopened. You can check the action's execution under the "Actions" tab of your repository on GitHub.
+
+### Running the App Locally
+While the labeler action is designed to run on GitHub, you can test it locally using `act`, a tool for running GitHub Actions locally.
+
+1. Install `act`:
+     
+   brew install act
+   or
+     
+   sudo apt-get install act
+
+2. Run the workflow locally:
+     
+   act pull_request
+
+This will simulate the GitHub Actions environment and run the `labeler` action locally.
+
+### Additional Information
+- For more detailed configuration options, refer to the [official documentation](https://github.com/actions/labeler#readme).
+
+Feel free to ask if you have any questions or need further assistance!

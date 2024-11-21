@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Chat</title>
+
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
         #messages {
             list-style-type: none;
             margin: 0;
@@ -15,13 +19,19 @@
             margin-bottom: 2px;
             background-color: #f4f4f4;
         }
-    </style>
+</style>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <input id="myMessage" autocomplete="off" /><button onclick="sendMessage()">Send</button>
+<ul id="messages"></ul>
+<input id="myMessage" autocomplete="off"><button onclick=
+"sendMessage()">Send</button> 
+<script>
 
-    <script>
+
+
+
+
+
         var socket = io();
         $('form').submit(function() {
             socket.emit('message', $('#myMessage').val());
@@ -38,6 +48,6 @@
             socket.emit('message', msg);
             $('#myMessage').val('');
         }
-    </script>
+</script>
 </body>
 </html>

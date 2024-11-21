@@ -1,0 +1,1 @@
+sudo apt install -y fierce && fierce --domain target.com

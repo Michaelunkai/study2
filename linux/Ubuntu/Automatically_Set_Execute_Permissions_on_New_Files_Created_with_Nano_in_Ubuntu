@@ -1,0 +1,65 @@
+### How to Automatically Set Execute Permissions on New Files Created with Nano in Ubuntu
+
+In this tutorial, we will create a custom command to streamline the process of creating new executable files and opening them with Nano in Ubuntu. Follow these steps to set up the custom command.
+
+#### Step 1: Create a Custom Command Script
+
+First, we will create a custom script named `nanox` that will create a new file, set the execute permission, and open the file with Nano.
+
+1. Open a terminal.
+2. Create the `nanox` script in the `/usr/local/bin` directory.
+
+     
+   sudo nano /usr/local/bin/nanox
+
+3. Add the following content to the `nanox` script:
+
+     
+   #!/bin/ 
+   touch "$1"  # Create the file
+   chmod +x "$1"  # Set the execute permission
+   nano "$1"  # Open the file with Nano
+
+4. Save and close the file by pressing `Ctrl+O`, `Enter`, and `Ctrl+X`.
+
+#### Step 2: Make the Custom Command Executable
+
+Next, we will make the `nanox` script executable.
+
+1. Run the following command in the terminal:
+
+     
+   sudo chmod +x /usr/local/bin/nanox
+
+#### Step 3: Update Your Bash Profile
+
+To ensure the new command is available in your shell, add the directory containing the script to your PATH. This step might be necessary if `/usr/local/bin` is not already in your PATH.
+
+1. Open your `~/.bashrc` file.
+
+     
+   nano ~/. rc
+
+2. Add the following line at the end of the file:
+
+     
+   export PATH=$PATH:/usr/local/bin
+
+3. Save and close the file by pressing `Ctrl+O`, `Enter`, and `Ctrl+X`.
+
+4. Reload the `~/.bashrc` file to apply the changes.
+
+     
+   source ~/. rc
+
+#### Step 4: Using the New Command
+
+Now, whenever you want to create a new file with Nano and set the execute permission, you can use the `nanox` command.
+
+1. Open a terminal.
+2. Run the `nanox` command with the desired filename.
+
+     
+   nanox new_script. 
+
+This command will create `new_script.sh`, set the execute permission, and open it with Nano, all in one step.

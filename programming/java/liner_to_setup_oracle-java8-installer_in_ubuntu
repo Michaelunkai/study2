@@ -1,0 +1,1 @@
+echo 'deb [signed-by=/usr/share/keyrings/opennms-archive-keyring.gpg] https://debian.opennms.org/ stable main' | sudo tee /etc/apt/sources.list.d/opennms.list && wget -qO - https://debian.opennms.org/OPENNMS-GPG-KEY | sudo gpg --dearmor -o /usr/share/keyrings/opennms-archive-keyring.gpg && sudo apt-get update && sudo apt-get install -y oracle-java8-installer

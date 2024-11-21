@@ -1,1 +1,0 @@
-aws lambda add-permission --function-name my-function-57d706bb --statement-id s3-put --action lambda:InvokeFunction --principal s3.amazonaws.com --source-arn arn:aws:s3:::mybucket

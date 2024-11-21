@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Recipe App</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Recipe App</title>
+
+<style>
         body {
             text-align: center;
             margin: 40px;
@@ -63,33 +66,26 @@
         .ingredient-list, .instrction-list {
             text-align: left;
         }
-    </style>
+</style>
 </head>
 <body>
-    <h1>Recipe App</h1>
-    <form method="POST" action="/">
-        <input type="text" name="search_query" placeholder="Search for recipes">
-        <input type="submit" value="Search">
-        <a href="/home" class="home-button">Home</a>
-    </form>
-
-    <!-- Check of recipes are available-->
-    {% if recipes%}
-    <h2>Results for "{{ search_query }}"</h2>
-    <ul>
-        {% for recipe in recipes %}
-        <li>
-            <h3 class="recipe-title">{{ recipe.title }}</h3>
-            {% if recipe.image %}
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-            {% endif %}
-            <a href="{{ url_for('view_recipe', recipe_id=recipe.id, search_query=search_query) }}">View</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <!-- If no recipes are found -->
-    {% else %}
-    <p>No recipes found.</p>
-    {% endif %}
+<h1>Recipe App</h1>
+<form method="post" action="/"><input type="text" name=
+"search_query" placeholder="Search for recipes"> <input type=
+"submit" value="Search"> <a href="/home" class=
+"home-button">Home</a></form>
+{% if recipes%}
+<h2>Results for "{{ search_query }}"</h2>
+<ul>{% for recipe in recipes %}
+<li>
+<h3 class="recipe-title">{{ recipe.title }}</h3>
+{% if recipe.image %} <img src="{{%20recipe.image%20}}" alt=
+"{{ recipe.title }}"> {% endif %} <a href=
+"{{%20url_for('view_recipe',%20recipe_id=recipe.id,%20search_query=search_query)%20}}">
+View</a></li>
+{% endfor %}</ul>
+{% else %}
+<p>No recipes found.</p>
+{% endif %}
 </body>
 </html>

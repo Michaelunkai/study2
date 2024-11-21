@@ -1,0 +1,1 @@
+ sudo apt install -y bpftrace && sudo bpftrace -e 'tracepoint:syscalls:sys_enter_openat { printf("%s\n", str(args->filename)); }'

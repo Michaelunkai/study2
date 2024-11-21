@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticky Note App with Speech-to-Text</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Sticky Note App with Speech-to-Text</title>
+
+<style>
         body {
             background-color: rgb(255, 215, 0);
             font-family: "Arial", sans-serif;
@@ -33,18 +37,17 @@
         #language {
             margin-top: 10px;
         }
-    </style>
+</style>
 </head>
 <body>
-    <textarea id="note"></textarea><br>
-    <button id="saveNote">Save</button>
-    <button id="clearNote">Clear</button>
-    <button id="startSpeech">Start Speech-to-Text</button>
-    <button id="stopSpeech" disabled>Stop Speech-to-Text</button>
-    <button id="copyNote">Copy</button>
-    <canvas id="waveform" width="800" height="200"></canvas>
-    <p id="language"></p>
-
-    <script src="{{ url_for("static", filename="app.js") }}"></script>
+<textarea id="note"></textarea>
+<br>
+<button id="saveNote">Save</button> <button id=
+"clearNote">Clear</button> <button id="startSpeech">Start
+Speech-to-Text</button> <button id="stopSpeech" disabled>Stop
+Speech-to-Text</button> <button id="copyNote">Copy</button>
+<canvas id="waveform" width="800" height="200"></canvas>
+<p id="language"></p>
+<script src="{{%20url_for(" filename="app.js"></script>
 </body>
 </html>

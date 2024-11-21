@@ -1,0 +1,1 @@
+sudo apt install --install-recommends linux-generic-hwe-22.04 && sudo update-grub

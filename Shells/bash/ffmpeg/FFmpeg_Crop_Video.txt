@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf "crop=640:480:0:0" output.mp4

@@ -1,0 +1,8 @@
+Implement and enforce data retention and deletion policies to comply with GDPR requirements.
+Use Shred to Securely Delete Files
+
+sudo apt install coreutils
+ red -u /path/to/sensitive_file
+
+
+

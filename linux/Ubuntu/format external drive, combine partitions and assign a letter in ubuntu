@@ -1,0 +1,29 @@
+#check ol external drives & their partitions and size:
+lsblk -o NAME,TYPE,SIZE,MOUNTPOINT | grep -E 'sd.|hd.|vd.|^NAME.*disk$'
+
+#format the external drive and assign it to a letter (f):
+sudo mkfs.ext4 -L f /dev/sdX
+
+
+#If you want to combine or merge partitions sda1 and sda2 into a single partition:
+sudo umount /dev/sda1
+sudo umount /dev/sda2
+
+
+sudo parted /dev/sda
+(parted) rm 1
+(parted) rm 2
+(parted) quit
+
+
+#Create a New Partition: Recreate a single partition spanning the entire drive, ensuring it uses the entire available space:
+sudo parted /dev/sda
+(parted) mkpart primary ext4 0% 100%
+(parted) quit
+
+
+#Format the New Partition: Format the newly created partition as ext4:
+sudo mkfs.ext4 -L f /dev/sda1
+
+
+

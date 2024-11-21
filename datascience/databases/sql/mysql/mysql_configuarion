@@ -1,7 +1,0 @@
-Advanced ConfigurationEdit the MySQL configuration file for advanced settings. The configuration file is usually located at /etc/mysql/mysql.conf.d/mysqld.cnf.sudo nano /etc/mysql/mysql.conf.d/mysqld.cnfSome advanced configurations you might consider:Query Cache: Optimize performance by caching queries.[mysqld]
-query_cache_limit = 1M
-query_cache_size = 16MInnoDB Settings: Adjust settings for the InnoDB storage engine.[mysqld]
-innodb_buffer_pool_size = 1G
-innodb_log_file_size = 256M
-innodb_flush_log_at_trx_commit = 2Performance Schema: Enable performance schema for performance tuning.[mysqld]
-performance_schema = ON

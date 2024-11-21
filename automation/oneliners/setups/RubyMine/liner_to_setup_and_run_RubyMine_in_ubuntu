@@ -1,0 +1,1 @@
+wget -qO- https://download.jetbrains.com/ruby/RubyMine-2023.2.3.tar.gz | tar xvz -C /opt && /opt/RubyMine-*/bin/rubymine.sh

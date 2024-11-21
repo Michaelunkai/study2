@@ -1,0 +1,7 @@
+Scan for SMB Vulnerabilities:
+
+nmap --script smb-vuln* <target>
+Example:
+
+nmap --script smb-vuln* 192.168.1.1
+Uses a series of NSE scripts to detect various SMB vulnerabilities, such as MS17-010.

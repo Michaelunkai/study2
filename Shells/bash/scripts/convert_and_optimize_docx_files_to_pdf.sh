@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Ask for the path to the folder with DOCX files
 read -p "Enter the path to the folder containing the DOCX files: " docx_folder

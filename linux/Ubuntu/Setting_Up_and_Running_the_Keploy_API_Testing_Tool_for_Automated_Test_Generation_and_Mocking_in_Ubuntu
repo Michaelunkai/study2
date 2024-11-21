@@ -1,0 +1,74 @@
+### **Comprehensive Guide: Setting Up and Running the Keploy API Testing Tool for Automated Test Generation and Mocking in Ubuntu**
+
+---
+
+In this tutorial, you will learn how to set up and run the Keploy API testing tool on your Ubuntu system. Keploy is a powerful tool designed to automatically generate tests and mocks for your application, making it easier to ensure comprehensive test coverage with minimal manual effort. This guide will walk you through the entire process, from cloning the Keploy repository to running your first recorded tests.
+
+---
+
+### Step 1: Clone the Keploy Repository in Ubuntu
+
+First, you need to clone the Keploy repository from GitHub to your local machine. This repository contains all the necessary files and scripts to set up Keploy.
+
+  
+git clone https://github.com/keploy/keploy.git
+cd keploy
+
+This command will download the Keploy codebase and navigate into the project directory.
+
+---
+
+### Step 2: Install Keploy Using the Provided Installation Script
+
+To install Keploy, use the installation script provided by the Keploy team. This script will handle the download and installation of all required components.
+
+  
+curl --silent -O -L https://keploy.io/install.sh && source install.sh
+
+This command will download the installation script from Keploy’s official website and execute it.
+
+---
+
+### Step 3: Record API Calls as Test Cases with Keploy in Ubuntu
+
+Keploy allows you to record API calls made by your application and automatically convert them into test cases. To do this, use the `keploy record` command. Replace `CMD_TO_RUN_APP` with the command you use to run your application.
+
+For example, if your application is a Python app:
+
+  
+keploy record -c "python main.py"
+
+This command will start your application and record all API interactions as test cases.
+
+---
+
+### Step 4: Run the Recorded Tests Using Keploy in Ubuntu
+
+After recording, you can run the tests that were generated using Keploy. This ensures that the recorded API interactions are accurately replayed and tested. Use the following command, replacing `CMD_TO_RUN_APP` with your application's start command:
+
+  
+keploy test -c "python main.py" --delay 10
+
+The `--delay` option provides a brief delay to allow your application to start before Keploy begins the testing process.
+
+---
+
+### Step 5: (Optional) Integrate Keploy with Test Coverage Tools
+
+To get the most out of Keploy, you may want to integrate it with your existing unit-testing framework to see combined test coverage. Keploy supports popular frameworks like JUnit, Go test, PyTest, and Jest. For detailed instructions, follow the [Keploy test coverage integration guide](https://keploy.io/docs/test-coverage).
+
+---
+
+### Step 6: Explore Further Documentation and CI/CD Integration
+
+Keploy offers extensive documentation to help you explore advanced features such as CI/CD integration, Kubernetes cluster testing, and more. Check out the [Keploy Documentation](https://keploy.io/docs) for additional resources.
+
+---
+
+### Step 7: Running Keploy in CI/CD Pipelines or Kubernetes Clusters
+
+For more advanced setups, you can run Keploy tests as part of your CI/CD pipelines (e.g., Jenkins, GitHub Actions) or even across a Kubernetes cluster. This allows for continuous testing in production-like environments, ensuring your APIs are robust and reliable.
+
+---
+
+By following these steps, you will have successfully set up and run the Keploy API testing tool on your Ubuntu system. Keploy’s automated test generation and mocking capabilities can significantly enhance your development workflow, making it easier to maintain high-quality code with comprehensive test coverage.

@@ -1,6 +1,0 @@
-Utilize Endpoint Encryption SolutionsWhy: Ensures data protection through encryption at the endpoint level.Windows:Enable BitLocker with Advanced Encryption Settings:manage-bde -on C: -usedspaceonly -em aes256 -rpUbuntu:Encrypt Home Directory:sudo apt install ecryptfs-utils
-sudo ecryptfs-migrate-home -u usernameEncrypt Swap Partition:sudo apt install cryptsetup
-sudo cryptsetup luksFormat /dev/sdX
-sudo cryptsetup luksOpen /dev/sdX swap
-sudo mkswap /dev/mapper/swap
-sudo swapon /dev/mapper/swap

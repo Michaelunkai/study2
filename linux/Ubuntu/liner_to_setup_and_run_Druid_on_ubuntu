@@ -1,0 +1,1 @@
+ sudo apt install -y openjdk-11-jdk && wget -qO- https://downloads.apache.org/druid/26.0.0/apache-druid-26.0.0-bin.tar.gz | sudo tar xz -C /opt && sudo mv /opt/apache-druid-26.0.0 /opt/druid && cd /opt/druid && sudo bin/start-micro-quickstart

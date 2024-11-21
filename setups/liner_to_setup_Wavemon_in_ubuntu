@@ -1,0 +1,1 @@
+sudo apt install -y wavemon && wavemon && echo "Wavemon started for wireless monitoring"

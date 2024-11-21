@@ -1,0 +1,1 @@
+sudo apt install -y sysstat && sar -u 1 3 && echo "Sysstat monitoring CPU usage for 3 seconds"

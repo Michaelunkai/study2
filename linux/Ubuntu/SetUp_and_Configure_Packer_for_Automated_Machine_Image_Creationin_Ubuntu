@@ -1,0 +1,140 @@
+Step 1: Install Packer
+Update and Upgrade Your System:
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Download Packer:
+Visit the Packer download page and download the latest version for Linux.
+
+Download and Install Packer:
+
+ 
+ 
+wget https://releases.ha icorp.com/packer/1.11.0/packer_1.11.0_linux_amd64.zip
+unzip packer_1.11.0_linux_amd64.zip
+sudo mv packer /usr/local/bin/
+Verify Installation:
+
+ 
+ 
+packer version
+Step 2: Create a Packer Template
+Create a Directory for Your Packer Template:
+
+ 
+ 
+mkdir -p ~/packer/templates
+cd ~/packer/templates
+Create a JSON Template File:
+Create a file named ubuntu.json with the following content:
+
+json
+ 
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "https://releases.ubuntu.com/22.04/ubuntu-22.04-live-server-amd64.iso",
+      "iso_checksum": " a256:84fae29cd8b981e23d3e548bb8e44c44d9c0f9f03a06d59c93a3c4f3ac9e4f64",
+      "communicator": "s ",
+      "s _username": "ubuntu",
+      "s _password": "password",
+      "s _timeout": "20m",
+      "disk_size": 10000,
+      "guest_os_type": "Ubuntu_64",
+      "http_directory": "http",
+      "boot_command": [
+        "<esc><wait>",
+        "install<wait>",
+        "<enter><wait>"
+      ],
+      "shutdown_command": "echo 'ubuntu' | sudo -S shutdown -P now"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": " ell",
+      "inline": [
+        "echo 'Updating system...'",
+        "sudo apt-get update -y",
+        "sudo apt-get upgrade -y",
+        "sudo apt-get install -y nginx"
+      ]
+    }
+  ]
+}
+Step 3: Build the Image
+Initialize Packer:
+
+ 
+ 
+packer init ubuntu.json
+Validate the Template:
+
+ 
+ 
+packer validate ubuntu.json
+Build the Image:
+
+ 
+ 
+packer build ubuntu.json
+Step 4: Automate with Shell Scripts
+Create a Shell Script to Automate Packer Build:
+Create a file named build_image.sh with the following content:
+
+ 
+ 
+#!/bin/ 
+
+TEMPLATE_PATH=~/packer/templates/ubuntu.json
+
+echo "Initializing Packer..."
+packer init $TEMPLATE_PATH
+
+echo "Validating Packer template..."
+packer validate $TEMPLATE_PATH
+
+echo "Building image..."
+packer build $TEMPLATE_PATH
+
+echo "Image build complete."
+Make the Script Executable:
+
+ 
+ 
+chmod +x build_image. 
+Run the Script:
+
+ 
+ 
+./build_image. 
+Step 5: Configure Packer for Different Providers (Optional)
+You can extend your Packer configuration to support different providers like AWS, Azure, etc. by adding appropriate builder configurations in the JSON template.
+
+Example for AWS
+json
+ 
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-1",
+      "source_ami": "ami-0c55b159cbfafe1f0",
+      "instance_type": "t2.micro",
+      "s _username": "ubuntu",
+      "ami_name": "packer-example {{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": " ell",
+      "inline": [
+        "sudo apt-get update -y",
+        "sudo apt-get upgrade -y"
+      ]
+    }
+  ]
+}

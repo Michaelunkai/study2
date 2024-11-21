@@ -1,0 +1,1 @@
+docker run -d --name humio -p 8080:8080 humio/humio && gc http://localhost:8080

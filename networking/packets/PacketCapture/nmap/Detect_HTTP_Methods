@@ -1,0 +1,7 @@
+Detect HTTP Methods:
+
+nmap --script http-methods <target>
+Example:
+
+nmap --script http-methods 192.168.1.1
+This command identifies supported HTTP methods on the target web server.

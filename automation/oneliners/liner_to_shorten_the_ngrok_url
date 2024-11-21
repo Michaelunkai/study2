@@ -1,0 +1,1 @@
+curl "http://tinyurl.com/api-create.php?url=$(curl -s http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-zA-Z.-]*\.ngrok-free.app')"

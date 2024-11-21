@@ -1,7 +1,0 @@
-To Show All Users:
-
-SELECT user, host FROM mysql.user;
-
-To Show All Created Databases:
-
-SHOW DATABASES;

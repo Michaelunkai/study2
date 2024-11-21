@@ -1,0 +1,49 @@
+Step 1: Update Package List
+Ensure your package list is up-to-date:
+
+ 
+ 
+sudo apt update -y
+Step 2: Install OpenSSH Server
+Install the OpenSSH server package:
+
+ 
+ 
+sudo apt install -y openssh-server
+Step 3: Enable and Start SSH Service
+Enable the SSH service to start on boot:
+
+ 
+ 
+sudo systemctl enable ssh
+Start the SSH service immediately:
+
+ 
+ 
+sudo systemctl start ssh
+Step 4: Check SSH Service Status
+Verify that the SSH service is running:
+
+ 
+ 
+sudo systemctl status ssh
+Step 5: Verify SSH Configuration
+Edit the SSH configuration file to ensure root login is allowed and password authentication is enabled:
+
+ 
+ 
+sudo nano /etc/s /s d_config
+Ensure the following lines are set correctly:
+
+plaintext
+ 
+PermitRootLogin yes
+PasswordAuthentication yes
+Save and exit the file (Ctrl+O, Enter, Ctrl+X).
+
+Step 6: Restart SSH Service
+After making changes to the SSH configuration file, restart the SSH service:
+
+ 
+ 
+sudo systemctl restart ssh

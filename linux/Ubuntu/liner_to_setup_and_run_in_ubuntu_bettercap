@@ -1,0 +1,1 @@
+sudo apt install -y bettercap && bettercap --version && sudo bettercap -caplet https-ui

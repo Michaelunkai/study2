@@ -1,0 +1,25 @@
+##build the Dockerfile:
+
+
+# Use the official Kali Linux base image
+FROM kalilinux/kali-rolling
+
+# Install necessary packages
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    gedit firefox-esr kali-desktop-xfce \
+    burpsuite wireshark nmap metasploit-framework hashcat && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set up X11 forwarding
+ENV DISPLAY=:0
+
+# Start the Xfce desktop environment
+CMD ["startxfce4"]
+
+#cd to the directory with the Dockerfile in it
+
+#now to create:
+
+docker build <the name i choose for the container> .

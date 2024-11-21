@@ -1,0 +1,1 @@
+npx netlify-cms-proxy-server && echo "Netlify CMS running at http://localhost:8081"

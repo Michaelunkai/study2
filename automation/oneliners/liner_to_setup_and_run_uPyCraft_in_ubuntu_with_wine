@@ -1,0 +1,1 @@
+cd && git clone https://github.com/DFRobot/uPyCraft.git && getwine && cd ~/uPyCraft && wine uPyCraft.exe

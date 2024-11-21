@@ -1,19 +1,19 @@
 Setting Up a Virtual Environment for Python Projects
 Step 1: Update Package List
 
-bash
+ 
 
 sudo apt update
 
 Step 2: Install python3-venv
 
-bash
+ 
 
 sudo apt install python3-venv
 
 Step 3: Create and Activate the Virtual Environment
 
-bash
+ 
 
 python3 -m venv /home/ubuntu/venv
 source /home/ubuntu/venv/bin/activate
@@ -23,7 +23,7 @@ After running the above commands, your terminal prompt should change to indicate
 In this active state, any Python-related commands will use the Python interpreter and packages within your virtual environment.
 Step 4: Install Flask in the Virtual Environment
 
-bash
+ 
 
 pip install flask
 
@@ -32,7 +32,7 @@ Step 5: Activate the Virtual Environment (Again)
 
 Before working on your project in the future, re-activate the virtual environment using:
 
-bash
+ 
 
 source /home/ubuntu/venv/bin/activate
 
@@ -40,7 +40,7 @@ Step 6: Deactivate the Virtual Environment
 
 When you're done working on your project, deactivate the virtual environment using:
 
-bash
+ 
 
 deactivate
 

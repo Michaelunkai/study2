@@ -1,0 +1,1 @@
+sudo apt install -y vblade && vblade 0 1 eth0 /dev/sda && echo "Vblade started for /dev/sda on eth0"

@@ -1,0 +1,108 @@
+# Comprehensive Guide to Installing and Using EMQX on Ubuntu
+
+## Introduction
+EMQX (Erlang MQTT Broker) is a highly scalable, open-source MQTT broker suitable for IoT, M2M, and mobile applications. This guide will walk you through the process of installing EMQX on Ubuntu, configuring it, and using it with MQTT clients.
+
+## Step 1: Installation
+
+### Run the Installation Command
+Execute the following command to install EMQX:
+
+  
+cd && curl -s https://assets.emqx.com/scripts/install-emqx-deb.sh | sudo bash && sudo apt-get install emqx -y && sudo systemctl start emqx && sudo systemctl status emqx
+
+This command will:
+1. Change to the home directory.
+2. Download and run the EMQX installation script.
+3. Install EMQX using `apt-get`.
+4. Start the EMQX service.
+5. Check the status of the EMQX service.
+
+## Step 2: Verify Installation
+
+### Check EMQX Status
+Ensure that EMQX is running by checking its status:
+
+  
+sudo systemctl status emqx
+
+You should see output indicating that EMQX is active (running).
+
+## Step 3: Access EMQX Dashboard
+
+### Open the Dashboard
+The EMQX dashboard allows you to manage and monitor your EMQX instance through a web interface.
+
+1. Open a web browser.
+2. Navigate to `http://localhost:18083`.
+3. Log in with the default username and password:
+   - **Username:** admin
+   - **Password:** public
+
+## Step 4: Configure EMQX
+
+### Configuration via Dashboard
+You can configure various aspects of EMQX through the dashboard. For more advanced configurations, you may need to edit the configuration files directly.
+
+### Configuration Files
+EMQX configuration files are located in `/etc/emqx`. The main configuration file is `emqx.conf`.
+
+To edit the configuration file, use a text editor like `nano`:
+
+  
+sudo nano /etc/emqx/emqx.conf
+
+After making changes, restart EMQX to apply them:
+
+  
+sudo systemctl restart emqx
+
+## Step 5: Use EMQX with MQTT Clients
+
+### Publishing and Subscribing with Mosquitto
+You can use MQTT clients such as Mosquitto to publish and subscribe to topics on EMQX.
+
+#### Publish a Message
+To publish a message to a topic:
+
+  
+mosquitto_pub -h localhost -t test/topic -m "Hello EMQX"
+
+#### Subscribe to a Topic
+To subscribe to a topic and receive messages:
+
+  
+mosquitto_sub -h localhost -t test/topic
+
+## Step 6: Troubleshooting
+
+### Checking EMQX Logs
+If you encounter issues, check the EMQX logs for errors:
+
+  
+sudo journalctl -u emqx.service
+
+### Consult Documentation
+For more detailed troubleshooting and advanced configurations, refer to the [EMQX documentation](https://docs.emqx.io) and community forums.
+
+## Additional Commands
+
+### Stop EMQX
+To stop the EMQX service:
+
+  
+sudo systemctl stop emqx
+
+### Restart EMQX
+To restart the EMQX service:
+
+  
+sudo systemctl restart emqx
+
+### Enable EMQX to Start on Boot
+To enable EMQX to start on system boot:
+
+  
+sudo systemctl enable emqx
+
+By following this comprehensive guide, you should be able to successfully install, configure, and use EMQX on Ubuntu. If you have any specific questions or run into any issues, feel free to ask!

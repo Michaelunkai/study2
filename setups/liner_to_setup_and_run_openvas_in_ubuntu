@@ -1,0 +1,1 @@
+ sudo apt install -y openvas && sudo gvm-setup && sudo gvm-start

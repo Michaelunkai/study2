@@ -1,0 +1,1 @@
+update && getnpm && sudo npm install -g typescript && clear && tsc -v

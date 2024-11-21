@@ -1,0 +1,1 @@
+wget https://github.com/projectdiscovery/nuclei/releases/download/v2.9.6/nuclei_2.9.6_linux_amd64.zip && unzip nuclei_2.9.6_linux_amd64.zip && chmod +x nuclei && sudo mv nuclei /usr/local/bin/ && nuclei -version

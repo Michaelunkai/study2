@@ -1,0 +1,1 @@
+sudo apt install -y dnsmap && sudo dnsmap example.com

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Study Log</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Add Study Log</title>
+
+<style>
         body {
             background-color: black;
             color: white;
@@ -27,27 +31,19 @@
         a {
             color: #00ffff;
         }
-    </style>
+</style>
 </head>
 <body>
-    <h1>Add Study Log</h1>
-    <form action="{{ url_for('add_log') }}" method="post">
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" id="subject" list="subjects">
-        <datalist id="subjects">
-            {% for subject in subjects %}
-            <option value="{{ subject }}">
-            {% endfor %}
-        </datalist>
-
-        <label for="duration">Duration (minutes):</label>
-        <input type="text" name="duration" id="duration">
-
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes"></textarea>
-
-        <input type="submit" value="Add Log">
-    </form>
-    <a href="{{ url_for('index') }}">Back to Logs</a>
+<h1>Add Study Log</h1>
+<form action="{{%20url_for('add_log')%20}}" method="post">
+<label for="subject">Subject:</label> <input type="text" name=
+"subject" id="subject" list="subjects"> <datalist id="subjects">
+<option value="{{ subject }}">{% endfor %}</option>
+</datalist> <label for="duration">Duration (minutes):</label>
+<input type="text" name="duration" id="duration"> <label for=
+"notes">Notes:</label> 
+<textarea name="notes" id="notes"></textarea>
+ <input type="submit" value="Add Log"></form>
+<a href="{{%20url_for('index')%20}}">Back to Logs</a>
 </body>
 </html>

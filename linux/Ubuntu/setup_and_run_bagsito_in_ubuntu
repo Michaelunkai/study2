@@ -1,0 +1,173 @@
+Step 1. Update the System
+We need to update the system packages to the latest versions available.
+
+sudo apt-get update -y && sudo apt-get upgrade -y
+Step 2. Install PHP8
+To install the PHP8 along with extensions, execute the following command:
+
+sudo apt-get install php8.1 php8.1-cli php8.1-common php8.1-imap php8.1-redis php8.1-snmp php8.1-xml php8.1-zip php8.1-mbstring php8.1-curl libapache2-mod-php
+Step 3. Install Apache Web Server
+To install the Apache Web server execute the following command:
+
+sudo apt install apache2
+Once installed, start and enable the service.
+
+sudo systemctl enable apache2 && sudo systemctl start apache2
+Check if the service is up and running:
+
+sudo systemctl status apache2
+You should receive the following output:
+
+root@vps:~# sudo systemctl status apache2
+● apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2022-05-29 18:26:56 UTC; 12 minutes ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 660 (apache2)
+      Tasks: 8 (limit: 4566)
+     Memory: 21.3M
+        CPU: 21.761s
+     CGroup: /system.slice/apache2.service
+             ├─  660 /usr/sbin/apache2 -k start
+             ├─35101 /usr/sbin/apache2 -k start
+             ├─35102 /usr/sbin/apache2 -k start
+             ├─35103 /usr/sbin/apache2 -k start
+             ├─35104 /usr/sbin/apache2 -k start
+             ├─35105 /usr/sbin/apache2 -k start
+             ├─35106 /usr/sbin/apache2 -k start
+             └─35108 /usr/sbin/apache2 -k start
+
+May 29 18:26:56 host.test.vps systemd[1]: Starting The Apache HTTP Server...
+Step 4. Install MariaDB database server
+To install the MariaDB database server, execute the command below.
+
+sudo apt install mariadb-server
+Start and enable the mariadb.service with the following commands:
+
+sudo systemctl start mariadb && sudo systemctl enable mariadb
+Check the status of the mariadb.service
+
+sudo systemctl status mariadb
+You should receive the following output:
+
+root@vps:~# sudo systemctl status mariadb
+● mariadb.service - MariaDB 10.6.7 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2022-05-29 18:30:12 UTC; 33s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+   Main PID: 42716 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 16 (limit: 4566)
+     Memory: 57.2M
+        CPU: 3.249s
+     CGroup: /system.slice/mariadb.service
+             └─42716 /usr/sbin/mariadbd
+Step 5. Create Bagisto database and user
+Next, we need to create a Bagisto database, the Bagisto user, and grant the permissions for that user to the database.
+
+ CREATE USER 'bagisto'@'localhost' IDENTIFIED BY 'YourStrongPasswordHere';
+ CREATE DATABASE bagisto;
+ GRANT ALL PRIVILEGES ON bagisto.* TO 'bagisto'@'localhost';
+ FLUSH PRIVILEGES;
+ EXIT;
+Step 6. Install Composer
+p>Install the Composer in order to install Bagisto later.
+
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+Check the Composer installation:
+
+composer
+You should receive the following output:
+
+ 
+  ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 2.3.6 2022-06-01 21:57:13
+Step 7. Install NodeJS
+To install the NodeJS run the following commands:
+
+sudo apt install curl -y
+
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+apt-get install gcc g++ make -y
+
+sudo apt install nodejs
+To check the installed NodeJS version, execute the command below:
+
+node -v
+You should receive the following output:
+
+root@host:~# node -v
+v16.15.1
+Step 8. Download and Install Bagisto
+We are going to download Bagisto in the default document root of the Apache web server.
+
+cd /var/www/html/
+
+wget https://github.com/bagisto/bagisto/archive/v1.4.3.zip
+
+unzip v1.4.3.zip
+
+mv bagisto-1.4.3/ bagisto/
+Once downloaded and extracted, go into the bagisto directory and use the composer command to begin the installation process.
+
+cd /var/www/html/bagisto
+
+composer install
+After successful installation, you should receive the following output:
+
+Package manifest generated successfully.
+105 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+The next step is to set the right permissions:
+
+sudo chown -R www-data:www-data /var/www/html/bagisto/
+sudo chmod -R 755 /var/www/html/bagisto/
+Step 9. Create Apache Virtual Host File
+Go into the Apache directory and create a configuration file for the Bagisto application.
+
+cd /etc/apache2/sites-available/
+
+touch bagisto.conf
+Paste the following lines of code, save the file and close it.
+
+<VirtualHost *:80>
+ServerName yourdomain.com
+DocumentRoot /var/www/html/bagisto/public
+
+<Directory /var/www/html/bagisto>
+AllowOverride All
+</Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+Enable the Apache configuration for Bagisto and rewrite the module.
+
+sudo a2enmod rewrite
+
+sudo a2ensite bagisto.conf
+Check the syntax:
+
+apachectl -t
+You should receive the following output:
+
+root@vps:~# apachectl -t
+Syntax OK
+If the syntax is OK, restart the Apache service.
+
+systemctl reload apache2
+Once the Apache service is restarted, you can finish the Bagisto installation at http://yourdomain.com
+
+Step 10. Finish the installation
+This is the last step of this tutorial, and we are going to explain how to finish the Bagisto eCommerce installation:
+
+Access the Bagisto installation at http://yourdomain.com, and you should see the following screen with the installed extensions. If everything is OK, click on the Continue button.

@@ -1,0 +1,1 @@
+apt update && apt install apt-transport-https ca-certificates curl software-properties-common -y && curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key | apt-key add - && add-apt-repository "deb https://debian.neo4j.com stable 4.1" && apt install neo4j -y && systemctl enable neo4j.service && systemctl start neo4j.service && clear && cypher-shell

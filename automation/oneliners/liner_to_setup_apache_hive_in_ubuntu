@@ -1,0 +1,1 @@
+gethadoop && sudo apt install -y default-jdk wget && wget https://dlcdn.apache.org/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz && tar -xvzf apache-hive-4.0.1-bin.tar.gz && sudo mv apache-hive-4.0.1-bin /usr/local/hive && export HIVE_HOME=/usr/local/hive && export PATH=$HIVE_HOME/bin:$PATH && hive --version

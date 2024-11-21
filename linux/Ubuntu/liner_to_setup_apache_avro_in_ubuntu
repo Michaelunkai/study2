@@ -1,0 +1,1 @@
+wget https://dlcdn.apache.org/avro/avro-1.11.3/avro-doc-1.11.3.tar.gz && tar -xzf avro-doc-1.11.3.tar.gz && cd avro-doc-1.11.3 && wget https://repo1.maven.org/maven2/org/apache/avro/avro-tools/1.11.3/avro-tools-1.11.3.jar && apt-get install -y openjdk-11-jdk && java -jar avro-tools-1.11.3.jar --version

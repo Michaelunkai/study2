@@ -1,0 +1,1 @@
+curl -L https://github.com/instrumenta/kubeval/releases/download/v0.16.1/kubeval-linux-amd64.tar.gz | tar xz && chmod +x kubeval && sudo mv kubeval /usr/local/bin && kubeval --version

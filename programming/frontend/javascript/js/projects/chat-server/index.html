@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Chat</title>
+
+<style>
         ul { list-style-type: none; margin: 0; padding: 0; }
         li { padding: 8px; margin-bottom: 10px; background-color: #f4f4f4; }
         input { padding: 10px; width: 80%; margin-right: .5%; }
         button { padding: 10px; width: 18%; }
-    </style>
+</style>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+<ul id="messages"></ul>
+<form id="form" action="" name="form"><input id="input"
+autocomplete="off"><button>Send</button></form>
+<script src="/socket.io/socket.io.js"></script> 
+<script>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
+
+
+
         var socket = io();
         var form = document.getElementById('form');
         var input = document.getElementById('input');
@@ -36,6 +41,6 @@
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
         });
-    </script>
+</script>
 </body>
 </html>

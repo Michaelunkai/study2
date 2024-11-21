@@ -1,0 +1,1 @@
+mkdir -p pouchdb-demo && cd pouchdb-demo && npm init -y --silent && npm install pouchdb --silent && echo "const PouchDB = require('pouchdb'); const db = new PouchDB('mydb'); db.put({ _id: '001', name: 'Alice' }).then(res => console.log('PouchDB Inserted:', res));" > pouchdb.js && node pouchdb.js && npm list pouchdb -v

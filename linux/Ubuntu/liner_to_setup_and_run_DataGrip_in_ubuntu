@@ -1,0 +1,1 @@
+wget -qO- https://download.jetbrains.com/datagrip/datagrip-2023.2.3.tar.gz | tar xvz -C /opt && /opt/DataGrip-*/bin/datagrip.sh

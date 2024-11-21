@@ -1,8 +1,35 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
 
-alias plex="pct exec 107 -- fstrim -av"
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "$(dircolors)"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+
+alias plex="pct exec 100 -- fstrim -av"
+alias userver="pct exec 102 -- fstrim -av"
+alias ccupload="pct exec 103 -- fstrim -av"
 alias brc="nano /root/.bashrc"
 alias brc1="source /root/.bashrc"
 alias cc="clear"
-alias pl="pct enter 107"
+alias pl="pct enter 100"
 alias cdv="cd /var/lib/vz"
 alias update="apt update && apt upgrade -y"
+alias ccftp="pct stop 102 && pct destroy 102 && pct restore 102 /var/lib/vz/dump/vzdump-lxc-102-2024_08_30-17_07_41.tar.zst --storage local --start 1 --hostname UploadServer"
+alias ram='df -h /var/lib/vz | awk '\''NR==1{print $2, $3, $4, $5} NR==2{print $2, $3, $4, $5}'\'''
+alias restore='docker run -v /var/lib/vz/template/iso/:/c/ michadockermisha/backup:proxiso sh -c "apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/ && docker run -v /var/lib/vz/dump/:/c/ michadockermisha/backup:proxdump sh -c \"apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/\"" && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
+alias backup='cd /var/lib/vz/dump && docker build -t michadockermisha/backup:proxdump . && docker push michadockermisha/backup:proxdump && cd ../template/iso && docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
+alias space="for CTID in \$(pct list | awk 'NR>1 {print \$1}'); do NAME=\$(pct list | awk -v id=\$CTID '\$1 == id {print \$3}'); SIZE=\$(pct config \$CTID | grep '^rootfs' | awk -F'size=' '{print \$2}'); USED=\$(pct exec \$CTID -- df / | awk 'NR==2 {print \$3}'); USED_HUMAN=\$(pct exec \$CTID -- df -h / | awk 'NR==2 {print \$3}'); echo \"CTID \$CTID (Name: \$NAME): Size: \$SIZE, Used: \${USED_HUMAN} (\${USED}K)\"; done"
+alias restoreubu="qmrestore /var/lib/vz/dump/vzdump-qemu-101-2024_11_15-21_33_13.vma 101 --storage local && qm set 101 --name ubuntu --onboot 1 && qm start 101"

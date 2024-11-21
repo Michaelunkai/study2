@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Create project directory and navigate into it
 mkdir -p qa_regression_test && cd qa_regression_test
@@ -27,7 +27,7 @@ EOT
 
 # Create a script to run tests and generate HTML report
 cat <<EOT >> run_tests.sh
-#!/bin/bash
+#!/bin/ 
 source venv/bin/activate
 pytest --html=report.html --self-contained-html
 EOT

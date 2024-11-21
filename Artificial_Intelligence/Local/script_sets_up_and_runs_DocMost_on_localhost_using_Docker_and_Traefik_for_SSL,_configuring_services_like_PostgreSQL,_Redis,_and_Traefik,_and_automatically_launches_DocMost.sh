@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 # Script to install and run DocMost with Docker and Traefik on localhost
 
 # Step 1: Create directories for DocMost
@@ -25,7 +25,7 @@ services:
     environment:
       APP_URL: 'http://localhost:3000'
       APP_SECRET: '$(openssl rand -hex 32)'
-      DATABASE_URL: 'postgresql://docmost:password@db:5432/docmost?schema=public'
+      DATABASE_URL: 'postgre ://docmost:password@db:5432/docmost?schema=public'
       REDIS_URL: 'redis://redis:6379'
     ports:
       - '3000:3000'
@@ -50,7 +50,7 @@ services:
       POSTGRES_PASSWORD: password
     restart: unless-stopped
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgre /data
     networks:
       - web
 

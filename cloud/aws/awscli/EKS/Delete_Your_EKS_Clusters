@@ -1,6 +1,0 @@
-Delete Your EKS Clusters
-Delete Cluster
-
- 
- 
-aws eks delete-cluster --name my-cluster

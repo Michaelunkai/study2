@@ -1,0 +1,17 @@
+#install powershell in ubuntu:
+sudo snap install powershell --classic
+
+#use it from bash:
+pwsh
+
+#create shortcut commands:
+$s = Get-Process
+#now everytime i run "$s" it will run the assign command!
+
+
+
+#in powershell install cli:
+install-Module -Name VMware.PowerCLI
+
+#update it:
+Update-Module -Name VMware.PowerCLI    

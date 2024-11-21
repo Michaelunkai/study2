@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompTIA A+ Practice Exam</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>CompTIA A+ Practice Exam</title>
+
+<script src=
+"https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src=
+"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -73,35 +79,33 @@
         .incorrect {
             color: red;
         }
-    </style>
+</style>
 </head>
 <body>
-    <div id="app" class="container">
-        <h1>CompTIA A+ Practice Exam</h1>
-        <div v-if="currentQuestion">
-            <div class="question">
-                <h2>[[ currentQuestion.question ]]</h2>
-                <ul class="options">
-                    <li v-for="(option, index) in currentQuestion.options" :key="index">
-                        <button @click="submitAnswer(index)" :disabled="result !== null">[[ option ]]</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div v-if="result !== null" class="result">
-            <p v-if="result.correct" class="correct">Correct!</p>
-            <p v-else class="incorrect">Incorrect.</p>
-            <p class="explanation">[[ result.explanation ]]</p>
-        </div>
-        <button @click="getNextQuestion" :disabled="result === null">Next Question</button>
-        <div class="stats">
-            <p>Questions Answered: [[ questionsAnswered ]]</p>
-            <p>Correct Answers: [[ correctAnswers ]]</p>
-            <p>Score: [[ score ]]%</p>
-        </div>
-    </div>
-
-    <script>
+<div id="app" class="container">
+<h1>CompTIA A+ Practice Exam</h1>
+<div v-if="currentQuestion">
+<div class="question">
+<h2>[[ currentQuestion.question ]]</h2>
+<ul class="options">
+<li v-for="(option, index) in currentQuestion.options"><button>[[
+option ]]</button></li>
+</ul>
+</div>
+</div>
+<div v-if="result !== null" class="result">
+<p v-if="result.correct" class="correct">Correct!</p>
+<p v-else="" class="incorrect">Incorrect.</p>
+<p class="explanation">[[ result.explanation ]]</p>
+</div>
+<button>Next Question</button>
+<div class="stats">
+<p>Questions Answered: [[ questionsAnswered ]]</p>
+<p>Correct Answers: [[ correctAnswers ]]</p>
+<p>Score: [[ score ]]%</p>
+</div>
+</div>
+<script>
         new Vue({
             el: '#app',
             delimiters: ['[[', ']]'],
@@ -146,6 +150,6 @@
                 this.getNextQuestion();
             }
         });
-    </script>
+</script>
 </body>
 </html>

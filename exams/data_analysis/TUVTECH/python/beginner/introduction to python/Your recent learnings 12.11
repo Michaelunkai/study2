@@ -1,0 +1,21 @@
+Your recent learnings
+When you left 14 hours ago, you worked on NumPy, chapter 4 of the course Introduction to Python. Here is what you covered in your last lesson:
+
+You learned about the importance and functionality of packages in Python, which are essentially directories of Python scripts (modules) that include functions, methods, and new Python types designed to solve specific problems. This knowledge is crucial for leveraging existing code to solve new problems efficiently, without reinventing the wheel. Here are the key points:
+
+Understanding Packages: Packages help organize code and keep the Python distribution clean and manageable. They must be installed before use.
+Installing Packages: You learned how to use pip, a package maintenance system for Python, to install packages like NumPy.
+Importing Packages and Functions: You explored different ways to import packages and their specific functions or methods into your scripts. This includes importing the entire package, importing and renaming it, and selectively importing specific functions.
+Practical Application: Through exercises, you applied these concepts by using the math package to calculate the circumference and area of a circle with given radius r:
+import math
+
+r = 0.43
+C = 2 * r * math.pi
+A = math.pi * r ** 2
+
+print("Circumference: " + str(C))
+print("Area: " + str(A))
+Selective Import: You practiced selective import to use only what's necessary, like importing the pi function from the math package.
+This lesson equipped you with the foundational skills to utilize external Python packages and modules, enhancing your ability to perform complex tasks with minimal code.
+
+The goal of the next lesson is to learn how to use Python's built-in functions.

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Skills</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>My Skills</title>
+
+<style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f9f9f9; /* Light gray background */
@@ -68,16 +72,14 @@
             color: #ff5722; /* Deep orange */
         }
         /* Add more classes for additional skills as needed */
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>My Skills</h1>
-        <ul>
-            {% for skill in skills %}
-                <li class="skill-{{ loop.index }}">{{ skill }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+<div class="container">
+<h1>My Skills</h1>
+<ul>{% for skill in skills %}
+<li class="skill-{{ loop.index }}">{{ skill }}</li>
+{% endfor %}</ul>
+</div>
 </body>
 </html>

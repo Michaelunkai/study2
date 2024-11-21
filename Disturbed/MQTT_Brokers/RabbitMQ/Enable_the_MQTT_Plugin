@@ -1,7 +1,0 @@
-Enable the MQTT Plugin
-RabbitMQ supports MQTT via a plugin that you need to enable.
-
-Enable the MQTT plugin:
- 
- 
-sudo rabbitmq-plugins enable rabbitmq_mqtt

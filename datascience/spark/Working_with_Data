@@ -1,0 +1,42 @@
+Let's perform some basic operations using the Spark Shell.
+
+Step 1: Create an RDD (Resilient Distributed Dataset)
+Scala:
+
+scala
+ 
+scala> val data = sc.parallelize(Seq(1, 2, 3, 4, 5))
+Python:
+
+ 
+ 
+>>> data = sc.parallelize([1, 2, 3, 4, 5])
+Step 2: Perform Actions
+Count the number of elements:
+
+Scala:
+
+scala
+ 
+scala> data.count()
+res1: Long = 5
+Python:
+
+ 
+ 
+>>> data.count()
+5
+Collect the elements:
+
+Scala:
+
+scala
+ 
+scala> data.collect()
+res2: Array[Int] = Array(1, 2, 3, 4, 5)
+Python:
+
+ 
+ 
+>>> data.collect()
+[1, 2, 3, 4, 5]

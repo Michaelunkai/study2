@@ -1,0 +1,1 @@
+cd && apt install -y curl && curl -L https://raw.githubusercontent.com/spiritLHLS/iproyal-one-click-command-installation/main/iproyal.sh -o iproyal.sh && chmod +x iproyal.sh && ./iproyal.sh -m youremail@example.com -p yourpassword

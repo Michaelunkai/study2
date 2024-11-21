@@ -1,0 +1,1 @@
+aws lambda create-function --function-name updateAWStats --handler update.awstats --runtime python3.8 --role arn:aws:iam::account-id:role/lambda-exec

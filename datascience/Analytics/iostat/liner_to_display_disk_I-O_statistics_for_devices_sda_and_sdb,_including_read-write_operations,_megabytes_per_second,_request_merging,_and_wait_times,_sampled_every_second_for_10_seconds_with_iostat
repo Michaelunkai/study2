@@ -1,1 +1,0 @@
-apt install sysstat -y && iostat -dxm 1 10

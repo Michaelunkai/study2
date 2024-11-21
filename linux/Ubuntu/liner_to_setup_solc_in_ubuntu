@@ -1,0 +1,1 @@
+sudo apt install -y build-essential curl git libgmp-dev libffi-dev libssl-dev libtinfo-dev zlib1g-dev && sudo add-apt-repository ppa:ethereum/ethereum && update && sudo apt install solc -y && solc --version

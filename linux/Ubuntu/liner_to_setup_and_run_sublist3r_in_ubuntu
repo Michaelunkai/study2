@@ -1,0 +1,1 @@
+sudo apt install -y python3 python3-pip && git clone https://github.com/aboul3la/Sublist3r.git && cd Sublist3r && pip3 install -r requirements.txt && python3 sublist3r.py -d example.com

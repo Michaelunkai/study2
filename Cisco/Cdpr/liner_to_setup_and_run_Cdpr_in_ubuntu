@@ -1,0 +1,1 @@
+sudo apt install -y cdpr && sudo cdpr -d eth0 && echo "CDPR started on eth0"

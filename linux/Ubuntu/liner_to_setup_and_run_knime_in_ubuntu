@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y openjdk-11-jdk wget && wget https://download.knime.org/analytics-platform/linux/knime-latest-linux.gtk.x86_64.tar.gz -O /tmp/knime-latest-linux.gtk.x86_64.tar.gz && sudo tar -xvzf /tmp/knime-latest-linux.gtk.x86_64.tar.gz -C /opt && sudo ln -s /opt/knime_* /opt/knime && /opt/knime/knime

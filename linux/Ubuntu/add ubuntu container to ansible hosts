@@ -1,0 +1,34 @@
+
+
+drun ubuntu ubuntu
+
+apt update -y && apt upgrade -y && apt autoremove -y && apt install openssh-server -y
+
+/etc/init.d/ssh start
+
+systemctl enable ssh
+
+update-rc.d ssh enable
+
+service ssh enable
+
+# Add a new user (replace 'ubuntu' with your desired username)
+adduser ubuntu
+
+##from outside the container
+
+###check running containrs ip address:
+
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id_or_name>
+
+###add the docker container to the hosts ini file
+nano etc/ansible/hosts
+
+###like this:
+/etc/ansible/hosts
+
+
+[docker]
+172.17.0.2 ansible_user=fedora ansible_password=fedora
+172.17.0.3 ansible_user=ubuntu ansible_password=ubuntu
+

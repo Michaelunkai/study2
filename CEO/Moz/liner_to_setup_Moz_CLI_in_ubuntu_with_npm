@@ -1,0 +1,1 @@
+getnpm && sudo npm install -g moz-cli && moz-cli --version

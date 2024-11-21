@@ -1,0 +1,1 @@
+getnpm && sudo npm install -g @sematext/logagent && logagent --help && logagent --version

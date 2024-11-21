@@ -1,0 +1,1 @@
+sudo apt install openvswitch-switch -y && sudo ovs-vsctl list-br

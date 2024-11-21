@@ -1,0 +1,220 @@
+# Configuring NGINX as a Load Balancer in Ubuntu
+
+This guide provides step-by-step instructions to configure NGINX as a load balancer on an Ubuntu system.
+
+## Step 1: Update the System
+
+First, ensure your system is up-to-date.
+
+  
+sudo apt update
+sudo apt upgrade -y
+
+## Step 2: Install NGINX
+
+If NGINX is not already installed on your system, install it using the following command:
+
+  
+sudo apt install nginx -y
+
+## Step 3: Configure NGINX for Load Balancing
+
+Open the NGINX configuration file for editing. You can use any text editor, such as `nano` or `vim`.
+
+  
+sudo nano /etc/nginx/nginx.conf
+
+Replace the contents of the file with the following configuration:
+
+ nginx
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+    worker_connections 768;
+    # multi_accept on;
+}
+
+http {
+
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopu  on;
+    types_ha _max_size 2048;
+    # server_tokens off;
+
+    # server_names_ha _bucket_size 64;
+    # server_name_in_redirect off;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    ##
+    # SSL Settings
+    ##
+
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+    ssl_prefer_server_ciphers on;
+
+    ##
+    # Logging Settings
+    ##
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    ##
+    # Gzip Settings
+    ##
+
+    gzip on;
+
+    # gzip_vary on;
+    # gzip_proxied any;
+    # gzip_comp_level 6;
+    # gzip_buffers 16 8k;
+    # gzip_http_version 1.1;
+    # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    ##
+    # Upstream Load Balancing
+    ##
+
+    upstream backend {
+        server 192.168.1.101;
+        server 192.168.1.102;
+        server 192.168.1.103;
+    }
+
+    ##
+    # Virtual Host Configs
+    ##
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+
+
+#mail {
+#       # See sample authentication script at:
+#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#
+#       # auth_http localhost/auth.php;
+#       # pop3_capabilities "TOP" "USER";
+#       # imap_capabilities "IMAP4rev1" "UIDPLUS";
+#
+#       server {
+#               listen     localhost:110;
+#               protocol   pop3;
+#               proxy      on;
+#       }
+#
+#       server {
+#               listen     localhost:143;
+#               protocol   imap;
+#               proxy      on;
+#       }
+#}
+
+Replace `192.168.1.101`, `192.168.1.102`, and `192.168.1.103` with the actual IP addresses of your backend servers.
+
+## Step 4: Test NGINX Configuration
+
+Before restarting NGINX, it's a good practice to test the configuration to ensure there are no syntax errors.
+
+  
+sudo nginx -t
+
+If the test is successful, you should see a message indicating that the syntax is OK and the test was successful.
+
+## Step 5: Restart NGINX
+
+Restart NGINX to apply the changes.
+
+  
+sudo systemctl restart nginx
+
+## Step 6: Verify Load Balancing
+
+To verify that the load balancer is working, open a web browser and enter the IP address or domain name of your NGINX server. For example, if your NGINX server's IP address is `192.168.1.100`, you would enter:
+
+http://192.168.1.100
+
+You should see the content served by one of your backend servers. To verify that the load balancing is working correctly, you can refresh the page multiple times and observe that the requests are distributed among your backend servers.
+
+## Additional Configuration (Optional)
+
+### Load Balancing Algorithms
+
+By default, NGINX uses the round-robin algorithm. You can specify different load balancing algorithms, such as least connections or IP hash.
+
+- **Least Connections**: Distributes traffic to the server with the least number of active connections.
+
+   nginx
+  upstream backend {
+      least_conn;
+      server 192.168.1.101;
+      server 192.168.1.102;
+      server 192.168.1.103;
+  }
+
+- **IP Hash**: Ensures a visitor is always directed to the same server.
+
+   nginx
+  upstream backend {
+      ip_ha ;
+      server 192.168.1.101;
+      server 192.168.1.102;
+      server 192.168.1.103;
+  }
+
+### Health Checks
+
+To ensure NGINX only forwards requests to healthy backend servers, you can configure health checks.
+
+ nginx
+http {
+    upstream backend {
+        server 192.168.1.101;
+        server 192.168.1.102;
+        server 192.168.1.103;
+
+        # Health check configuration
+        health_check interval=10s fails=3 passes=2;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+
+This configuration checks the health of each backend server every 10 seconds and marks a server as unhealthy after 3 consecutive failures. It will mark the server as healthy again after 2 consecutive successes.
+
+## Conclusion
+
+You've now configured NGINX as a load balancer on Ubuntu. This setup will distribute incoming traffic across multiple backend servers, improving the performance and reliability of your web application. If you have any specific requirements or need further customization, you can refer to the [NGINX documentation](https://nginx.org/en/docs/) for more details.

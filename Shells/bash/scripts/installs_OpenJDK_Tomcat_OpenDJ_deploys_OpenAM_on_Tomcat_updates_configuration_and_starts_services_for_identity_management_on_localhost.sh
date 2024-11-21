@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Change to root directory
 cd /root

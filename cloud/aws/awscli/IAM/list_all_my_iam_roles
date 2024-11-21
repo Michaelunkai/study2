@@ -1,1 +1,0 @@
- aws iam list-roles --query 'Roles[*].RoleName' --output text

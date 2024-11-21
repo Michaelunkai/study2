@@ -1,0 +1,15 @@
+yes | getphp && getapache && getmariadb && apt install unzip -y && getsqlite && mysql -u root -p -e "CREATE DATABASE piwigo; CREATE USER 'piwigo'@'localhost' IDENTIFIED BY 'password'; GRANT ALL ON piwigo.* TO 'piwigo'@'localhost' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;" && curl -o piwigo.zip http://piwigo.org/download/dlcounter.php?code=latest && unzip piwigo.zip && mv piwigo /var/www/html/piwigo && chown -R www-data:www-data /var/www/html/piwigo && chmod -R 755 /var/www/html/piwigo && echo '<VirtualHost *:80>
+ServerAdmin admin@example.com
+DocumentRoot /var/www/html/piwigo
+ServerName localhost
+
+<Directory /var/www/html/piwigo/>
+Options +FollowSymlinks
+AllowOverride All
+Require all granted
+</Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>' | sudo tee /etc/apache2/sites-available/piwigo.conf && sudo a2ensite piwigo.conf && sudo a2enmod rewrite && sudo systemctl restart apache2 && cmd.exe /c start chrome http://localhost

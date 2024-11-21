@@ -1,0 +1,91 @@
+# RisingOS 2.0 - Android Custom ROM: Installation and Features Overview (Ubuntu)
+
+## Installation Guide
+
+### Required Files and Tools
+- **ROM (ZIP File)**
+- **BOOT**
+- **DTBO**
+- **VENDOR_BOOT**
+
+### Download Sources
+- **Sourceforge**: [RisingOS for Pixel6a](https://sourceforge.net/projects/risingos-for-bluejay/files/)
+- **OTA Install**: [OTA Files](https://sourceforge.net/projects/risingos-for-bluejay/files/Android_14/OTA/)
+- **XDA Developers**: [RisingOS 2.0 on XDA](https://xdaforums.com/t/rom-a14-official-risingos-2-0-gapps-bluejay-02-17-2024.4581557/)
+
+### Prerequisites
+1. **Install ADB and Fastboot**:
+   ```bash
+   sudo apt update
+   sudo apt install adb fastboot -y
+   ```
+
+2. **Download Google USB Drivers** (for Windows, needed if "Waiting for Device..." issue):
+   ```bash
+   wget https://dl.google.com/android/repository/usb_driver_r13-windows.zip -O usb_driver_r13-windows.zip
+   unzip usb_driver_r13-windows.zip -d usb_driver
+   ```
+
+### Download Files
+```bash
+mkdir risingos && cd risingos
+wget https://sourceforge.net/projects/risingos-for-bluejay/files/latest/download -O rom.zip
+# Download other necessary files if not included in the main zip
+# For example:
+wget https://sourceforge.net/projects/risingos-for-bluejay/files/boot.img -O boot.img
+wget https://sourceforge.net/projects/risingos-for-bluejay/files/dtbo.img -O dtbo.img
+wget https://sourceforge.net/projects/risingos-for-bluejay/files/vendor_boot.img -O vendor_boot.img
+```
+
+### Flashing Commands
+1. **Reboot to Bootloader**:
+   ```bash
+   adb reboot bootloader
+   ```
+
+2. **Flash Images**:
+   ```bash
+   fastboot flash boot boot.img
+   fastboot flash dtbo dtbo.img
+   fastboot flash vendor_boot vendor_boot.img
+   fastboot reboot recovery
+   ```
+
+3. **Factory Reset**:
+   - In recovery mode, navigate to `Factory reset -> Format data/factory reset` and confirm.
+
+4. **Apply Update**:
+   - From the main menu, select `Apply update -> Apply from ADB`.
+
+5. **Sideload ROM**:
+   ```bash
+   adb sideload rom.zip  # Replace "rom.zip" with the actual filename if different
+   ```
+
+6. **Optional: Reboot to Recovery for Add-ons**:
+   - If you need to sideload additional files (e.g., Magisk), reboot to recovery.
+
+7. **Reboot to System**:
+   ```bash
+   fastboot reboot
+   ```
+
+## New and Improved Features
+
+### Core Improvements
+- **Framework Enhancements**: Based on crDroid Android Project, includes AOSP QPR2 Framework fixes.
+- **Audio and Visual Upgrades**: Adaptive Sound Engine, new wallpapers, revamped UI in Recovery and Settings with Material Design themes.
+- **Security and Accessibility**: Enhanced face unlock, Pocket Mode to prevent accidental wakeup.
+
+### Customization and Usability
+- **UI Customizations**: New LockScreen Clock Styles, RisingUI with updated volume panel and boot animation.
+- **Launcher and Widgets**: Ortus Launcher, improved icon packs support, new LockScreen Widgets for media playback.
+- **System Enhancements**: Improved memory management, ported Pixel features, new Settings Styles.
+
+### Unique Features
+- **Shake Gestures**: Shake device to perform actions like taking screenshots.
+- **QS Header Image**: Dynamic color changes for icons and text when enabled.
+- **Deprecated Features**: Removal of Columbus/Elmyra and Nothing Launcher due to deprecated dependencies.
+
+## Acknowledgments
+RisingOS 2.0 integrates contributions from LineageOS, Pixel Experience, and other developers. The RisingOS team extends gratitude to all contributors for their invaluable efforts, enhancing user experience and celebrating the collaborative spirit of the Android development community.

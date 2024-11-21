@@ -1,0 +1,1 @@
+apt install golang-go -y && go install github.com/hahwul/dalfox/v2@latest && ~/go/bin/dalfox

@@ -1,9 +1,0 @@
-FaunaDB is a cloud-native, globally distributed database designed for modern applications. It offers features such as:
-
-- **Serverless architecture**: FaunaDB operates without managing infrastructure, auto-scaling as needed.
-- **ACID transactions**: Ensures strong data consistency across distributed environments.
-- **GraphQL and FQL support**: Provides native GraphQL APIs and a custom query language (FQL) for flexibility in querying.
-- **Global distribution**: Replicates data across regions to ensure low latency and fault tolerance.
-- **Native time travel queries**: Allows querying past states of data for auditing and debugging purposes.
-
-FaunaDB is optimized for developers building applications that require scalability, real-time capabilities, and strong data consistency.

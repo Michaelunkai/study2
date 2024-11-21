@@ -1,0 +1,1 @@
+ $googleDriveUrl="https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe"; $installerPath="$env:TEMP\GoogleDriveSetup.exe"; Invoke-WebRequest -Uri $googleDriveUrl -OutFile $installerPath; Start-Process -FilePath $installerPath -ArgumentList "/silent /install" -Wait; Remove-Item -Path $installerPath

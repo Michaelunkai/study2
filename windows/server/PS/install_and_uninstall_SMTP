@@ -1,5 +1,0 @@
-Install-WindowsFeature SMTP-Server
-
-
-to uninstall:
- Uninstall-WindowsFeature -Name SMTP-Server

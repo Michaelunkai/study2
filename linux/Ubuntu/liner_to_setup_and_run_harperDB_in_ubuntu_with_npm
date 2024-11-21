@@ -1,0 +1,1 @@
+getnpm && npm install -g harperdb && harperdb version && harperdb run

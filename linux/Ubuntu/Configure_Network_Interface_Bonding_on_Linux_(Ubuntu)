@@ -1,0 +1,21 @@
+# Install ifenslave package
+sudo apt-get update
+sudo apt-get install ifenslave
+
+# Load bonding module
+sudo modprobe bonding
+
+# Configure bonding (edit /etc/network/interfaces)
+sudo tee -a /etc/network/interfaces > /dev/null <<EOL
+auto bond0
+iface bond0 inet static
+    address 192.168.1.100
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    bond-slaves eth0 eth1
+    bond-mode 4
+    bond-miimon 100
+EOL
+
+# Restart networking service
+sudo ifdown bond0 && sudo ifup bond0

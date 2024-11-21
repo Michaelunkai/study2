@@ -1,0 +1,135 @@
+▲A  A▼
+Install BookStack - Documentation/Wiki Platform - on Linux
+What is BookStack?
+BookStack is an opinionated wiki system that provides a pleasant and simple out-of-the-box experience. New users to an instance should find the experience intuitive and only basic word-processing skills should be required to get involved in creating content on BookStack. The platform should provide advanced power features to those that desire it but they should not interfere with the core simple user experience. -https://github.com/BookStackApp/BookStack
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software respositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install git openssl curl wget zip composer -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php libapache2-mod-php php-curl php-tokenizer php-ldap php-cli php-json php-gd php-mbstring php-mysql php-xml php-zip php-bcmath -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the BookStack database and database user
+CREATE DATABASE bookstack;
+GRANT ALL ON bookstack.* to 'bookstack_rw'@'localhost' IDENTIFIED BY 'B00k$t@ck!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# clone bookstack from github
+sudo git clone https://github.com/BookStackApp/BookStack.git --branch release --single-branch /var/www/bookstack
+# create a copy of the sample .env file
+sudo cp /var/www/bookstack/.env.example /var/www/bookstack/.env
+# edit the .env file
+sudo nano /var/www/bookstack/.env
+Edit the following environment variables as needed
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=SomethingSecure
+APP_URL=http://debian/bookstack
+APP_TIMEZONE='America/New_York'
+APP_LOCALE=en
+
+DB_CONNECTION=my 
+DB_HOST=127.0.0.1
+DB_DATABASE=bookstack
+DB_USERNAME=bookstack_rw
+DB_PASSWORD=B00k$t@ck!
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.i12bretro.local
+MAIL_PORT=25
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDR=bookstack@i12bretro.local
+MAIL_FROM_NAME='BookStack'
+MAIL_REPLYTO_ADDR=bookstack@i12bretro.local
+MAIL_REPLYTO_NAME='BookStack'
+MAIL_AUTO_EMBED_METHOD='attachment'
+
+Press CTRL+O, Enter, CTRL+X to write the changes to .env
+Continue with the following commands:
+# set the owner of the bookstack directory
+sudo chown -R www-data:www-data /var/www/bookstack
+# setup composer working directory
+sudo mkdir /var/www/.composer
+sudo chown -R www-data:www-data /var/www/.composer
+cd /var/www/bookstack
+# install dependencies with composer
+sudo -u www-data composer install --no-dev --no-plugins
+# generate app key
+sudo php artisan key:generate --no-interaction --force
+# migrate the database
+sudo php artisan migrate --no-interaction --force
+# create bookstack apache configuration
+sudo nano /etc/apache2/sites-available/bookstack.conf
+Paste the following configuration into bookstack.conf
+Alias /bookstack "/var/www/bookstack/public"
+<Directory /var/www/bookstack/public>
+
+Options Indexes FollowSymLinks
+AllowOverride None
+Require all granted
+<IfModule mod_rewrite.c>
+<IfModule mod_negotiation.c>
+Options -MultiViews -Indexes
+</IfModule>
+
+RewriteEngine On
+
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+</IfModule>
+</Directory>
+
+Press CTRL+O, Enter, CTRL+X to write the changes to bookstack.conf
+Run the following command to enable the BookStack site
+# enable rewrite module
+sudo a2enmod rewrite
+# enable the bookstack site
+sudo a2ensite bookstack
+# restart the apache2 service
+sudo systemctl restart apache2
+BookStack Web Installer
+Open a web browser and navigate to http://DNSorIP/bookstack
+Login with the username admin@admin.com and the password password
+Click the user dropdown at the top right > My Account
+Update the user name and email address as needed > Click Save
+Select Access & Security from the left navigation menu
+Enter and confirm a new password > Click Update
+Click the user dropdown at the top right > Logout
+Log back in using the updated email address and password
+Welcome to BookStack
+Source: https://www.bookstackapp.com/docs/admin/installation/#manual
+
+ 

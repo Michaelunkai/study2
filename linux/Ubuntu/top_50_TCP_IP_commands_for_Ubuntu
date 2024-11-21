@@ -1,0 +1,333 @@
+Checking IP Address:
+
+ 
+ 
+ifconfig
+or
+
+ 
+ 
+ip addr  ow
+Displaying Routing Table:
+
+ 
+ 
+route -n
+or
+
+ 
+ 
+ip route  ow
+Testing Network Connectivity:
+
+ 
+ 
+ping <hostname_or_IP>
+Traceroute:
+
+ 
+ 
+traceroute <hostname_or_IP>
+Checking Open Ports and Listening Services:
+
+ 
+ 
+netstat -tuln
+or
+
+ 
+ 
+ss -tuln
+Checking Active Network Connections:
+
+ 
+ 
+netstat -ant
+or
+
+ 
+ 
+ss -ant
+Displaying DNS Information:
+
+ 
+ 
+nslookup <hostname>
+or
+
+ 
+ 
+dig <hostname>
+Managing Network Interfaces:
+
+Bringing an interface up:
+ 
+ 
+sudo ifconfig <interface_name> up
+Bringing an interface down:
+ 
+ 
+sudo ifconfig <interface_name> down
+Configuring IP Address:
+
+ 
+ 
+sudo ifconfig <interface_name> <IP_address> netmask <netmask>
+or using ip:
+
+ 
+ 
+sudo ip addr add <IP_address>/<CIDR_notation> dev <interface_name>
+Flu ing DNS Cache:
+
+ 
+ 
+sudo systemd-resolve --flu -caches
+Displaying Network Statistics:
+
+ 
+ 
+netstat -i
+or
+
+ 
+ 
+ifstat
+Testing TCP Connection:
+
+ 
+ 
+telnet <hostname_or_IP> <port>
+or
+
+ 
+ 
+nc -zv <hostname_or_IP> <port>
+Showing IP Routing Cache:
+
+ 
+ 
+ip route  ow cache
+Viewing ARP Cache:
+
+ 
+ 
+arp -a
+or
+
+ 
+ 
+ip neigh  ow
+Modifying ARP Cache:
+
+ 
+ 
+sudo arp -s <IP_address> <MAC_address>
+or
+
+ 
+ 
+sudo ip neigh add <IP_address> lladdr <MAC_address> dev <interface_name>
+Releasing and Renewing DHCP Lease:
+
+ 
+ 
+sudo dhclient -r
+sudo dhclient
+Viewing Hostname:
+
+ 
+ 
+hostname
+or
+
+ 
+ 
+hostnamectl
+Setting Hostname:
+
+ 
+ 
+sudo hostnamectl set-hostname <new_hostname>
+Listing Network Interfaces:
+
+ 
+ 
+ip link  ow
+Monitoring Network Traffic:
+
+ 
+ 
+iftop
+or
+
+ 
+ 
+nload
+Checking Network Performance:
+
+ 
+ 
+iperf3 -c <server_IP>
+Finding Open Ports:
+
+ 
+ 
+sudo lsof -i -P -n
+Checking Port Information:
+
+ 
+ 
+sudo ss -lnpt
+Viewing Firewall Rules:
+
+ 
+ 
+sudo ufw status
+or
+
+ 
+ 
+sudo iptables -L
+Adding a Firewall Rule:
+
+ 
+ 
+sudo ufw allow <port>/tcp
+or
+
+ 
+ 
+sudo iptables -A INPUT -p tcp --dport <port> -j ACCEPT
+Deleting a Firewall Rule:
+
+ 
+ 
+sudo ufw delete allow <port>/tcp
+or
+
+ 
+ 
+sudo iptables -D INPUT -p tcp --dport <port> -j ACCEPT
+Viewing Network Adapter Statistics:
+
+ 
+ 
+ethtool <interface_name>
+Disabling/Enabling Network Adapter:
+
+ 
+ 
+sudo ifdown <interface_name>
+sudo ifup <interface_name>
+Viewing IP Configuration:
+
+ 
+ 
+cat /etc/network/interfaces
+Checking DNS Servers:
+
+ 
+ 
+cat /etc/resolv.conf
+Configuring Static IP Address:
+
+ 
+ 
+sudo nano /etc/network/interfaces
+Restarting Network Service:
+
+ 
+ 
+sudo systemctl restart networking
+Viewing Wireless Networks:
+
+ 
+ 
+iwlist scan
+Connecting to a Wireless Network:
+
+ 
+ 
+nmcli dev wifi connect <SSID> password <password>
+Managing NetworkManager:
+
+ 
+ 
+nmcli
+Viewing Wi-Fi Signal Strength:
+
+ 
+ 
+iwconfig
+Viewing Packet Statistics:
+
+ 
+ 
+ip -s link
+Capturing Network Packets:
+
+ 
+ 
+tcpdump
+Displaying Network Configuration:
+
+ 
+ 
+ifup --verbose <interface_name>
+Disabling/Enabling NetworkManager:
+
+ 
+ 
+sudo systemctl stop NetworkManager
+sudo systemctl start NetworkManager
+Showing Interface Configuration:
+
+ 
+ 
+ifquery --status <interface_name>
+Flu ing ARP Cache:
+
+ 
+ 
+sudo ip -s -s neigh flu  all
+Viewing Neighbor Table:
+
+ 
+ 
+ip neigh  ow
+Adding a Static Route:
+
+ 
+ 
+sudo ip route add <destination_network> via <gateway_IP>
+Deleting a Static Route:
+
+ 
+ 
+sudo ip route del <destination_network> via <gateway_IP>
+Viewing TCP/IP Statistics:
+
+ 
+ 
+netstat -s
+Viewing Protocol Statistics:
+
+ 
+ 
+ss -s
+Checking for Duplicate IP Addresses:
+
+ 
+ 
+arping <IP_address>
+Showing IP Rule Configuration:
+
+ 
+ 
+ip rule  ow
+Viewing IP Address Range for Interface:
+
+ 
+ 
+ip -4 addr  ow dev <interface_name>

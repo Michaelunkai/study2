@@ -1,4 +1,0 @@
-Tuning PostgreSQLInstall PostgreSQL:sudo apt install postgresqlTune PostgreSQL configuration:sudo nano /etc/postgresql/12/main/postgresql.confAdjust the following parameters based on your system's RAM (assuming 16GB RAM):shared_buffers = 4GB
-effective_cache_size = 12GB
-maintenance_work_mem = 1GB
-checkpoint_completion_target = 0.9Restart PostgreSQL:sudo systemctl restart postgresql

@@ -1,1 +1,0 @@
-hs watch <path-to-module>

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Create the project directory and navigate into it
 mkdir -p ~/tdd_calculator_example && cd ~/tdd_calculator_example

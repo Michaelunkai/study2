@@ -1,9 +1,0 @@
-**VeriCare** is a technical support repair tool designed to automate repetitive tasks typically performed when troubleshooting Verifone devices and environments. It was built to simplify the management of system resources and services, particularly in Verifone-related setups, by performing tasks like:
-
-1. **Clearing temporary files**: This includes print spooler files, log files from the C: drive, communication files from the D: drive, and emptying the recycle bin.
-2. **Restarting services**: Important services like SQL Server, job agents, and web servers can be restarted automatically.
-3. **Network testing and diagnostics**: VeriCare provides tools to display network configuration (like IPv4, subnet mask, default gateway) and perform ping tests for connectivity checks.
-
-The repository includes a batch file designed for use in a Windows environment, and the tool was mainly focused on simplifying technical support for Verifone systems.
-
-For more details, you can check the [VeriCare GitHub Repository](https://github.com/itamarrosenblum/VeriCare)【9†source】【10†source】.

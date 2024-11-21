@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # install_glassfish_server_on_ubuntu.sh
 # This script installs and configures GlassFish Server on Ubuntu, including dependencies and systemd service.
@@ -55,7 +55,7 @@ extract_glassfish() {
 # Function to set environment variables
 set_environment_variables() {
     echo "Setting environment variables..."
-    ENV_FILE="${HOME}/.bashrc"
+    ENV_FILE="${HOME}/. rc"
     {
         echo ""
         echo "# GlassFish Environment Variables"

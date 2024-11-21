@@ -1,0 +1,46 @@
+▲A  A▼
+Running phpBB in Docker on Ubuntu Server
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# update software respositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# add docker apt repository
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running  BB Container
+Continue with the following commands in a terminal window
+# create working directories
+mkdir /home/$USER/docker/phpBB -p && mkdir /home/$USER/docker/mariadb -p
+# set owner of working directories
+sudo chown "$USER":"$USER" /home/"$USER"/docker -R
+# create phpbbnet network
+docker network create phpbbnet
+# run the mariadb docker container
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@$$ -e MYSQL_USER=phpbb_rw -e MYSQL_PASSWORD=phpBBp@$$ -e MYSQL_DATABASE=phpbb -v /home/$USER/docker/mariadb:/var/lib/mysql --network phpbbnet -d mariadb:latest
+# run the phpbb docker container
+docker run -d --name phpBB -p 8080:8080 -e PHPBB_DATABASE_USER=phpbb_rw -e PHPBB_DATABASE_PASSWORD=phpBBp@$$ -e PHPBB_DATABASE_NAME=phpbb --network phpbbnet bitnami/phpbb
+Open a web browser and navigate to http://DNSorIP:8080
+Welcome to phpBB running in a Docker container
+Click the Login link in the top left corner
+Login with username user and password bitnami
+Click the Administration Control Panel link at the very bottom of the page
+Re-authenticate with the user/bitnami credentials
+Click Manager Users in the left navigation menu
+Search for user
+Scroll down and enter and confirm a new password
+Click the Submit button
+Source: https://hub.docker.com/r/bitnami/ bb
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

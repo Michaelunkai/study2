@@ -1,0 +1,61 @@
+Add Debian/Ubuntu Linux Device to Windows Active Directory
+Installing Pre-Requesites and Configuration
+Log into the Debian device and run the following commands in terminal:
+sudo apt update
+# set the fully qualified host name
+sudo hostnamectl set-hostname nettools.i12bretro.local
+# confirm or add domain controller to DNS entries
+sudo nano /etc/resolv.conf
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
+sudo apt-get upgrade
+# install required packages
+sudo apt -y install realmd libnss-sss libpam-sss sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
+sudo realm discover i12bretro.local
+Paste the following text into /etc/krb5.conf
+[libdefaults]
+dns_lookup_realm = false
+ticket_lifetime = 24h
+renew_lifetime = 7d
+forwardable = true
+rdns = false
+default_realm = I12BRETRO.LOCAL
+default_ccache_name = KEYRING:persistent:%{uid}
+
+Press CTRL+O, Enter, CTRL+X to write the changes to /etc/krb5.conf
+Continue with the following commands in terminal:
+sudo realm join -U i12bretro i12bretro.local
+# check the configured value of the domain
+sudo realm list
+Paste the following lines into terminal together to enable automatically creating user home directories:
+sudo bash -c "cat > /usr/share/pam-configs/mkhomedir" <<EOF Name: activate mkhomedir
+Default: yes
+Priority: 900
+Session-Type: Additional
+Session:
+required pam_mkhomedir.so umask=0022 skel=/etc/skel
+EOF
+
+Continue with the following commands in terminal:
+sudo pam-auth-update
+Arrow down to activate mkhomedir > Press spacebar to select > Press Enter to confirm
+Run one or more of the following commands in terminal to grant active directory users or groups access to log into the linux machine:
+# add specific user(s )
+realm permit user1@i12bretro.local user2@i12bretro.local
+# add specific group(s)
+sudo realm permit -g 'LinuxUsers' 'Linux Admins'
+# add everyone
+sudo realm permit --all
+# deny everyone
+sudo realm deny --all
+Similarly, run the following command to edit /etc/sudoers.d/domain_admins to add specific users or groups to the sudoers file:
+sudo nano /etc/sudoers.d/domain_admins
+# add specific user(s )
+user1@i12bretro.local ALL=(ALL) ALL
+user2@i12bretro.local ALL=(ALL) ALL
+# add specific group(s)
+%LinuxUsers@i12bretro.local ALL=(ALL) ALL
+%Linux\ Admins@i12bretro.local ALL=(ALL) ALL
+Press CTRL+O, Enter, CTRL+X to write the changes to /etc/sudoers.d/domain_admins
+Testing Active Directory Authentication
+Attempt to login to the Debian device either into a desktop environment or via SSH. The user name must be formatted like user1@i12bretro.local and the password will be the active directory password

@@ -1,0 +1,1 @@
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs=22.1.0-1nodesource1 && npm install -g npm@latest && node -v && npm -v && npm install -g netlify-cli && netlify login

@@ -1,0 +1,1 @@
+sudo apt install -y syslog-ng && sudo systemctl start syslog-ng && sudo systemctl status syslog-ng

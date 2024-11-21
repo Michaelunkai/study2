@@ -1,7 +1,0 @@
-Delete the DynamoDB Table
-When you're done with the table and want to delete it, use the delete-table command:
-
- 
- 
-aws dynamodb delete-table \
-    --table-name ExampleTable

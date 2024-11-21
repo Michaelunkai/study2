@@ -1,0 +1,1 @@
+sudo apt install xca -y && xca --version && xca

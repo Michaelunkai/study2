@@ -1,0 +1,97 @@
+** install earthly
+
+# How to Configure and Use Earthly for Build Automation on Ubuntu
+
+Follow these steps to set up and use Earthly for build automation on Ubuntu. This guide includes creating a project directory, setting up a Node.js project, creating an Earthfile, and running Earthly commands.
+
+## Step 1: Create and Set Up Project Directory
+
+1. **Create a new project directory and navigate into it:**
+      
+    mkdir my-project
+    cd my-project
+
+2. **Initialize a new Node.js project:**
+      
+    npm init -y
+
+3. **Install pnpm globally (if not already installed):**
+      
+    npm install -g pnpm
+
+## Step 2: Create Earthfile
+
+1. **Create an Earthfile in your project directory:**
+      
+    nano Earthfile
+
+2. **Add the following content to the Earthfile:**
+     earthfile
+    VERSION 0.6
+
+    FROM node:latest
+    WORKDIR /app
+
+    deps:
+        COPY package.json ./
+        RUN npm install -g pnpm
+        RUN pnpm install
+        SAVE ARTIFACT package.json AS LOCAL ./package.json
+        SAVE ARTIFACT pnpm-lock.yaml AS LOCAL ./pnpm-lock.yaml
+
+    build:
+        FROM +deps
+        COPY . .
+        RUN pnpm run build
+        SAVE ARTIFACT dist /dist AS LOCAL dist
+
+    docker:
+        FROM nginx
+        COPY +build/dist /usr/ are/nginx/html
+        EXPOSE 80
+        SAVE IMAGE my-app:latest
+
+## Step 3: Create a Simple Node.js Application
+
+1. **Create a simple Node.js application:**
+      
+    mkdir src
+    echo 'console.log("Hello, Earthly!");' > src/index.js
+
+2. **Update the `package.json` file to include a build script:**
+      
+    nano package.json
+    Replace the content of `package.json` with the following:
+     json
+    {
+      "name": "my-project",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "mkdir -p dist && cp src/index.js dist/"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    }
+
+## Step 4: Run Earthly Commands
+
+1. **Install dependencies:**
+      
+    earthly +deps
+
+2. **Build the application:**
+      
+    earthly +build
+
+3. **Create a Docker image:**
+      
+    earthly +docker
+
+These steps should resolve the issues and allow you to successfully run the Earthly commands. The main changes include using single quotes around the string in the `echo` command to prevent the shell from interpreting the exclamation mark and updating the `package.json` file to include the necessary build script.
+
+Citations:
+[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/3460492/dffb73ee-a4b4-4c48-827c-8bc6f274a9ba/paste.txt

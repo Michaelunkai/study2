@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 ##############################################################
 # Script Name: setup_real_time_api_with_websockets_nodejs_socketio_ubuntu.sh

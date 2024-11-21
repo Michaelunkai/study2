@@ -1,0 +1,87 @@
+### **Comprehensive Step-by-Step Tutorial: Setting Up and Running the Robot-Framework-Solidity-Testing-Toolkit on Ubuntu for Solidity Testing, Hardhat Network, and Smart Contract Deployment Using Python, Node.js, and Robot Framework**
+
+This tutorial provides a detailed guide to setting up and running the **Robot-Framework-Solidity-Testing-Toolkit** on Ubuntu. The toolkit combines Solidity testing, cross-chain deployment tools, and monitoring components for EVM-compatible blockchains using Python, Node.js, and Robot Framework.
+
+### **Step 1: Install Required Dependencies on Ubuntu**
+
+Begin by installing the essential dependencies:
+
+  
+sudo apt update && sudo apt install -y python3 python3-pip nodejs npm git
+
+### **Step 2: Install Node.js Version 22 Using NVM (Node Version Manager)**
+
+To manage the Node.js version effectively, it's recommended to use Node Version Manager (NVM):
+
+  
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/. rc
+nvm install 22
+nvm use 22
+
+### **Step 3: Clone the Robot-Framework-Solidity-Testing-Toolkit Repository**
+
+Clone the project repository from GitHub:
+
+  
+git clone https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit.git
+cd Robot-Framework-Solidity-Testing-Toolkit
+
+### **Step 4: Install Python Dependencies**
+
+Install the necessary Python packages required by the toolkit:
+
+  
+pip3 install -r requirements.txt
+
+### **Step 5: Set Up Infura/Alchemy API Keys for Blockchain Interaction**
+
+- Sign up for a free account at [Infura](https://infura.io/) or [Alchemy](https://www.alchemy.com/).
+- Obtain your API keys.
+- Replace `<your-infura-api-key-goes-here>` in `Avalanche.config.js` and `Ethereum.config.js`, and `<your-alchemy-api-key-goes-here>` in `Polygon.config.js` with your actual API keys.
+
+### **Step 6: Run the Installation Script to Set Up the Environment**
+
+Run the provided installation script to prepare your local environment for testing and deployment:
+
+  
+  ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+
+### **Step 7: Start the Local Solidity Test Environment with Hardhat Network**
+
+Initialize the local Hardhat network and start the Robot Framework Remote Server:
+
+  
+  ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-And-Robotremoteserver
+
+### **Step 8: Perform Solidity Static Analysis and Security Testing**
+
+Execute static analysis and security testing of your Solidity smart contracts:
+
+  
+  ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis
+
+### **Step 9: Deploy Smart Contracts Using Hardhat and Robot Framework (Example: Ethereum)**
+
+Deploy your Solidity smart contracts using the Hardhat network and Robot Framework for Ethereum:
+
+  
+  ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment
+
+### **Step 10: Run Tests on Deployed Smart Contracts Using Hardhat**
+
+To validate and test the deployed smart contracts, run the following command:
+
+  
+  ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network
+
+### **Step 11: Stop Local Blockchain Nodes and Clean Up Logs**
+
+After completing the tests, stop the local blockchain nodes and clean up the log files:
+
+  
+  ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Logs
+
+### **Conclusion**
+
+By following this comprehensive step-by-step guide, you have successfully set up and run the **Robot-Framework-Solidity-Testing-Toolkit** on your Ubuntu machine. This toolkit provides powerful tools for Solidity testing, smart contract deployment, and security analysis across multiple EVM-compatible blockchains using Python, Node.js, and Robot Framework.

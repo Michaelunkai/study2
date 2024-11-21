@@ -1,0 +1,1 @@
+sudo apt install -y tshark && sudo tshark -i eth0

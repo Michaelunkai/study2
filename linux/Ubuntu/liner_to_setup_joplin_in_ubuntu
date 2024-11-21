@@ -1,0 +1,1 @@
+apt install libfuse2 -y && wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash -s -- --allow-root && echo "Joplin CLI installed. Run 'joplin' to start."

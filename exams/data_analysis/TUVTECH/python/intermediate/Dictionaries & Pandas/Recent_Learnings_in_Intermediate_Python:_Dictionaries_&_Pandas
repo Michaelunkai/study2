@@ -1,0 +1,51 @@
+**Recent Learnings in Intermediate Python: Dictionaries & Pandas**
+
+In your last session, you progressed through **Chapter 2 of Intermediate Python**, focusing on dictionaries and their unique properties. Here's a summary of what you learned:
+
+### Key Concepts of Dictionaries
+1. **Definition and Structure**: 
+   - A dictionary is a collection of key-value pairs where each key is unique and immutable (e.g., strings, integers, tuples).
+   
+2. **Accessing Values**:
+   - Retrieve values by referencing their keys using square brackets.
+       
+     world['Albania']  # Returns the population of Albania
+
+3. **Adding and Updating Entries**:
+   - Add new key-value pairs or update existing ones using the same syntax.
+       
+     world['Sealand'] = 27  # Adds Sealand with a population of 27
+
+4. **Removing Entries**:
+   - Remove a key-value pair using the `del` statement.
+       
+     del(world['Sealand'])  # Removes Sealand from the dictionary
+
+5. **Immutability of Keys**:
+   - Keys must be immutable (e.g., strings, integers, tuples). Mutable types like lists cannot serve as keys.
+
+### Practical Example: Manipulating a Dictionary
+The following code snippet illustrates adding and updating entries:
+  
+# Definition of dictionary
+europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin', 'norway': 'oslo'}
+
+# Add italy to europe
+europe['italy'] = 'rome'
+
+# Check if italy is in europe
+print('italy' in europe)  # Outputs: True
+
+# Add poland to europe
+europe['poland'] = 'warsaw'
+
+# Print europe dictionary
+print(europe)
+
+### Nested Dictionaries
+You also explored **nested dictionaries**, which allow values to be dictionaries themselves, enabling complex data structures.
+
+---
+
+### Next Steps: Pandas
+In the upcoming lesson, you will dive into **manipulating and analyzing data** using Pandas DataFrames, a powerful tool for data analysis in Python.

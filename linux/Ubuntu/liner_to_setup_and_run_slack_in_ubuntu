@@ -1,0 +1,15 @@
+cd && sudo apt-get install -y libappindicator3-1 libnss3 libxss1 xdg-utils wget
+
+# Download and install Google Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+# Download and install Slack
+wget https://downloads.slack-edge.com/desktop-releases/linux/x64/4.38.125/slack-desktop-4.38.125-amd64.deb
+sudo apt install -y ./slack-desktop-*.deb
+
+# Start Slack
+slack & disown
+
+# Open Slack in Chrome
+google-chrome-stable "https://app.slack.com/ssb/signin?ssb_vid=f8befc6a70bff148b15acd2b794aa3e3&ssb_instance_id=5021cd50-eb38-4f32-bb7d-f34f13d13097&v=4.38.125&from_desktop_app=1"

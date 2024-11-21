@@ -1,0 +1,1 @@
+ wget https://openpolicyagent.org/downloads/v0.39.0/opa_linux_amd64 -O opa && chmod +x opa &&  sudo mv opa /usr/local/bin/

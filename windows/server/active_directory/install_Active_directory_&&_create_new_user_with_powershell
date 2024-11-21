@@ -1,2 +1,0 @@
-install Active Directory: Install-WindowsFeature AD-Domain-Services
-Create a new user: New-ADUser -Name "Username"

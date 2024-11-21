@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Initialize episode counter
 counter=1

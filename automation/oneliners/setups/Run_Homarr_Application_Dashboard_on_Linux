@@ -1,0 +1,49 @@
+▲A  A▼
+Run Homarr Application Dashboard on Linux
+What is Homarr?
+Simplify the management of your server with Homarr - a sleek, modern dashboard that puts all of your apps and services at your fingertips. With Homarr, you can access and control everything in one convenient location. Homarr seamlessly integrates with the apps you've added, providing you with valuable information and giving you complete control. Installation is a breeze, and Homarr supports a wide range of deployment methods. -https://github.com/ajnart/homarr
+
+Installing NodeJS
+Log into the Linux device
+Run the following commands in a terminal window
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_20.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# test node is working
+node -v
+# test npm is working
+npm -v
+Running Homarr
+Continue with the following commands:
+# install git
+sudo apt install git -y
+# cd back to home
+cd ~
+# clone homarr github repo
+git clone https://github.com/ajnart/homarr.git ./homarr
+# cd into git clone
+cd homarr
+# checkout the latest tagged release
+git checkout "$(git tag --sort=v:refname | tail -n1)"
+# install yarn
+sudo npm install -g yarn
+# install dependencies
+yarn install
+# create .env file from example
+cp ./.env.example ./.env
+# build homarr
+yarn build
+# migrate database schema
+yarn db:migrate
+# run homarr
+yarn start
+Open a web browser and navigate to http://DNSorIP:3000
+Click the Start update process button
+Select Standalone Linux / Windows > Click Continue
+Enter an admin username and enter and confirm a password > Click Continue
+Click the Go to your board button
+Welcome to Homarr
+Source: https://homarr.dev/docs/getting-started/installation/
+
+ 

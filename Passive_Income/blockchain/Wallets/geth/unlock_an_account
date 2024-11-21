@@ -1,6 +1,0 @@
-Unlock an account:
-
- 
- 
-personal.unlockAccount(personal.listAccounts[0], "your_password", 600)
-Unlocks your account for 10 minutes (600 seconds) to allow transactions.

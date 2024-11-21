@@ -1,0 +1,5 @@
+wget https://dist.ipfs.io/ipfs-cluster-service/v1.0.4/ipfs-cluster-service_v1.0.4_linux-amd64.tar.gz && \
+tar xzf ipfs-cluster-service_v1.0.4_linux-amd64.tar.gz && cd ipfs-cluster-service && \
+sudo cp ipfs-cluster-service /usr/local/bin/ && ipfs-cluster-service init && \
+ipfs-cluster-service daemon & echo "IPFS Cluster is running."
+

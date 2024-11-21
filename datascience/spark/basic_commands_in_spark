@@ -37,7 +37,7 @@ You can run SQL queries on DataFrames.
 
 df.createOrReplaceTempView("people")
 val sqlDF = spark.sql("SELECT * FROM people WHERE age > 25")
-sqlDF.show()
+ DF.show()
 Step 3: Reading and Writing Data
 Spark can read from and write to various data sources like CSV, JSON, Parquet, etc.
 
@@ -45,7 +45,7 @@ Read Data from a CSV File
 Ensure you have a CSV file in your working directory or provide the correct path.
 
 val csvDF = spark.read.option("header", "true").csv("path/to/your/file.csv")
-csvDF.show()
+ DF.show()
 Write Data to a Parquet File
 You can write the DataFrame to a Parquet file.
 
@@ -60,7 +60,7 @@ sc.setLogLevel("ERROR")
 Setting Configuration Parameters
 You can set configuration parameters using the spark.conf object.
 
-spark.conf.set("spark.sql.shuffle.partitions", "50")
+spark.conf.set("spark. .shuffle.partitions", "50")
 Step 5: Using Spark with External Libraries
 Spark supports various libraries for machine learning, graph processing, etc.
 

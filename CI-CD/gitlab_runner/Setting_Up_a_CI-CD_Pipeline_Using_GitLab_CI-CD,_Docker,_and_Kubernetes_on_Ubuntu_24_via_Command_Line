@@ -1,0 +1,182 @@
+### **Complete Step-by-Step Guide to Setting Up a CI/CD Pipeline Using GitLab CI/CD, Docker, and Kubernetes on Ubuntu 24 via Command Line**
+
+This tutorial will guide you through the complete setup of a Continuous Integration/Continuous Deployment (CI/CD) pipeline on Ubuntu 24. We will use **GitLab CI/CD**, **Docker**, and **Kubernetes** — all controlled 100% from the terminal. By the end, you will have a fully functional CI/CD pipeline that builds, tests, and deploys a Dockerized application using GitLab's runner and Kubernetes for deployment.
+
+---
+
+### **1. Install GitLab Runner for CI/CD on Ubuntu 24**
+
+Use the following one-liner to install GitLab Runner, a core component for GitLab-based CI/CD pipelines:
+
+  
+sudo apt-get install -y curl && curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64 && sudo chmod +x /usr/local/bin/gitlab-runner && sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash && sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner && sudo gitlab-runner start
+
+---
+
+### **2. Set Up Git and Docker on Ubuntu 24 for CI/CD Pipeline**
+
+Now install **Git** for version control and **Docker** for containerization of your app:
+
+  
+sudo apt install git docker.io docker-compose -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
+Log out and log back in to apply the Docker group changes.
+
+---
+
+### **3. Create a GitLab Repository and Initialize Your Project for CI/CD Pipeline on Ubuntu 24**
+
+Create a directory for your project and initialize Git. Add a basic `Dockerfile`:
+
+  
+mkdir ~/myapp
+cd ~/myapp
+git init
+echo "FROM node:14" > Dockerfile
+echo "RUN mkdir /app" >> Dockerfile
+echo "WORKDIR /app" >> Dockerfile
+echo "COPY . /app" >> Dockerfile
+echo "RUN npm install" >> Dockerfile
+echo "CMD [\"npm\", \"start\"]" >> Dockerfile
+git add .
+git commit -m "Initial commit with Dockerfile"
+
+Now push the repository to GitLab:
+
+  
+git remote add origin https://gitlab.com/username/myapp.git
+git push -u origin master
+
+---
+
+### **4. Install Kubernetes on Ubuntu 24 for Application Deployment in CI/CD Pipeline**
+
+Install Kubernetes to manage application deployment and scaling:
+
+  
+sudo apt install -y apt-transport-https ca-certificates curl
+sudo curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-add-repository "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt update
+sudo apt install -y kubectl
+
+---
+
+### **5. Configure GitLab CI/CD Pipeline for Dockerized Application Using .gitlab-ci.yml on Ubuntu 24**
+
+Create the `.gitlab-ci.yml` file that defines your CI/CD pipeline, specifying the stages for building, testing, and deploying the application:
+
+  
+nano ~/myapp/.gitlab-ci.yml
+
+Add the following content to your `.gitlab-ci.yml` file:
+
+  
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY/myapp:${CI_COMMIT_SHORT_SHA} .
+    - docker push $CI_REGISTRY/myapp:${CI_COMMIT_SHORT_SHA}
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+
+deploy:
+  stage: deploy
+  script:
+    - kubectl apply -f deployment.yaml
+
+This `.gitlab-ci.yml` will build the Docker image, run tests, and deploy the image to Kubernetes.
+
+---
+
+### **6. Create Kubernetes Deployment Configuration File for Application Deployment in the CI/CD Pipeline**
+
+Now create a `deployment.yaml` file for Kubernetes deployment:
+
+  
+nano ~/myapp/deployment. 
+
+Add the following content:
+
+  
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: $CI_REGISTRY/myapp:${CI_COMMIT_SHORT_SHA}
+        ports:
+        - containerPort: 80
+
+This defines the Kubernetes deployment configuration that will be triggered by GitLab CI when the pipeline reaches the deployment stage.
+
+---
+
+### **7. Register GitLab Runner to Execute CI/CD Pipeline Jobs on Ubuntu 24**
+
+To enable GitLab to execute the pipeline, you need to register the GitLab runner:
+
+  
+sudo gitlab-runner register --url https://gitlab.com/ --registration-token <YOUR_REGISTRATION_TOKEN>
+
+When prompted, select `docker` as the executor.
+
+---
+
+### **8. Push Changes and Trigger CI/CD Pipeline from GitLab**
+
+Commit and push the changes to your GitLab repository:
+
+  
+git add .gitlab-ci.yml deployment.yaml
+git commit -m "Add GitLab CI/CD pipeline and Kubernetes deployment"
+git push origin master
+
+---
+
+### **9. Run and Monitor the CI/CD Pipeline for Your Dockerized Application on GitLab**
+
+Once pushed, GitLab CI will automatically trigger the pipeline. You can view the pipeline status and logs on the GitLab UI or monitor the runner using the following commands:
+
+  
+gitlab-runner list
+gitlab-runner run
+
+This will trigger the stages (build, test, deploy) and execute them using the GitLab Runner.
+
+---
+
+### **Summary**
+
+This tutorial demonstrates a full CI/CD pipeline using **GitLab CI/CD**, **Docker**, and **Kubernetes** — all managed directly from the command line in Ubuntu 24. The pipeline is designed to build a Dockerized application, run tests, and deploy it to a Kubernetes cluster, providing you with a robust DevOps pipeline completely managed from your terminal.

@@ -1,0 +1,4 @@
+Update package lists and install required packages:sudo apt-get update && sudo apt-get install subversion nautilus-script-manager python3-nautilus tortoisehg-nautilus -y
+
+
+Restart Nautilus as the regular user (not as root):nautilus -q

@@ -1,0 +1,1 @@
+venv && pip3 install esphome && esphome

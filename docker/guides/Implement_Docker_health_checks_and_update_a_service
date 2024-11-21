@@ -1,1 +1,0 @@
-docker service create --name healthapp --health-cmd "curl -f http://localhost/health || exit 1" --health-interval 30s --health-retries 3 --health-timeout 10s myapp:latest && docker service update --health-cmd "wget -q http://localhost/newhealth -O /dev/null || exit 1" healthapp

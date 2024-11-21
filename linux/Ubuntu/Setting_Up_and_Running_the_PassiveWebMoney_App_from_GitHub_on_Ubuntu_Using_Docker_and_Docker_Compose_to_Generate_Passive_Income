@@ -1,0 +1,509 @@
+# Comprehensive Guide to Setting Up and Running the PassiveWebMoney App from GitHub on Ubuntu Using Docker and Docker Compose to Generate Passive Income
+
+This tutorial provides a detailed, step-by-step guide on how to set up and run the **PassiveWebMoney** application from its GitHub repository on an **Ubuntu** system. We'll leverage tools like **Docker** and **Docker Compose** to orchestrate multiple passive income applications seamlessly. By the end of this guide, you'll be equipped to start generating passive income using your Ubuntu machine.
+
+---
+
+## **Table of Contents**
+
+1. [Introduction](#introduction)
+2. [Prerequisites](#prerequisites)
+3. [Step 1: Install Docker](#step-1-install-docker)
+4. [Step 2: Install Docker Compose](#step-2-install-docker-compose)
+5. [Step 3: Download the PassiveWebMoney Repository](#step-3-download-the-passivewebmoney-repository)
+6. [Step 4: Run the Setup Script](#step-4-run-the-setup-script)
+7. [Step 5: Navigate the Setup Menu](#step-5-navigate-the-setup-menu)
+   - [Option 1: Show Supported Apps' Links](#option-1-show-supported-apps-links)
+   - [Option 2: Install Docker](#option-2-install-docker)
+   - [Option 3: Setup Apps](#option-3-setup-apps)
+   - [Option 4: Setup Extra Apps](#option-4-setup-extra-apps)
+   - [Option 5: Start Apps Stack](#option-5-start-apps-stack)
+   - [Option 6: Stop Apps Stack](#option-6-stop-apps-stack)
+   - [Option 7: Setup and Manage Multiproxy Instances](#option-7-setup-and-manage-multiproxy-instances)
+   - [Option 8: Reset .env File](#option-8-reset-env-file)
+   - [Option 9: Reset docker-compose.yaml File](#option-9-reset-docker-composeyaml-file)
+   - [Option 10: Quit](#option-10-quit)
+8. [Step 6: Access the Web Dashboard](#step-6-access-the-web-dashboard)
+9. [Step 7: Start Earning Passive Income](#step-7-start-earning-passive-income)
+10. [Additional Tips and Best Practices](#additional-tips-and-best-practices)
+11. [Support and Resources](#support-and-resources)
+12. [Conclusion](#conclusion)
+
+---
+
+## **Introduction**
+
+**PassiveWebMoney** is a Docker-based application that allows you to earn passive income by sharing your unused internet bandwidth. It aggregates multiple passive income apps into a single, easy-to-manage Docker stack. By utilizing tools like **Docker** and **Docker Compose**, PassiveWebMoney ensures a lightweight, secure, and efficient setup.
+
+---
+
+## **Prerequisites**
+
+Before starting, ensure you have the following:
+
+- **Ubuntu System**: A 64-bit Ubuntu system (18.04 LTS or later).
+- **Sudo Access**: Administrative privileges to install packages and modify system settings.
+- **Internet Connection**: Required for downloading packages and Docker images.
+- **Git**: To clone repositories (optional but recommended).
+- **Basic Terminal Knowledge**: Familiarity with command-line operations.
+
+---
+
+## **Step 1: Install Docker**
+
+Docker is essential for running containerized applications. If you don't have Docker installed, follow these steps:
+
+1. **Update Package Database**
+
+     
+   sudo apt update
+
+2. **Install Prerequisite Packages**
+
+     
+   sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+3. **Add Docker’s GPG Key**
+
+     
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+4. **Add Docker Repository**
+
+     
+   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+5. **Update Package Database Again**
+
+     
+   sudo apt update
+
+6. **Install Docker Community Edition**
+
+     
+   sudo apt install -y docker-ce
+
+7. **Verify Docker Installation**
+
+     
+   sudo docker run hello-world
+
+8. **Optional: Run Docker as Non-Root User**
+
+   Add your user to the `docker` group:
+
+     
+   sudo usermod -aG docker ${USER}
+
+   Log out and log back in to apply the group change.
+
+---
+
+## **Step 2: Install Docker Compose**
+
+Docker Compose allows you to run multi-container Docker applications.
+
+1. **Download Docker Compose**
+
+     
+   sudo curl -L "https://github.com/docker/compose/releases/download/$(sudo curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+2. **Apply Executable Permissions**
+
+     
+   sudo chmod +x /usr/local/bin/docker-compose
+
+3. **Verify Docker Compose Installation**
+
+     
+   docker-compose --version
+
+---
+
+## **Step 3: Download the PassiveWebMoney Repository**
+
+You can obtain the PassiveWebMoney repository either by cloning it via Git or downloading it directly.
+
+### **Option A: Clone Using Git**
+
+1. **Install Git (if not installed)**
+
+     
+   sudo apt install -y git
+
+2. **Clone the Repository**
+
+     
+   git clone https://github.com/IncasedDevelopment/passivewebmoney.git
+
+3. **Navigate to the Repository Directory**
+
+     
+   cd passivewebmoney
+
+### **Option B: Download ZIP and Unzip**
+
+1. **Download the ZIP File**
+
+     
+   wget https://github.com/IncasedDevelopment/passivewebmoney/archive/refs/heads/main.zip
+
+2. **Install Unzip (if not installed)**
+
+     
+   sudo apt install -y unzip
+
+3. **Unzip the File**
+
+     
+   unzip main.zip
+
+4. **Navigate to the Repository Directory**
+
+     
+   cd passivewebmoney-main
+
+---
+
+## **Step 4: Run the Setup Script**
+
+The `runme.sh` script simplifies the setup process.
+
+1. **Make the Script Executable**
+
+     
+   sudo chmod +x runme.sh
+
+2. **Execute the Script**
+
+     
+   ./runme.sh
+
+---
+
+## **Step 5: Navigate the Setup Menu**
+
+After running the setup script, you will see the following menu:
+
+Select an option and press Enter
+ 1) Show supported apps' links
+ 2) Install Docker
+ 3) Setup Apps
+ 4) Setup Extra Apps
+ 5) Start apps stack
+ 6) Stop apps stack
+ 7) Setup and manage multiproxy instances by list
+ 8) Reset .env File
+ 9) Reset docker-compose.yaml file
+10) Quit
+Select an option and press Enter:
+
+Let's go through each option in detail.
+
+### **Option 1: Show Supported Apps' Links**
+
+Choose this option to view the list of supported apps and their registration links.
+
+**Action:**
+
+  
+Select an option and press Enter: 1
+
+**What to Do:**
+
+- **Register for Each App You Wish to Use**
+
+  Visit the links provided and sign up for the apps you plan to include in your PassiveWebMoney setup.
+
+**List of Supported Apps:**
+
+- [EarnApp](https://earnapp.com/)
+- [Honeygain](https://r.honeygain.me/)
+- [IPRoyal Pawns](https://iproyal.com/pawns/)
+- [Peer2Profit](https://peer2profit.com/)
+- [PacketStream](https://packetstream.io/)
+- [Traffmonetizer](https://traffmonetizer.com/)
+- [Repocket](https://repocket.co/)
+- [EarnFM](https://earn.fm/)
+- [Proxyrack](https://www.proxyrack.com/)
+- [Proxylite](https://proxylite.com/)
+- [Bitping](https://bitping.com/)
+- [SpeedShare](https://speedshare.co/)
+- [MystNode](https://mystnodes.com/)
+
+**Note:** Keep your login credentials handy for the setup process.
+
+---
+
+### **Option 2: Install Docker**
+
+Since we've already installed Docker in [Step 1](#step-1-install-docker), you can skip this option. If you need to reinstall or update Docker, select this option.
+
+**Action:**
+
+  
+Select an option and press Enter: 2
+
+---
+
+### **Option 3: Setup Apps**
+
+Configure the apps you registered for by entering your credentials or API tokens.
+
+**Action:**
+
+  
+Select an option and press Enter: 3
+
+**What to Expect:**
+
+You'll be prompted to set up each app individually.
+
+**Example Dialogue:**
+
+Do you want to setup EarnApp? (y/n): y
+Enter your EarnApp API Token: YOUR_EARNAPP_API_TOKEN
+
+Do you want to setup Honeygain? (y/n): y
+Enter your Honeygain Email: your.email@example.com
+Enter your Honeygain Password: ********
+
+Do you want to setup IPRoyal Pawns? (y/n): n
+
+... and so on for each app.
+
+**Instructions:**
+
+- **Enter 'y' or 'n'** when asked if you want to set up each app.
+- **Provide Accurate Credentials**: Ensure that the email, password, or API token you enter is correct.
+- **Skip Unused Apps**: Type 'n' for apps you do not wish to configure.
+
+**Obtaining API Tokens:**
+
+- **EarnApp**: Log in to your account and navigate to the API section to find your token.
+- **Other Apps**: Refer to their respective dashboards or support documentation.
+
+---
+
+### **Option 4: Setup Extra Apps**
+
+If there are additional apps or services you wish to configure, select this option.
+
+**Action:**
+
+  
+Select an option and press Enter: 4
+
+**Instructions:**
+
+Follow the prompts similar to Option 3 to set up extra apps.
+
+---
+
+### **Option 5: Start Apps Stack**
+
+After configuring your apps, start the Docker containers.
+
+**Action:**
+
+  
+Select an option and press Enter: 5
+
+**What to Expect:**
+
+- The script will initiate `docker-compose up -d`.
+- Docker will pull the necessary images and start the containers.
+
+**Verification:**
+
+- Use `docker ps` to see running containers.
+- Check logs using `docker-compose logs -f`.
+
+---
+
+### **Option 6: Stop Apps Stack**
+
+To stop all running containers associated with PassiveWebMoney.
+
+**Action:**
+
+  
+Select an option and press Enter: 6
+
+**What to Expect:**
+
+- The script will run `docker-compose down`.
+- All containers will be stopped.
+
+---
+
+### **Option 7: Setup and Manage Multiproxy Instances**
+
+For advanced users who wish to scale their setup using proxies.
+
+**Action:**
+
+  
+Select an option and press Enter: 7
+
+**Instructions:**
+
+- **Create a `proxies.txt` File**: List your proxies, one per line.
+- **Follow Prompts**: The script will guide you through setting up multiple instances using your proxies.
+
+**Note:** Ensure that using proxies complies with the terms of service of each app.
+
+---
+
+### **Option 8: Reset .env File**
+
+If you need to reset your environment variables and reconfigure your apps.
+
+**Action:**
+
+  
+Select an option and press Enter: 8
+
+**What to Expect:**
+
+- The `.env` file will be reset.
+- You'll need to run Option 3 again to set up apps.
+
+---
+
+### **Option 9: Reset docker-compose.yaml File**
+
+Resets the Docker Compose configuration to its default state.
+
+**Action:**
+
+  
+Select an option and press Enter: 9
+
+**What to Expect:**
+
+- Any changes made to `docker-compose.yaml` will be lost.
+- Use this if you encounter configuration issues.
+
+---
+
+### **Option 10: Quit**
+
+Exit the setup script.
+
+**Action:**
+
+  
+Select an option and press Enter: 10
+
+---
+
+## **Step 6: Access the Web Dashboard**
+
+PassiveWebMoney provides a web dashboard for monitoring.
+
+1. **Determine Your Machine's IP Address**
+
+     
+   hostname -I
+
+2. **Access the Dashboard Locally**
+
+   Open a web browser on your Ubuntu machine and navigate to:
+
+   http://localhost:4000
+
+3. **Access the Dashboard Remotely**
+
+   From another device on the same network, navigate to:
+
+   http://YOUR_UBUNTU_IP_ADDRESS:4000
+
+   **Example:**
+
+   http://192.168.1.100:4000
+
+**Note:** Ensure that port `4000` is open in your firewall settings if accessing remotely.
+
+---
+
+## **Step 7: Start Earning Passive Income**
+
+With your apps running, you can begin to earn passive income.
+
+1. **Keep Your System Running**
+
+   Ensure your Ubuntu machine stays powered on and connected to the internet.
+
+2. **Monitor App Performance**
+
+   - Use the web dashboard for real-time monitoring.
+   - Log in to each app's website to track your earnings.
+
+3. **Optimize Settings**
+
+   - Adjust app settings as needed.
+   - Refer to each app's guidelines for maximizing earnings.
+
+---
+
+## **Additional Tips and Best Practices**
+
+- **Regular Updates**
+
+  - The Docker images are set to auto-update.
+  - Periodically check for updates to the PassiveWebMoney repository.
+
+- **Resource Management**
+
+  - Monitor system resources using tools like `htop` or `top`.
+  - Ensure your system has sufficient CPU and RAM.
+
+- **Legal Compliance**
+
+  - Verify that sharing your internet bandwidth complies with local laws and ISP terms.
+  - Respect the terms of service for each app.
+
+- **Security**
+
+  - Use strong, unique passwords for each app.
+  - Consider setting up a firewall to restrict unwanted access.
+
+- **Backup Configurations**
+
+  - Keep a backup of your `.env` and `docker-compose.yaml` files.
+  - Document any custom changes you've made.
+
+---
+
+## **Support and Resources**
+
+- **GitHub Repository**
+
+  - [PassiveWebMoney on GitHub](https://github.com/IncasedDevelopment/passivewebmoney)
+
+- **Wiki and Documentation**
+
+  - Refer to the repository's Wiki for FAQs and detailed guides.
+
+- **Community Support**
+
+  - Join the [PassiveWebMoney Discord Community](https://discord.gg/your-invite-link) for discussions and assistance.
+
+- **Issue Reporting**
+
+  - Report bugs or issues via the [GitHub Issues](https://github.com/IncasedDevelopment/passivewebmoney/issues) tab.
+
+---
+
+## **Conclusion**
+
+Congratulations! You've successfully set up and configured the PassiveWebMoney app on your Ubuntu system using Docker and Docker Compose. By following this comprehensive guide, you're now ready to start generating passive income by leveraging your unused internet bandwidth.
+
+Remember to monitor your apps, stay compliant with legal and service terms, and engage with the community for the best experience.
+
+---
+
+**Disclaimer:** Always ensure that the use of such applications complies with the laws of your country and the terms of your internet service provider. The author of this guide is not responsible for any consequences arising from the use of these apps.
+
+# **Happy Earning!**

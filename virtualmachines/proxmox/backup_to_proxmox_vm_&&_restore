@@ -1,7 +1,0 @@
-*
-scp -r /var/lib/vz/dump/* root@192.168.1.130:/var/lib/vz/dump
-scp -r /var/lib/vz/template/* root@192.168.1.130:/var/lib/vz/template
-
-*
-use python code to split and backup to docker.
-

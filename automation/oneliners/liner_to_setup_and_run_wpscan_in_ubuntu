@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y ruby-dev libcurl4-openssl-dev make build-essential && gem install wpscan && wpscan --update && wpscan --url http://example.com

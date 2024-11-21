@@ -1,0 +1,37 @@
+▲A  A▼
+Run HomeDash - Server Monitor/Dashboard - in Docker
+What is Homeda ?
+HomeDash is a simple dashboard that allows to monitor and interact with many different services in order to have a single entry point for one's dedicated server via a set of Plugins. It's easy to install, setup and use. -https://lamarios.github.io/Homedash2/
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running HomeDa 
+Now that Docker is installed, run the following commands to setup the HomeDash Docker container
+# create working directories
+mkdir ~/docker/homeda  -p
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# generate a 32 character random string
+RANDOM_STRING=$(head /dev/urandom | LC_ALL=C tr -dc 'A-Za-z0-9' | head -c 32)
+# copy the output string to the clipboard
+# run the homedash container
+docker run -d --name homedash -p 4567:4567 -v /etc/localtime:/etc/localtime:ro -v ~/docker/homedash:/data -e SALT="$RANDOM_STRING" --restart=unless-stopped gonzague/homedash
+Open a web browser and navigate to http://DNSorIP:4567
+Welcome to HomeDa 
+Documentation: https://github.com/lamarios/HomeDa 2
+
+ 

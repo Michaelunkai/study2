@@ -1,0 +1,1 @@
+sudo apt install -y linux-tools-common linux-tools-generic build-essential libelf-dev htop sysstat iotop iftop net-tools iproute2 lsof bpfcc-tools linux-cloud-tools-common && sudo modprobe msr

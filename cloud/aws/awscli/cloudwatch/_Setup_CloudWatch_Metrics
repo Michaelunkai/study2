@@ -1,7 +1,0 @@
-Setup CloudWatch Metrics
-Put Metric Data:
-You can push custom metrics to CloudWatch using the put-metric-data command. Here’s an example:
-
- 
- 
-aws cloudwatch put-metric-data --metric-name MyCustomMetric --namespace MyNamespace --value 1 --unit Count

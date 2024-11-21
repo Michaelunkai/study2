@@ -1,8 +1,0 @@
-Enable Conversational Mode with the AI Model Using llama-cli
-To interact with the AI model in a conversational manner, use the following command:
-
- 
- 
-cd ~/llama.cpp/build/bin
-./llama-cli -m ~/llama.cpp/build/gpt2.gguf -p "You are a helpful assistant." -cnv
-This command initiates the AI in a mode where it behaves like a conversational assistant.

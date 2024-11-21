@@ -1,0 +1,1 @@
+getc && sudo apt-get install gperf zlib1g-dev && git clone https://github.com/tdlib/td.git && cd td && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build . && sudo make install

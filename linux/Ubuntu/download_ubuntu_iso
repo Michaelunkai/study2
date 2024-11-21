@@ -1,0 +1,1 @@
+$url = "https://releases.ubuntu.com/20.04.3/ubuntu-22.04.3-desktop-amd64.iso"; $outputPath = "D:\saved\ubuntu-22.04.3-desktop-amd64.iso"; Invoke-WebRequest -Uri $url -OutFile $outputPath

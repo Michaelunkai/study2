@@ -1,0 +1,78 @@
+▲A  A▼
+Running Matrix Synapse Home Server in Docker on Ubuntu Server
+What is Matrix?
+Matrix is an open source project that publishes the Matrix open standard for secure, decentralised, real-time communication, and its Apache licensed reference implementations. -https://matrix.org
+Installing Docker
+Log into the Linux host
+Run the following commands in a terminal window
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Matrix Synapse
+Continue with the following commands in terminal to setup and run Matrix Synapse
+# create working directories
+sudo mkdir ~/docker/matrix-synapse -p && sudo mkdir ~/docker/postgresql -p
+# set owner of docker directory
+sudo chown "$USER":"$USER" ~/docker -R
+# run the postgesql docker container
+docker run -d --name postgres -e POSTGRES_USER=matrix_synapse_rw -e POSTGRES_PASSWORD=m@trix! -e POSTGRES_DB=matrix_synapse -e LC_COLLATE='C' -e LC_CTYPE='C' -e POSTGRES_INITDB_ARGS="--encoding=UTF-8" -v ~/docker/postgresql:/var/lib/postgresql/data --restart=unless-stopped postgres:latest
+# generate synapse homeserver.yaml
+docker run -it --rm -v ~/docker/matrix-synapse:/data -e SYNAPSE_SERVER_NAME=my.matrix.host -e SYNAPSE_REPORT_STATS=no matrixdotorg/synapse:latest generate
+# edit the homeserver.yaml file
+sudo nano ~/docker/matrix-synapse/homeserver. 
+Press CTRL+W and search for name: server_name
+server_name: "YOUR.MATRIX.DNS"
+
+Press CTRL+W and search for name: sqlite3
+Comment out the sqlite database parameters by adding a # to the beginning of each of the lines
+Add the following database connection below the commented out lines to connect to the Postgres container:
+database:
+ name: psycopg2
+ txn_limit: 10000
+ args:
+  user: matrix_synapse_rw
+  password: m@trix!
+  database: matrix_synapse
+  host: postgres
+  port: 5432
+  cp_min: 5
+  cp_max: 10
+
+Add the following line at the bottom of the file
+suppress_key_server_warning: true
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in terminal
+# generate a random string
+RANDOMSTRING=$(openssl rand -base64 30)
+# write the random string as registration_shared_secret
+echo "registration_shared_secret: $RANDOMSTRING" | sudo tee -a ~/docker/matrix-synapse/homeserver.yaml > /dev/null
+# run the matrix synapse container
+docker run -d --name matrix-synapse --link postgres -v ~/docker/matrix-synapse:/data -p 8008:8008 --restart=unless-stopped matrixdotorg/synapse:latest
+# create a new synapse user
+docker exec -it matrix-synapse register_new_matrix_user http://DNSorIP:8008 -c /data/homeserver.yaml
+Enter a username, enter and confirm the password and choose if the user is an admin
+At this point the Matrix Synapse server is running over http
+Open a web browser and navigate to the http://DNSorIP:8008
+A message stating It works! Synapse is running should be displayed
+Navigate to https://element.io/get-started#download
+Download and install Element
+Run the Element application
+Click Sign In
+Click the Edit link next to matrix.org
+Select Other homeserver > type http://DNSorIP:8008 > Click Continue
+Login using the Synapse username and password created earlier
+Documentation: https://registry.hub.docker.com/r/matrixdotorg/synapse/
+
+ 

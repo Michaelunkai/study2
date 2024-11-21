@@ -1,5 +1,0 @@
-`nginxconfig.io` is an open-source tool developed by DigitalOcean that generates optimized NGINX configuration files. It's designed to make it easier for users to create and manage NGINX configurations by providing an intuitive web interface that covers various use cases, such as setting up HTTPS, HTTP/2, SSL profiles, reverse proxies, load balancing, and more.
-
-The tool allows users to customize their NGINX configurations based on their specific needs without manually editing the configuration files. It covers a wide range of features, including security settings, caching options, and server configurations for different programming languages and frameworks like PHP, Node.js, and Python.
-
-The generated configurations are tailored to be efficient and secure, adhering to best practices for performance and security. This makes `nginxconfig.io` a valuable resource for both beginners and experienced developers who want to configure NGINX servers quickly and correctly.

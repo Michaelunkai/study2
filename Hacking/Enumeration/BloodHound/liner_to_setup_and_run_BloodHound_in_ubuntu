@@ -1,0 +1,1 @@
+getneo4j && apt install unzip -y && curl -LO https://github.com/BloodHoundAD/BloodHound/releases/download/4.2.0/BloodHound-linux-x64.zip && unzip BloodHound-linux-x64.zip && cd BloodHound-linux-x64 && sudo chmod +x BloodHound && ./BloodHound --no-sandbox

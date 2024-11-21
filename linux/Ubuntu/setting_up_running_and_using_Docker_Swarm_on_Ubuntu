@@ -1,0 +1,118 @@
+ Set Up Docker Swarm
+Initialize Docker Swarm:
+
+ 
+ 
+sudo docker swarm init
+This command will output a command with a token to join other nodes to the Swarm. Make a note of it.
+Add nodes to the Swarm (on other machines):
+
+ 
+ 
+sudo docker swarm join --token <SWARM_TOKEN> <MANAGER_IP>:2377
+Replace <SWARM_TOKEN> with the token from the previous step and <MANAGER_IP> with the IP address of the manager node.
+Step 3: Deploy Services in Docker Swarm
+Create a service:
+
+ 
+ 
+sudo docker service create --name <service_name> -p <host_port>:<container_port> <image>
+Example:
+ 
+ 
+sudo docker service create --name web -p 80:80 nginx
+Scale a service:
+
+ 
+ 
+sudo docker service scale <service_name>=<number_of_replicas>
+Example:
+ 
+ 
+sudo docker service scale web=3
+List services:
+
+ 
+ 
+sudo docker service ls
+Inspect a service:
+
+ 
+ 
+sudo docker service inspect <service_name>
+Remove a service:
+
+ 
+ 
+sudo docker service rm <service_name>
+Step 4: Manage Docker Swarm Nodes
+List nodes in the Swarm:
+
+ 
+ 
+sudo docker node ls
+Inspect a node:
+
+ 
+ 
+sudo docker node inspect <node_id>
+Remove a node (from the manager node):
+
+ 
+ 
+sudo docker node rm <node_id>
+Promote a worker to manager:
+
+ 
+ 
+sudo docker node promote <node_id>
+Demote a manager to worker:
+
+ 
+ 
+sudo docker node demote <node_id>
+Step 5: Deploy a Stack in Docker Swarm
+Create a docker-compose.yml file:
+
+ 
+ 
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+  redis:
+    image: redis
+Deploy the stack:
+
+ 
+ 
+sudo docker stack deploy -c docker-compose.yml <stack_name>
+List stacks:
+
+ 
+ 
+sudo docker stack ls
+List services in a stack:
+
+ 
+ 
+sudo docker stack services <stack_name>
+Remove a stack:
+
+ 
+ 
+sudo docker stack rm <stack_name>
+Step 6: Monitor Docker Swarm
+Check the status of a service:
+
+ 
+ 
+sudo docker service ps <service_name>
+Get logs of a service:
+
+ 
+ 
+sudo docker service logs <service_name>
+By following these steps, you will have a functional Docker Swarm cluster running on Ubuntu, with the ability to deploy and manage services across multiple nodes. 

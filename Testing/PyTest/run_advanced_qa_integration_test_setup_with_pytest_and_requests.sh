@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 set -e
 
 echo "Creating project directory..."

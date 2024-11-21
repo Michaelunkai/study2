@@ -1,0 +1,1 @@
+bash <(curl -sS https://get.konghq.com/install) -v 3.8.0.0 && gcl 8002

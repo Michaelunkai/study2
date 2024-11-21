@@ -1,0 +1,11 @@
+PowerShell:
+
+ 
+ 
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name HiberbootEnabled -Value 0
+After running this command, you can verify the change with:
+
+ 
+ 
+Get-ItemPropertyValue "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name HiberbootEnabled
+Make sure to restart your system for the changes to take effect.

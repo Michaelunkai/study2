@@ -1,0 +1,12 @@
+ Initialize a Feast Project
+Create a new directory for your Feast project and navigate into it.
+
+ 
+ 
+mkdir my_feature_store
+cd my_feature_store
+Initialize the Feast project:
+
+ 
+ 
+feast init feature_repo

@@ -1,3 +1,0 @@
-aws sqs create-queue --queue-name MyStandardQueue
-
-This command will return a JSON object with the QueueUrl.

@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scan Results</title>
-    <!-- Add Bootstrap CSS for styling -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Scan Results</title>
+<link href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Scan Results for {{ target_url }}</h1>
-        <ul class="list-group mt-4">
-            {% for vuln in vulnerabilities %}
-                <li class="list-group-item">
-                    <h5 class="font-weight-bold">{{ vuln.vuln }}</h5>
-                    <p><strong>URL:</strong> <a href="{{ vuln.url }}" target="_blank">{{ vuln.url }}</a></p>
-                    <p><strong>Description:</strong> {{ vuln.description }}</p>
-                    <p><strong>How to fix:</strong></p>
-                    <ul>
-                        {% for step in vuln.fix_steps %}
-                            <li>{{ step }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% else %}
-                <li class="list-group-item">No vulnerabilities found.</li>
-            {% endfor %}
-        </ul>
-        <a href="/" class="btn btn-secondary mt-4">Scan another URL</a>
-    </div>
+<div class="container mt-5">
+<h1 class="text-center">Scan Results for {{ target_url }}</h1>
+<ul class="list-group mt-4">{% for vuln in vulnerabilities %}
+<li class="list-group-item">
+<h5 class="font-weight-bold">{{ vuln.vuln }}</h5>
+<p><strong>URL:</strong> <a href="{{%20vuln.url%20}}" target=
+"_blank">{{ vuln.url }}</a></p>
+<p><strong>Description:</strong> {{ vuln.description }}</p>
+<p><strong>How to fix:</strong></p>
+<ul>{% for step in vuln.fix_steps %}
+<li>{{ step }}</li>
+{% endfor %}</ul>
+</li>
+{% else %}
+<li class="list-group-item">No vulnerabilities found.</li>
+{% endfor %}</ul>
+<a href="/" class="btn btn-secondary mt-4">Scan another
+URL</a></div>
+<script src=
+"https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+<script src=
+"https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 
-    <!-- Add Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

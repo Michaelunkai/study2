@@ -1,0 +1,1 @@
+sudo apt install -y slurm && sudo slurm -i eth0

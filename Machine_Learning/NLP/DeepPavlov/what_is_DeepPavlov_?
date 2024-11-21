@@ -1,9 +1,0 @@
-**DeepPavlov** is an open-source library for building and deploying end-to-end dialogue systems and chatbots. It is primarily designed for Natural Language Processing (NLP) tasks and is built on top of frameworks like PyTorch and TensorFlow. DeepPavlov provides a modular and configuration-driven approach to develop state-of-the-art NLP models for a wide range of tasks, such as:
-
-- Named Entity Recognition (NER)
-- Text Classification
-- Machine Reading Comprehension
-- Question Answering
-- Dialog Management
-
-The library supports pre-trained models as well as custom models, making it accessible for both beginners and experienced NLP practitioners. It is particularly useful for creating conversational AI systems and dialogue agents for various applications.

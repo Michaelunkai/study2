@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Install Prometheus, Promscale, and PostgreSQL monitoring tools on Ubuntu
 
@@ -15,8 +15,8 @@ apt install -y wget tar curl software-properties-common
 apt install -y postgresql postgresql-contrib
 
 # Start and enable PostgreSQL service
-systemctl start postgresql
-systemctl enable postgresql
+systemctl start postgre 
+systemctl enable postgre 
 
 # Set PostgreSQL 'postgres' user password
 read -s -p "Enter password for PostgreSQL 'postgres' user: " POSTGRES_PASSWORD
@@ -55,7 +55,7 @@ prometheus:
 EOF
 
 # Initialize Promscale schema
-promscale --config.file=/etc/promscale/promscale.yaml migrate
+promscale --config.file=/etc/promscale/promscale.  migrate
 
 # Create systemd service file for Promscale
 cat <<EOF > /etc/systemd/system/promscale.service
@@ -65,7 +65,7 @@ After=network.target
 
 [Service]
 User=postgres
-ExecStart=/usr/local/bin/promscale --config.file=/etc/promscale/promscale.yaml
+ExecStart=/usr/local/bin/promscale --config.file=/etc/promscale/promscale. 
 Restart=on-failure
 
 [Install]
@@ -175,7 +175,7 @@ After=network-online.target
 
 [Service]
 User=postgres_exporter
-Environment="DATA_SOURCE_NAME=postgresql://promscale_user:${PROMSCALE_USER_PASSWORD}@localhost/promscale_db?sslmode=disable"
+Environment="DATA_SOURCE_NAME=postgre ://promscale_user:${PROMSCALE_USER_PASSWORD}@localhost/promscale_db?sslmode=disable"
 ExecStart=/usr/local/bin/postgres_exporter \\
   --web.listen-address=":9187" \\
   --web.telemetry-path="/metrics"

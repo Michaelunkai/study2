@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Script: Install Supervisely Dependencies and Run Project Without Docker
 # Purpose: Sets up and runs Supervisely on Ubuntu with all dependencies installed
@@ -14,8 +14,8 @@ sudo apt install -y \
     lsb-release \
     libssl-dev \
     libffi-dev \
-    python3-pip \
-    python3-dev \
+     3-pip \
+     3-dev \
     build-essential
 
 # Create project directory
@@ -31,7 +31,7 @@ SUPERVISELY_SCRIPT="$PROJECT_DIR/run_supervisely.sh"
 
 # Add necessary content to run_supervisely.sh
 cat <<EOL > $SUPERVISELY_SCRIPT
-#!/bin/bash
+#!/bin/ 
 
 # Set environment variables (modify according to your need)
 export SUPER_USERNAME=admin

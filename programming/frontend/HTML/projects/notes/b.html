@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1">
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+<style>
         body {
             background-image: url('a.png');
             background-size: cover;
@@ -14,36 +18,35 @@
             padding: 1em;
             margin: 1em 0;
         }
-    </style>
-    <title>Note Taking Website</title>
+</style>
+<title>Note Taking Website</title>
 </head>
 <body>
-    <nav class="container-fluid">
-        <ul>
-            <li><strong>Note Taking App</strong></li>
-        </ul>
-    </nav>
-    <main class="container">
-        <div class="grid">
-            <section>
-                <hgroup>
-                    <h2>Create a New Note</h2>
-                </hgroup>
-                <form id="note-form">
-                    <input type="text" id="note-title" name="note-title" placeholder="Note Title" required>
-                    <textarea id="note-content" name="note-content" placeholder="Note Content" required></textarea>
-                    <button type="submit">Add Note</button>
-                </form>
-                <h3>Notes</h3>
-                <div id="notes"></div>
-            </section>
-        </div>
-    </main>
-    <footer class="container">
-        <small>&copy; 2024 Note Taking App</small>
-    </footer>
-
-    <script>
+<nav class="container-fluid">
+<ul>
+<li><strong>Note Taking App</strong></li>
+</ul>
+</nav>
+<main class="container">
+<div class="grid">
+<section>
+<hgroup>
+<h2>Create a New Note</h2>
+</hgroup>
+<form id="note-form" name="note-form"><input type="text" id=
+"note-title" name="note-title" placeholder="Note Title" required=
+""> 
+<textarea id="note-content" name="note-content" placeholder=
+"Note Content" required=""></textarea>
+ <button type="submit">Add Note</button></form>
+<h3>Notes</h3>
+<div id="notes"></div>
+</section>
+</div>
+</main>
+<footer class="container"><small>© 2024 Note Taking
+App</small></footer>
+<script>
         document.getElementById('note-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const title = document.getElementById('note-title').value;
@@ -98,6 +101,6 @@
         }
 
         window.onload = loadNotes;
-    </script>
+</script>
 </body>
 </html>

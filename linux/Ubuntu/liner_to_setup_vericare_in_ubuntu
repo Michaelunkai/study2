@@ -1,0 +1,2 @@
+cd && git clone https://github.com/itamarrosenblum/VeriCare.git && cd VeriCare && getwine && wine cmd.exe /c VeriCare.bat 
+

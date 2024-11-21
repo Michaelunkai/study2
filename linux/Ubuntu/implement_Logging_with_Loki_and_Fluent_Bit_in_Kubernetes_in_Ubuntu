@@ -1,0 +1,176 @@
+Step 1: Set Up Kubernetes Cluster
+If you don't have a Kubernetes cluster set up, you can use Minikube for local development or deploy a full cluster using kubeadm.
+
+Install Minikube:
+
+ 
+ 
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Start Minikube:
+
+ 
+ 
+minikube start
+Step 2: Install Helm
+Helm is a package manager for Kubernetes, which simplifies the installation of applications.
+
+Install Helm:
+
+ 
+ 
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 |  
+Step 3: Deploy Loki
+Loki is a log aggregation system inspired by Prometheus. We will deploy Loki using the Helm chart.
+
+Add Grafana Helm Repository:
+
+ 
+ 
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+Install Loki:
+
+ 
+ 
+helm install loki grafana/loki-stack --set grafana.enabled=true --namespace logging --create-namespace
+Step 4: Configure Fluent Bit
+Fluent Bit is a lightweight log processor and forwarder. We'll configure it to send logs to Loki.
+
+Create Fluent Bit Configuration:
+Create a fluent-bit-configmap.  file:
+
+ 
+ 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  namespace: logging
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flu         1
+        Daemon       Off
+        Log_Level    info
+        Parsers_File parsers.conf
+
+    [INPUT]
+        Name              tail
+        Tag               kube.*
+        Path              /var/log/containers/*.log
+        Parser            docker
+        DB                /var/log/flb_kube.db
+        Mem_Buf_Limit     5MB
+        Skip_Long_Lines   On
+        Refre _Interval  10
+
+    [FILTER]
+        Name                kubernetes
+        Match               kube.*
+        Merge_Log           On
+        Keep_Log            Off
+        K8S-Logging.Parser  On
+        K8S-Logging.Exclude On
+
+    [OUTPUT]
+        Name  loki
+        Match *
+        Url   http://loki:3100/loki/api/v1/pu 
+  parsers.conf: |
+    [PARSER]
+        Name        docker
+        Format      json
+        Time_Key    time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L
+        Time_Keep   On
+        Decode_Field_as   escaped_utf8 log
+Apply the ConfigMap:
+
+ 
+ 
+kubectl apply -f fluent-bit-configmap. 
+Step 5: Deploy Fluent Bit
+Create a fluent-bit-daemonset.  file to deploy Fluent Bit as a DaemonSet, ensuring it runs on all nodes.
+
+ 
+ 
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+  namespace: logging
+  labels:
+    k8s-app: fluent-bit
+spec:
+  selector:
+    matchLabels:
+      k8s-app: fluent-bit
+  template:
+    metadata:
+      labels:
+        k8s-app: fluent-bit
+    spec:
+      serviceAccountName: fluent-bit
+      tolerations:
+      - operator: Exists
+      containers:
+      - name: fluent-bit
+        image: fluent/fluent-bit:1.9.3
+        ports:
+          - containerPort: 2020
+            name: monitor
+          - containerPort: 2021
+            name: api
+        volumeMounts:
+        - name: varlibcontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+        - name: varlog
+          mountPath: /var/log
+          readOnly: true
+        - name: config
+          mountPath: /fluent-bit/etc/fluent-bit.conf
+          subPath: fluent-bit.conf
+          readOnly: true
+        - name: config
+          mountPath: /fluent-bit/etc/parsers.conf
+          subPath: parsers.conf
+          readOnly: true
+      volumes:
+      - name: varlibcontainers
+        hostPath:
+          path: /var/lib/docker/containers
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: config
+        configMap:
+          name: fluent-bit-config
+Apply the DaemonSet:
+
+ 
+ 
+kubectl apply -f fluent-bit-daemonset. 
+Step 6: Verify the Setup
+Ensure all pods are running correctly and logs are being collected and sent to Loki.
+
+Check the Pods:
+
+ 
+ 
+kubectl get pods -n logging
+Access Grafana Da board:
+Grafana should be deployed as part of the Loki stack. You can port-forward to access it:
+
+ 
+ 
+kubectl port-forward svc/loki-grafana 3000:80 -n logging
+Open your browser and go to http://localhost:3000. The default login is admin/admin.
+
+Add Loki as a Data Source in Grafana:
+
+Open Grafana in your browser.
+Go to "Configuration" > "Data Sources".
+Add a new data source and select Loki.
+Set the URL to http://loki:3100.

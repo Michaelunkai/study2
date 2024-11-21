@@ -1,0 +1,20 @@
+OpenAI
+OpenAI manages API keys through the OpenAI Platform, which is separate from ChatGPT. You will need to create an OpenAI Platform account even if you already have one for ChatGPT.
+
+Go to the OpenAI Platform homepage.
+
+Create an OpenAI Platform account. You can use the same login as your ChatGPT account, if you have one, but the two accounts are managed separately. Make sure you have verified your phone number. You cannot change your phone number after account creation. If a phone number does not appear in your account, you will need to contact support.
+
+OpenAI platform signup
+Navigate to Dashboard -> API keys.
+
+Click "+ Create new secret key".
+
+OpenAI platform api keys page
+Click "Create secret key". You do not need to name your key.
+
+Creating an OpenAI api key
+Copy the key and save it somewhere. Note: You will NOT be able to view the key again after closing this window.
+
+Copying an OpenAI api key
+You're done! You can now use this API key in your code.

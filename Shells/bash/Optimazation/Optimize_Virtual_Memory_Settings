@@ -1,8 +1,0 @@
- Optimize Virtual Memory Settings
-Edit /etc/sysctl.conf and add:
-
-vm.dirty_ratio = 10
-vm.dirty_background_ratio = 5
-Apply the changes:
-
-sudo sysctl -p

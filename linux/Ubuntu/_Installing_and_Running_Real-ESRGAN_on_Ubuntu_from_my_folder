@@ -1,0 +1,277 @@
+### Step-by-Step Tutorial: Installing and Running Real-ESRGAN on Ubuntu
+
+This guide will help you install and run Real-ESRGAN, an AI model for image and video upscaling, on an Ubuntu machine using Anaconda, CUDA, and PyTorch. The Real-ESRGAN directory is already located at `/mnt/c/study/programming/python/apps/Real-ESRGAN`.
+
+#### Prerequisites
+- Ubuntu machine
+- NVIDIA GPU with CUDA support
+
+### Step 1: Setting Up Anaconda
+1. **Download and Install Anaconda:**
+     
+   cd && curl -O https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh && bash Anaconda3-2020.11-Linux-x86_64.sh -b && export PATH=$HOME/anaconda3/bin:$PATH && source ~/.bashrc && conda -V && conda update conda -y && conda update anaconda -y && conda create --name realesrgan python=3 -y && conda activate realesrgan
+
+### Step 2: Navigate to Real-ESRGAN Directory
+1. **Navigate to the Real-ESRGAN directory:**
+     
+   cd /mnt/c/study/programming/ /apps/Real-ESRGAN
+
+### Step 3: Install Dependencies
+1. **Install PyTorch with CUDA:**
+     
+   conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+
+2. **Install specific versions of PyTorch and TorchVision:**
+     
+   python -m pip install torch==2.0.1 torchvision==0.15.2 --extra-index-url https://download.pytorch.org/whl/cu118
+
+3. **Install other required Python packages:**
+     
+   pip install -r requirements.txt
+
+4. **Set up the package for development:**
+     
+     setup.py develop
+
+5. **Install FFmpeg:**
+     
+   sudo apt update
+   sudo apt install ffmpeg
+
+### Step 4: Download Pre-trained Models
+1. **Download the pre-trained model:**
+     
+   wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth -P experiments/pretrained_models
+
+### Step 5: Run Image Upscaling
+1. **Create input and output directories if they don't exist:**
+     
+   mkdir -p inputs
+   mkdir -p results
+
+2. **Place your input images in the `inputs` directory.**
+
+3. **Run the upscaling process:**
+     
+   python inference_realesrgan.py -n RealESRGAN_x4plus -i inputs -o results
+
+### Step 6: Run Video Upscaling
+1. **Place your input video in the `inputs` directory.**
+
+2. **Extract frames from the video:**
+     
+   ffmpeg -i inputs/your_video.mp4 inputs/frame_%04d.png
+
+3. **Run the upscaling process on extracted frames:**
+     
+   python inference_realesrgan.py -n RealESRGAN_x4plus -i inputs -o results
+
+4. **Combine the upscaled frames back into a video:**
+     
+   ffmpeg -framerate 25 -i results/frame_%04d.png -c:v libx264 -pix_fmt yuv420p results/upscaled_video.mp4
+
+### Step 7: Clean Up
+1. **Remove intermediate frames if necessary to save space:**
+     
+   rm inputs/frame_*.png
+   rm results/frame_*.png
+
+### Step 8: Verify Upscaling Process
+1. **Check the Output Directory:**
+   Navigate to the `results` directory to see if it contains the upscaled images.
+
+     
+   ls results
+
+2. **Compare Input and Output Images:**
+   Open the original images in the `inputs` directory and the upscaled images in the `results` directory using an image viewer.
+
+     
+   eog inputs/original_image.jpg &
+   eog results/original_image_out.jpg &
+
+3. **Check Log Output:**
+   Review the log output from the script to ensure there were no errors for the images you expected to be processed.
+
+4. **Check Specific Image Files:**
+   List the files in the `results` directory and ensure their sizes are larger than the originals.
+
+     
+   ls -lh inputs
+   ls -lh results
+
+### Example Script (inference_realesrgan.py)
+Make sure your `inference_realesrgan.py` includes checks for image loading and proper handling of inputs:
+
+  
+import argparse
+import cv2
+import glob
+import os
+from basicsr.archs.rrdbnet_arch import RRDBNet
+from basicsr.utils.download_util import load_file_from_url
+
+from realesrgan import RealESRGANer
+from realesrgan.archs.srvgg_arch import SRVGGNetCompact
+
+def main():
+    """Inference demo for Real-ESRGAN."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', type=str, default='inputs', help='Input image or folder')
+    parser.add_argument(
+        '-n',
+        '--model_name',
+        type=str,
+        default='RealESRGAN_x4plus',
+        help=('Model names: RealESRGAN_x4plus | RealESRNet_x4plus | RealESRGAN_x4plus_anime_6B | RealESRGAN_x2plus | '
+              'realesr-animevideov3 | realesr-general-x4v3'))
+    parser.add_argument('-o', '--output', type=str, default='results', help='Output folder')
+    parser.add_argument(
+        '-dn',
+        '--denoise_strength',
+        type=float,
+        default=0.5,
+        help=('Denoise strength. 0 for weak denoise (keep noise), 1 for strong denoise ability. '
+              'Only used for the realesr-general-x4v3 model'))
+    parser.add_argument('-s', '--outscale', type=float, default=4, help='The final upsampling scale of the image')
+    parser.add_argument(
+        '--model_path', type=str, default=None, help='[Option] Model path. Usually, you do not need to specify it')
+    parser.add_argument('--suffix', type=str, default='out', help='Suffix of the restored image')
+    parser.add_argument('-t', '--tile', type=int, default=0, help='Tile size, 0 for no tile during testing')
+    parser.add_argument('--tile_pad', type=int, default=10, help='Tile padding')
+    parser.add_argument('--pre_pad', type=int, default=0, help='Pre padding size at each border')
+    parser.add_argument('--face_enhance', action='store_true', help='Use GFPGAN to enhance face')
+    parser.add_argument(
+        '--fp32', action='store_true', help='Use fp32 precision during inference. Default: fp16 (half precision).')
+    parser.add_argument(
+        '--alpha_upsampler',
+        type=str,
+        default='realesrgan',
+        help='The upsampler for the alpha channels. Options: realesrgan | bicubic')
+    parser.add_argument(
+        '--ext',
+        type=str,
+        default='auto',
+        help='Image extension. Options: auto | jpg | png, auto means using the same extension as inputs')
+    parser.add_argument(
+        '-g', '--gpu-id', type=int, default=None, help='gpu device to use (default=None) can be 0,1,2 for multi-gpu')
+
+    args = parser.parse_args()
+
+    # Determine models according to model names
+    args.model_name = args.model_name.split('.')[0]
+    if args.model_name == 'RealESRGAN_x4plus':  # x4 RRDBNet model
+        model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+        netscale = 4
+        file_url = ['https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth']
+    elif args.model_name == 'RealESRNet_x4plus':  # x4 RRDBNet model
+        model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+        netscale = 4
+        file_url = ['https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/RealESRNet_x4plus.pth']
+    elif args.model_name == 'RealESRGAN_x4plus_anime_6B':  # x4 RRDBNet model with 6 blocks
+        model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=6, num_grow_ch=32, scale=4)
+        netscale = 4
+        file_url = ['https://github.com/xinntao/Real-ESRGAN
+
+/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth']
+    elif args.model_name == 'RealESRGAN_x2plus':  # x2 RRDBNet model
+        model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2)
+        netscale = 2
+        file_url = ['https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth']
+    elif args.model_name == 'realesr-animevideov3':  # x4 VGG-style model (XS size)
+        model = SRVGGNetCompact(num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=16, upscale=4, act_type='prelu')
+        netscale = 4
+        file_url = ['https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth']
+    elif args.model_name == 'realesr-general-x4v3':  # x4 VGG-style model (S size)
+        model = SRVGGNetCompact(num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=32, upscale=4, act_type='prelu')
+        netscale = 4
+        file_url = [
+            'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-general-wdn-x4v3.pth',
+            'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-general-x4v3.pth'
+        ]
+
+    # Determine model paths
+    if args.model_path is not None:
+        model_path = args.model_path
+    else:
+        model_path = os.path.join('weights', args.model_name + '.pth')
+        if not os.path.isfile(model_path):
+            ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+            for url in file_url:
+                # model_path will be updated
+                model_path = load_file_from_url(
+                    url=url, model_dir=os.path.join(ROOT_DIR, 'weights'), progress=True, file_name=None)
+
+    # Use dni to control the denoise strength
+    dni_weight = None
+    if args.model_name == 'realesr-general-x4v3' and args.denoise_strength != 1:
+        wdn_model_path = model_path.replace('realesr-general-x4v3', 'realesr-general-wdn-x4v3')
+        model_path = [model_path, wdn_model_path]
+        dni_weight = [args.denoise_strength, 1 - args.denoise_strength]
+
+    # Restorer
+    upsampler = RealESRGANer(
+        scale=netscale,
+        model_path=model_path,
+        dni_weight=dni_weight,
+        model=model,
+        tile=args.tile,
+        tile_pad=args.tile_pad,
+        pre_pad=args.pre_pad,
+        half=not args.fp32,
+        gpu_id=args.gpu_id)
+
+    if args.face_enhance:  # Use GFPGAN for face enhancement
+        from gfpgan import GFPGANer
+        face_enhancer = GFPGANer(
+            model_path='https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth',
+            upscale=args.outscale,
+            arch='clean',
+            channel_multiplier=2,
+            bg_upsampler=upsampler)
+    os.makedirs(args.output, exist_ok=True)
+
+    if os.path.isfile(args.input):
+        paths = [args.input]
+    else:
+        paths = sorted(glob.glob(os.path.join(args.input, '*')))
+
+    for idx, path in enumerate(paths):
+        imgname, extension = os.path.splitext(os.path.basename(path))
+        print('Testing', idx, imgname)
+
+        img = cv2.imread(path, cv2.IMREAD_UNCHANGED)
+        if img is None:
+            print(f'Error reading image {path}')
+            continue
+
+        if len(img.shape) == 3 and img.shape[2] == 4:
+            img_mode = 'RGBA'
+        else:
+            img_mode = None
+
+        try:
+            if args.face_enhance:
+                _, _, output = face_enhancer.enhance(img, has_aligned=False, only_center_face=False, paste_back=True)
+            else:
+                output, _ = upsampler.enhance(img, outscale=args.outscale)
+        except RuntimeError as error:
+            print('Error', error)
+            print('If you encounter CUDA out of memory, try to set --tile with a smaller number.')
+        else:
+            if args.ext == 'auto':
+                extension = extension[1:]
+            else:
+                extension = args.ext
+            if img_mode == 'RGBA':  # RGBA images should be saved in png format
+                extension = 'png'
+            if args.suffix == '':
+                save_path = os.path.join(args.output, f'{imgname}.{extension}')
+            else:
+                save_path = os.path.join(args.output, f'{imgname}_{args.suffix}.{extension}')
+            cv2.imwrite(save_path, output)
+
+if __name__ == '__main__':
+    main()
+
+This updated script includes a check to ensure that the image is successfully loaded using `cv2.imread`. If the image is not loaded, an error message is printed and the script continues to the next image. This should prevent the `AttributeError` caused by trying to access the `shape` attribute of a `NoneType` object.

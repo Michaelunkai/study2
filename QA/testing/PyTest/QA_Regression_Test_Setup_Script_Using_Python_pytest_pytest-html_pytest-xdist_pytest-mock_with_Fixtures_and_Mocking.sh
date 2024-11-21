@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Install necessary package for virtual environment if not already installed
 sudo apt install -y python3.10-venv
@@ -53,7 +53,7 @@ EOT
 
 # Create a script to run tests in parallel and generate an HTML report
 cat <<EOT >> run_advanced_tests.sh
-#!/bin/bash
+#!/bin/ 
 source venv/bin/activate
 pytest -n 4 --html=report.html --self-contained-html --maxfail=1
 EOT

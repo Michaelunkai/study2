@@ -1,0 +1,1 @@
+sudo apt install -y yara && yara my_rule.yar file_to_scan

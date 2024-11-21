@@ -1,0 +1,1 @@
+sudo git clone https://github.com/Veil-Framework/Veil.git /opt/veil && cd /opt/veil && ./config/setup.sh --force --silent && sudo veil

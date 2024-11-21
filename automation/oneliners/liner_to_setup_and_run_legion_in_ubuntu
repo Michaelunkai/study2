@@ -1,0 +1,1 @@
+sudo git clone https://github.com/carlospolop/legion.git /opt/legion && cd /opt/legion && pip3 install -r requirements.txt && mv legion.py app.py && pipit

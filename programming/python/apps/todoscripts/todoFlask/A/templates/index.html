@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Todo App</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Professional Todo App</title>
+
+<style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
@@ -117,8 +121,9 @@
             overflow-y: auto;
         }
 
-    </style>
-    <script>
+</style>
+
+<script>
         document.addEventListener('DOMContentLoaded', function() {
             var categorySelect = document.getElementById('category');
             var tasks = document.querySelectorAll('.task');
@@ -137,31 +142,25 @@
                 });
             });
         });
-    </script>
+</script>
 </head>
 <body>
-    <h1>Professional Todo App</h1>
-    <form method="post">
-        <label for="task">New Task:</label>
-        <input type="text" id="task" name="task" required>
-        <label for="category">Category:</label>
-        <select id="category" name="category">
-            <option value="all">All</option>
-            {% for category in categories %}
-                <option value="{{ category }}" {% if category == current_category %}selected{% endif %}>{{ category }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Add Task</button>
-    </form>
-    <ul>
-        {% for task in tasks %}
-            <li class="task" data-category="{{ task.category }}">
-                {{ task.name }} - {{ task.category }}
-                <form method="post" action="{{ url_for('delete_task', task=task.name, category=current_category) }}" class="delete-form">
-                    <button type="submit" class="delete-btn">Delete</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+<h1>Professional Todo App</h1>
+<form method="post"><label for="task">New Task:</label>
+<input type="text" id="task" name="task" required=""> <label for=
+"category">Category:</label> <select id="category" name="category">
+<option value="all">All</option>
+<option value="{{ category }}" if="" category="=" current_category=
+"" endif="">{{ category }}</option>
+</select> <button type="submit">Add Task</button></form>
+<ul>{% for task in tasks %}
+<li class="task" data-category="{{ task.category }}">{{ task.name
+}} - {{ task.category }}
+<form method="post" action=
+"{{%20url_for('delete_task',%20task=task.name,%20category=current_category)%20}}"
+class="delete-form"><button type="submit" class=
+"delete-btn">Delete</button></form>
+</li>
+{% endfor %}</ul>
 </body>
 </html>

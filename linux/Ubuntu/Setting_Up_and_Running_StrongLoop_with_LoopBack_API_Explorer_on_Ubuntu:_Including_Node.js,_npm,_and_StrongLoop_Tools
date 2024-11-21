@@ -1,0 +1,241 @@
+### **Complete Step-by-Step Guide to Setting Up and Running StrongLoop with LoopBack API Explorer on Ubuntu: Including Node.js, npm, and StrongLoop Tools**
+
+This tutorial provides a comprehensive step-by-step guide to setting up and running **StrongLoop** on **Ubuntu**, utilizing the **LoopBack API Explorer** to document, test, and interact with your API endpoints. We’ll cover everything from installing **Node.js**, **npm**, **StrongLoop CLI**, setting up a **LoopBack** application, and using the **LoopBack API Explorer** to manage and test your API.
+
+### **Table of Contents**
+1. [Prerequisites](#1-prerequisites)
+2. [Install Node.js and npm](#2-install-nodejs-and-npm)
+3. [Install StrongLoop](#3-install-strongloop)
+4. [Set Up a StrongLoop Application](#4-set-up-a-strongloop-application)
+5. [Run the Application](#5-run-the-application)
+6. [Using LoopBack API Explorer](#6-using-loopback-api-explorer)
+7. [Using StrongLoop Process Manager (Optional)](#7-using-strongloop-process-manager-optional)
+8. [Troubleshooting](#8-troubleshooting)
+9. [Additional Resources](#9-additional-resources)
+
+---
+
+## **1. Prerequisites**
+
+Before installing **StrongLoop**, ensure that your system has the following prerequisites:
+
+- **Operating System:** Ubuntu 18.04 LTS or later
+- **User Privileges:** Sudo or root access
+- **Internet Connection:** Required for downloading packages
+
+## **2. Install Node.js and npm**
+
+Since **StrongLoop** is built on **Node.js**, you need to install both **Node.js** and **npm**.
+
+### **Step 2.1: Update System Packages**
+
+First, update your system’s packages to ensure you have the latest package lists.
+
+  
+sudo apt update
+sudo apt upgrade -y
+
+### **Step 2.2: Install Node.js**
+
+Install Node.js using the **NodeSource** repository to get a more up-to-date version than the default Ubuntu repositories.
+
+1. **Add NodeSource PPA:**
+
+     
+   curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+
+   *(Replace `18.x` with the desired Node.js version.)*
+
+2. **Install Node.js:**
+
+     
+   sudo apt install -y nodejs
+
+3. **Verify Installation:**
+
+     
+   node -v
+   npm -v
+
+   *You should see the installed versions of Node.js and npm.*
+
+### **Step 2.3: Install Build Essentials (Optional but Recommended)**
+
+To avoid potential issues with some npm packages, install **build-essential**:
+
+  
+sudo apt install -y build-essential
+
+---
+
+## **3. Install StrongLoop**
+
+With **Node.js** and **npm** installed, you can now install the **StrongLoop CLI** globally.
+
+  
+sudo npm install -g strongloop
+
+### **Verify Installation**
+
+To check that StrongLoop was installed correctly, run:
+
+  
+slc -v
+
+This command will display the installed version of StrongLoop.
+
+---
+
+## **4. Set Up a StrongLoop Application**
+
+After installing **StrongLoop**, you can use the **StrongLoop CLI** to scaffold a new application.
+
+### **Step 4.1: Create a New Directory for the Project**
+
+First, create a new directory where your project will be located:
+
+  
+mkdir my-strongloop-app
+cd my-strongloop-app
+
+### **Step 4.2: Initialize a New Application**
+
+Now, initialize a new **LoopBack** application using the `slc` command:
+
+  
+slc loopback
+
+*You will be prompted to enter some basic configuration for your app. You can accept the default options or customize them as needed.*
+
+Alternatively, you can run the following:
+
+  
+slc app
+
+### **Step 4.3: Install Application Dependencies**
+
+Once the app is initialized, install its dependencies using npm:
+
+  
+npm install
+
+---
+
+## **5. Run the Application**
+
+Once everything is set up, you can start the server and run your application.
+
+### **Step 5.1: Start the Application**
+
+To start the application, run:
+
+  
+node .
+
+By default, the application will run on **port 3000**. You can access it at `http://localhost:3000`.
+
+---
+
+## **6. Using LoopBack API Explorer**
+
+The **LoopBack API Explorer** allows you to interact with your APIs, view the available endpoints, and execute requests directly from the browser.
+
+### **Step 6.1: Access the API Explorer**
+
+To access the **API Explorer**, navigate to the following URL in your web browser:
+
+http://localhost:3000/explorer
+
+The API Explorer interface will show you all available API endpoints, including routes for your models, and let you test them interactively.
+
+### **Step 6.2: Customizing the Explorer Path**
+
+If you wish to customize the URL path where the API Explorer is served (e.g., changing `/explorer` to `/api-docs`), you can modify the configuration in the `server.js` file:
+
+ javascript
+const explorer = require('@loopback/openapi-v3').RestExplorerComponent;
+app.component(explorer);
+app.configure(RestExplorerBindings.COMPONENT).to({
+  path: '/api-docs',
+});
+
+---
+
+## **7. Using StrongLoop Process Manager (Optional)**
+
+The **StrongLoop Process Manager (`strong-pm`)** is used to manage the lifecycle of Node.js applications, offering features like clustering and zero-downtime deployment.
+
+### **Step 7.1: Install Strong-PM**
+
+Install **Strong-PM** globally:
+
+  
+sudo npm install -g strong-pm
+
+### **Step 7.2: Start Strong-PM**
+
+Start **strong-pm** in the background:
+
+  
+strong-pm &
+
+### **Step 7.3: Deploy Your Application to Strong-PM**
+
+1. **Build the Application Package:**
+
+     
+   slc build
+
+2. **Deploy the Application:**
+
+     
+   slc deploy http://localhost:8701
+
+### **Step 7.4: Verify Deployment**
+
+Check that the application is running at `http://localhost:3000`.
+
+---
+
+## **8. Troubleshooting**
+
+Here are some common issues you may encounter:
+
+### **Issue 8.1: Permission Errors During npm Install**
+
+If you encounter permission errors, use **nvm** to install Node.js without needing sudo:
+
+  
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/. rc
+nvm install --lts
+
+Reinstall **StrongLoop** without using `sudo`:
+
+  
+npm install -g strongloop
+
+### **Issue 8.2: Port Already in Use**
+
+If the default **port 3000** is already in use, specify a different port:
+
+  
+PORT=3001 node .
+
+### **Issue 8.3: Application Fails to Start**
+
+- **Check Logs:** Look for error messages in the terminal.
+- **Verify Dependencies:** Ensure all required npm packages are installed.
+- **Node Version Compatibility:** Ensure that your Node.js version is compatible with **StrongLoop**.
+
+---
+
+## **9. Additional Resources**
+
+- **LoopBack Documentation on API Explorer:** [LoopBack API Explorer](https://loopback.io/doc/en/lb4/Api-explorer.html)
+- **OpenAPI Specification:** [https://swagger.io/specification/](https://swagger.io/specification/)
+- **Node.js Official Website:** [https://nodejs.org/](https://nodejs.org/)
+
+---
+
+By following this tutorial, you should be able to install and run **StrongLoop** and explore your APIs using the **LoopBack API Explorer**. Additionally, you can use **StrongLoop Process Manager** for production environments to ensure seamless management of your applications.

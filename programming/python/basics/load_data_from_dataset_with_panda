@@ -1,5 +1,5 @@
 import pandas as pd
 
 # Load dataset
-data = pd.read_csv('<DatasetName>.csv')
+data = pd.read_ ('<DatasetName>. ')
 print(data)

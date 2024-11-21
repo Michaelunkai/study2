@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y openjdk-11-jdk git ant && git clone https://github.com/awslabs/amazon-kinesis-agent.git && cd amazon-kinesis-agent && sudo ./setup --install && sudo service aws-kinesis-agent start

@@ -1,0 +1,1 @@
+sudo git clone https://github.com/blechschmidt/massdns.git /opt/massdns && cd /opt/massdns && make && sudo ./bin/massdns

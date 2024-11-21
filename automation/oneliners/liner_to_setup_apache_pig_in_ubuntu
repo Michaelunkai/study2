@@ -1,0 +1,1 @@
+gethadoop && sudo apt-get update && sudo apt-get install -y openjdk-11-jdk wget && wget https://downloads.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz && tar -xzf pig-0.17.0.tar.gz && mv pig-0.17.0 pig && echo -e 'export PIG_HOME=$HOME/pig\nexport PATH=$PATH:$PIG_HOME/bin\nexport PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop' >> ~/.bashrc && source ~/.bashrc && pig -version

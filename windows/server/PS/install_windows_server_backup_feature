@@ -1,7 +1,0 @@
-Install-WindowsFeature -Name Windows-Server-Backup
-
-
- Import the Windows Server Backup module:
-
-
-Import-Module WindowsServerBackup

@@ -1,0 +1,16 @@
+
+Run Minecraft on Debian
+Log into the Debian device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install java and flatpack
+sudo apt install openjdk-11-jdk flatpak gnome-software-plugin-flatpak
+# add flatpack repo
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# install minecraft
+sudo flatpak install flathub com.mojang.Minecraft
+# run minecraft
+flatpak run com.mojang.Minecraft
+Game!
+After rebooting the system, a Minecraft icon will appear in the application launcher menu

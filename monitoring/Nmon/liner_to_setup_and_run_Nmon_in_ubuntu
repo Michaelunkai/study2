@@ -1,0 +1,1 @@
+sudo apt install -y nmon && nmon && echo "Nmon started for performance monitoring"

@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y nodejs npm && git clone https://github.com/jsonresume/resume-cli.git && cd resume-cli && npm install && sudo npm install -g resume-cli && resume init

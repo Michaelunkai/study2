@@ -1,0 +1,1 @@
+sudo apt install -y nload && sudo nload eth0

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Install necessary system dependencies
 sudo apt-get install -y libevent-2.1-7 libgstreamer-plugins-bad1.0-0 libflite1 libx264-dev

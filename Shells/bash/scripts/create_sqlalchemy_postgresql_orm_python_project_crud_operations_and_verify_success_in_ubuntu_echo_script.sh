@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Script name: create_sqlalchemy_postgresql_orm_python_project_crud_operations_and_verify_success_in_ubuntu_echo_script.sh
 # Description: This script sets up Python, installs SQLAlchemy and PostgreSQL, sets up an ORM project, performs CRUD operations, and verifies successful execution.
@@ -89,7 +89,7 @@ for user in session.query(User).all():
     print(user)' > /home/ubuntu/my_orm_project/main.py
 
 # Run the Python script
-python3 /home/ubuntu/my_orm_project/main.py
+ 3 /home/ubuntu/my_orm_project/main.py
 
 # Verification to check if the setup was successful
 if [ $? -eq 0 ]; then

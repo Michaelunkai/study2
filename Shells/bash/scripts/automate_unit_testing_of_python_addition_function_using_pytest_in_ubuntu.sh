@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Create a directory for the project
 mkdir -p ~/my_test_project
@@ -24,7 +24,7 @@ EOL
 
 # Create a run script
 cat <<EOL > automate_test_scenario_execution_using_pytest_in_ubuntu.sh
-#!/bin/bash
+#!/bin/ 
 pytest setup_and_run_pytest_scenario_for_simple_addition.py
 EOL
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Install python3-venv
 sudo apt install -y python3.10-venv

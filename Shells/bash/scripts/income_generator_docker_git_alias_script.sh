@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Remove the existing repository if it already exists
 if [ -d "/root/.income-generator" ]; then

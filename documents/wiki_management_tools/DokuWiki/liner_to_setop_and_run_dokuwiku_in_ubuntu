@@ -1,0 +1,1 @@
+sudo apt install -y dokuwiki && sudo systemctl start apache2 && gc http://localhost/dokuwiki

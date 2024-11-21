@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Search Results</title>
+<link href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+rel="stylesheet">
+<style>
         body {
             background-color: #f8f9fa;
         }
@@ -19,28 +24,30 @@
             font-size: 1.25rem;
             font-weight: bold;
         }
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Search Results</h1>
-        <div class="row">
-            {% for movie in results %}
-                <div class="col-md-4">
-                    <div class="card movie-card">
-                        <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
-                        <div class="card-body">
-                            <h5 class="card-title movie-title">{{ movie.title }}</h5>
-                            <a href="/movie/{{ movie.id }}" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <a href="/" class="btn btn-secondary mt-3">Back to Search</a>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container">
+<h1 class="text-center">Search Results</h1>
+<div class="row">{% for movie in results %}
+<div class="col-md-4">
+<div class="card movie-card"><img src=
+"https://image.tmdb.org/t/p/w500/{{%20movie.poster_path%20}}"
+class="card-img-top" alt="{{ movie.title }}">
+<div class="card-body">
+<h5 class="card-title movie-title">{{ movie.title }}</h5>
+<a href="/movie/{{%20movie.id%20}}" class="btn btn-primary">View
+Details</a></div>
+</div>
+</div>
+{% endfor %}</div>
+<a href="/" class="btn btn-secondary mt-3">Back to Search</a></div>
+<script src=
+"https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+<script src=
+"https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+
+<script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

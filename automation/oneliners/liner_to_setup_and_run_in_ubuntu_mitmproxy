@@ -1,0 +1,1 @@
+sudo apt install mitmproxy && mitmproxy --version && mitmproxy -p 8080

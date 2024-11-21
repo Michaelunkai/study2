@@ -1,0 +1,1 @@
+sudo apt install -y tcpreplay && sudo tcpreplay --intf1=eth0 traffic.pcap && echo "Tcpreplay sent packets from traffic.pcap on eth0"

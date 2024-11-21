@@ -1,11 +1,14 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Diary</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Personal Diary</title>
+
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
         
         body {
@@ -56,26 +59,23 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Personal Diary</h1>
-        <form action="/add_entry/" method="post">
-            <textarea name="entry" placeholder="Write your entry here..."></textarea>
-            <button type="submit">Add Entry</button>
-        </form>
-        <h2>All Entries:</h2>
-        {% for entry in entries %}
-            <div class="entry">
-                <p>{{ entry[2] }}</p>
-                <p class="timestamp">{{ entry[1] }}</p>
-                <form action="/delete_entry/{{ entry[0] }}/" method="post">
-                    <button class="delete-btn" type="submit">Delete</button>
-                </form>
-            </div>
-        {% endfor %}
-    </div>
+<div class="container">
+<h1>Personal Diary</h1>
+<form action="/add_entry/" method="post">
+<textarea name="entry" placeholder=
+"Write your entry here..."></textarea>
+ <button type="submit">Add Entry</button></form>
+<h2>All Entries:</h2>
+{% for entry in entries %}
+<div class="entry">
+<p>{{ entry[2] }}</p>
+<p class="timestamp">{{ entry[1] }}</p>
+<form action="/delete_entry/{{%20entry[0]%20}}/" method="post">
+<button class="delete-btn" type="submit">Delete</button></form>
+</div>
+{% endfor %}</div>
 </body>
 </html>
-

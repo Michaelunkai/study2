@@ -1,0 +1,82 @@
+**Complete Guide to Setting Up and Running PM2 for Process Management in Ubuntu with Node.js and NPM: Step-by-Step Installation and Configuration**
+
+### Step 1: Install Node.js and NPM in Ubuntu
+
+PM2 requires Node.js to function. First, you need to install Node.js and npm on your system. Run the following command to install them:
+
+  
+sudo apt install -y nodejs npm
+
+### Step 2: Install PM2 Globally Using NPM
+
+Once Node.js and npm are installed, you can install PM2 globally by using the following command:
+
+  
+sudo npm install pm2 -g
+
+### Step 3: Start Your Application with PM2
+
+After installing PM2, you can start managing your applications. Replace `app.js` with the name of your application entry file.
+
+  
+pm2 start app.js
+
+### Step 4: Save the PM2 Process List for Persistence
+
+To ensure that the processes managed by PM2 remain active after a system reboot, save the PM2 process list by running:
+
+  
+pm2 save
+
+### Step 5: Enable PM2 to Start on System Reboot
+
+Configure PM2 to automatically start your applications after a reboot by running the following command:
+
+  
+pm2 startup systemd
+
+This command will output another command. Copy and paste the command provided to finalize the auto-start setup.
+
+### Step 6: Managing PM2 Processes
+
+- **List Running Processes**  
+  To see a list of the running processes:
+
+    
+  pm2 list
+
+- **Stop a Process**  
+  To stop a running process:
+
+    
+  pm2 stop <process-id or process-name>
+
+- **Restart a Process**  
+  To restart a process that is stopped or needs refreshing:
+
+    
+  pm2 restart <process-id or process-name>
+
+- **Delete a Process**  
+  To completely remove a process from PM2:
+
+    
+  pm2 delete <process-id or process-name>
+
+### Step 7: Viewing Logs of Running Processes
+
+To view the logs of a specific process and monitor its output, use the following command:
+
+  
+pm2 logs <process-id or process-name>
+
+### Step 8: Monitoring Processes with PM2
+
+For real-time monitoring of the resource usage of your PM2-managed applications, use the following command:
+
+  
+pm2 monit
+
+---
+
+By following these steps, you have set up and configured PM2 for process management on Ubuntu, ensuring that your applications are continuously monitored and automatically restarted in case of failures or reboots.

@@ -1,0 +1,1 @@
+mysql -u root -p -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|performance_schema|mysql|sys)" | while read dbname; do mysql -u root -p -e "DROP DATABASE \`$dbname\`;"; done

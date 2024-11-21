@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced File Explorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Advanced File Explorer</title>
+<link href=
+"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=JetBrains+Mono&amp;display=swap"
+rel="stylesheet">
+<style>
         :root {
             --bg-color: #0f172a;
             --text-color: #e2e8f0;
@@ -95,29 +100,22 @@
             border: 1px solid var(--border-color);
             word-break: break-all;
         }
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Advanced File Explorer</h1>
-        <div class="current-path">{{ current_path }}</div>
-        {% if current_path != '/mnt/c/study' %}
-        <a href="?path={{ '/'.join(current_path.split('/')[:-1]) }}" class="back-link">⬅ Back to parent folder</a>
-        {% endif %}
-        <ul class="file-list">
-            {% for item in items %}
-            <li class="file-item">
-                <a href="{% if item.is_dir %}?path={{ item.path }}{% else %}{{ url_for('view_file', path=item.path) }}{% endif %}" class="file-link">
-                    {% if item.is_dir %}
-                    <span class="folder-icon">📁</span>
-                    {% else %}
-                    <span class="file-icon">📄</span>
-                    {% endif %}
-                    {{ item.name }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+<div class="container">
+<h1>Advanced File Explorer</h1>
+<div class="current-path">{{ current_path }}</div>
+{% if current_path != '/mnt/c/study' %} <a href=
+"?path={{%20'/'.join(current_path.split('/')[:-1])%20}}" class=
+"back-link">⬅ Back to parent folder</a> {% endif %}
+<ul class="file-list">{% for item in items %}
+<li class="file-item"><a href=
+"{%%20if%20item.is_dir%20%}?path={{%20item.path%20}}{%%20else%20%}{{%20url_for('view_file',%20path=item.path)%20}}{%%20endif%20%}"
+class="file-link">{% if item.is_dir %} <span class=
+"folder-icon">📁</span> {% else %} <span class="file-icon">📄</span>
+{% endif %} {{ item.name }}</a></li>
+{% endfor %}</ul>
+</div>
 </body>
 </html>

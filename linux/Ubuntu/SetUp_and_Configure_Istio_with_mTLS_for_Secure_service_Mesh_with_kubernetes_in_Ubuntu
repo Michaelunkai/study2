@@ -1,0 +1,159 @@
+Here is the complete step-by-step guide to set up and configure Istio 1.22.1 with mTLS for a secure service mesh on Ubuntu, without any placeholders:
+
+Step 1: Prerequisites
+Ensure you have the following prerequisites installed:
+
+Kubernetes cluster (minikube or a managed Kubernetes service)
+kubectl
+Helm
+Step 2: Install Istio
+Download Istio
+
+ 
+ 
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.22.1
+export PATH="$PATH:$PWD/bin"
+Install Istio on Kubernetes
+
+ 
+ 
+istioctl install --set profile=demo -y
+Verify the Installation
+
+ 
+ 
+kubectl get pods -n istio-system
+Step 3: Label the Namespace for Automatic Sidecar Injection
+Choose the namespace where you want to deploy your applications and label it:
+
+ 
+ 
+kubectl create namespace my-namespace
+kubectl label namespace my-namespace istio-injection=enabled
+Step 4: Deploy a Sample Application
+Deploy the Sample Application
+
+ 
+ 
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.  -n my-namespace
+Verify the Deployment
+
+ 
+ 
+kubectl get services -n my-namespace
+kubectl get pods -n my-namespace
+Step 5: Enable mTLS
+Enable Strict mTLS for the Namespace
+
+Create a PeerAuthentication resource:
+
+ 
+ 
+kubectl apply -n my-namespace -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: default
+spec:
+  mtls:
+    mode: STRICT
+EOF
+Verify mTLS is Enabled
+
+Check the mTLS settings:
+
+ 
+ 
+istioctl authn tls-check <pod-name>.my-namespace
+Step 6: Configure Gateway and Virtual Services
+Apply Gateway Configuration
+
+ 
+ 
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-gateway
+  namespace: my-namespace
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+EOF
+Apply VirtualService Configuration
+
+ 
+ 
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bookinfo
+  namespace: my-namespace
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - bookinfo-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        prefix: /login
+    - uri:
+        prefix: /logout
+    route:
+    - destination:
+        host: productpage
+        port:
+          number: 9080
+EOF
+Step 7: Access the Application
+Get the Ingress Gateway IP
+
+ 
+ 
+kubectl get svc istio-ingressgateway -n istio-system
+Access the Application
+
+Open a browser and navigate to http://<EXTERNAL-IP>/productpage.
+
+Step 8: Verify mTLS
+To verify mTLS, you can check the logs of the Istio proxy sidecars:
+
+ 
+ 
+kubectl logs <pod-name> -c istio-proxy -n my-namespace
+Look for logs that indicate mutual TLS connections.
+
+Additional Configuration and Management
+For advanced configuration, monitoring, and management, consider using:
+
+Kiali: For observability
+Jaeger: For tracing
+Prometheus: For metrics
+Grafana: For da boards
+Deploy these using Helm charts or the Istio add-ons.
+
+ 
+ 
+kubectl apply -f samples/addons
+Monitor and visualize the service mesh:
+
+ 
+ 
+kubectl port-forward svc/kiali -n istio-system 20001:20001
+Visit http://localhost:20001 to access the Kiali dashboard.
+
+For more detailed documentation, refer to the Istio documentation.

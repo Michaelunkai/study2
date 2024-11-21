@@ -1,0 +1,1 @@
+sudo timedatectl set-ntp off && sudo timedatectl set-time "2024-10-14 15:30:00" && sudo timedatectl set-ntp on && sudo apt update

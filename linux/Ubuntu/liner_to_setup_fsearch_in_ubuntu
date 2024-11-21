@@ -1,0 +1,1 @@
+cd && sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-daily && update && sudo apt install fsearch -y && fsearch

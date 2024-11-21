@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install icinga2 -y && sudo systemctl start icinga2 && sudo systemctl enable icinga2 && icinga2

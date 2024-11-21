@@ -1,0 +1,1 @@
+sudo apt install -y termshark && sudo termshark -i eth0 && echo "Termshark analyzing packets on eth0"

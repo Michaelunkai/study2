@@ -1,0 +1,1 @@
+git clone https://github.com/ether/etherpad-lite.git && cd etherpad-lite && bin/run.sh --root && echo "Etherpad running at http://localhost:9001"

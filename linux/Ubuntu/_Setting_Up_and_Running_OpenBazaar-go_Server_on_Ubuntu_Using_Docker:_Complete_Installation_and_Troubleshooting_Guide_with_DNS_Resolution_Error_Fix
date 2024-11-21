@@ -1,0 +1,311 @@
+### **Step-by-Step Tutorial for Setting Up and Running OpenBazaar-go Server on Ubuntu Using Docker: Complete Installation and Troubleshooting Guide with DNS Resolution Error Fix**
+
+---
+
+### **Table of Contents**
+
+1. [Prerequisites](#prerequisites)
+2. [Install Docker](#install-docker)
+3. [Pull the OpenBazaar Docker Image](#pull-the-openbazaar-docker-image)
+4. [Run the OpenBazaar Docker Container](#run-the-openbazaar-docker-container)
+5. [Verify the Container is Running](#verify-the-container-is-running)
+6. [Access Logs and Addressing DNS Resolution Error](#access-logs-and-addressing-dns-resolution-error)
+7. [Additional Configuration (Optional)](#additional-configuration-optional)
+8. [Stopping and Removing the Container](#stopping-and-removing-the-container)
+9. [Troubleshooting](#troubleshooting)
+10. [Additional Resources](#additional-resources)
+
+---
+
+### **1. Prerequisites**
+
+Before we proceed, ensure your system meets the following requirements:
+
+- **Operating System:** Ubuntu 20.04 LTS or later (the current example is on Ubuntu 22.04).
+- **Privileges:** Root or sudo privileges.
+- **Internet Connection:** Stable internet connection for downloading packages and Docker images.
+
+---
+
+### **2. Install Docker**
+
+To run OpenBazaar-go in a container, you must first install Docker. Follow these steps.
+
+#### **Step 2.1: Update Package Index**
+
+  
+sudo apt update
+
+#### **Step 2.2: Install Prerequisite Packages**
+
+These packages are necessary for using Docker securely over HTTPS.
+
+  
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+*If your system has these packages already installed and updated, you’ll see a message similar to the one in your terminal.*
+
+#### **Step 2.3: Add Docker’s Official GPG Key**
+
+  
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+#### **Step 2.4: Add Docker’s Stable Repository**
+
+  
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+#### **Step 2.5: Install Docker Engine**
+
+  
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+
+*In your terminal output, Docker was successfully installed and upgraded.*
+
+#### **Step 2.6: Start and Enable Docker**
+
+Make sure Docker starts automatically when the system boots.
+
+  
+sudo systemctl start docker
+sudo systemctl enable docker
+
+#### **Step 2.7: Verify Docker Installation**
+
+Run the following to check if Docker is correctly installed.
+
+  
+docker --version
+
+*Expected Output: Docker version 20.10.x or higher.*
+
+---
+
+### **3. Pull the OpenBazaar Docker Image**
+
+Now that Docker is installed, pull the OpenBazaar-go Docker image from Docker Hub.
+
+#### **Step 3.1: Pull the Docker Image**
+
+  
+docker pull openbazaar/server:latest
+
+*The image `openbazaar/server:latest` should be downloaded successfully.*
+
+---
+
+### **4. Run the OpenBazaar Docker Container**
+
+Once the image is downloaded, run the OpenBazaar server in a Docker container.
+
+#### **Step 4.1: Run the Container**
+
+Use the following command to run the OpenBazaar-go server.
+
+  
+docker run -d --name openbazaard \
+  -p 4002:4002 \
+  -p 4003:4003 \
+  openbazaar/server:latest start
+
+**Explanation of Flags:**
+
+- `-d`: Runs the container in detached mode (background).
+- `--name openbazaard`: Assigns the name "openbazaard" to the container.
+- `-p 4002:4002 -p 4003:4003`: Maps container ports 4002 and 4003 to your host machine.
+
+*You should see output similar to `0aedf591cf8f51c695ba8b60f99fd26114c73b9bbbe66601886ba8610350ac0f` indicating the container has been started successfully.*
+
+---
+
+### **5. Verify the Container is Running**
+
+Now, let's check if the container is running correctly.
+
+#### **Step 5.1: List Running Containers**
+
+  
+docker ps
+
+*Your expected output will show the `openbazaard` container running, with ports 4002 and 4003 mapped as specified.*
+
+CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+0aedf591cf8f   openbazaar/server:latest   "/opt/openbazaard st…"   X seconds ago   Up X seconds   0.0.0.0:4002-4003->4002-4003/tcp   openbazaard
+
+---
+
+### **6. Access Logs and Addressing DNS Resolution Error**
+
+When running the OpenBazaar container, you might encounter a DNS resolution error. Let’s address that.
+
+#### **Step 6.1: Access Logs**
+
+Monitor logs to identify errors, such as the DNS resolution issue related to `ticker.openbazaar.org`.
+
+  
+docker logs -f openbazaard
+
+**Example Log Error:**
+
+Get https://ticker.openbazaar.org/api: dial tcp: lookup ticker.openbazaar.org on 10.255.255.254:53: no such host
+
+#### **Step 6.2: Diagnosing DNS Resolution Issues**
+
+You can check whether `ticker.openbazaar.org` is reachable from your system.
+
+##### **From the Host Machine:**
+
+  
+ping -c 4 ticker.openbazaar.org
+
+If the host is unreachable, the ping will fail, indicating the service is likely no longer available.
+
+##### **From Inside the Docker Container:**
+
+1. Access the container's shell:
+
+     
+   docker exec -it openbazaard /bin/bash
+
+2. Test DNS resolution:
+
+     
+   apt update && apt install -y dnsutils
+   nslookup ticker.openbazaar.org
+
+   If `nslookup` fails, it confirms the domain is unreachable.
+
+3. Exit the container shell:
+
+     
+   exit
+
+#### **Step 6.3: Potential Solutions for DNS Resolution Error**
+
+##### **Option 1: Ignore the Ticker Service**
+
+If the ticker service is not crucial, you can proceed without fixing this issue. Some functionality may be limited, but core operations should work.
+
+##### **Option 2: Disable the Ticker Service**
+
+If OpenBazaar-go allows, disable the ticker service via the Docker run command. Check if a flag exists (such as `--disableticker`), then rerun the container:
+
+  
+docker run -d --name openbazaard \
+  -p 4002:4002 \
+  -p 4003:4003 \
+  openbazaar/server:latest start --disableticker
+
+---
+
+### **7. Additional Configuration (Optional)**
+
+Depending on your setup requirements, you may need further customization.
+
+#### **Step 7.1: Specify a Custom Data Directory**
+
+  
+docker run -d --name openbazaard \
+  -p 4002:4002 \
+  -p 4003:4003 \
+  -v /path/to/data:/data \
+  openbazaar/server:latest start --datadir=/data
+
+#### **Step 7.2: Enable Verbose Logging**
+
+For more detailed logs:
+
+  
+docker run -d --name openbazaard \
+  -p 4002:4002 \
+  -p 4003:4003 \
+  openbazaar/server:latest start --verbose
+
+#### **Step 7.3: Use Testnet**
+
+To run the OpenBazaar server on the test network:
+
+  
+docker run -d --name openbazaard \
+  -p 4002:4002 \
+  -p 4003:4003 \
+  openbazaar/server:latest start --testnet
+
+---
+
+### **8. Stopping and Removing the Container**
+
+When you're done with the container, you can stop and remove it.
+
+#### **Step 8.1: Stop the Container**
+
+  
+docker stop openbazaard
+
+#### **Step 8.2: Remove the Container**
+
+  
+docker rm openbazaard
+
+#### **Step 8.3: Remove the Docker Image (Optional)**
+
+To free up space, you can remove the Docker image:
+
+  
+docker rmi openbazaar/server:latest
+
+---
+
+### **9. Troubleshooting**
+
+Here are some common issues and their solutions:
+
+#### **Issue 1: DNS Resolution Error for `ticker.openbazaar.org`**
+
+**Cause:** The ticker service domain might no longer be available.
+
+**Solution:**
+- Disable the ticker service using command-line options (if available).
+- Proceed with the server while ignoring the service if it’s not critical.
+
+#### **Issue 2: Container Fails to Start or Crashes**
+
+**Solution:**
+- Check logs using `docker logs openbazaard` to diagnose the issue.
+-
+
+ Ensure your system has sufficient resources (CPU, memory).
+- Double-check the Docker run command for incorrect options.
+
+#### **Issue 3: Port Conflicts**
+
+**Solution:**
+- Use `sudo lsof -i -P -n | grep LISTEN` to identify conflicting services.
+- Either stop the conflicting service or remap to different host ports.
+
+---
+
+### **10. Additional Resources**
+
+- **OpenBazaar GitHub Repository:** [OpenBazaar/openbazaar-go](https://github.com/OpenBazaar/openbazaar-go)
+  
+  *Note: This repository is archived and read-only.*
+
+- **Docker Documentation:** [docs.docker.com](https://docs.docker.com/)
+
+- **OpenBazaar API Documentation:** [api.docs.openbazaar.org](https://api.docs.openbazaar.org)
+  
+  *Note: The API documentation may no longer be available due to the archived status.*
+
+- **Community Forks:** Check for active forks of OpenBazaar-go on [GitHub](https://github.com/OpenBazaar/openbazaar-go/network/members).
+
+---
+
+### **Summary**
+
+In this tutorial, you successfully installed Docker and set up the OpenBazaar-go server using Docker. You also learned how to troubleshoot DNS resolution issues for `ticker.openbazaar.org` and explored potential solutions to this and other problems. Additionally, we covered how to manage and customize the Docker container with optional settings like custom data directories and logging.
+
+By following this guide, you should be able to run the OpenBazaar-go server smoothly, even with some services potentially unavailable due to the project’s archived status.

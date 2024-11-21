@@ -1,1 +1,0 @@
-az container create --resource-group myResourceGroup --name myContainer --image myacr.azurecr.io/my-container:latest --dns-name-label my-container-dns --ports 80

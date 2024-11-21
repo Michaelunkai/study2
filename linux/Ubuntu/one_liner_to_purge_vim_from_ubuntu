@@ -1,0 +1,1 @@
+sudo apt-get purge --auto-remove vim vim-runtime vim-tiny vim-common vim-gui-common

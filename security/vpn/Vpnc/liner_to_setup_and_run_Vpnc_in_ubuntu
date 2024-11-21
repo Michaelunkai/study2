@@ -1,0 +1,1 @@
+sudo apt install -y vpnc && sudo vpnc && echo "VPNC client started"

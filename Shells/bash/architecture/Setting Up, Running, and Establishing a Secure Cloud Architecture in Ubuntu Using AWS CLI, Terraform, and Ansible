@@ -3,34 +3,30 @@
 #### **Step 1: Installing Essential Cloud Management Tools**
 Begin by installing the essential tools required to manage and secure your cloud infrastructure. You'll need to install `AWS CLI`, `Terraform`, and `Ansible`.
 
-```bash
+  
 sudo apt update && sudo apt install -y awscli terraform ansible
-```
 
 #### **Step 2: Configuring AWS CLI for Cloud Resource Management**
 Configure the AWS CLI with your credentials to manage AWS resources securely.
 
-```bash
+  
 aws configure
-```
 Follow the prompts to input your `AWS Access Key ID`, `AWS Secret Access Key`, `Default region name`, and `Default output format`.
 
 #### **Step 3: Setting Up Infrastructure as Code (IaC) with Terraform**
 Create a directory to store your Terraform files, which will define your cloud infrastructure.
 
-```bash
+  
 mkdir -p ~/cloud_secure_architecture/terraform && cd ~/cloud_secure_architecture/terraform
-```
 
 Create a `main.tf` file to define your secure Virtual Private Cloud (VPC) setup.
 
-```bash
+  
 nano main.tf
-```
 
 Example `main.tf` for a secure VPC configuration:
 
-```hcl
+ hcl
 provider "aws" {
   region = "us-west-2"
 }
@@ -52,21 +48,19 @@ resource "aws_subnet" "public_subnet" {
     Name = "public-subnet"
   }
 }
-```
 
 Initialize and apply the Terraform configuration to provision the infrastructure:
 
-```bash
+  
 terraform init
 terraform apply -auto-approve
-```
 
 #### **Step 4: Securing Cloud Infrastructure with AWS Security Groups**
 Add security groups to your Terraform configuration to control inbound and outbound traffic, enhancing the security of your cloud environment.
 
 Add the following to your `main.tf`:
 
-```hcl
+ hcl
 resource "aws_security_group" "web_sg" {
   vpc_id = aws_vpc.main.id
   ingress {
@@ -85,27 +79,24 @@ resource "aws_security_group" "web_sg" {
     Name = "web-sg"
   }
 }
-```
 
 Apply the updated Terraform configuration to implement the security group:
 
-```bash
+  
 terraform apply -auto-approve
-```
 
 #### **Step 5: Automating Security Configurations with Ansible**
 Leverage Ansible to automate the configuration and management of your secure cloud environment.
 
 Create a directory for your Ansible playbook:
 
-```bash
+  
 mkdir -p ~/cloud_secure_architecture/ansible && cd ~/cloud_secure_architecture/ansible
 nano secure-cloud.yml
-```
 
 Example `secure-cloud.yml` playbook for basic security configurations:
 
-```yaml
+  
 ---
 - hosts: localhost
   tasks:
@@ -134,20 +125,18 @@ Example `secure-cloud.yml` playbook for basic security configurations:
   handlers:
     - name: reload ufw
       command: ufw reload
-```
 
 Run the Ansible playbook to apply security configurations:
 
-```bash
+  
 ansible-playbook secure-cloud.yml
-```
 
 #### **Step 6: Establishing Monitoring and Logging with AWS CloudWatch**
 Set up AWS CloudWatch to monitor and log your cloud environment activities.
 
 In your Terraform configuration (`main.tf`), add the following resources:
 
-```hcl
+ hcl
 resource "aws_cloudwatch_log_group" "secure_log_group" {
   name = "secure-log-group"
   retention_in_days = 7
@@ -157,20 +146,18 @@ resource "aws_cloudwatch_log_stream" "secure_log_stream" {
   name           = "secure-log-stream"
   log_group_name = aws_cloudwatch_log_group.secure_log_group.name
 }
-```
 
 Apply the updated Terraform configuration to set up logging:
 
-```bash
+  
 terraform apply -auto-approve
-```
 
 #### **Step 7: Implementing Identity and Access Management (IAM)**
 Ensure secure access to cloud resources by creating IAM roles and policies.
 
 Add IAM configuration to your `main.tf` file:
 
-```hcl
+ hcl
 resource "aws_iam_role" "ec2_role" {
   name = "ec2-role"
   assume_role_policy = jsonencode({
@@ -204,20 +191,18 @@ resource "aws_iam_role_policy" "ec2_policy" {
     ]
   })
 }
-```
 
 Apply the IAM roles and policies to enforce secure access:
 
-```bash
+  
 terraform apply -auto-approve
-```
 
 #### **Step 8: Continuous Monitoring and Auditing with AWS Config**
 Implement AWS Config for continuous monitoring and auditing of your cloud environment.
 
 Add AWS Config resources to your `main.tf` file:
 
-```hcl
+ hcl
 resource "aws_config_configuration_recorder" "main" {
   name     = "config-recorder"
   role_arn = aws_iam_role.ec2_role.arn
@@ -230,20 +215,18 @@ resource "aws_config_delivery_channel" "main" {
   name           = "config-delivery"
   s3_bucket_name = "your-config-bucket"
 }
-```
 
 Apply the configuration to enable continuous monitoring:
 
-```bash
+  
 terraform apply -auto-approve
-```
 
 #### **Step 9: Conducting Regular Security Audits with AWS Inspector**
 Schedule regular security audits using AWS Inspector to identify vulnerabilities.
 
 In your Terraform configuration (`main.tf`), add the following:
 
-```hcl
+ hcl
 resource "aws_inspector_assessment_template" "main" {
   name       = "assessment-template"
   duration   = 3600
@@ -252,13 +235,11 @@ resource "aws_inspector_assessment_template" "main" {
     "arn:aws:inspector:us-west-2:123456789012:rulespackage/0-hijklmno",
   ]
 }
-```
 
 Apply the security assessment configuration:
 
-```bash
+  
 terraform apply -auto-approve
-```
 
 #### **Step 10: Enforcing Security Best Practices**
 - Regularly update and patch your servers using Ansible playbooks.

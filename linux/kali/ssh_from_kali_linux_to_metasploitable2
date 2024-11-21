@@ -1,0 +1,58 @@
+On Kali Linux, SSH should already be installed, but you can start and enable it as well:
+
+ 
+
+sudo service ssh start
+sudo systemctl enable ssh
+
+
+
+Accessing Metasploitable 2 from Kali Linux:
+
+    You can now use SSH (if enabled) or other tools to access Metasploitable 2 from Kali Linux. For example, if SSH is enabled on Metasploitable 2 and you know the Metasploitable 2 username and password, you can SSH into it from Kali Linux:
+ 
+
+s  username@192.168.1.11
+
+(password for metasploitable2 : msfadmin)
+
+
+in metsploit:
+
+Check If SSH Service is Running:
+
+To check if the SSH service is running, you can use the ps command to look for the SSH daemon process:
+
+
+
+ps aux | grep sshd
+
+This command will show if the SSH daemon is running.
+
+Restart SSH Service Directly:
+
+If the SSH service is running and you want to restart it, you can use the /etc/init.d/ script directly. Use one of the following commands based on the name of the SSH service on Metasploitable 2 (it might be ssh or sshd):
+
+For example, if the service name is ssh:
+
+
+
+sudo /etc/init.d/s  restart
+
+If the service name is sshd:
+
+
+
+sudo /etc/init.d/s d restart
+
+This command will restart the SSH service without using the service command.
+
+Verify SSH Service Status:
+
+After restarting the SSH service, you can verify its status to ensure it's running as expected:
+
+
+
+ps aux | grep sshd
+
+You should see the SSH daemon process in the output, indicating that the SSH service is running.

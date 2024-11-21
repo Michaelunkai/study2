@@ -1,0 +1,1 @@
+cd && git clone https://github.com/wsvincent/awesome-django.git && cd awesome-django && pip install django && django-admin startproject myproject && cd myproject && python manage.py runserver && gcl 8000

@@ -1,0 +1,1 @@
+sudo apt install -y ceph-mds && sudo systemctl start ceph-mds@`hostname` && echo "CephFS is running."

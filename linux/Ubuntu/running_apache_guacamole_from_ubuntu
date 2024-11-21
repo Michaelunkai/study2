@@ -1,0 +1,15 @@
+* i used ubuntu desktop.
+
+1)
+wget https://git.io/fxZq5 -O guac-install.sh && chmod +x guac-install.sh
+
+
+2)
+
+./guac-install.sh -r password -gp password -o -i
+
+
+3)
+once installation is done you can access Guacamole by browsing to: http://<host_or_ip>:8080/guacamole/ 
+The default credentials are guacadmin as both username and password. Please change them or disable guacadmin after install!
+

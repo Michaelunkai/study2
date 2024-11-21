@@ -1,1 +1,0 @@
-aws ec2 associate-address --allocation-id $allocation_id --network-interface-id eni-03eb99c765d75e9c5

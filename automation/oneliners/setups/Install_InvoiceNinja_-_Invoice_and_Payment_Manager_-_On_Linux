@@ -1,0 +1,107 @@
+▲A  A▼
+Install InvoiceNinja - Invoice and Payment Manager - On Linux
+What is InvoiceNinja?
+[InvoiceNinja is a] powerful suite of features to invoice clients, facilitate payment, track-time & tasks, expenses, and more. -https://www.invoiceninja.com/invoicing-features/
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install prerequisites
+sudo apt install curl wget zip lsb-release apt-transport-https ca-certificates git -y
+# add the php gpg key
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+# add the php apt repository
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php8.1 libapache2-mod-php php8.1-common php8.1-bcmath php8.1-gmp php8.1-fileinfo php8.1-gd php8.1-mbstring php8.1-pdo php8.1-xml php8.1-curl php8.1-zip php8.1-gmp php8.1-mysql php8.1-fpm -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the InvoiceNinja database and database user
+CREATE DATABASE invoiceninja;
+GRANT ALL ON invoiceninja.* to 'invoice_ninja_rw'@'localhost' IDENTIFIED BY '!nv0ic3Ninj@!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# lookup latest invoiceninja release URL
+regex='"browser_download_url": "(https:\/\/github.com\/invoiceninja\/invoiceninja\/releases\/download\/[^/]*\/invoiceninja\.zip)"' && response=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/invoiceninja/invoiceninja/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download the latest release
+wget -O ./invoiceninja.zip $downloadURL
+# extract the download .zip archive
+sudo unzip ./invoiceninja.zip -d /var/www/invoiceninja
+# change permissions on the storage directory
+sudo chmod 755 /var/www/invoiceninja/storage/ -R
+# copy sample .env file
+sudo cp /var/www/invoiceninja/.env.example /var/www/invoiceninja/.env
+# create/edit apache site configuration
+sudo nano /etc/apache2/sites-available/invoiceninja.conf
+Paste the following configuration into the .conf file
+alias /invoiceninja /var/www/invoiceninja/public
+<Directory /var/www/invoiceninja/public>
+DirectoryIndex index. 
+Require all granted
+Options +FollowSymLinks
+AllowOverride All
+</Directory>
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands:
+# edit .htaccess file
+sudo nano /var/www/invoiceninja/public/.htaccess
+Scroll to the bottom of the file and find the following line
+RewriteRule ^ index.php [L]
+
+Replace the line with the following
+RewriteRule ^ /invoiceninja/index.php [L]
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands:
+# set the owner of the invoiceninja directory
+sudo chown -R www-data:www-data /var/www/invoiceninja
+# enable mod_rewrite
+sudo a2enmod rewrite
+# enable invoiceninja site
+sudo a2ensite invoiceninja
+# restart apache2 service
+sudo systemctl restart apache2
+InvoiceNinja Web Installer
+Open a web browser and navigate to http://DNSorIP/invoiceninja/setup
+The InvoiceNinja web setup should be load
+Enter the URL to use for the site (ie http://DNSorIP/invoiceninja)
+Uncheck the Require HTTPS option > Click Test PDF
+Complete the Database Connection form as follows
+Host: localhost
+Port: 3306
+Database: invoiceninja
+Username: invoice_ninja_rw
+Password: !nv0ic3Ninj@!
+
+Click the Test connection button
+If you have an Email server, configure it under Email Settings, otherwise leave the driver as Log and click the Send test email button
+Completed the User Details form by entering a First Name, Last Name, Email and Password
+Check both I Agree checkboxes > Click Submit
+If the page redirects to http://localhost, navigate to http://localhost/invoiceninja/index.php
+Login with the Email and Password setup earlier > Click Login with email
+On the Welcome dialog, enter a company name and select the Light or Dark theme > Click Save
+Welcome to InvoiceNinja
+Source: https://invoiceninja.github.io/docs/self-host-installation/
+
+ 

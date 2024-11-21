@@ -1,0 +1,94 @@
+▲A  A▼
+Install SolidInvoice - Open Source Invoicing Software - on Linux
+What is SolidInvoice?
+SolidInvoice is a sophisticated open-source invoicing application designed to assist small businesses and freelancers in efficiently managing their daily billing operations. With its comprehensive range of features, this elegant online platform ensures that you receive timely payments. -https://github.com/SolidInvoice/SolidInvoice
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install curl wget zip -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php php-curl php-common php-json php-mysqli php-mysql php-pdo-mysql php-opcache php-bcmath php-intl php-gd php-xsl php-soap php-zip php-apcu -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the SolidInvoice database and database user
+CREATE DATABASE solidinvoice;
+GRANT ALL ON solidinvoice.* to 'solidinvoice_rw'@'localhost' IDENTIFIED BY 'SolidInv0ic3!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# fetch the latest download URL
+regex='"browser_download_url": "(https:\/\/github.com\/SolidInvoice\/SolidInvoice\/releases\/download\/[^/]*\/SolidInvoice-[^/]*\.zip)"' && response=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/SolidInvoice/SolidInvoice/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download the latest release
+wget -O /tmp/solidinvoice.zip $downloadURL
+# create target directory
+sudo mkdir /var/www/solidinvoice
+# extract the downloaded zip to /var/www/solidinvoice
+sudo unzip /tmp/solidinvoice.zip -d /var/www/solidinvoice
+# set the owner of the solidinvoice directory
+sudo chown -R www-data:www-data /var/www/solidinvoice
+# create solidinvoice apache configuration
+sudo nano /etc/apache2/sites-available/solidinvoice.conf
+Paste the following configuration into solidinvoice.conf
+<VirtualHost *:8080>
+ ServerName <%DNSORIP%>
+ #ServerAlias www.yourdomain.com
+
+ DocumentRoot /var/www/solidinvoice/public
+ <Directory /var/www/solidinvoice/public>
+  # enable the .htaccess rewrites
+  AllowOverride All
+  Order allow,deny
+  Allow from All
+ </Directory>
+
+ ErrorLog /var/log/apache2/solidinvoice.error.log
+ CustomLog /var/log/apache2/solidinvoice.access.log combined
+</VirtualHost>
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Run the following command to enable the solidinvoice site
+# enable rewrite module
+sudo a2enmod rewrite
+# enable the solidinvoice site
+sudo a2ensite solidinvoice
+# restart the apache2 service
+sudo systemctl restart apache2
+SolidInvoice Web Installer
+Open a web browser and navigate to http://DNSorIP:8080
+Click the Next button at the lower right corner of the System Requirements page
+Complete the Database settings as follows:
+Driver: My 
+Host: localhost
+Port: 3306
+User: solidinvoice_rw
+Password: SolidInv0ic3!
+Database Name: solidinvoice
+
+Click Next
+After the database schema is created successfully > Click Next
+Click the Log In Now button
+Login with the admin credentials created earlier
+Enter a Company Name and select the default currency > Click Create
+Welcome to SolidInvoice
+Source: https://docs.solidinvoice.co/en/latest/guide/getting_started.html
+
+ 

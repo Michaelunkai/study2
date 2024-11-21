@@ -1,0 +1,97 @@
+### Step-by-Step Guide to Configure and Use Argo CD for Continuous Delivery in Kubernetes on Ubuntu
+
+#### Prerequisites:
+1. **Kubernetes Cluster:** Ensure you have a running Kubernetes cluster. You can use Minikube, MicroK8s, or a managed Kubernetes service like GKE, EKS, or AKS.
+2. **kubectl:** Installed and configured to communicate with your Kubernetes cluster.
+3. **Helm:** Installed on your Ubuntu machine.
+
+#### Step 1: Install Argo CD
+
+1. **Add the Argo CD Helm repository:**
+     
+   helm repo add argo https://argoproj.github.io/argo-helm
+   helm repo update
+
+2. **Create a namespace for Argo CD:**
+     
+   kubectl create namespace argocd
+
+3. **Install Argo CD using Helm:**
+     
+   helm install argocd argo/argo-cd --namespace argocd
+
+#### Step 2: Access the Argo CD API Server
+
+1. **Forward the Argo CD API server port:**
+     
+   kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+2. **Get the initial password for the admin user:**
+     
+   kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+
+3. **Open a web browser and go to `https://localhost:8080`.** Log in with username `admin` and the password retrieved in the previous step.
+
+#### Step 3: Install the Argo CD CLI
+
+1. **Download the Argo CD CLI:**
+     
+   VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+   wget https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-linux-amd64
+
+2. **Make the CLI executable and move it to your PATH:**
+     
+   chmod +x argocd-linux-amd64
+   sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+
+3. **Verify the installation:**
+     
+   argocd version
+
+#### Step 4: Connect the Argo CD CLI to the Argo CD API Server
+
+1. **Login to Argo CD using the CLI:**
+     
+   argocd login localhost:8080
+
+2. **Configure your cluster for Argo CD:**
+     
+   argocd cluster add <YOUR_KUBECONFIG_CONTEXT>
+
+   Replace `<YOUR_KUBECONFIG_CONTEXT>` with your Kubernetes context name. You can find it using `kubectl config get-contexts`.
+
+#### Step 5: Create and Sync an Application
+
+1. **Create a new application from the CLI:**
+     
+   argocd app create guestbook \
+     --repo https://github.com/argoproj/argocd-example-apps.git \
+     --path guestbook \
+     --dest-server https://kubernetes.default.svc \
+     --dest-namespace default
+
+2. **Sync the application:**
+     
+   argocd app sync guestbook
+
+3. **Check the status of your application:**
+     
+   argocd app get guestbook
+
+#### Step 6: Manage Applications via the Web UI
+
+1. **Open the Argo CD Web UI at `https://localhost:8080` and log in with the admin credentials.**
+2. **Navigate to the "Applications" section to view and manage your applications.**
+3. **You can create, sync, and monitor applications directly from the Web UI.**
+
+#### Step 7: Automate Syncing with Auto-Sync
+
+1. **Enable auto-sync for an application:**
+     
+   argocd app set guestbook --sync-policy auto
+
+2. **Now, any changes pushed to the repository will automatically sync to the Kubernetes cluster.**
+
+### Conclusion
+
+You have now configured and used Argo CD for continuous delivery in your Kubernetes cluster. Argo CD automates the deployment of applications and allows you to manage your Kubernetes applications declaratively using GitOps principles. This setup ensures that your applications are always in sync with your Git repository, providing a robust and reliable CI/CD pipeline.

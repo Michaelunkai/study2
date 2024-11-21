@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # -----------------------------------
 # Script: create_tool_dir.sh

@@ -1,1 +1,0 @@
-aws s3api put-bucket-logging --bucket my-unique-bucket-d110ec38 --bucket-logging-status '{"LoggingEnabled": {"TargetBucket": "my-unique-bucket-d110ec38", "TargetPrefix": "logs/"}}'

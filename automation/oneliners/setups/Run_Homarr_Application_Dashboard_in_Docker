@@ -1,0 +1,37 @@
+▲A  A▼
+Run Homarr Application Dashboard in Docker
+What is Homarr?
+Simplify the management of your server with Homarr - a sleek, modern dashboard that puts all of your apps and services at your fingertips. With Homarr, you can access and control everything in one convenient location. Homarr seamlessly integrates with the apps you've added, providing you with valuable information and giving you complete control. Installation is a breeze, and Homarr supports a wide range of deployment methods. -https://github.com/ajnart/homarr
+
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Homarr
+Now that Docker is installed, run the following commands to setup the Homarr Docker container and run it
+# create working directory structure
+mkdir ~/docker/homarr/{configs,data,icons} -p
+# run homarr container
+docker run -d --name=homarr -p 7575:7575 -v /var/run/docker.sock:/var/run/docker.sock -v ~/docker/homarr/configs:/app/data/configs -v ~/docker/homarr/data:/data -v ~/docker/homarr/icons:/app/public/icons --restart=unless-stopped ghcr.io/ajnart/homarr:latest
+Open a web browser and navigate to http://DNSorIP:7575
+Click the Start update process button
+Click Continue
+Enter an admin username and enter and confirm a password > Click Continue
+Click the Go to your board button
+Welcome to Homarr running in Docker
+Source: https://homarr.dev/docs/getting-started/installation/
+
+ 

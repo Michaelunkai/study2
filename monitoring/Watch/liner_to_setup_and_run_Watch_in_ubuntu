@@ -1,0 +1,1 @@
+sudo apt install -y procps && watch -n 1 ls && echo "Watch monitoring changes in the current directory every second"

@@ -1,0 +1,23 @@
+sudo bash -c 'cat > "install-falco-wsl2-setup.sh" << "EOF"
+#!/bin/ 
+# Install required dependencies
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release build-essential cmake linux-headers-generic docker.io
+
+# Add Falco GPG key and repository
+curl -sSL https://falco.org/repo/falcosecurity-packages.asc | sudo gpg --dearmor -o /usr/share/keyrings/falcosecurity-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/falcosecurity-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | sudo tee /etc/apt/sources.list.d/falcosecurity.list
+
+# Update package list and install Falco
+sudo apt update
+sudo apt install -y falco
+
+# Run Falco manually without service (as services are not fully supported in WSL2)
+echo "Starting Falco directly as services are not fully supported in WSL2..."
+sudo falco &
+
+# Run Falco version command at the end
+sleep 5
+sudo falco --version
+EOF
+sudo chmod +x "install-falco-wsl2-setup.sh"
+sudo ./install-falco-wsl2-setup.sh'

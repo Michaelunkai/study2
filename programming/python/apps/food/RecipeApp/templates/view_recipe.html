@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ recipe.title }}</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>{{ recipe.title }}</title>
+
+<style>
         body {
             text-align: center;
             margin: 40px;
@@ -41,35 +44,24 @@
         .ingredient-list, .instruction-list {
             text-align: left;
         }
-    </style>
+</style>
 </head>
 <body>
-    <div class="recipe-details">
-        <h1>{{ recipe.title }}</h1>
-
-        <!-- Display the recipe image if available -->
-        {% if recipe.image %}
-        <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-        {% endif %}
-
-        <!-- Ingredients section -->
-        <h2 class="section-title">Ingredients</h2>
-        <!-- Create an unordered list for displaying the ingredients -->
-        <ul class="ingredient-list">
-            <!-- Loop through each ingredient in the recipe's extendedIngredients -->
-            {% for ingredient in recipe.extendedIngredients %}
-            <li>{{ ingredient.original }}</li>
-            {% endfor %}
-        </ul>
-
-        <!-- Instructions Section -->
-        <h2 class="section-title">Instructions</h2>
-        <ol class="instruction-list">
-            {% for step in recipe.analyzedInstructions[0].steps %}
-            <li>{{ step.step }}</li>
-            {% endfor %}
-        </ol>
-        <a href="/?search_query={{ search_query }}">Back to search results</a>
-    </div>
+<div class="recipe-details">
+<h1>{{ recipe.title }}</h1>
+{% if recipe.image %} <img src="{{%20recipe.image%20}}" alt=
+"{{ recipe.title }}"> {% endif %}
+<h2 class="section-title">Ingredients</h2>
+<ul class="ingredient-list">{% for ingredient in
+recipe.extendedIngredients %}
+<li>{{ ingredient.original }}</li>
+{% endfor %}</ul>
+<h2 class="section-title">Instructions</h2>
+<ol class="instruction-list">{% for step in
+recipe.analyzedInstructions[0].steps %}
+<li>{{ step.step }}{% endfor %}</li>
+</ol>
+<a href="/?search_query={{%20search_query%20}}">Back to search
+results</a></div>
 </body>
 </html>

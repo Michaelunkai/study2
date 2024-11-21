@@ -1,1 +1,0 @@
-gcloud compute http-health-checks create http-basic-check && gcloud compute target-pools create my-target-pool --region us-central1 --http-health-check http-basic-check && gcloud compute forwarding-rules create my-forwarding-rule --region us-central1 --ports 80 --target-pool my-target-pool

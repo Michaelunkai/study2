@@ -1,0 +1,6 @@
+press shell button(codebase) in top left >  add to codebase > copy
+
+
+paste in terminal > than run: npx next build
+than:
+npm start

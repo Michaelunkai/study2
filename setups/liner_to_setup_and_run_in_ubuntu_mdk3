@@ -1,0 +1,1 @@
+sudo apt install mdk3 -y && sudo mdk3 --help

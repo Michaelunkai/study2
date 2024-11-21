@@ -1,0 +1,1 @@
+sudo apt install -y siege && siege -c10 -t1m https://example.com && echo "Siege completed load test on https://example.com"

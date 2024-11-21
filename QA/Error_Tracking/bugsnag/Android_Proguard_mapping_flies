@@ -1,6 +1,0 @@
-Android Proguard mapping flies
-If you are using ProGuard, DexGuard, or R8 to minify and optimize your app, this command uploads the mapping file along with version information from your project directory:
-
-$ bugsnag-cli upload android-proguard app/build/outputs/proguard/release/mapping.txt
-See the upload android-proguard command reference for full usage information.
-

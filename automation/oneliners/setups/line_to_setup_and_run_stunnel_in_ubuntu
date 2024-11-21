@@ -1,0 +1,7 @@
+sudo apt update && sudo apt install -y stunnel4 openssl && sudo mkdir -p /etc/stunnel && sudo openssl req -new -x509 -days 365 -nodes -out /etc/stunnel/stunnel.pem -keyout /etc/stunnel/stunnel.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=example.com" && sudo bash -c 'cat <<EOF > /etc/stunnel/stunnel.conf
+cert = /etc/stunnel/stunnel.pem
+pid = /var/run/stunnel.pid
+[https]
+accept = 443
+connect = 80
+EOF' && sudo stunnel /etc/stunnel/stunnel.conf

@@ -1,0 +1,1 @@
+curl -L https://cdn.porter.sh/latest/install-linux.sh | bash &&  export PATH=$PATH:~/.porter && porter version

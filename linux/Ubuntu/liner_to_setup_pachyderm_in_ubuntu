@@ -1,0 +1,1 @@
+curl -o /usr/local/bin/pachctl https://github.com/pachyderm/pachyderm/releases/latest/download/pachctl_$(uname -s)_amd64 && chmod +x /usr/local/bin/pachctl

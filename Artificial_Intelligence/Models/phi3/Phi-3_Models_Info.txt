@@ -1,4 +1,0 @@
-Phi-3 is a family of advanced, lightweight AI models developed by Microsoft. The family includes two main models:
-1. Phi-3 Mini: A model with 3 billion parameters designed for efficient performance and lower resource requirements.
-2. Phi-3 Medium: A larger model with 14 billion parameters, offering higher performance while still focusing on efficiency.
-These models are part of Microsoft's efforts to provide state-of-the-art AI capabilities in more accessible and resource-efficient forms, making it easier for developers and researchers to leverage powerful AI tools without needing extensive computational resources.

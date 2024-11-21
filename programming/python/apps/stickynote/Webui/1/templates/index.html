@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticky Note App</title>
-    <style>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Sticky Note App</title>
+
+<style>
         body {
             background-color: rgb(255, 215, 0);
             font-family: 'Lobster', sans-serif;
@@ -19,14 +23,19 @@
             font-size: 20px;
             margin: 5px;
         }
-    </style>
+</style>
 </head>
 <body>
-    <textarea id="note"></textarea><br>
-    <button onclick="saveNote()">Save</button>
-    <button onclick="clearNote()">Clear</button>
-    <button onclick="closeApp()">Close</button>
-    <script>
+<textarea id="note"></textarea>
+<br>
+<button onclick="saveNote()">Save</button> <button onclick=
+"clearNote()">Clear</button> <button onclick=
+"closeApp()">Close</button> 
+<script>
+
+
+
+
         function saveNote() {
             var content = document.getElementById('note').value;
             fetch('/save', {
@@ -62,6 +71,6 @@
         }
 
         window.onload = loadNote;
-    </script>
+</script>
 </body>
 </html>

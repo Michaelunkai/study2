@@ -54,10 +54,9 @@ Before we start, ensure you have the following tools installed on your **Ubuntu*
 
 Start by cloning the necessary repository to your Ubuntu system and navigate into it.
 
-```bash
+  
 git clone https://github.com/MeteorOps/crossplane-aws-provider-bootstrap.git
 cd crossplane-aws-provider-bootstrap
-```
 
 ### Install Required Command-Line Interfaces
 
@@ -65,57 +64,51 @@ cd crossplane-aws-provider-bootstrap
 
 Install the **AWS CLI** and authenticate it with your AWS account.
 
-```bash
+  
 sudo apt update
 sudo apt install awscli -y
 aws configure
-```
 
 #### kubectl
 
 Install the **kubectl** command-line tool for interacting with your Kubernetes cluster.
 
-```bash
+  
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
 sudo apt-get install -y kubectl
-```
 
 #### Helm
 
 Install **Helm**, the Kubernetes package manager, to manage your Kubernetes applications.
 
-```bash
+  
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
 echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
-```
 
 ### Optional: Create a Local Kind Cluster
 
 If you don’t have an existing Kubernetes cluster, you can create a local cluster using **kind**.
 
 1. **Install kind**:
-   ```bash
+     
    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
    chmod +x ./kind
    sudo mv ./kind /usr/local/bin/kind
-   ```
 
 2. **Create a Kubernetes cluster**:
-   ```bash
+     
    kind create cluster
-   ```
 
 3. **Verify cluster**:
-   ```bash
+     
    kubectl cluster-info --context kind-kind
-   ```
 
 ---
 
@@ -127,23 +120,20 @@ If you don’t have an existing Kubernetes cluster, you can create a local clust
 2. **Add Helm Repository**:
    Add the Crossplane Helm repository to your local Helm installation.
    
-   ```bash
+     
    helm repo add crossplane-stable https://charts.crossplane.io/stable
-   ```
 
 3. **Install Crossplane**:
    Install Crossplane into a dedicated Kubernetes namespace.
 
-   ```bash
+     
    helm install crossplane crossplane-stable/crossplane --namespace crossplane-system --create-namespace
-   ```
 
 4. **Verify Crossplane Deployment**:
    Check if the Crossplane pods are running.
 
-   ```bash
+     
    kubectl get pods -n crossplane-system
-   ```
 
 ---
 
@@ -152,16 +142,14 @@ If you don’t have an existing Kubernetes cluster, you can create a local clust
 1. **Create Kubernetes Secret**:
    Insert your AWS credentials into the Kubernetes secret to allow Crossplane access to AWS.
 
-   ```bash
+     
    kubectl create secret generic aws-credentials -n crossplane-system --from-file=creds=./creds
-   ```
 
 2. **Verify Secret**:
    Ensure the secret was created successfully.
 
-   ```bash
+     
    kubectl get secret aws-credentials -n crossplane-system
-   ```
 
 ---
 
@@ -172,23 +160,20 @@ Deploying the AWS provider in Crossplane consists of two phases:
 1. **Phase 1: Bootstrap Provider Resources**:
    Apply the necessary bootstrap resources such as `ServiceAccount`, `DeploymentRuntimeConfig`, and more.
 
-   ```bash
+     
    kubectl apply -f crossplane-provider-bootstrap.yaml
-   ```
 
 2. **Validate Provider Readiness**:
    Check the status of the AWS provider.
 
-   ```bash
+     
    kubectl get provider
-   ```
 
 3. **Phase 2: Apply ProviderConfig**:
    Once the provider is ready, apply the `ProviderConfig` resource.
 
-   ```bash
+     
    kubectl apply -f crossplane-provider-conf.yaml && kubectl get providerconfig
-   ```
 
 ---
 
@@ -197,37 +182,32 @@ Deploying the AWS provider in Crossplane consists of two phases:
 1. **Apply the CompositeResourceDefinition**:
    Define the S3 bucket resource by applying the CRD.
 
-   ```bash
+     
    kubectl apply -f bucket-definitions.yaml
-   ```
 
 2. **Apply the Composition**:
    Define how the S3 bucket should be created.
 
-   ```bash
+     
    kubectl apply -f bucket-crd.yaml
-   ```
 
 3. **Create the S3 Bucket Resource**:
    Finally, deploy the S3 bucket by applying the Kubernetes manifest.
 
-   ```bash
+     
    kubectl apply -f bucket-example.yaml
-   ```
 
 4. **Check the S3 Bucket Resource**:
    Verify that the bucket resource is ready.
 
-   ```bash
+     
    kubectl get bucket
-   ```
 
 5. **Verify the S3 Bucket in AWS**:
    Confirm the bucket was created in your AWS account.
 
-   ```bash
+     
    aws s3 ls
-   ```
 
 ---
 
@@ -238,16 +218,14 @@ To remove the resources created and clean up your environment:
 1. **Delete S3 Bucket Resource**:
    Delete the S3 bucket from your Kubernetes cluster, which also removes it from AWS.
 
-   ```bash
+     
    kubectl delete -f bucket-example.yaml
-   ```
 
 2. **Delete Kind Cluster (if used)**:
    If you used kind for a local Kubernetes cluster, delete it to clean up your system.
 
-   ```bash
+     
    kind delete cluster
-   ```
 
 ---
 
@@ -256,19 +234,16 @@ To remove the resources created and clean up your environment:
 If you encounter issues, use these commands for troubleshooting:
 
 1. **Check Provider**:
-   ```bash
+     
    kubectl get provider
-   ```
 
 2. **View Crossplane Logs**:
-   ```bash
+     
    kubectl logs -n crossplane-system deploy/crossplane -c crossplane
-   ```
 
 3. **View AWS Provider Logs**:
-   ```bash
+     
    kubectl logs -n crossplane-system -l pkg.crossplane.io/provider=provider-aws
-   ```
 
 ---
 

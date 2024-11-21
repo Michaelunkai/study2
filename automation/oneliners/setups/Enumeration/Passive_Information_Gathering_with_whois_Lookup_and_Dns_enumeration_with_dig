@@ -1,0 +1,9 @@
+Passive Information Gathering
+Whois Lookup:
+ 
+ 
+whois 192.168.1.193
+DNS Enumeration:
+ 
+ 
+dig 192.168.1.193

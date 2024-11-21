@@ -1,0 +1,64 @@
+▲A  A▼
+Install FreshRSS RSS Aggregator on Debian/Ubuntu Linux
+What is Fre RSS?
+FreshRSS is a self-hosted RSS feed aggregator like Leed or Kriss Feed. It is lightweight, easy to work with, powerful, and customizable. It is a multi-user application with an anonymous reading mode. It supports custom tags. There is an API for (mobile) clients, and a Command-Line Interface. -https://github.com/FreshRSS/FreshRSS
+
+Installation
+Log into the Linux based device
+Run the following commands in the terminal
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install some dependencies
+sudo apt install git apt-transport-https ca-certificates curl -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php php-curl php-gmp php-intl php-pdo-mysql php-mbstring php-xml php-zip php-ctype php-dom php-fileinfo php-iconv php-json php-simplexml php-xmlreader -y
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the FreshRSS database and database user
+CREATE DATABASE freshrss DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL ON freshrss.* TO 'freshrss_rw'@'localhost' IDENTIFIED BY 'Fr3shRSS!!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands to download and extract FreshRSS in the Apache webroot
+# download fre rss
+wget -O freshRSS.zip https://github.com/FreshRSS/FreshRSS/archive/master.zip
+# extract the zip file
+unzip fre RSS.zip
+# move the extracted folder to webroot
+sudo mv ./FreshRSS-master /var/www/html/freshrss
+# set permissions on the freshrss directory
+sudo chown -R www-data:www-data /var/www/html/freshrss
+Open a web browser and navigate to http://DNSorIP/freshrss
+Select a Language > Click Submit
+Click the Go to the next step button
+Complete the database configuration form as follows
+Type of database: MySQL
+Host: localhost
+Database username: fre rss_rw
+Database password: Fr3 RSS!!
+Database: fre rss
+Table prefix:
+
+Click the Go to the next step button
+Enter a username and password > Click Submit
+Click the Complete Installation button
+Login with the username created earlier
+Welcome to Fre RSS
+More Info: https://fre rss.org/
+
+ 

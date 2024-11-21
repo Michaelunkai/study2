@@ -1,0 +1,123 @@
+### **Comprehensive Guide: Setting Up a Hybrid Cloud in Ubuntu Using AWS Outposts with AWS CLI**
+
+---
+
+This guide will walk you through the process of setting up a hybrid cloud in Ubuntu using AWS Outposts with AWS CLI. You'll learn how to install necessary tools, configure AWS CLI, deploy AWS Outposts, and manage hybrid cloud workloads. This tutorial covers everything from start to finish.
+
+---
+
+### **Step 1: Install Required Tools on Ubuntu**
+
+Install the necessary tools on your Ubuntu machine:
+
+  
+sudo apt update
+sudo apt install -y awscli jq unzip
+
+This command installs AWS CLI, `jq` for processing JSON data, and `unzip` for extracting files.
+
+---
+
+### **Step 2: Configure AWS CLI**
+
+Next, configure the AWS CLI with your credentials:
+
+  
+aws configure
+
+When prompted, enter the following:
+- AWS Access Key ID
+- AWS Secret Access Key
+- Default region name
+- Default output format (e.g., json)
+
+This configuration allows you to interact with AWS services from the command line.
+
+---
+
+### **Step 3: Set Up AWS Outposts**
+
+AWS Outposts requires specific steps to deploy. First, ensure you have the necessary permissions and have set up AWS Outposts in your AWS account.
+
+1. **Create a New Outpost**:
+
+     
+   aws outposts create-outpost --name <OUTPOST_NAME> --site-id <SITE_ID> --availability-zone <AZ>
+
+   Replace the following placeholders:
+   - `<OUTPOST_NAME>`: The desired name for your Outpost.
+   - `<SITE_ID>`: The site ID where the Outpost will be deployed.
+   - `<AZ>`: The AWS Availability Zone.
+
+2. **Create an Outpost EC2 Capacity**:
+
+     
+   aws outposts create-outpost-instance-capacity --outpost-id <OUTPOST_ID> --instance-type <INSTANCE_TYPE> --count <COUNT>
+
+   Replace the following placeholders:
+   - `<OUTPOST_ID>`: The ID of the Outpost you created.
+   - `<INSTANCE_TYPE>`: The type of instances you want (e.g., t3.micro).
+   - `<COUNT>`: Number of instances.
+
+---
+
+### **Step 4: Configure Networking for AWS Outposts**
+
+Set up networking for your Outposts to connect with your on-premises network:
+
+1. **Create a VPC and Subnets**:
+
+     
+   aws ec2 create-vpc --cidr-block <CIDR_BLOCK>
+   aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block <SUBNET_CIDR>
+
+   Replace `<CIDR_BLOCK>`, `<VPC_ID>`, and `<SUBNET_CIDR>` with your specific values.
+
+2. **Create a Route Table and Routes**:
+
+     
+   aws ec2 create-route-table --vpc-id <VPC_ID>
+   aws ec2 create-route --route-table-id <ROUTE_TABLE_ID> --destination-cidr-block <DEST_CIDR> --gateway-id <INTERNET_GATEWAY_ID>
+
+   Replace `<ROUTE_TABLE_ID>`, `<DEST_CIDR>`, and `<INTERNET_GATEWAY_ID>` with your specific values.
+
+---
+
+### **Step 5: Deploy Workloads on AWS Outposts**
+
+Deploy workloads on your AWS Outposts:
+
+  
+aws ec2 run-instances --image-id <AMI_ID> --count 1 --instance-type <INSTANCE_TYPE> --key-name <KEY_NAME> --security-group-ids <SECURITY_GROUP_ID> --subnet-id <SUBNET_ID> --placement "Tenancy=host,GroupName=<HOST_RESERVATION_GROUP>"
+
+Replace the following placeholders:
+- `<AMI_ID>`: The Amazon Machine Image (AMI) ID for the instance.
+- `<INSTANCE_TYPE>`: The type of instance (e.g., t3.micro).
+- `<KEY_NAME>`: The name of your SSH key pair.
+- `<SECURITY_GROUP_ID>`: The security group ID.
+- `<SUBNET_ID>`: The subnet ID.
+- `<HOST_RESERVATION_GROUP>`: The host reservation group for your Outposts.
+
+This command launches an EC2 instance on your AWS Outposts.
+
+---
+
+### **Step 6: Monitor and Manage Your Hybrid Cloud**
+
+Use AWS management tools to monitor and manage your hybrid cloud environment. AWS CloudWatch and AWS Systems Manager can be particularly useful for this purpose.
+
+---
+
+### **Step 7: Tear Down Resources When No Longer Needed**
+
+When you no longer need the setup, tear down the resources:
+
+  
+aws ec2 terminate-instances --instance-ids <INSTANCE_ID>
+aws outposts delete-outpost --outpost-id <OUTPOST_ID>
+
+Replace `<INSTANCE_ID>` and `<OUTPOST_ID>` with your specific values. This ensures that you stop incurring costs for unused resources.
+
+---
+
+By following these steps, you will successfully set up a hybrid cloud environment in Ubuntu using AWS Outposts with AWS CLI. This setup provides the flexibility and scalability needed to extend your on-premises infrastructure to the cloud, leveraging the benefits of both environments.
