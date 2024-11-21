@@ -1,1 +1,0 @@
-sudo apt install -y dnsmasq && sudo systemctl start dnsmasq && dnsmasq --test && echo "Dnsmasq started and tested"

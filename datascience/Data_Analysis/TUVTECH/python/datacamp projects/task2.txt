@@ -1,0 +1,7 @@
+Task 2: Instructions
+The Jupyter notebook in a DataCamp project will contain an analysis, data exploration, or other narrative combining code, data, and text. But, and here is the catch, some of the code is missing, and it's up to you to get it right! Sometimes you will only need to fix small things with the code, but in some projects, you will get to write a whole analysis yourself.
+
+However, in this project you won't have to do much — the notebook on the side is almost complete — there are just some minor issues that you need to deal with:
+
+Replace the arguments to greet('James', 'Bond') with your own name.
+Run the code cell. (As this is part of every task we will drop this instruction from now on.)

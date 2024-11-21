@@ -1,0 +1,1 @@
+docker run -v /mnt/c/:/c/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it --name linkedinassets michadockermisha/backup:linkedinassets sh -c "apk add rsync &&  rsync -av /home/* /c/study/programming/frontend/javascript/react/projects/linkedin/LinkedIn-Easy-Apply-Bot/assets && exit"

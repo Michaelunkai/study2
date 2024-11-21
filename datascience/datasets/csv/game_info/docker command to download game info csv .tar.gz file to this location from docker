@@ -1,0 +1,1 @@
+docker run -v /mnt/c/:/c/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it --name gameinfocsv michadockermisha/backup:gameinfocsv sh -c "apk add rsync &&  rsync -av /home/* /c/study/datascience/datasets/csv/game_info && exit"

@@ -1,0 +1,7 @@
+Task 3: Instructions
+Read in the dataset datasets/global_temperature.csv and take a look at the first couple of rows
+The list of instructions for this task are now listed at the top — that's where you'll usually find them in DataCamp projects. Below the list of instructions (that is, right here) you will find more information that will help you solve the task. For example:
+
+This task requires you to write a single line of python code. It should replace the comment that says # ... YOUR CODE FOR TASK 3 ... .
+
+If you still feel at a loss as to what to do you can always click the hint below.

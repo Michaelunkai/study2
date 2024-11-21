@@ -1,0 +1,8 @@
+Task 1: Instructions
+This is a DataCamp project!
+Projects allow you to practice and apply the skills you've learned in the DataCamp courses. In each project you carry out an end-to-end analysis, on a real-world task, using real-world tools and workflows. The exception is this project, which is just an introduction to the DataCamp project interface.
+
+On the side, you have a Jupyter notebook, a free, open-source web application that is great for interactive data analysis. A DataCamp project consists of a number of tasks, and here, you have the task instructions. Your first task is easy:
+
+Run the code cell below "1. This is a Jupyter Notebook!" by clicking the run cell button ( ▶| Run ) or hitting Ctrl + Enter. This will calculate how many children were born per day on average in 2016.
+Then, click the Next Task button below.

@@ -1,1 +1,0 @@
- git clone https://github.com/golismero/golismero.git && cd golismero && sudo python setup.py install && golismero
