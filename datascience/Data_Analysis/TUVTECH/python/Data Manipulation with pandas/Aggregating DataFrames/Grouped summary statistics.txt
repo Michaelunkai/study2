@@ -1,0 +1,27 @@
+1. Grouped summary statistics
+00:00 - 00:09
+So far, you've been calculating summary statistics for all rows of a dataset, but summary statistics can be useful to compare different groups.
+
+2. Summaries by group
+00:09 - 00:43
+While computing summary statistics of entire columns may be useful, you can gain many insights from summaries of individual groups. For example, does one color of dog weigh more than another on average? Are female dogs taller than males? You can already answer these questions with what you've learned so far! We can subset the dogs into groups based on their color, and take the mean of each. But that's a lot of work, and the duplicated code means you can easily introduce copy and paste bugs.
+
+3. Grouped summaries
+00:43 - 01:01
+That's where the groupby method comes in. We can group by the color variable, select the weight column, and take the mean. This will give us the mean weight for each dog color. This was just one line of code compared to the five we had to write before to get the same results.
+
+4. Multiple grouped summaries
+01:01 - 01:20
+Just like with ungrouped summary statistics, we can use the agg method to get multiple statistics. Here, we pass a list of functions into agg after grouping by color. This gives us the minimum, maximum, and sum of the different colored dogs' weights.
+
+5. Grouping by multiple variables
+01:20 - 01:34
+You can also group by multiple columns and calculate summary statistics. Here, we group by color and breed, select the weight column and take the mean. This gives us the mean weight of each breed of each color.
+
+6. Many groups, many summaries
+01:34 - 01:40
+You can also group by multiple columns and aggregate by multiple columns.
+
+7. Let's practice!
+01:40 - 01:48
+Now that we've talked about grouping, it's time to practice grouped summary statistics.

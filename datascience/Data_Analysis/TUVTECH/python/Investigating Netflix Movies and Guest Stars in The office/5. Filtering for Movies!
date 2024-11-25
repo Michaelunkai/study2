@@ -1,0 +1,27 @@
+### 5. Filtering for Movies!
+
+**Question:**
+Subset the `netflix_df` DataFrame to include only rows where the `type` column is "Movie", assigning the result to `netflix_df_movies_only`. Further subset `netflix_df_movies_only` to include only the columns `title`, `country`, `genre`, `release_year`, and `duration`, and assign this to `netflix_movies_col_subset`. Finally, print the first five rows of `netflix_movies_col_subset`.
+
+**Answer (Code):**
+```python
+# Step 1: Subset the DataFrame for rows where type is "Movie"
+netflix_df_movies_only = netflix_df[netflix_df['type'] == "Movie"]
+
+# Step 2: Select only the columns of interest
+netflix_movies_col_subset = netflix_df_movies_only[['title', 'country', 'genre', 'release_year', 'duration']]
+
+# Step 3: Print the first five rows of the new DataFrame
+print(netflix_movies_col_subset.head())
+``` 
+
+**Expected Output:**
+The first five rows of `netflix_movies_col_subset` will display the filtered data containing only movies and the specified columns:
+```plaintext
+                        title    country      genre  release_year  duration
+0     Example Movie Title 1  Example Country  Example Genre      2020      120
+1     Example Movie Title 2  Example Country  Example Genre      2019       95
+...
+``` 
+
+Ensure the `netflix_df` DataFrame is loaded and the CSV file path is correct to avoid errors.

@@ -1,0 +1,31 @@
+1. Counting
+00:00 - 00:10
+So far, in this chapter, you've learned how to summarize numeric variables. In this video, you'll learn how to summarize categorical data using counting.
+
+2. Avoiding double counting
+00:10 - 00:19
+Counting dogs is no easy task when they're running around the park. It's hard to keep track of who you have and haven't counted!
+
+3. Vet visits
+00:19 - 00:38
+Here's a DataFrame that contains vet visits. The vet's office wants to know how many dogs of each breed have visited their office. However, some dogs have been to the vet more than once, like Max and Stella, so we can't just count the number of each breed in the breed column.
+
+4. Dropping duplicate names
+00:38 - 01:21
+Let's try to fix this by removing rows that contain a dog name already listed earlier in the dataset, or in other words; we'll extract a dog with each name from the dataset once. We can do this using the drop_duplicates method. It takes an argument, subset, which is the column we want to find our duplicates based on - in this case, we want all the unique names. Now we have a list of dogs where each one appears once. We have Max the Chow Chow, but where did Max the Labrador go? Because we have two different dogs with the same name, we'll need to consider more than just name when dropping duplicates.
+
+5. Dropping duplicate pairs
+01:21 - 01:44
+Since Max and Max are different breeds, we can drop the rows with pairs of name and breed listed earlier in the dataset. To base our duplicate dropping on multiple columns, we can pass a list of column names to the subset argument, in this case, name and breed. Now both Maxes have been included, and we can start counting.
+
+6. Easy as 1, 2, 3
+01:44 - 01:57
+To count the dogs of each breed, we'll subset the breed column and use the value_counts method. We can also use the sort argument to get the breeds with the biggest counts on top.
+
+7. Proportions
+01:57 - 02:06
+The normalize argument can be used to turn the counts into proportions of the total. 25% of the dogs that go to this vet are Labradors.
+
+8. Let's practice!
+02:06 - 02:10
+Time to commence counting!

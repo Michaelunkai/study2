@@ -1,0 +1,61 @@
+1. Introducing DataFrames
+00:00 - 00:05
+Hi, I'm Richie. I'll be your tour guide through the world of pandas.
+
+2. What's the point of pandas?
+00:05 - 00:14
+pandas is a Python package for data manipulation. It can also be used for data visualization; we'll get to that in Chapter 4.
+
+3. Course outline
+00:14 - 00:39
+We'll start by talking about DataFrames, which form the core of pandas. In chapter 2, we'll discuss aggregating data to gather insights. In chapter 3, you'll learn all about slicing and indexing to subset DataFrames. Finally, you'll visualize your data, deal with missing data, and read data into a DataFrame. Let's dive in.
+
+4. pandas is built on NumPy and Matplotlib
+00:39 - 01:03
+pandas is built on top of two essential Python packages, NumPy and Matplotlib. Numpy provides multidimensional array objects for easy data manipulation that pandas uses to store data, and Matplotlib has powerful data visualization capabilities that pandas takes advantage of.
+
+5. pandas is popular
+01:03 - 01:16
+pandas has millions of users, with PyPi recording about 14 million downloads in December 2019. This represents almost the entire Python data science community!
+
+1 https://pypistats.org/packages/pandas
+6. Rectangular data
+01:16 - 01:42
+There are several ways to store data for analysis, but rectangular data, sometimes called "tabular data" is the most common form. In this example, with dogs, each observation, or each dog, is a row, and each variable, or each dog property, is a column. pandas is designed to work with rectangular data like this.
+
+7. pandas DataFrames
+01:42 - 02:12
+In pandas, rectangular data is represented as a DataFrame object. Every programming language used for data analysis has something similar to this. R also has DataFrames, while SQL has database tables. Every value within a column has the same data type, either text or numeric, but different columns can contain different data types.
+
+8. Exploring a DataFrame: .head()
+02:12 - 02:38
+When you first receive a new dataset, you want to quickly explore it and get a sense of its contents. pandas has several methods for this. The first is head, which returns the first few rows of the DataFrame. We only had seven rows to begin with, so it's not super exciting, but this becomes very useful if you have many rows.
+
+9. Exploring a DataFrame: .info()
+02:38 - 02:46
+The info method displays the names of columns, the data types they contain, and whether they have any missing values.
+
+10. Exploring a DataFrame: .shape
+02:46 - 02:59
+A DataFrame's shape attribute contains a tuple that holds the number of rows followed by the number of columns. Since this is an attribute instead of a method, you write it without parentheses.
+
+11. Exploring a DataFrame: .describe()
+02:59 - 03:22
+The describe method computes some summary statistics for numerical columns, like mean and median. "count" is the number of non-missing values in each column. describe is good for a quick overview of numeric variables, but if you want more control, you'll see how to perform more specific calculations later in the course.
+
+12. Components of a DataFrame: .values
+03:22 - 03:36
+DataFrames consist of three different components, accessible using attributes. The values attribute, as you might expect, contains the data values in a 2-dimensional NumPy array.
+
+13. Components of a DataFrame: .columns and .index
+03:36 - 04:12
+The other two components of a DataFrame are labels for columns and rows. The columns attribute contains column names, and the index attribute contains row numbers or row names. Be careful, since row labels are stored in dot-index, not in dot-rows. Notice that these are Index objects, which we'll cover in Chapter 3. This allows for flexibility in labels. For example, the dogs data uses row numbers, but row names are also possible.
+
+14. pandas Philosophy
+04:12 - 04:56
+Python has a semi-official philosophy on how to write good code called The Zen of Python. One suggestion is that given a programming problem, there should only be one obvious solution. As you go through this course, bear in mind that pandas deliberately doesn't follow this philosophy. Instead, there are often multiple ways to solve a problem, leaving you to choose the best. In this respect, pandas is like a Swiss Army Knife, giving you a variety of tools, making it incredibly powerful, but more difficult to learn. In this course, we aim for a more streamlined approach to pandas, only covering the most important ways of doing things.
+
+1 https://www.python.org/dev/peps/pep-0020/
+15. Let's practice!
+04:56 - 05:01
+Enough meditating, time to write some code!

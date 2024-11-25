@@ -1,0 +1,74 @@
+# Step-by-Step Tutorial to Fix the Error: "404 Not Found [IP: 185.125.190.81 80] - Unable to Connect to Ubuntu Repositories"
+
+## Problem Description
+While running `apt update` or trying to install packages, you encounter the following error messages:
+
+Err:3 http://security.ubuntu.com/ubuntu mantic-security Release
+404  Not Found [IP: 185.125.190.82 80]
+Err:6 http://archive.ubuntu.com/ubuntu mantic Release
+404  Not Found [IP: 91.189.91.82 80]
+E: The repository 'http://security.ubuntu.com/ubuntu mantic-security Release' no longer has a Release file.
+E: The repository 'http://archive.ubuntu.com/ubuntu mantic Release' no longer has a Release file.
+
+This issue occurs when the Ubuntu release you are using is no longer supported, and its repositories have been moved to the `old-releases` server.
+
+---
+
+## Step-by-Step Solution
+
+### Step 1: Open the Terminal
+Ensure you have superuser (root) privileges. You can switch to the root user or use `sudo` with the commands provided below.
+
+### Step 2: Replace Repository URLs
+Run the following one-liner command to replace the repository URLs in `/etc/apt/sources.list` with the `old-releases.ubuntu.com` server:
+
+  
+sudo sed -i 's|archive.ubuntu.com|old-releases.ubuntu.com|g' /etc/apt/sources.list && sudo sed -i 's|security.ubuntu.com|old-releases.ubuntu.com|g' /etc/apt/sources.list
+
+This command will:
+1. Use `sed` (Stream Editor) to find and replace `archive.ubuntu.com` and `security.ubuntu.com` with `old-releases.ubuntu.com` in your sources list file.
+2. Update the file so your package manager fetches files from the correct location.
+
+---
+
+### Step 3: Update the Package List
+Run the following command to refresh your package list:
+
+  
+sudo apt update
+
+This will connect to the new repository location and download the latest package information.
+
+---
+
+### Step 4: Upgrade Your System (Optional)
+If necessary, upgrade your installed packages to ensure they match the versions available in the `old-releases` repository:
+
+  
+sudo apt upgrade -y
+
+---
+
+### Step 5: Verify and Test
+You should now be able to install and update packages without encountering the 404 error. To confirm, try installing a test package:
+
+  
+sudo apt install <package_name>
+
+---
+
+### Additional Notes
+If the problem persists or the file `/etc/apt/sources.list` contains additional invalid or non-existent repository links:
+1. Open the file for manual editing:
+
+     
+   sudo nano /etc/apt/sources.list
+
+2. Ensure all `http://` or `https://` URLs are pointing to `old-releases.ubuntu.com`.
+
+3. Save the file (`Ctrl+O` and `Ctrl+X` in nano) and retry the commands.
+
+---
+
+### Conclusion
+This tutorial provides a quick and reliable way to fix the "404 Not Found" errors related to unsupported Ubuntu releases by redirecting the repository sources to `old-releases.ubuntu.com`. This ensures that package management operations, such as `apt update` and `apt install`, work seamlessly again.

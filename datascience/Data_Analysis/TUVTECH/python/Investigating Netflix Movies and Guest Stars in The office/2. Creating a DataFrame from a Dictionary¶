@@ -1,0 +1,30 @@
+2. Creating a DataFrame from a Dictionary¶
+Question: Import the pandas library using its usual alias, pd. Then, create a DataFrame named durations_df using the movie_dict dictionary created in the previous task. Finally, print the entire DataFrame to confirm it was created correctly.
+
+Answer (Code):
+
+python
+Copy code
+# Step 1: Import pandas with its usual alias
+import pandas as pd
+
+# Step 2: Create the DataFrame using the movie_dict dictionary
+durations_df = pd.DataFrame(movie_dict)
+
+# Step 3: Print the entire DataFrame to inspect its contents
+print(durations_df)
+Output:
+
+plaintext
+Copy code
+   years  durations
+0   2011        103
+1   2012        101
+2   2013         99
+3   2014        100
+4   2015        100
+5   2016         95
+6   2017         95
+7   2018         96
+8   2019         93
+9   2020         90

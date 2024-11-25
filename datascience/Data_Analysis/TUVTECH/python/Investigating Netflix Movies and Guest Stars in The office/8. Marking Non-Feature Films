@@ -1,0 +1,41 @@
+### 8. Marking Non-Feature Films
+
+**Question:**
+Initialize an empty list named `colors` to store color values. Use a `for` loop to iterate through the rows of the `netflix_movies_col_subset` DataFrame and append colors to the list based on the following conditions:
+- If the genre is "Children", append `"red"`.
+- If the genre is "Documentaries", append `"blue"`.
+- If the genre is "Stand-Up", append `"green"`.
+- For any other genre, append `"black"`.
+
+Finally, print the first 10 values of the `colors` list to inspect the results.
+
+**Answer (Code):**
+```python
+# Step 1: Initialize an empty list to store colors
+colors = []
+
+# Step 2: Iterate over rows of netflix_movies_col_subset
+for _, row in netflix_movies_col_subset.iterrows():
+    if row['genre'] == "Children":
+        colors.append("red")
+    elif row['genre'] == "Documentaries":
+        colors.append("blue")
+    elif row['genre'] == "Stand-Up":
+        colors.append("green")
+    else:
+        colors.append("black")
+
+# Step 3: Print the first 10 values of the colors list to inspect
+print(colors[:10])
+``` 
+
+**Expected Output:**
+A list of the first 10 color values, depending on the genres in the DataFrame:
+```plaintext
+['red', 'blue', 'green', 'black', 'red', 'blue', 'black', 'green', 'black', 'red']
+```
+
+**Notes:**
+- The `iterrows()` method is used to iterate through each row of the DataFrame.
+- Ensure the `genre` column in `netflix_movies_col_subset` contains valid string values.
+- The `colors` list will later be used for visualization to highlight specific genres with distinct colors.

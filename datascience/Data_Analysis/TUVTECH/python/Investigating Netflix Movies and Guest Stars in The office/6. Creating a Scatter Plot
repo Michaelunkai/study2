@@ -1,0 +1,29 @@
+### 6. Creating a Scatter Plot
+
+**Question:**
+Using the `netflix_movies_col_subset` DataFrame, create a scatter plot with `release_year` on the x-axis and `duration` on the y-axis. Add the title "Movie Duration by Year of Release" and display the plot.
+
+**Answer (Code):**
+```python
+# Step 1: Import matplotlib.pyplot (if not already imported)
+import matplotlib.pyplot as plt
+
+# Step 2: Create a figure and set the figure size
+fig = plt.figure(figsize=(12, 8))
+
+# Step 3: Create a scatter plot with release_year on x-axis and duration on y-axis
+plt.scatter(netflix_movies_col_subset['release_year'], netflix_movies_col_subset['duration'])
+
+# Step 4: Add a title to the plot
+plt.title("Movie Duration by Year of Release")
+
+# Step 5: Show the plot
+plt.show()
+``` 
+
+**Expected Output:**
+A scatter plot displaying individual movies with their `release_year` on the x-axis and `duration` on the y-axis. The title "Movie Duration by Year of Release" will appear above the plot.
+
+**Notes:**
+- Ensure `netflix_movies_col_subset` is properly created and contains the columns `release_year` and `duration`.
+- The `figsize=(12, 8)` increases the size of the plot for better visibility.

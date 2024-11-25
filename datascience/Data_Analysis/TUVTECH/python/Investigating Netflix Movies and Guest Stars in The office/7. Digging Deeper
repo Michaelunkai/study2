@@ -1,0 +1,27 @@
+### 7. Digging Deeper
+
+**Question:**
+Subset the `netflix_movies_col_subset` DataFrame to create a new DataFrame named `short_movies`, containing only movies with a duration fewer than 60 minutes. Print the first 20 rows of `short_movies` to get an overview of the types of films with short durations.
+
+**Answer (Code):**
+```python
+# Step 1: Filter for movies with a duration shorter than 60 minutes
+short_movies = netflix_movies_col_subset[netflix_movies_col_subset['duration'] < 60]
+
+# Step 2: Print the first 20 rows of the short_movies DataFrame
+print(short_movies.head(20))
+``` 
+
+**Expected Output:**
+The first 20 rows of the `short_movies` DataFrame, showing movies with durations under 60 minutes. The output might look something like this:
+
+```plaintext
+               title    country        genre  release_year  duration
+0  Example Short 1  Example Country  Example Genre      2015        45
+1  Example Short 2  Example Country  Example Genre      2018        50
+...
+```
+
+**Notes:**
+- Ensure that the `netflix_movies_col_subset` DataFrame contains valid `duration` values.
+- This filtered DataFrame focuses on short films, allowing you to analyze trends for movies under an hour long.

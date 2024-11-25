@@ -1,0 +1,18 @@
+# Open Plex Web App
+# Navigate to your Plex server's web interface by entering the following URL in your browser:
+http://localhost:32400/web
+
+# Sign in to your Plex account if prompted.
+
+# Access Media Item
+# Click on any media item (e.g., a movie or TV show episode) to open its details page.
+
+# Retrieve XML Data
+# Click the three-dot menu (⋯) on the media item's page.
+# Select "Get Info" from the dropdown menu.
+# In the information window, click the "View XML" button.
+
+# Extract Plex Token
+# The XML data will open in a new browser tab.
+# In the URL of this new tab, locate the parameter 'X-Plex-Token=' followed by your token value.
+# Copy the token value for your use.

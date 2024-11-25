@@ -1,0 +1,31 @@
+1. Pivot tables
+00:00 - 00:13
+Pivot tables are another way of calculating grouped summary statistics. If you've ever used a spreadsheet, chances are you've used a pivot table. Let's see how to create pivot tables in pandas.
+
+2. Group by to pivot table
+00:13 - 00:37
+In the last lesson, we grouped the dogs by color and calculated their mean weights. We can do the same thing using the pivot_table method. The "values" argument is the column that you want to summarize, and the index column is the column that you want to group by. By default, pivot_table takes the mean value for each group.
+
+3. Different statistics
+00:37 - 00:50
+If we want a different summary statistic, we can use the aggfunc argument and pass it a function. Here, we take the median for each dog color using NumPy's median function.
+
+4. Multiple statistics
+00:50 - 01:02
+To get multiple summary statistics at a time, we can pass a list of functions to the aggfunc argument. Here, we get the mean and median for each dog color.
+
+5. Pivot on two variables
+01:02 - 01:34
+You also previously computed the mean weight grouped by two variables: color and breed. We can also do this using the pivot_table method. To group by two variables, we can pass a second variable name into the columns argument. While the result looks a little different than what we had before, it contains the same numbers. There are NaNs, or missing values, because there are no black Chihuahuas or gray Labradors in our dataset, for example.
+
+6. Filling missing values in pivot tables
+01:34 - 01:47
+Instead of having lots of missing values in our pivot table, we can have them filled in using the fill_value argument. Here, all of the NaNs get filled in with zeros.
+
+7. Summing with pivot tables
+01:47 - 02:39
+If we set the margins argument to True, the last row and last column of the pivot table contain the mean of all the values in the column or row, not including the missing values that were filled in with Os. For example, in the last row of the Labrador column, we can see that the mean weight of the Labradors is 26 kilograms. In the last column of the Brown row, the mean weight of the Brown dogs is 24 kilograms. The value in the bottom right, in the last row and last column, is the mean weight of all the dogs in the dataset. Using margins equals True allows us to see a summary statistic for multiple levels of the dataset: the entire dataset, grouped by one variable, by another variable, and by two variables.
+
+8. Let's practice!
+02:39 - 02:46
+Time to practice aggregating data using pivot tables!

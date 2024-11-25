@@ -1,0 +1,31 @@
+### 3. A Visual Inspection of Our Data
+
+**Issue Fix:**
+The error occurs due to a typo in the import statement (`metaplotlib.pyplot` instead of `matplotlib.pyplot`). Correcting the import statement will resolve the issue.
+
+**Corrected Answer (Code):**
+```python
+# Step 1: Import matplotlib.pyplot under its usual alias
+import matplotlib.pyplot as plt
+
+# Step 2: Initialize a matplotlib figure
+fig = plt.figure()
+
+# Step 3: Create a line plot for years and durations
+plt.plot(durations_df['years'], durations_df['durations'])
+
+# Step 4: Add a title to the plot
+plt.title("Netflix Movie Durations 2011-2020")
+
+# Step 5: Show the plot
+plt.show()
+```
+
+Make sure you have `matplotlib` installed in your environment. If you encounter a `ModuleNotFoundError` for `matplotlib`, install it with the following command:
+
+```bash
+pip install matplotlib
+```
+
+**Output:**
+You will see a line plot with the years (2011–2020) on the x-axis and the movie durations on the y-axis, showing trends over the years.
