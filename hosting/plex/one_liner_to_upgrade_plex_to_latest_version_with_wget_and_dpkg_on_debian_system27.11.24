@@ -1,0 +1,1 @@
+wget -O plexmediaserver_1.41.2.9200-c6bbc1b53_amd64.deb "https://plex.tv/downloads/latest/5?channel=16&build=linux-x86_64&distro=debian&X-Plex-Token=5x4gmbyF9L27UaAswD6z" && sudo dpkg -i plexmediaserver_1.41.2.9200-c6bbc1b53_amd64.deb && sudo systemctl restart plexmediaserver && sudo systemctl status plexmediaserver

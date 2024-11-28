@@ -1,0 +1,18 @@
+1)add aliases:
+alias mvd=" mv ~/Downloads/* /home/ubuntu/Downloads && down && ls"
+alias big2='find . -maxdepth 2 -type f -exec du -h {} + | sort -hr'
+
+2)install:
+updates
+
+
+3)add/change:
+- change wishlist.py to b.py
+- add 1gb of memory
+- replace myg with /mnt/c/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/d.py 
+
+3)new snap
+4)delete old snap
+5)new backup
+6)delete old backup
+7)proxmox shell: ubudocker

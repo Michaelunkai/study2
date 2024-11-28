@@ -44,8 +44,7 @@ def load_data():
 
     movies = merged_data[
         (merged_data['titleType'] == 'movie') &
-        (merged_data['numVotes'] >= 30000) &
-        (merged_data['originalLanguage'] == 'en')
+        (merged_data['numVotes'] >= 30000)
     ]
     movies = movies.dropna(subset=['primaryTitle', 'averageRating', 'numVotes', 'genres', 'startYear', 'runtimeMinutes'])
 

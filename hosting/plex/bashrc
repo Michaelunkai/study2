@@ -1,7 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-                                                                                       # If not running interactively, don't do anything
+
+# If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -107,4 +108,6 @@ alias brc="nano /root/.bashrc"
 alias brc1="source /root/.bashrc"
 alias catbrc="cat /root/.bashrc"
 alias big2="find . -maxdepth 2 -type f -exec du -h {} + | sort -hr"
-alias catalias="cat  /root/.bashrc"
+alias catrc="cat  /root/.bashrc"
+alias venv="cd && sudo apt install python3-venv -y && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip"
+

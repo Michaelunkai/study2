@@ -1,0 +1,21 @@
+▲A  A▼
+Install PowerShell on Debian/Ubuntu
+What is PowerShell?
+PowerShell is a cross-platform task automation solution made up of a command-line shell, a scripting language, and a configuration management framework. PowerShell runs on Windows, Linux, and macOS. -https://docs.microsoft.com/en-us/powershell/scripting/overview
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# lookup latest release URL
+regex='"browser_download_url": "(https:\/\/github.com\/PowerShell\/PowerShell\/releases\/download\/[^/]*\/powershell_[^/]*.deb_amd64\.deb)"' && response=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/PowerShell/PowerShell/releases/latest) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}"
+# download  
+wget -O ./powershell.deb $downloadURL
+# install  
+sudo dpkg -i ./powershell.deb
+# run  
+pw 
+Source: https://docs.microsoft.com/en-us/ /scripting/install/install-debian
+
+ 

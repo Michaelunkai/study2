@@ -23,6 +23,7 @@ alias userver="pct exec 102 -- fstrim -av"
 alias ccupload="pct exec 103 -- fstrim -av"
 alias brc="nano /root/.bashrc"
 alias brc1="source /root/.bashrc"
+alias catrc="cat /root/.bashrc"
 alias cc="clear"
 alias pl="pct enter 100"
 alias cdv="cd /var/lib/vz"
@@ -33,3 +34,6 @@ alias restore='docker run -v /var/lib/vz/template/iso/:/c/ michadockermisha/back
 alias backup='cd /var/lib/vz/dump && docker build -t michadockermisha/backup:proxdump . && docker push michadockermisha/backup:proxdump && cd ../template/iso && docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
 alias space="for CTID in \$(pct list | awk 'NR>1 {print \$1}'); do NAME=\$(pct list | awk -v id=\$CTID '\$1 == id {print \$3}'); SIZE=\$(pct config \$CTID | grep '^rootfs' | awk -F'size=' '{print \$2}'); USED=\$(pct exec \$CTID -- df / | awk 'NR==2 {print \$3}'); USED_HUMAN=\$(pct exec \$CTID -- df -h / | awk 'NR==2 {print \$3}'); echo \"CTID \$CTID (Name: \$NAME): Size: \$SIZE, Used: \${USED_HUMAN} (\${USED}K)\"; done"
 alias restoreubu="qmrestore /var/lib/vz/dump/vzdump-qemu-101-2024_11_15-21_33_13.vma 101 --storage local && qm set 101 --name ubuntu --onboot 1 && qm start 101"
+alias dkill='docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
+alias ubudocker="cd && ./ubu.sh && dkill"
+alias ccubu="bash /root/ccubu.sh"

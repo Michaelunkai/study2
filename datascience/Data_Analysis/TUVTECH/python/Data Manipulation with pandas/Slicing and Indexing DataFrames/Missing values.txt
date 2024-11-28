@@ -1,0 +1,44 @@
+Transcript
+1. Missing values
+00:00 - 00:06
+You could be given a DataFrame that has missing values, so it's important to know how to handle them.
+
+2. What's a missing value?
+00:06 - 00:18
+Most data is not perfect - there's always a possibility that there are some pieces missing from your dataset. For example, maybe on the day that Bella and Cooper's owner weighed them,
+
+3. What's a missing value?
+00:18 - 00:24
+the scale was broken. Now we have two missing values in our dataset.
+
+4. Missing values in pandas DataFrames
+00:24 - 00:32
+In a pandas DataFrame, missing values are indicated with N-a-N, which stands for "not a number."
+
+5. Detecting missing values
+00:32 - 00:58
+When you first get a DataFrame, it's a good idea to get a sense of whether it contains any missing values, and if so, how many. That's where the isna method comes in. When we call isna on a DataFrame, we get a Boolean for every single value indicating whether the value is missing or not, but this isn't very helpful when you're working with a lot of data.
+
+6. Detecting any missing values
+00:58 - 01:15
+If we chain dot-isna with dot-any, we get one value for each variable that tells us if there are any missing values in that column. Here, we see that there's at least one missing value in the weight column, but not in any of the others.
+
+7. Counting missing values
+01:15 - 01:27
+Since taking the sum of Booleans is the same thing as counting the number of Trues, we can combine sum with isna to count the number of NaNs in each column.
+
+8. Plotting missing values
+01:27 - 01:47
+We can use those counts to visualize the missing values in the dataset using a bar plot. Plots like this are more interesting when you have missing data across different variables, while here, only weights are missing. Now that we know there are missing values in the dataset, what can we do about them?
+
+9. Removing missing values
+01:47 - 02:05
+One option is to remove the rows in the DataFrame that contain missing values. This can be done using the dropna method. However, this may not be ideal if you have a lot of missing data, since that means losing a lot of observations.
+
+10. Replacing missing values
+02:05 - 02:25
+Another option is to replace missing values with another value. The fillna method takes in a value, and all NaNs will be replaced with this value. There are also many sophisticated techniques for replacing missing values, which you can learn more about in our course about missing data.
+
+11. Let's practice!
+02:25 - 02:32
+Alright, time to wrangle with some missing values on your own!

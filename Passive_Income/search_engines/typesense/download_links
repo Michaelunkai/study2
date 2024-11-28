@@ -1,0 +1,28 @@
+Docker
+Docker
+docker pull typesense/typesense:27.1
+            
+Linux
+DEB (x64)
+RPM (x64)
+Binary (x64)
+DEB (arm64)
+RPM (arm64)
+Binary (arm64)
+curl -O https://dl.typesense.org/releases/27.1/typesense-server-27.1-amd64.deb
+            
+MacOS
+Homebrew
+Binary (Apple Silicon)
+Binary (Intel)
+brew install typesense/tap/typesense-server@27.1
+            
+Windows
+Docker
+docker pull typesense/typesense:27.1
+            
+Typesense Cloud
+1. Login or Signup at https://cloud.typesense.org
+2. Click on "New Cluster" and choose a version
+3. Click on Launch
+            

@@ -1,0 +1,1 @@
+mkdir ~/apicurio-registry && cd ~/apicurio-registry && echo -e "services:\n  apicurio-registry:\n    image: quay.io/apicurio/apicurio-registry-mem:2.4.1.Final\n    container_name: apicurio-registry\n    ports:\n      - \"7777:8080\"\n    environment:\n      - QUARKUS_PROFILE=prod\n    restart: unless-stopped" > docker-compose.yml && docker-compose up -d && gcl 7777

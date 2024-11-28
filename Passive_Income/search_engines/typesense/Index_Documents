@@ -1,0 +1,36 @@
+Index Documents
+Prepare your dataset in JSON format and index it.
+
+Example JSON file (documents.json):
+
+json
+ 
+[
+  {
+    "id": "1",
+    "title": "First Document",
+    "content": "This is the first document content.",
+    "tags": ["example", "test"],
+    "published_at": 1700000000
+  },
+  {
+    "id": "2",
+    "title": "Second Document",
+    "content": "This is the second document content.",
+    "tags": ["example", "demo"],
+    "published_at": 1700000010
+  }
+]
+Index the documents:
+
+ 
+ 
+import json
+
+# Load documents
+with open('documents.json', 'r') as f:
+    documents = json.load(f)
+
+# Index documents
+for document in documents:
+    client.collections['documents'].documents.create(document)

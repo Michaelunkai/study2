@@ -1,0 +1,1 @@
+cd && curl -O https://dl.typesense.org/releases/27.1/typesense-server-27.1-amd64.deb && sudo dpkg -i typesense-server-27.1-amd64.deb && typesense-server --version

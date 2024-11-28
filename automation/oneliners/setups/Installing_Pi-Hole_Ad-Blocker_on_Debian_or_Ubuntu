@@ -1,0 +1,31 @@
+▲A  A▼
+Installing Pi-Hole Ad-Blocker on Debian/Ubuntu
+Installing Pihole
+Click the Applications button > Accessories > Terminal
+Run the following commands to install updates
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# clean downloaded software downloads
+sudo apt clean
+# install pihole
+curl -sSL https://install.pi-hole.net | bash
+Press Enter until the DNS selection is displayed
+Select a DNS provider and press Enter
+Press Enter through the rest of the Pi-Hole installer, selecting the defaults
+Copy the randomly generated admin password (just in case)
+Press Enter to complete the installation
+Run the following command to change the Pi-Hole admin password
+sudo pihole -a -p
+Enter and confirm the new password
+Click the Applications button > Internet > Chromium Web Browser
+Navigate to http://DNSorIP/admin
+Click Login
+Authenticate with the admin password
+Testing Pi-Hole
+In a web browser, open a new tab and navigate to https://yahoo.com
+Go back to the Pi-Hole tab and see that some DNS queries have been blocked
+More on Pi-Hole https://pi-hole.net/
+
+ 
