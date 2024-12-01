@@ -125,3 +125,4 @@ down
 rm -rf /mnt/c/Users/micha/Downloads/study2
 
 echo "All changes have been successfully pushed to the repository."
+cmd.exe /c start chrome https://github.com/Michaelunkai/study2

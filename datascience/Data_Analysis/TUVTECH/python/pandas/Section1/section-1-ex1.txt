@@ -1,0 +1,56 @@
+
+Skip to main content
+Section 1 Ex1
+Section 1 Ex1_
+
+# IMPORTANT: RUN THIS CELL IN ORDER TO IMPORT YOUR KAGGLE DATA SOURCES,
+# THEN FEEL FREE TO DELETE THIS CELL.
+# NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE'S PYTHON
+# ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR
+# NOTEBOOK.
+
+import kagglehub
+organizations_openfoodfacts_world_food_facts_path = kagglehub.dataset_download('organizations/openfoodfacts/world-food-facts')
+organizations_tovtech_pandas_exercises_path = kagglehub.dataset_download('organizations/TovTech/pandas-exercis
+
+Exercise 1
+Step 0. Import the necessary libraries
+
+import pandas as pd
+
+Step 1. Use the tsv file and assign it to a dataframe called food
+
+file_path = '/kaggle/input/world-food-facts/en.openfoodfacts.org.products.tsv'
+food = pd.read_csv(file_path, sep='\t', low_memory=False)
+
+Step 2. See the first 5 entries
+
+food.head()
+
+Step 3. What is the number of observations in the dataset?
+
+len(food)
+
+Step 4. What is the number of columns in the dataset?
+
+food.shape[1]
+
+Step 5. Print the name of all the columns.
+
+food.columns.tolist()
+
+Step 6. What is the name of 105th column?
+
+food.columns[104]
+
+Step 7. What is the type of the observations of the 105th column?
+
+food.dtypes[104]
+
+Step 8. How is the dataset indexed?
+
+food.index
+
+Step 9. What is the product name of the 19th observation?
+
+food.iloc[18]['product_name']

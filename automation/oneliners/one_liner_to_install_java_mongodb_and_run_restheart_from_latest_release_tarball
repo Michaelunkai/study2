@@ -1,0 +1,1 @@
+getjava && wget https://github.com/SoftInstigate/restheart/releases/download/8.1.6/restheart.tar.gz && tar -xzf restheart.tar.gz && cd restheart && sudo apt install -y mongodb && java -jar restheart.jar

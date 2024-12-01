@@ -1,0 +1,1 @@
+wget -q https://repo.typedb.com/public/public-release/raw/names/typedb-all-linux-x86_64/versions/3.0.0-alpha-9/typedb-all-linux-x86_64-3.0.0-alpha-9.tar.gz && tar -xf typedb-all-linux-x86_64-3.0.0-alpha-9.tar.gz && (cd typedb-all-linux-x86_64-3.0.0-alpha-9 && ./typedb console)

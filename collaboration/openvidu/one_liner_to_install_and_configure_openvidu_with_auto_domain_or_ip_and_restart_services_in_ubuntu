@@ -1,0 +1,14 @@
+curl https://s3-eu-west-1.amazonaws.com/aws.openvidu.io/install_openvidu_latest.sh -o install_openvidu.sh && \
+chmod +x install_openvidu.sh && \
+sudo ./install_openvidu.sh && \
+cd openvidu && \
+echo "DOMAIN_OR_PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)" >> .env && \
+echo "OPENVIDU_SECRET=YOUR_SECRET_KEY" >> .env && \
+sudo ./openvidu restart
+
+
+Key Notes:
+
+Replace YOUR_SECRET_KEY with your actual secret key.
+The DOMAIN_OR_PUBLIC_IP is automatically set to your public IP using curl http://checkip.amazonaws.com. If you're using a domain, replace the command with echo "DOMAIN_OR_PUBLIC_IP=your_domain" >> .env.
+If there's still an error regarding the DOMAIN_OR_PUBLIC_IP, ensure the value is correctly resolvable as a domain or IP address.
