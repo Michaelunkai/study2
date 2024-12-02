@@ -1,0 +1,59 @@
+▲A  A▼
+Install n8n - Open Source Workflow Automation - on Windows
+What is n8n?
+n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, be available to self-host, and allow you to add your own custom functions, logic and apps. n8n's node-based approach makes it highly versatile, enabling you to connect anything to everything. -https://github.com/n8n-io/n8n
+Installing n8n
+Log into the Windows device
+Download NodeJS Download
+Install NodeJS > During the install, make sure to check the Tools for Native Modules option
+At the Native Modules prompt, press any key to begin the installation process
+NOTE: This process takes quite a while to install, be patient. Proceed once the PowerShell window closes
+Open File Explorer and navigate to C:\Windows\System32\LogFiles\WMI
+Right click on RtBackup > Properties > Security tab > Click Advanced
+Click the Change option next to the Owner field > Type administrators > Click OK
+Check the Replace all child objects box > Click OK
+Click Yes to confirm
+Click OK on all open dialog windows
+Launch PowerShell as an administrator
+Run the following commands in the PowerShell window
+# install n8n
+npm install n8n --location=global
+# test run n8n
+npx n8n
+If n8n errors out with a permissions issue, back in File Explorer, navigate to C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\INetCache
+Right click on Content.IE5 > Properties > Security tab > Click Edit...
+Select the Everyone entry > Click Remove
+Click OK on all open dialog windows
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to n8n and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+Complete the form fields as follows:
+Program/script: "%ProgramFiles%\nodejs\npx.cmd"
+Add arguments: n8n
+
+Click Next
+Check the Open the Properties dialog checkbox > Click Finish
+In the Properties dialog, select Run whether user is logged on or not
+Check the Run with highest privileges box > Click OK to create the scheduled task
+Right click the n8n task > Run
+Open a web browser and navigate to http://DNSorIP:5678
+Complete the form with an email, first name, last name and password > Click next
+Complete the questionnaire > Click continue
+Click Get started
+Welcome to n8n
+By default, the n8n database and configuration file live in the user's profile .n8n folder (ie C:\Users\i12bretro\.n8n). To utilize a database other than SQLite, setup the database and authentication, then create a .bat file like the example below and call the .bat file as the action of the scheduled task.
+
+SET DB_TYPE=my db
+SET DB_MYSQLDB_DATABASE=n8n
+SET DB_MYSQLDB_HOST=localhost
+SET DB_MYSQLDB_USER=n8n_rw
+SET DB_MYSQLDB_PASSWORD=n8n_N8N!
+SET GENERIC_TIMEZONE=America/New_York
+"%programfiles%\nodejs\npx.cmd" n8n
+
+Source: https://docs.n8n.io/hosting/installation/npm/
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

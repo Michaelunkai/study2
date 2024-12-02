@@ -1,1 +1,0 @@
- docker run -d --name gitlab --hostname gitlab.example.com -p 443:443 -p 80:80 -p 22:22 -v gitlab-config:/etc/gitlab -v gitlab-logs:/var/log/gitlab -v gitlab-data:/var/opt/gitlab gitlab/gitlab-ee:latest && sleep 30 && gc http://localhost
