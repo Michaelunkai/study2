@@ -1,0 +1,7 @@
+wget -O joget.tar.gz http://sourceforge.net/projects/jogetworkflow/files/joget-linux-8.1.8.tar.gz/download && \
+tar xvfz joget.tar.gz && \
+cd joget-linux-8.1.8/apache-tomcat-9.0.97 && \
+sed -i 's/8080/5555/g' conf/server.xml && \
+chmod +x bin/*.sh && \
+bin/startup.sh && \
+gc http://localhost:5555/jw

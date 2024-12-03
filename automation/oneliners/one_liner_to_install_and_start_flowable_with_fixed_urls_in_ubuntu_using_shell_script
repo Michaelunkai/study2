@@ -1,0 +1,1 @@
+curl -O https://raw.githubusercontent.com/douglascrp/alfresco-ubuntu-install/master/flowableinstall.sh && sed -i 's|http://central.maven.org/maven2|https://repo1.maven.org/maven2|g' flowableinstall.sh && chmod u+x flowableinstall.sh && ./flowableinstall.sh && sudo /opt/flowable/flowable-service.sh start

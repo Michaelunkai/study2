@@ -1,0 +1,37 @@
+### Summary of Recent Learnings: Left Joins in Data Merging
+
+**Topic Covered**: *Merging Tables with Different Join Types (Chapter 2, "Joining Data with pandas")*
+
+In your last session, you focused on understanding and applying **left joins** in data merging. Here’s a concise overview of what you learned:
+
+---
+
+**Key Concepts of Left Joins**:
+- A **left join** includes all rows from the left table and matches rows from the right table where key columns align. Missing values in the right table are filled with `NaN` for unmatched rows.
+- Left joins are performed using the `merge` method in pandas, with the argument `how='left'`.
+
+**Highlights**:
+1. **Retaining All Rows from the Left Table**:
+   - After a left join, the resulting table contains all rows from the left table.
+   - For one-to-one relationships, the number of rows in the merged table equals the left table.
+
+2. **Practical Applications**:
+   - Identifying Missing Data:
+     - Example: Merging the `movies` table with the `financials` table to find movies lacking financial information.
+   - Enriching Datasets:
+     - Example: Adding marketing taglines to a dataset of Toy Story movies to enhance its details.
+
+---
+
+**Code Example**:  
+Performing a left join to merge datasets:
+```python
+merged_data = movies.merge(taglines, on='ID', how='left')
+```
+- Merges the `movies` table with the `taglines` table based on the `ID` column.
+- Ensures all rows from the `movies` table are included in the result.
+
+---
+
+**Next Steps**:
+The upcoming lesson will focus on techniques for **analyzing and visualizing merged data** to uncover insights effectively.

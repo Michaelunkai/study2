@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y taskwarrior && task add "Start using Taskwarrior" due:today
