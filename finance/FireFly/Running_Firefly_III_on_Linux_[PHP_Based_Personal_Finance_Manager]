@@ -1,0 +1,94 @@
+▲A  A▼
+Running Firefly III on Linux [PHP Based Personal Finance Manager]
+What is Firefly III?
+"Firefly III" is a (self-hosted) manager for your personal finances. It can help you keep track of your expenses and income, so you can spend less and save more. -https://docs.firefly-iii.org/firefly-iii/installation/self_hosted/?mtm_campaign=docu-internal&mtm_kwd=self_hosted
+Installation
+Log into the Linux device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install prerequisites
+sudo apt install curl wget zip lsb-release apt-transport-https ca-certificates git -y
+# add the php gpg key
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+# add the php apt repository
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install Apache HTTPD and MySQL
+sudo apt install apache2 mariadb-server mariadb-client -y
+# install PHP components
+sudo apt install php libapache2-mod-php php8.1-common php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-mbstring php8.1-bcmath php8.1-zip php8.1-intl php-sodium -y
+# install composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type N and press Enter to not switch to unix socket authentication
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the Firefly database and database user
+CREATE DATABASE firefly;
+GRANT ALL ON firefly.* to 'firefly_rw'@'localhost' IDENTIFIED BY 'f!r3f1y:)';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# create the firefly app
+sudo composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist /var/www/firefly
+# set ownership of the firefly directory
+sudo chown -R www-data:www-data /var/www/firefly
+# limit permissions on storage
+sudo chmod -R 775 /var/www/firefly/storage
+# change directory to the application folder
+cd /var/www/firefly
+# edit the .env file
+sudo nano /var/www/firefly/.env
+Scroll through the .env file and modify the following values
+SITE_OWNER=<% admin email address %>
+TZ=<% timezone %>
+DB_CONNECTION=my 
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=firefly
+DB_USERNAME=firefly_rw
+DB_PASSWORD=f!r3f1y:)
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands in terminal
+# initialize the database
+php artisan migrate:refresh --seed
+  artisan firefly-iii:upgrade-database
+  artisan passport:install
+# create firefly apache configuration
+sudo nano /etc/apache2/sites-available/firefly.conf
+Paste the following configuration into firefly.conf
+Alias /firefly "/var/www/firefly/public/"
+
+Options FollowSymlinks Includes ExecCGI
+AllowOverride All
+Require all granted
+Order allow,deny
+allow from all
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Run the following command to enable the Firefly site
+# enable rewrite module
+sudo a2enmod rewrite
+# enable the firefly site
+sudo a2ensite firefly
+# restart the apache2 service
+sudo systemctl restart apache2
+Open a web browser and navigate to http://DNSorIP/firefly
+Enter an email address and password > Click Register
+Welcome to Firefly III
+ 

@@ -37,3 +37,7 @@ alias restoreubu="qmrestore /var/lib/vz/dump/vzdump-qemu-101-2024_11_15-21_33_13
 alias dkill='docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
 alias ubudocker="cd && ./ubu.sh && dkill"
 alias ccubu="bash /root/ccubu.sh"
+alias backupubu="bash /root/backup_vm_101.sh"
+alias snapubu="cd && ./manage_snapshots_vm_101.sh"
+alias bbubu="ccubu && backupubu && reubu && snapubu && ubudocker"
+alias reubu="cd && ./restore_and_start_vm.sh"

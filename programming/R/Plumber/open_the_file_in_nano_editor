@@ -1,0 +1,9 @@
+q()
+nano plumber.R
+#* @apiTitle Example Plumber API
+
+#* Return the current date
+#* @get /date
+function() {
+  list(date = Sys.Date())
+}

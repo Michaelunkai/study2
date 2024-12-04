@@ -1,0 +1,8 @@
+sudo apt-get update && \
+curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add - && \
+echo "deb https://apache.bintray.com/couchdb-deb focal main" | sudo tee /etc/apt/sources.list.d/couchdb.list && \
+sudo apt-get update && \
+sudo apt-get install -y couchdb && \
+sudo systemctl start couchdb && \
+sudo systemctl enable couchdb && \
+echo "Apache CouchDB setup and running at http://127.0.0.1:5984/_utils/"

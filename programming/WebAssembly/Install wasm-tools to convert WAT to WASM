@@ -1,0 +1,22 @@
+# Download and run the Wasmtime installation script
+curl https://wasmtime.dev/install.sh -sSf | bash
+
+# Verify the installation by checking the Wasmtime version
+wasmtime --version
+
+# Create a directory for your WebAssembly project
+mkdir ~/wasm_project
+cd ~/wasm_project
+
+# Create a simple WebAssembly text format (WAT) file
+nano hello.wat
+wat
+ 
+(module
+  (func $hello (import "" "hello"))
+  (func (export "run") (call $hello))
+)
+ 
+ 
+# Install wasm-tools to convert WAT to WASM
+cargo install wasm-tools

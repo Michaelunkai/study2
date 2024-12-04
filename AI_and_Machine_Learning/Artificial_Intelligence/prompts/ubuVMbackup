@@ -1,12 +1,8 @@
 1)add aliases:
-alias fixlock='pids=$(pgrep -x dpkg); if [ -n "$pids" ]; then sudo kill -9 $pids; fi; sudo rm -f /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/lib/dpkg/updates/*; sudo dpkg --configure -a'
-alias mvdown="mv ~/Downloads/* /home/ubuntu/Downloads && down && ls"
 
 2)install:
-sudo apt purge -y libwine libreoffice-core libreoffice-style-yaru libreoffice-common  linux-modules-extra-6.2.0-26-generic linux-headers-6.11.0-9 linux-headers-6.11.0-8 linux-headers-6.11.0-9-generic linux-headers-6.11.0-8-generic gcc-14-x86-64-linux-gnu gcc-13-x86-64-linux-gnu gcc-11 libgcc-14-dev libgcc-13-dev fonts-noto-cjk memtest86+ speech-dispatcher && sudo apt install byobu -y && sudo purge-old-kernels && apt purge byobu -y && sudo apt autoremove && sudo apt clean
 
 3)add/change:
-change myg.py to /mnt/c/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/e.py
 
 
 *)scpmyg

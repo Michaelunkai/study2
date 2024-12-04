@@ -1,0 +1,19 @@
+create user,
+
+than :
+datacenter > api tokens > add :
+User: username@pam
+Token Id: example-username
+
+press add.
+
+now go to:
+datacenter > permissions > add > api token permissions :
+
+path: /
+api token: <>
+role: Administrator
+
+press add. 
+
+

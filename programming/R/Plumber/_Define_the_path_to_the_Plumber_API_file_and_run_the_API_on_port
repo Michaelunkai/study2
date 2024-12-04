@@ -1,0 +1,5 @@
+# Define the path to the Plumber API file
+api <- plumb("plumber.R")
+
+# Run the API on port 8000
+api$run(host = "0.0.0.0", port = 8000)
