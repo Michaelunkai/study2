@@ -6,8 +6,4 @@
 
 
 *)scpmyg
-*)new snap
-*)delete old snap
-*)new backup
-*)delete old backup
-*)proxmox shell: ubudocker
+*)bbubu (backup, restore, new snap, ubudocker)

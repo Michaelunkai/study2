@@ -1,0 +1,27 @@
+1. Do the genders commit different violations?
+00:00 - 00:20
+In the last chapter, we focused on preparing the traffic stops dataset for analysis. In this chapter, you'll use the dataset to explore the relationship between gender and policing, and you'll practice figuring out how to use pandas to answer specific questions.
+
+2. Counting unique values (1)
+00:20 - 01:00
+Let's start by discussing a few methods that will help you with your analysis. The first method is value_counts(), which counts the unique values in a Series. It's best suited for a column that contains categorical rather than numerical data. For example, we can apply value_counts() to the stop_outcome column, which contains the outcome of each traffic stop. The results are displayed in descending order, so you can see that the most common outcome is a citation, also known as a ticket, and the second most common outcome is a warning.
+
+3. Counting unique values (2)
+01:00 - 01:26
+Because value_counts() outputs a pandas Series, you can take the sum of this Series by simply adding the sum() method on the end. This is known as method chaining, a powerful technique we'll use throughout the course. The sum() of the value_counts() is actually equal to the number of rows in the DataFrame, which will be the case for any Series that has no missing values.
+
+4. Expressing counts as proportions
+01:26 - 02:09
+Rather than examining the raw counts, you might prefer to see the stop outcomes as proportions of the total. So if you wanted to know what percentage of traffic stops ended in a citation, you would divide the number of citations by the total number of outcomes and get 0.89, or 89%. Rather than doing these calculations manually, you can instead set the normalize parameter of value_counts() to be True, and it will output proportions instead of counts. Citations are 89%, warnings are 6%, driver arrests are 3%, and so on.
+
+5. Filtering DataFrame rows
+02:09 - 02:50
+Let's now take a look at the value_counts() for a different column, driver_race. You can see that there are five unique categories present. If you wanted to filter the DataFrame to only include drivers of a particular race, such as White, you would write that as a condition and put it inside brackets, as you've seen previously. We'll save the result in a new object. The shape of the new DataFrame is 61,870 rows, because that's the number of White drivers in the dataset, and 13 columns. You can now analyze this smaller DataFrame separately.
+
+6. Comparing stop outcomes for two groups
+02:50 - 03:24
+For example, you could repeat the analysis of stop outcomes, but focus on White drivers only. Like before, you select the stop_outcome column and then chain the value_counts() method on the end. You could compare these results with the outcomes for another race, such as Asian, simply by changing the condition inside the brackets and then repeating the calculation. If you compare these two sets of numbers, you can see that the stop outcomes are fairly similar for these two groups.
+
+7. Let's practice!
+03:24 - 03:43
+During the exercises, you'll practice using these techniques to answer a different question, which is whether or not drivers of different genders tend to commit different types of traffic violations.

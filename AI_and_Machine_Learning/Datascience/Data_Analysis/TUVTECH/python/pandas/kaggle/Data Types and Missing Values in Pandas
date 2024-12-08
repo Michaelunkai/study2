@@ -1,0 +1,121 @@
+Below is the remade notebook content, enhanced with answers and explanations.
+
+---
+
+### Data Types and Missing Values in Pandas
+
+---
+
+#### 1. Get the data type (`dtype`) of a specific column.
+
+**Answer:**
+```python
+# Data type of the 'price' column
+price_dtype = reviews.price.dtype
+
+# Display the data type
+price_dtype
+```
+
+**Explanation:**  
+The `dtype` property provides the data type of a column, which determines how the data is stored in memory (e.g., `float64` for numeric values).
+
+---
+
+#### 2. Get the data type of all columns in the DataFrame.
+
+**Answer:**
+```python
+# Data types of all columns
+all_dtypes = reviews.dtypes
+
+# Display the data types
+all_dtypes
+```
+
+**Explanation:**  
+The `dtypes` property returns the data types for all columns, helping understand how pandas represents the dataset internally.
+
+---
+
+#### 3. Convert the `points` column to `float64`.
+
+**Answer:**
+```python
+# Convert points to float
+points_as_float = reviews.points.astype('float64')
+
+# Display the converted Series
+points_as_float
+```
+
+**Explanation:**  
+The `astype()` method allows converting columns to a new data type, enabling more precise or compatible operations.
+
+---
+
+#### 4. Get the data type of the index.
+
+**Answer:**
+```python
+# Index data type
+index_dtype = reviews.index.dtype
+
+# Display the index dtype
+index_dtype
+```
+
+**Explanation:**  
+Indexes in pandas have their own data type. This code shows the type of the DataFrame's index.
+
+---
+
+#### 5. Identify rows where the `country` column has missing (`NaN`) values.
+
+**Answer:**
+```python
+# Select rows with missing 'country' values
+missing_country = reviews[pd.isnull(reviews.country)]
+
+# Display the rows
+missing_country
+```
+
+**Explanation:**  
+The `pd.isnull()` function identifies `NaN` values. Here, it's applied to filter rows where the `country` column is missing.
+
+---
+
+#### 6. Replace missing values in the `region_2` column with "Unknown."
+
+**Answer:**
+```python
+# Replace missing values in 'region_2'
+filled_region_2 = reviews.region_2.fillna("Unknown")
+
+# Display the updated Series
+filled_region_2
+```
+
+**Explanation:**  
+The `fillna()` method replaces missing values. This is useful for imputing defaults, such as `"Unknown"` for missing regions.
+
+---
+
+#### 7. Replace a specific value (`@kerinokeefe`) in the `taster_twitter_handle` column.
+
+**Answer:**
+```python
+# Replace old Twitter handle
+updated_twitter_handles = reviews.taster_twitter_handle.replace("@kerinokeefe", "@kerino")
+
+# Display the updated Series
+updated_twitter_handles
+```
+
+**Explanation:**  
+The `replace()` method changes specific values in a Series or DataFrame. It’s useful for handling corrections or updates.
+
+---
+
+Would you like to save this content as a downloadable notebook?

@@ -1,0 +1,55 @@
+▲A  A▼
+Running Homepage Application Dashboard on Windows
+What is Homepage?
+[Homepage is] a modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. -https://github.com/benphelps/homepage
+Installing Homepage
+Log into the Windows device
+Download the latest Homepage release Download
+Download NodeJS Download
+Install NodeJS > During the install, make sure to check the Tools for Native Modules option
+At the Native Modules prompt, press any key to begin the installation process
+NOTE: This process takes quite a while to install, be patient. Proceed once the PowerShell window closes
+Extract the downloaded Homepage files
+Rename the extracted folder homepage
+Cut the homepage folder to a location it can safely run from, C:\Program Files\homepage in this example
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Run the following commands in the PowerShell window
+# install dependencies
+npm install
+# create .env file from example
+Copy-Item ".\src\skeleton" -Destination ".\config" -Recurse
+# build homepage
+npm run build
+# run homepage
+npm start
+Open a web browser and navigate to http://DNSorIP:3000
+Welcome to Homepage
+Run Homepage on System Startup (Optional, but recommended)
+Press CTRL + C to kill the running Homepage process
+Open a text editor and paste the following
+:: Start homepage server
+cd /D "%~dp0"
+start "homepage" /b npm start
+
+Save the file as homepage.bat in the homepage directory, C:\Program Files\homepage in this example
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to Homepage and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+Complete the form fields as follows:
+Program/script: "%ProgramFiles%\homepage\homepage.bat"
+Add arguments:
+Start in:
+
+Click Next
+Check the Open the Properties dialog checkbox > Click Finish
+In the Properties dialog, click the Change User or Group... button
+Type System in the Object name field > Click OK
+Check the Run with highest privileges box
+Click OK to create the scheduled task
+Right click the Homepage task > Run
+Refresh the open web browser to verify Homepage is now running from the scheduled task
+Source: https://github.com/gethomepage/homepage?tab=readme-ov-file#with-node
+
+ 

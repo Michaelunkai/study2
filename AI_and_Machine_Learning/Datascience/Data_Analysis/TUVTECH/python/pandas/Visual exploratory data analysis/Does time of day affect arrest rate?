@@ -1,0 +1,31 @@
+1. Does time of day affect arrest rate?
+00:00 - 00:17
+In the last chapter, we used filtering, grouping, and other techniques to answer questions about the traffic stops dataset. In this chapter, you'll explore and analyze the dataset visually using plots.
+
+2. Analyzing datetime data
+00:17 - 00:39
+Back in chapter 1, we worked with a small DataFrame of Apple stock prices. We're going to use it here again, but this time it includes two days each from the first three months of 2018. There's also a new column, volume, that displays the number of Apple shares traded that day.
+
+3. Accessing datetime attributes (1)
+00:39 - 01:11
+You might recall that we converted the date_and_time column to pandas datetime format. Because of datetime format, you actually have access to special date-based attributes via the dt accessor. For example, you can access the month as an integer by using the dt dot month attribute. There are many other similar attributes available, such as week, dayofweek, hour, minute, and so on.
+
+4. Accessing datetime attributes (2)
+01:11 - 01:36
+Similar to our traffic stops dataset, we can set the date_and_time column as the DataFrame index. Because of its data type, it is now a DatetimeIndex. We can still access the same datetime attributes, such as month, and we get the same result as before, but we no longer have to use the dt accessor.
+
+5. Calculating the monthly mean price
+01:36 - 02:23
+Let's examine the price column of the apple DataFrame. If we wanted to calculate the mean price for all rows, we would simply use the mean() method. But what if we wanted to calculate the mean price for each month? One idea would be to use a groupby() operation, but we can't group by month as a string since it's not a column in the DataFrame. Instead, we would group by apple dot index dot month, and then take the mean() of the price column. This operation outputs a Series, in which the index is the month number and the values are the mean prices. We'll go ahead and save this Series as an object called monthly_price.
+
+6. Plotting the monthly mean price
+02:23 - 02:59
+Let's say that we wanted to plot this data in order to visually examine the monthly price trends. We would start by importing matplotlib dot pyplot as plt. Then, we call the plot() method on the monthly_price Series. The default plot for a Series is a line plot, which uses the Series index on the x-axis and the Series values on the y-axis. Finally, we'll label the axes and provide a title for the plot, and then use the show() function to display the plot.
+
+7. Line plot
+02:59 - 03:13
+It's a very simple plot in this case, but you can imagine that with a much larger dataset, this plot could help you to understand the price trends in a way that examining the raw data could not.
+
+8. Let's practice!
+03:13 - 03:30
+Now it's your turn to practice using datetime attributes and plots with our traffic stops dataset to analyze the relationship between time of day and arrest rate.

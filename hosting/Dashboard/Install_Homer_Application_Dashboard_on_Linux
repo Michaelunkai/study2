@@ -1,0 +1,43 @@
+▲A  A▼
+Install Homer Application Dashboard on Linux
+What is Homer?
+A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file. -https://github.com/bastienwirtz/homer
+
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install git curl apache2 -y
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# clone the homer git repository
+git clone https://github.com/bastienwirtz/homer.git ./homer
+# change directory to the source code
+cd homer
+# checkout the latest version
+git checkout "$(git tag --sort=v:refname | tail -n1)"
+# clean npm cache
+npm cache clean --force
+# install npm dependencies
+npm install
+# fix npm vulnerabilities
+npm audit fix
+# build homer
+npm run build
+# copy the sample config.yml
+sudo cp ./dist/assets/config.yml.dist ./dist/assets/config.yml
+# copy the dist directory to web root
+sudo cp ./dist /var/www/html/homer -r
+Open a web browser and navigate to http://DNSorIP/homer
+Welcome to Homer
+To make changes to the dashboard, edit the config.yml file with the following command
+# edit homer config.yml
+sudo nano /var/www/html/homer/assets/config.yml
+Press CTRL+O, Enter, CTRL+X to write the changes
+Back in the web browser, refresh the page to view the changes
+ 

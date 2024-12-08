@@ -1,0 +1,110 @@
+It seems the Python environment was restarted, and some earlier imports were lost. Let me reload the necessary modules and try again.
+
+Below is the remade notebook for the uploaded file, with answers and explanations included for each exercise.
+
+---
+
+### Summary Functions and Maps
+
+#### 1. Calculate the average `points` value for the dataset.
+
+**Answer:**
+```python
+# Calculate mean points
+average_points = reviews.points.mean()
+
+# Display the result
+average_points
+```
+
+**Explanation:**  
+The `mean()` function computes the average value of a numeric column. Here, it calculates the average wine rating (`points`) across all entries.
+
+---
+
+#### 2. List all unique `taster_name` values in the dataset.
+
+**Answer:**
+```python
+# Get unique taster names
+unique_tasters = reviews.taster_name.unique()
+
+# Display the unique values
+unique_tasters
+```
+
+**Explanation:**  
+The `unique()` function retrieves all distinct values in a column. This provides a concise list of unique wine tasters.
+
+---
+
+#### 3. Count occurrences of each unique value in the `taster_name` column.
+
+**Answer:**
+```python
+# Count occurrences of each taster name
+taster_counts = reviews.taster_name.value_counts()
+
+# Display the counts
+taster_counts
+```
+
+**Explanation:**  
+The `value_counts()` method counts how many times each unique value appears in a column, helping analyze data distribution.
+
+---
+
+#### 4. Subtract the mean `points` value from each entry in the `points` column.
+
+**Answer:**
+```python
+# Subtract mean points from each value
+review_points_mean = reviews.points.mean()
+demeaned_points = reviews.points.map(lambda p: p - review_points_mean)
+
+# Display the transformed points
+demeaned_points
+```
+
+**Explanation:**  
+The `map()` function applies a transformation to each value in a Series. Here, it calculates how far each wine's score deviates from the average.
+
+---
+
+#### 5. Create a new column `points_adjusted` by re-mean the `points` column using `apply()`.
+
+**Answer:**
+```python
+# Adjust points using apply
+def remean_points(row):
+    row.points = row.points - review_points_mean
+    return row
+
+adjusted_reviews = reviews.apply(remean_points, axis='columns')
+
+# Display the transformed DataFrame
+adjusted_reviews.head()
+```
+
+**Explanation:**  
+The `apply()` function transforms rows or columns using a custom function. It's useful for complex operations like adjusting multiple columns simultaneously.
+
+---
+
+#### 6. Combine the `country` and `region_1` columns into a single Series.
+
+**Answer:**
+```python
+# Combine country and region_1
+combined_location = reviews.country + " - " + reviews.region_1
+
+# Display the result
+combined_location
+```
+
+**Explanation:**  
+String operations in pandas work element-wise across Series. This combines two columns into a readable format for location details.
+
+---
+
+Would you like to save this remade notebook as a downloadable file?

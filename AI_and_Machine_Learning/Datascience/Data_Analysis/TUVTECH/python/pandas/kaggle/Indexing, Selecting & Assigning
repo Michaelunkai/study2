@@ -1,0 +1,203 @@
+Below is the remade version of the second notebook with answers provided, along with a 30-word explanation for each.
+
+---
+
+### Exercises on Indexing, Selecting, and Assigning in Pandas
+
+---
+
+#### 1. Select the first 5 rows of the DataFrame `reviews`.
+
+**Answer:**
+```python
+# Select the first 5 rows
+first_five = reviews.head()
+
+# Display the selection
+first_five
+```
+
+**Explanation:**  
+The `head()` method retrieves the first `n` rows of a DataFrame. Here, it defaults to 5, providing an overview of the dataset's structure.
+
+---
+
+#### 2. Select just the `description` column from the `reviews` DataFrame.
+
+**Answer:**
+```python
+# Select the description column
+description_column = reviews['description']
+
+# Display the column
+description_column
+```
+
+**Explanation:**  
+To access a single column, use `reviews['column_name']`. This fetches the data from the specified column as a pandas Series.
+
+---
+
+#### 3. Select the first value from the `description` column of `reviews`.
+
+**Answer:**
+```python
+# Get the first value from description
+first_description = reviews['description'].iloc[0]
+
+# Display the value
+first_description
+```
+
+**Explanation:**  
+Use `.iloc[0]` to access the first row of a column. This method allows precise indexing within a DataFrame or Series.
+
+---
+
+#### 4. Select the first row of data from `reviews`.
+
+**Answer:**
+```python
+# Select the first row
+first_row = reviews.iloc[0]
+
+# Display the row
+first_row
+```
+
+**Explanation:**  
+The `.iloc` method indexes rows and columns numerically. Here, `iloc[0]` retrieves the first row as a pandas Series.
+
+---
+
+#### 5. Select rows 10 through 20 (inclusive) of `reviews`.
+
+**Answer:**
+```python
+# Select rows 10 through 20
+rows_10_to_20 = reviews.iloc[10:21]
+
+# Display the rows
+rows_10_to_20
+```
+
+**Explanation:**  
+Pandas slicing includes the start index but excludes the end. Add 1 to include row 20 in the slice.
+
+---
+
+#### 6. Select the `country` and `province` columns of rows 0 through 10.
+
+**Answer:**
+```python
+# Select specific rows and columns
+selected_data = reviews.loc[0:10, ['country', 'province']]
+
+# Display the data
+selected_data
+```
+
+**Explanation:**  
+The `.loc` method uses labels and allows selecting rows and columns simultaneously using ranges and column names.
+
+---
+
+#### 7. Select rows where the `points` column has a value of 90 or greater.
+
+**Answer:**
+```python
+# Filter rows where points >= 90
+high_points = reviews[reviews['points'] >= 90]
+
+# Display the filtered rows
+high_points
+```
+
+**Explanation:**  
+Use Boolean indexing to filter rows based on conditions. This example checks if values in the `points` column are 90 or higher.
+
+---
+
+#### 8. Select rows where the `country` is "Italy."
+
+**Answer:**
+```python
+# Filter rows where country is Italy
+italian_wines = reviews[reviews['country'] == 'Italy']
+
+# Display the filtered rows
+italian_wines
+```
+
+**Explanation:**  
+Boolean indexing filters rows where `country` equals `"Italy"`. Use comparison operators to create conditions.
+
+---
+
+#### 9. Select rows where the `country` is "Italy" or the `points` are at least 90.
+
+**Answer:**
+```python
+# Filter rows with multiple conditions
+italy_or_high_points = reviews[(reviews['country'] == 'Italy') | (reviews['points'] >= 90)]
+
+# Display the filtered rows
+italy_or_high_points
+```
+
+**Explanation:**  
+Combine conditions with `|` (or) or `&` (and). Parentheses are required to group each condition.
+
+---
+
+#### 10. Select rows where `country` is "Italy" and `points` are at least 90.
+
+**Answer:**
+```python
+# Filter rows with both conditions
+italy_and_high_points = reviews[(reviews['country'] == 'Italy') & (reviews['points'] >= 90)]
+
+# Display the filtered rows
+italy_and_high_points
+```
+
+**Explanation:**  
+The `&` operator filters rows that meet both conditions. Use parentheses for each condition to avoid errors.
+
+---
+
+#### 11. Add a new column `is_italian` indicating whether the wine is from Italy.
+
+**Answer:**
+```python
+# Add a new column
+reviews['is_italian'] = reviews['country'] == 'Italy'
+
+# Display the modified DataFrame
+reviews.head()
+```
+
+**Explanation:**  
+Assign Boolean expressions directly to create new columns. Here, it checks if the `country` column equals `"Italy"`.
+
+---
+
+#### 12. Create a column `score_level` categorizing wines based on `points`.
+
+**Answer:**
+```python
+# Add a new column with categorization
+reviews['score_level'] = reviews['points'].apply(
+    lambda x: 'Excellent' if x >= 90 else 'Good'
+)
+
+# Display the modified DataFrame
+reviews.head()
+```
+
+**Explanation:**  
+The `.apply()` method applies functions row-wise. Here, it categorizes based on `points`, assigning labels `"Excellent"` or `"Good"`.
+
+---
+
+Would you like this notebook as a downloadable file?

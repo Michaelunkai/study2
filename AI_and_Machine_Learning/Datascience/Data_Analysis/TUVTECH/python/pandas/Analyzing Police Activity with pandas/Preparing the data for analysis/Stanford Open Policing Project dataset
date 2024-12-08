@@ -1,0 +1,31 @@
+1. Stanford Open Policing Project dataset
+00:00 - 00:27
+Hi, my name is Kevin Markham and I'll be your instructor for this course. I'm a data scientist and the founder of Data School. In this course, you'll be practicing a lot of what you've learned about pandas already to answer interesting questions about a real dataset. You'll gain valuable experience analyzing a dataset from start to finish, which will help to prepare you for your data science career.
+
+2. Introduction to the dataset
+00:27 - 00:58
+Let's start by introducing the data. You'll be working with a dataset of traffic stops by police officers that was collected by the Stanford Open Policing Project. They've collected data from 31 US states, but in this course you'll be focusing on data from the state of Rhode Island. For size reasons, some of the columns and rows have been removed, but you can download the full dataset for any of the 31 states from the project's website.
+
+3. Preparing the data
+00:58 - 01:56
+This first chapter is about preparing the data for analysis. Before beginning an analysis, it's critical that you first examine the data to make sure that you understand it, and then clean the data, to make working with it a more efficient process. As always, we'll start by importing pandas as pd. We'll use the read_csv() function to read in the dataset from a file, and then store it in a DataFrame called ri, which stands for Rhode Island. We'll use the head() method in order to take a quick glance at the DataFrame, though there are many more columns than can fit on this screen. Each row represents a single traffic stop. You'll notice that the county_name column contains NaN values, which indicate missing values. These are often values that were not collected during the data gathering process, or are irrelevant for that particular row.
+
+4. Locating missing values (1)
+01:56 - 02:14
+It's important that you locate missing values so that you can proactively decide how to handle them. You may recall that the isnull() method generates a DataFrame of True and False values: True if the element is missing, and False if it's not.
+
+5. Locating missing values (2)
+02:14 - 02:35
+One useful trick is to take the sum of this DataFrame, which outputs a count of the number of missing values in each column. How does that calculation work? Well, the sum() method calculates the sum of each column by default, and True values are treated as ones, while False values are treated as zeros.
+
+6. Dropping a column
+02:35 - 03:08
+Let's compare these missing value counts to the DataFrame's shape. You'll notice that the county_name column contains as many missing values as there are rows, meaning that it only contains missing values. Since it contains no useful information, this column can be dropped using the drop() method. Besides specifying the column name, you need to specify that you're dropping from the columns axis, and that you want the operation to occur in place, which avoids an assignment statement.
+
+7. Dropping rows
+03:08 - 03:49
+Finally, let's take a look at one more method related to missing values. The dropna() method is a great way to drop rows based on the presence of missing values in that row. For example, let's pretend that the stop_date and stop_time columns are critical to our analysis, and thus a row is useless to us without that data. We can tell pandas to drop all rows that have a missing value in either the stop_date or stop_time column. Because we specified a subset, the dropna() method only takes these two columns into account when deciding which rows to drop.
+
+8. Let's practice!
+03:49 - 04:00
+Now it's your turn to practice using these functions to examine and clean this dataset.

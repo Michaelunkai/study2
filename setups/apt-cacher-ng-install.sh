@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Script to install and configure Apt-Cacher NG on Ubuntu 22 WSL2
 

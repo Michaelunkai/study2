@@ -1,0 +1,19 @@
+1. Using proper data types
+00:00 - 00:19
+In the last set of exercises, you began cleaning the dataset by removing columns and rows that will not be useful for your upcoming analyses. Now, we're going to continue cleaning the dataset by ensuring that each of the columns has the proper data type.
+
+2. Examining the data types
+00:19 - 01:10
+Let's take a look at the dtypes attribute of the DataFrame. Every Series has a data type, which was automatically inferred by pandas when it was reading in the CSV file. As you can see, the only data types currently in use are object and bool. The object data type usually means that a Series is made up of Python strings, though it can indicate the presence of other Python objects such as lists. The bool data type is short for Boolean, which means that a Series is made up of True and False values. pandas also supports other data types, such as int for integers, float for floating point values, datetime for dates and times, and category for categorical variables.
+
+3. Why do data types matter?
+01:10 - 02:02
+But why does the data type of a pandas Series even matter? Data types matter mostly because they affect which operations you can perform on a given Series. In particular, it's beneficial not to store data as strings when possible. For example, mathematical operations can be performed on ints and floats, but those operations will fail if the numbers are stored as strings. The datetime type enables a rich set of date-based attributes and methods that are not possible with strings. The category data type results in less memory usage and faster processing than strings. And the bool data type enables logical and mathematical operations that we'll use during the course.
+
+4. Fixing a data type
+02:02 - 03:22
+Let's see an example of how you might fix an improper data type. We'll imagine a DataFrame named apple that has a Series named price, which stores the closing price of Apple company stock each day. You can check the data type of the price Series using its dtype attribute. It reports a dtype of "O", which stands for object and means that the numbers are actually stored as strings. To change the data type of the price Series from object to float, you can use the astype() method, to which you pass the new data type as an argument. Then, you simply overwrite the original Series. If you check the data type again, you can see that it has changed to float. You might have noticed that on the right side of the equals sign, I used dot notation to refer to the price Series, rather than bracket notation. They mean the same thing, but I'll be using dot notation throughout this course, because I find that dot notation makes pandas code more readable. However, it's worth noting that you must use bracket notation on the left side of an assignment statement to create a new Series or overwrite an existing Series.
+
+5. Let's practice!
+03:22 - 03:33
+It's now time for you to practice examining and fixing data types in our dataset.
