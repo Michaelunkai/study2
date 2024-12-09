@@ -1,0 +1,28 @@
+1. Merging datasets
+00:00 - 00:17
+Now that we've assigned a rating to the weather conditions each day, we need to merge that data with the traffic stop data so that we can analyze the relationship between weather and police behavior. Let's review how to merge two DataFrames.
+
+2. Preparing the first DataFrame
+00:17 - 01:02
+We'll return to the DataFrame of Apple stock prices that we've used throughout the course. This time, the opening price at 9:30 AM and closing price at 4:00 PM are listed for each day in separate rows. Shortly, we're going to merge the apple DataFrame with another DataFrame. Because the index will be lost during the merge, we want to save it by moving it to a DataFrame column. We'll do this by using the reset_index() method and specifying that the operation should occur in place. You can see that date_and_time is now a DataFrame column, and the index is now the default integer index.
+
+3. Preparing the second DataFrame
+01:02 - 01:39
+The second DataFrame we're working with is called high_low, and it contains the highest and lowest prices the Apple stock reached each day. We'd like to include the high data in the apple DataFrame, which we can do by merging the DataFrames. For the merge operation, we only need two columns from high_low: the date column, since it's the column on which the DataFrames will be joined, and the high column, since it's the column of interest. Thus, we'll create a new DataFrame called high that only includes these two columns.
+
+4. Merging the DataFrames
+01:39 - 02:34
+To merge the apple and high DataFrames, we'll use the pd dot merge() function and save the result as apple_high. Let's review the five arguments. First, we specified the left and right DataFrames. Apple is defined as left and high is defined as right because we wanted to join the high DataFrame onto the apple DataFrame. Next, we specified the columns on which to join the DataFrames. Both DataFrames have a column containing the date, but we had to specify them separately because the column name is lowercase in the left DataFrame and uppercase in the right DataFrame. Finally, we specified the type of join. We used a left join in order to keep all of the rows from the left DataFrame regardless of whether there were matches in the right DataFrame.
+
+5. Comparing the DataFrames
+02:34 - 03:15
+Let's compare the merged DataFrame with the original two DataFrames. The first four columns of apple_high are identical to apple. The data in the final two columns of apple_high came from the high DataFrame. Because the apple DataFrame contained two rows each from February 14 and 15, the high value of each of those dates appears twice in the apple_high DataFrame. But since the apple DataFrame did not contain any rows from February 16, the February 16 value from the high DataFrame was ignored.
+
+6. Setting the index
+03:15 - 03:28
+Since the merge is complete, we'll set the date_and_time column as the index of the apple_high DataFrame. This replaces the default index and reduces the number of columns to five.
+
+7. Let's practice!
+03:28 - 03:40
+In the exercises, you'll practice these skills while merging the weather and traffic stop datasets.
+

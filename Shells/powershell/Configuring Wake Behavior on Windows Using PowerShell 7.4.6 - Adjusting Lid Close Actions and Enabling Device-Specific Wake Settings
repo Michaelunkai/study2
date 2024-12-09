@@ -1,0 +1,105 @@
+# Comprehensive Tutorial: Configuring Wake Behavior on Windows Using PowerShell 7.4.6 - Adjusting Lid Close Actions and Enabling Device-Specific Wake Settings
+
+This tutorial guides you through configuring your Windows system's wake behavior using **PowerShell 7.4.6**. You will learn how to:
+1. Adjust lid close actions.
+2. Ensure the system remains in sleep mode when the lid is reopened.
+3. Enable specific devices (e.g., keyboard) to wake the system from sleep.
+
+---
+
+## Prerequisites
+- Windows operating system.
+- PowerShell 7.4.6 installed.
+- Administrative privileges for executing commands.
+
+---
+
+## Step 1: Configure Lid Close Action to "Do Nothing"
+The first step is to ensure that closing the lid while the system is running does not put the system to sleep or hibernate.
+
+### PowerShell Command
+Run this command in an elevated PowerShell session:
+```powershell
+powercfg -SETACVALUEINDEX SCHEME_CURRENT SUB_BUTTONS LIDACTION 0; powercfg -SETDCVALUEINDEX SCHEME_CURRENT SUB_BUTTONS LIDACTION 0; powercfg -S SCHEME_CURRENT
+```
+
+### What This Does:
+- `SETACVALUEINDEX`: Configures the "lid close action" for AC power (plugged in) to "Do nothing."
+- `SETDCVALUEINDEX`: Configures the "lid close action" for battery power to "Do nothing."
+- `SCHEME_CURRENT`: Applies the settings to the currently active power scheme.
+
+---
+
+## Step 2: Identify Wake-Capable Devices
+To configure specific devices to wake the system, identify which devices are wake-capable.
+
+### PowerShell Commands
+1. Check devices currently set to wake the system:
+   ```powershell
+   powercfg -devicequery wake_armed
+   ```
+
+   - If the result is `NONE`, no devices are currently armed to wake the system.
+
+2. List devices that *can* be configured to wake the system:
+   ```powershell
+   powercfg -devicequery wake_programmable
+   ```
+
+   - Review the output for devices like `HID-compliant keyboard` or similar entries.
+
+---
+
+## Step 3: Enable Specific Devices to Wake the System
+Once you've identified the wake-capable device, enable it for wake functionality.
+
+### Example PowerShell Commands
+If you see devices like `HID-compliant vendor-defined device (001)` or `ASUS Precision Touchpad`, you can test enabling wake for these devices:
+
+```powershell
+powercfg -deviceenablewake "HID-compliant vendor-defined device (001)"
+powercfg -deviceenablewake "HID-compliant vendor-defined device (003)"
+```
+
+Replace the device name with the exact name from the `wake_programmable` query.
+
+---
+
+## Step 4: Verify Wake Settings
+After enabling wake for a device, verify that it is now configured to wake the system.
+
+### PowerShell Command
+```powershell
+powercfg -devicequery wake_armed
+```
+
+If the device appears in the output, it is successfully armed for wake functionality.
+
+---
+
+## Step 5: Combine All Steps into a Single One-Liner
+Once you've identified the correct device, combine all the steps into a single command for convenience:
+
+### PowerShell One-Liner
+```powershell
+powercfg -SETACVALUEINDEX SCHEME_CURRENT SUB_BUTTONS LIDACTION 0; powercfg -SETDCVALUEINDEX SCHEME_CURRENT SUB_BUTTONS LIDACTION 0; powercfg -S SCHEME_CURRENT; powercfg -deviceenablewake "HID-compliant vendor-defined device (001)"
+```
+
+Replace `"HID-compliant vendor-defined device (001)"` with the correct device name if different.
+
+---
+
+## Step 6: Test the Configuration
+1. Put your system to sleep using the Start menu or the `Sleep` function key.
+2. Close the lid.
+3. Reopen the lid. The system should remain in sleep mode.
+4. Press a key on the keyboard or another enabled wake device to wake the system.
+
+---
+
+## Troubleshooting
+- If no devices appear in `wake_programmable`, ensure your device supports wake functionality.
+- If the keyboard is not listed, try updating your device drivers.
+- Run all commands with administrative privileges.
+
+This configuration ensures that your laptop behaves as desired, staying in sleep mode when the lid is reopened and only waking when a specific device (like the keyboard) is triggered.

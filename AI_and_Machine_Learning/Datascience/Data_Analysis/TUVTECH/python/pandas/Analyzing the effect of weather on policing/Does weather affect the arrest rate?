@@ -1,0 +1,31 @@
+1. Does weather affect the arrest rate?
+00:00 - 00:10
+Now that we've merged the weather and traffic stop data, we can analyze the relationship between weather and police behavior.
+
+2. Driver gender and vehicle searches
+00:10 - 00:45
+In a previous chapter, we investigated the relationship between driver gender and vehicle searches. First, we calculated the percentage of all stops that led to a search by taking the mean() of the Boolean Series search_conducted. This is called the search rate. Then, we compared the search rates for male and female drivers by using a groupby() on driver_gender before taking the mean() of search_conducted. We found that male drivers are searched more than twice as often as female drivers.
+
+3. Driver gender and vehicle searches
+00:45 - 01:18
+Finally, we added violation to the groupby() operation. Our hypothesis was that search rate varies by violation type, and the difference in search rate between males and females is perhaps because they tend to commit different violations. The results disproved our hypothesis, because the search rate is higher for males than for females across all violations. This doesn't prove a causal link between gender and vehicles searches, but it does show a correlation.
+
+4. Examining a multi-indexed Series
+01:18 - 01:59
+Let's save the results of the previous operation as new object called search_rate, and print it out again. What type of object is this? It may look like a DataFrame because of its structure, but it's actually a pandas Series that has a MultiIndex. Violation and driver_gender are not columns, rather they're the names of the index levels. You've seen the MultiIndex before in the context of a DataFrame. With a DataFrame, which is normally two dimensions, the MultiIndex adds a third dimension. With a Series, which is normally one dimension, the MultiIndex adds a second dimension.
+
+5. Working with a multi-indexed Series
+01:59 - 02:37
+Let's print out the search_rate Series again. Working with a multi-indexed Series is actually very similar to working with a DataFrame. You can think of the outer index level, violation, as the DataFrame rows, and the inner index level, driver_gender, as the DataFrame columns. For example, we can use the loc accessor to select the Equipment row. This returns the search rate by gender for equipment violations only. Or, we can specify the Equipment row and the Male column to select a particular value in the Series.
+
+6. Converting a multi-indexed Series to a DataFrame
+02:37 - 03:10
+You might think that if a multi-indexed Series is similar to a DataFrame, then there should be a way to convert one to the other. In fact, if you unstack() the search_rate Series, it actually results in a DataFrame. This is a useful technique any time you have a Series with a MultiIndex, since you're probably more comfortable manipulating a DataFrame. You might also think that there should be an easy way to create this DataFrame without using a groupby and an unstack.
+
+7. Converting a multi-indexed Series to a DataFrame
+03:10 - 03:32
+In fact, you can use a pivot table to produce the exact same DataFrame. Violation is the index, driver_gender is the columns, and the mean of search_conducted is the values. Recall that mean() is the default aggregation function for a pivot table, but you can choose another function instead.
+
+8. Let's practice!
+03:32 - 03:46
+In the exercises, you'll investigate the relationship between weather and arrest rate, and then you'll practice working with a multi-indexed Series.

@@ -1,0 +1,25 @@
+Overseerr and Jellyseerr are open-source applications designed to manage media requests and facilitate media discovery for home media servers. The primary distinction between them lies in their compatibility with different media server platforms:
+
+**Overseerr**:
+- **Platform Support**: Initially developed to integrate seamlessly with Plex Media Server, providing features like user authentication, library scanning, and request management tailored for Plex users. 
+- **Features**:
+  - User-friendly interface for requesting movies and TV shows.
+  - Integration with automation tools like Radarr and Sonarr for content acquisition.
+  - Granular user permissions and various notification options.
+
+**Jellyseerr**:
+- **Platform Support**: Forked from Overseerr to extend support to Jellyfin and Emby media servers, in addition to Plex. This expansion addresses the needs of users operating on these platforms. 
+- **Features**:
+  - All functionalities of Overseerr, adapted for Jellyfin and Emby.
+  - Ability to import and manage users from Jellyfin and Emby.
+  - Support for mixed media libraries and customizable request systems.
+
+**Key Differences**:
+- **Platform Compatibility**: Overseerr is primarily designed for Plex, while Jellyseerr offers broader support, including Jellyfin and Emby.
+- **Development Focus**: Jellyseerr is community-driven, aiming to provide Overseerr's features to users of Jellyfin and Emby. There have been discussions about integrating Jellyfin support into Overseerr, but as of now, Jellyseerr remains the solution for non-Plex users. 
+
+In summary, if you're using Plex exclusively, Overseerr is a suitable choice. However, if your media server setup includes Jellyfin or Emby, Jellyseerr would be the more appropriate option due to its extended compatibility.
+
+For a visual overview of Jellyseerr and its capabilities, you might find the following video helpful:
+
+ 

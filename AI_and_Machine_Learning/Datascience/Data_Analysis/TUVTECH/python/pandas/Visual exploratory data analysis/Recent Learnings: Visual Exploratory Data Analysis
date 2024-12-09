@@ -1,0 +1,62 @@
+# Recent Learnings: Visual Exploratory Data Analysis
+
+In your last session, you worked on Chapter 3 of the course *Analyzing Police Activity with pandas*. Here's a concise summary of the key concepts and techniques you learned:
+
+---
+
+## Key Learnings:
+
+### **1. Resampling Time Series Data**
+- **Purpose:** Modify the frequency of time-series data.
+- **Example:**  
+  Resampling the `price` column by month ('M') and calculating the mean provides the average price for each month.
+  ```python
+  monthly_price = apple['price'].resample('M').mean()
+  ```
+
+---
+
+### **2. Combining Resampled Data**
+- **Technique:** Use the `concat()` function to combine multiple resampled datasets into a single DataFrame.  
+- **Example:**  
+  ```python
+  monthly_volume = apple['volume'].resample('M').mean()
+  monthly = pd.concat([monthly_price, monthly_volume], axis='columns')
+  ```
+
+---
+
+### **3. Visualizing Data Trends**
+- **Line Plots:** Useful for visualizing relationships between variables over time.
+- **Subplots:** When variables have different scales, set `subplots=True` for clearer insights.
+  ```python
+  monthly.plot(subplots=True)
+  plt.show()
+  ```
+
+---
+
+### **4. Practical Application: Analyzing Police Activity**
+- **Drug-Related Stops:** Calculated the annual rate of drug-related stops using the `drugs_related_stop` column. Visualized trends over time using line plots.
+  ```python
+  annual_drug_rate = drugs_related_stop.resample('Y').mean()
+  annual_drug_rate.plot()
+  plt.show()
+  ```
+
+- **Comparing Rates:** Compared annual drug rates with search rates by resampling `search_conducted`, concatenating results, and creating subplots.
+  ```python
+  annual_search_rate = search_conducted.resample('Y').mean()
+  comparison = pd.concat([annual_drug_rate, annual_search_rate], axis='columns')
+  comparison.plot(subplots=True)
+  plt.show()
+  ```
+
+---
+
+These techniques enhance your ability to understand and visualize trends within datasets effectively.  
+
+---
+
+### What's Next?
+In your upcoming lesson, you'll focus on interpreting and customizing visualizations to derive deeper insights from your data.

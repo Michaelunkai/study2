@@ -1,0 +1,6 @@
+# Set the lid close action for both plugged-in and battery modes
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 0
+powercfg -setdcvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 0
+
+# Apply the changes
+powercfg -setactive SCHEME_CURRENT

@@ -1,0 +1,46 @@
+### **How to Fix the "RunDLL" Error in Windows 11 Caused by Missing C:\Windows\System32\LogiLDA.dll: A Step-by-Step Guide Using Task Manager, Registry Editor, and Logitech Software Reinstallation**
+
+To fix the "RunDLL" error in Windows 11 related to the missing `C:\Windows\System32\LogiLDA.dll`, follow these steps using tools such as **Task Manager**, **Registry Editor**, and **Logitech Software**.
+
+---
+
+### **Step 1: Disable LogiLDA.dll on Startup Using Task Manager**
+1. Press `Ctrl + Shift + Esc` to open **Task Manager**.
+2. Navigate to the **Startup** tab.
+3. Look for an entry related to **Logitech Download Assistant** or **LogiLDA.dll**.
+4. Right-click the entry and choose **Disable**.
+5. Restart your computer to check if the error still appears.
+
+---
+
+### **Step 2: Delete LogiLDA Registry Entry Using Registry Editor**
+If disabling the entry doesn’t resolve the issue:
+1. Press `Win + R`, type `regedit`, and press **Enter** to open the **Registry Editor**.
+2. In the Registry Editor, navigate to the following path:
+   HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+3. Look for any entry referencing **LogiLDA.dll** or **Logitech Download Assistant**.
+4. Right-click the entry and choose **Delete**.
+5. Close the Registry Editor and restart your computer.
+
+---
+
+### **Step 3: Reinstall Logitech Software (Optional)**
+If the error still occurs, reinstalling the software associated with the missing `LogiLDA.dll` might help:
+1. Visit the [Logitech Support Website](https://support.logi.com/).
+2. Download and install the appropriate software for your device (e.g., Logitech Options or G HUB).
+3. Follow the installation steps and restart your computer.
+
+---
+
+### **Step 4: Run System File Checker and DISM Tool to Repair System Files**
+1. Press `Win + R`, type `cmd`, and press **Enter** to open the **Command Prompt**.
+2. Run the following command to scan and repair corrupted system files:
+   sfc /scannow
+   Wait for the process to complete.
+3. After that, run this command to fix any remaining issues with the Windows image:
+   dism /online /cleanup-image /restorehealth
+4. Restart your computer once both processes are completed.
+
+---
+
+Following these steps should resolve the issue with the missing `LogiLDA.dll` and eliminate the "RunDLL" error. Let me know if you encounter any issues during the process!

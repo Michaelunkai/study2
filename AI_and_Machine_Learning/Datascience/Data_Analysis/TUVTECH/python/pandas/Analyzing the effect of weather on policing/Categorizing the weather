@@ -1,0 +1,39 @@
+1. Categorizing the weather
+00:00 - 00:14
+Now that we've reviewed the weather dataset and concluded that it's a trustworthy source, we can start preparing it for analysis. But first, let's review a few pandas techniques we'll be using.
+
+2. Selecting a DataFrame slice (1)
+00:14 - 00:28
+The weather DataFrame has 4,017 rows and 28 columns. Let's say that we wanted to copy the three temperature columns to a new DataFrame called temp. How might we do this?
+
+3. Selecting a DataFrame slice (2)
+00:28 - 01:02
+You might recall that the loc accessor allows you to extract a DataFrame slice by specifying the starting and ending labels of your desired selection. In this case, we'll select all rows (represented by the first colon) and the columns TAVG through TMAX and save them to temp. You can see that the temp DataFrame contains all 4,017 rows but just 3 columns. This method is particularly useful when you need to select a large number of columns that are side-by-side.
+
+4. DataFrame operations
+01:02 - 01:51
+Let's take a look at the head of temp. What would happen if you used the sum() method on the DataFrame? pandas will actually return the sum of each of the three columns. But what if you wanted to calculate the sum of each row? You can do this by specifying axis equals columns, and you'll see that each value is the sum of the three temperature values in that row. You may find it confusing that specifying the columns axis leads pandas to calculate row sums. But for mathematical operations, the axis specifies the array dimension that is being aggregated, and aggregating the columns is how you combine the data for each row.
+
+5. Mapping one set of values to another
+01:51 - 02:20
+Let's return to the traffic stops dataset and the stop_duration column. You might remember that you can map one set of values to another using the Series map() method. In this case, we'll create a dictionary that maps the stop_duration values to the strings short, medium, and long. Then we'll use the map() method to create a column called stop_length. The stop_length column has the object data type since it contains string data.
+
+6. Changing data type from object to category (1)
+02:20 - 02:57
+Whenever you have an object column with a small number of possible values, as is the case here, you may want to change its data type to category. The main reason to use the category type is that it stores the data more efficiently than the object type. Another reason is that it allows you to specify a logical order for the categories. Before we change the data type of the stop_length Series, we'll use a Series method to calculate its current memory usage, which is about 6 megabytes.
+
+7. Changing data type from object to category (2)
+02:57 - 03:31
+To change the data type, we first create a special pandas object called a CategoricalDtype. We pass it a Python list to define the logical order of the categories, and we specify that the categories should be treated as ordered. Then, we change the data type by passing the CategoricalDtype object to the astype() method. By changing the data type, you can see that the memory usage of this column has been reduced to less than 1 megabyte.
+
+8. Using ordered categories (1)
+03:31 - 03:47
+Let's take a look at the head of this column. In the bottom two lines, you can see that the dtype is now category and the categories are ordered from short to long. Because of the ordering, you can now use comparison operators with this column.
+
+9. Using ordered categories (2)
+03:47 - 04:11
+For example, you can specify that stop_length is greater than short in order to filter the DataFrame to only include medium or long stops. In addition, pandas will automatically sort ordered categories logically rather than alphabetically, which can make the results of a calculation easier to understand.
+
+10. Let's practice!
+04:11 - 04:23
+It's your turn to practice these techniques while assigning a rating to weather conditions each day.

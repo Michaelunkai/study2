@@ -1,0 +1,31 @@
+1. Exploring the weather dataset
+00:00 - 00:16
+In the first three chapters, you analyzed a dataset of traffic stops from the state of Rhode Island. In this chapter, you'll be working with a new dataset to help you determine if weather conditions have an impact on police behavior.
+
+2. Introduction to the dataset
+00:16 - 00:57
+The weather data you'll be using was collected by the National Centers for Environmental Information. Our hypothesis is that weather conditions impact police behavior during traffic stops, so ideally we would look up the historical weather at the location of each stop. However, the traffic stops dataset does not specify stop location, so we're going to use the data from a single weather station near the center of Rhode Island. This is not ideal, but Rhode Island is the smallest US state and so a single station will still give us a general idea of the weather throughout the state.
+
+3. Examining the columns
+00:57 - 01:22
+Let's read the weather dataset into a DataFrame using read_csv(), and then look at the head. You can see that the station column lists the station ID, and there's one row for each date. There are three columns related to temperature, two columns related to wind speed, and 20 columns related to the presence of certain bad weather conditions.
+
+4. Examining the wind speed
+01:22 - 02:25
+Before using a new dataset, it's a good practice to explore the data to check that the values seem reasonable. If you don't find anything unreasonable, then you gain increased confidence that the data is trustworthy. For example, let's take a look at the two columns related to wind speed. AWND is average wind speed in miles per hour, and WSF2 is the fastest 2-minute wind speed, meaning the fastest wind speed during any 2-minute period. We can use the describe() method on these two columns to see summary statistics including the minimum, maximum, and 25th through 75th percentiles. Notice that the minimum values are above zero, and the fastest wind speed values are greater than the average wind speed values. Also, the numbers seem reasonable given that they are measured in miles per hour. These are all simple signs that the data is trustworthy.
+
+5. Creating a box plot
+02:25 - 02:57
+Another way to examine these values is with a box plot, by specifying kind equals box when plotting. This is essentially a visual representation of the summary statistics, in that the box represents the 25th through 75th percentiles, and the lines below and above the box represent the minimum and maximum values, excluding the outliers represented by circles. Again, our goal here is simply to validate that the data looks reasonable.
+
+6. Creating a histogram (1)
+02:57 - 03:30
+It would also be useful to validate that the fastest wind speed values are greater than the average values for every single row. We'll do this by subtracting the average speed from the fastest speed and storing the results in a new column. We'll visualize the new column using a histogram so that we can see its distribution. There are no values below zero, which is a good sign. But because there are some extreme values, it's hard to clearly see the shape of the distribution.
+
+7. Creating a histogram (2)
+03:30 - 03:57
+We can make the shape more clear by changing the number of histogram bins to 20. This creates more narrow bins than the default value of 10. We can now see that the difference between the fastest and average wind speed values has an approximately normal shape. Many natural phenomena have a normal distribution, and so this shape is another sign that the dataset is trustworthy.
+
+8. Let's practice!
+03:57 - 04:10
+In the exercises, you'll explore the weather dataset further in order to verify that it's a reliable source.
