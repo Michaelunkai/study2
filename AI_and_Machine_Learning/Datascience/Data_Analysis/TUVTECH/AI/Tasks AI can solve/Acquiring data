@@ -1,0 +1,47 @@
+1. Acquiring data
+00:00 - 00:08
+Data is the fuel that makes AI work. This video explains different ways AI systems can acquire data.
+
+2. AI functions and areas involved
+00:08 - 00:16
+First, let's take a look at the interrelationship between the areas of AI and the primary functions of AI.
+
+3. AI functions and areas involved
+00:16 - 00:24
+Data acquisition is one of these AI functions, as we will explore shortly, but there is another very important one:
+
+4. AI functions and areas involved
+00:24 - 00:45
+Learning and reasoning from data. Once they get the data, AI systems and their underlying algorithms must learn or apply some reasoning with those data to yield outputs in the form of decisions, actions, or insights. Machine Learning and Deep Learning have a lot to say in this part.
+
+5. AI functions and areas involved
+00:45 - 01:05
+In addition, some types of AI systems -for example robots or computer vision systems- require interacting with the physical environment to collect data inputs or perform actions based on learning and reasoning outputs.
+
+6. AI functions and areas involved
+01:05 - 01:09
+As we may expect, AI areas play a particular role in these functions. Let's focus now on the function of data acquisition.
+
+7. Data acquisition: sensing the environment
+01:09 - 02:06
+Depending on the type of AI system, there are different approaches to data acquisition. One of them is by sensing the physical environment, that is, collecting outside sensory information like sounds, images, etc., through sensors, emulating the five human senses. In short, these perceptions can be turned into data. The perception of smell or taste by AI is still not too explored, but the rest of the senses are already commonly used. For example, speech and sounds can be captured for NLP and audio tasks like song classification. Computer vision systems acquire visual stimuli as large as satellite images or as small as fingerprints. And in robotics and sensor networks like IoT systems, sensing the environment is particularly common, be it by perceiving temperature, touch, motion, and gravity, to name a few.
+
+8. Data acquisition: datasets
+02:06 - 02:47
+Whether data comes from sensing the outside environment or not, in general, AI systems deal with sets of input data called datasets. A dataset is simply a collection of data, namely a set of data samples, observations, or instances of a certain type of data. Classically, only structured data files with a tabular row-column format such as Excel files were considered as datasets; but recently this limited view has expanded to consider unstructured datasets far beyond this tabular format: think about images, songs, videos, document collections, and so on.
+
+9. Data acquisition: datasets
+02:47 - 03:01
+Depending on the nature of the data and the problem to address, datasets might be manually created by a human. This is typically the case for smaller tabular datasets such as certain database tables.
+
+10. Data acquisition: datasets
+03:01 - 03:18
+However, a vast majority of AI applications nowadays rely on datasets built automatically. For example in an e-commerce portal, every customer purchase of a product triggers the creation of new data instances in customer and product-related datasets.
+
+11. Data acquisition: datasets
+03:18 - 03:29
+And finally, the mechanisms seen earlier to sense the environment are another way to create datasets, normally as a particular case of automatically collected data.
+
+12. Let's practice!
+03:29 - 03:37
+Let's put to test what you learned about ways AI systems can acquire their much-needed data.

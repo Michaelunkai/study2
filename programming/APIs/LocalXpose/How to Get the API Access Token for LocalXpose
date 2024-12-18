@@ -1,0 +1,77 @@
+# Step-by-Step Tutorial: **How to Get the API Access Token for LocalXpose**  
+## (LocalXpose Setup Guide for Generating and Retrieving Access Token)
+
+### **1. Create a LocalXpose Account**
+   - If you do not already have a LocalXpose account, visit the official website:  
+     ```  
+     https://localxpose.io  
+     ```  
+   - Click on **Sign Up** and provide the necessary details (email and password) to create your account.  
+   - If you already have an account, click on **Log In** and enter your credentials.
+
+---
+
+### **2. Access the LocalXpose Dashboard**
+   - After logging in, you will be redirected to the **LocalXpose Dashboard**.  
+   - The dashboard is the central location for all settings and configurations.
+
+---
+
+### **3. Locate the "Access Token" Section**
+   - On the left-hand menu (sidebar), look for a section called **Access** or **Tokens**.  
+     - Alternatively, go to the **Settings** tab if you do not immediately see it.  
+   - Click on **Access** or **Tokens** to proceed.
+
+---
+
+### **4. Generate an Access Token**
+   - If no token is generated yet, click on the **Generate Token** button.  
+   - LocalXpose will immediately create a new **Access Token** for you.  
+   - This token is unique to your account and is required for authentication.
+
+---
+
+### **5. Copy the Access Token**
+   - After the token is generated, it will be displayed on the screen.  
+   - Click the **Copy** button or manually highlight and copy the token to your clipboard.  
+   - Example of a token:  
+     ```  
+     xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx  
+     ```  
+
+---
+
+### **6. Store the Token Securely**
+   - Save the token in a safe location, such as a password manager or a secure text file, to avoid losing it.  
+   - **Do not share this token publicly** since it is linked to your account.
+
+---
+
+### **7. Verify Your Token (Optional)**
+   - To confirm your token works, you can run a test command using the LocalXpose CLI.  
+   - Install LocalXpose CLI if not already installed:  
+
+     #### **Installation (Linux/macOS)**  
+     ```bash
+     curl -s https://api.localxpose.io/downloads/cli/install.sh | bash
+     ```
+
+     #### **Installation (Windows)**  
+     Download the executable from:  
+     ```  
+     https://localxpose.io/downloads  
+     ```  
+
+   - Run the following command in the terminal (replace `YOUR_ACCESS_TOKEN` with your token):  
+     ```bash
+     loclx auth YOUR_ACCESS_TOKEN
+     ```  
+   - If successful, you will see a confirmation message.
+
+---
+
+### **Final Notes**
+   - Your **Access Token** is required for using LocalXpose features such as tunnels and secure access.  
+   - If you lose the token, you can always regenerate it from the dashboard, but remember to update any scripts or tools using the old token.  
+
+By following these steps, you can successfully generate and retrieve your LocalXpose Access Token.

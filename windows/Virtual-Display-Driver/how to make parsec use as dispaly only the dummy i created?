@@ -1,0 +1,53 @@
+To make **Parsec** use only the dummy display you created, follow these steps:
+
+---
+
+### **1. Identify the Dummy Display**
+After setting up the dummy display, you need to confirm that Windows recognizes it.
+
+1. Open **Display Settings**:
+   - Right-click on the desktop and select **Display settings**.
+
+2. Identify your displays:
+   - You will see multiple displays (e.g., Display 1, Display 2).
+   - Use the **Identify** button to determine which is the dummy display.
+
+3. Set the dummy display as **"Main Display"**:
+   - Select the dummy display.
+   - Scroll down and check **"Make this my main display"** under "Multiple displays."
+
+---
+
+### **2. Configure Parsec to Use the Dummy Display**
+1. Open **Parsec** on your laptop.
+2. Go to **Settings** > **Host**.
+3. Scroll to the **Monitor** section and select the dummy display:
+   - The dummy display will appear as one of the monitors listed.
+   - Select the dummy display from the dropdown menu.
+
+---
+
+### **3. Launch the Game on the Dummy Display**
+1. Run the game and ensure it launches on the dummy display:
+   - If the game opens on the main screen, use the keyboard shortcut `Win + Shift + Left/Right Arrow` to move it to the dummy display.
+   - For fullscreen games, configure the game settings to launch on the dummy display.
+
+---
+
+### **4. Stream with Parsec**
+1. On your smartphone, connect to the laptop using the **Parsec client**.
+2. Verify the stream:
+   - Parsec should now stream only the content displayed on the dummy monitor.
+   - The main screen of your laptop will remain unaffected.
+
+---
+
+### **5. Optional: Disable Main Display Streaming**
+To ensure the main display is never streamed:
+1. Go to **Parsec Settings** > **Host**.
+2. Enable the **"Restrict mouse and keyboard input"** option.
+3. Confirm that only the dummy display is shared.
+
+---
+
+By following these steps, you can ensure that Parsec exclusively uses the dummy display for streaming, providing a seamless and independent gaming experience.

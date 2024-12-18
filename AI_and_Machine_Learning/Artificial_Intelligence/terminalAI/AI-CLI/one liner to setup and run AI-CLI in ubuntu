@@ -1,0 +1,1 @@
+getnpm && npm install -g @callstack/ai-cli && exai && ai init &&  ai "make script that will free up all free space in ubuntu wsl2"

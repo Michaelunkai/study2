@@ -1,0 +1,47 @@
+1. What is Artificial Intelligence?
+00:00 - 00:09
+Hi! I'm Iason, this course on Artificial intelligence was developed in partnership with Iván Palomares Carrascosa. Let's get started!
+
+2. What is AI?
+00:09 - 00:33
+Given its recent popularity, Artificial Intelligence, or AI for short, may sound like a new field that emerged a few years ago. But in fact, its origins date back much further. In the 1950s, Alan Turing raised one of the earliest questions related to the field: "Can machines think?"
+
+3. What is AI?
+00:33 - 00:38
+Shortly after Turing's question, AI was born as a new scientific discipline. The vision for AI, at that time was somewhat idealistic and ambitious,
+
+4. What is AI?
+00:38 - 00:48
+and Alan Turing himself stated that a computer would deserve to be called intelligent if it could deceive a human by behaving as one.
+
+5. What is AI?
+00:48 - 00:54
+But, where does AI come from?
+
+6. First things first: Computer Science
+00:54 - 01:09
+AI originated as a new branch of knowledge within computer science, which is the group of technical knowledge needed for automatically processing information by computers.
+
+7. First things first: Computer Science
+01:09 - 01:29
+Just like a big tree with lots of branches, computer Science is an umbrella discipline consisting of many subareas, some of which are: computer hardware architectures, programming languages, operating systems, algorithms, data structures, artificial intelligence, and so on.
+
+8. First things first: Computer Science
+01:29 - 01:37
+Even though these branches of computer science are naturally interrelated, from now on we will put the lens on one of them: Artificial Intelligence.
+
+9. Artificial Intelligence (AI)
+01:37 - 02:21
+AI has also received various definitions over time. McCarthy was considered another of the fathers of AI back in the 1950s, defining it as the science and engineering of making intelligent machines. A more detailed definition describes AI as the science of building machines that learn to mimic reasoning, decision-making, and in general human-like intelligence to solve a problem. Recently, with the rise of Big Data technologies, AI has adopted a heavily data-driven connotation, being defined by the EU Commission as systems that perceive their environment, collect data, and interpret it to reason over knowledge inferred, make decisions and take the best course of action to achieve a goal.
+
+10. AI vs Artificial General Intelligence
+02:21 - 02:53
+Even AI has its limits, and one way to understand them is through the notion of Artificial General Intelligence or AGI. Contrary to AI (or Artificial "Narrow" Intelligence), AGI refers to systems that equal or exceed average human intelligence, being able to solve a breadth of tasks intelligently. Meanwhile, AI systems are good at solving one or a few very specific tasks they have been designed for.
+
+11. AI vs Artificial General Intelligence
+02:53 - 03:31
+It turns out that real AGI doesn't exist yet. There are a few examples of AI systems emulating human intelligence but none have exceeded it. Here is a comparison between examples of classical AI applications -like voice assistants, face recognition, personalized product recommendations, and industrial robots- against other emerging applications located halfway toward real AGI. These include self-driving cars, the AlphaGo system capable of mastering the game of Go, and even Generative AI, with large language models like GPT.
+
+12. Let's practice!
+03:31 - 03:40
+The field of AI is still in its infancy, and there is the potential for much more to come. Let's practice!

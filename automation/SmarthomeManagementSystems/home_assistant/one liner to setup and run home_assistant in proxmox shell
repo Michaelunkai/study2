@@ -1,0 +1,29 @@
+Home Assistant Container LXC
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homeassistant.sh)"
+
+
+Home Assistant Core LXC
+
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homeassistant-core.sh)"
+
+
+
+Home Assistant OS VM
+
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/vm/haos-vm.sh)"
+
+
+
+Podman Home Assistant Container LXC
+
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/podman-homeassistant.sh)"
+
+
+
+PiMox HAOS VM
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/vm/pimox-haos-vm.sh)"

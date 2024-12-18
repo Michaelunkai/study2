@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('textarea').forEach(textarea => textarea.style.height = '500px');
+})();

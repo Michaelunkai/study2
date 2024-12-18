@@ -1,0 +1,3 @@
+(function() {
+    alert('Page load time: ' + (window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart) + 'ms');
+})();

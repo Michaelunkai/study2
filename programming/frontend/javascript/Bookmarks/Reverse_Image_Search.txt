@@ -1,0 +1,1 @@
+(function() { let imgSrc = prompt('Enter image URL to reverse search:'); if (imgSrc) window.open('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(imgSrc)); })();

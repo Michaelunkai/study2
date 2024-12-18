@@ -1,0 +1,1 @@
+(function() { alert('Number of paragraphs: ' + document.querySelectorAll('p').length); })();

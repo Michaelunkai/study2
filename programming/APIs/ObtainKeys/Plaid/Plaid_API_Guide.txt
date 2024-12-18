@@ -1,0 +1,10 @@
+Step-by-Step Guide to Get a Plaid API Key:
+1. Sign Up:
+   - Go to https://plaid.com/ and create a developer account.
+
+2. Create a Sandbox Account:
+   - Start with their free Sandbox environment for testing.
+
+3. Get API Key:
+   - Go to the developer dashboard.
+   - Locate your API key under "API Keys" or similar settings.

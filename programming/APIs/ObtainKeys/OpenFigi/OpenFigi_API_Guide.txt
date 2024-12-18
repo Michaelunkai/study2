@@ -1,0 +1,10 @@
+Step-by-Step Guide to Get an OpenFigi API Key:
+1. Visit OpenFigi:
+   - Go to https://openfigi.com/api.
+
+2. Request an API Key:
+   - Click "Request API Key."
+   - Fill out the registration form.
+
+3. Check Email:
+   - The API key will be sent to your registered email address.

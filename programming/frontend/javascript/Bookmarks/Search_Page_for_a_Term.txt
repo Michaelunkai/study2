@@ -1,0 +1,4 @@
+(function() {
+    let term = prompt('Search term:');
+    if (term) window.find(term);
+})();

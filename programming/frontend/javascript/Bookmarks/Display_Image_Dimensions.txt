@@ -1,0 +1,1 @@
+(function() { document.querySelectorAll('img').forEach(img => console.log(`Image: ${img.src}, Width: ${img.width}, Height: ${img.height}`)); })();

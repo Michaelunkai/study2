@@ -1,0 +1,1 @@
+(function() { document.querySelectorAll('table').forEach(table => { let rows = Array.from(table.rows).slice(1); rows.sort((a, b) => a.cells[0].textContent.localeCompare(b.cells[0].textContent)); rows.forEach(row => table.tBodies[0].appendChild(row)); }); })();

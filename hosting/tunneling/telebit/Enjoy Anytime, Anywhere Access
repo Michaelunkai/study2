@@ -1,0 +1,29 @@
+For Local Development
+
+  ~/telebit http 3000
+  Forwarding https://jondoe.telebit.io => localhost:3000
+
+  curl -fsSL https://jondoe.telebit.io/
+
+For Sharing Files
+
+  ~/telebit http ./project.zip
+  Serving ./project.zip as https://jondoe.telebit.io
+
+  curl -fsSL https://jondoe.telebit.io/
+
+For Access with SSH
+
+  ~/telebit ssh auto
+  Forwarding jondoe.telebit.io -p 5050 => localhost:22
+  Forwarding ssh+https (openssl proxy) => localhost:22
+
+  ssh -p 5050 jondoe.telebit.io
+  ssh -o ProxyCommand="sclient %h" jondoe.telebit.io
+
+For Debugging with TCP
+
+  ~/telebit tcp 9000
+  Forwarding jondoe.telebit.io -p 5050 => localhost:9000
+
+  netcat jondoe.telebit.io 5050

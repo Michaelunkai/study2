@@ -1,0 +1,1 @@
+(function() { document.querySelectorAll('form').forEach(form => form.style.border = '2px solid green'); })();

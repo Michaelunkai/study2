@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('a').forEach(link => window.open(link.href));
+})();

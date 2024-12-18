@@ -1,0 +1,10 @@
+Step-by-Step Guide to Get a CurrencyLayer API Key:
+1. Go to the Website:
+   - Visit https://currencylayer.com/ and sign up for a free account.
+
+2. Confirm Email:
+   - Complete the registration by verifying your email.
+
+3. Access API Key:
+   - Log in to your dashboard.
+   - Your API key will be displayed under "API Access Key." 

@@ -221,7 +221,6 @@
         "Octogeddon",
         "Frogun",
         "CultoftheLamb",
-        "Akimbot",
         "Bayonetta3",
         "DOOMEternal",
         "AstralAscent",
@@ -234,14 +233,11 @@
         "Yakuza0",
         "Yakuza5",
         "YakuzaKiwami",
-        "SpaceMarine2",
         "YakuzaKiwami2",
         "Yakuza6",
         "Melatonin",
-        "TinyTinasAssaultonDragonKeep",
-        "FlintlockTheSiegeofDawn",
-        "TheLegendofHeroesTrailstoAzure",
-        "TheSpiritandtheMouse"
+        "TheSpiritandtheMouse",
+        "spacemarine2"
     ],
     "category_games": {
         "interactive": [
@@ -315,8 +311,7 @@
             "voidbastardsbangtydy",
             "angerfoot",
             "doometernal",
-            "spacemarine2",
-            "tinytinasassaultondragonkeep"
+            "spacemarine2"
         ],
         "chill": [
             "okamihd",
@@ -393,7 +388,6 @@
             "littlewood",
             "cultofthelamb",
             "melatonin",
-            "thelegendofheroestrailstoazure",
             "aithesomniumfiles",
             "13sentinelsaegisrim",
             "neocab",
@@ -477,7 +471,6 @@
             "anothercrabstreasure",
             "troversavestheuniverse",
             "octogeddon",
-            "akimbot",
             "bayonetta3",
             "astralascent",
             "falloutlondon",
@@ -488,7 +481,6 @@
             "yakuzakiwami",
             "yakuzakiwami2",
             "yakuza6",
-            "flintlockthesiegeofdawn",
             "loopmancer"
         ],
         "platform": [

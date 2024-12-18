@@ -1,0 +1,46 @@
+1. When should you trust LLMs
+00:00 - 00:12
+Hi, and welcome back. We constantly seek tools and techniques to elevate our operations in business, like LLMs. But with the benefits also come the pitfalls.
+
+2. Maximizing Duolingo
+00:12 - 00:25
+Duolingo recently launched a new tier of their product called Duolingo Max, which utilizes ChatGPT to carry out human-like conversations with learners in several languages.
+
+1 https://blog.duolingo.com/duolingo-max/
+3. Maximizing Duolingo
+00:25 - 00:46
+Learners practice vocabulary for different situations, with GPT taking on different personalities and providing instant feedback, explaining why a learner’s response was considered correct immediately. Even five years ago, this would be considered science fiction; today, it’s becoming common.
+
+1 https://blog.duolingo.com/duolingo-max/
+4. Understanding LLMs
+00:46 - 01:14
+Regardless of how amazing this transformation is, business leaders need to understand the true nature of LLMs. We must understand that LLMs aren’t magical and often are simply trying to predict the next word in a sequence of words. Apart from numerically codifying relationships between words–like which noun a pronoun refers to– they do not understand language or context in a human sense.
+
+5. Common sense in LLMs?
+01:14 - 01:49
+This means that they have no conception of what is “true”. This leads us to an important consideration: common sense. LLMs can fail at trivial tasks that third graders could perform. Human oversight remains critical for many tasks across every industry, including in research, finance, or healthcare. Because LLMs lack human intuition and context awareness, relying solely on LLMs in critical areas can lead to errors that might have profound implications.
+
+6. Training oversight
+01:49 - 02:05
+An area that is often overlooked is that LLMs depend completely on the data used to train them. Issues of Bias and social justice can be greatly amplified by using an LLM without interrogating its responses for bias or harm.
+
+7. Is there bias?
+02:05 - 02:48
+If an LLM is trained on hateful comments from online users, its responses will be equally hateful. If the datasets used contain biases, the LLM can inadvertently amplify these, leading to systemic output biases. This can manifest in racial, gender, or cultural prejudices, potentially perpetuating stereotypes or misinformation. Many LLM developers have now included some measures to prevent these issues, but they are not perfect. Whether training their own LLMs or using pre-trained models, businesses must be aware of such vulnerabilities and ensure there are proper safeguards in place.
+
+8. Flexibility and its consequences
+02:48 - 03:17
+Because LLMs are essentially guessing the correct sequence of words, their responses can change even for the same prompt. While this may be harmless or even desired in creative pursuits, it can cause problems in other situations. Imagine that a marketing team prompts an LLM to generate product descriptions. Without human oversight, a customer could see inconsistent descriptions for the same product. Such inconsistencies can damage a company's brand image.
+
+9. Security alert!
+03:17 - 03:46
+LLMs introduce security concerns as well. Despite their complexity, they are not immune to being tricked. For example, an attacker can embed a harmful prompt on a website, which results in distorted replies when accessed by the LLM. This phenomenon is called prompt injection. Such distortion could be harmless but could also lead to anything from reputational damage to unauthorized purchases!
+
+10. The challenge with LLMs
+03:46 - 04:22
+LLMs promise transformative potential across sectors, but they come with their challenges. Many of these challenges are industry-specific, and I encourage you to look into The Open Worldwide Application Security Project, or OWASP, to see how these challenges are being quantified and mitigated. Businesses must keep these concerns at the forefront of their LLM projects. As we harness the power of LLMs, understanding these intricacies, ensuring human oversight, and investing in robust training and security protocols will be vital.
+
+1 https://owasp.org/
+11. Let's practice!
+04:22 - 04:25
+Time for some exercises!

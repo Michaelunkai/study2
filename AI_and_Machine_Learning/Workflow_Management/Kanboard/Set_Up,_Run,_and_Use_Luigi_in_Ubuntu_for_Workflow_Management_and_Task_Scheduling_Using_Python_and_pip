@@ -1,0 +1,133 @@
+### Comprehensive Step-by-Step Guide to Set Up, Run, and Use Luigi in Ubuntu for Workflow Management and Task Scheduling Using Python and pip
+
+This tutorial will provide a detailed guide on setting up, running, and using **Luigi** on an Ubuntu system. Luigi is a Python-based tool designed for creating and managing complex workflows and task scheduling. We will cover installation using **pip**, creating tasks with **Python**, and running those tasks in a structured manner. This guide is ideal for developers who want to automate workflow management using Luigi in Ubuntu.
+
+### Step 1: Install Python and pip in Ubuntu for Luigi Setup
+
+Luigi is built in Python, so having Python and pip installed is essential. If they are not installed on your system, you can install them using the following command.
+
+  
+sudo apt install python3 python3-pip -y
+
+### Step 2: Install Luigi Using pip in Ubuntu
+
+Once Python and pip are installed, you can proceed to install **Luigi** using pip. This will enable you to run Luigi tasks and create workflows.
+
+  
+pip3 install luigi
+
+This command will download and install the latest version of Luigi from the Python Package Index (PyPI).
+
+### Step 3: Create a Project Folder and a Simple Luigi Task Using Python
+
+Next, create a folder for your Luigi project. This folder will contain all the Python scripts you will create for your Luigi workflows.
+
+  
+mkdir ~/luigi_project
+cd ~/luigi_project
+
+After navigating to the folder, create a simple Luigi task file. Use `nano` to create the file `simple_task.py`:
+
+  
+nano simple_task.py
+
+Add the following code to the `simple_task.py` file. This will define a simple task that writes "Hello, Luigi!" to a file along with the current time.
+
+  
+import luigi
+import time
+
+class MyTask(luigi.Task):
+    def requires(self):
+        return None
+
+    def output(self):
+        return luigi.LocalTarget('output.txt')
+
+    def run(self):
+        with self.output().open('w') as f:
+            f.write('Hello, Luigi! Task completed at ' + time.ctime() + '\n')
+
+if __name__ == '__main__':
+    luigi.run()
+
+- The `requires()` method indicates that this task has no dependencies.
+- The `output()` method specifies the target file (`output.txt`) that will be generated after the task is completed.
+- The `run()` method writes the text to the specified file.
+
+### Step 4: Run the Luigi Task in Ubuntu
+
+Now, you can run the Luigi task. This will execute the `MyTask` class, which writes a message to `output.txt`.
+
+  
+python3 simple_task.py MyTask --local-scheduler
+
+Explanation:
+- `MyTask`: This is the class that defines the task.
+- `--local-scheduler`: This flag ensures the task runs using a local scheduler rather than the central Luigi scheduler.
+
+### Step 5: Verify the Output of the Luigi Task
+
+Once the task completes, it generates a file called `output.txt`. You can view its contents to verify that the task has successfully executed.
+
+  
+cat output.txt
+
+You should see something like:
+
+Hello, Luigi! Task completed at [current time]
+
+### Step 6: Optional - Use the Luigi Central Scheduler for Workflow Monitoring
+
+Luigi includes a web interface that allows you to visualize your workflows. You can enable this by starting the Luigi central scheduler. In a new terminal, run the following command:
+
+  
+luigid
+
+This command starts the Luigi scheduler, which you can access by navigating to `http://localhost:8082` in your web browser.
+
+### Step 7: Create More Complex Luigi Workflows with Task Dependencies
+
+To fully utilize Luigi, you can create workflows with multiple tasks that depend on each other. Here’s an example of a two-task workflow where the second task depends on the completion of the first task.
+
+First, modify your Python file (`simple_task.py`) to include multiple tasks:
+
+  
+import luigi
+
+class FirstTask(luigi.Task):
+    def output(self):
+        return luigi.LocalTarget('first_task_output.txt')
+
+    def run(self):
+        with self.output().open('w') as f:
+            f.write('First Task Completed\n')
+
+class SecondTask(luigi.Task):
+    def requires(self):
+        return FirstTask()
+
+    def output(self):
+        return luigi.LocalTarget('second_task_output.txt')
+
+    def run(self):
+        with self.output().open('w') as f:
+            f.write('Second Task Completed after First Task\n')
+
+if __name__ == '__main__':
+    luigi.run()
+
+In this code:
+- The `SecondTask` class depends on the `FirstTask`.
+- The `requires()` method of `SecondTask` specifies that it must run after `FirstTask` completes.
+
+You can run this workflow by specifying `SecondTask`:
+
+  
+python3 simple_task.py SecondTask --local-scheduler
+
+Luigi will automatically execute `FirstTask` before running `SecondTask`.
+
+---
+
+By following these steps, you will have successfully set up, run, and used **Luigi** on Ubuntu for creating and managing workflows.

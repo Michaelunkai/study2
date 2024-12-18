@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('style, link[rel="stylesheet"]').forEach(el => el.remove());
+})();

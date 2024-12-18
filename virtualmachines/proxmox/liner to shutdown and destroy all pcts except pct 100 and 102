@@ -1,0 +1,1 @@
+ for id in $(pct list | awk 'NR>1 {print $1}' | grep -Ev '^(100|102)$'); do pct shutdown $id && pct destroy $id; done

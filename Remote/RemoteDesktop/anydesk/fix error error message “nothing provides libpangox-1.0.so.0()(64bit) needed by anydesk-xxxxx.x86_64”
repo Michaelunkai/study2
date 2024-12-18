@@ -1,0 +1,2 @@
+sudo dnf --releasever=32 install pangox-compat.x86_64
+sudo dnf install -y anydesk

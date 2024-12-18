@@ -1,0 +1,42 @@
+▲A  A▼
+Running qBittorrent in Docker [Browser Based BitTorrent Client]
+What is qBittorrent?
+qBittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features. -https://github.com/qbittorrent/qBittorrent
+
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running qBittorrent
+Continue with the following commands in a terminal window
+# list current uid and gid, note these for later
+id $user
+# create a working directory
+mkdir ~/docker/qbittorrent -p
+# run the qbittorrent docker image
+# replace PUID, GUID with the output of the id $user command above
+docker run -d --name=qbittorrent -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e WEBUI_PORT=8080 -p 8080:8080 -p 6881:6881 -p 6881:6881/udp -v ~/docker/qbittorrent:/config -v ~/Downloads:/downloads --restart unless-stopped lscr.io/linuxserver/qbittorrent
+Open a web browser and navigate to http://DNSorIP:8080
+Login using the username admin and password adminadmin
+Select Tools > Options...
+Click the Web UI tab
+Enter a new admin password > Click the Save button at the bottom
+Select File > Logout
+Log back in using username admin and the new password
+Welcome to qBittorrent
+Documentation: https://hub.docker.com/r/linuxserver/qbittorrent
+
+ 

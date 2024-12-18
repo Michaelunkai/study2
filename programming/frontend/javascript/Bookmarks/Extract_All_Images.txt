@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('img').forEach(img => window.open(img.src));
+})();

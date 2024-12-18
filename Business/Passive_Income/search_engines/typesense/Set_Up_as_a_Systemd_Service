@@ -1,0 +1,28 @@
+ Set Up as a Systemd Service
+Create a service file for Typesense:
+
+ 
+ 
+sudo nano /etc/systemd/system/typesense.service
+Add the following:
+
+ini
+ 
+[Unit]
+Description=Typesense Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/typesense-server --config /path/to/typesense-config.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and start the service:
+
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl start typesense
+sudo systemctl enable typesense

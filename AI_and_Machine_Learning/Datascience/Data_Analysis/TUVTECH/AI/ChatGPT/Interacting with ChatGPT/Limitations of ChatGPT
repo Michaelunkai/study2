@@ -1,0 +1,76 @@
+1. Limitations of ChatGPT
+00:00 - 00:10
+Although ChatGPT is a valuable tool that can perform a huge variety of tasks, there are some limitations to be aware of to use it effectively.
+
+2. ChatGPT under the hood
+00:10 - 00:36
+ChatGPT's text-generation capabilities come from a large language model, or LLM, which sits at the heart of the application. The LLM interprets the prompt and generates relevant text in response based on its understanding of language. To understand some of the limitations of ChatGPT, we'll first need to delve a little deeper into how the LLM works.
+
+3. Demystifying the LLM
+00:36 - 00:41
+Imagine we've been shown a large and complex building block wall,
+
+4. Demystifying the LLM
+00:41 - 00:52
+and then we've been given an incomplete wall to finish off in the same style as the large wall. This, in essence, is how ChatGPT works.
+
+5. Demystifying the LLM
+00:52 - 01:16
+When developing ChatGPT, the LLM was shown a huge amount of text data, which is like the large building block wall. From this data, it develops its understanding of the structure of language by looking at the relation between characters, words, and sentences, which are like the differently-colored building blocks. The data that the model learns from is called
+
+6. Demystifying the LLM
+01:16 - 01:27
+the training data, and the sheer amount and diversity of data used to train ChatGPT is a large part of its success. The model itself used complex
+
+7. Demystifying the LLM
+01:27 - 01:32
+algorithms to detect these language patterns in the training data, and it was
+
+8. Demystifying the LLM
+01:32 - 01:38
+fine-tuned through iterative processes that included rating the quality of the responses.
+
+9. Demystifying the LLM
+01:38 - 01:51
+So when we provide a prompt to ChatGPT, it is essentially trying to complete a building block wall using its understanding of the training data to generate the words most likely to follow the prompt.
+
+10. Limitation 1 - Knowledge cutoff
+01:51 - 02:17
+This leads us to our first limitation: ChatGPT was trained on data up to a certain date, which differs depending on the model used. Without being directly provided with additional context, these models will have no knowledge of events past these dates. As OpenAI updates the LLMs used in ChatGPT, these dates will continue to shift forward.
+
+11. Limitation 2 - Training data bias
+02:17 - 02:39
+Another limitation is potential bias in the training data. ChatGPT was trained on a massive text dataset from a variety of sources, including books, articles, and websites, but this data could contain biases. The model may learn these biases and produce biased responses.
+
+12. Limitation 3 - Context tracking
+02:39 - 02:50
+ChatGPT has the ability to build on information and context from earlier in the conversation, so follow-up corrections can be made. However, if the topic of the conversation
+
+13. Limitation 3 - Context tracking
+02:50 - 02:52
+shifts multiple times,
+
+14. Limitation 3 - Context tracking
+02:52 - 03:08
+ChatGPT can struggle to keep track of the context and generate inaccurate or irrelevant responses. A good rule of thumb is to keep a conversation to one topic and create new conversations for different topics.
+
+15. Limitation 4 - Hallucination
+03:08 - 03:37
+Another common issue when interacting with ChatGPT is hallucination, which is when the model confidently tells us inaccurate information. This often occurs when attempting to go beyond ChatGPT's knowledge cutoff or abilities. Hallucinations can be difficult to identify without being able to validate the results, but fortunately, one of the most active areas of LLM development is the identification and reduction of hallucinations.
+
+1 https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)
+16. Limitation 5 - Legal and ethical considerations
+03:37 - 04:02
+Let's discuss a limitation on what the user can do. Consider this situation: we ask ChatGPT to write a new song in the style of our favorite artist. ChatGPT generates a song that resembles the style of this artist based on the song lyrics that were present in the training data, but who owns this new song? Is it the user that wrote the prompt,
+
+17. Limitation 5 - Legal and ethical considerations
+04:02 - 04:05
+the artist that wrote the original lyrics,
+
+18. Limitation 5 - Legal and ethical considerations
+04:05 - 04:26
+or OpenAI, the creators of ChatGPT? It's easy to fall into one of these legal gray areas if the use cases for ChatGPT aren't properly scoped so that ownership and legal implications are well-understood and accepted. We'll discuss ownership and privacy in much more detail later in the course.
+
+19. Let's practice!
+04:26 - 04:36
+Understanding these limitations will help inform how we can use ChatGPT effectively and responsibly. Time to practice!

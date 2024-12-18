@@ -1,9 +1,23 @@
 1)add aliases:
+alias ubu="bash /home/ubuntu/run_remote_wsl.sh"
+alias power="bash /home/ubuntu/powershell.sh"
+
+
+
+copy() {
+    sudo apt install xclip -y                                                                       # Enable alias expansion in the function                                                        shopt -s expand_aliases                                                                         # Re-run the provided command with alias expansion and pipe to xclip                            eval "$*" | xclip -selection clipboard
+    echo "Output of '$*' copied to clipboard."                                                  }
+
+
+
+
+
+alias not in root:
+alias s='echo "ubuntu ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && sudo su'
+
 
 2)install:
 
 3)add/change:
 
-
-*)scpmyg
 *)bbubu (backup, restore, new snap, ubudocker)

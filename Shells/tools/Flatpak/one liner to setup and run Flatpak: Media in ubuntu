@@ -1,0 +1,1 @@
+flatpak install -y flathub org.gnome.Logs org.shotcut.Shotcut org.gimp.GIMP com.stremio.Stremio com.spotify.Client org.audacityteam.Audacity org.kde.kasts && echo "Media software installed via Flatpak."

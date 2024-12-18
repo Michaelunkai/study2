@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('a').forEach(link => link.remove());
+})();

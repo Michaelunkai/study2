@@ -1,0 +1,5 @@
+(function() {
+    document.querySelectorAll('a').forEach(link => {
+        link.style.textDecoration = link.style.textDecoration === 'none' ? 'underline' : 'none';
+    });
+})();

@@ -1,0 +1,1 @@
+(function() { let scripts = [...document.querySelectorAll('script[src]')].map(s => s.src); alert(scripts.join('\n')); })();

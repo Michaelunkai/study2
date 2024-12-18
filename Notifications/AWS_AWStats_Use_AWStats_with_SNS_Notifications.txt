@@ -1,0 +1,2 @@
+aws sns create-topic --name AWStatsNotifications
+aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456789012:AWStatsNotifications --protocol email --notification-endpoint email@example.com

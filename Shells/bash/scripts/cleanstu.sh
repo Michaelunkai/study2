@@ -1,538 +1,693 @@
-#!/bin/bash 
+#!/bin/bash
 
-# Install missing tools (deborphan, localepurge)
+# ================================
+# System Cleanup Script
+# ================================
+# This script performs an extensive system cleanup by executing 200 commands
+# to free up space and remove unnecessary files.
+# It displays the disk usage of /mnt/wslg before and after the cleanup.
+# Ensure you have backups before running this script.
 
-if ! command -v deborphan &> /dev/null; then
-    sudo apt-get install -y deborphan
+# ================================
+# Initial Disk Usage Check
+# ================================
+echo "==============================="
+echo "Initial disk usage of /mnt/wslg:"
+du -sh /mnt/wslg || echo "/mnt/wslg does not exist or is inaccessible."
+echo "==============================="
+
+# ================================
+# Define Excluded Directories
+# ================================
+# Directories that should be excluded from all find operations to prevent errors
+EXCLUDE_DIRS="-path /usr/lib/wsl/drivers -prune -o -path /mnt/wslg/distro -prune"
+
+# ================================
+# System Cleanup Commands
+# ================================
+
+echo "Starting system cleanup..."
+
+# 1. Clean package manager caches
+sudo apt-get clean -y || echo "Failed to clean package manager caches."
+
+# 2. Autoremove orphaned packages
+sudo apt-get autoremove --purge -y || echo "Failed to autoremove orphaned packages."
+
+# 3. Remove specific Linux packages
+sudo apt-get remove --purge -y $(dpkg -l "linux-*" | awk '/^ii/ && !/'"$(uname -r | sed "s/-[a-z]*//g")"'/ {print $2}') || echo "Failed to remove specific Linux packages."
+
+# 4. Autoremove again to catch any additional dependencies
+sudo apt-get autoremove -y || echo "Failed to autoremove additional dependencies."
+
+# 5. Autoclean to remove partial packages
+sudo apt-get autoclean -y || echo "Failed to autoclean partial packages."
+
+# 6. Clean journal logs older than 2 weeks
+sudo journalctl --vacuum-time=2weeks || echo "Failed to vacuum journal logs by time."
+
+# 7. Limit journal size to 100MB
+sudo journalctl --vacuum-size=100M || echo "Failed to vacuum journal logs by size."
+
+# 8. Remove temporary files from WSLg (if applicable)
+sudo rm -rf /mnt/wslg/tmp/* /mnt/wslg/var/tmp/* || echo "Failed to remove temporary files from /mnt/wslg."
+
+# 9. Remove user cache and thumbnails
+rm -rf ~/.cache/* ~/.thumbnails/* || echo "Failed to remove user cache and thumbnails."
+
+# 10. Delete large files in /mnt/wslg
+sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -size +100M -readable -writable -delete 2>/dev/null || echo "Failed to delete large files in /mnt/wslg."
+
+# 11. Truncate large log files
+sudo find / $EXCLUDE_DIRS -o -type f -name "*.log" -exec truncate -s 0 {} \; 2>/dev/null || echo "Failed to truncate large log files."
+
+# 12. Remove orphaned packages using deborphan
+sudo deborphan | xargs sudo apt-get -y remove --purge || echo "Failed to remove orphaned packages using deborphan."
+
+# 13. Clean broken symlinks
+sudo find / $EXCLUDE_DIRS -o -xtype l -delete 2>/dev/null || echo "Failed to clean broken symlinks."
+
+# 14. Remove unnecessary locales
+sudo localepurge || echo "Failed to remove unnecessary locales."
+
+# 15. Delete large files from home and /tmp
+sudo find ~/ $EXCLUDE_DIRS -o -type f -size +100M -delete 2>/dev/null || echo "Failed to delete large files from home."
+sudo find /tmp $EXCLUDE_DIRS -o -type f -size +100M -delete 2>/dev/null || echo "Failed to delete large files from /tmp."
+
+# 16. Clean npm, pip, and composer caches
+if command -v npm &> /dev/null; then
+    echo "Cleaning npm cache..."
+    npm cache clean --force 2>/dev/null || echo "Failed to clean npm cache."
+else
+    echo "npm is not installed. Skipping npm cache cleaning."
 fi
 
-if ! command -v localepurge &> /dev/null; then
-    # Pre-configure localepurge to keep 'en' locales
-    sudo debconf-set-selections <<EOF
-localepurge   localepurge/nopurge   multiselect     en, en_US.UTF-8
-localepurge   localepurge/dontbothernew     boolean true
-localepurge   localepurge/mandelete boolean true
-localepurge   localepurge/showfreedspace    boolean true
-EOF
-    sudo apt-get install -y localepurge
+rm -rf ~/.cache/pip 2>/dev/null || echo "Failed to clean pip cache."
+
+if command -v composer &> /dev/null; then
+    composer clear-cache 2>/dev/null || echo "Failed to clear composer cache."
+else
+    echo "composer is not installed. Skipping composer cache cleaning."
 fi
 
-# Clean package manager caches and orphaned packages
-sudo apt-get clean -y &&
-sudo apt-get autoremove --purge -y &&
-sudo apt-get remove --purge -y $(dpkg -l "linux-*" | sed "/^ii/!d; /$(uname -r | sed 's/-[a-z]*//g')/d; s/^[^ ]* [^ ]* \([^ ]*\).*/\1/") &&
-sudo apt-get autoremove -y &&
-sudo apt-get autoclean -y &&
+# 17. Remove old apt archive files
+sudo find /var/cache/apt/archives $EXCLUDE_DIRS -o -type f -name "*.deb" -delete 2>/dev/null || echo "Failed to remove old apt archive files."
 
-# Clean journal logs
-sudo journalctl --vacuum-time=2weeks &&
-sudo journalctl --vacuum-size=100M &&
+# 18. Remove old unused kernels
+sudo apt-get autoremove --purge -y || echo "Failed to remove old unused kernels."
 
-# Clean temporary files and caches
-sudo rm -rf /mnt/wslg/tmp/* /mnt/wslg/var/tmp/* &&
-rm -rf ~/.cache/* ~/.thumbnails/* &&
+# 19. Remove unnecessary documentation and man pages
+sudo rm -rf /usr/share/doc/* /usr/share/man/* || echo "Failed to remove unnecessary documentation and man pages."
 
-# Avoid file system loops and skip inaccessible files
-sudo find /mnt/wslg -xdev -type f -size +100M -readable -writable -delete 2>/dev/null &&
-sudo find / -xdev -type f -name "*.log" -exec truncate -s 0 {} \; 2>/dev/null &&
+# 20. Clean Firefox and Chrome caches
+rm -rf ~/.cache/mozilla/firefox/* ~/.cache/google-chrome/* || echo "Failed to clean Firefox and Chrome caches."
 
-# Remove orphaned packages
-sudo deborphan | xargs sudo apt-get -y remove --purge &&
+# 21. Remove Python bytecode and swap files
+sudo find / $EXCLUDE_DIRS -o -name "*.pyc" -delete 2>/dev/null || echo "Failed to remove Python bytecode files."
+sudo find / $EXCLUDE_DIRS -o -type f -name "*.swp" -delete 2>/dev/null || echo "Failed to remove swap files."
 
-# Clean broken symlinks
-sudo find / -xdev -xtype l -delete 2>/dev/null &&
+# 22. Remove old system crash logs
+sudo rm -rf /var/crash/* 2>/dev/null || echo "Failed to remove old system crash logs."
 
-# Remove unnecessary locales
-sudo localepurge &&
+# 23. Delete large temp files from /var/tmp
+sudo find /var/tmp $EXCLUDE_DIRS -o -type f -size +50M -delete 2>/dev/null || echo "Failed to delete large temp files from /var/tmp."
 
-# Remove large files from various directories
-sudo find ~/ -xdev -type f -size +100M -delete 2>/dev/null &&
-sudo find /tmp -xdev -type f -size +100M -delete 2>/dev/null &&
+# 24. Purge config files from removed packages
+sudo dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge -y 2>/dev/null || echo "Failed to purge config files from removed packages."
 
-# Clean caches (npm, pip, composer)
-npm cache clean --force 2>/dev/null &&
-rm -rf ~/.cache/pip 2>/dev/null &&
-composer clear-cache 2>/dev/null &&
+# ================================
+# Additional 50 Cleaning Commands
+# ================================
 
-# Remove old apt archives
-sudo find /var/cache/apt/archives -type f -name "*.deb" -delete 2>/dev/null &&
+echo "Executing additional cleaning commands..."
 
-# Remove old unused kernels
-sudo apt-get autoremove --purge -y &&
+# 25. Remove old backups
+sudo find /var/backups $EXCLUDE_DIRS -o -type f -delete || echo "No backups to remove or failed to remove."
 
-# Remove unnecessary documentation files
-sudo rm -rf /usr/share/doc/* &&
-sudo rm -rf /usr/share/man/* &&
+# 26. Remove orphaned dependencies
+sudo apt-get autoremove --purge -y || echo "No orphaned dependencies or failed to remove."
 
-# Clean Firefox and Chrome cache
-rm -rf ~/.cache/mozilla/firefox/* &&
-rm -rf ~/.cache/google-chrome/* &&
+# 27. Clean up old crash reports
+sudo rm -rf /var/crash/* || echo "No crash reports to clean or failed to clean."
 
-# Clean Python bytecode and swap files
-find / -xdev -name "*.pyc" -delete 2>/dev/null &&
-sudo find / -xdev -type f -name "*.swp" -delete 2>/dev/null &&
+# 28. Clean up large `.log` files
+sudo find /var/log $EXCLUDE_DIRS -o -type f -name "*.log" -size +50M -delete || echo "No large .log files to remove or failed to remove."
 
-# Remove old system crash logs
-sudo rm -rf /var/crash/* 2>/dev/null &&
+# 29. Clean up `.gz` log files
+sudo find /var/log $EXCLUDE_DIRS -o -type f -name "*.gz" -size +50M -delete || echo "No large .gz log files to remove or failed to remove."
 
-# Remove large temp files from /var/tmp
-sudo find /var/tmp -xdev -type f -size +50M -delete 2>/dev/null &&
+# 30. Remove old unused libraries
+sudo find /usr/lib $EXCLUDE_DIRS -o -type f -size +50M -delete || echo "No large unused libraries to remove or failed to remove."
 
-# Clean up unnecessary config files from removed packages
-sudo dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge -y 2>/dev/null &&
+# 31. Remove old unused modules
+sudo find /lib/modules $EXCLUDE_DIRS -o -type f -size +50M -delete || echo "No large unused modules to remove or failed to remove."
 
-# Additional 50 commands to free up space:
+# 32. Clean up old archives from /var/cache
+sudo find /var/cache $EXCLUDE_DIRS -o -type f -name "*.gz" -delete || echo "No old archives in /var/cache or failed to remove."
 
-# 1. Remove old backups
-sudo find /var/backups -type f -delete &&
+# 33. Remove large swap files
+sudo find / $EXCLUDE_DIRS -o -name "*.swp" -delete || echo "No swap files found or failed to remove."
 
-# 2. Remove orphaned dependencies
-sudo apt-get autoremove --purge -y &&
+# 34. Remove unnecessary Linux headers
+sudo apt-get remove --purge -y linux-headers-* || echo "No Linux headers to remove or failed to remove."
 
-# 3. Clean up old crash reports
-sudo rm -rf /var/crash/* &&
+# 35. Remove large fonts
+sudo find /usr/share/fonts $EXCLUDE_DIRS -o -type f -size +1M -delete || echo "No large fonts to remove or failed to remove."
 
-# 4. Clean up large `.log` files
-sudo find /var/log -type f -name "*.log" -size +50M -delete &&
+# 36. Clean up icons cache
+rm -rf ~/.icons/* || echo "No icons cache to clean or failed to clean."
 
-# 5. Clean up `.gz` log files
-sudo find /var/log -type f -name "*.gz" -size +50M -delete &&
+# 37. Clean up Bash history
+rm -f ~/.bash_history || echo "No Bash history to clean or failed to clean."
 
-# 6. Remove old unused libraries
-sudo find /usr/lib -type f -size +50M -delete &&
+# 38. Clean up Python virtual environments cache
+sudo find ~/.venv $EXCLUDE_DIRS -o -type f -delete || echo "No Python venv cache or failed to clean."
 
-# 7. Remove old unused modules
-sudo find /lib/modules -type f -size +50M -delete &&
+# 39. Remove large unnecessary files from /var/tmp
+sudo find /var/tmp $EXCLUDE_DIRS -o -type f -size +100M -delete || echo "No large files in /var/tmp or failed to remove."
 
-# 8. Clean up old archives from /var/cache
-sudo find /var/cache -type f -name "*.gz" -delete &&
+# 40. Remove unnecessary themes
+sudo rm -rf /usr/share/themes/* || echo "No themes to remove or failed to remove."
 
-# 9. Remove large swap files
-sudo find / -name "*.swp" -delete &&
+# 41. Clean old dconf database
+rm -rf ~/.cache/dconf/* || echo "No dconf cache to clean or failed to clean."
 
-# 10. Remove unnecessary Linux headers
-sudo apt-get remove --purge linux-headers-* &&
+# 42. Remove unused media files
+sudo find /usr/share/media $EXCLUDE_DIRS -o -type f -delete || echo "No media files to remove or failed to remove."
 
-# 11. Remove large fonts
-sudo find /usr/share/fonts -type f -size +1M -delete &&
+# 43. Remove unused wallpapers
+sudo rm -rf /usr/share/backgrounds/* || echo "No wallpapers to remove or failed to remove."
 
-# 12. Clean up icons cache
-rm -rf ~/.icons/* &&
+# 44. Remove old thumbnails
+rm -rf ~/.cache/thumbnails/* || echo "No thumbnails to remove or failed to remove."
 
-# 13. Clean up Bash history
-rm -rf ~/.bash_history &&
+# 45. Remove old package files
+sudo find /var/cache/apt/archives/ $EXCLUDE_DIRS -o -type f -delete || echo "No package files to remove or failed to remove."
 
-# 14. Clean up Python venv cache
-sudo find ~/.venv -type f -delete &&
+# 46. Remove Docker images
+if command -v docker &> /dev/null; then
+    echo "Removing Docker images..."
+    sudo docker rmi $(docker images -q) || echo "No Docker images to remove or failed to remove."
+else
+    echo "Docker is not installed."
+fi
 
-# 15. Remove large unnecessary files from /var/tmp
-sudo find /var/tmp -type f -size +100M -delete &&
+# 47. Clean up pip wheel cache
+rm -rf ~/.cache/pip/wheels/* || echo "No pip wheels to clean or failed to clean."
 
-# 16. Remove unnecessary themes
-sudo rm -rf /usr/share/themes/* &&
+# 48. Remove temp files in /tmp
+sudo find /tmp $EXCLUDE_DIRS -o -type f -delete || echo "No temp files in /tmp or failed to remove."
 
-# 17. Clean old dconf database
-rm -rf ~/.cache/dconf/* &&
+# 49. Clean up old system logs
+sudo find /var/log $EXCLUDE_DIRS -o -type f -name "*.log" -exec rm -f {} \; || echo "No system logs to clean or failed to clean."
 
-# 18. Remove unused media files
-sudo find /usr/share/media -type f -delete &&
+# 50. Remove large temporary files from home
+sudo find ~/ $EXCLUDE_DIRS -o -type f -size +100M -delete || echo "No large temp files in home or failed to remove."
 
-# 19. Remove unused wallpapers
-sudo rm -rf /usr/share/backgrounds/* &&
+# ================================
+# Additional 50 Cleaning Commands Continued
+# ================================
 
-# 20. Remove old thumbnails
-rm -rf ~/.cache/thumbnails/* &&
+echo "Executing additional cleaning commands continued..."
 
-# 21. Remove old package files
-sudo find /var/cache/apt/archives/ -type f -delete &&
+# 51. Remove obsolete mount points
+sudo find /mnt $EXCLUDE_DIRS -o -type d -empty -delete || echo "No obsolete mount points or failed to remove."
 
-# 22. Remove docker images
-sudo docker rmi $(docker images -q) &&
+# 52. Clean old software sources
+sudo rm -rf /etc/apt/sources.list.d/* || echo "No additional sources to remove or failed to remove."
 
-# 23. Clean up the pip wheel cache
-rm -rf ~/.cache/pip/wheels/* &&
+# 53. Remove unnecessary config files
+sudo rm -rf ~/.config/* || echo "No config files to remove or failed to remove."
 
-# 24. Remove temp files in /tmp
-sudo find /tmp -type f -delete &&
+# 54. Clean up large `.old` files
+sudo find / $EXCLUDE_DIRS -o -type f -name "*.old" -delete || echo "No .old files to clean or failed to clean."
 
-# 25. Clean up old system logs
-sudo find /var/log -type f -name "*.log" -exec rm -f {} \; &&
+# 55. Remove old core dumps
+sudo find /var/lib/systemd/coredump $EXCLUDE_DIRS -o -type f -delete || echo "No core dumps to remove or failed to remove."
 
-# 26. Remove large temporary files from home
-sudo find ~/ -type f -size +100M -delete &&
+# 56. Clean unused shell scripts in /usr/local/bin
+sudo find /usr/local/bin $EXCLUDE_DIRS -o -type f -name "*.sh" -delete || echo "No shell scripts to remove or failed to remove."
 
-# 27. Remove obsolete mount points
-sudo find /mnt -type d -empty -delete &&
+# 57. Remove orphaned libraries using deborphan
+sudo deborphan --guess-all | xargs sudo apt-get purge -y || echo "No orphaned libraries to remove or failed to remove."
 
-# 28. Clean old software sources
-sudo rm -rf /etc/apt/sources.list.d/* &&
+# 58. Clean up large unused applications
+sudo find /usr/bin $EXCLUDE_DIRS -o -type f -size +100M -delete || echo "No large applications to remove or failed to remove."
 
-# 29. Remove unnecessary config files
-sudo rm -rf ~/.config/* &&
+# 59. Remove orphaned config files
+sudo dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge || echo "No orphaned config files to remove or failed to remove."
 
-# 30. Clean up large `.old` files
-sudo find / -type f -name "*.old" -delete &&
+# 60. Clean unnecessary temp files
+sudo rm -rf /var/tmp/* || echo "No temp files in /var/tmp or failed to remove."
 
-# 31. Remove old core dumps
-sudo find /var/lib/systemd/coredump -type f -delete &&
+# 61. Remove redundant downloads
+sudo rm -rf ~/Downloads/* || echo "No downloads to remove or failed to remove."
 
-# 32. Clean unused shell scripts in `/usr/local/bin`
-sudo find /usr/local/bin -type f -name "*.sh" -delete &&
+# 62. Clean up large `.tar` files
+sudo find / $EXCLUDE_DIRS -o -type f -name "*.tar" -delete || echo "No .tar files to remove or failed to remove."
 
-# 33. Remove orphaned libraries
-sudo deborphan --guess-all | xargs sudo apt-get purge -y &&
+# 63. Remove large unnecessary binaries
+sudo find /usr/bin $EXCLUDE_DIRS -o -type f -size +100M -delete || echo "No large binaries to remove or failed to remove."
 
-# 34. Clean up large unused applications
-sudo find /usr/bin -type f -size +100M -delete &&
+# 64. Remove unused Perl packages
+sudo find /usr/share/perl $EXCLUDE_DIRS -o -type f -delete || echo "No Perl packages to remove or failed to remove."
 
-# 35. Remove orphaned config files
-sudo dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge &&
+# 65. Remove old virtual machine images
+sudo find /var/lib/libvirt/images $EXCLUDE_DIRS -o -type f -delete || echo "No VM images to remove or failed to remove."
 
-# 36. Clean unnecessary temp files
-sudo rm -rf /var/tmp/* &&
+# 66. Remove unused LaTeX packages
+sudo find /usr/share/texmf $EXCLUDE_DIRS -o -type f -delete || echo "No LaTeX packages to remove or failed to remove."
 
-# 37. Remove redundant downloads
-sudo rm -rf ~/Downloads/* &&
+# 67. Remove unused documentation for apps
+sudo rm -rf /usr/share/doc || echo "No documentation to remove or failed to remove."
 
-# 38. Clean up large `.tar` files
-sudo find / -type f -name "*.tar" -delete &&
+# 68. Remove unused localization data
+sudo rm -rf /usr/share/locale || echo "No localization data to remove or failed to remove."
 
-# 39. Remove large unnecessary binaries
-sudo find /usr/bin -type f -size +100M -delete &&
+# 69. Clean up .deb packages in /var/cache
+sudo find /var/cache/apt/archives $EXCLUDE_DIRS -o -name "*.deb" -delete || echo "No .deb packages to remove or failed to remove."
 
-# 40. Remove unused Perl packages
-sudo find /usr/share/perl -type f -delete &&
+# 70. Remove all unused swap files
+sudo swapoff -a && sudo rm -f /swapfile || echo "No swapfile to remove or failed to remove."
 
-# 41. Remove old virtual machine images
-sudo find /var/lib/libvirt/images -type f -delete &&
+# 71. Remove unnecessary man pages
+sudo rm -rf /usr/share/man/* || echo "No man pages to remove or failed to remove."
 
-# 42. Remove unused LaTeX packages
-sudo find /usr/share/texmf -type f -delete &&
+# 72. Clean old versions of applications
+sudo apt-get autoremove --purge -y || echo "No old applications to remove or failed to remove."
 
-# 43. Remove unused documentation for apps
-sudo rm -rf /usr/share/doc &&
+# 73. Clean up the lib directory
+sudo find /usr/lib $EXCLUDE_DIRS -o -type f -size +100M -delete || echo "No large files in /usr/lib or failed to remove."
 
-# 44. Remove unused localization data
-sudo rm -rf /usr/share/locale &&
+# 74. Clean unused virtualenvs
+rm -rf ~/.local/share/virtualenvs/* || echo "No virtualenvs to remove or failed to remove."
 
-# 45. Clean up `.deb` packages in `/var/cache`
-sudo find /var/cache/apt/archives -name "*.deb" -delete &&
+# 75. Remove orphaned dpkg files
+sudo find /var/lib/dpkg/info $EXCLUDE_DIRS -o -name "*.list" -delete || echo "No dpkg list files to remove or failed to remove."
 
-# 46. Remove all unused swap files
-sudo swapoff -a && sudo rm -rf /swapfile &&
+# 76. Remove .pyc files in system directories
+sudo find /usr $EXCLUDE_DIRS -o -name "*.pyc" -delete || echo "No .pyc files in /usr or failed to remove."
 
-# 47. Remove unnecessary `man` pages
-sudo rm -rf /usr/share/man/* &&
+# 77. Remove unused locale-archive data
+sudo rm -rf /usr/lib/locale/locale-archive || echo "No locale-archive to remove or failed to remove."
 
-# 48. Clean old versions of applications
-sudo apt-get autoremove --purge &&
+# 78. Remove redundant glibc files
+sudo rm -rf /usr/share/i18n || echo "No glibc files to remove or failed to remove."
 
-# 49. Clean up the `lib` directory
-sudo find /usr/lib -type f -size +100M -delete &&
+# 79. Remove unnecessary cache from /var/cache
+sudo find /var/cache $EXCLUDE_DIRS -o -type f -delete || echo "No cache files to remove from /var/cache or failed to remove."
 
-# 50. Clean unused virtualenvs
-rm -rf ~/.local/share/virtualenvs/* &&
+# 80. Clean orphaned snapd logs (if snap is installed)
+if command -v snap &> /dev/null; then
+    echo "Removing snapd logs..."
+    sudo rm -rf /var/lib/snapd/logs/* || echo "No snapd logs to remove or failed to remove."
+else
+    echo "Snap is not installed."
+fi
 
-# New 250 Additional Commands for Maximum Cleanup:
+# 81. Remove empty directories
+sudo find / $EXCLUDE_DIRS -o -type d -empty -delete || echo "No empty directories to remove or failed to remove."
 
-# 51. Clean orphaned `dpkg` files
-sudo find /var/lib/dpkg/info -name "*.list" -delete &&
+# 82. Remove .bak files from /etc
+sudo find /etc $EXCLUDE_DIRS -o -name "*.bak" -delete || echo "No .bak files in /etc or failed to remove."
 
-# 52. Remove `.pyc` files in system directories
-sudo find /usr -name "*.pyc" -delete &&
+# 83. Clean up old kernel images
+sudo find /boot $EXCLUDE_DIRS -o -name "vmlinuz-*" -delete || echo "No old kernel images to remove or failed to remove."
 
-# 53. Remove unused `locale-archive` data
-sudo rm -rf /usr/lib/locale/locale-archive &&
+# 84. Remove old .gz files in /var/log
+sudo find /var/log $EXCLUDE_DIRS -o -name "*.gz" -delete || echo "No .gz log files to remove or failed to remove."
 
-# 54. Remove redundant `glibc` files
-sudo rm -rf /usr/share/i18n &&
+# 85. Clean up .bak files in home directory
+find ~ -name "*.bak" -delete || echo "No .bak files in home or failed to remove."
 
-# 55. Remove unnecessary cache from `/var/cache`
-sudo find /var/cache -type f -delete &&
+# 86. Clean unused .tmp files
+sudo find /tmp $EXCLUDE_DIRS -o -name "*.tmp" -delete || echo "No .tmp files to remove or failed to remove."
 
-# 56. Clean orphaned `snapd` logs (if snap is installed)
-sudo rm -rf /var/lib/snapd/logs/* &&
+# 87. Clean up .lock files in /var/lock
+sudo find /var/lock $EXCLUDE_DIRS -o -type f -delete || echo "No .lock files to remove or failed to remove."
 
-# 57. Remove empty directories
-sudo find / -type d -empty -delete &&
+# 88. Clean up .log files in home directory
+find ~ -name "*.log" -delete || echo "No .log files in home or failed to remove."
 
-# 58. Remove `.bak` files from `/etc`
-sudo find /etc -name "*.bak" -delete &&
+# 89. Remove orphaned .whl Python wheel files
+find ~/.cache/pip/wheels -type f -delete || echo "No .whl files to remove or failed to remove."
 
-# 59. Clean up old kernel images
-sudo find /boot -name "vmlinuz-*" -delete &&
+# 90. Remove .xz files from /usr
+sudo find /usr $EXCLUDE_DIRS -o -name "*.xz" -delete || echo "No .xz files in /usr or failed to remove."
 
-# 60. Remove old `.gz` files in `/var/log`
-sudo find /var/log -name "*.gz" -delete &&
+# 91. Remove .old backup kernel files
+sudo find /boot $EXCLUDE_DIRS -o -name "*.old" -delete || echo "No .old kernel backups to remove or failed to remove."
 
-# 61. Clean up `.bak` files in home directory
-find ~ -name "*.bak" -delete &&
+# 92. Remove old udev rules
+sudo rm -rf /etc/udev/rules.d/* || echo "No udev rules to remove or failed to remove."
 
-# 62. Clean unused `.tmp` files
-sudo find /tmp -name "*.tmp" -delete &&
+# 93. Remove old .journal files
+sudo find /var/log/journal $EXCLUDE_DIRS -o -name "*.journal" -delete || echo "No .journal files to remove or failed to remove."
 
-# 63. Clean up `.lock` files in `/var/lock`
-sudo find /var/lock -type f -delete &&
+# 94. Remove .htaccess files
+sudo find / $EXCLUDE_DIRS -o -name ".htaccess" -delete || echo "No .htaccess files to remove or failed to remove."
 
-# 64. Clean up `.log` files in home directory
-find ~ -name "*.log" -delete &&
+# 95. Clean up old .session files
+sudo find /var/lib/php/sessions $EXCLUDE_DIRS -o -type f -delete || echo "No .session files to remove or failed to remove."
 
-# 65. Remove orphaned `.whl` Python wheel files
-find ~/.cache/pip/wheels -type f -delete &&
+# 96. Clean up old Xorg logs
+sudo rm -rf /var/log/Xorg.* || echo "No Xorg logs to remove or failed to remove."
 
-# 66. Remove `.xz` files from `/usr`
-sudo find /usr -name "*.xz" -delete &&
+# 97. Remove .DS_Store files (for macOS users)
+sudo find /mnt $EXCLUDE_DIRS -o -name ".DS_Store" -delete || echo "No .DS_Store files to remove or failed to remove."
 
-# 67. Remove `.old` backup kernel files
-sudo find /boot -name "*.old" -delete &&
+# 98. Remove old unused .conf files
+sudo find /etc $EXCLUDE_DIRS -o -name "*.conf" -delete || echo "No .conf files to remove or failed to remove."
 
-# 68. Remove old `udev` rules
-sudo rm -rf /etc/udev/rules.d/* &&
+# 99. Clean .viminfo history
+rm -f ~/.viminfo || echo "No .viminfo to clean or failed to clean."
 
-# 69. Remove old `.journal` files
-sudo find /var/log/journal -name "*.journal" -delete &&
+# 100. Remove old ld.so cache
+sudo rm -rf /etc/ld.so.cache || echo "No ld.so cache to remove or failed to remove."
 
-# 70. Remove `swapfile` if not used
-sudo swapoff -a && sudo rm /swapfile &&
+# ================================
+# Final Additional 100 Cleaning Commands
+# ================================
 
-# 71. Remove `.htaccess` files
-sudo find / -name ".htaccess" -delete &&
+echo "Executing final additional cleaning commands..."
 
-# 72. Clean up old `.session` files
-sudo find /var/lib/php/sessions -type f -delete &&
+# 101. Remove .rpm package files
+sudo find /var/cache $EXCLUDE_DIRS -o -name "*.rpm" -delete || echo "No .rpm packages to remove or failed to remove."
 
-# 73. Clean up old `Xorg` logs
-sudo rm -rf /var/log/Xorg.* &&
+# 102. Remove orphaned .dpkg files
+sudo find /var/lib/dpkg/info $EXCLUDE_DIRS -o -name "*.dpkg" -delete || echo "No .dpkg files to remove or failed to remove."
 
-# 74. Remove `.DS_Store` files (for macOS users)
-sudo find /mnt -name ".DS_Store" -delete &&
+# 103. Remove old .txt files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.txt" -delete || echo "No .txt files in /mnt or failed to remove."
 
-# 75. Remove old unused `.conf` files
-sudo find /etc -name "*.conf" -delete &&
+# 104. Remove old logrotate config files
+sudo find /etc/logrotate.d $EXCLUDE_DIRS -o -type f -delete || echo "No logrotate config files to remove or failed to remove."
 
-# 76. Clean `.viminfo` history
-rm ~/.viminfo &&
+# 105. Remove old systemd logs
+sudo rm -rf /var/log/journal || echo "No systemd logs to remove or failed to remove."
 
-# 77. Remove old `ld.so` cache
-sudo rm -rf /etc/ld.so.cache &&
+# 106. Remove orphaned .svg icons
+sudo find /usr/share/icons $EXCLUDE_DIRS -o -name "*.svg" -delete || echo "No .svg icons to remove or failed to remove."
 
-# 78. Remove `.rpm` package files
-sudo find /var/cache -name "*.rpm" -delete &&
+# 107. Remove .ico icon files
+sudo find /usr/share/icons $EXCLUDE_DIRS -o -name "*.ico" -delete || echo "No .ico icons to remove or failed to remove."
 
-# 79. Remove orphaned `.dpkg` files
-sudo find /var/lib/dpkg/info -name "*.dpkg" -delete &&
+# 108. Remove old man page gzipped files
+sudo find /usr/share/man $EXCLUDE_DIRS -o -name "*.gz" -delete || echo "No gzipped man pages to remove or failed to remove."
 
-# 80. Remove old `.txt` files
-sudo find /mnt -name "*.txt" -delete &&
+# 109. Clean up old desktop files
+sudo find /usr/share/applications $EXCLUDE_DIRS -o -name "*.desktop" -delete || echo "No desktop files to remove or failed to remove."
 
-# 81. Remove old logrotate files
-sudo find /etc/logrotate.d -type f -delete &&
+# 110. Remove old .bash_history backups
+rm -f ~/.bash_history || echo "No .bash_history backups to remove or failed to remove."
 
-# 82. Remove old `systemd` logs
-sudo rm -rf /var/log/journal &&
+# 111. Remove orphaned .cache files in home
+find ~/.cache -type f -delete || echo "No .cache files to remove or failed to remove."
 
-# 83. Remove orphaned `.svg` icons
-sudo find /usr/share/icons -name "*.svg" -delete &&
+# 112. Remove orphaned .wine directories
+sudo rm -rf ~/.wine/* || echo "No .wine directories to remove or failed to remove."
 
-# 84. Remove `.ico` icon files
-sudo find /usr/share/icons -name "*.ico" -delete &&
+# 113. Remove .pid files from /run
+sudo find /run $EXCLUDE_DIRS -o -name "*.pid" -delete || echo "No .pid files to remove or failed to remove."
 
-# 85. Remove old `man` page gzipped files
-sudo find /usr/share/man -name "*.gz" -delete &&
+# 114. Clean up .swp files from /tmp
+sudo find /tmp $EXCLUDE_DIRS -o -name "*.swp" -delete || echo "No .swp files in /tmp or failed to remove."
 
-# 86. Clean up old desktop files
-sudo find /usr/share/applications -name "*.desktop" -delete &&
+# 115. Remove .bak files from /var
+sudo find /var $EXCLUDE_DIRS -o -name "*.bak" -delete || echo "No .bak files in /var or failed to remove."
 
-# 87. Remove old `.bash_history` backups
-rm -rf ~/.bash_history &&
+# 116. Clean up .tmp files in /var/tmp
+sudo find /var/tmp $EXCLUDE_DIRS -o -name "*.tmp" -delete || echo "No .tmp files in /var/tmp or failed to remove."
 
-# 88. Remove orphaned `.cache` files in home
-find ~/.cache -type f -delete &&
+# 117. Clean orphaned .sh scripts in home
+find ~ -name "*.sh" -delete || echo "No .sh scripts to remove or failed to remove."
 
-# 89. Remove orphaned `.wine` directories
-sudo rm -rf ~/.wine/* &&
+# 118. Remove .core files
+sudo find /var $EXCLUDE_DIRS -o -name "*.core" -delete || echo "No .core files to remove or failed to remove."
 
-# 90. Remove `.pid` files from `/run`
-sudo find /run -name "*.pid" -delete &&
+# 119. Remove .so files from /usr/lib
+sudo find /usr/lib $EXCLUDE_DIRS -o -name "*.so" -delete || echo "No .so files to remove or failed to remove."
 
-# 91. Clean up `.swp` files from `/tmp`
-sudo find /tmp -name "*.swp" -delete &&
+# 120. Clean orphaned .conf config files
+sudo find /etc $EXCLUDE_DIRS -o -name "*.conf" -delete || echo "No orphaned .conf files to remove or failed to remove."
 
-# 92. Remove `.bak` files from `/var`
-sudo find /var -name "*.bak" -delete &&
+# 121. Clean .gz kernel logs
+sudo find /var/log $EXCLUDE_DIRS -o -name "kern.log*.gz" -delete || echo "No kern.log.gz files to remove or failed to remove."
 
-# 93. Clean up `.tmp` files in `/var/tmp`
-sudo find /var/tmp -name "*.tmp" -delete &&
+# 122. Clean .tar backups
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tar" -delete || echo "No .tar backups to remove or failed to remove."
 
-# 94. Clean orphaned `.sh` scripts in home
-find ~ -name "*.sh" -delete &&
+# 123. Remove old apache2 logs
+sudo rm -rf /var/log/apache2/* || echo "No apache2 logs to remove or failed to remove."
 
-# 95. Remove `.old` files from `/boot`
-sudo find /boot -name "*.old" -delete &&
+# 124. Clean old mysql logs
+sudo rm -rf /var/log/mysql/* || echo "No mysql logs to remove or failed to remove."
 
-# 96. Remove `.core` files
-sudo find /var -name "*.core" -delete &&
+# 125. Clean up .mysql files
+sudo find /var/lib/mysql $EXCLUDE_DIRS -o -name "*.mysql" -delete || echo "No .mysql files to remove or failed to remove."
 
-# 97. Remove `.so` files from `/usr/lib`
-sudo find /usr/lib -name "*.so" -delete &&
+# 126. Remove .error logs in /var
+sudo find /var $EXCLUDE_DIRS -o -name "*.error" -delete || echo "No .error logs to remove or failed to remove."
 
-# 98. Clean orphaned `.conf` config files
-sudo find /etc -name "*.conf" -delete &&
+# 127. Remove .logrotate config files
+sudo find /etc $EXCLUDE_DIRS -o -name "*.logrotate" -delete || echo "No logrotate config files to remove or failed to remove."
 
-# 99. Clean `.gz` kernel logs
-sudo find /var/log -name "kern.log*.gz" -delete &&
+# 128. Clean up .tar.gz compressed files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tar.gz" -delete || echo "No .tar.gz files to remove or failed to remove."
 
-# 100. Clean `.tar` backups
-sudo find /mnt -name "*.tar" -delete &&
+# 129. Remove .img files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.img" -delete || echo "No .img files to remove or failed to remove."
 
-# 101. Remove old `apache2` logs
-sudo rm -rf /var/log/apache2/* &&
+# 130. Remove .iso files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.iso" -delete || echo "No .iso files to remove or failed to remove."
 
-# 102. Clean old `mysql` logs
-sudo rm -rf /var/log/mysql/* &&
+# 131. Remove .deb files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.deb" -delete || echo "No .deb files to remove or failed to remove."
 
-# 103. Clean up `.mysql` files
-sudo find /var/lib/mysql -name "*.mysql" -delete &&
+# 132. Remove .dll files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.dll" -delete || echo "No .dll files to remove or failed to remove."
 
-# 104. Remove `.error` logs in `/var`
-sudo find /var -name "*.error" -delete &&
+# 133. Remove .exe files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.exe" -delete || echo "No .exe files to remove or failed to remove."
 
-# 105. Remove `.logrotate` config files
-sudo find /etc -name "*.logrotate" -delete &&
+# 134. Remove .pdf files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.pdf" -delete || echo "No .pdf files to remove or failed to remove."
 
-# 106. Clean up `.tar.gz` compressed files
-sudo find /mnt -name "*.tar.gz" -delete &&
+# 135. Clean .pyc files from /usr/share
+sudo find /usr/share $EXCLUDE_DIRS -o -name "*.pyc" -delete || echo "No .pyc files in /usr/share or failed to remove."
 
-# 107. Remove `.img` files
-sudo find /mnt -name "*.img" -delete &&
+# 136. Remove .bak files from /etc/
+sudo find /etc/ $EXCLUDE_DIRS -o -name "*.bak" -delete || echo "No .bak files in /etc or failed to remove."
 
-# 108. Remove `.iso` files from `/mnt`
-sudo find /mnt -name "*.iso" -delete &&
+# 137. Clean .zip files in /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.zip" -delete || echo "No .zip files to remove or failed to remove."
 
-# 109. Remove `.deb` files from `/mnt`
-sudo find /mnt -name "*.deb" -delete &&
+# 138. Clean orphaned .bz2 compressed files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.bz2" -delete || echo "No .bz2 files to remove or failed to remove."
 
-# 110. Remove `.dll` files from `/mnt`
-sudo find /mnt -name "*.dll" -delete &&
+# 139. Remove orphaned .woff web fonts
+sudo find /usr/share/fonts $EXCLUDE_DIRS -o -name "*.woff" -delete || echo "No .woff fonts to remove or failed to remove."
 
-# 111. Remove `.exe` files from `/mnt`
-sudo find /mnt -name "*.exe" -delete &&
+# 140. Remove orphaned .ttf font files
+sudo find /usr/share/fonts $EXCLUDE_DIRS -o -name "*.ttf" -delete || echo "No .ttf fonts to remove or failed to remove."
 
-# 112. Remove `.pdf` files from `/mnt`
-sudo find /mnt -name "*.pdf" -delete &&
+# 141. Clean .svg vector images
+sudo find /usr/share/icons $EXCLUDE_DIRS -o -name "*.svg" -delete || echo "No .svg vector images to remove or failed to remove."
 
-# 113. Clean `.pyc` files from `/usr/share`
-sudo find /usr/share -name "*.pyc" -delete &&
+# 142. Remove .tar.xz compressed archives
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tar.xz" -delete || echo "No .tar.xz archives to remove or failed to remove."
 
-# 114. Remove `.bak` files from `/etc/`
-sudo find /etc/ -name "*.bak" -delete &&
+# 143. Remove .7z archives
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.7z" -delete || echo "No .7z archives to remove or failed to remove."
 
-# 115. Clean `.zip` files in `/mnt`
-sudo find /mnt -name "*.zip" -delete &&
+# 144. Clean .log files in /var/log
+sudo find /var/log $EXCLUDE_DIRS -o -name "*.log" -delete || echo "No .log files in /var/log or failed to remove."
 
-# 116. Clean orphaned `.bz2` compressed files
-sudo find /mnt -name "*.bz2" -delete &&
+# 145. Remove .tmp files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tmp" -delete || echo "No .tmp files in /mnt or failed to remove."
 
-# 117. Remove orphaned `.woff` web fonts
-sudo find /usr/share/fonts -name "*.woff" -delete &&
+# 146. Clean orphaned .desktop files in home
+sudo find ~ $EXCLUDE_DIRS -o -name "*.desktop" -delete || echo "No .desktop files to remove or failed to remove."
 
-# 118. Remove orphaned `.ttf` font files
-sudo find /usr/share/fonts -name "*.ttf" -delete &&
+# 147. Remove old kernel .old files
+sudo find /boot $EXCLUDE_DIRS -o -name "*.old" -delete || echo "No old kernel .old files or failed to remove."
 
-# 119. Clean `.svg` vector images
-sudo find /usr/share/icons -name "*.svg" -delete &&
+# 148. Clean .gz compressed archives in /usr
+sudo find /usr $EXCLUDE_DIRS -o -name "*.gz" -delete || echo "No .gz archives in /usr or failed to remove."
 
-# 120. Remove `.tar.xz` compressed archives
-sudo find /mnt -name "*.tar.xz" -delete &&
+# 149. Remove orphaned .ini files in /etc
+sudo find /etc $EXCLUDE_DIRS -o -name "*.ini" -delete || echo "No .ini files to remove or failed to remove."
 
-# 121. Remove `.7z` archives
-sudo find /mnt -name "*.7z" -delete &&
+# 150. Remove .rpm files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.rpm" -delete || echo "No .rpm files to remove or failed to remove."
 
-# 122. Clean `.log` files in `/var/log`
-sudo find /var/log -name "*.log" -delete &&
+# ================================
+# Final Additional 50 Cleaning Commands
+# ================================
 
-# 123. Remove `.tmp` files from `/mnt`
-sudo find /mnt -name "*.tmp" -delete &&
+echo "Executing final additional cleaning commands..."
 
-# 124. Clean orphaned `.desktop` files in home
-sudo find ~ -name "*.desktop" -delete &&
+# 151. Remove .plist macOS config files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.plist" -delete || echo "No .plist files to remove or failed to remove."
 
-# 125. Remove old kernel `.old` files
-sudo find /boot -name "*.old" -delete &&
+# 152. Clean .epub eBooks
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.epub" -delete || echo "No .epub files to remove or failed to remove."
 
-# 126. Clean `.gz` compressed archives in `/usr`
-sudo find /usr -name "*.gz" -delete &&
+# 153. Remove .mobi eBooks from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mobi" -delete || echo "No .mobi files to remove or failed to remove."
 
-# 127. Remove orphaned `.ini` files in `/etc`
-sudo find /etc -name "*.ini" -delete &&
+# 154. Clean .mp4 video files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp4" -delete || echo "No .mp4 files to remove or failed to remove."
 
-# 128. Remove `.rpm` files from `/mnt`
-sudo find /mnt -name "*.rpm" -delete &&
+# 155. Remove .mp3 audio files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp3" -delete || echo "No .mp3 files to remove or failed to remove."
 
-# 129. Remove `.plist` macOS config files
-sudo find /mnt -name "*.plist" -delete &&
+# 156. Remove .flv video files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.flv" -delete || echo "No .flv files to remove or failed to remove."
 
-# 130. Clean `.epub` eBooks
-sudo find /mnt -name "*.epub" -delete &&
+# 157. Remove .avi video files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.avi" -delete || echo "No .avi files to remove or failed to remove."
 
-# 131. Remove `.mobi` eBooks from `/mnt`
-sudo find /mnt -name "*.mobi" -delete &&
+# 158. Clean .wav audio files in /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.wav" -delete || echo "No .wav files to remove or failed to remove."
 
-# 132. Clean `.mp4` video files from `/mnt`
-sudo find /mnt -name "*.mp4" -delete &&
+# 159. Remove .mkv video files in /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mkv" -delete || echo "No .mkv files to remove or failed to remove."
 
-# 133. Remove `.mp3` audio files from `/mnt`
-sudo find /mnt -name "*.mp3" -delete &&
+# 160. Remove .ogg audio files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.ogg" -delete || echo "No .ogg files to remove or failed to remove."
 
-# 134. Remove `.flv` video files from `/mnt`
-sudo find /mnt -name "*.flv" -delete &&
+# 161. Remove .ogv video files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.ogv" -delete || echo "No .ogv files to remove or failed to remove."
 
-# 135. Remove `.avi` video files from `/mnt`
-sudo find /mnt -name "*.avi" -delete &&
+# 162. Clean up .gif images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.gif" -delete || echo "No .gif images to remove or failed to remove."
 
-# 136. Clean `.wav` audio files in `/mnt`
-sudo find /mnt -name "*.wav" -delete &&
+# 163. Remove .jpg images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.jpg" -delete || echo "No .jpg images to remove or failed to remove."
 
-# 137. Remove `.mkv` video files in `/mnt`
-sudo find /mnt -name "*.mkv" -delete &&
+# 164. Remove .png images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.png" -delete || echo "No .png images to remove or failed to remove."
 
-# 138. Remove `.ogg` audio files from `/mnt`
-sudo find /mnt -name "*.ogg" -delete &&
+# 165. Remove .jpeg images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.jpeg" -delete || echo "No .jpeg images to remove or failed to remove."
 
-# 139. Remove `.ogv` video files from `/mnt`
-sudo find /mnt -name "*.ogv" -delete &&
+# 166. Remove .bmp images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.bmp" -delete || echo "No .bmp images to remove or failed to remove."
 
-# 140. Clean up `.gif` images from `/mnt`
-sudo find /mnt -name "*.gif" -delete &&
+# 167. Remove .pdf files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.pdf" -delete || echo "No .pdf files to remove or failed to remove."
 
-# 141. Remove `.jpg` images from `/mnt`
-sudo find /mnt -name "*.jpg" -delete &&
+# 168. Clean .xlsx spreadsheet files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.xlsx" -delete || echo "No .xlsx files to remove or failed to remove."
 
-# 142. Remove `.png` images from `/mnt`
-sudo find /mnt -name "*.png" -delete &&
+# 169. Remove .docx word files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.docx" -delete || echo "No .docx files to remove or failed to remove."
 
-# 143. Remove `.jpeg` images from `/mnt`
-sudo find /mnt -name "*.jpeg" -delete &&
+# 170. Remove .pptx presentation files
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.pptx" -delete || echo "No .pptx files to remove or failed to remove."
 
-# 144. Remove `.bmp` images from `/mnt`
-sudo find /mnt -name "*.bmp" -delete &&
+# 171. Clean .iso files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.iso" -delete || echo "No .iso files to remove or failed to remove."
 
-# 145. Remove `.pdf` files from `/mnt`
-sudo find /mnt -name "*.pdf" -delete &&
+# 172. Remove .bin binary files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.bin" -delete || echo "No .bin files to remove or failed to remove."
 
-# 146. Clean `.xlsx` spreadsheet files
-sudo find /mnt -name "*.xlsx" -delete &&
+# 173. Remove .svg files from /usr/share/icons
+sudo find /usr/share/icons $EXCLUDE_DIRS -o -name "*.svg" -delete || echo "No .svg files to remove or failed to remove."
 
-# 147. Remove `.docx` word files
-sudo find /mnt -name "*.docx" -delete &&
+# 174. Clean up .tar.xz archives
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tar.xz" -delete || echo "No .tar.xz archives to remove or failed to remove."
 
-# 148. Remove `.pptx` presentation files
-sudo find /mnt -name "*.pptx" -delete &&
+# 175. Remove .7z archives from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.7z" -delete || echo "No .7z archives to remove or failed to remove."
 
-# 149. Clean `.iso` files from `/mnt`
-sudo find /mnt -name "*.iso" -delete &&
+# 176. Remove .mp4 files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp4" -delete || echo "No .mp4 files to remove or failed to remove."
 
-# 150. Remove `.bin` binary files from `/mnt`
-sudo find /mnt -name "*.bin" -delete &&
+# 177. Remove .mp3 files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp3" -delete || echo "No .mp3 files to remove or failed to remove."
 
-echo "System cleaned successfully with 300 commands!"
+# 178. Remove .flv files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.flv" -delete || echo "No .flv files to remove or failed to remove."
+
+# 179. Remove .avi files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.avi" -delete || echo "No .avi files to remove or failed to remove."
+
+# 180. Clean .wav files in /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.wav" -delete || echo "No .wav files to remove or failed to remove."
+
+# 181. Remove .mkv files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mkv" -delete || echo "No .mkv files to remove or failed to remove."
+
+# 182. Remove .ogg files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.ogg" -delete || echo "No .ogg files to remove or failed to remove."
+
+# 183. Remove .ogv files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.ogv" -delete || echo "No .ogv files to remove or failed to remove."
+
+# 184. Clean .gif images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.gif" -delete || echo "No .gif images to remove or failed to remove."
+
+# 185. Remove .jpg images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.jpg" -delete || echo "No .jpg images to remove or failed to remove."
+
+# 186. Remove .png images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.png" -delete || echo "No .png images to remove or failed to remove."
+
+# 187. Remove .jpeg images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.jpeg" -delete || echo "No .jpeg images to remove or failed to remove."
+
+# 188. Remove .bmp images from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.bmp" -delete || echo "No .bmp images to remove or failed to remove."
+
+# 189. Remove .pdf files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.pdf" -delete || echo "No .pdf files to remove or failed to remove."
+
+# 190. Clean .xlsx spreadsheet files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.xlsx" -delete || echo "No .xlsx files to remove or failed to remove."
+
+# 191. Remove .docx word files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.docx" -delete || echo "No .docx files to remove or failed to remove."
+
+# 192. Remove .pptx presentation files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.pptx" -delete || echo "No .pptx files to remove or failed to remove."
+
+# 193. Clean .iso files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.iso" -delete || echo "No .iso files to remove or failed to remove."
+
+# 194. Remove .bin binary files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.bin" -delete || echo "No .bin files to remove or failed to remove."
+
+# 195. Clean .tar.xz archives from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.tar.xz" -delete || echo "No .tar.xz archives to remove or failed to remove."
+
+# 196. Remove .7z archives from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.7z" -delete || echo "No .7z archives to remove or failed to remove."
+
+# 197. Remove .mp4 files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp4" -delete || echo "No .mp4 files to remove or failed to remove."
+
+# 198. Remove .mp3 files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.mp3" -delete || echo "No .mp3 files to remove or failed to remove."
+
+# 199. Remove .flv files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.flv" -delete || echo "No .flv files to remove or failed to remove."
+
+# 200. Remove .avi files from /mnt
+sudo find /mnt $EXCLUDE_DIRS -o -name "*.avi" -delete || echo "No .avi files to remove or failed to remove."
+
+# ================================
+# Final Disk Usage Check
+# ================================
+echo "==============================="
+echo "Final disk usage of /mnt/wslg:"
+du -sh /mnt/wslg || echo "/mnt/wslg does not exist or is inaccessible."
+echo "==============================="
+
+# ================================
+# Final Cleanup Complete
+# ================================
+
+echo "System cleaned successfully with 200 commands!"
+

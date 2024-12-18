@@ -1,0 +1,150 @@
+# **Tutorial: How to Adjust Plex Playback Speed Using a Browser Bookmark**
+
+This tutorial provides step-by-step instructions for enabling playback speed adjustment in Plex using a browser bookmark. Follow these steps to create a custom bookmark that allows you to speed up or slow down Plex videos during playback.
+
+---
+
+## **Step 1: Open Plex Web App**
+1. Open your browser and navigate to your Plex Web App URL:
+   ```
+   http://<your_server_ip>:32400/web
+   ```
+   Replace `<your_server_ip>` with your Plex Media Server's IP address.
+
+2. Log in to your Plex account if prompted.
+
+---
+
+## **Step 2: Create a Bookmark with Custom JavaScript**
+The bookmark will include a JavaScript snippet to adjust the video playback speed.
+
+### **For Google Chrome**
+1. Press `Ctrl+Shift+B` (Windows/Linux) or `Cmd+Shift+B` (Mac) to show the bookmarks bar if it’s hidden.
+2. Right-click on the bookmarks bar and select **Add Page**.
+3. Fill in the following:
+   - **Name**: 
+     ```
+     Plex Speed Adjuster
+     ```
+   - **URL**: Copy and paste this code:
+     ```javascript
+     javascript:(function(){const video=document.querySelector('video');if(video){video.playbackRate=1.25;console.log(`Playback speed set to ${video.playbackRate}x`);}else{console.error('No video element found!');}})();
+     ```
+4. Click **Save**.
+
+---
+
+### **For Mozilla Firefox**
+1. Press `Ctrl+Shift+B` (Windows/Linux) or `Cmd+Shift+B` (Mac) to open the bookmarks library.
+2. Click **New Bookmark** or right-click in the bookmarks toolbar and select **Add Bookmark**.
+3. Fill in the following:
+   - **Name**:
+     ```
+     Plex Speed Adjuster
+     ```
+   - **Location (URL)**: Copy and paste this code:
+     ```javascript
+     javascript:(function(){const video=document.querySelector('video');if(video){video.playbackRate=1.25;console.log(`Playback speed set to ${video.playbackRate}x`);}else{console.error('No video element found!');}})();
+     ```
+4. Click **Add** or **Save**.
+
+---
+
+### **For Microsoft Edge**
+1. Press `Ctrl+Shift+B` (Windows/Linux) to show the bookmarks bar if it’s hidden.
+2. Right-click on the bookmarks bar and select **Add Page**.
+3. Fill in the following:
+   - **Name**:
+     ```
+     Plex Speed Adjuster
+     ```
+   - **URL**: Copy and paste this code:
+     ```javascript
+     javascript:(function(){const video=document.querySelector('video');if(video){video.playbackRate=1.25;console.log(`Playback speed set to ${video.playbackRate}x`);}else{console.error('No video element found!');}})();
+     ```
+4. Click **Save**.
+
+---
+
+### **For Safari (macOS)**
+1. Open Safari and press `Cmd+Shift+B` to show the bookmarks bar.
+2. Click the **Bookmarks** menu and select **Add Bookmark**.
+3. Fill in the following:
+   - **Name**:
+     ```
+     Plex Speed Adjuster
+     ```
+   - **URL**: Copy and paste this code:
+     ```javascript
+     javascript:(function(){const video=document.querySelector('video');if(video){video.playbackRate=1.25;console.log(`Playback speed set to ${video.playbackRate}x`);}else{console.error('No video element found!');}})();
+     ```
+4. Click **Add**.
+
+---
+
+## **Step 3: Test the Bookmark**
+1. Go to your Plex Web App.
+2. Play any video.
+3. Click the **Plex Speed Adjuster** bookmark you created.
+4. The video playback speed should change to **1.25x**. Check the console (`Ctrl+Shift+I` in Chrome or Firefox) for confirmation messages:
+   ```
+   Playback speed set to 1.25x
+   ```
+
+---
+
+## **Step 4: Modify Playback Speed (Optional)**
+To adjust the speed, edit the bookmark:
+1. Right-click on the bookmark and select **Edit**.
+2. Modify the `1.25` value in the script to your desired speed:
+   ```javascript
+   javascript:(function(){const video=document.querySelector('video');if(video){video.playbackRate=1.5;console.log(`Playback speed set to ${video.playbackRate}x`);}else{console.error('No video element found!');}})();
+   ```
+   - For 1.5x speed, set `1.5`.
+   - For normal speed, set `1.0`.
+3. Save the changes.
+
+---
+
+## **Step 5: Persistent Speed Control (Optional Advanced)**
+For persistent playback speed adjustments, use a browser extension like **Tampermonkey**.
+
+1. Install **Tampermonkey**:
+   - Chrome/Edge: [Tampermonkey Extension](https://www.tampermonkey.net/)
+   - Firefox: [Tampermonkey Add-on](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+
+2. Create a new script:
+   - Open the Tampermonkey dashboard.
+   - Click **Create a New Script**.
+
+3. Paste the following code:
+   ```javascript
+   // ==UserScript==
+   // @name         Plex Playback Speed Adjuster
+   // @namespace    http://tampermonkey.net/
+   // @version      1.0
+   // @description  Adjust playback speed in Plex Web App
+   // @author       Your Name
+   // @match        http://<your_server_ip>:32400/web/*
+   // @grant        none
+   // ==/UserScript==
+
+   (function() {
+       'use strict';
+       const video = document.querySelector('video');
+       if (video) {
+           video.playbackRate = 1.25; // Adjust to your preferred speed
+           console.log(`Playback speed set to ${video.playbackRate}x`);
+       } else {
+           console.error('No video element found!');
+       }
+   })();
+   ```
+
+4. Replace `<your_server_ip>` with your server's IP address.
+5. Save the script and refresh your Plex Web App. The speed adjustment will apply automatically whenever you play a video.
+
+---
+
+### **Congratulations!**
+You’ve successfully created a method to adjust Plex playback speed. Let me know if you need further assistance!

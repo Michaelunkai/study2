@@ -1,0 +1,60 @@
+Transcript
+1. Areas and related disciplines of AI
+00:00 - 00:04
+It's time to explore the areas and related disciplines of AI!
+
+2. Subdomains of Artificial Intelligence
+00:04 - 00:15
+There is no unique way to categorize the subdomains of AI. Let's look at one potential way of classifying the most popular areas at present.
+
+3. Subdomains of Artificial Intelligence
+00:15 - 00:28
+First, Machine Learning is the ability of computer software to learn from existing data by itself and identify patterns within that data to make predictions or other inference tasks.
+
+4. Subdomains of Artificial Intelligence
+00:28 - 00:39
+Inside Machine Learning, the nowadays popular area of Deep Learning focuses on training neural network models to solve some of the most challenging AI problems.
+
+5. Subdomains of Artificial Intelligence
+00:39 - 00:48
+The area of knowledge representation and reasoning studies how to conduct logical reasoning over knowledge to communicate with other AI systems.
+
+6. Subdomains of Artificial Intelligence
+00:48 - 00:57
+Robotics involves building AI-powered machines that act and manipulate objects in the physical environment.
+
+7. Subdomains of Artificial Intelligence
+00:57 - 01:04
+Computer vision investigates how AI systems visually perceive objects in their environment.
+
+8. Subdomains of Artificial Intelligence
+01:04 - 01:16
+And natural language processing (or NLP) studies the ability to analyze, understand, and communicate information in human language, such as text and speech.
+
+9. Subdomains of Artificial Intelligence
+01:16 - 01:42
+It is important to note that some of the latest AI techniques incorporate principles from more than one of these areas. For example, Computer Vision and Natural Language Processing techniques are typically based on Deep Learning foundations. Likewise, many applications of AI do not rely on one of these areas in isolation, but instead, they combine principles from multiple areas together.
+
+10. Examples of AI applications
+01:42 - 02:23
+For instance, a personalized recommendations engine in an e-commerce portal uses machine learning algorithms to learn customers' preferences and predict products they might be interested in. A smart warehouse management system has robots that navigate the facilities, visually detect objects, and reason to communicate with each other and optimize operations. In medical diagnosis, computer vision and deep learning can help identify conditions upon images or video data, such as X-ray radiography. And smart voice assistants at home use Natural Language Processing and deep learning to communicate with us.
+
+11. Related disciplines
+02:23 - 02:27
+There are also several disciplines related to AI.
+
+12. Related disciplines
+02:27 - 02:39
+Perhaps the closest one nowadays is data science. Data science is a wide discipline, covering methodologies for making use of any form of data to extract insight or draw conclusions.
+
+13. Related disciplines
+02:39 - 02:50
+Both AI and Data Science are strongly founded on concepts and tools from Mathematics and Statistics, such as probability, linear algebra, and many more.
+
+14. Related disciplines
+02:50 - 03:01
+And there are many more fields that influence areas of AI in one way or another, for instance, psychology, physics, ethics, or law, to name a few.
+
+15. Video takeaways
+03:01 - 03:21
+To summarize, this video introduced the most impactful areas of AI, highlighting the key tasks investigated by each one, and the close interrelationship between areas in many systems and applications. We have also pictured related disciplines to AI, such as Math, Data Science, and Statistics.

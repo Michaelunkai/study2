@@ -33,11 +33,19 @@ alias ram='df -h /var/lib/vz | awk '\''NR==1{print $2, $3, $4, $5} NR==2{print $
 alias restore='docker run -v /var/lib/vz/template/iso/:/c/ michadockermisha/backup:proxiso sh -c "apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/ && docker run -v /var/lib/vz/dump/:/c/ michadockermisha/backup:proxdump sh -c \"apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/\"" && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
 alias backup='cd /var/lib/vz/dump && docker build -t michadockermisha/backup:proxdump . && docker push michadockermisha/backup:proxdump && cd ../template/iso && docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
 alias space="for CTID in \$(pct list | awk 'NR>1 {print \$1}'); do NAME=\$(pct list | awk -v id=\$CTID '\$1 == id {print \$3}'); SIZE=\$(pct config \$CTID | grep '^rootfs' | awk -F'size=' '{print \$2}'); USED=\$(pct exec \$CTID -- df / | awk 'NR==2 {print \$3}'); USED_HUMAN=\$(pct exec \$CTID -- df -h / | awk 'NR==2 {print \$3}'); echo \"CTID \$CTID (Name: \$NAME): Size: \$SIZE, Used: \${USED_HUMAN} (\${USED}K)\"; done"
-alias restoreubu="qmrestore /var/lib/vz/dump/vzdump-qemu-101-2024_11_15-21_33_13.vma 101 --storage local && qm set 101 --name ubuntu --onboot 1 && qm start 101"
+alias restoreubu='docker run -v /var/lib/vz/dump/:/c/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it --name ubuntudesktop michadockermisha/backup:ubuntudesktop sh -c "apk add rsync && rsync -av /home/* /c && exit" && dkill'
 alias dkill='docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
 alias ubudocker="cd && ./ubu.sh && dkill"
 alias ccubu="bash /root/ccubu.sh"
 alias backupubu="bash /root/backup_vm_101.sh"
 alias snapubu="cd && ./manage_snapshots_vm_101.sh"
-alias bbubu="ccubu && backupubu && reubu && snapubu && ubudocker"
+alias bubu="ccubu && backupubu && reubu && scpmyg && snapubu"
+alias bbubu="ubudocker"
 alias reubu="cd && ./restore_and_start_vm.sh"
+alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'
+alias clean='bash /root/cleanprox.sh && plex && bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"'
+alias updates='bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/update-lxcs.sh)" && bash /root/updateUbu.sh && update'
+alias scpmyg="sshpass -p 'blackablacka2' ssh micha@192.168.1.178 \"powershell -Command \\\"scp -v 'C:/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/games_data.json' ubuntu@192.168.1.193:/home/ubuntu\\\"\""
+alias udocker="scpmyg && backupubu && snapubu && ubudocker"
+alias ex="exit"
+alias backiso="cd /var/lib/vz/template/iso &&  docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f"

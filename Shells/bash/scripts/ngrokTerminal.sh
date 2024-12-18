@@ -20,7 +20,15 @@ echo_separator
 echo "Installing Dependencies..."
 echo_separator
 sudo apt-get update
-sudo apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev jq curl
+sudo apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    libjson-c-dev \
+    libwebsockets-dev \
+    jq \
+    curl \
+    apt-transport-https
 
 # Clone and build ttyd
 echo_separator
@@ -51,18 +59,14 @@ nohup ttyd --writable bash > ~/ttyd.log 2>&1 &
 TTYD_PID=$!
 echo "ttyd started with PID: $TTYD_PID"
 
-# Install Node.js 22.x
+# Install Node.js and npm using the provided one-liner
 echo_separator
-echo "Installing Node.js 22.x..."
+echo "Installing Node.js and npm..."
 echo_separator
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
-sudo apt-get install -y nodejs=22.1.0-1nodesource1
-
-# Update npm to latest
-echo_separator
-echo "Updating npm to latest version..."
-echo_separator
-sudo npm install -g npm@latest
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - && \
+sudo apt-get install -y nodejs=22.1.0-1nodesource1 && \
+npm install -g npm@latest && \
+node -v && npm -v
 
 # Install ngrok
 echo_separator

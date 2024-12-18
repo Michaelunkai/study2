@@ -1,0 +1,58 @@
+Transcript
+1. Identifying use cases for ChatGPT
+00:00 - 00:02
+Welcome back!
+
+2. Coming up...
+00:02 - 00:23
+Deciding when it's appropriate to use ChatGPT isn't easy and requires considering ChatGPT's capabilities and limitations and the requirements of the use case. In this video, we'll provide a framework in the form of key questions to validate the suitability of ChatGPT for a particular use case.
+
+3. Validating a use case
+00:23 - 00:47
+The first question to ask ourselves is if we require a high degree of accuracy in the response? ChatGPT can be inaccurate, and there's no predictability in its response, so two people providing the same prompt often get different responses. If the use case requires certainty in the quality of the response, such as government policy advisory,
+
+4. Validating a use case
+00:47 - 00:50
+ChatGPT would be an unsafe option.
+
+5. Validating a use case
+00:50 - 01:09
+Next, we should evaluate whether someone is able to verify the quality of the response. This is where subject matter expertise still plays a huge part in the workflow. A good rule of thumb is to not ask ChatGPT to do something that we couldn't do ourselves given enough time.
+
+6. Validating a use case
+01:09 - 01:18
+If we can't verify the correctness or quality of the result, it would be irresponsible to begin using it to drive decisions or surfacing it to customers.
+
+7. Validating a use case
+01:18 - 01:26
+The use case may require inputting sensitive data, such as customer's personal information or company source code.
+
+1 https://openai.com/policies/terms-of-use
+8. Validating a use case
+01:26 - 01:48
+Enabling a use case involving sensitive data is difficult. We need to acquire the necessary consent to process the data, as well as ensuring that the applicable data governance laws, such as GDPR or CCPA, are being adhered to. For these use cases, it's best to seek legal counsel that specializes in data governance.
+
+9. Validating a use case
+01:48 - 01:58
+Finally, ask whether ownership over the response is required. Ownership will likely be required if we intend to generate revenue from the response.
+
+10. Validating a use case
+01:58 - 02:18
+Providing that users comply with OpenAI's terms of use, they can claim ownership over the output in many cases, but other considerations, such as copyright infringement, may prevent ownership. We'll dive deeper into the legalities and ethics of using ChatGPT a little later in the course.
+
+1 https://openai.com/policies/terms-of-use
+11. Validating a use case
+02:18 - 02:28
+If the use case doesn't require ownership, dive right in and begin testing! Let's apply this framework to evaluate some use cases.
+
+12. Example 1: Brainstorming ideas in HR
+02:28 - 03:13
+Let's say we're an HR manager concerned with recent employee survey results, which have shown a decrease in overall employee happiness. We'd like to brainstorm ideas for improving employee well-being and ask ChatGPT for suggestions. Is this a suitable use case? As we're only looking for suggestions, we don't require a high degree of correctness in the results, and as an HR manager, we can use our expertise to verify the quality the responses to ensure they align with company values. Finally, sensitive data isn't required, and we won't be using the generated text, so don't require ownership. This is a suitable use case for ChatGPT!
+
+13. Example 2: Healthcare recommendations
+03:13 - 03:56
+Let's now say that we work for a major healthcare provider, and to alleviate increasing wait times to see a doctor, we want to provide an online treatment recommendation system built on ChatGPT. People will input their symptoms, and ChatGPT would be used to provide the best course of action: taking over-the-counter medication, consulting with a doctor, or visiting the hospital. Is this a suitable use of ChatGPT? This use case requires a high level of precision due to the potentially serious implications of incorrect recommendations, and ChatGPT cannot provide this certainty. This is an unsuitable application of ChatGPT.
+
+14. Let's practice!
+03:56 - 04:01
+Time to apply this framework in the exercises!

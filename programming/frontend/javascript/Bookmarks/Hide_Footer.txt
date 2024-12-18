@@ -1,0 +1,1 @@
+(function() { document.querySelectorAll('footer').forEach(footer => footer.style.display = 'none'); })();

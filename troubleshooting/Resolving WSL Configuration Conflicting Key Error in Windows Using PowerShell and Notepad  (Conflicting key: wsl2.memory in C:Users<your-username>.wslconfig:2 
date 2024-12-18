@@ -1,0 +1,77 @@
+### "Comprehensive Guide: Resolving WSL Configuration Conflicting Key Error in Windows Using PowerShell and Notepad"
+
+This tutorial will guide you step by step to fix the **WSL Configuration Conflicting Key Error** in Windows. The tools and techniques used include **PowerShell** and **Notepad**, both natively available in Windows.
+
+---
+
+### Error Overview:
+You may encounter the following error in WSL:
+```
+C:\Users\<your-username>\.wslconfig:3 (Conflicting key: 'wsl2.memory' in C:\Users\<your-username>\.wslconfig:2)
+```
+This happens due to duplicate or conflicting keys in the `.wslconfig` file.
+
+---
+
+### Step-by-Step Solution
+
+#### **Step 1: Open the `.wslconfig` File for Editing**
+1. Open PowerShell.
+2. Use the following command to open the file in Notepad:
+   ```powershell
+   notepad 'C:\Users\<your-username>\.wslconfig'
+   ```
+   Replace `<your-username>` with your actual Windows username.
+
+3. In Notepad:
+   - Review the file contents.
+   - Locate and remove any duplicate or conflicting keys (e.g., `wsl2.memory`).
+
+4. Save and close the file.
+
+---
+
+#### **Step 2: Verify and Automate Using PowerShell**
+If you want to automate the process of removing the conflicting line (e.g., line 3), use the following PowerShell command:
+
+```powershell
+(Get-Content -Path 'C:\Users\<your-username>\.wslconfig') | Where-Object { $_ -notmatch '^wsl2\.memory' } | Set-Content -Path 'C:\Users\<your-username>\.wslconfig'
+```
+
+**Explanation of the Command**:
+1. `Get-Content`: Reads the content of the `.wslconfig` file.
+2. `Where-Object`: Filters out the line containing the conflicting key (`wsl2.memory`).
+3. `Set-Content`: Writes the updated content back to the file.
+
+---
+
+#### **Step 3: Advanced Line Removal with PowerShell**
+If the conflicting key is specifically located on line 3, you can remove it directly with this advanced approach:
+
+```powershell
+(Get-Content 'C:\Users\<your-username>\.wslconfig' | ForEach-Object { if ($_.Trim() -ne '') { $_ } })[0..1] + (Get-Content 'C:\Users\<your-username>\.wslconfig' | Select-Object -Skip 3) | Set-Content 'C:\Users\<your-username>\.wslconfig'
+```
+
+**Explanation**:
+1. `ForEach-Object`: Filters out any empty lines to ensure clarity.
+2. `[0..1]`: Selects the first two lines explicitly.
+3. `Select-Object -Skip 3`: Removes the third line and retains the rest of the content.
+
+---
+
+#### **Step 4: Validate the Fix**
+1. Open the `.wslconfig` file again to confirm:
+   ```powershell
+   notepad 'C:\Users\<your-username>\.wslconfig'
+   ```
+2. Ensure the conflicting line is no longer present.
+3. Restart WSL to apply the changes:
+   ```powershell
+   wsl --shutdown
+   wsl
+   ```
+
+---
+
+### Summary
+This guide explained how to resolve the WSL configuration conflicting key error using both manual and automated methods with PowerShell and Notepad. By following these steps, you can ensure that your `.wslconfig` file is free of duplicate or conflicting keys, enabling a smooth WSL experience on your Windows system.

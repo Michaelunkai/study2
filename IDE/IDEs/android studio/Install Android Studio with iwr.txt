@@ -1,0 +1,1 @@
+iwr -Uri https://redirector.gvt1.com/edgedl/android/studio/install/2021.1.1.17/android-studio-2021.1.1.17-windows.exe -OutFile android_studio_installer.exe; Start-Process android_studio_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

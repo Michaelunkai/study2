@@ -1,0 +1,5 @@
+add this:
+echo -e "\a" || echo -e "\a"
+
+
+in the end of the command.

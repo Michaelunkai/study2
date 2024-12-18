@@ -1,0 +1,15 @@
+docker run -d \
+--name qbittorrent \
+--restart=always \
+-e PUID=$(id -u) \
+-e PGID=$(id -g) \
+-e TZ=Europe/Paris \
+-e WEBUI_USERNAME=admin \
+-e WEBUI_PASSWORD=123456 \
+-e WEBUI_PORT=8080 \
+-e TORRENTING_PORT=6881 \
+-p 8080:8080 \
+-p 6881:6881 \
+-p 6881:6881/udp \
+-v /root/:/c/ \
+michadockermi a/backup:qbittorent

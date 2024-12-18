@@ -1,0 +1,21 @@
+Additional Kaggle CLI Commands
+List Files in a Dataset:
+
+bash
+Copy code
+kaggle datasets files username/dataset-name
+View Dataset Metadata:
+
+bash
+Copy code
+kaggle datasets metadata username/dataset-name
+Download Competition Data:
+
+bash
+Copy code
+kaggle competitions download -c competition-name
+Search for Competitions:
+
+bash
+Copy code
+kaggle competitions list

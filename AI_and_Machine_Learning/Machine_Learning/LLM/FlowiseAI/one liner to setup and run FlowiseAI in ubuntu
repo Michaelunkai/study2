@@ -1,0 +1,1 @@
+git clone https://github.com/FlowiseAI/Flowise.git && cd Flowise/docker && cp .env.example .env && docker compose up -d && echo "Flowise is running at http://localhost:3000"

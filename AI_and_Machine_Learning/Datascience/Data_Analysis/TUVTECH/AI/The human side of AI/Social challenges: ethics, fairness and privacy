@@ -1,0 +1,69 @@
+1. Social challenges: ethics, fairness and privacy
+00:00 - 00:04
+Building responsible AI systems has many hidden challenges.
+
+2. Responsible AI
+00:04 - 00:16
+Responsible AI encompasses the ethical and accountable development and use of AI systems regarding their impact on society. It covers several key aspects.
+
+3. Responsible AI
+00:16 - 00:26
+Ethics and fairness are fundamental to ensure AI systems adhere to ethical principles and mitigate fairness issues like biases.
+
+4. Responsible AI
+00:26 - 00:33
+Human-centered design places users' experience at the center of AI systems development.
+
+5. Responsible AI
+00:33 - 00:40
+Privacy safeguards the security of personal or sensitive data used by AI systems.
+
+6. Responsible AI
+00:40 - 00:46
+Accountability consists in establishing clear guidelines for AI system governance.
+
+7. Responsible AI
+00:46 - 00:52
+Transparency aims at making these systems explainable and interpretable.
+
+8. Responsible AI
+00:52 - 01:08
+Responsible AI also recognizes the broader sustainable impact of AI in society and the environment. We already learned some responsible AI principles like transparency. Now we will focus on ethics, fairness, and privacy.
+
+9. Ethics and fairness
+01:08 - 01:27
+As a central element of responsible AI, ethics involves abiding by ethical guidelines and principles, such as fairness, transparency, privacy, accountability, and liability for decisions made by an AI system. Fairness has recently been a hot topic of AI,
+
+10. Ethics and fairness
+01:27 - 01:37
+with bias being a central problem to solve, that is, preventing AI outputs that may cause discrimination or unfair treatment towards individuals or groups.
+
+11. Ethics and fairness
+01:37 - 02:14
+Broadly speaking, biases can originate from three sources: data, algorithms, and decisions. Data bias happens when a dataset does not meaningfully cover all possible cases, individuals, or groups in the target domain. Algorithmic bias occurs when an algorithm's design is such that it produces more favorable outputs for certain groups than for others. And decision biases arise from AI system outputs that are consistently unfair: they are influenced by algorithmic biases, but also by other factors such as context.
+
+12. Bias in AI systems: examples
+02:14 - 03:19
+AI is not inherently biased, but humans are biased by nature. Our biases unintentionally permeate AI systems through the data used to train them, or the design of algorithms. For instance, an AI system for screening job resumes, might unintentionally favor male applicants if it has been trained on historical data where past successful candidates were predominantly men. This eventually leads to unfair treatment of female candidates. Ensuring an active collection of resume data from all underrepresented group is an approach to mitigate this problem, as well as incorporating bias-correction algorithms that adjust the AI system. Similar bias situations arise in other application areas, affecting groups based on purchase power, race, sexual orientation or identity, and so on. An example of algorithmic bias frequently can be found in e-commerce recommender systems, where popular or highly purchased products
+
+13. Bias in AI systems: examples
+03:19 - 03:43
+might be overly promoted by the algorithm, limiting exposure to diverse options for users and disregarding other less popular products some users may like, thereby discriminating brands or sellers in the marketplace. This bias can be addressed by introducing techniques and metrics to promote diversity and fairness in the design and evaluation of the system.
+
+14. Data privacy in AI systems
+03:43 - 03:52
+Data privacy in AI systems is all about safeguarding sensitive or personal information from unauthorized access and misuse.
+
+15. Data privacy in AI systems
+03:52 - 04:13
+It requires implementing robust measures like fortifying data encryption protocols, anonymizing sensitive data such as contact information or ethnicity, ensuring secure data storage and sharing practices, and adhering key regulations like EU's GDPR or California's CCPA.
+
+1 GDPR: General Data Protection Regulation. CCPA: California Consumer Privacy Act.
+16. Data privacy in AI systems
+04:13 - 04:22
+By embracing these fundamental principles, we can mitigate risks such as data breaches and prevent discriminatory AI decisions.
+
+1 GDPR: General Data Protection Regulation. CCPA: California Consumer Privacy Act.
+17. Let's practice!
+04:22 - 04:25
+Let's practice!

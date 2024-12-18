@@ -1,0 +1,1 @@
+flatpak install -y flathub io.github.hakandundar io.missioncenter.MissionCenter io.github.prateekmedia.appimagepool io.github.giantpinkrobots.flatsweep it.mijorus.gearlever com.usebottles.bottles && echo "System tooling apps installed via Flatpak."

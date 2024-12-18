@@ -1,0 +1,2 @@
+sudo mkdir -p /var/lib/typesense/data /var/log/typesense
+sudo chmod -R 777 /var/lib/typesense/data /var/log/typesense

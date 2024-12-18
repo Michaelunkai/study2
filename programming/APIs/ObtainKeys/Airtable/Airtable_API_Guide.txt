@@ -1,0 +1,17 @@
+Step-by-Step Guide to Get an Airtable API Key:
+1. Create an Account:
+   - Go to https://airtable.com and sign up for a free account.
+
+2. Create a Base:
+   - Once logged in, create a base (database).
+
+3. Visit Account Settings:
+   - Click on your profile picture (top-right corner).
+   - Select "Account" from the dropdown.
+
+4. Generate API Key:
+   - Scroll to the "API" section.
+   - Click "Generate API Key."
+
+5. Access API Documentation:
+   - Visit https://airtable.com/api to see how to use your key.

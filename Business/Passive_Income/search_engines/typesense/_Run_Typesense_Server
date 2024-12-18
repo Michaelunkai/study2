@@ -1,0 +1,8 @@
+typesense-server --config typesense-config.json
+
+
+To run it in the background, use:
+
+ 
+ 
+nohup typesense-server --config typesense-config.json &

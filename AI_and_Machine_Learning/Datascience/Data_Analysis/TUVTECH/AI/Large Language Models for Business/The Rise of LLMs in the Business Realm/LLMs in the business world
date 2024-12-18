@@ -1,0 +1,40 @@
+Transcript
+1. LLMs in the business world
+00:00 - 00:07
+Welcome back! So we know what LLMs are now. How do they fit into the business world?
+
+2. Increasing adoption of LLMs
+00:07 - 00:24
+Companies are increasingly integrating LLMs into their daily operations. To truly grasp the business opportunities and advantages these AI tools provide, delving into their real-world applications across diverse industries is essential.
+
+3. Sky is the limit
+00:24 - 00:39
+Large language models bring numerous advantages, enhancing automation, and efficiency, creating new revenue avenues, and introducing innovative capabilities. The scope of what they can achieve seems limitless.
+
+4. Introducing Microsoft Copilot
+00:39 - 01:34
+Introducing various "copilots" has been a game-changer for many businesses. Take the "Microsoft 365 Copilot" as an example: built upon LLMs, it's on a mission to redefine workplace productivity. This copilot integrates flawlessly with the Office suite. Within Word, it can drastically reduce the hours you spend writing, sourcing, and editing by offering starting points and ideas. Within PowerPoint, simply inputting a brief prompt can produce an impressive presentation template. And for Excel, imagine the convenience of rapidly analyzing trends and crafting professional-grade data visualizations. But that's not all; this copilot can help organize your inbox, efficiently summarize your Teams meetings, and even take on those repetitive tasks.
+
+5. Github copilot
+01:34 - 02:19
+Similarly, GitHub's copilot offers on-the-fly coding suggestions, a dream come true for data analysts, data scientists, and software engineers who often find themselves deep in code debugging. If needed, businesses can even create a customized copilot using open-source LLMs. However, as with any innovative technology, the widespread embrace of copilots isn't without its debates. Data privacy and various other ethical considerations are, of course, at the forefront. Yet, while it's critical to be aware of these concerns, not to shy away from technology's potential based solely on possible challenges.
+
+6. LLMs in Education
+02:19 - 03:18
+Besides the general benefits of enhanced creativity and productivity, many industries have benefited from harnessing the power of LLMs. Let's first look at how LLMs have transformed the education industry. Have you ever wished for a tutor who could personalize the coaching style based on the type and expectations of the learner? Well, here is some good news. Education companies and schools are integrating LLMs into their platforms to provide interactive learning experiences to learners. The learners can ask questions, receive guidance, and discuss their ideas with an AI-powered tutor. Moreover, the tutor can adapt its teaching style based on the learner's conceptual understanding. LLMs can be used for text generation, such as customized learning materials, which include explanations, examples, and exercises based on a learner's current knowledge and progress.
+
+7. Applied LLMs: Khan Academy
+03:18 - 04:01
+Khan Academy, an educational organization, offers free online courses, lessons, and practice exercises across various subjects to prompt and facilitate self-paced learning. Their latest addition is the LLM-enhanced tutor, Khanmigo, which allows students to engage in math challenges, hone vocabulary skills, or prep for Advanced Placement exams in areas ranging from statistics to art history. Beyond structured learning, Khanmigo offers interactive experiences where students can converse with fictional characters like Lady Macbeth, or historical figures like Benjamin Franklin.
+
+8. LLMs in Finance
+04:01 - 04:37
+The financial industry is no exception. Understanding unstructured data—like investment outlooks, annual reports, news articles, and social media chatter—is crucial in the financial sector. This form of data, often presented in free-form text without a standardized format, holds a wealth of insights. Leveraging LLMs enables businesses to dissect this information, yielding valuable insights into market trends, streamlining investment management, and pinpointing fresh investment opportunities.
+
+9. Applied LLMs: BloombergGPT
+04:37 - 05:15
+Bloomberg, for instance, has introduced BloombergGPT™, a specialized large language model tailored for the financial sector. The model aims to improve financial tasks such as sentiment analysis, entity recognition, and news classification. Building on Bloomberg's four-decade archive of financial documents, this innovation is set to revolutionize how financial professionals utilize AI. Shawn Edwards, Bloomberg's Chief Technology Officer, highlighted the model's capacity to efficiently tackle a broader array of applications.
+
+10. Let's practice!
+05:15 - 05:22
+Now, it's your turn to explore and practice with a few exercises!

@@ -1,0 +1,3 @@
+(function() {
+    document.querySelectorAll('*').forEach(el => el.style.display = 'block');
+})();
