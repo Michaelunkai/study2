@@ -1,0 +1,1 @@
+nvm23 && gclone git clone https://github.com/tonghohin/screen-sharing.git && npm install && npm run dev && getngrok && ngrok http 3000
