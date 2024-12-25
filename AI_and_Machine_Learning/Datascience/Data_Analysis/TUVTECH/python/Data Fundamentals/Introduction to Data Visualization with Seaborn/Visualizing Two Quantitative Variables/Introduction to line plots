@@ -1,0 +1,64 @@
+Transcript
+1. Introduction to line plots
+00:00 - 00:09
+Hello! In this video we'll dive into a new type of relational plot: line plots.
+
+2. What are line plots?
+00:09 - 00:36
+In Seaborn, we have two types of relational plots: scatter plots and line plots. While each point in a scatter plot is assumed to be an independent observation, line plots are the visualization of choice when we need to track the same thing over time. A common example is tracking the value of a company's stock over time, as shown here.
+
+3. Air pollution data
+00:36 - 01:15
+In this video, we'll be using data on the levels of air pollution in a city. There are many air collection stations around the city, each measuring the nitrogen dioxide level every hour for a single day. Long-term exposure to high levels of nitrogen dioxide can cause chronic lung diseases. Let's begin with the simple case where we have one data point per x-value. Here we have one row per hour over the course of the day with the average nitrogen dioxide level across all the stations in a column called "NO_2_mean".
+
+4. Scatter plot
+01:15 - 01:29
+This is a scatter plot with the average nitrogen dioxide level on the y-axis and the hour of the day on the x-axis. We're tracking the same thing over time, so a line plot would be a better choice.
+
+5. Line plot
+01:29 - 01:44
+By specifying "kind" equals "line", we can create a line plot and more easily see how the average nitrogen dioxide level fluctuates throughout the day.
+
+6. Subgroups by location
+01:44 - 01:59
+We can also track subgroups over time with line plots. Here we have the average nitrogen dioxide level for each region (North, South, East, and West) for each hour in the day.
+
+7. Subgroups by location
+01:59 - 02:21
+Setting the "style" and "hue" parameters equal to the variable name "location" creates different lines for each region that vary in both line style and color. Here, we can see that the South region tends to have slightly higher average nitrogen dioxide levels compared to the other regions.
+
+8. Adding markers
+02:21 - 02:38
+Setting the "markers" parameter equal to "True" will display a marker for each data point. The marker will vary based on the subgroup you've set using the "style" parameter.
+
+9. Turning off line style
+02:38 - 02:45
+If you don't want the line styles to vary by subgroup, set the "dashes" parameter equal to "False".
+
+10. Multiple observations per x-value
+02:45 - 02:56
+Line plots can also be used when you have more than one observation per x-value. This dataset has a row for each station that is taking a measurement every hour.
+
+11. Multiple observations per x-value
+02:56 - 03:02
+This is the scatter plot, displaying one point per observation.
+
+12. Multiple observations per x-value
+03:02 - 03:17
+This is the line plot. If a line plot is given multiple observations per x-value, it will aggregate them into a single summary measure. By default, it will display the mean.
+
+13. Multiple observations per x-value
+03:17 - 04:06
+Notice that Seaborn will automatically calculate a confidence interval for the mean, displayed by the shaded region. Assuming the air collection stations were randomly placed throughout the city, this dataset is a random sample of the nitrogen dioxide levels across the whole city. This confidence interval tells us that based on our sample, we can be 95% confident that the average nitrogen dioxide level for the whole city is within this range. Confidence intervals indicate the uncertainty we have about what the true mean is for the whole city. To learn more about confidence intervals, you can check out DataCamp's statistics courses.
+
+14. Replacing confidence interval with standard deviation
+04:06 - 04:33
+Instead of visualizing a confidence interval, we may want to see how varied the measurements of nitrogen dioxide are across the different collection stations at a given point in time. To visualize this, set the "ci" parameter equal to the string "sd" to make the shaded area represent the standard deviation, which shows the spread of the distribution of observations at each x value.
+
+15. Turning off confidence interval
+04:33 - 04:39
+We can also turn off the confidence interval by setting the "ci" parameter equal to "None".
+
+16. Let's practice!
+04:39 - 04:42
+Alright, time to practice what we've learned!

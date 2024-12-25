@@ -1,4 +1,17 @@
 1)add aliases:
+<<<<<<< HEAD
+alias scpg='scp -r /srv/samba/shared/*  micha@192.168.1.178:'\''C:/games'\'''
+alias heavy="sudo find . -type f -exec du -am {} + 2>/dev/null | /usr/bin/sort -n | tail -100 | awk '{printf \"%.2f MB %s\\n\", \$1, \$2}' && du -sh /"
+
+2)install:
+venv && pip install googletrans
+sudo apt-get install rename -y
+
+3)add/change:
+ /mnt/c/study/shells/bash/scripts/top100.sh
+
+*)scpmyg
+=======
 alias ubu="bash /home/ubuntu/run_remote_wsl.sh"
 alias power="bash /home/ubuntu/powershell.sh"
 
@@ -20,4 +33,5 @@ alias s='echo "ubuntu ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && 
 
 3)add/change:
 
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
 *)bbubu (backup, restore, new snap, ubudocker)

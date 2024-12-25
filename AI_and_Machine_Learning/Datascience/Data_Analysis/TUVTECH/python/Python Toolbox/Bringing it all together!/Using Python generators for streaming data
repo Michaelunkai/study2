@@ -1,0 +1,16 @@
+Transcript
+1. Using Python generators for streaming data
+00:00 - 00:16
+Congratulations on your first foray into the World Bank's World Indicators dataset! Having played around with some of the data, we're now going to step back a bit and look at importing the dataset, which is pretty large. We already saw that, for a large dataset,
+
+2. Generators for the large data limit
+00:16 - 00:38
+we can use an iterator to load it in chunks. We can also write a generator to load it in line by line and one of the really cool things about this method is that if the data is streaming, that is, if new lines are being written to the file you're reading, this method will keep on reading and processing the file until there are no lines left for it to read. In the following exercises,
+
+3. Build a generator function
+00:38 - 01:24
+you'll be writing a generator function that can process large amounts of data, so let me remind you of our typical example of a generator function:Here is a generator function that, when called with a number n, produces a generator object that generates integers 0 though n. In the function definition, i is initialized to 0. The first time the generator object is called, it yields i equal to 0. It then adds one to i and will then yield one on the next iteration and so on. The while loop is true until i equals equals n and then the generator ceases to yield values. In the exercises, you'll be writing a generator function that, on each iteration, reads a new line of the file!
+
+4. Let's practice!
+01:24 - 01:39
+Now head over to the exercises and try your hand at writing a generator that can read streaming data. You'll once again be playing around with the World Bank's World Indicators dataset. Enjoy!

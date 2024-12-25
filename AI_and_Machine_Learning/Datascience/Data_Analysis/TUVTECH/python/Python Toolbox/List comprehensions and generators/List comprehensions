@@ -1,0 +1,35 @@
+1. List comprehensions
+00:00 - 00:10
+Let's say that you have a list of numbers and you want to create a new list of numbers that's the same as the old list, except that each number has 1 added to it.
+
+2. Populate a list with a for loop
+00:10 - 00:30
+You could initialize a new empty list, loop through the old list, add 1 to each entry and append all new values to the new list, but for loops are inefficient, both computationally and in terms of coding time and space, particularly when you could do this in one line of code. "One line of code?" I hear you asking.
+
+3. A list comprehension
+00:30 - 01:01
+Welcome to the wonderful world of list comprehensions! The syntax is as follows: within square brackets, you write the values you wish to create, otherwise known as the output expression, followed by the for clause referencing the original list. So in our case, you open the square bracket, followed by num + 1 for num in nums and then you close the square bracket. This is a list comprehension and creates precisely the desired list!
+
+4. For loop and list comprehension syntax
+01:01 - 01:16
+See here the relationship between the for loop syntax and the list comprehension syntax. The power of list comprehensions is not merely relegated to the world of lists, however, you can write a list comprehension over any iterable.
+
+5. List comprehension with range()
+01:16 - 01:22
+Here's an example of a list comprehension using a range object. To summarize,
+
+6. List comprehensions
+01:22 - 01:43
+list comprehensions collapse for loops for building lists into a single line and the required components are 1) an iterable, 2) an iterator variable that represents the members of the iterable and 3) an output expression. That's it. You can also use list comprehensions in place of nested for loops.
+
+7. Nested loops (1)
+01:43 - 02:04
+For example, lets say that we wanted to create a list of all pairs of integers where the first integer is between 0 and 1 and the second between 6 and 7. This nested for loop would produce the required result. The question is, can we do the same with a list comprehension? And the answer is, yes, as follows.
+
+8. Nested loops (2)
+02:04 - 02:35
+Once again, within the square brackets, place the desired output expression followed by the two required for loop clauses. You may observe that while it keeps to a single line of code, we sacrifice some readability of the code as a tradeoff, so you'll have to consider if you'd like to use list comprehensions in cases such as this. The more often you use this, the more you get used to reading list comprehensions, so readability may not be a problem for you later on. But do remember that others may have to read your code as well!
+
+9. Let's practice!
+02:35 - 02:42
+Now you've seen a few list comprehensions, it's your turn to write some!

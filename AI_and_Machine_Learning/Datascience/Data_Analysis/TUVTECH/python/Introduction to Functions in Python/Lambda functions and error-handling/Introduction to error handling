@@ -1,0 +1,43 @@
+1. Introduction to error handling
+00:00 - 00:07
+When you use a function incorrectly, it should throw you an error. For example,
+
+2. The float() function
+00:07 - 00:15
+check out the function float that returns a floating point from a number or string, under the condition that the string corresponds to a number.
+
+3. Passing an incorrect argument
+00:15 - 00:37
+When I pass the function float an integer, the corresponding float is returned; similarly if I pass it the string '2.3'. However, if I pass it the string 'hello', Python will throw me an error telling me that it couldn't convert the string to a float. In this case, it threw me a ValueError and there are many types of errors.
+
+4. Passing valid arguments
+00:37 - 00:54
+When we write our own functions, as we have been doing, we may wish to catch specific problems and write specific error messages. Let's check out this user-defined function that computes the square root of a number. It behaves as expected with integers.
+
+5. Passing invalid arguments
+00:54 - 01:15
+What happens if we pass it a string such as 'hello'? Then it throws me an error corresponding to a line of code within the function definition. This error says it was some sort of TypeError but the message may not be particularly useful to a user of our function, so we should endeavor to provide useful error messages for the functions we write.
+
+6. Errors and exceptions
+01:15 - 01:37
+This is an example of an error caught during execution, commonly called exceptions. The main way to catch such exceptions is the try-except clause, in which Python tries to run the code following try and if it can, all is well. If it cannot due to an exception, it runs the code following except.
+
+7. Errors and exceptions
+01:37 - 02:02
+Let's now rewrite our square root function but this time catch any exceptions raised. So here, we try to execute x to the power of zero point five; using except, in the case of an exception, we print 'x must be an int or float'. Now we see that the resulting function behaves well for ints and floats and also prints out what we wanted it to for a string.
+
+8. Errors and exceptions
+02:02 - 02:20
+We may also wish to only catch TypeErrors and let other errors pass through, in which case we would use except TypeError as you can see here. There are many other types of exceptions that can be caught and you can have a look at them in the Python documentation available online.
+
+9. Errors and exceptions
+02:20 - 02:51
+More often than not, instead of merely printing an error message, we'll want to actually raise an error by using the keyword raise. For example, our square root function does something we may not desire when applied to negative numbers. It actually returns a complex number which we may not want. In fact, let's say that we don't wish our function to work for negative numbers. Then using an if clause, we can raise a ValueError for cases in which the user passes the function a negative number.
+
+10. Errors and exceptions
+02:51 - 03:01
+Let's now see it in action! If we pass our new function a negative number, see it returns the prescribed ValueError! That's enough out of me.
+
+11. Let's practice!
+03:01 - 03:10
+It's time to get you writing your very own error messages to help people use your functions!

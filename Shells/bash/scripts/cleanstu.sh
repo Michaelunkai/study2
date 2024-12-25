@@ -1,11 +1,17 @@
 #!/bin/bash
 
 # ================================
+<<<<<<< HEAD
+# Deep Cleanup Script for /mnt/wslg
+# ================================
+# Aggressively cleans up /mnt/wslg to free up as much space as possible.
+=======
 # System Cleanup Script
 # ================================
 # This script performs an extensive system cleanup by executing 200 commands
 # to free up space and remove unnecessary files.
 # It displays the disk usage of /mnt/wslg before and after the cleanup.
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
 # Ensure you have backups before running this script.
 
 # ================================
@@ -13,6 +19,74 @@
 # ================================
 echo "==============================="
 echo "Initial disk usage of /mnt/wslg:"
+<<<<<<< HEAD
+if [[ -d /mnt/wslg ]]; then
+    du -sh /mnt/wslg || echo "Unable to determine disk usage for /mnt/wslg."
+else
+    echo "/mnt/wslg does not exist or is inaccessible."
+    exit 1
+fi
+echo "==============================="
+
+# ================================
+# Excluded Directories and Files
+# ================================
+# Prevent accidental removal of critical or inaccessible files.
+EXCLUDE_DIRS="( -path /mnt/wslg/distro -o -path /mnt/wslg/tmp ) -prune"
+
+# ================================
+# Helper Function
+# ================================
+# Executes a command and logs errors without stopping the script.
+run_command() {
+    local cmd="$1"
+    echo "Running: $cmd"
+    eval "$cmd" || echo "Error: Command failed - $cmd"
+}
+
+# ================================
+# Cleanup Commands for /mnt/wslg
+# ================================
+echo "Starting deep cleanup process for /mnt/wslg..."
+
+# 1. Remove temporary files
+run_command "sudo rm -rf /mnt/wslg/tmp/*"
+
+# 2. Remove old logs and large files
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.log' -exec truncate -s 0 {} +"
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -size +50M -delete"
+
+# 3. Remove unused cache files
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*cache*' -delete"
+
+# 4. Remove old backups
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.bak' -delete"
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.old' -delete"
+
+# 5. Remove orphaned symbolic links
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -xtype l -delete"
+
+# 6. Remove unnecessary configuration files
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.conf' -delete"
+
+# 7. Remove temporary and swap files
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.tmp' -delete"
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.swp' -delete"
+
+# 8. Remove old compressed archives
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.tar.gz' -delete"
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.zip' -delete"
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f -name '*.bz2' -delete"
+
+# 9. Remove large media files
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f \( -name '*.mp4' -o -name '*.mp3' -o -name '*.avi' -o -name '*.mkv' \) -delete"
+
+# 10. Remove large images and documents
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type f \( -name '*.jpg' -o -name '*.png' -o -name '*.pdf' -o -name '*.docx' -o -name '*.xlsx' \) -size +10M -delete"
+
+# 11. Clean up empty directories
+run_command "sudo find /mnt/wslg $EXCLUDE_DIRS -o -type d -empty -delete"
+=======
 du -sh /mnt/wslg || echo "/mnt/wslg does not exist or is inaccessible."
 echo "==============================="
 
@@ -676,12 +750,19 @@ sudo find /mnt $EXCLUDE_DIRS -o -name "*.flv" -delete || echo "No .flv files to 
 
 # 200. Remove .avi files from /mnt
 sudo find /mnt $EXCLUDE_DIRS -o -name "*.avi" -delete || echo "No .avi files to remove or failed to remove."
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
 
 # ================================
 # Final Disk Usage Check
 # ================================
 echo "==============================="
 echo "Final disk usage of /mnt/wslg:"
+<<<<<<< HEAD
+du -sh /mnt/wslg || echo "Unable to determine disk usage for /mnt/wslg."
+echo "==============================="
+
+echo "Deep cleanup of /mnt/wslg completed successfully!"
+=======
 du -sh /mnt/wslg || echo "/mnt/wslg does not exist or is inaccessible."
 echo "==============================="
 
@@ -691,3 +772,4 @@ echo "==============================="
 
 echo "System cleaned successfully with 200 commands!"
 
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d

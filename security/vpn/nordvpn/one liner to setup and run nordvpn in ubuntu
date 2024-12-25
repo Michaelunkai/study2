@@ -1,0 +1,1 @@
+ sudo apt install -y wget && wget -qnc https://downloads.nordcdn.com/apps/linux/install.sh && sudo bash install.sh && nordvpn connect

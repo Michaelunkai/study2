@@ -1,0 +1,1 @@
+sudo apt install -y git curl && git clone https://github.com/FOGProject/fogproject.git && cd fogproject/bin && sudo ./installfog.sh && echo "Fog Project installed - Access via: http://$(hostname -I | awk '{print $1}')/fog"

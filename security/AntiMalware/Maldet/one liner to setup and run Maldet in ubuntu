@@ -1,0 +1,1 @@
+wget http://www.rfxn.com/downloads/maldetect-current.tar.gz && tar -xzf maldetect-current.tar.gz && cd  maldetect-1.6.5 && ./install.sh && maldet -a /home

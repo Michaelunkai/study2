@@ -1,0 +1,1 @@
+wget -q -O cannabis_data_gov.csv https://catalog.data.gov/dataset/cannabis-sales-data/download.csv

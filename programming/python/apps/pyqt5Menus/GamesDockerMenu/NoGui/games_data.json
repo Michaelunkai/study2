@@ -196,7 +196,10 @@
         "GunfireReborn",
         "13SentinelsAegisRim",
         "GatoRoboto",
+<<<<<<< HEAD
+=======
         "minimetro",
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         "sable",
         "YsIXMonstrumNox",
         "Loopmancer",
@@ -223,7 +226,10 @@
         "CultoftheLamb",
         "Bayonetta3",
         "DOOMEternal",
+<<<<<<< HEAD
+=======
         "AstralAscent",
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         "TLoZEchoesofWisdom",
         "FalloutLondon",
         "RESEARCHandDESTROY",
@@ -235,9 +241,13 @@
         "YakuzaKiwami",
         "YakuzaKiwami2",
         "Yakuza6",
+<<<<<<< HEAD
+        "Melatonin"
+=======
         "Melatonin",
         "TheSpiritandtheMouse",
         "spacemarine2"
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
     ],
     "category_games": {
         "interactive": [
@@ -310,8 +320,12 @@
             "gunfirereborn",
             "voidbastardsbangtydy",
             "angerfoot",
+<<<<<<< HEAD
+            "doometernal"
+=======
             "doometernal",
             "spacemarine2"
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         ],
         "chill": [
             "okamihd",
@@ -380,7 +394,10 @@
             "littlekittybigcity",
             "kingdomclassic",
             "thelegendofzeldathewindwaker",
+<<<<<<< HEAD
+=======
             "minimetro",
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
             "sable",
             "spiritfarer",
             "endlingextinctionisforever",
@@ -392,8 +409,12 @@
             "13sentinelsaegisrim",
             "neocab",
             "nightcall",
+<<<<<<< HEAD
+            "thewildatheart"
+=======
             "thewildatheart",
             "thespiritandthemouse"
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         ],
         "action": [
             "saintsrow3",
@@ -472,7 +493,10 @@
             "troversavestheuniverse",
             "octogeddon",
             "bayonetta3",
+<<<<<<< HEAD
+=======
             "astralascent",
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
             "falloutlondon",
             "researchanddestroy",
             "yakuzalikeadragon",

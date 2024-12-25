@@ -1,0 +1,1 @@
+sudo apt install -y cloud-init && sudo cloud-init init --from-disk --disk /dev/sda --target /tftpboot && sudo systemctl restart cloud-init && echo "Cloud-init PXE server running"

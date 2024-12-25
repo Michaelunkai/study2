@@ -1,0 +1,7 @@
+pve > firewall > add:
+
+direction: in
+action:reject
+source: ip to block
+protocol: TCP (6)
+destination port:22

@@ -1,0 +1,1 @@
+sudo apt install httrack -y && httrack https://www.mysqltutorial.org/mysql-sample-database-download/ --path "$(pwd)"

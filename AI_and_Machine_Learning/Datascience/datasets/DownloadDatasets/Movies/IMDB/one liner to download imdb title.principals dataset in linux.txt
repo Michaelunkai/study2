@@ -1,0 +1,1 @@
+wget https://datasets.imdbws.com/title.principals.tsv.gz -O title.principals.tsv.gz

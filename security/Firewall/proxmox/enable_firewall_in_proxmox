@@ -1,0 +1,5 @@
+1) datacenter > firewall > options > double click firewall > check the box
+
+2) pve > firewall >  options > double click firewall > check the box
+
+3) shell > pve-firewall start

@@ -1,0 +1,8 @@
+Check if a rule exists for port 8006:
+Get-NetFirewallRule -DisplayName "*8006*" | Format-Table -Property Name, DisplayName, Enabled, Action
+
+Create an inbound rule if it does not exist:
+New-NetFirewallRule -DisplayName "Allow Port 8006" -Direction Inbound -Protocol TCP -LocalPort 8006 -Action Allow
+
+Create an outbound rule if it does not exist:
+New-NetFirewallRule -DisplayName "Allow Port 8006" -Direction Outbound -Protocol TCP -LocalPort 8006 -Action Allow

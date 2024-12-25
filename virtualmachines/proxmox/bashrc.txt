@@ -39,7 +39,11 @@ alias ubudocker="cd && ./ubu.sh && dkill"
 alias ccubu="bash /root/ccubu.sh"
 alias backupubu="bash /root/backup_vm_101.sh"
 alias snapubu="cd && ./manage_snapshots_vm_101.sh"
+<<<<<<< HEAD
+alias bubu="ccubu && scpmyg && backupubu && reubu && snapubu"
+=======
 alias bubu="ccubu && backupubu && reubu && scpmyg && snapubu"
+>>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
 alias bbubu="ubudocker"
 alias reubu="cd && ./restore_and_start_vm.sh"
 alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'

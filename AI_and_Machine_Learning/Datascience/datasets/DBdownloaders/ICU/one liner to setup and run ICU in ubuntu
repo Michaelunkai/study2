@@ -1,0 +1,1 @@
+sudo apt-get install icu-devtools -y && wget -O icu4c_data.zip https://github.com/unicode-org/icu/releases/download/release-76-1/icu4c-76_1-data-bin-b.zip && unzip -o icu4c_data.zip -d /usr/local/share/icu && icuinfo

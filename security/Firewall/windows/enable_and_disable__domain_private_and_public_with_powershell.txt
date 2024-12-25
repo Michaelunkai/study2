@@ -1,0 +1,13 @@
+Enable Domain Profile:
+Set-NetFirewallProfile -Profile Domain -Enabled True
+Enable Private Profile:
+Set-NetFirewallProfile -Profile Private -Enabled True
+Enable Public Profile:
+Set-NetFirewallProfile -Profile Public -Enabled True
+These commands will enable the firewall for the Domain, Private, and Public profiles respectively.
+Disable Domain Profile:
+Set-NetFirewallProfile -Profile Domain -Enabled False
+Disable Private Profile:
+Set-NetFirewallProfile -Profile Private -Enabled False
+Disable Public Profile:
+Set-NetFirewallProfile -Profile Public -Enabled False

@@ -1,0 +1,20 @@
+Transcript
+1. Advanced comprehensions
+00:00 - 00:05
+Now that you know the basics of list comprehensions, lets check out some more
+
+2. Conditionals in comprehensions
+00:05 - 00:49
+advanced comprehension capabilities, such as conditionals! Here we see that we can filter the output of a list comprehension using a conditional on the iterable: in this example, the resulting list is the square of the values in range(10) under the condition that the value itself is even. If you have not seen it before, the percent operation that you see being used in the comprehension is called the modulo operator. We can look at the Python documentation to see how the modulo operator is used and it shows that it produces the remainder from the division of the first argument by the second. Thus an integer modulo two is equal to zero if and only if the integer is even.
+
+3. Conditionals in comprehensions
+00:49 - 01:05
+We can also condition the list comprehension on the output expression. Here, for an even integer we output its square. In any other case, signified by the else clause, that is for odd integers, we output 0.
+
+4. Dict comprehensions
+01:05 - 01:34
+Now we can also write dictionary comprehensions to create new dictionaries from iterables. The syntax is almost the same as in list comprehensions and there are 2 differences. One, we use curly braces instead of square brackets. Two, the key and value are separated by a colon in the output expression as we can see here. In this example, we are creating a dictionary with keys positive integers and corresponding values the respective negative integers.
+
+5. Let's practice!
+01:34 - 01:43
+Now that we have a grasp on advanced list comprehensions and dictionary comprehensions, it's time to practice! -

@@ -1,0 +1,1 @@
+getgo && git clone https://github.com/adamyordan/laplace.git && cd laplace && go build -o laplace main.go && ./laplace

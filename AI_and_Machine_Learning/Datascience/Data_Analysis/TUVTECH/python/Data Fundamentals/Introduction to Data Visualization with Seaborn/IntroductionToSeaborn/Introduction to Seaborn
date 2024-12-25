@@ -1,0 +1,38 @@
+Transcript
+1. Introduction to Seaborn
+00:00 - 00:10
+Hello! Welcome to this introductory course on Seaborn! My name is Erin Case, and I'll be your instructor.
+
+2. What is Seaborn?
+00:10 - 00:30
+So what is Seaborn? Seaborn is a powerful Python library for creating data visualizations. It was developed in order to make it easy to create the most common types of plots. The plot shown here can be created with just a few lines of Seaborn code.
+
+1 Waskom, M. L. (2021). seaborn: statistical data visualization. https://seaborn.pydata.org/
+3. Why is Seaborn useful?
+00:30 - 00:45
+This is a picture of a typical data analysis workflow. Data visualization is often a huge component of both the data exploration phase and the communication of results, so Seaborn will be very useful there.
+
+4. Advantages of Seaborn
+00:45 - 01:32
+There are several tools that can be used for data visualization, but Seaborn offers several advantages. First, Seaborn's main purpose is to make data visualization easy. It was built to automatically handle a lot of complexity behind the scenes. Second, Seaborn works extremely well with pandas data structures. pandas is a Python library that is widely used for data analysis. Finally, it's built on top of Matplotlib, which is another Python visualization library. Matplotlib is extremely flexible. Seaborn allows you to take advantage of this flexibility when you need it, while avoiding the complexity that Matplotlib's flexibility can introduce.
+
+5. Getting started
+01:32 - 02:21
+To get started, we'll need to import the Seaborn library. The line "import seaborn as sns" will import Seaborn as the conventionally used alias "sns". Why "sns"? The Seaborn library was apparently named after a character named Samuel Norman Seaborn from the television show "The West Wing" - thus, the standard alias is the character's initials ("sns"). We also need to import Matplotlib, which is the library that Seaborn is built on top of. We do this by typing "import matplotlib.pyplot as plt". "plt" is the alias that most people use to refer to Matplotlib, so we'll use that here as well.
+
+6. Example 1: Scatter plot
+02:21 - 03:15
+Let's now dive into an example to illustrate how easily you can create visualizations using Seaborn. Here, we have data for 10 people consisting of lists of their heights in inches and their weights in pounds. Do taller people tend to weigh more? You can visualize this using a type of plot known as a scatter plot, which you'll learn more about later in the course. Use "sns dot scatterplot()" to call the scatterplot function from the Seaborn library. Then, specify what to put on the x-axis and y-axis. Finally, call the "plt dot show()" function from Matplotlib to show the scatterplot. This plot shows us that taller people tend to have a higher weight.
+
+7. Example 2: Create a count plot
+03:15 - 03:46
+How many of our observations of heights and weights came from males vs. females? You can use another type of plot - the count plot - to investigate this. Count plots take in a categorical list and return bars that represent the number of list entries per category. Use the "countplot()" function and provide the list of every person's gender. This count plot shows that out of the 10 observations we had in our height and weight scatter plot, 6 were male and 4 were female.
+
+8. Course Preview
+03:46 - 04:03
+Now, those were a couple of simple examples. Throughout this course, you'll learn to make more complex visualizations such as those pictured here. More importantly, you'll learn when to use each type of visualization in order to most effectively extract and communicate insights using data.
+
+1 Waskom, M. L. (2021). seaborn: statistical data visualization. https://seaborn.pydata.org/
+9. Let's practice!
+04:03 - 04:10
+I'm excited to dive into Seaborn with you throughout this course. For now, let's practice what you've just learned!

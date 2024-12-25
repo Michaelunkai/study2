@@ -1,0 +1,20 @@
+Transcript
+1. Using iterators to load large files into memory
+00:00 - 00:08
+Now that you're more comfortable with iterables, iterators and how they work, we're going to check out a particular use case:
+
+2. Loading data in chunks
+00:08 - 00:58
+dealing with large amounts of data. Let's say that you are pulling data from a file, database or API and there's so much of it, just so much data, that you can't hold it in memory. One solution is to load the data in chunks, perform the desired operation or operations on each chuck, store the result, discard the chunk and then load the next chunk; this sounds like a place where an iterator could be useful!To surmount this challenge, we are going to use the pandas function read_csv, which provides a wonderful option whereby you can load data in chunks and iterate over them. All we need to do is to specify the chunk using the argument yep, you guessed it: chunksize. As with much of what we do in Data Science, this is best illustrated by an example.
+
+3. Iterating over data
+00:58 - 01:58
+Let's say that we have a csv with a column called 'x' of numbers and I want to compute the sum of all the numbers in that column. However, the file is too large to store in memory. We first import pandas and then initialize an empty list result to hold the result of each iteration. We then use the read_csv function, utilizing the argument chunksize, setting it to the size of the chunks I want to read in. In this example, we use a chunk size of 1,000. You can play around with it. The object created by the read_csv call is an iterable so I can can iterate over it, using a for loop, in which each chunk will be a DataFrame. Within the for loop, that is, on each iteration, we compute the sum of the column of interest and we append it to the list result. Once this is executed, we can take the sum of the list result and this gives us our total sum of the column of interest. Iterators to the rescue!
+
+4. Iterating over data
+01:58 - 02:11
+Also note that we need not have used a list to store each result - we could have initialized total to zero before iterating over the file and added each sum during the iteration procedure, as you see here.
+
+5. Let's practice!
+02:11 - 02:16
+Happy iterating, friend!
