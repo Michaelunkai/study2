@@ -7,6 +7,7 @@ alias heavy="sudo find . -type f -exec du -am {} + 2>/dev/null | /usr/bin/sort -
 venv && pip install googletrans
 sudo apt-get install rename -y
 
+
 3)add/change:
  /mnt/c/study/shells/bash/scripts/top100.sh
 
