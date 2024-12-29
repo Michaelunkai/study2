@@ -1,0 +1,70 @@
+Putting it all together
+50 XP
+
+
+Got it!
+Transcript
+1. Putting it all together
+00:00 - 00:18
+In this course, we've learned a great deal about how to create effective data visualizations in Seaborn. In this lesson, we'll review what we've learned and connect the pieces together to form a cohesive picture of how to use Seaborn for future projects.
+
+2. Getting started
+00:18 - 00:50
+The first thing to recall is simply how to import Seaborn and its related library, Matplotlib. To do this, write "import seaborn as sns" and "import matplotlib dot pyplot as plt". Recall also that at the end of your data visualization code, you'll call "plt dot show" to show the visualization.
+
+3. Relational plots
+00:50 - 01:25
+After you've imported the appropriate libraries, the next thing to do is to choose what type of plot you want to create. Relational plots are plots that show the relationship between two quantitative variables. Examples of relational plots that we've seen in this course are scatter plots and line plots. You can create a relational plot using "relplot()" and providing it with the x-axis variable name, y-axis variable name, the pandas tidy DataFrame, and the type of plot (either scatter or line).
+
+4. Categorical plots
+01:25 - 02:08
+Categorical plots are another type of plot. These describe the distribution of a quantitative variable within categories given by a categorical variable. Examples of categorical plots we've seen are bar plots, count plots, box plots, and point plots. You can create a categorical plot using "catplot()" and providing it with the x-axis variable name, y-axis variable name (if applicable), the pandas tidy DataFrame, and the type of plot (either bar, count, box, or point).
+
+5. Adding a third variable (hue)
+02:08 - 02:25
+If we want to add a third dimension to our plots, we can do this in one of two ways. Setting the "hue" parameter to a variable name will create a single plot but will show subgroups that are different colors based on that variable's values.
+
+1 Waskom, M. L. (2021). seaborn: statistical data visualization. https://seaborn.pydata.org/
+6. Adding a third variable (row/col)
+02:25 - 02:39
+Alternatively, you can use "relplot()" and "catplot()"’s "col" and "row" parameters to graph each subgroup on a separate subplot in the figure.
+
+1 Waskom, M. L. (2021). seaborn: statistical data visualization. https://seaborn.pydata.org/
+7. Customization
+02:39 - 03:00
+Once you have the basic plot created, you might want to customize the plot's appearance to improve its readability. You can change the background of the plot using "set_style", the color of the main elements using "set_palette", and the scale of the plot using "set_context".
+
+8. Adding a title
+03:00 - 03:16
+Finally, every plot should be given an informative title and axis labels. Recall the two types of plot objects - FacetGrids and AxesSubplots - and the way to add a title to each of them.
+
+9. Final touches
+03:16 - 03:34
+Also recall how to use the "set" function with the "xlabel" and "ylabel" parameters to provide custom x- and y-axis labels, and how to use "plt.xticks" with the "rotation" parameter to rotate the x-tick labels.
+
+10. Let's practice!
+03:34 - 03:47
+And that's it! You're now equipped to make impressive and effective data visualizations with Seaborn. Let's practice putting all of these steps together in the final exercises of this course.
+
+Your recent learnings
+When you left 2 days ago, you worked on Customizing Seaborn Plots, chapter 4 of the course Introduction to Data Visualization with Seaborn. Here is what you covered in your last lesson:
+
+You learned about enhancing the readability and presentation of data visualizations in Seaborn by adding titles, labels, and adjusting the style of plots. Specifically, you covered:
+
+Adding Titles to Plots: For AxesSubplot objects, like those returned from the boxplot function, you use g.set_title to add a title. The y parameter can adjust the title's height. For FacetGrid objects, which are used when creating subplots, g.fig.suptitle adds a title to the figure as a whole.
+
+Customizing Subplot Titles: When dealing with multiple subplots, g.set_titles allows you to set individual titles for each subplot. You can dynamically include variable names in these titles using {col_name} to reference the column value.
+
+Setting Axis Labels: To add more informative axis labels, you assign the plot to a variable and then use the .set function, specifying x_label and y_label for the x-axis and y-axis labels, respectively. This method works for both FacetGrid and AxesSubplot objects.
+
+Rotating Tick Labels: To avoid overlapping tick labels, which can make plots hard to interpret, you learned to rotate the tick labels using Matplotlib's plt.xticks() function, setting the rotation parameter to the desired angle (e.g., 90 degrees). This technique is applicable to both FacetGrid and AxesSubplot objects, enhancing the clarity of your visualizations.
+
+Here's an example of rotating x-tick labels to improve plot readability:
+
+# Rotate x-tick labels
+plt.xticks(rotation=90)
+This lesson equipped you with the skills to create clear and informative visualizations, ensuring your audience can quickly grasp the key takeaways from your data.
+
+The goal of the next lesson is to learn how to create and customize Seaborn plots for clearer and more appealing data visualization, including adding titles, labels, and adjusting styles.
+
+Was this useful?

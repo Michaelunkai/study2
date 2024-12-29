@@ -1,7 +1,7 @@
 1)add aliases:
-<<<<<<< HEAD
 alias scpg='scp -r /srv/samba/shared/*  micha@192.168.1.178:'\''C:/games'\'''
 alias heavy="sudo find . -type f -exec du -am {} + 2>/dev/null | /usr/bin/sort -n | tail -100 | awk '{printf \"%.2f MB %s\\n\", \$1, \$2}' && du -sh /"
+alias scptv2="rsync -av --progress ~/Downloads/* root@192.168.1.101:/home/TV"
 
 2)install:
 venv && pip install googletrans
@@ -10,6 +10,7 @@ sudo apt-get install rename -y
 
 3)add/change:
  /mnt/c/study/shells/bash/scripts/top100.sh
+/mnt/c/study/programming/python/apps/wishlist/dbINec2/ubuntu/b.py - wishlist.py
 
 *)scpmyg
 =======

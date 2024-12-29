@@ -1,0 +1,71 @@
+1. What are the chances?
+00:00 - 00:12
+People talk about chance pretty frequently, like what are the chances of closing a sale, of rain tomorrow, or of winning a game? But how exactly do we measure chance?
+
+2. Measuring chance
+00:12 - 00:59
+We can measure the chances of an event using probability. We can calculate the probability of some event by taking the number of ways the event can happen and dividing it by the total number of possible outcomes. For example, if we flip a coin, it can land on either heads or tails. To get the probability of the coin landing on heads, we divide the 1 way to get heads by the two possible outcomes, heads and tails. This gives us one half, or a fifty percent chance of getting heads. Probability is always between zero and 100 percent. If the probability of something is zero, it's impossible, and if the probability of something is 100%, it will certainly happen.
+
+3. Assigning salespeople
+00:59 - 01:15
+Let's look at a more complex scenario. There's a meeting coming up with a potential client, and we want to send someone from the sales team to the meeting. We'll put each person's name on a ticket in a box and pull one out randomly to decide who goes to the meeting.
+
+4. Assigning salespeople
+01:15 - 01:23
+Brian's name gets pulled out. The probability of Brian being selected is one out of four, or 25%.
+
+5. Sampling from a DataFrame
+01:23 - 01:45
+We can recreate this scenario in Python using the sample() method. By default, it randomly samples one row from the DataFrame. However, if we run the same thing again, we may get a different row since the sample method chooses randomly. If we want to show the team how we picked Brian, this won't work well.
+
+6. Setting a random seed
+01:45 - 02:24
+To ensure we get the same results when we run the script in front of the team, we'll set the random seed using np-dot-random-dot-seed. The seed is a number that Python's random number generator uses as a starting point, so if we orient it with a seed number, it will generate the same random value each time. The number itself doesn't matter. We could use 5, 139, or 3 million. The only thing that matters is that we use the same seed the next time we run the script. Now, we, or one of the sales-team members, can run this code over and over and get Brian every time.
+
+7. A second meeting
+02:24 - 02:45
+Now there's another potential client who wants to meet at the same time, so we need to pick another salesperson. Brian haas already been picked and he can't be in two meetings at once, so we'll pick between the remaining three. This is called sampling without replacement, since we aren't replacing the name we already pulled out.
+
+8. A second meeting
+02:45 - 02:52
+This time, Claire is picked, and the probability of this is one out of three, or about 33%.
+
+9. Sampling twice in Python
+02:52 - 02:59
+To recreate this in Python, we can pass 2 into the sample method, which will give us 2 rows of the DataFrame.
+
+10. Sampling with replacement
+02:59 - 03:15
+Now let's say the two meetings are happening on different days, so the same person could attend both. In this scenario, we need to return Brian's name to the box after picking it. This is called sampling with replacement.
+
+11. Sampling with replacement
+03:15 - 03:23
+Claire gets picked for the second meeting, but this time, the probability of picking her is 25%.
+
+12. Sampling with/without replacement in Python
+03:23 - 03:38
+To sample with replacement, set the replace argument to True, so names can appear more than once. If there were 5 meetings, all at different times, it's possible to pick some rows multiple times since we're replacing them each time.
+
+13. Independent events
+03:38 - 03:53
+Let's quickly talk about independence. Two events are independent if the probability of the second event isn't affected by the outcome of the first event. For example, if we're sampling with replacement, the probability
+
+14. Independent events
+03:53 - 04:04
+that Claire is picked second is 25%, no matter who gets picked first. In general, when sampling with replacement, each pick is independent.
+
+15. Dependent events
+04:04 - 04:19
+Similarly, events are considered dependent when the outcome of the first changes the probability of the second. If we sample without replacement, the probability that Claire is picked second depends on who gets picked first.
+
+16. Dependent events
+04:19 - 04:25
+If Claire is picked first, there's 0% probability that Claire will be picked second.
+
+17. Dependent events
+04:25 - 04:36
+If someone else is picked first, there's a 33% probability Claire will be picked second. In general, when sampling without replacement, each pick is dependent.
+
+18. Let's practice!
+04:36 - 04:40
+Head over to the exercises!

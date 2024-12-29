@@ -1,0 +1,39 @@
+1. What is statistics?
+00:00 - 00:08
+Hi and welcome to the course. My name is Maggie, and I'll be your host as we dive in to the world of statistics.
+
+2. What is statistics?
+00:08 - 00:25
+So what is statistics anyway? We can talk about the field of statistics, which is the practice and study of collecting and analyzing data. We can also talk about a summary statistic, which is a fact about or summary of some data, like an average or a count.
+
+3. What can statistics do?
+00:25 - 01:08
+A more important question, however, is what can statistics do? With the power of statistics, we can answer tons of different questions like: How likely is someone to purchase a product? Are people more likely to purchase it if they can use a different payment system? How many occupants will your hotel have? How can you optimize occupancy? How many sizes of jeans need to be manufactured so they can fit 95% of the population? Should the same number of each size be produced? A question like, Which ad is more effective in getting people to purchase a product? can be answered with A/B testing.
+
+4. What can't statistics do?
+01:08 - 01:42
+While statistics can answer a lot of questions, it's important to note that statistics can't answer every question. If we want to know why the TV series Game of Thrones is so popular, we could ask everyone why they like it, but they may lie or leave out reasons. We can see if series with more violent scenes attract more viewers, but even if they do, we can't know if the violence in Game of Thrones is the reason for its popularity, or if other factors are driving its popularity and it just happens to be violent.
+
+5. Types of statistics
+01:42 - 02:25
+There are 2 main branches of statistics: descriptive statistics and inferential statistics. Descriptive statistics focuses on describing and summarizing the data at hand. After asking four friends how they get to work, we can see that 50% of them drive to work, 25% ride the bus, and 25% bike. These are examples of descriptive statistics. Inferential statistics uses the data at hand, which is called sample data, to make inferences about a larger population. We could use inferential statistics to figure out what percent of people drive to work based on our sample data.
+
+6. Types of data
+02:25 - 03:29
+There are two main types of data. Numeric, or quantitative data is made up of numeric values. Categorical, or qualitative data is made up of values that belong to distinct groups. It's important to note that these aren't the only two types of data that exist - there are others too, but we'll be focusing on these two. Numeric data can be further separated into continuous and discrete data. Continuous numeric data is often quantities that can be measured, like speed or time. Discrete numeric data is usually count data, like number of pets or number of packages shipped. Categorical data can be nominal or ordinal. Nominal categorical data is made up of categories with no inherent ordering, like marriage status or country of residence. Ordinal categorical data has an inherent order, like a survey question where you need to indicate the degree to which you agree with a statement.
+
+7. Categorical data can be represented as numbers
+03:29 - 03:49
+Sometimes, categorical variables are represented using numbers. Married and unmarried can be represented using 1 and 0, or an agreement scale could be represented with numbers 1 through 5. However, it's important to note that this doesn't necessarily make them numeric variables.
+
+8. Why does data type matter?
+03:49 - 04:13
+Being able to identify data types is important since the type of data you're working with will dictate what kinds of summary statistics and visualizations make sense for your data, so this is an important skill to master. For numerical data, we can use summary statistics like mean, and plots like scatter plots, but these don't make a ton of sense for categorical data.
+
+9. Why does data type matter?
+04:13 - 04:19
+Similarly, things like counts and barplots don't make much sense for numeric data.
+
+10. Let's practice!
+04:19 - 04:23
+Time to master these important skills!

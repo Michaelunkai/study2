@@ -1,0 +1,32 @@
+Transcript
+1. Well done! What's next?
+00:00 - 00:12
+Congratulations on completing this introduction to Seaborn! Let's discuss the next steps you can take to build upon the skills that you've learned in this course.
+
+2. Where does Seaborn fit in?
+00:12 - 00:31
+Seaborn is a powerful data visualization tool that allows you to create attractive and informative visualizations with just a few lines of code. Let's return to this diagram of the data analysis workflow to see where Seaborn fits in.
+
+3. Where does Seaborn fit in?
+00:31 - 00:49
+As we've seen in our examples, Seaborn is great for both the initial exploration of your data and communicating the results at the end of your data analysis.
+
+4. Next Steps: Explore and communicate results
+00:49 - 01:23
+In this course, we've covered the most common data visualizations used for data exploration. DataCamp has other visualization courses if you want to learn even more. For example, Seaborn also supports more advanced visualizations and analyses like linear regressions. We also learned that Seaborn was built on top of Matplotlib and practiced how to use some Matplotlib functions to customize Seaborn plots. Here, too, there are many more customizations that Matplotlib supports if you wish to learn more.
+
+5. Next steps: Gather data
+01:23 - 01:44
+You can also learn more about the other steps of the data analysis workflow. If you wish to learn more about how to gather your data, explore courses on importing data in Python and SQL.
+
+6. Next steps: Transform and clean
+01:44 - 01:56
+In this course, we learned that Seaborn works extremely well with tidy pandas DataFrames. There is more to learn here about how to get your data into pandas DataFrames, clean it, and transform it into a tidy format.
+
+7. Next steps: Analyze and build models
+01:56 - 02:15
+Finally, I encourage you to learn more about statistical analysis. For example, for bar plots, Seaborn automatically calculates confidence intervals for each bar value. There is a lot to learn here about how these confidence intervals are calculated and how to interpret them.
+
+8. Congratulations!
+02:15 - 02:30
+Though there is always more to learn, we've covered a great deal in this introduction to Seaborn. Congratulations on completing the course! I hope you enjoyed it and feel confident using Seaborn in the future for your data visualization needs.

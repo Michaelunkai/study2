@@ -1,0 +1,19 @@
+cd && wget https://github.com/benbjohnson/litestream/releases/download/v0.3.13/litestream-v0.3.13-linux-amd64.deb && sudo dpkg -i litestream-v0.3.13-linux-amd64.deb && sudo systemctl enable litestream && sudo systemctl start litestream && sudo nano /etc/litestream.yml 
+
+
+
+# /etc/litestream.yml
+access-key-id: YOUR_AWS_ACCESS_KEY_ID
+secret-access-key: YOUR_AWS_SECRET_ACCESS_KEY
+dbs:
+  - path: /path/to/your/database.db
+    replicas:
+      - url: s3://your-bucket-name/replica-path
+        sync-interval: 1s
+
+
+
+# Restart the Litestream service to apply the new configuration
+sudo systemctl restart litestream
+
+

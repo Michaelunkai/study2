@@ -7,3 +7,4 @@ source venv/bin/activate
 pip install --upgrade pip
 cd /mnt/c/study/programming/python/apps/youtube/Playlists/substoplaylist
 python3 h.py
+exec bash

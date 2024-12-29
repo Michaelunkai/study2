@@ -59,6 +59,10 @@ chmod +x /usr/local/bin/helmfile
 curl -sSL https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz | tar xz
 sudo mv k9s /usr/local/bin/
 
+#
+curl -LO "https://github.com/operator-framework/operator-sdk/releases/latest/download/operator-sdk_linux_amd64" && chmod +x operator-sdk_linux_amd64 && sudo mv operator-sdk_linux_amd64 /usr/local/bin/operator-sdk && operator-sdk version
+
+
 # Final command to open Chrome and show the Rancher Bootstrap Password
 cmd.exe /c start chrome http://localhost:9000
 docker logs --tail 50 2>&1 | grep 'Bootstrap Password'

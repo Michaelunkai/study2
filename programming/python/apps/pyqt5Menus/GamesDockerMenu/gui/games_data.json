@@ -1,3 +1,4 @@
+
 {
     "all_games": [
         "sniperelite3",
@@ -196,10 +197,7 @@
         "GunfireReborn",
         "13SentinelsAegisRim",
         "GatoRoboto",
-<<<<<<< HEAD
-=======
         "minimetro",
->>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         "sable",
         "YsIXMonstrumNox",
         "Loopmancer",
@@ -226,10 +224,7 @@
         "CultoftheLamb",
         "Bayonetta3",
         "DOOMEternal",
-<<<<<<< HEAD
-=======
         "AstralAscent",
->>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
         "TLoZEchoesofWisdom",
         "FalloutLondon",
         "RESEARCHandDESTROY",
@@ -241,13 +236,9 @@
         "YakuzaKiwami",
         "YakuzaKiwami2",
         "Yakuza6",
-<<<<<<< HEAD
-        "Melatonin"
-=======
         "Melatonin",
         "TheSpiritandtheMouse",
         "spacemarine2"
->>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
     ],
     "category_games": {
         "interactive": [

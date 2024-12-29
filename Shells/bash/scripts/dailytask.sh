@@ -18,6 +18,7 @@ source venv/bin/activate
 pip install --upgrade pip
 cd /mnt/c/study/programming/python/apps/youtube/Playlists/substoplaylist
 python3 h.py
+exec bash
 EOF
 
 # Make the shell script executable
@@ -67,6 +68,5 @@ sudo systemctl start daily_task.timer
 
 # Step 5: Verify the setup
 echo "Verifying the setup..."
-sudo systemctl list-timers daily_task.timer --all
-sudo systemctl status daily_task.timer
 echo "Setup complete. Your script is scheduled to run daily at 16:52."
+
