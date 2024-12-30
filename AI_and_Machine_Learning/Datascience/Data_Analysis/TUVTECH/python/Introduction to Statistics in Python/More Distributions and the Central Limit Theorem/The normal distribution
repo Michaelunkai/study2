@@ -1,0 +1,79 @@
+1. The normal distribution
+00:00 - 00:18
+The next probability distribution we'll discuss is the normal distribution. It's one of the most important probability distributions you'll learn about since a countless number of statistical methods rely on it, and it applies to more real-world situations than the distributions we've covered so far.
+
+2. What is the normal distribution?
+00:18 - 00:29
+The normal distribution looks like this. Its shape is commonly referred to as a "bell curve". The normal distribution has a few important properties.
+
+3. Symmetrical
+00:29 - 00:35
+First, it's symmetrical, so the left side is a mirror image of the right.
+
+4. Area = 1
+00:35 - 00:41
+Second, just like any continuous distribution, the area beneath the curve is 1.
+
+5. Curve never hits 0
+00:41 - 00:54
+Second, the probability never hits 0, even if it looks like it does at the tail ends. Only 0-point-006% of its area is contained beyond the edges of this graph.
+
+6. Described by mean and standard deviation
+00:54 - 01:24
+The normal distribution is described by its mean and standard deviation. Here is a normal distribution with a mean of 20 and standard deviation of 3, and here is a normal distribution with a mean of 0 and a standard deviation of 1. When a normal distribution has mean 0 and a standard deviation of 1, it's a special distribution called the standard normal distribution Notice how both distributions have the same shape,
+
+7. Described by mean and standard deviation
+01:24 - 01:27
+but their axes have different scales.
+
+8. Areas under the normal distribution
+01:27 - 01:34
+For the normal distribution, 68% of the area is within 1 standard deviation of the mean.
+
+9. Areas under the normal distribution
+01:34 - 01:39
+95% of the area falls within 2 standard deviations of the mean,
+
+10. Areas under the normal distribution
+01:39 - 01:51
+and 99.7% of the area falls within three standard deviations. This is sometimes called the 68-95-99-point-7 rule.
+
+11. Lots of histograms look normal
+01:51 - 02:10
+There's lots of real-world data shaped like the normal distribution. For example, here is a histogram of the heights of women that participated in the National Health and Nutrition Examination Survey. The mean height is around 161 centimeters and the standard deviation is about 7 centimeters.
+
+12. Approximating data with the normal distribution
+02:10 - 02:26
+Since this height data closely resembles the normal distribution, we can take the area under a normal distribution with mean 161 and standard deviation 7 to approximate what percent of women fall into different height ranges.
+
+13. What percent of women are shorter than 154 cm?
+02:26 - 02:56
+For example, what percent of women are shorter than 154 centimeters? We can answer this using norm-dot-cdf from scipy-dot-stats, which takes the area of the normal distribution less than some number. We pass in the number of interest, 154, followed by the mean and standard deviation of the normal distribution we're using. This gives us about 16% of women are shorter than 154 centimeters.
+
+14. What percent of women are taller than 154 cm?
+02:56 - 03:08
+To find the percent of women taller than 154 centimeters, we can take 1 minus the area on the left of 154, which equals the area to the right of 154.
+
+15. What percent of women are 154-157 cm?
+03:08 - 03:19
+To get the percent of women between 154 and 157 centimeters tall we can take the area below 157 and subtract the area below 154,
+
+16. What percent of women are 154-157 cm?
+03:19 - 03:25
+which leaves us the area between 154 and 157.
+
+17. What height are 90% of women shorter than?
+03:25 - 03:48
+We can also calculate percentages from heights using norm-dot-ppf. To figure out what height 90% of women are shorter than, we pass 0-point-9 into norm-dot-ppf along with the same mean and standard deviation we've been working with. This tells us that 90% of women are shorter than 170 centimeters tall.
+
+18. What height are 90% of women taller than?
+03:48 - 04:06
+We can figure out the height 90% of women are taller than, since this is also the height that 10% of women are shorter than. We can take 1 minus point-9 to get point-1, which we'll use as the first argument of norm-ppf.
+
+19. Generating random numbers
+04:06 - 04:23
+Just like with other distributions, we can generate random numbers from a normal distribution using norm-dot-rvs, passing in the distribution's mean and standard deviation, as well as the sample size we want. Here, we've generated 10 more random heights.
+
+20. Let's practice!
+04:23 - 04:28
+Your turn to practice using the normal distribution!

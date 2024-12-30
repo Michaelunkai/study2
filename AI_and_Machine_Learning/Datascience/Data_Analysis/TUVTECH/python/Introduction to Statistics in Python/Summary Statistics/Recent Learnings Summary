@@ -1,0 +1,42 @@
+**Recent Learnings Summary**
+
+When you last worked on your course, *Introduction to Statistics in Python*, you completed Chapter 2: *Random Numbers and Probability*. Here's a summary of the key concepts you covered in your lesson:
+
+---
+
+### Topics Covered:
+
+1. **Probability Distributions**  
+   - A probability distribution describes the likelihood of each possible outcome in a given scenario.  
+   - Example: Rolling a six-sided die, where each side has an equal probability of \( \frac{1}{6} \).
+
+2. **Expected Value**  
+   - The expected value represents the mean of a distribution. It is calculated by multiplying each outcome's value by its probability and summing the results.  
+   - Example for a fair die:
+     ```python
+     expected_value = sum([i * (1/6) for i in range(1, 7)])  # Output: 3.5
+     ```
+
+3. **Visualizing Distributions**  
+   - You learned to use:
+     - **Bar plots** to visualize the probabilities of discrete outcomes.
+     - **Histograms** to display sample outcomes from a distribution.
+
+4. **Discrete Uniform Distribution**  
+   - This occurs when all outcomes have equal probability. Example: Rolling a fair die, where all six faces are equally likely.
+
+5. **Sampling and the Law of Large Numbers**  
+   - You explored how sampling from a distribution (e.g., rolling a die repeatedly) and calculating the sample mean illustrate the law of large numbers:
+     - As the sample size increases, the sample mean converges to the theoretical mean.
+
+---
+
+### Practical Exercises:
+- Creating probability distributions using real-world data.
+- Identifying distributions from histograms.
+- Analyzing the relationship between expected value and sample mean for varying sample sizes.
+
+---
+
+### Next Lesson:
+Your upcoming lesson will focus on modeling and analyzing **continuous variables** using probability distributions, with an emphasis on the **continuous uniform distribution** and its real-world applications.

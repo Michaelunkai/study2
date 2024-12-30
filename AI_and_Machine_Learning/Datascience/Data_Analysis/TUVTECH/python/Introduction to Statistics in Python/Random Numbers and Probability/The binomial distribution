@@ -1,0 +1,64 @@
+Transcript
+1. The binomial distribution
+00:00 - 00:08
+It's time to further expand your toolbox of distributions. In this video, you'll learn about the binomial distribution.
+
+2. Coin flipping
+00:08 - 00:17
+We'll start by flipping a coin, which has two possible outcomes, heads or tails, each with a probability of 50%.
+
+3. Binary outcomes
+00:17 - 00:31
+This is just one example of a binary outcome, or an outcome with two possible values. We could also represent these outcomes as a 1 and a 0, a success or a failure, and a win or a loss.
+
+4. A single flip
+00:31 - 01:16
+In Python, we can simulate this by importing binom from scipy-dot-stats and using the binom-dot-rvs function, which takes in the number of coins we want to flip, the probability of heads or success, and an argument called size, which is number of trials. size is a named argument, so we'll need to explicitly specify that the third argument corresponds to size, or we'll get incorrect results. This call will return a 1, which we'll count as a head, or a 0, which we'll count as tails. We can use binom-dot-rvs 1, 0-point-5, size equals 1 to flip 1 coin, with a 50% probability of heads, 1 time.
+
+5. One flip many times
+01:16 - 01:30
+To perform eight coin flips, we can change the size argument to 8, which will flip 1 coin with a 50% chance of heads 8 times. This gives us a set of 8 ones and zeros.
+
+6. Many flips one time
+01:30 - 01:41
+If we swap the first and last arguments, we flip eight coins one time. This gives us one number, which is the total number of heads or successes.
+
+7. Many flips many times
+01:41 - 01:56
+Similarly, we can pass 3 as the first argument, and set size equal to 10 to flip 3 coins. This returns 10 numbers, each representing the total number of heads from each set of flips.
+
+8. Other probabilities
+01:56 - 02:18
+We could also have a coin that's heavier on one side than the other, so the probability of getting heads is only 25%. To simulate flips with this coin, we'll adjust the second argument of binom-dot-rvs to 0-point-25. The result has lower numbers, since getting multiple heads isn't as likely with the new coin.
+
+9. Binomial distribution
+02:18 - 03:07
+The binomial distribution describes the probability of the number of successes in a sequence of independent trials. In other words, it can tell us the probability of getting some number of heads in a sequence of coin flips. Note that this is a discrete distribution since we're working with a countable outcome. The binomial distribution can be described using two parameters, n and p. n represents the total number of trials being performed, and p is the probability of success. n and p are also the third and second arguments of binom-dot-rvs. Here's what the distribution looks like for 10 coins. We have the biggest chance of getting 5 heads total, and a much smaller chance of getting 0 heads or 10 heads.
+
+10. What's the probability of 7 heads?
+03:07 - 03:33
+To get the probability of getting 7 heads out of 10 coins, we can use binom-dot-pmf. The first argument is the number of heads or successes. The second argument is the number of trials, n, and the third is the probability of success, p. If we flip 10 coins, there's about a 12% chance that exactly 7 of them will be heads.
+
+11. What's the probability of 7 or fewer heads?
+03:33 - 03:48
+binom-dot-cdf gives the probability of getting a number of successes less than or equal to the first argument. The probability of getting 7 or fewer heads out of 10 coins is about 95%.
+
+12. What's the probability of more than 7 heads?
+03:48 - 03:57
+We can take 1 minus the probability of getting 7 or fewer heads to get the probability of a number of successes greater than the first argument.
+
+13. Expected value
+03:57 - 04:12
+The expected value of the binomial distribution can be calculated by multiplying n times p. The expected number of heads we'll get from flipping 10 coins is 10 times 0-point-5, which is 5.
+
+14. Independence
+04:12 - 04:32
+It's important to remember that in order for the binomial distribution to apply, each trial must be independent, so the outcome of one trial shouldn't have an effect on the next. For example, if we're picking randomly from these cards with zeros and ones, we have a 50-50 chance of getting a 0 or a 1.
+
+15. Independence
+04:32 - 04:49
+But since we're sampling without replacement, the probabilities for the second trial are different due to the outcome of the first trial. Since these trials aren't independent, we can't calculate accurate probabilities for this situation using the binomial distribution.
+
+16. Let's practice!
+04:49 - 04:55
+Time to explore binary outcomes using the binomial distribution.
