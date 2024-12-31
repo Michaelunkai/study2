@@ -1,0 +1,100 @@
+2024-12-31 21:53:22,504 - INFO - ====== WebDriver manager ======
+2024-12-31 21:53:22,712 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:53:22,890 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:53:23,071 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver] found in cache
+2024-12-31 21:53:24,244 - INFO - Browser started successfully
+2024-12-31 21:53:26,301 - INFO - Page loaded: ChatGPT
+2024-12-31 21:59:37,990 - INFO - ====== WebDriver manager ======
+2024-12-31 21:59:38,107 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:59:38,276 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:59:38,443 - INFO - There is no [linux64] chromedriver "131.0.6778.204" for browser google-chrome "131.0.6778" in cache
+2024-12-31 21:59:38,444 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:59:38,851 - INFO - WebDriver version 131.0.6778.204 selected
+2024-12-31 21:59:38,856 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2024-12-31 21:59:38,857 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2024-12-31 21:59:38,966 - INFO - Driver downloading response is 200
+2024-12-31 21:59:39,297 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 21:59:39,652 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204]
+2024-12-31 21:59:39,672 - INFO - patching driver executable /root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver
+2024-12-31 22:00:39,826 - ERROR - Failed to start browser: Message: session not created: cannot connect to chrome at 127.0.0.1:42241
+from chrome not reachable
+Stacktrace:
+#0 0x5650c17808fa <unknown>
+#1 0x5650c1291b7d <unknown>
+#2 0x5650c127da9f <unknown>
+#3 0x5650c12cebdc <unknown>
+#4 0x5650c12c47ca <unknown>
+#5 0x5650c1310d86 <unknown>
+#6 0x5650c13103d6 <unknown>
+#7 0x5650c1304893 <unknown>
+#8 0x5650c12d330d <unknown>
+#9 0x5650c12d432e <unknown>
+#10 0x5650c174d00b <unknown>
+#11 0x5650c1750f97 <unknown>
+#12 0x5650c173971c <unknown>
+#13 0x5650c1751b17 <unknown>
+#14 0x5650c171e6cf <unknown>
+#15 0x5650c176f6b8 <unknown>
+#16 0x5650c176f880 <unknown>
+#17 0x5650c177f776 <unknown>
+#18 0x7ff73f767ac3 <unknown>
+
+2024-12-31 22:00:39,827 - ERROR - Failed to start browser. Exiting...
+2024-12-31 22:00:59,898 - INFO - ====== WebDriver manager ======
+2024-12-31 22:00:59,998 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 22:01:00,173 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 22:01:00,399 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver] found in cache
+2024-12-31 22:01:15,560 - INFO - ====== WebDriver manager ======
+2024-12-31 22:01:15,656 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 22:01:15,857 - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-31 22:01:16,030 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver] found in cache
+2024-12-31 22:01:16,859 - INFO - Browser started successfully
+2024-12-31 22:01:18,773 - INFO - Page loaded: ChatGPT
+2024-12-31 22:04:25,342 - INFO - Message sent: next
+2024-12-31 22:04:26,676 - INFO - Message sent: next
+2024-12-31 22:05:03,366 - INFO - Message sent: next
+2024-12-31 22:05:40,013 - INFO - Message sent: next
+2024-12-31 22:06:16,535 - INFO - Message sent: next
+2024-12-31 22:06:53,125 - INFO - Message sent: next
+2024-12-31 22:07:29,735 - INFO - Message sent: next
+2024-12-31 22:08:06,335 - INFO - Message sent: next
+2024-12-31 22:08:42,968 - INFO - Message sent: next
+2024-12-31 22:09:19,731 - INFO - Message sent: next
+2024-12-31 22:09:56,803 - INFO - Message sent: next
+2024-12-31 22:10:31,884 - INFO - Refreshing page...
+2024-12-31 22:10:39,767 - INFO - Message sent: next
+2024-12-31 22:11:16,442 - INFO - Message sent: next
+2024-12-31 22:11:52,853 - INFO - Message sent: next
+2024-12-31 22:12:29,276 - INFO - Message sent: next
+2024-12-31 22:13:05,753 - INFO - Message sent: next
+2024-12-31 22:13:42,642 - INFO - Message sent: next
+2024-12-31 22:14:19,418 - INFO - Message sent: next
+2024-12-31 22:14:56,180 - INFO - Message sent: next
+2024-12-31 22:15:32,973 - INFO - Message sent: next
+2024-12-31 22:16:09,546 - INFO - Message sent: next
+2024-12-31 22:16:44,575 - INFO - Refreshing page...
+2024-12-31 22:16:53,134 - INFO - Message sent: next
+2024-12-31 22:17:29,621 - INFO - Message sent: next
+2024-12-31 22:18:06,618 - INFO - Message sent: next
+2024-12-31 22:18:43,108 - INFO - Message sent: next
+2024-12-31 22:19:20,517 - INFO - Message sent: next
+2024-12-31 22:19:57,055 - INFO - Message sent: next
+2024-12-31 22:20:34,000 - INFO - Message sent: next
+2024-12-31 22:21:11,026 - INFO - Message sent: next
+2024-12-31 22:21:47,532 - INFO - Message sent: next
+2024-12-31 22:22:24,598 - INFO - Message sent: next
+2024-12-31 22:22:59,657 - INFO - Refreshing page...
+2024-12-31 22:23:07,843 - INFO - Message sent: next
+2024-12-31 22:23:45,218 - INFO - Message sent: next
+2024-12-31 22:24:21,800 - INFO - Message sent: next
+2024-12-31 22:24:58,447 - INFO - Message sent: next
+2024-12-31 22:25:35,677 - INFO - Message sent: next
+2024-12-31 22:26:12,771 - INFO - Message sent: next
+2024-12-31 22:26:49,994 - INFO - Message sent: next
+2024-12-31 22:27:27,327 - INFO - Message sent: next
+2024-12-31 22:28:04,575 - INFO - Message sent: next
+2024-12-31 22:28:41,938 - INFO - Message sent: next
+2024-12-31 22:29:16,990 - INFO - Refreshing page...
+2024-12-31 22:29:25,767 - INFO - Message sent: next
+2024-12-31 22:30:02,392 - INFO - Message sent: next
+2024-12-31 22:30:39,949 - INFO - Message sent: next

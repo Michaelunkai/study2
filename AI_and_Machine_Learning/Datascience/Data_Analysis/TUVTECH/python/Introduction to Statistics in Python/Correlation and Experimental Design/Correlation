@@ -1,0 +1,56 @@
+Transcript
+1. Correlation
+00:00 - 00:07
+Welcome to the final chapter of the course, where we'll talk about correlation and experimental design.
+
+2. Relationships between two variables
+00:07 - 00:35
+Before we dive in, let's talk about relationships between numeric variables. We can visualize these kinds of relationships with scatter plots - in this scatterplot, we can see the relationship between the total amount of sleep mammals get and the amount of REM sleep they get. The variable on the x-axis is called the explanatory or independent variable, and the variable on the y-axis is called the response or dependent variable.
+
+3. Correlation coefficient
+00:35 - 00:56
+We can also examine relationships between two numeric variables using a number called the correlation coefficient. This is a number between -1 and 1, where the magnitude corresponds to the strength of the relationship between the variables, and the sign, positive or negative, corresponds to the direction of the relationship.
+
+4. Magnitude = strength of relationship
+00:56 - 01:17
+Here's a scatterplot of 2 variables, x and y, that have a correlation coefficient of 0-point-99. Since the data points are closely clustered around a line, we can describe this as a near-perfect or very strong relationship. If we know what x is, we'll have a pretty good idea of what the value of y could be.
+
+5. Magnitude = strength of relationship
+01:17 - 01:26
+Here, x and y have a correlation coefficient of 0-point-75, and the data points are a bit more spread out.
+
+6. Magnitude = strength of relationship
+01:26 - 01:34
+In this plot, x and y have a correlation of 0-point-56 and are therefore moderately correlated.
+
+7. Magnitude = strength of relationship
+01:34 - 01:40
+A correlation coefficient around 0-point-2 would be considered a weak relationship.
+
+8. Magnitude = strength of relationship
+01:40 - 01:55
+When the correlation coefficient is close to 0, x and y have no relationship and the scatterplot looks completely random. This means that knowing the value of x doesn't tell us anything about the value of y.
+
+9. Sign = direction
+01:55 - 02:14
+The sign of the correlation coefficient corresponds to the direction of the relationship. A positive correlation coefficient indicates that as x increases, y also increases. A negative correlation coefficient indicates that as x increases, y decreases.
+
+10. Visualizing relationships
+02:14 - 02:48
+To visualize relationships between two variables, we can use a scatterplot. We'll use seaborn, which is a plotting package built on top of matplotlib. We import seaborn as sns, which is the alias commonly used for seaborn. We create a scatterplot using sns-dot-scatterplot, passing it the name of the variable for the x-axis, the name of the variable for the y-axis, as well as the msleep DataFrame to the data argument. Finally, we call plt-dot-show.
+
+11. Adding a trendline
+02:48 - 03:10
+We can add a linear trendline to the scatterplot using seaborn's lmplot() function. It takes the same arguments as sns-dot-scatterplot, but we'll set ci to None so that there aren't any confidence interval margins around the line. Trendlines like this can be helpful to more easily see a relationship between two variables.
+
+12. Computing correlation
+03:10 - 03:44
+To calculate the correlation coefficient between two Series, we can use the dot-corr method. If we want the correlation between the sleep_total and sleep_rem columns of msleep, we can take the sleep_total column and call dot-corr on it, passing in the other Series we're interested in. Note that it doesn't matter which Series the method is invoked on and which is passed in since the correlation between x and y is the same thing as the correlation between y and x.
+
+13. Many ways to calculate correlation
+03:44 - 04:25
+There's more than one way to calculate correlation, but the method we've been using in this video is called the Pearson product-moment correlation, which is also written as r. This is the most commonly used measure of correlation. Mathematically, it's calculated using this formula where x and y bar are the means of x and y, and sigma x and sigma y are the standard deviations of x and y. The formula itself isn't important to memorize, but know that there are variations of this formula that measure correlation a bit differently, such as Kendall's tau and Spearman's rho, but those are beyond the scope of this course.
+
+14. Let's practice!
+04:25 - 04:30
+Okay, time to practice calculating correlations.

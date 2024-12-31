@@ -1,0 +1,15 @@
+winget install --id Python.Python.3.11 -e --source winget
+winget install --id Python.Python.3.12 -e --source winget
+winget install --id Python.Python.3.10 -e --source winget
+winget install --id Python.Python.3.9 -e --source winget
+winget install --id Python.Python.3.8 -e --source winget
+winget install --id Python.Python.3.7 -e --source winget
+winget install --id Python.Python.3.13 -e --source winget
+winget install --id Python.Python.3.6 -e --source winget
+winget install --id Python.Python.3.5 -e --source winget
+winget install --id Python.Python.3.4 -e --source winget
+winget install --id Python.Python.3.3 -e --source winget
+winget install --id Python.Python.3.2 -e --source winget
+winget install --id Python.Python.3.1 -e --source winget
+winget install --id Python.Python.3.0 -e --source winget
+winget install --id Python.Python.2 -e --source winget

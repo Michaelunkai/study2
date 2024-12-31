@@ -1,0 +1,52 @@
+Transcript
+1. The central limit theorem
+00:00 - 00:07
+Now that you're familiar with the normal distribution, it's time to learn about what makes it so important.
+
+2. Rolling the dice 5 times
+00:07 - 00:35
+Let's go back to our dice rolling example. We have a Series of the numbers 1 to 6 called die. To simulate rolling the die 5 times, we'll call die-dot-sample. We pass in the Series we want to sample from, the size of the sample, and set replace to True. This gives us the results of 5 rolls. Now, we'll take the mean of the 5 rolls, which gives us 2.
+
+3. Rolling the dice 5 times
+00:35 - 00:43
+If we roll another 5 times and take the mean, we get a different mean. If we do it again, we get another mean.
+
+4. Rolling the dice 5 times 10 times
+00:43 - 01:13
+Let's repeat this 10 times: we'll roll 5 times and take the mean. To do this, we'll use a for loop. We start by creating an empty list called sample_means to hold our means. We loop from 0 to 9 so that the process is repeated 10 times. Inside the loop, we roll 5 times and append the sample's mean to the sample_means list. This gives us a list of 10 different sample means. Let's plot these sample means.
+
+5. Sampling distributions
+01:13 - 01:25
+A distribution of a summary statistic like this is called a sampling distribution. This distribution, specifically, is a sampling distribution of the sample mean.
+
+6. 100 sample means
+01:25 - 01:37
+Now let's do this 100 times. If we look at the new sampling distribution, its shape somewhat resembles the normal distribution, even though the distribution of the die is uniform.
+
+7. 1000 sample means
+01:37 - 01:45
+Let's take 1000 means. This sampling distribution more closely resembles the normal distribution.
+
+8. Central limit theorem
+01:45 - 02:15
+This phenomenon is known as the central limit theorem, which states that a sampling distribution will approach a normal distribution as the number of trials increases. In our example, the sampling distribution became closer to the normal distribution as we took more and more sample means. It's important to note that the central limit theorem only applies when samples are taken randomly and are independent, for example, randomly picking sales deals with replacement.
+
+9. Standard deviation and the CLT
+02:15 - 02:34
+The central limit theorem, or CLT, applies to other summary statistics as well. If we take the standard deviation of 5 rolls 1000 times, the sample standard deviations are distributed normally, centered around 1-point-9, which is the distribution's standard deviation.
+
+10. Proportions and the CLT
+02:34 - 02:54
+Another statistic that the CLT applies to is proportion. Let's sample from the sales team 10 times with replacement and see how many draws have Claire as the outcome. In this case, 10% of draws were Claire. If we draw again, there are 40% Claires.
+
+11. Sampling distribution of proportion
+02:54 - 03:07
+If we repeat this 1000 times and plot the distribution of the sample proportions, it resembles a normal distribution centered around 0-point-25, since Claire's name was on 25% of the tickets.
+
+12. Mean of sampling distribution
+03:07 - 04:04
+Since these sampling distributions are normal, we can take their mean to get an estimate of a distribution's mean, standard deviation, or proportion. If we take the mean of our sample means from earlier, we get 3-point-48. That's pretty close to the expected value, which is 3-point-5! Similarly, the mean of the sample proportions of Claires isn't far off from 0-point-25. In these examples, we know what the underlying distributions look like, but if we don't, this can be a useful method for estimating characteristics of an underlying distribution. The central limit theorem also comes in handy when you have a huge population and don't have the time or resources to collect data on everyone. Instead, you can collect several smaller samples and create a sampling distribution to estimate what the mean or standard deviation is.
+
+13. Let's practice!
+04:04 - 04:10
+Now, it's time to practice utilizing the central limit theorem.

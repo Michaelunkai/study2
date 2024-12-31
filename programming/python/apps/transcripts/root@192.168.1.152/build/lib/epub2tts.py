@@ -8,6 +8,8 @@ import sys
 import time
 import warnings
 import zipfile
+import nltk
+
 
 from bs4 import BeautifulSoup
 from ebooklib import epub
@@ -33,6 +35,11 @@ import noisereduce
 import torch, gc
 import torchaudio
 import whisper
+nltk.download('punkt_tab')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
 
 namespaces = {
    "calibre":"http://calibre.kovidgoyal.net/2009/metadata",
@@ -213,8 +220,9 @@ class EpubToAudiobook:
     def get_chapters_epub(self, speaker):
         for item in self.book.get_items():
             if item.get_type() == ebooklib.ITEM_DOCUMENT:
-                self.chapters.append(item.get_content())
-        self.author = self.book.get_metadata("DC", "creator")[0][0]
+                    self.chapters.append(item.get_content())
+        metadata = self.book.get_metadata("DC", "creator")
+        self.author = metadata[0][0] if metadata else "Unknown Author"
         self.title = self.book.get_metadata("DC", "title")[0][0]
 
         for i in range(len(self.chapters)):
