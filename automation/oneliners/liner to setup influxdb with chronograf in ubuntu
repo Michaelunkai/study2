@@ -1,0 +1,1 @@
+sudo apt-get install influxdb influxdb-client -y && sudo systemctl enable influxdb && sudo systemctl start influxdb && wget https://dl.influxdata.com/chronograf/releases/chronograf_1.10.6_amd64.deb && sudo dpkg -i chronograf_1.10.6_amd64.deb && sudo systemctl start chronograf && sudo systemctl enable chronograf

@@ -1,0 +1,86 @@
+Setting up and using NFS (Network File System) in Ubuntu involves a few steps. You'll need to install the necessary packages, configure the NFS server, set up the shared directories, and then configure the NFS clients. Here's a detailed guide to get you started:
+
+### Step 1: Install NFS Server on Ubuntu
+
+1. **Update the package list:**
+     
+   sudo apt update
+
+2. **Install the NFS server package:**
+     
+   sudo apt install nfs-kernel-server
+
+### Step 2: Configure the NFS Server
+
+1. **Create a directory to share:**
+     
+   sudo mkdir -p /mnt/sharedfolder
+
+2. **Set the appropriate permissions for the shared directory:**
+     
+   sudo chown nobody:nogroup /mnt/sharedfolder
+   sudo chmod 777 /mnt/sharedfolder
+
+3. **Edit the `/etc/exports` file to define the shared directories and their permissions:**
+     
+   sudo nano /etc/exports
+   Add the following line to the file:
+   /mnt/ aredfolder 192.168.1.0/24(rw,sync,no_subtree_check)
+   Replace `192.168.1.0/24` with your network address.
+
+4. **Export the shared directories:**
+     
+   sudo exportfs -a
+
+5. **Restart the NFS server to apply the changes:**
+     
+   sudo systemctl restart nfs-kernel-server
+
+### Step 3: Configure the NFS Client
+
+1. **Install the NFS client package on the client machine:**
+     
+   sudo apt install nfs-common
+
+2. **Create a directory where the NFS share will be mounted:**
+     
+   sudo mkdir -p /mnt/nfs_sharedfolder
+
+3. **Mount the NFS share:**
+     
+   sudo mount 192.168.1.100:/mnt/sharedfolder /mnt/nfs_sharedfolder
+   Replace `192.168.1.100` with the IP address of the NFS server.
+
+4. **Verify the NFS share is mounted:**
+     
+   df -h
+   You should see the NFS share listed.
+
+### Step 4: Automate the Mounting of NFS Share
+
+1. **Edit the `/etc/fstab` file to mount the NFS share automatically at boot:**
+     
+   sudo nano /etc/fstab
+   Add the following line to the file:
+   192.168.1.100:/mnt/sharedfolder /mnt/nfs_sharedfolder nfs defaults 0 0
+   Replace `192.168.1.100` with the IP address of the NFS server.
+
+2. **Test the `/etc/fstab` configuration:**
+     
+   sudo mount -a
+   Ensure there are no errors.
+
+### Additional Tips
+
+- **Firewall Configuration:**
+  If you have a firewall running on your server, you'll need to allow NFS traffic. You can do this using `ufw`:
+    
+  sudo ufw allow from 192.168.1.0/24 to any port nfs
+  sudo ufw allow from 192.168.1.0/24 to any port 2049
+  sudo ufw allow from 192.168.1.0/24 to any port 111
+  sudo ufw enable
+
+- **Security Considerations:**
+  Ensure that you restrict access to the NFS server to only trusted clients by specifying the correct network range in `/etc/exports`.
+
+By following these steps, you should be able to set up and use NFS on Ubuntu. This will allow you to share directories between multiple systems over a network efficiently. If you have any specific needs or run into issues, feel free to ask!

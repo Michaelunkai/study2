@@ -1,0 +1,1 @@
+sudo apt update && getapache && sudo apt install -y openstack-dashboard && sudo systemctl restart apache2 && gc http://localhost/horizon

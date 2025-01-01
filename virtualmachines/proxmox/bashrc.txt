@@ -36,15 +36,8 @@ alias space="for CTID in \$(pct list | awk 'NR>1 {print \$1}'); do NAME=\$(pct l
 alias restoreubu='docker run -v /var/lib/vz/dump/:/c/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it --name ubuntudesktop michadockermisha/backup:ubuntudesktop sh -c "apk add rsync && rsync -av /home/* /c && exit" && dkill'
 alias dkill='docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
 alias ubudocker="cd && ./ubu.sh && dkill"
-alias ccubu="bash /root/ccubu.sh"
 alias backupubu="bash /root/backup_vm_101.sh"
 alias snapubu="cd && ./manage_snapshots_vm_101.sh"
-<<<<<<< HEAD
-alias bubu="ccubu && scpmyg && backupubu && reubu && snapubu"
-=======
-alias bubu="ccubu && backupubu && reubu && scpmyg && snapubu"
->>>>>>> 37c5c22b3a88bec4bc8de6bb23b85d9c3281e70d
-alias bbubu="ubudocker"
 alias reubu="cd && ./restore_and_start_vm.sh"
 alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'
 alias clean='bash /root/cleanprox.sh && plex && bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"'
@@ -53,3 +46,6 @@ alias scpmyg="sshpass -p 'blackablacka2' ssh micha@192.168.1.178 \"powershell -C
 alias udocker="scpmyg && backupubu && snapubu && ubudocker"
 alias ex="exit"
 alias backiso="cd /var/lib/vz/template/iso &&  docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f"
+alias bubu="ccubu && b ackupubu && reubu && snapubu && udocker"
+alias s='echo "root ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && sudo su'
+alias ccubu="du -sh /var/lib/vz/images/101 && cd /var/lib/vz/images/101 && qemu-img convert -O qcow2 vm-101-disk-0.qcow2 vm-101-disk-1.qcow2 && mv vm-101-disk-1.qcow2 vm-101-disk-0.qcow2 && du -sh /var/lib/vz/images/101"

@@ -1,0 +1,6 @@
+sudo apt update && sudo apt install -y tftpd-hpa && sudo mkdir -p /srv/tftp && sudo chmod -R 777 /srv/tftp && sudo bash -c 'cat > /etc/default/tftpd-hpa <<EOF
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS="0.0.0.0:69"
+TFTP_OPTIONS="--secure"
+EOF' && sudo systemctl restart tftpd-hpa && echo "TFTPD-HPA is running and serving /srv/tftp"

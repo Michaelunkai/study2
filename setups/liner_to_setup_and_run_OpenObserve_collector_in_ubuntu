@@ -1,0 +1,1 @@
+curl -O https://raw.githubusercontent.com/openobserve/agents/main/linux/install.sh && chmod +x install.sh && sudo ./install.sh http://172.24.52.110:5080/api/default/ YWRtaW5AZXhhbXBsZS5jb206RmhydlVrazlmZGtVdFFYZQ==

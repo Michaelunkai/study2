@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y rkhunter && sudo rkhunter --update && sudo rkhunter --propupd && sudo rkhunter --checkall

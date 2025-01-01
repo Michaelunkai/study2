@@ -1,0 +1,1 @@
+wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add - && echo "deb https://packages.chef.i>

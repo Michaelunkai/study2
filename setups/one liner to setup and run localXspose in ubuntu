@@ -1,0 +1,1 @@
+sudo snap install localxpose && loclx account login && loclx tunnel http --to http://localhost:8080

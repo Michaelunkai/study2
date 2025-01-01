@@ -1,0 +1,15 @@
+proxmox shell command to shutdown all pcts exept pct 100
+
+
+for CTID in $(pct list | awk 'NR>1 {if ($1 != 100) print $1}'); do
+  pct shutdown $CTID --forceStop 1 --timeout 30
+done
+
+
+
+up: 
+for CTID in $(pct list | awk 'NR>1 {if ($1 != 100) print $1}'); do
+  pct start $CTID
+done
+
+

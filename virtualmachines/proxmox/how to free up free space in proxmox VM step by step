@@ -1,0 +1,14 @@
+
+in webui:
+
+pve > vm > hardware > hard disk > check box for Discard
+
+inside the VM:
+fstrim -a
+
+than, in proxmox shell:
+
+du -sh /var/lib/vz/images/101 && cd /var/lib/vz/images/101 && qemu-img convert -O qcow2 vm-101-disk-0.qcow2 vm-101-disk-1.qcow2 && mv vm-101-disk-1.qcow2 vm-101-disk-0.qcow2 && du -sh /var/lib/vz/images/101
+
+
+

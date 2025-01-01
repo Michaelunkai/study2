@@ -1,0 +1,1 @@
+vzdump 101 --mode snapshot --compress lzo --storage local && qm stop 101 && qm destroy 101 && qmrestore /var/lib/vz/dump/$(ls -Art /var/lib/vz/dump/ | grep 'vzdump-qemu-101' | tail -n 1) 101

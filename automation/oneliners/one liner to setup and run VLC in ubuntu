@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y vlc && cvlc ~/Music/YourSong.mp3

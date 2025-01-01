@@ -1,0 +1,1 @@
+nix-env -iA nixpkgs.pop && export RESEND_API_KEY="your key" && pop

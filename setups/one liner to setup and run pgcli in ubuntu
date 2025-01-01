@@ -1,0 +1,1 @@
+sudo apt install pgcli -y && pgcli -h your_database_host -u user -d database_name

@@ -1,0 +1,21 @@
+Install KubeVirt
+Deploy the KubeVirt Operator
+This operator will manage the KubeVirt components in your cluster.
+
+export VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest | jq -r .tag_name)
+kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-operator.yaml
+Deploy KubeVirt CustomResource (CR)
+This will install KubeVirt components using the operator.
+
+kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-cr.yaml
+Wait for KubeVirt to be Ready
+Monitor the deployment to ensure that all components are running.
+
+kubectl -n kubevirt wait kv kubevirt --for condition=Available
+
+Install the Virtctl CLI Tool
+Virtctl is a command-line utility for managing KubeVirt resources.
+
+curl -Lo virtctl https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-linux-amd64
+chmod +x virtctl
+sudo mv virtctl /usr/local/bin/

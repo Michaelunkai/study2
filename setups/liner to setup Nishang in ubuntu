@@ -1,0 +1,1 @@
+mkdir -p reverseSHELL && cd reverseSHELL && sudo git clone https://github.com/samratashok/nishang.git && cd nishang && ls -l

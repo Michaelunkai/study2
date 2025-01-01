@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y docker.io docker-compose && docker run -d --name grocy -p 9283:80 ghcr.io/linuxserver/grocy && echo "Grocy is running at: http://localhost:9283" && echo "Default credentials: Username: admin, Password: admin"

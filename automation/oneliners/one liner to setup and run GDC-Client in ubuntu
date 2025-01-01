@@ -1,0 +1,1 @@
+wget https://gdc.cancer.gov/system/files/public/file/gdc-client_2.3_Ubuntu_x64-py3.8-ubuntu-20.04.zip && unzip gdc-client_2.3_Ubuntu_x64-py3.8-ubuntu-20.04.zip &&  unzip gdc-client_2.3_Ubuntu_x64.zip && chmod +x gdc-client && sudo mv gdc-client /usr/local/bin/ && gdc-client download -m your_manifest.txt

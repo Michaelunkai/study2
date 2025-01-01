@@ -1,0 +1,1 @@
+cd && wget -O - https://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash  && sudo apt install openlitespeed -y  && sudo /usr/local/lsws/admin/misc/admpass.sh  && gcl 7080

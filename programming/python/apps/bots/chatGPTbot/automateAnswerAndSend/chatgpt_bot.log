@@ -178,3 +178,81 @@ Stacktrace:
 #16 0x7f2f3cd80ac3 <unknown>
 
 2024-12-31 22:37:07,267 - WARNING - Retry attempt 2/3
+2025-01-01 11:24:40,209 - INFO - ====== WebDriver manager ======
+2025-01-01 11:24:40,329 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-01 11:24:44,102 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-01 11:24:47,383 - INFO - There is no [linux64] chromedriver "131.0.6778.204" for browser google-chrome "131.0.6778" in cache
+2025-01-01 11:24:47,384 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-01 11:24:49,822 - INFO - WebDriver version 131.0.6778.204 selected
+2025-01-01 11:24:49,826 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-01 11:24:49,827 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-01 11:24:51,263 - INFO - Driver downloading response is 200
+2025-01-01 11:24:51,955 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-01 11:24:53,636 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204]
+2025-01-01 11:24:53,655 - INFO - patching driver executable /root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver
+2025-01-01 11:24:54,394 - INFO - Browser started successfully
+2025-01-01 11:24:57,311 - INFO - Page loaded: ChatGPT
+2025-01-01 11:41:40,985 - INFO - Message sent: next
+2025-01-01 11:41:43,402 - INFO - Message sent: next
+2025-01-01 11:42:20,723 - INFO - Message sent: next
+2025-01-01 11:42:57,330 - INFO - Message sent: next
+2025-01-01 11:43:33,966 - INFO - Message sent: next
+2025-01-01 11:44:10,685 - INFO - Message sent: next
+2025-01-01 11:44:48,714 - INFO - Message sent: next
+2025-01-01 11:45:25,396 - INFO - Message sent: next
+2025-01-01 11:46:03,051 - INFO - Message sent: next
+2025-01-01 11:46:39,742 - INFO - Message sent: next
+2025-01-01 11:47:16,474 - INFO - Message sent: next
+2025-01-01 11:47:51,537 - INFO - Refreshing page...
+2025-01-01 11:48:01,759 - INFO - Message sent: next
+2025-01-01 11:48:38,400 - INFO - Message sent: next
+2025-01-01 11:49:16,205 - INFO - Message sent: next
+2025-01-01 11:49:54,335 - INFO - Message sent: next
+2025-01-01 11:50:31,028 - INFO - Message sent: next
+2025-01-01 11:51:07,818 - INFO - Message sent: next
+2025-01-01 11:51:44,456 - INFO - Message sent: next
+2025-01-01 11:52:20,624 - ERROR - Error waiting for element prompt-textarea: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.204)
+Stacktrace:
+#0 0x560b11a0f8fa <unknown>
+#1 0x560b11520d20 <unknown>
+#2 0x560b114f69cf <unknown>
+#3 0x560b1159bf2d <unknown>
+#4 0x560b115b1f1c <unknown>
+#5 0x560b11593893 <unknown>
+#6 0x560b1156230d <unknown>
+#7 0x560b1156332e <unknown>
+#8 0x560b119dc00b <unknown>
+#9 0x560b119dff97 <unknown>
+#10 0x560b119c871c <unknown>
+#11 0x560b119e0b17 <unknown>
+#12 0x560b119ad6cf <unknown>
+#13 0x560b119fe6b8 <unknown>
+#14 0x560b119fe880 <unknown>
+#15 0x560b11a0e776 <unknown>
+#16 0x7f6933283ac3 <unknown>
+
+2025-01-01 11:52:20,642 - ERROR - Error waiting for element div[contenteditable='true'].ProseMirror: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.204)
+Stacktrace:
+#0 0x560b11a0f8fa <unknown>
+#1 0x560b11520d20 <unknown>
+#2 0x560b114f69cf <unknown>
+#3 0x560b1159bf2d <unknown>
+#4 0x560b115b1f1c <unknown>
+#5 0x560b11593893 <unknown>
+#6 0x560b1156230d <unknown>
+#7 0x560b1156332e <unknown>
+#8 0x560b119dc00b <unknown>
+#9 0x560b119dff97 <unknown>
+#10 0x560b119c871c <unknown>
+#11 0x560b119e0b17 <unknown>
+#12 0x560b119ad6cf <unknown>
+#13 0x560b119fe6b8 <unknown>
+#14 0x560b119fe880 <unknown>
+#15 0x560b11a0e776 <unknown>
+#16 0x7f6933283ac3 <unknown>
+
+2025-01-01 11:52:20,643 - WARNING - Retry attempt 1/3

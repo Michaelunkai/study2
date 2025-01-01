@@ -1,0 +1,14 @@
+Pure Prompt
+Install and Verify:
+ 
+ 
+npm install --global pure-prompt
+echo 'autoload -U promptinit; promptinit; prompt pure' >> ~/.zshrc
+source ~/.zshrc
+pure --version
+Disable and Remove:
+ 
+ 
+sed -i '/autoload -U promptinit; promptinit; prompt pure/d' ~/.zshrc
+npm uninstall --global pure-prompt
+source ~/.zshrc

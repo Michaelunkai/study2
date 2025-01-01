@@ -1,0 +1,1 @@
+winget install --id IDMComputerSolutions.UltraEdit && uedit64

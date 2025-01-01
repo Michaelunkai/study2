@@ -1,0 +1,1 @@
+exai && openai api chat_completions.create -m <model name> -g user "one liner to setup and run mongoDB and than enter it in ubuntu 22 wsl2"

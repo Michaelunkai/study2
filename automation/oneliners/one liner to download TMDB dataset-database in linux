@@ -1,0 +1,1 @@
+wget https://files.tmdb.org/p/exports/movie_ids_12_18_2024.json.gz && gunzip movie_ids_12_18_2024.json.gz

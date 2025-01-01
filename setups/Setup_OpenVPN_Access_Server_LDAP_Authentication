@@ -1,0 +1,27 @@
+Setup OpenVPN Access Server LDAP Authentication
+Log into OpenVPN Access Server
+Click Authentication > LDAP in the left navigation menu
+Click the Use these credentials toggle to Yes
+Fill in the LDAP configuration form as follows:
+LDAP host: i12bretro.local
+Base DN: CN=Users,DC=i12bretro,DC=local
+Username Attribute: sAMAccountName
+Bind DN: readonly_svc@i12bretro.local
+Additional LDAP Requirements: memberOf=CN=VPN Users, CN=Users, DC=i12bretro, DC=local
+
+Click the Save Settings button
+Click User Management > User Permissions in the left navigation
+Create a new username matching an LDAP user name and click the Admin checkbox
+Click the Save Settings button
+Go back to Authentication > LDAP in the left navigation menu
+Click the Use LDAP button
+Click the Update Running Server button
+Click Logout at the bottom of the left navigation
+Log back in with the newly created user and their Active Directory password
+Note: If LDAP authentication fails, revert back to local authentication using the following commands:
+cd /usr/local/openvpn_as/scripts
+./sacli --key "auth.module.type" --value="local" ConfigPut
+./scali start
+
+If you ever mess up the OpenVPN AS configuration beyond repair, run the following command to reset the configuration back to defaults and try again:
+ovpn-init --force

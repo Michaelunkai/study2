@@ -1,0 +1,1 @@
+getnpm &&  git clone https://github.com/testdriverai/goodlooks.git && cd goodlooks && npm install && npx playwright install-deps && npx playwright install chromium && npx playwright test --ui

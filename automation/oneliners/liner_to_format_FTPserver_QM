@@ -1,0 +1,1 @@
+0~pct stop 104 && pct destroy 104 && pct restore 104 /var/lib/vz/dump/vzdump-lxc-104-2024_06_07-16_35_55.tar.zst --storage local --start 1 --hostname UploadServer

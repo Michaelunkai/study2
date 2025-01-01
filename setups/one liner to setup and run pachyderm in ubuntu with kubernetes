@@ -1,0 +1,1 @@
+helm repo add pachyderm https://helm.pachyderm.com && helm repo update && helm install pachyderm pachyderm/pachyderm --set deployTarget=LOCAL --set proxy.enabled=true --set proxy.service.type=LoadBalancer && kubectl get pods && echo "Access Pachyderm Dashboard at: http://$(minikube ip):30650"

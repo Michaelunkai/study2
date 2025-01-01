@@ -1,0 +1,1 @@
+java17 && uz && wget https://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip &&unzip OsmAndMapCreator-main.zip &&  ./OsmAndMapCreator.sh

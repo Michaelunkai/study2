@@ -1,0 +1,1 @@
+wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-service-desk-8.20.1-x64.bin && chmod +x atlassian-jira-service-desk-8.20.1-x64.bin && sudo ./atlassian-jira-service-desk-8.20.1-x64.bin && echo "Access JIRA Service Desk at http://localhost:8080"

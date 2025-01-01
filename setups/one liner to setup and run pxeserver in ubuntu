@@ -1,0 +1,1 @@
+sudo apt install -y tftpd-hpa openbsd-inetd && sudo mkdir -p /var/lib/tftpboot && sudo systemctl restart inetd && echo "PXE server running on port 69 with tftpd-hpa."

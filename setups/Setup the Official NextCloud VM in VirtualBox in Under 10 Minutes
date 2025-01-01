@@ -1,0 +1,8 @@
+Setup the Official NextCloud VM in VirtualBox in Under 10 Minutes
+Download Nextcloud-VM.ova Download
+Launch VirtualBox
+Select File > Import Appliance...
+Click the choose file icon and navigate to the downloaded Nextcloud-VM.ova
+Change the VM Name to NextCloud
+Click the Import button
+After the import process completes, select the NextCloud VM and click Start > Normal Start

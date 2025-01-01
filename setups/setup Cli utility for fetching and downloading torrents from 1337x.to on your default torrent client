@@ -1,0 +1,25 @@
+** install:
+
+python -m pip install git+https://github.com/NicKoehler/1337x
+
+
+
+
+Usage
+Base search.
+
+python -m 1337x "title with spaces"
+See the help for sorting and search using categories.
+
+python -m 1337x -h
+
+
+example:
+
+python -m 1337x -s SEEDERS 'gta'
+
+
+to download for example torrents: 1, 5 , 6, 7
+
+type:
+1 5 6 7

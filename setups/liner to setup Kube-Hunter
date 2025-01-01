@@ -1,0 +1,1 @@
+pip install kube-hunter && kube-hunter -h

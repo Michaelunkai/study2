@@ -1,0 +1,59 @@
+▲A  A▼
+Windows 10 LTSC Install Guide Using VirtualBox
+Download a Windows 10 LTSC iso Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Windows 10 LTSC
+Machine Folder: C:\VMs
+Type: Microsoft Windows
+Version: Windows 10 (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Windows 10 LTSC.vdi
+File size: 50.00 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Windows 10 LTSC .iso file
+Click OK
+Make sure the Windows 10 LTSC VM is selected and click Start > Normal
+Click Next
+Click Install Now
+Click I don't have a product key
+Select the edition you'd like to install
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Wait for Windows to copy files, the VM will reboot
+Select a Region > Click Yes
+Select a Keyboard layout > Click Yes
+Click Skip
+Select Setup for personal use > Click Next
+Click Offline account
+Click Limited experience
+Enter a username > Click Next
+Enter a password > Click Next
+Re-type the password > Click Next
+Select and answer 3 security questions
+Click No
+Click Decline
+Uncheck everything > Click Accept
+Welcome to Windows 10 LTSC
+Optional Steps
+Select Devices > Insert Guest Additions CD image...
+If VirtualBox Guest Additions doesn't autorun, open My Computer > CD Drive > Double click VBoxWindowsAdditions.exe
+Install Guest Additions accepting the defaults
+Accept any driver popups from the Guest Additions installer by clicking the Install button
+After the installation completes select Reboot now > Click Finish
+ 

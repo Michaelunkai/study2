@@ -1,0 +1,1 @@
+ wget --no-check-certificate 'https://drive.usercontent.google.com/u/0/uc?id=1Cfbor9dksyEMJh-5q0NURURxtKBdYi_6&export=download' -O anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz && tar -xvzf anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz && cd anyconnect-linux64-4.9.00086/vpn/ && sudo ./vpn_install.sh && sudo /opt/cisco/anyconnect/bin/vpn

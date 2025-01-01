@@ -1,0 +1,150 @@
+ Create a Directory for Loki Configuration
+Create a directory to hold the Loki configuration files.
+
+ 
+ 
+mkdir ~/loki-stack
+cd ~/loki-stack
+Step 5: Create a docker-compose.yml File
+Create a docker-compose.yml file to define the Loki and Grafana services.
+
+ 
+ 
+nano docker-compose.yml
+Add the following content to the docker-compose.yml file:
+
+ 
+ 
+version: "3.7"
+services:
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config. 
+    volumes:
+      - ./loki-config. :/etc/loki/local-config. 
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:
+Step 6: Create a Loki Configuration File
+Create a Loki configuration file named loki-config. .
+
+ 
+ 
+nano loki-config. 
+Add the following content to the loki-config.  file:
+
+ 
+ 
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+  chunk_idle_period: 5m
+  chunk_retain_period: 30s
+  max_transfer_retries: 0
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: boltdb
+      object_store: filesystem
+      schema: v11
+      index:
+        prefix: index_
+        period: 168h
+
+storage_config:
+  boltdb:
+    directory: /loki/index
+  filesystem:
+    directory: /loki/chunks
+
+limits_config:
+  enforce_metric_name: false
+  reject_old_samples: true
+  reject_old_samples_max_age: 168h
+
+chunk_store_config:
+  max_look_back_period: 0s
+
+table_manager:
+  retention_deletes_enabled: false
+  retention_period: 0s
+Step 7: Start the Services
+Start the Loki and Grafana services using Docker Compose.
+
+ 
+ 
+docker-compose up -d
+Step 8: Access Grafana
+Open your web browser and go to http://localhost:3000. Log in with the default credentials (admin for both username and password).
+
+Step 9: Add Loki as a Data Source in Grafana
+Navigate to the Data Sources section in Grafana.
+Click on Add data source.
+Select Loki from the list.
+Set the URL to http://loki:3100.
+Click Save & Test to verify the configuration.
+Step 10: Configure Log Collection
+To collect logs, you need to set up Promtail, a log shipping agent. Follow these steps:
+
+Install Promtail
+ 
+ 
+curl -O -L "https://github.com/grafana/loki/releases/latest/download/promtail-linux-amd64.zip"
+unzip promtail-linux-amd64.zip
+sudo mv promtail-linux-amd64 /usr/local/bin/promtail
+sudo chmod +x /usr/local/bin/promtail
+Create a Promtail Configuration File
+ 
+ 
+sudo nano /etc/promtail/config.yml
+Add the following content to the config.yml file:
+
+ 
+ 
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions. 
+
+clients:
+  - url: http://localhost:3100/loki/api/v1/pu 
+
+scrape_configs:
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          __path__: /var/log/*log
+Start Promtail
+ 
+ 
+sudo promtail -config.file=/etc/promtail/config.yml
+Step 11: Visualize Logs in Grafana
+In Grafana, you can now create dashboards and panels to visualize logs from Loki.
+
+Summary
+You've now set up and configured Grafana Loki for log aggregation on Ubuntu using Docker. This setup includes Loki for log storage, Promtail for log collection, and Grafana for log visualization.

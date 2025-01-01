@@ -1,0 +1,114 @@
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. Using the AWS Command Line Interface (CLI), you can set up and interact with SQS efficiently. Here's a step-by-step guide to set up, run, and use Amazon SQS with AWS CLI.
+
+### Prerequisites
+1. **AWS CLI Installed**: Ensure you have the AWS CLI installed. You can download and install it from [AWS CLI installation guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
+
+2. **AWS CLI Configured**: You need to configure the AWS CLI with your AWS credentials. Run `aws configure` and provide your AWS Access Key, Secret Access Key, default region, and default output format.
+
+     
+   aws configure
+
+### Step-by-Step Guide
+
+#### 1. Create an SQS Queue
+
+1. **Create a Standard Queue**:
+
+     
+   aws sqs create-queue --queue-name MyStandardQueue
+
+   This command will return a JSON object with the `QueueUrl`.
+
+2. **Create a FIFO Queue**:
+
+   FIFO (First-In-First-Out) queues ensure that the order of messages is preserved.
+
+     
+   aws sqs create-queue --queue-name MyFIFOQueue.fifo --attributes FifoQueue=true
+
+#### 2. List SQS Queues
+
+     
+   aws sqs list-queues
+
+   This command lists all your SQS queues.
+
+#### 3. Send a Message to the Queue
+
+1. **Standard Queue**:
+
+     
+   aws sqs send-message --queue-url <QueueUrl> --message-body "This is a test message"
+
+2. **FIFO Queue**:
+
+     
+   aws sqs send-message --queue-url <QueueUrl> --message-body "This is a test message" --message-group-id "Group1"
+
+#### 4. Receive Messages from the Queue
+
+     
+   aws sqs receive-message --queue-url <QueueUrl>
+
+   This command returns one or more messages from the specified queue.
+
+#### 5. Delete a Message from the Queue
+
+Once you receive and process a message, you should delete it from the queue to prevent it from being received again.
+
+     
+   aws sqs delete-message --queue-url <QueueUrl> --receipt-handle <ReceiptHandle>
+
+   The `ReceiptHandle` is obtained from the output of the `receive-message` command.
+
+#### 6. Delete an SQS Queue
+
+     
+   aws sqs delete-queue --queue-url <QueueUrl>
+
+### Example Commands
+
+1. **Create a Queue**:
+
+     
+   aws sqs create-queue --queue-name TestQueue
+
+    :
+    json
+   {
+     "QueueUrl": "https://sqs.us-east-1.amazonaws.com/123456789012/TestQueue"
+   }
+
+2. **Send a Message**:
+
+     
+   aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/TestQueue --message-body "Hello, SQS!"
+
+3. **Receive a Message**:
+
+     
+   aws sqs receive-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/TestQueue
+
+4. **Delete a Message**:
+
+     
+   aws sqs delete-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/TestQueue --receipt-handle AQEB1v...8szz3jJQ==
+
+5. **Delete the Queue**:
+
+     
+   aws sqs delete-queue --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/TestQueue
+
+### Tips
+
+- **Attributes**: When creating a queue, you can specify various attributes, such as visibility timeout, message retention period, etc.
+  
+    
+  aws sqs create-queue --queue-name MyQueue --attributes VisibilityTimeout=60,MessageRetentionPeriod=86400
+
+- **Long Polling**: To reduce costs and improve efficiency, consider using long polling.
+  
+    
+  aws sqs receive-message --queue-url <QueueUrl> --wait-time-seconds 20
+
+This guide should help you get started with Amazon SQS using AWS CLI. If you have any specific requirements or encounter issues, feel free to ask!

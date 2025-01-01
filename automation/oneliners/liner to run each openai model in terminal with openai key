@@ -1,0 +1,94 @@
+# 1. gpt-4
+venv && exai && openai api chat.completions.create -m gpt-4 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.03 per 1k tokens
+# Description: Advanced language model suitable for complex conversational tasks and high-quality text generation.
+
+# 2. gpt-4-turbo
+venv && exai && openai api chat.completions.create -m gpt-4-turbo -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.02 per 1k tokens
+# Description: Optimized version of GPT-4 offering faster response times with slightly reduced costs.
+
+# 3. gpt-4-turbo-preview
+venv && exai && openai api chat.completions.create -m gpt-4-turbo-preview -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.02 per 1k tokens (Preview pricing may vary)
+# Description: Preview version of GPT-4 Turbo, providing early access to upcoming features and optimizations.
+
+# 4. gpt-4-turbo-2024-04-09
+venv && exai && openai api chat.completions.create -m gpt-4-turbo-2024-04-09 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.02 per 1k tokens
+# Description: Specific release of GPT-4 Turbo with updates as of April 2024, incorporating the latest improvements.
+
+# 5. gpt-4o
+venv && exai && openai api chat.completions.create -m gpt-4o -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.025 per 1k tokens
+# Description: Specialized variant of GPT-4 optimized for specific operational tasks and enhanced performance.
+
+# 6. gpt-4o-realtime-preview
+venv && exai && openai api chat.completions.create -m gpt-4o-realtime-preview -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.025 per 1k tokens (Preview pricing may vary)
+# Description: Real-time preview version of GPT-4o, allowing for testing of live response capabilities.
+
+# 7. gpt-4o-realtime-preview-2024-12-17
+venv && exai && openai api chat.completions.create -m gpt-4o-realtime-preview-2024-12-17 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.025 per 1k tokens
+# Description: Updated real-time preview of GPT-4o as of December 2024, featuring the latest real-time processing enhancements.
+
+# 8. gpt-4o-2024-08-06
+venv && exai && openai api chat.completions.create -m gpt-4o-2024-08-06 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.025 per 1k tokens
+# Description: GPT-4o model released on August 6, 2024, incorporating mid-year updates and optimizations.
+
+# 9. gpt-4o-mini-realtime-preview
+venv && exai && openai api chat.completions.create -m gpt-4o-mini-realtime-preview -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.015 per 1k tokens
+# Description: A smaller, real-time preview version of GPT-4o designed for faster processing with reduced computational requirements.
+
+# 10. gpt-4o-mini-realtime-preview-2024-12-17
+venv && exai && openai api chat.completions.create -m gpt-4o-mini-realtime-preview-2024-12-17 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.015 per 1k tokens
+# Description: Updated mini real-time preview of GPT-4o as of December 17, 2024, featuring latest tweaks for efficiency.
+
+# 11. gpt-4o-mini
+venv && exai && openai api chat.completions.create -m gpt-4o-mini -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.015 per 1k tokens
+# Description: Compact version of GPT-4o, optimized for lower resource usage while maintaining robust performance.
+
+# 12. gpt-4o-mini-2024-07-18
+venv && exai && openai api chat.completions.create -m gpt-4o-mini-2024-07-18 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.015 per 1k tokens
+# Description: GPT-4o-mini model released on July 18, 2024, incorporating mid-year performance enhancements.
+
+# 13. gpt-4o-2024-05-13
+venv && exai && openai api chat.completions.create -m gpt-4o-2024-05-13 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.025 per 1k tokens
+# Description: GPT-4o model released on May 13, 2024, featuring spring updates and optimizations for better accuracy.
+
+# 14. gpt-3.5-turbo-16k
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo-16k -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.016 per 1k tokens
+# Description: Enhanced version of GPT-3.5 Turbo with support for up to 16k tokens, suitable for longer conversations.
+
+# 15. gpt-3.5-turbo-1106
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo-1106 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.012 per 1k tokens
+# Description: Specific release of GPT-3.5 Turbo from November 6, 2023, incorporating the latest updates and optimizations.
+
+# 16. gpt-3.5-turbo-instruct
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo-instruct -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.012 per 1k tokens
+# Description: GPT-3.5 Turbo variant fine-tuned for instruction-following tasks, enhancing directive compliance.
+
+# 17. gpt-3.5-turbo-instruct-0914
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo-instruct-0914 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.012 per 1k tokens
+# Description: GPT-3.5 Turbo Instruct model released on September 14, 2023, with refined instruction-following capabilities.
+
+# 18. gpt-3.5-turbo-0125
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo-0125 -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.012 per 1k tokens
+# Description: GPT-3.5 Turbo model released on January 25, 2024, featuring the latest performance improvements.
+
+# 19. gpt-3.5-turbo
+venv && exai && openai api chat.completions.create -m gpt-3.5-turbo -g user "one liner to setup and run" -g assistant "then enter it in ubuntu 22 wsl2"
+# Estimated Cost: $0.012 per 1k tokens
+# Description: Versatile and cost-effective GPT-3.5 Turbo model ideal for a wide range of conversational applications.

@@ -1,0 +1,201 @@
+**Top 50 R Tools Ranked from Most Important to Least, with Setup and Load Commands**
+
+1. **tidyverse**
+    R
+   install.packages("tidyverse"); library(tidyverse)
+
+2. **data.table**
+    R
+   install.packages("data.table"); library(data.table)
+
+3. **ggplot2**
+    R
+   install.packages("ggplot2"); library(ggplot2)
+
+4. **dplyr**
+    R
+   install.packages("dplyr"); library(dplyr)
+
+5. **tidyr**
+    R
+   install.packages("tidyr"); library(tidyr)
+
+6. **readr**
+    R
+   install.packages("readr"); library(readr)
+
+7. **stringr**
+    R
+   install.packages("stringr"); library(stringr)
+
+8. **purrr**
+    R
+   install.packages("purrr"); library(purrr)
+
+9. **lubridate**
+    R
+   install.packages("lubridate"); library(lubridate)
+
+10. **shiny**
+     R
+    install.packages("shiny"); library(shiny)
+
+11. **r **
+     R
+    install.packages("r "); library(r )
+
+12. **knitr**
+     R
+    install.packages("knitr"); library(knitr)
+
+13. **caret**
+     R
+    install.packages("caret"); library(caret)
+
+14. **glmnet**
+     R
+    install.packages("glmnet"); library(glmnet)
+
+15. **randomForest**
+     R
+    install.packages("randomForest"); library(randomForest)
+
+16. **xgboost**
+     R
+    install.packages("xgboost"); library(xgboost)
+
+17. **e1071**
+     R
+    install.packages("e1071"); library(e1071)
+
+18. **forecast**
+     R
+    install.packages("forecast"); library(forecast)
+
+19. **zoo**
+     R
+    install.packages("zoo"); library(zoo)
+
+20. **xts**
+     R
+    install.packages("xts"); library(xts)
+
+21. **car**
+     R
+    install.packages("car"); library(car)
+
+22. **MASS**
+     R
+    install.packages("MASS"); library(MASS)
+
+23. **lme4**
+     R
+    install.packages("lme4"); library(lme4)
+
+24. **nlme**
+     R
+    install.packages("nlme"); library(nlme)
+
+25. **survival**
+     R
+    install.packages("survival"); library(survival)
+
+26. **plotly**
+     R
+    install.packages("plotly"); library(plotly)
+
+27. **leaflet**
+     R
+    install.packages("leaflet"); library(leaflet)
+
+28. **devtools**
+     R
+    install.packages("devtools"); library(devtools)
+
+29. **rvest**
+     R
+    install.packages("rvest"); library(rvest)
+
+30. **httr**
+     R
+    install.packages("httr"); library(httr)
+
+31. **jsonlite**
+     R
+    install.packages("jsonlite"); library(jsonlite)
+
+32. **readxl**
+     R
+    install.packages("readxl"); library(readxl)
+
+33. **openxlsx**
+     R
+    install.packages("openxlsx"); library(openxlsx)
+
+34. **Rcpp**
+     R
+    install.packages("Rcpp"); library(Rcpp)
+
+35. **RCurl**
+     R
+    install.packages("RCurl"); library(RCurl)
+
+36. **xml2**
+     R
+    install.packages("xml2"); library(xml2)
+
+37. **DiagrammeR**
+     R
+    install.packages("DiagrammeR"); library(DiagrammeR)
+
+38. **igraph**
+     R
+    install.packages("igraph"); library(igraph)
+
+39. **arules**
+     R
+    install.packages("arules"); library(arules)
+
+40. **tm**
+     R
+    install.packages("tm"); library(tm)
+
+41. **quantmod**
+     R
+    install.packages("quantmod"); library(quantmod)
+
+42. **RMySQL**
+     R
+    install.packages("RMySQL"); library(RMySQL)
+
+43. **RSQLite**
+     R
+    install.packages("RSQLite"); library(RSQLite)
+
+44. **DBI**
+     R
+    install.packages("DBI"); library(DBI)
+
+45. **ggvis**
+     R
+    install.packages("ggvis"); library(ggvis)
+
+46. **haven**
+     R
+    install.packages("haven"); library(haven)
+
+47. **foreign**
+     R
+    install.packages("foreign"); library(foreign)
+
+48. **raster**
+     R
+    install.packages("raster"); library(raster)
+
+49. **sp**
+     R
+    install.packages("sp"); library(sp)
+
+50. **sf**
+     R
+    install.packages("sf"); library(sf)

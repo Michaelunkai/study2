@@ -1,0 +1,5 @@
+Test the Setup
+Run the NATS Streaming server.
+Start the subscriber.
+Start the publi er.
+The subscriber should receive messages sent by the publisher.

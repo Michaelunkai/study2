@@ -1,0 +1,45 @@
+Convert VirtualBox VM to ProxMox VE
+On the VirtualBox host, launch VirtualBox
+Right click the VM to convert > Settings
+Select Storage from the left navigation
+Click the virtual hard disk and copy the Location value for the full path of the disk to the clipboard
+Right click on the Start menu > Run > type cmd.exe > Press Enter
+Enter the following commands in the command prompt
+# change directory to VirtualBox installation
+cd %programfiles%\Oracle\VirtualBox
+# convert the .vdi to raw .img
+VBoxManage clonehd --format RAW "pasted\full\path\to.vdi" "pasted\full\path\to.raw"
+Once the .vdi to .raw conversion completes, open a web browser and navigate to the ProxMox web UI https://ProxMoxDNSorIP:8006/
+Click the Create VM button at the top right
+On the General tab, enter a VM Name and note the VM ID generated > click Next
+On the OS tab select Do not use any media and set the Guest OS > click Next
+On the System tab click Next
+On the Hard Disk tab set the Disk size to 0.001 > click Next
+On the CPU tab set the number of CPUs > click Next
+On the Memory tab set the amount of memory to allocate in MiB > click Next
+On the Network tab click Next
+On the Confirm tab review the settings and click Finish
+Select the newly created VM from the left navigation panel > Hardware
+Click the Hard Disk to select it
+Click the Detach button to detach the hard disk from the VM
+Click the Unused disk
+Click the Remove button to permanently delete it
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the ProxMox IP server via WinSCP
+Copy the VirtualBox created .raw file to a location on the ProxMox server that has enough free disk space, /root for example
+Back in the browser, open the ProxMox host Shell
+Run the following command to import the raw disk, modify the .raw file name and VM ID noted earlier
+# import the raw disk
+# usage:
+# qm importdisk <VM ID> /root/<source disk file>.raw <destination storage pool name>
+qm importdisk 100 vbox.raw HDD_500GB --format qcow2
+Once the disk import completes, select the target VM from the left navigation menu > Hardware
+Double click the Unused Disk > Click the Add button
+Select Options from the left navigation sub-menu
+Double click Boot Order
+Check the Enabled box next to the hard disk
+Drag the Hard disk up in the boot order as needed, typically below the CD-ROM device
+Click OK
+Click the Start button in the top right of the screen
+Click the Console link to watch the boot process

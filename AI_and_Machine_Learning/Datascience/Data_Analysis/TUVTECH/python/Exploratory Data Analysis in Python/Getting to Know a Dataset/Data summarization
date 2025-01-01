@@ -1,0 +1,32 @@
+Transcript
+1. Data summarization
+00:00 - 00:10
+We ended the last video by exploring data by genre, noticing that children's books in our dataset have slightly later publishing years in general.
+
+2. Exploring groups of data
+00:10 - 00:52
+We can explore the characteristics of subsets of data further with the help of the dot-groupby function, which groups data by a given category, allowing the user to chain an aggregating function like dot-mean or dot-count to describe the data within each group. For example, we can group the books data by genre by passing the genre column name to the groupby function. Then, we chain an aggregating function, in this case, dot-mean, to find the mean value of the numerical columns for each genre. The results show that children's books have a higher average rating than other genres.
+
+3. Aggregating functions
+00:52 - 01:07
+Other aggregating functions that are useful to chain with dot-groupby are dot-sum, dot-count, dot-min, dot-max, dot-var, which returns the variance, and dot-std, which returns the standard deviation.
+
+4. Aggregating ungrouped data
+01:07 - 01:45
+The dot-agg function, short for aggregate, allows us to apply aggregating functions. By default, it aggregates data across all rows in a given column and is typically used when we want to apply more than one function. Here, we apply dot-agg to the books DataFrame and pass a list of aggregating functions to apply: dot-mean and dot-std. Our code returns a DataFrame of aggregated results, and dot-agg applies these functions only to numeric columns; the rating and year columns in the books DataFrame.
+
+5. Specifying aggregations for columns
+01:45 - 02:01
+We can even use a dictionary to specify which aggregation functions to apply to which columns. The keys in the dictionary are the columns to apply the aggregation, and each value is a list of the specific aggregating functions to apply to that column.
+
+6. Named summary columns
+02:01 - 02:51
+By combining dot-agg and dot-groupby, we can apply these new exploration skills to grouped data. Maybe we'd like to show the mean and standard deviation of rating for each book genre along with the median year. We can create named columns with our desired aggregations by using the dot-agg function and creating named tuples inside it. Each named tuple should include a column name followed by the aggregating function to apply to that column. The name of the tuple becomes the name of the resulting column. Now, we can get two summary values of interest about ratings and our year data looks cleaner! We can see that the Fiction genre has the lowest average rating as well as the largest variation in ratings.
+
+7. Visualizing categorical summaries
+02:51 - 03:33
+We can display similar information visually using a barplot. In Seaborn, bar plots will automatically calculate the mean of a quantitative variable like rating across grouped categorical data, such as the genre category we've been looking at. In Seaborn, bar plots also show a 95% confidence interval for the mean as a vertical line on the top of each bar. Here, we pass the genre column as the x values and the rating column as the y values. The results reinforce what we saw in the last slide: while Fiction books have the lowest rating, their ratings also have a little more variation.
+
+8. Let's practice!
+03:33 - 03:40
+Alright, it's time to summarize the unemployment data in the exercises.

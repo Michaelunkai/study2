@@ -1,0 +1,1 @@
+getgo21 && go install github.com/zricethezav/gitleaks/v8@latest && gitleaks version && gitleaks detect --no-git --source=/mnt/c/study --report-format=json --report-path=/mnt/c/study/gitleaks_report.json

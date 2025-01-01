@@ -1,0 +1,1 @@
+cd && sudo apt install -y wget && wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.3-linux-x86_64.tar.gz && tar -xvzf julia-1.9.3-linux-x86_64.tar.gz && sudo mv julia-1.9.3 /usr/local/julia && sudo ln -s /usr/local/julia/bin/julia /usr/local/bin/julia && julia -e 'println("Julia setup complete")' && julia

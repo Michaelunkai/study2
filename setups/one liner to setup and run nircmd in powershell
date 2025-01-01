@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://www.nirsoft.net/utils/nircmd.zip" -OutFile "$env:USERPROFILE\nircmd.zip"; Expand-Archive -Path "$env:USERPROFILE\nircmd.zip" -DestinationPath "$env:USERPROFILE\nircmd" -Force; Remove-Item "$env:USERPROFILE\nircmd.zip"; $env:Path += ";$env:USERPROFILE\nircmd"

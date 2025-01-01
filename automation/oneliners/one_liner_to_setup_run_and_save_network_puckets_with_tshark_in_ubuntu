@@ -1,0 +1,1 @@
+ sudo apt-get update && sudo apt-get install -y tshark && sudo tshark -i any -w capture-01.cap

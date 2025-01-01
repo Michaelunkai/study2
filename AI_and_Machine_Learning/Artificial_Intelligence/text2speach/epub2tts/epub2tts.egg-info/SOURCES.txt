@@ -2,7 +2,6 @@ Dockerfile
 Dockerfile.cuda12
 README.md
 __init__.py
-epub2tts.py
 multi-speaker-sample-edge-en-US-AndrewNeural.m4b
 multi-speaker-sample-edge.txt
 requirements.txt

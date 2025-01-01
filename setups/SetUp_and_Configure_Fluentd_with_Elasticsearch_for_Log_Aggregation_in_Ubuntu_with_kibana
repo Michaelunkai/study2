@@ -1,0 +1,140 @@
+Step 1: Install Java (required for Elasticsearch)
+Update your package index:
+
+ 
+ 
+sudo apt update
+Install OpenJDK:
+
+ 
+ 
+sudo apt install openjdk-11-jdk -y
+Verify the installation:
+
+ 
+ 
+java -version
+Step 2: Install Elasticsearch
+Import the Elasticsearch PGP key:
+
+ 
+ 
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+Add the Elasticsearch repository:
+
+ 
+ 
+sudo sh -c 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/elastic-7.x.list'
+Update your package index:
+
+ 
+ 
+sudo apt update
+Install Elasticsearch:
+
+ 
+ 
+sudo apt install elasticsearch -y
+Start and enable Elasticsearch service:
+
+ 
+ 
+sudo systemctl start elasticsearch
+sudo systemctl enable elasticsearch
+Verify that Elasticsearch is running:
+
+ 
+ 
+curl -X GET "localhost:9200/"
+Step 3: Install Fluentd
+Import the Fluentd PGP key:
+
+ 
+ 
+curl -fsSL https://packages.treasuredata.com/GPG-KEY-td-agent | sudo apt-key add -
+Add the Fluentd repository:
+
+ 
+ 
+echo "deb http://packages.treasuredata.com/4/ubuntu/$(lsb_release -sc)/ $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/td-agent.list
+Update your package index:
+
+ 
+ 
+sudo apt update
+Install Fluentd:
+
+ 
+ 
+sudo apt install td-agent -y
+Step 4: Configure Fluentd to Send Logs to Elasticsearch
+Install the Elasticsearch plugin for Fluentd:
+
+ 
+ 
+sudo td-agent-gem install fluent-plugin-elasticsearch
+Open the Fluentd configuration file:
+
+ 
+ 
+sudo nano /etc/td-agent/td-agent.conf
+Add the following configuration to /etc/td-agent/td-agent.conf:
+
+conf
+ 
+<source>
+  @type tail
+  path /var/log/syslog
+  pos_file /var/log/td-agent/syslog.pos
+  tag syslog
+  format syslog
+</source>
+
+<match **>
+  @type elasticsearch
+  host localhost
+  port 9200
+  logstash_format true
+  logstash_prefix fluentd
+  logstash_dateformat %Y.%m.%d
+  include_tag_key true
+  tag_key @log_name
+  type_name _doc
+</match>
+Save and close the file.
+
+Step 5: Start and Enable Fluentd
+Start the Fluentd service:
+
+ 
+ 
+sudo systemctl start td-agent
+Enable the Fluentd service to start on boot:
+
+ 
+ 
+sudo systemctl enable td-agent
+Step 6: Verify the Setup
+Check the status of the Fluentd service:
+
+ 
+ 
+sudo systemctl status td-agent
+Verify that logs are being sent to Elasticsearch:
+
+ 
+ 
+curl -X GET "localhost:9200/fluentd*/_search?pretty"
+Step 7: Optional - Install Kibana for Visualizing Logs
+Install Kibana:
+
+ 
+ 
+sudo apt install kibana -y
+Start and enable the Kibana service:
+
+ 
+ 
+sudo systemctl start kibana
+sudo systemctl enable kibana
+Access Kibana by opening http://localhost:5601 in your web browser.

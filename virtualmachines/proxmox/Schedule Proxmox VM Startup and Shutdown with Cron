@@ -1,0 +1,39 @@
+▲A  A▼
+Schedule Proxmox VM Startup and Shutdown with Cron
+What is Cron?
+The cron daemon is a background process that runs particular programs at particular times (for example, every minute, day, week, or month), as specified in a crontab. By default, users may also create crontabs of their own so that processes are run on their behalf. -https://packages.debian.org/stable/cron
+Log into Proxmox VE either via SSH or the web based shell
+Run the following commands in the terminal
+# verify the location of qm
+# should output /usr/sbin/qm
+which qm
+# list the configured vms
+qm list
+Note the VMID of the target VM(s)
+Determine the startup and shutdown schedule requirements for each target VM
+Convert the startup and shutdown schedules to cron format, https://crontab.guru/ is a great utility to visualize them
+Continue with the following commands in the terminal
+# edit the cron table file
+crontab -e
+# if prompted, select nano from the list of editors
+At the bottom of the file, add an entry for the start and stop of each target VM in the following format
+<%cron schedule%> /usr/sbin/qm <%start|shutdown%> <%VMID%>
+55 6 * * * /usr/sbin/qm start 100
+5 23 * * * /usr/sbin/qm shutdown 100
+
+Press CTRL+O, Enter, CTRL+X to write the changes and close nano
+In the example above, VM 100 will be started at 6:55 AM and shutdown at 11:05 PM everyday
+Cron schedules can be extremely flexible with some creativity, some examples:
+6:55 AM only on weekdays
+55 6 * * 1-5 /usr/sbin/qm start 100
+9:00 AM only on weekends
+0 9 * * 6,0 /usr/sbin/qm start 100
+7:00 AM only on Monday, Wednesday and Friday
+0 7 * * 1,3,5 /usr/sbin/qm start 100
+
+Linux Containers (lxc) can be controlled via the pct command
+55 6 * * 1-5 /usr/sbin/pct start 103
+0 9 * * 6,0 /usr/sbin/pct start 103
+0 7 * * 1,3,5 /usr/sbin/pct start 103
+
+ 
