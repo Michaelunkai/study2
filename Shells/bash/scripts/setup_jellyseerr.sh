@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_jellyseerr.sh
 # Description: Script to install Jellyseerr on Ubuntu 22 WSL2

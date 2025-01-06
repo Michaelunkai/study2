@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_headscale.sh
 # Description: Script to install Headscale on Ubuntu 22 WSL2

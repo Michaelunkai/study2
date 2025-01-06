@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_mafl.sh
 # Description: Script to install Mafl on Ubuntu

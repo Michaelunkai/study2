@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_zwave_js_ui.sh
 # Description: Script to install Z-Wave JS UI on Ubuntu

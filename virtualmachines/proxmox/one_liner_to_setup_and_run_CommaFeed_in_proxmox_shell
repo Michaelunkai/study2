@@ -1,0 +1,9 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/commafeed.sh)"
+
+
+
+Default Login Credentials
+You can use the following credentials to login to the CommaFeed ct.
+
+Username: admin
+Password: admin

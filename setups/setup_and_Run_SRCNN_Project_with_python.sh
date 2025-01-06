@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Title: SRCNN (Super-Resolution Convolutional Neural Network) Project Setup
 
@@ -41,9 +41,9 @@ if __name__ == "__main__":
 ' > main.py && \
 
 # Create run script
-echo '#!/bin/bash
+echo '#!/bin/ 
 source venv/bin/activate
-python3 main.py
+ 3 main.py
 ' > run_app.sh && chmod +x run_app.sh && \
 
 # Run the application

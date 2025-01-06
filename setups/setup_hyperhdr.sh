@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_hyperhdr.sh
 # Description: Script to install HyperHDR on Ubuntu 22 WSL2

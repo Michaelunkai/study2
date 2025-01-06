@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_meshcentral.sh
 # Description: Script to install MeshCentral on Ubuntu

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_watchyourlan.sh
 # Description: Script to install WatchYourLAN on Ubuntu
@@ -48,14 +48,14 @@ rm watchyourlan_${RELEASE}_linux_amd64.deb
 
 # Create configuration file
 mkdir -p /data
-cat <<EOF >/data/config.yaml
+cat <<EOF >/data/config. 
 arp_timeout: "500"
 auth: false
 auth_expire: 7d
 auth_password: ""
 auth_user: ""
 color: dark
-dbpath: /data/db.sqlite
+dbpath: /data/db. ite
 guiip: 0.0.0.0
 guiport: "8840"
 history_days: "30"

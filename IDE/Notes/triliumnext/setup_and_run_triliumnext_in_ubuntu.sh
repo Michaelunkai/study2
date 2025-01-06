@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_triliumnext.sh
 # Description: Script to install TriliumNext on Ubuntu

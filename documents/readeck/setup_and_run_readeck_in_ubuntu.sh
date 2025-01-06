@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_readeck.sh
 # Description: Script to install Readeck on Ubuntu

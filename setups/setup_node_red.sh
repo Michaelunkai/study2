@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_node_red.sh
 # Description: Script to install Node-RED on Ubuntu
@@ -78,7 +78,7 @@ Restart=on-failure
 KillSignal=SIGINT
 
 SyslogIdentifier=node-red
-StandardOutput=syslog
+Standard =syslog
 
 WorkingDirectory=/root/
 User=root

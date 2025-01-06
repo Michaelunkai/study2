@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_runtipi.sh
 # Description: Script to install Runtipi on Ubuntu

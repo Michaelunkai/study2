@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_pingvin_share.sh
 # Description: Script to install Pingvin Share on Ubuntu

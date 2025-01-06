@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_octoprint_port4444.sh
 # Description: Script to install OctoPrint on Ubuntu (configured to run on port 4444)
@@ -34,19 +34,19 @@ apt-get update && apt-get install -y \
     sudo \
     mc \
     git \
-    libyaml-dev \
+    lib -dev \
     build-essential
 msg_ok "Dependencies installed"
 
 # Update Python3
 msg_info "Updating Python3"
 apt-get install -y \
-    python3 \
-    python3-dev \
-    python3-pip \
-    python3-venv \
-    python3-setuptools
-rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+     3 \
+     3-dev \
+     3-pip \
+     3-venv \
+     3-setuptools
+rm -rf /usr/lib/ 3.*/EXTERNALLY-MANAGED
 msg_ok "Python3 updated"
 
 # Create user for OctoPrint
@@ -76,7 +76,7 @@ sudo -u octoprint bash <<EOF
 echo 'server:
   host: 0.0.0.0
   port: 4444
-' > /opt/octoprint/config.yaml
+' > /opt/octoprint/config. 
 EOF
 msg_ok "OctoPrint configured for port 4444"
 

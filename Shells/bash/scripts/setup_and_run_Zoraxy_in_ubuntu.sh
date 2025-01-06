@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_zoraxy.sh
 # Description: Script to install Zoraxy on Ubuntu

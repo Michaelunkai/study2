@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_pialert.sh
 # Description: Script to install Pi.Alert on Ubuntu
@@ -36,7 +36,7 @@ apt-get update && apt-get install -y \
     apt-utils \
     avahi-utils \
     lighttpd \
-    sqlite3 \
+     ite3 \
     mmdb-bin \
     arp-scan \
     dnsutils \
@@ -52,24 +52,24 @@ msg_ok "Installed Dependencies"
 # Install PHP dependencies
 msg_info "Installing PHP Dependencies"
 apt-get install -y \
-    php \
-    php-cgi \
-    php-fpm \
-    php-curl \
-    php-xml \
-    php-sqlite3
-lighttpd-enable-mod fastcgi-php
+      \
+     -cgi \
+     -fpm \
+     -curl \
+     -xml \
+     - ite3
+lighttpd-enable-mod fastcgi- 
 service lighttpd force-reload
 msg_ok "Installed PHP Dependencies"
 
 # Install Python dependencies
 msg_info "Installing Python Dependencies"
 apt-get install -y \
-    python3-pip \
-    python3-requests \
-    python3-tz \
-    python3-tzlocal
-rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+     3-pip \
+     3-requests \
+     3-tz \
+     3-tzlocal
+rm -rf /usr/lib/ 3.*/EXTERNALLY-MANAGED
 pip3 install mac-vendor-lookup fritzconnection cryptography pyunifi
 msg_ok "Installed Python Dependencies"
 
@@ -87,7 +87,7 @@ chgrp -R www-data /opt/pialert/db /opt/pialert/front/reports /opt/pialert/config
 chmod -R 775 /opt/pialert/db /opt/pialert/db/temp /opt/pialert/config /opt/pialert/front/reports
 touch /opt/pialert/log/{pialert.vendors.log,pialert.IP.log,pialert.1.log,pialert.cleanup.log,pialert.webservices.log}
 src_dir="/opt/pialert/log"
-dest_dir="/opt/pialert/front/php/server"
+dest_dir="/opt/pialert/front/ /server"
 for file in pialert.vendors.log pialert.IP.log pialert.1.log pialert.cleanup.log pialert.webservices.log; do
     ln -s "$src_dir/$file" "$dest_dir/$file"
 done
@@ -104,9 +104,9 @@ msg_ok "Installed Pi.Alert"
 
 # Start Pi.Alert scan
 msg_info "Start Pi.Alert Scan (Patience)"
-python3 /opt/pialert/back/pialert.py update_vendors
-python3 /opt/pialert/back/pialert.py internet_IP
-python3 /opt/pialert/back/pialert.py 1
+ 3 /opt/pialert/back/pialert.py update_vendors
+ 3 /opt/pialert/back/pialert.py internet_IP
+ 3 /opt/pialert/back/pialert.py 1
 msg_ok "Finished Pi.Alert Scan"
 
 # Cleanup

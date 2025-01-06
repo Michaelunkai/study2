@@ -1,0 +1,48 @@
+Transcript
+1. Plotly and the Plotly Figure
+00:00 - 00:06
+Welcome to an Introduction to Data Visualization with Plotly (in Python!)
+
+2. What is Plotly?
+00:06 - 00:24
+So what is Plotly exactly? Plotly is actually a JavaScript library. Don't worry - you don't need to know JavaScript for this course! We will use a Python wrapper library. That is, we will write code in Python and it will produce JavaScript code.
+
+3. Why Plotly?
+00:24 - 00:58
+So why Plotly? Yet another data visualization library? Plotly has a number of advantages over other Python-based data visualization libraries. It is fast and easy to implement simple plots. The plotly express module allows for very low-effort, professional graphs to be produced. However, there is also a lot of customization options if you wish. Finally, but most importantly, you get interactive (including mouse-hover functionality!) graphics right out of the box.
+
+4. Creating Plotly Figures
+00:58 - 01:26
+You can create Plotly graphs in different ways plotly express is the simplest to quickly create basic, common plot types. You can also make more customized and advanced plots with plotly graph_objects Finally, there are even more specific graphs using plotly figure_factory. In this course we will spend most of our time using plotly express and plotly graph_objects.
+
+5. The importance of documentation
+01:26 - 02:09
+Plotly is extremely customizable, with many more options than we will cover in this course. Therefore, the documentation is very important. There is the main interactive, introductory docs website. This has many useful examples. There is the graph_objects page for each specific plot. For example, the go dot scatter page will list all the arguments that can be specified when constructing this plot type. You can see from this screenshot of the documentation there are many arguments. Finally, the base go dot figure documentation will be useful as a reference when we use the update_layout function later.
+
+6. The Plotly Figure
+02:09 - 02:44
+Let's get into the technical side of things. A Plotly figure has three main components. Layout is a dictionary of attributes that control the look and style of the figure. There is one layout element per figure. The data element is a list of dictionaries that sets up the type of graph and the data to display. The combination of data and type is a trace. You may have multiple traces per plot. There is also a frames element we won't use in this course.
+
+7. Inside a Plotly Figure
+02:44 - 02:59
+We can see inside a Plotly figure by just printing out the object. Have a look at the code here. There is a layout element and a single trace containing data and a type. What do you think this graph will look like?
+
+8. Inside our Figure
+02:59 - 03:19
+I am sure you have seen a few clues. There is a type of bar, there is an X and Y - perhaps this is the data to plot, and there is a title with some text discussing temperatures of weekdays. My best guess would be a bar chart of temperatures of the days of the week.
+
+9. Creating our Figure
+03:19 - 03:51
+Let's see how this figure could have been created. Whilst we'll build this figure from scratch using graph_objects, this is an uncommon way to build plots since you need to specify everything in the provided dictionary. We'll learn to utilize Plotly's powerful shortcut methods later. We set up a dictionary with the data and layout elements. We use the go dot Figure constructor to create the figure straight from the dictionary. All figures have a show method that displays the figure.
+
+10. Our Figure revealed
+03:51 - 03:56
+This is what our figure looks like. Seems our guess was pretty good!
+
+11. Plotly's instant interactivity
+03:56 - 04:18
+Creating any plot gives some instant interactivity. Plotly graphs have hover-over pop-ups. On the previous slide I hovered over several days. There is also a bar of extra interactive buttons. These allow you to download the plot, select or zoom on the plot and a variety of other viewing options.
+
+12. Let's practice!
+04:18 - 04:24
+Let's create and explore a simple Plotly Figure.

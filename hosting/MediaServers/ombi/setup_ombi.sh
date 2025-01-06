@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_ombi.sh
 # Description: Script to install Ombi on Ubuntu

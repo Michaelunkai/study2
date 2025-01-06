@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_openhab.sh
 # Description: Script to install openHAB on Ubuntu

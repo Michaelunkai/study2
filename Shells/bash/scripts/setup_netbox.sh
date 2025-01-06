@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_netbox.sh
 # Description: Script to install NetBox on Ubuntu
@@ -35,11 +35,11 @@ apt-get update && apt-get install -y \
     mc \
     apache2 \
     redis-server \
-    postgresql \
-    python3 \
-    python3-pip \
-    python3-venv \
-    python3-dev \
+    postgre  \
+     3 \
+     3-pip \
+     3-venv \
+     3-dev \
     build-essential \
     libxml2-dev \
     libxslt1-dev \
@@ -81,7 +81,7 @@ chown --recursive netbox /opt/netbox/netbox/scripts/
 
 mv /opt/netbox/netbox/netbox/configuration_example.py /opt/netbox/netbox/netbox/configuration.py
 
-SECRET_KEY=$(python3 /opt/netbox/netbox/generate_secret_key.py)
+SECRET_KEY=$( 3 /opt/netbox/netbox/generate_secret_key.py)
 ESCAPED_SECRET_KEY=$(printf '%s\n' "$SECRET_KEY" | sed 's/[&/\]/\\&/g')
 
 sed -i 's/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = ["*"]/' /opt/netbox/netbox/netbox/configuration.py

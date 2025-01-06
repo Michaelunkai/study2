@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Step 1: Install Python and Pip
 sudo apt install -y python3 python3-pip

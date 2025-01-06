@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_wavelog.sh
 # Description: Script to install Wavelog on Ubuntu
@@ -32,10 +32,10 @@ msg_info "Installing Dependencies"
 apt-get update && apt-get upgrade -y
 apt-get install -y \
     curl \
-    libapache2-mod-php \
+    libapache2-mod-  \
     mariadb-server \
     mc \
-    php8.2-{curl,mbstring,mysql,xml,zip,gd} \
+     8.2-{curl,mbstring,my ,xml,zip,gd} \
     sudo \
     unzip
 msg_ok "Dependencies installed"

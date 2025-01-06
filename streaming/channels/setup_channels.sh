@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Script for installing Channels DVR Server on Ubuntu 22 (WSL2 compatible)
 

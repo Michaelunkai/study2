@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_homer.sh
 # Description: Script to install Homer Dashboard on Ubuntu 22 WSL2

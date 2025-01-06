@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_snipeit.sh
 # Description: Script to install Snipe-IT on Ubuntu
@@ -95,7 +95,7 @@ server {
     listen 80;
     root /opt/snipe-it/public;
     server_name $IPADDRESS;
-    index index.php;
+    index index. ;
 
     location / {
         try_files \$uri \$uri/ /index.php?\$query_string;
@@ -103,9 +103,9 @@ server {
 
     location ~ \.php\$ {
         include fastcgi.conf;
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php-fpm.sock;
-        fastcgi_split_path_info ^(.+\.php)(/.+)\$;
+        include snippets/fastcgi- .conf;
+        fastcgi_pass unix:/run/ / -fpm.sock;
+        fastcgi_split_path_info ^(.+\. )(/.+)\$;
         fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
         include fastcgi_params;
     }

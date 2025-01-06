@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update package list
 echo "Updating package list..."
@@ -18,7 +18,7 @@ sudo apt-get -f install -y  # Fix any missing dependencies
 echo "Configuring px proxy..."
 echo "export http_proxy=http://localhost:3128" >> ~/.bashrc
 echo "export https_proxy=http://localhost:3128" >> ~/.bashrc
-source ~/.bashrc
+source ~/. rc
 
 # Start px proxy service
 echo "Starting px proxy service..."

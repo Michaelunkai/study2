@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update system packages
 echo "Updating system packages..."

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_zipline.sh
 # Description: Script to install Zipline on Ubuntu
@@ -31,7 +31,7 @@ fi
 # Install dependencies
 msg_info "Installing Dependencies"
 apt-get update && apt-get install -y \
-    postgresql \
+    postgre  \
     gpg \
     curl \
     sudo \

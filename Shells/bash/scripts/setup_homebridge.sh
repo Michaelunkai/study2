@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_homebridge.sh
 # Description: Script to install Homebridge on Ubuntu 22 WSL2

@@ -1,0 +1,44 @@
+## Recent Learnings: Exploratory Data Analysis in Python – Chapter 3: Relationships in Data  
+
+### Key Concepts Covered in Your Last Lesson  
+
+During your last session, you focused on handling outliers in datasets. Here's an overview of what you learned:  
+
+#### **Understanding Outliers**  
+- **Definition**: Outliers are data points significantly different from the rest of the dataset.  
+- **Example**: In a dataset of house prices, a house priced at $5,000,000 may be an outlier if the median is $400,000 unless justified by factors such as location or size.  
+- **Impact**: Outliers can skew data analysis, leading to misleading conclusions.  
+
+#### **Identifying Outliers**  
+- **Method**: The interquartile range (IQR) was introduced as a mathematical tool to detect outliers.  
+  - **IQR Calculation**:  
+    \[
+    \text{IQR} = Q3 - Q1  
+    \]  
+    Where \( Q3 \) is the 75th percentile, and \( Q1 \) is the 25th percentile.  
+  - **Outlier Thresholds**:  
+    \[
+    \text{Upper Limit} = Q3 + 1.5 \times \text{IQR}  
+    \]  
+    \[
+    \text{Lower Limit} = Q1 - 1.5 \times \text{IQR}  
+    \]  
+- **Implementation**: Using these thresholds, outliers were identified programmatically.  
+
+#### **Decision Making on Outliers**  
+- **Options**:  
+  - Retain the outlier if it's relevant and accurately represents the dataset.  
+  - Adjust the value if it's erroneous but important.  
+  - Remove the outlier if it adds noise or skews results.  
+
+#### **Impact of Removing Outliers**  
+- Removing outliers can often produce a more normally distributed dataset.  
+- This adjustment is essential for many statistical analyses and machine learning algorithms.  
+
+### Practical Application  
+You practiced:  
+- Using visualizations to identify outliers.  
+- Applying techniques to remove outliers, ensuring the dataset was prepared for further analysis.  
+
+### Upcoming Lesson  
+In the next chapter, you'll focus on improving dataset quality by addressing missing data, an essential step for reliable and accurate analysis.  

@@ -5,10 +5,10 @@ mkdir -p ~/projects/sales_data_analysis_tool && cd ~/projects/sales_data_analysi
 sudo apt-get update && sudo apt-get install -y python3 python3-pip sqlite3 && pip3 install pandas matplotlib sqlalchemy
 
 # Create the Python script to set up the SQLite database
-echo "import sqlite3
+echo "import  ite3
 
 # Connect to the database (or create it)
-conn = sqlite3.connect('sales_data_analysis.db')
+conn =  ite3.connect('sales_data_analysis.db')
 cursor = conn.cursor()
 
 # Create a table
@@ -40,4 +40,4 @@ print('Database and table created with sample data.')
 " > create_database.py
 
 # Run the Python script to set up the SQLite database
-python3 create_database.py
+ 3 create_database.py

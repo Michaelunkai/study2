@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_gotify.sh
 # Description: Script to install Gotify on Ubuntu 22 WSL2

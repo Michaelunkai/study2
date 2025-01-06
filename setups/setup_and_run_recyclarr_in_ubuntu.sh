@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_recyclarr.sh
 # Description: Script to install Recyclarr on Ubuntu

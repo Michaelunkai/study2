@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_spoolman.sh
 # Description: Script to install Spoolman on Ubuntu
@@ -43,10 +43,10 @@ msg_ok "Dependencies installed"
 # Install Python3
 msg_info "Installing Python3"
 apt-get install -y \
-    python3-dev \
-    python3-setuptools \
-    python3-wheel \
-    python3-pip
+     3-dev \
+     3-setuptools \
+     3-wheel \
+     3-pip
 msg_ok "Python3 installed"
 
 # Install Spoolman

@@ -5,7 +5,7 @@ wsl --import ubuntu C:\wsl2\ubuntu\ C:\backup\linux\wsl\ubuntu.tar
 # Unregister ubuntu2
 wsl --unregister ubuntu2
 # Run setupWSL2ubuntureplica script
-Set-Location C:\study\shells\powershell\scripts
+Set-Location C:\study\shells\ \scripts
 .\setupWSL2ubuntureplica
 
 # Function to run commands in WSL
@@ -29,8 +29,8 @@ foreach ($alias in $aliasLines) {
 
 # Source bashrc files and sync them
 $wslCommands = @(
-    "source ~/.bashrc",
-    "source /root/.bashrc",
+    "source ~/. rc",
+    "source /root/. rc",
     "rsync -aP /root/.bashrc /mnt/c/backup/linux/wsl/alias.txt",
     "rsync -aP /root/.bashrc ~/.bashrc",
     "rsync -aP /root/.bashrc /mnt/c/study/shells/bash/.bashrc",
@@ -46,7 +46,7 @@ foreach ($cmd in $wslCommands) {
 wsl --export ubuntu C:\backup\linux\wsl\ubuntu.tar
 wsl --import ubuntu C:\wsl2\ubuntu\ C:\backup\linux\wsl\ubuntu.tar
 wsl --unregister ubuntu2
-Set-Location C:\study\shells\powershell\scripts
+Set-Location C:\study\shells\ \scripts
 .\setupWSL2ubuntureplica
 
 # Launch WSL Ubuntu

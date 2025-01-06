@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_omada_controller.sh
 # Description: Script to install TP-Link Omada Controller on Ubuntu

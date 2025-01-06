@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_notifiarr.sh
 # Description: Script to install Notifiarr on Ubuntu

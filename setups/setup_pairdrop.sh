@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_pairdrop.sh
 # Description: Script to install PairDrop on Debian-based systems

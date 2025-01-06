@@ -1,0 +1,57 @@
+Transcript
+1. Handling outliers
+00:00 - 00:03
+Let's look at how to handle outliers.
+
+2. What is an outlier?
+00:03 - 00:27
+To recap, an outlier is an observation that is far away from other data points. If a house prices dataset has a median of 400,000 dollars, a house that costs five million dollars would likely be considered an outlier. However, we should consider factors that affect price such as location, number of bedrooms, and overall size.
+
+1 Image credit: https://unsplash.com/@ralphkayden
+3. Using descriptive statistics
+00:27 - 00:40
+A starting place for identifying outliers is with the pandas dot-describe method. We can see that the maximum salary is more than four times the mean and median. Seems extreme right?
+
+4. Using the interquartile range
+00:40 - 00:52
+We can define an outlier mathematically. First, we need to know the interquartile range, or IQR, which is the difference between the 75th and 25th percentiles.
+
+5. IQR in box plots
+00:52 - 01:08
+Recall that these percentiles are included in box plots, like this one showing salaries of data professionals. The box contains percentiles, and observations considered to be outliers are represented as diamonds outside of the box.
+
+6. Using the interquartile range
+01:08 - 01:29
+Once we have the IQR, we can find an upper outlier by looking for values above the sum of the 75th percentile plus one-point-five times the IQR. Lower outliers have values below the sum of the 25th percentile minus one-point-five times the IQR.
+
+7. Identifying thresholds
+01:29 - 01:53
+We can calculate percentiles using the Series-dot-quantile method. We pass zero-point-seven-five to find the 75th percentile for salary, then pass zero-point-two-five to get the 25th percentile. We calculate the IQR by subtracting one from the other. Printing the result shows an IQR of around 76000 dollars.
+
+8. Identifying outliers
+01:53 - 02:10
+We can plug these variables into our formulae to find the value thresholds, first for the upper limit and then for the lower limit. Printing the results, we can see that the lower limit is actually below zero, which isn't possible given we are working with salaries!
+
+9. Subsetting our data
+02:10 - 02:41
+We can find values outside of these limits by subsetting our data. It will only return upper outliers, but for the purpose of demonstrating the syntax, we've also filtered for values below the lower threshold. We also subset to just show Experience, Employee_Location, and Salary_USD. There are nine individuals with a salary above the upper threshold. Notice how none of them are entry level and they are all based in the US?
+
+10. Why look for outliers?
+02:41 - 03:07
+So why is the detection of outliers an important part of exploratory data analysis? These are extreme values and may not accurately represent the data. Additionally, they can skew the mean and standard deviation. If we plan to perform statistical tests or build machine learning models, these will often require data that is normally distributed and not skewed!
+
+11. What to do about outliers?
+03:07 - 03:41
+Once we know we have outliers, we need to decide what to do. It's helpful to ask ourselves why these outliers exist. For example, salaries can be very high depending on level of experience and the country of employment, so could be representative of a subset of our data. If this is the case, we could just leave them alone. Alternatively, do we know the values are accurate? Could there have been an error in data collection? If there's an error, we could remove the values.
+
+12. Dropping outliers
+03:41 - 04:02
+We can remove outliers by modifying the syntax we used to subset our data, filtering for values more than the lower limit and less than the upper limit. Reprinting our descriptive statistics shows nine fewer values, a mean that is 5000 dollars less than before, and a much lower maximum salary!
+
+13. Distribution of salaries
+04:02 - 04:22
+To highlight the impact of removing outliers, let's plot a histogram of the original dataset containing the outliers. We see the distribution is right-skewed by the upper outliers. Plotting with the no_outliers dataset, salaries is now less skewed and looks more like a normal distribution!
+
+14. Let's practice!
+04:22 - 04:26
+Time for you to practice working with outliers!

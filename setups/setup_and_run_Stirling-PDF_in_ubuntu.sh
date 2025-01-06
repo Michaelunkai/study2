@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_stirlingpdf.sh
 # Description: Script to install Stirling-PDF on Ubuntu
@@ -59,12 +59,12 @@ msg_ok "LibreOffice Components installed"
 # Install Python dependencies
 msg_info "Installing Python Dependencies"
 apt-get install -y \
-    python3 \
-    python3-pip
-rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+     3 \
+     3-pip
+rm -rf /usr/lib/ 3.*/EXTERNALLY-MANAGED
 pip3 install \
     uno \
-    opencv-python-headless \
+    opencv- -headless \
     unoconv \
     pngquant \
     WeasyPrint
@@ -83,8 +83,8 @@ msg_ok "Azul Zulu JDK installed"
 msg_info "Installing JBIG2"
 git clone https://github.com/agl/jbig2enc /opt/jbig2enc
 cd /opt/jbig2enc
-bash ./autogen.sh
-bash ./configure
+  ./autogen.sh
+  ./configure
 make
 make install
 msg_ok "JBIG2 installed"

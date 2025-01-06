@@ -82,9 +82,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set Up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup- @v2
       with:
-        python-version: '3.x'
+         -version: '3.x'
 
     - name: Install Dependencies
       run: |

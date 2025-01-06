@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_sabnzbd.sh
 # Description: Script to install SABnzbd on Ubuntu
@@ -35,9 +35,9 @@ apt-get update && apt-get install -y \
     mc \
     par2 \
     p7zip-full \
-    python3-dev \
-    python3-pip \
-    python3-setuptools
+     3-dev \
+     3-pip \
+     3-setuptools
 cat <<EOF >/etc/apt/sources.list.d/non-free.list
 deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 EOF
@@ -47,7 +47,7 @@ msg_ok "Dependencies installed"
 
 # Update Python3
 msg_info "Updating Python3"
-rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+rm -rf /usr/lib/ 3.*/EXTERNALLY-MANAGED
 msg_ok "Python3 updated"
 
 # Install SABnzbd

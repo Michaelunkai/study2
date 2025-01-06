@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_kavita.sh
 # Description: Script to install Kavita on Ubuntu 22 WSL2

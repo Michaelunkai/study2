@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update package list and install Java Development Kit
 sudo apt-get update

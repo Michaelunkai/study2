@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_technitium_dns.sh
 # Description: Script to install Technitium DNS on Ubuntu

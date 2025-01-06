@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Updated for Ubuntu 22 WSL2
 # Original Author: tteck

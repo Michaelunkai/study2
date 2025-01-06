@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_whisparr.sh
 # Description: Script to install Whisparr on Ubuntu
@@ -34,7 +34,7 @@ apt-get install -y \
     curl \
     sudo \
     mc \
-    sqlite3
+     ite3
 msg_ok "Dependencies installed"
 
 # Install Whisparr

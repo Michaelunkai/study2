@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 mkdir -p sticky_note_app/templates sticky_note_app/static
 cd sticky_note_app
 
@@ -6,10 +6,10 @@ cat > app.py << EOL
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
-import sqlite3
+import  ite3
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///notes.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = " ite:///notes.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -21,7 +21,7 @@ def init_db():
     db_path = os.path.join(app.instance_path, "notes.db")
     if not os.path.exists(os.path.dirname(db_path)):
         os.makedirs(os.path.dirname(db_path))
-    conn = sqlite3.connect(db_path)
+    conn =  ite3.connect(db_path)
     conn.execute("CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, content TEXT NOT NULL)")
     conn.close()
 

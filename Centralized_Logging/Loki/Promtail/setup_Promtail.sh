@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Variables
 PROMTAIL_VERSION="2.10.0"
@@ -6,7 +6,7 @@ PROMTAIL_BINARY="promtail-linux-amd64"
 PROMTAIL_ZIP="${PROMTAIL_BINARY}.zip"
 PROMTAIL_URL="https://github.com/grafana/loki/releases/download/v${PROMTAIL_VERSION}/${PROMTAIL_ZIP}"
 PROMTAIL_DEST="/usr/local/bin/promtail"
-CONFIG_FILE="/etc/promtail-config.yaml"
+CONFIG_FILE="/etc/promtail-config. "
 SERVICE_FILE="/etc/systemd/system/promtail.service"
 LOKI_URL="http://localhost:3100/loki/api/v1/push"  # Adjust this URL as per your Loki server.
 
@@ -31,7 +31,7 @@ server:
   grpc_listen_port: 0
 
 positions:
-  filename: /tmp/positions.yaml
+  filename: /tmp/positions. 
 
 clients:
   - url: "${LOKI_URL}"

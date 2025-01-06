@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_nzbget.sh
 # Description: Script to install NZBGet on Debian-based systems

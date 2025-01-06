@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_iobroker.sh
 # Description: Script to install and configure ioBroker on Ubuntu 22 WSL2

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_traccar.sh
 # Description: Script to install Traccar on Ubuntu

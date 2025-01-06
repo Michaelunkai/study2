@@ -1,0 +1,1 @@
+Invoke-WebRequest "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile "$env:TEMP\chrome_installer.exe"; Start-Process -FilePath "$env:TEMP\chrome_installer.exe" -Wait; Remove-Item "$env:TEMP\chrome_installer.exe"

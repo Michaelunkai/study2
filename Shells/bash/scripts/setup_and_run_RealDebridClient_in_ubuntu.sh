@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_rdtclient.sh
 # Description: Script to install RdtClient on Ubuntu

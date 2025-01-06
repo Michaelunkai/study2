@@ -1,0 +1,7 @@
+A script designed to allow for the creation of one of the many free LXC templates. Great for creating system LXCs.
+The script creates a *.creds file in the Proxmox root directory with the password of the newly created LXC.
+Please take note that if you plan to use this script for creating TurnKey LXCs, you'll need to modify the hostname after creation.
+
+To create a new Proxmox VE Template LXC, run the command below in the Proxmox VE Shell.
+
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/all-templates.sh)"

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_thelounge.sh
 # Description: Script to install The Lounge on Ubuntu

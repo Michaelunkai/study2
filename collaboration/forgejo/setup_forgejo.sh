@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Script for installing Forgejo on Ubuntu 22 WSL2
 # Updated and streamlined for WSL2 by ChatGPT

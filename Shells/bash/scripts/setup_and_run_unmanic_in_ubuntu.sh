@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_unmanic.sh
 # Description: Script to install Unmanic on Ubuntu
@@ -35,7 +35,7 @@ apt-get install -y \
     sudo \
     mc \
     ffmpeg \
-    python3-pip
+     3-pip
 msg_ok "Dependencies installed"
 
 # Set up hardware acceleration if needed

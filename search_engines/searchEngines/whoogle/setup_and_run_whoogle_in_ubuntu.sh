@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_whoogle.sh
 # Description: Script to install Whoogle Search on Ubuntu
@@ -39,10 +39,10 @@ msg_ok "Dependencies installed"
 # Update Python3
 msg_info "Updating Python3"
 apt-get install -y \
-    python3 \
-    python3-dev \
-    python3-pip
-rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
+     3 \
+     3-dev \
+     3-pip
+rm -rf /usr/lib/ 3.*/EXTERNALLY-MANAGED
 msg_ok "Python3 updated"
 
 # Install Whoogle

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_lazylibrarian.sh
 # Description: Script to install LazyLibrarian on Ubuntu 22 WSL2
@@ -54,7 +54,7 @@ After=syslog.target network.target
 [Service]
 UMask=0002
 Type=simple
-ExecStart=/usr/bin/python3 /opt/LazyLibrarian/LazyLibrarian.py
+ExecStart=/usr/bin/ 3 /opt/LazyLibrarian/LazyLibrarian.py
 TimeoutStopSec=20
 KillMode=process
 Restart=on-failure
@@ -86,7 +86,7 @@ echo ""
 echo "### Additional Commands:"
 echo "To organize your LazyLibrarian-related files, create and navigate into a directory named 'lazylibrarian' by running the following commands:"
 echo ""
-echo "```bash"
+echo "  "
 echo "mkdir lazylibrarian && cd lazylibrarian"
-echo "```"
+echo " "
 echo ""

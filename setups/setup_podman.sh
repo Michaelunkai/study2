@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_podman.sh
 # Description: Script to install and configure Podman on Ubuntu

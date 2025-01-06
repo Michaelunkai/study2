@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_overseerr.sh
 # Description: Script to install Overseerr on Debian-based systems

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_vikunja.sh
 # Description: Script to install Vikunja on Ubuntu

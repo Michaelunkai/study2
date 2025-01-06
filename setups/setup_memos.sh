@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_memos.sh
 # Description: Script to install Memos on Ubuntu

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_ipfs.sh
 # Description: Script to install IPFS on Ubuntu 22 WSL2
@@ -90,7 +90,7 @@ echo ""
 echo "### Additional Commands:"
 echo "To organize your IPFS-related files, create and navigate into a directory named 'ipfs' by running the following commands:"
 echo ""
-echo "```bash"
+echo "  "
 echo "mkdir ipfs && cd ipfs"
-echo "```"
+echo " "
 echo ""

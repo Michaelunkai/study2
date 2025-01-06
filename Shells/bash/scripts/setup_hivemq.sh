@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_hivemq.sh
 # Description: Script to install HiveMQ CE on Ubuntu 22 WSL2

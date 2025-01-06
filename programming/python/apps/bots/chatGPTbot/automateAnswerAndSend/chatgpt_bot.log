@@ -256,3 +256,212 @@ Stacktrace:
 #16 0x7f6933283ac3 <unknown>
 
 2025-01-01 11:52:20,643 - WARNING - Retry attempt 1/3
+2025-01-02 15:05:07,677 - INFO - ====== WebDriver manager ======
+2025-01-02 15:05:07,828 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 15:05:08,706 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 15:05:09,533 - INFO - There is no [linux64] chromedriver "131.0.6778.204" for browser google-chrome "131.0.6778" in cache
+2025-01-02 15:05:09,534 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 15:05:11,603 - INFO - WebDriver version 131.0.6778.204 selected
+2025-01-02 15:05:11,608 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-02 15:05:11,608 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-02 15:05:12,688 - INFO - Driver downloading response is 200
+2025-01-02 15:05:14,011 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 15:05:14,727 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204]
+2025-01-02 15:05:14,753 - INFO - patching driver executable /root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver
+2025-01-02 15:05:20,969 - INFO - Browser started successfully
+2025-01-02 15:05:23,613 - INFO - Page loaded: ChatGPT
+2025-01-02 15:08:50,852 - INFO - Message sent: next
+2025-01-02 15:08:52,245 - INFO - Message sent: next
+2025-01-02 15:09:28,751 - INFO - Message sent: next
+2025-01-02 15:10:05,513 - INFO - Message sent: next
+2025-01-02 15:10:41,995 - INFO - Message sent: next
+2025-01-02 15:11:18,927 - INFO - Message sent: next
+2025-01-02 15:11:55,294 - INFO - Message sent: next
+2025-01-02 15:12:31,696 - INFO - Message sent: next
+2025-01-02 15:13:08,626 - INFO - Message sent: next
+2025-01-02 15:13:45,515 - INFO - Message sent: next
+2025-01-02 15:14:21,943 - INFO - Message sent: next
+2025-01-02 15:14:57,007 - INFO - Refreshing page...
+2025-01-02 15:15:04,676 - INFO - Message sent: next
+2025-01-02 15:15:41,477 - INFO - Message sent: next
+2025-01-02 15:16:18,322 - INFO - Message sent: next
+2025-01-02 15:16:54,759 - INFO - Message sent: next
+2025-01-02 15:17:31,403 - INFO - Message sent: next
+2025-01-02 15:18:08,196 - INFO - Message sent: next
+2025-01-02 15:18:44,579 - INFO - Message sent: next
+2025-01-02 15:19:21,324 - INFO - Message sent: next
+2025-01-02 15:19:57,942 - INFO - Message sent: next
+2025-01-02 15:20:34,760 - INFO - Message sent: next
+2025-01-02 15:21:09,820 - INFO - Refreshing page...
+2025-01-02 15:21:18,873 - INFO - Message sent: next
+2025-01-02 15:21:55,879 - INFO - Message sent: next
+2025-01-02 15:22:32,616 - INFO - Message sent: next
+2025-01-02 15:23:11,589 - INFO - Message sent: next
+2025-01-02 15:23:48,472 - INFO - Message sent: next
+2025-01-02 15:24:25,269 - INFO - Message sent: next
+2025-01-02 15:25:13,401 - ERROR - Error waiting for element prompt-textarea: 'NoneType' object has no attribute 'is_displayed'
+2025-01-02 15:25:13,429 - ERROR - Error waiting for element div[contenteditable='true'].ProseMirror: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.139)
+Stacktrace:
+#0 0x559ff52508fa <unknown>
+#1 0x559ff4d61d20 <unknown>
+#2 0x559ff4d379cf <unknown>
+#3 0x559ff4ddcf2d <unknown>
+#4 0x559ff4df2f1c <unknown>
+#5 0x559ff4dd4893 <unknown>
+#6 0x559ff4da330d <unknown>
+#7 0x559ff4da432e <unknown>
+#8 0x559ff521d00b <unknown>
+#9 0x559ff5220f97 <unknown>
+#10 0x559ff520971c <unknown>
+#11 0x559ff5221b17 <unknown>
+#12 0x559ff51ee6cf <unknown>
+#13 0x559ff523f6b8 <unknown>
+#14 0x559ff523f880 <unknown>
+#15 0x559ff524f776 <unknown>
+#16 0x7fd1d5e3aac3 <unknown>
+
+2025-01-02 15:25:13,434 - WARNING - Retry attempt 1/3
+2025-01-02 16:12:02,586 - INFO - ====== WebDriver manager ======
+2025-01-02 16:12:02,859 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 16:12:05,056 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 16:12:06,138 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver] found in cache
+2025-01-02 16:12:11,268 - INFO - Browser started successfully
+2025-01-02 16:12:15,177 - INFO - Page loaded: user-agent=mozilla
+2025-01-02 16:13:40,895 - INFO - Message sent: next
+2025-01-02 16:13:42,300 - INFO - Message sent: next
+2025-01-02 16:14:19,553 - INFO - Message sent: next
+2025-01-02 16:14:57,467 - INFO - Message sent: next
+2025-01-02 16:15:34,545 - INFO - Message sent: next
+2025-01-02 16:16:11,450 - INFO - Message sent: next
+2025-01-02 16:16:48,710 - INFO - Message sent: next
+2025-01-02 16:17:25,627 - INFO - Message sent: next
+2025-01-02 16:18:03,025 - INFO - Message sent: next
+2025-01-02 16:18:39,664 - INFO - Message sent: next
+2025-01-02 16:19:17,865 - INFO - Message sent: next
+2025-01-02 16:19:17,907 - ERROR - Error waiting for response: 'NoneType' object has no attribute 'is_enabled'
+2025-01-02 16:19:17,907 - WARNING - Retry attempt 1/3
+2025-01-02 16:19:22,925 - ERROR - Error waiting for element prompt-textarea: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.139)
+Stacktrace:
+#0 0x55fc593fb8fa <unknown>
+#1 0x55fc58f0cd20 <unknown>
+#2 0x55fc58ee29cf <unknown>
+#3 0x55fc58f87f2d <unknown>
+#4 0x55fc58f9df1c <unknown>
+#5 0x55fc58f7f893 <unknown>
+#6 0x55fc58f4e30d <unknown>
+#7 0x55fc58f4f32e <unknown>
+#8 0x55fc593c800b <unknown>
+#9 0x55fc593cbf97 <unknown>
+#10 0x55fc593b471c <unknown>
+#11 0x55fc593ccb17 <unknown>
+#12 0x55fc593996cf <unknown>
+#13 0x55fc593ea6b8 <unknown>
+#14 0x55fc593ea880 <unknown>
+#15 0x55fc593fa776 <unknown>
+#16 0x7f5039650ac3 <unknown>
+
+2025-01-02 16:19:22,940 - ERROR - Error waiting for element div[contenteditable='true'].ProseMirror: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.139)
+Stacktrace:
+#0 0x55fc593fb8fa <unknown>
+#1 0x55fc58f0cd20 <unknown>
+#2 0x55fc58ee29cf <unknown>
+#3 0x55fc58f87f2d <unknown>
+#4 0x55fc58f9df1c <unknown>
+#5 0x55fc58f7f893 <unknown>
+#6 0x55fc58f4e30d <unknown>
+#7 0x55fc58f4f32e <unknown>
+#8 0x55fc593c800b <unknown>
+#9 0x55fc593cbf97 <unknown>
+#10 0x55fc593b471c <unknown>
+#11 0x55fc593ccb17 <unknown>
+#12 0x55fc593996cf <unknown>
+#13 0x55fc593ea6b8 <unknown>
+#14 0x55fc593ea880 <unknown>
+#15 0x55fc593fa776 <unknown>
+#16 0x7f5039650ac3 <unknown>
+
+2025-01-02 16:19:22,941 - WARNING - Retry attempt 2/3
+2025-01-02 16:23:10,645 - INFO - ====== WebDriver manager ======
+2025-01-02 16:23:10,798 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 16:23:12,228 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-02 16:23:14,946 - INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver] found in cache
+2025-01-02 16:23:16,913 - INFO - Browser started successfully
+2025-01-02 16:23:19,306 - INFO - Page loaded: ChatGPT
+2025-01-02 16:23:56,996 - INFO - Message sent: next
+2025-01-02 16:23:58,458 - INFO - Message sent: next
+2025-01-02 16:24:35,070 - INFO - Message sent: next
+2025-01-02 16:25:11,473 - INFO - Message sent: next
+2025-01-02 16:25:48,147 - INFO - Message sent: next
+2025-01-02 16:26:24,513 - INFO - Message sent: next
+2025-01-02 16:27:01,188 - INFO - Message sent: next
+2025-01-02 16:27:37,614 - INFO - Message sent: next
+2025-01-02 16:28:14,293 - INFO - Message sent: next
+2025-01-02 16:28:50,835 - INFO - Message sent: next
+2025-01-02 16:29:27,644 - INFO - Message sent: next
+2025-01-02 16:30:02,708 - INFO - Refreshing page...
+2025-01-02 16:30:11,119 - INFO - Message sent: next
+2025-01-02 16:30:47,500 - INFO - Message sent: next
+2025-01-02 16:31:23,879 - INFO - Message sent: next
+2025-01-02 16:32:00,255 - INFO - Message sent: next
+2025-01-02 16:32:36,601 - INFO - Message sent: next
+2025-01-02 16:33:12,974 - INFO - Message sent: next
+2025-01-02 16:33:49,351 - INFO - Message sent: next
+2025-01-02 16:34:25,731 - INFO - Message sent: next
+2025-01-02 16:35:02,111 - INFO - Message sent: next
+2025-01-02 16:35:38,500 - INFO - Message sent: next
+2025-01-02 16:36:13,563 - INFO - Refreshing page...
+2025-01-02 16:36:21,683 - INFO - Message sent: next
+2025-01-02 16:36:58,172 - INFO - Message sent: next
+2025-01-02 16:37:34,639 - INFO - Message sent: next
+2025-01-02 16:38:11,245 - INFO - Message sent: next
+2025-01-02 16:38:48,202 - INFO - Message sent: next
+2025-01-02 16:39:24,788 - INFO - Message sent: next
+2025-01-02 16:40:01,626 - INFO - Message sent: next
+2025-01-02 16:40:38,245 - INFO - Message sent: next
+2025-01-02 16:41:15,137 - INFO - Message sent: next
+2025-01-02 16:41:52,135 - INFO - Message sent: next
+2025-01-02 16:42:27,202 - INFO - Refreshing page...
+2025-01-02 16:42:35,313 - INFO - Message sent: next
+2025-01-02 16:43:12,308 - INFO - Message sent: next
+2025-01-02 16:43:48,925 - INFO - Message sent: next
+2025-01-02 16:44:26,058 - INFO - Message sent: next
+2025-01-02 16:45:03,357 - INFO - Message sent: next
+2025-01-02 16:45:40,492 - INFO - Message sent: next
+2025-01-02 16:46:17,363 - INFO - Message sent: next
+2025-01-02 16:46:54,870 - INFO - Message sent: next
+2025-01-02 16:47:31,993 - INFO - Message sent: next
+2025-01-02 16:48:09,439 - INFO - Message sent: next
+2025-01-02 16:48:44,507 - INFO - Refreshing page...
+2025-01-02 16:48:53,104 - INFO - Message sent: next
+2025-01-02 16:49:29,772 - INFO - Message sent: next
+2025-01-02 16:50:07,109 - INFO - Message sent: next
+2025-01-02 16:50:44,928 - INFO - Message sent: next
+2025-01-02 16:51:22,360 - INFO - Message sent: next
+2025-01-02 16:51:59,350 - INFO - Message sent: next
+2025-01-02 16:52:36,606 - INFO - Message sent: next
+2025-01-02 16:53:13,932 - INFO - Message sent: next
+2025-01-02 16:53:51,373 - INFO - Message sent: next
+2025-01-02 16:54:28,529 - INFO - Message sent: next
+2025-01-02 16:55:03,593 - INFO - Refreshing page...
+2025-01-02 16:55:13,787 - INFO - Message sent: next
+2025-01-02 16:55:50,722 - INFO - Message sent: next
+2025-01-02 16:56:28,257 - INFO - Message sent: next
+2025-01-02 16:57:05,460 - INFO - Message sent: next
+2025-01-02 16:57:42,932 - INFO - Message sent: next
+2025-01-02 16:58:20,300 - INFO - Message sent: next
+2025-01-02 16:58:57,547 - INFO - Message sent: next
+2025-01-02 16:59:35,152 - INFO - Message sent: next
+2025-01-02 17:00:13,515 - INFO - Message sent: next
+2025-01-02 17:00:51,329 - INFO - Message sent: next
+2025-01-02 17:01:26,390 - INFO - Refreshing page...
+2025-01-02 17:01:35,354 - INFO - Message sent: next
+2025-01-02 17:02:13,892 - INFO - Message sent: next
+2025-01-02 17:02:50,312 - INFO - Message sent: next
+2025-01-02 17:03:27,824 - INFO - Message sent: next
+2025-01-02 17:04:05,138 - INFO - Message sent: next

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_umami.sh
 # Description: Script to install Umami on Ubuntu
@@ -36,7 +36,7 @@ apt-get install -y \
     mc \
     git \
     gpg \
-    postgresql
+    postgre 
 msg_ok "Dependencies installed"
 
 # Set up Node.js repository
@@ -81,7 +81,7 @@ git clone -q https://github.com/umami-software/umami.git /opt/umami
 cd /opt/umami
 yarn install
 cat <<EOF > /opt/umami/.env
-DATABASE_URL=postgresql://$DB_USER:$DB_PASS@localhost:5432/$DB_NAME
+DATABASE_URL=postgre ://$DB_USER:$DB_PASS@localhost:5432/$DB_NAME
 EOF
 yarn run build
 msg_ok "Umami installed"

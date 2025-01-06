@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_transmission.sh
 # Description: Script to install Transmission on Ubuntu

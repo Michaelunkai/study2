@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_unbound.sh
 # Description: Script to install and configure Unbound on Ubuntu

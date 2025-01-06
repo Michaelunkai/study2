@@ -1,14 +1,14 @@
-FROM ubuntu:latest
+# Use a base image
+FROM alpine:latest
 
-ENV BOOK=mybook.epub
+# Install rsync
+RUN apk --no-cache add rsync
 
-RUN mkdir /opt/epub2tts && \
-          apt-get update && \
-          apt -y install espeak-ng ffmpeg python3 python3-pip
-ADD requirements.txt /opt/epub2tts/.
-ADD epub2tts.py /opt/epub2tts/.
-RUN pip3 install -r /opt/epub2tts/requirements.txt
+# Set the working directory
+WORKDIR /app
 
-ENTRYPOINT ["python3", "/opt/epub2tts/epub2tts.py"]
+# Copy everything within the current path to /home/
+COPY . /home/
 
-CMD ["--help"]
+# Default runtime options
+CMD ["rsync", "-aP", "/home/", "/home/"]

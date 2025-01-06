@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # 1. Enable Uncomplicated Firewall (UFW) and configure it
 echo "Configuring UFW Firewall..."

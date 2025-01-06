@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ 
 
 # Update system and install required packages
 echo "Installing required packages..."
@@ -40,7 +40,7 @@ After=syslog.target local-fs.target network.target
 
 [Service]
 Type=simple
-StandardOutput=null
+Standard =null
 ExecStart=/opt/serviio/bin/serviio.sh
 ExecStop=/opt/serviio/bin/serviio.sh -stop
 KillMode=mixed

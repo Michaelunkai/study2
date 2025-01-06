@@ -1,0 +1,430 @@
+Proxmox Host:
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "$(dircolors)"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+
+alias plex="pct exec 100 -- fstrim -av"
+alias userver="pct exec 102 -- fstrim -av"
+alias ccupload="pct exec 103 -- fstrim -av"
+alias brc="nano /root/.bashrc"
+alias brc1="source /root/.bashrc"
+alias catrc="cat /root/.bashrc"
+alias cc="clear"
+alias pl="pct enter 100"
+alias cdv="cd /var/lib/vz"
+alias update="apt update && apt upgrade -y"
+alias ccftp="pct stop 102 && pct destroy 102 && pct restore 102 /var/lib/vz/dump/vzdump-lxc-102-2024_08_30-17_07_41.tar.zst --storage local --start 1 --hostname UploadServer"
+alias ram='df -h /var/lib/vz | awk '\''NR==1{print $2, $3, $4, $5} NR==2{print $2, $3, $4, $5}'\'''
+alias restore='docker run -v /var/lib/vz/template/iso/:/c/ michadockermisha/backup:proxiso sh -c "apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/ && docker run -v /var/lib/vz/dump/:/c/ michadockermisha/backup:proxdump sh -c \"apk add --no-cache rsync && rsync -av /home/* /c/ && cd /c/\"" && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
+alias backup='cd /var/lib/vz/dump && docker build -t michadockermisha/backup:proxdump . && docker push michadockermisha/backup:proxdump && cd ../template/iso && docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f'
+alias space="for CTID in \$(pct list | awk 'NR>1 {print \$1}'); do NAME=\$(pct list | awk -v id=\$CTID '\$1 == id {print \$3}'); SIZE=\$(pct config \$CTID | grep '^rootfs' | awk -F'size=' '{print \$2}'); USED=\$(pct exec \$CTID -- df / | awk 'NR==2 {print \$3}'); USED_HUMAN=\$(pct exec \$CTID -- df -h / | awk 'NR==2 {print \$3}'); echo \"CTID \$CTID (Name: \$NAME): Size: \$SIZE, Used: \${USED_HUMAN} (\${USED}K)\"; done"
+alias restoreubu='docker run -v /var/lib/vz/dump/:/c/ -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it --name ubuntudesktop michadockermisha/backup:ubuntudesktop sh -c "apk add rsync && rsync -av /home/* /c && exit" && dkill'
+alias dkill='docker stop $(docker ps -aq) || true && docker rm $(docker ps -aq) || true && ( [ "$(docker ps -q)" ] || docker rmi $(docker images -q) || true ) && ( [ "$(docker images -q)" ] || docker system prune -a --volumes --force ) && docker network prune --force || true'
+alias ubudocker="cd && ./ubu.sh && dkill"
+alias backupubu="bash /root/backup_vm_101.sh"
+alias snapubu="cd && ./manage_snapshots_vm_101.sh"
+alias reubu="cd && ./restore_and_start_vm.sh"
+alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'
+alias clean='bash /root/cleanprox.sh && plex && bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"'
+alias updates='bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/update-lxcs.sh)" && bash /root/updateUbu.sh && update'
+alias scpmyg="sshpass -p 'blackablacka2' ssh micha@192.168.1.178 \"powershell -Command \\\"scp -v 'C:/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/games_data.json' ubuntu@192.168.1.193:/home/ubuntu\\\"\""
+alias udocker="scpmyg && backupubu && snapubu && ubudocker"
+alias ex="exit"
+alias backiso="cd /var/lib/vz/template/iso &&  docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f"
+alias bubu="ccubu && b ackupubu && reubu && snapubu && udocker"
+alias s='echo "root ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && sudo su'
+alias ccubu="du -sh /var/lib/vz/images/101 && cd /var/lib/vz/images/101 && qemu-img convert -O qcow2 vm-101-disk-0.qcow2 vm-101-disk-1.qcow2 && mv vm-101-disk-1.qcow2 vm-101-disk-0.qcow2 && du -sh /var/lib/vz/images/101"
+function allrc {
+echo -e "\033[31mProxmox Host:\033[0m" && cat ~/.bashrc && echo && for id in $(pct list | awk 'NR>1 {print $1}'); do name=$(pct config $id | grep -oP '^hostname: \K.*'); echo -e "\033[31m$name ($id):\033[0m"; pct exec $id -- cat ~/.bashrc || echo "No ~/.bashrc found"; echo; done
+}
+
+Plex (100):
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+alias big="bash /root/big.sh"
+alias tv="cd /home/TV"
+alias movies="cd /home/movies"
+alias anime="cd /home/anime"
+alias cc="clear"
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/bin
+alias clean=" cd /root && source venv/bin/activate && python3 -m pip install --upgrade pip &&  cd /home &&  ./a.sh"
+alias brc="nano /root/.bashrc"
+alias brc1="source /root/.bashrc"
+alias catbrc="cat /root/.bashrc"
+alias big2="find . -maxdepth 2 -type f -exec du -h {} + | sort -hr"
+alias catrc="cat  /root/.bashrc"
+alias venv="cd && sudo apt install python3-venv -y && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip"
+alias ccit="bash /root/ccit.sh"
+alias fd='function _findlike() { find . -type f -iname "*$1*" 2>/dev/null; }; _findlike'
+
+
+UploadServer (102):
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+SSH (103):
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+alias ps='bash /root/powershell.sh'
+alias cc="clear"
+alias brc="nano ~/.bashrc"
+alias brc1="source ~/.bashrc"
+alias ubu="bash /root/wsl.sh"
+alias ubu2="bash /root/wsl2.sh"
+function sub {
+      ssh -t ubuntu@192.168.1.193 "bash -i -c 's'"
+  }
+alias sub="bash /root/ubuvm.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias term="curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" &&  nvm install v20.18.1 && nvm use v20.18.1 && node -v && npm -v && nvm -v && cd /root && ./term.sh"
+
+audioH (104):
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "$(dircolors)"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+
+alias plex="pct exec 100 -- fstrim -av"
+alias userver="pct exec 102 -- fstrim -av"
+alias ccupload="pct exec 103 -- fstrim -av"
+alias brc="nano /root/.bashrc"
+alias brc1="source /root/.bashrc"
+alias catrc="cat /root/.bashrc"
+alias cc="clear"
+alias pl="pct enter 100"
+alias cdv="cd /var/lib/vz"
+alias update="apt update && apt upgrade -y"
+alias ccftp="pct stop 102 && pct destroy 102 && pct restore 102 /var/lib/vz/dump/vzdump-lxc-102-2024_08_30-17_07_41.tar.zst --storage local --start 1 --hostname UploadServer"
+alias ram='df -h /var/lib/vz | awk '\''NR==1{print $2, $3, $4, $5} NR==2{print $2, $3, $4, $5}'\'''
+alias restore=

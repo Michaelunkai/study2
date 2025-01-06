@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_shinobi.sh
 # Description: Script to install Shinobi CCTV on Ubuntu
@@ -73,12 +73,12 @@ msg_ok "Shinobi cloned"
 
 # Install MariaDB and configure database
 msg_info "Installing and configuring MariaDB"
-sqluser="root"
-sqlpass="root"
+ user="root"
+ pass="root"
 echo "mariadb-server mariadb-server/root_password password $sqlpass" | debconf-set-selections
 echo "mariadb-server mariadb-server/root_password_again password $sqlpass" | debconf-set-selections
 apt-get install -y mariadb-server
-service mysql start
+service my  start
 mysql -u "$sqluser" -p"$sqlpass" -e "source sql/user.sql" || true
 msg_ok "MariaDB installed and configured"
 

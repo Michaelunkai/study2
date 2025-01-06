@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  
 
 # Name: setup_onedev.sh
 # Description: Script to install OneDev on Debian-based systems
