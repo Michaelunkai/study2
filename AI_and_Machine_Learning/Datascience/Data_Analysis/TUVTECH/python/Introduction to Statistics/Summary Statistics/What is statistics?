@@ -1,0 +1,55 @@
+Transcript
+1. What is statistics?
+00:00 - 00:08
+Hi, and welcome! My name is George, and I'll be your host as we discover the core concepts of statistics!
+
+2. What is statistics?
+00:08 - 00:39
+So what is statistics? The field of statistics is the practice and study of collecting and analyzing data. Statistics has two main branches. Descriptive or summary statistics are used to describe or summarize our data, while inferential statistics involve using samples to draw conclusions about the population they represent. We will discuss both in more detail, but first let's look at why statistics is so important!
+
+3. Statistics is everywhere!
+00:39 - 00:51
+We interact with statistics everyday. From sports announcers talking about player statistics, to tracking our personal finances, we are all in-tune with statistics.
+
+1 Image credits: https://unsplash.com/@jesusance; https://unsplash.com/@andretaissin; https://unsplash.com/@unarchive
+4. What can statistics do?
+00:51 - 01:28
+Statistics allows us to answer practical questions, such as: What is the average salary in the USA, or how many customer inquiries is a company likely to receive per week? It also has applications across society. We can use statistics to improve the safety of products or to help a government understand the needs of a population. Scientific breakthroughs are validated through the use of statistics, including the conclusion that Covid-19 vaccines were 89% effective in preventing severe disease in older adults in the United Kingdom.
+
+1 source: https://www.bmj.com/content/373/bmj.n1088
+5. Limitations of statistics
+01:28 - 02:01
+So far so good, but statistics does have its limitations. Statistics requires specific, measurable questions, rather than broad, open questions. For example, statistics can tell us if rock music is more popular than jazz, based on total sales, or whether women live longer than men. However, we can't use statistics to find out why relationships exist, such as why people like different types of music, or why women live longer than men.
+
+1 Image credit: https://unsplash.com/@mohammadmetri
+6. Types of data: numeric
+02:01 - 02:34
+Now we know what statistics can and can't do, let's define the common data types, which is important for determining how we can analyze our data. First, we have numeric, or quantitative data. This can be broken into two subtypes. Continuous data is measured on a continuous scale, taking any value, such as stock price. We also have interval, or count data. These are measured in whole numbers, such as counting how many cups of coffee people drink per day.
+
+1 Image credits: Stocks https://unsplash.com/@behy_studio
+7. Visualizing numeric data
+02:34 - 03:05
+A common way of visualizing the relationship between numeric data is to use a scatter plot. Here we have visualized the number of thefts in London, England, on the y-axis, against the number of vehicle offenses on the x-axis, where each dot represents a London borough and the amount of crime occurring determines the position. We see one borough has many more thefts than the rest, around 40000 in total, but can't identify which borough this is.
+
+1 Data source: Metropolitan Police Service, United Kingdom
+8. Types of data: categorical
+03:05 - 03:37
+Another data type is categorical, or qualitative data. There are two subtypes. First is nominal data, which describes unordered categories such as eye color. The second categorical data type is ordinal data, where the categories are ordered. For example, a survey may ask people's opinion on whether basketball is the best sport, with answers ranging from strongly disagree to strongly agree.
+
+1 Image credit: https://unsplash.com/@mango_quan
+9. Visualizing categorical data
+03:37 - 04:04
+We can visualize the relationship between categorical and numeric data by grouping the values, then performing some kind of aggregation. We can group our crimes data by London borough, which is nominal data, and display the number of thefts, which is interval data, for each borough. This is a great way to compare different categories. We can now see that Westminster is the borough with a high volume of theft!
+
+10. Descriptive / Summary statistics
+04:04 - 04:29
+Now we've looked at data types and common ways to visualize them, let's return to the two main branches of statistics. Descriptive, or summary statistics, are used to describe or summarize data. Using our data on London crime as an example, we can describe that thefts in Westminster account for around 36% of all thefts in the five boroughs shown here!
+
+11. Inferential statistics
+04:29 - 04:53
+By contrast, inferential statistics is the process of using a sample to draw conclusions about a population. For example, we can survey 100 people on whether they purchase clothing after seeing social media advertising, and use this sample to infer what percentage of all people purchase clothing as a result of social media advertising.
+
+1 source: https://unsplash.com/@pickawood
+12. Let's practice!
+04:53 - 04:58
+Now let's check our understanding of statistics!

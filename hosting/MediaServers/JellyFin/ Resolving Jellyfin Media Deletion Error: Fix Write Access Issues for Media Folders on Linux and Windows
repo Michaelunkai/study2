@@ -1,0 +1,104 @@
+### **Comprehensive Guide to Resolving Jellyfin Media Deletion Error: Fix Write Access Issues for Media Folders on Linux and Windows**
+
+---
+
+### **Step 1: Verify Folder Permissions for Jellyfin Media Directory**
+
+#### For Linux:
+1. **Check the owner and permissions of the media folder:**
+   Run the following command to see who owns the folder and its current permissions:
+   ```bash
+   ls -ld /path/to/your/media/folder
+   ```
+
+2. **Assign ownership of the folder to the Jellyfin user:**
+   Replace `/path/to/your/media/folder` with the actual path of your media folder. The Jellyfin process usually runs as the `jellyfin` user:
+   ```bash
+   sudo chown -R jellyfin:jellyfin /path/to/your/media/folder
+   ```
+
+3. **Set proper permissions for the folder:**
+   Ensure the Jellyfin user has read, write, and execute access:
+   ```bash
+   sudo chmod -R 775 /path/to/your/media/folder
+   ```
+
+#### For Windows:
+1. **Locate the media folder:**
+   Navigate to the folder containing the media you want Jellyfin to access.
+
+2. **Edit permissions:**
+   - Right-click the folder and select **Properties**.
+   - Go to the **Security** tab and click **Edit**.
+   - Add or select the account running Jellyfin (or use `Everyone` if unsure) and give it **Full Control** permissions.
+
+3. **Apply changes:**
+   Save the changes and ensure the Jellyfin server can access the folder.
+
+---
+
+### **Step 2: Verify and Update Media Folder Configuration in Jellyfin**
+
+1. **Access the Jellyfin dashboard:**
+   Open your web browser and go to the Jellyfin interface (default is `http://<your-server-ip>:8096`).
+
+2. **Navigate to Libraries:**
+   - Go to **Dashboard** → **Libraries**.
+   - Check the folder paths linked to your media libraries.
+
+3. **Update folder paths if necessary:**
+   If the folder path is incorrect or inaccessible, update it to the correct location.
+
+---
+
+### **Step 3: Restart the Jellyfin Server to Apply Changes**
+
+#### For Linux:
+1. Restart the Jellyfin service using the command:
+   ```bash
+   sudo systemctl restart jellyfin
+   ```
+
+2. Confirm the service is running:
+   ```bash
+   sudo systemctl status jellyfin
+   ```
+
+#### For Windows:
+1. Open the **Services** application:
+   - Press `Win + R`, type `services.msc`, and press Enter.
+
+2. Restart the Jellyfin service:
+   - Locate **Jellyfin** in the list, right-click it, and select **Restart**.
+
+---
+
+### **Step 4: Test Media Deletion Functionality in Jellyfin**
+
+1. Return to the Jellyfin web interface.
+2. Attempt to delete a media item from your library.
+3. Confirm that the error is resolved.
+
+---
+
+### **Step 5: Inspect Jellyfin Logs if the Issue Persists**
+
+#### For Linux:
+1. Check the Jellyfin logs for detailed error messages:
+   ```bash
+   less /var/lib/jellyfin/logs/jellyfin.log
+   ```
+
+2. Look for errors related to permissions or file access.
+
+#### For Windows:
+1. Navigate to the Jellyfin logs directory:
+   ```
+   C:\ProgramData\Jellyfin\Server\logs\
+   ```
+
+2. Open the latest log file in a text editor and review errors.
+
+---
+
+By following this guide, you can resolve the "error deleting the item" issue in Jellyfin by ensuring proper folder permissions, updating configuration, and verifying server functionality. This process applies to both Linux and Windows setups.
