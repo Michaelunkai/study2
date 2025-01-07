@@ -1,0 +1,1 @@
+{"name":"screenshot_project","version":"1.0.0","main":"index.js","scripts":{"test":"echo\"Error:notestspecified\"&&exit1"},"keywords":[],"author":"","license":"ISC","description":"","dependencies":{"puppeteer":"^22.15.0"}}

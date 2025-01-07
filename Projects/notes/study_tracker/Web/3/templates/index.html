@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Study Logs</title>
+
+<style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+        a {
+            color: #00ffff;
+        }
+</style>
+</head>
+<body>
+<h1>Study Logs</h1>
+<a href="{{%20url_for('add_log')%20}}">Add New Log</a> | <a href=
+"{{%20url_for('view_statistics')%20}}">View Statistics</a> {% for
+log, color in logs %} {% endfor %}
+<table>
+<tr>
+<th>ID</th>
+<th>Date</th>
+<th>Subject</th>
+<th>Duration</th>
+<th>Notes</th>
+<th>Action</th>
+</tr>
+<tr style="background-color: {{ color }};">
+<td>{{ log[0] }}</td>
+<td>{{ log[1] }}</td>
+<td>{{ log[2] }}</td>
+<td>{{ log[3] }} min</td>
+<td>{{ log[4] }}</td>
+<td><a href=
+"{{%20url_for('delete_log',%20log_id=log[0])%20}}">Delete</a></td>
+</tr>
+</table>
+</body>
+</html>

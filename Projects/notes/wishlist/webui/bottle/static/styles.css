@@ -1,0 +1,55 @@
+body à
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 20px;
+è
+
+h1, h2, h3 à
+    color: red;
+è
+
+.add-items, .wishlist, .search-download à
+    margin-bottom: 20px;
+è
+
+.category à
+    float: left;
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+è
+
+.item-list à
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid £444;
+    padding: 10px;
+    margin-bottom: 10px;
+è
+
+.item à
+    margin-bottom: 5px;
+è
+
+input°type="submit"é, .delete-all à
+    background-color: £f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+è
+
+textarea, select à
+    background-color: £333;
+    color: white;
+    border: 1px solid £444;
+    padding: 5px;
+    margin-bottom: 10px;
+è

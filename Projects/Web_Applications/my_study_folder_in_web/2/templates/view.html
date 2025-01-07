@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>View File</title>
+<link href=
+"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=JetBrains+Mono&amp;display=swap"
+rel="stylesheet">
+<style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --accent-color: #3b82f6;
+            --code-bg-color: #1e293b;
+            --border-color: #334155;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .content {
+            background-color: var(--code-bg-color);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid var(--border-color);
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .file-path {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--code-bg-color);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            word-break: break-all;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            background-color: #2563eb;
+            text-decoration: none;
+        }
+        {{ css|safe }}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>File Viewer</h1>
+<div class="file-path">{{ file_path }}</div>
+<div class="content">{{ content|safe }}</div>
+<a href=
+"{{%20url_for('index',%20path='/'.join(file_path.split('/')[:-1]))%20}}"
+class="back-link">Back to folder</a></div>
+</body>
+</html>

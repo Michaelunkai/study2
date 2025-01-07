@@ -1,0 +1,1 @@
+This application collects API keys and prompts from users, sends the prompts to the OpenAI API, and displays the AI-generated response.

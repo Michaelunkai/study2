@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "question": "Which AWS service is used for deploying and scaling web applications?",
+        "options": ["EC2", "RDS", "Elastic Beanstalk", "Lambda"],
+        "correct_answer": 2,
+        "explanation": "AWS Elastic Beanstalk is a fully managed service that makes it easy to deploy, run, and scale web applications and services."
+    },
+    {
+        "id": 2,
+        "question": "Which AWS service provides a virtual network dedicated to your AWS account?",
+        "options": ["VPC", "EC2", "ELB", "Route 53"],
+        "correct_answer": 0,
+        "explanation": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define."
+    },
+    {
+        "id": 3,
+        "question": "Which AWS service is used for storing and retrieving any amount of data from anywhere on the web?",
+        "options": ["EBS", "EFS", "S3", "Glacier"],
+        "correct_answer": 2,
+        "explanation": "Amazon Simple Storage Service (S3) is an object storage service offering industry-leading scalability, data availability, security, and performance."
+    },
+    {
+        "id": 4,
+        "question": "Which AWS service is used for running containerized applications?",
+        "options": ["ECS", "EC2", "Lambda", "Lightsail"],
+        "correct_answer": 0,
+        "explanation": "Amazon Elastic Container Service (ECS) is a fully managed container orchestration service that makes it easy to run, stop, and manage Docker containers on a cluster."
+    },
+    {
+        "id": 5,
+        "question": "Which AWS service provides a managed Relational Database Service?",
+        "options": ["DynamoDB", "Redshift", "ElastiCache", "RDS"],
+        "correct_answer": 3,
+        "explanation": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud."
+    },
+    {
+        "id": 6,
+        "question": "Which AWS service is used for DNS management and domain registration?",
+        "options": ["CloudFront", "Route 53", "ELB", "API Gateway"],
+        "correct_answer": 1,
+        "explanation": "Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web service."
+    },
+    {
+        "id": 7,
+        "question": "Which AWS service provides serverless computing?",
+        "options": ["EC2", "ECS", "Lambda", "Elastic Beanstalk"],
+        "correct_answer": 2,
+        "explanation": "AWS Lambda lets you run code without provisioning or managing servers, making it a serverless compute service."
+    },
+    {
+        "id": 8,
+        "question": "Which AWS service is used for creating and managing Docker containers?",
+        "options": ["ECR", "ECS", "Fargate", "EKS"],
+        "correct_answer": 0,
+        "explanation": "Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images."
+    },
+    {
+        "id": 9,
+        "question": "Which AWS service provides a fully managed NoSQL database?",
+        "options": ["RDS", "Redshift", "DynamoDB", "Aurora"],
+        "correct_answer": 2,
+        "explanation": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability."
+    },
+    {
+        "id": 10,
+        "question": "Which AWS service is used for distributing incoming application traffic across multiple targets?",
+        "options": ["CloudFront", "Route 53", "ELB", "API Gateway"],
+        "correct_answer": 2,
+        "explanation": "Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses."
+    },
+    {
+        "id": 11,
+        "question": "Which AWS service provides a fully managed message queuing service?",
+        "options": ["SNS", "SQS", "Kinesis", "EventBridge"],
+        "correct_answer": 1,
+        "explanation": "Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications."
+    },
+    {
+        "id": 12,
+        "question": "Which AWS service is used for creating and managing Kubernetes clusters?",
+        "options": ["ECS", "Fargate", "EKS", "Elastic Beanstalk"],
+        "correct_answer": 2,
+        "explanation": "Amazon Elastic Kubernetes Service (EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane."
+    }
+]

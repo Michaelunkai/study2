@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+<title>Speech to Text</title>
+<link rel="stylesheet" href=
+"{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+<div class="App"><button id="startRecording">Start
+Recording</button> <button id="stopRecording" disabled>Stop
+Recording</button> <button id="copyText">Copy Text</button>
+<canvas id="waveform" width="800" height="200"></canvas>
+<p id="language"></p>
+<div id="textArea" class="text-area"></div>
+</div>
+<script src=
+"{{%20url_for('static',%20path='/js/app.js')%20}}"></script>
+</body>
+</html>
