@@ -465,3 +465,107 @@ Stacktrace:
 2025-01-02 17:02:50,312 - INFO - Message sent: next
 2025-01-02 17:03:27,824 - INFO - Message sent: next
 2025-01-02 17:04:05,138 - INFO - Message sent: next
+2025-01-07 20:59:23,989 - INFO - ====== WebDriver manager ======
+2025-01-07 20:59:24,048 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 20:59:24,216 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 20:59:24,368 - INFO - There is no [linux64] chromedriver "131.0.6778.204" for browser google-chrome "131.0.6778" in cache
+2025-01-07 20:59:24,369 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 20:59:24,873 - INFO - WebDriver version 131.0.6778.204 selected
+2025-01-07 20:59:24,875 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-07 20:59:24,876 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
+2025-01-07 20:59:24,976 - INFO - Driver downloading response is 200
+2025-01-07 20:59:25,489 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 20:59:25,767 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.204]
+2025-01-07 20:59:25,776 - INFO - patching driver executable /root/.wdm/drivers/chromedriver/linux64/131.0.6778.204/chromedriver-linux64/chromedriver
+2025-01-07 20:59:26,148 - INFO - Browser started successfully
+2025-01-07 20:59:27,291 - INFO - Page loaded: ChatGPT
+2025-01-07 21:00:10,923 - INFO - Message sent: next
+2025-01-07 21:00:12,087 - INFO - Message sent: next
+2025-01-07 21:00:48,314 - INFO - Message sent: next
+2025-01-07 21:01:24,533 - INFO - Message sent: next
+2025-01-07 21:02:00,736 - INFO - Message sent: next
+2025-01-07 21:02:36,937 - INFO - Message sent: next
+2025-01-07 21:03:13,147 - INFO - Message sent: next
+2025-01-07 21:03:49,359 - INFO - Message sent: next
+2025-01-07 21:04:25,562 - INFO - Message sent: next
+2025-01-07 21:05:01,776 - INFO - Message sent: next
+2025-01-07 21:05:37,982 - INFO - Message sent: next
+2025-01-07 21:06:13,041 - INFO - Refreshing page...
+2025-01-07 21:06:20,105 - INFO - Message sent: next
+2025-01-07 21:06:56,314 - INFO - Message sent: next
+2025-01-07 21:07:32,516 - INFO - Message sent: next
+2025-01-07 21:08:08,720 - INFO - Message sent: next
+2025-01-07 21:08:44,925 - INFO - Message sent: next
+2025-01-07 21:09:21,123 - INFO - Message sent: next
+2025-01-07 21:09:57,323 - INFO - Message sent: next
+2025-01-07 21:10:33,525 - INFO - Message sent: next
+2025-01-07 21:11:09,709 - INFO - Message sent: next
+2025-01-07 21:11:45,906 - INFO - Message sent: next
+2025-01-07 21:12:20,956 - INFO - Refreshing page...
+2025-01-07 21:12:27,633 - INFO - Message sent: next
+2025-01-07 21:13:03,845 - INFO - Message sent: next
+2025-01-07 21:13:40,075 - INFO - Message sent: next
+2025-01-07 21:14:16,282 - INFO - Message sent: next
+2025-01-07 21:14:52,490 - INFO - Message sent: next
+2025-01-07 21:15:28,691 - INFO - Message sent: next
+2025-01-07 21:16:03,746 - ERROR - Error waiting for element prompt-textarea: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.264)
+Stacktrace:
+#0 0x55661be4e8fa <unknown>
+#1 0x55661b95fd20 <unknown>
+#2 0x55661b9359cf <unknown>
+#3 0x55661b9daf2d <unknown>
+#4 0x55661b9f0f1c <unknown>
+#5 0x55661b9d2893 <unknown>
+#6 0x55661b9a130d <unknown>
+#7 0x55661b9a232e <unknown>
+#8 0x55661be1b00b <unknown>
+#9 0x55661be1ef97 <unknown>
+#10 0x55661be0771c <unknown>
+#11 0x55661be1fb17 <unknown>
+#12 0x55661bdec6cf <unknown>
+#13 0x55661be3d6b8 <unknown>
+#14 0x55661be3d880 <unknown>
+#15 0x55661be4d776 <unknown>
+#16 0x7f79750a7ac3 <unknown>
+
+2025-01-07 21:16:03,751 - ERROR - Error waiting for element div[contenteditable='true'].ProseMirror: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.264)
+Stacktrace:
+#0 0x55661be4e8fa <unknown>
+#1 0x55661b95fd20 <unknown>
+#2 0x55661b9359cf <unknown>
+#3 0x55661b9daf2d <unknown>
+#4 0x55661b9f0f1c <unknown>
+#5 0x55661b9d2893 <unknown>
+#6 0x55661b9a130d <unknown>
+#7 0x55661b9a232e <unknown>
+#8 0x55661be1b00b <unknown>
+#9 0x55661be1ef97 <unknown>
+#10 0x55661be0771c <unknown>
+#11 0x55661be1fb17 <unknown>
+#12 0x55661bdec6cf <unknown>
+#13 0x55661be3d6b8 <unknown>
+#14 0x55661be3d880 <unknown>
+#15 0x55661be4d776 <unknown>
+#16 0x7f79750a7ac3 <unknown>
+
+2025-01-07 21:16:03,751 - WARNING - Retry attempt 1/3
+2025-01-07 21:16:25,719 - INFO - ====== WebDriver manager ======
+2025-01-07 21:16:25,790 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 21:16:25,974 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 21:16:26,132 - INFO - There is no [linux64] chromedriver "131.0.6778.264" for browser google-chrome "131.0.6778" in cache
+2025-01-07 21:16:26,133 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 21:16:26,514 - INFO - WebDriver version 131.0.6778.264 selected
+2025-01-07 21:16:26,516 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chromedriver-linux64.zip
+2025-01-07 21:16:26,517 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chromedriver-linux64.zip
+2025-01-07 21:16:26,618 - INFO - Driver downloading response is 200
+2025-01-07 21:16:27,080 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-07 21:16:27,354 - INFO - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/131.0.6778.264]
+2025-01-07 21:16:27,362 - INFO - patching driver executable /root/.wdm/drivers/chromedriver/linux64/131.0.6778.264/chromedriver-linux64/chromedriver
+2025-01-07 21:16:27,725 - INFO - Browser started successfully
+2025-01-07 21:16:29,103 - INFO - Page loaded: ChatGPT
+2025-01-07 21:16:40,013 - INFO - Message sent: next
+2025-01-07 21:16:41,165 - INFO - Message sent: next

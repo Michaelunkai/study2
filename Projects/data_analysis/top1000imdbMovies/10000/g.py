@@ -192,7 +192,8 @@ class MainWindow(QMainWindow):
             self.filter_data()
         elif column == 7:  # Double-clicked on IMDb Link
             imdb_link = self.table.item(row, column).data(Qt.UserRole)
-            subprocess.run(["cmd.exe", "/c", "start", "chrome", imdb_link])
+            chrome_path = r"C:\\backup\\windowsapps\\installed\\Chrome\\Application\\chrome.exe"
+            subprocess.run(["cmd.exe", "/c", "start", chrome_path, imdb_link], check=True)
 
 if __name__ == "__main__":
     setup_database()
