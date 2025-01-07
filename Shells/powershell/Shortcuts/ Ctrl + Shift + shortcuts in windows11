@@ -1,0 +1,31 @@
+| **Shortcut**         | **Description**                                                      |
+|-----------------------|----------------------------------------------------------------------|
+| **Ctrl + Shift + A**  | Opens "Add" dialog in some applications (like IDEs).               |
+| **Ctrl + Shift + B**  | Toggles bookmark bar visibility in web browsers.                   |
+| **Ctrl + Shift + C**  | Opens developer tools console in most web browsers.                |
+| **Ctrl + Shift + D**  | Duplicates a tab in some applications and browsers.                |
+| **Ctrl + Shift + E**  | Toggles file explorer or project panel in IDEs.                    |
+| **Ctrl + Shift + F**  | Performs a global search in many text editors or IDEs.             |
+| **Ctrl + Shift + G**  | Opens Git-related features or navigation tools in IDEs.            |
+| **Ctrl + Shift + H**  | Replace text globally in text editors or IDEs.                     |
+| **Ctrl + Shift + I**  | Opens developer tools in web browsers for debugging.               |
+| **Ctrl + Shift + J**  | Focuses on browser's developer tools console tab.                  |
+| **Ctrl + Shift + K**  | Deletes a line in some text editors or opens bookmark manager.     |
+| **Ctrl + Shift + L**  | Selects all instances of highlighted text in editors.              |
+| **Ctrl + Shift + M**  | Opens notification center or format messages in some applications. |
+| **Ctrl + Shift + N**  | Opens a new incognito/private browsing window in browsers.         |
+| **Ctrl + Shift + O**  | Opens file or bookmark organizer in browsers or editors.           |
+| **Ctrl + Shift + P**  | Opens a command palette in most text editors and IDEs.             |
+| **Ctrl + Shift + Q**  | Logs out user session on Chromebooks or browsers.                  |
+| **Ctrl + Shift + R**  | Performs a hard refresh in web browsers (bypasses cache).          |
+| **Ctrl + Shift + S**  | Saves file with a new name in many applications.                   |
+| **Ctrl + Shift + T**  | Reopens last closed tab in most web browsers.                      |
+| **Ctrl + Shift + U**  | Opens Unicode input or tools in some applications.                 |
+| **Ctrl + Shift + V**  | Pastes text without formatting in compatible applications.         |
+| **Ctrl + Shift + W**  | Closes the current window in most applications.                    |
+| **Ctrl + Shift + X**  | Cuts selected item in some text editors or opens extensions.       |
+| **Ctrl + Shift + Y**  | Toggles a dictionary or annotation tool in some editors.           |
+| **Ctrl + Shift + Z**  | Redoes the last undone action in some applications.                |
+| **Ctrl + Shift + 1-9**| Switches to specific browser tab based on number pressed.          |
+
+This table includes common uses, but functionality may vary between programs.

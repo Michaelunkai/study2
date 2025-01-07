@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://github.com/Michaelunkai/downloadables/raw/main/cmder_zKHd-J1.exe" -OutFile "cmder_zKHd-J1.exe";; Start-Process -FilePath ".\cmder_zKHd-J1.exe" -Wait

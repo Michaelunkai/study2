@@ -1,0 +1,52 @@
+Transcript
+1. Bivariate visualizations
+00:00 - 00:05
+Let's learn about visualizing more than one variable in plots.
+
+2. What are bivariate visualizations?
+00:05 - 00:22
+Bivariate plots display and allow comparison of two variables or two attributes of a sample. Some common bivariate plots include scatterplots, correlation plots, and line charts.
+
+3. scatterplot
+00:22 - 00:44
+A scatterplot is a graph consisting of A y axis for one variable. An x axis for a different variable. Each intersection is a dot on the graph. Here is an example, we can see a single dot of 68 for the x value and 472 for the y value.
+
+4. scatterplot with plotly.express
+00:44 - 01:10
+Let's create a scatterplot with plotly express to visualize body mass and flipper length of our penguins. We import the library. Just like bar and histograms, we specify the DataFrame and then the main arguments are column names as strings. Nice. The hover also provides the x and y values automatically.
+
+5. More plotly.express arguments
+01:10 - 01:31
+Here are more useful arguments for a Plotly express scatterplot. You can add different types of trend lines. You can also set different symbols for different categorical values, such as stars or triangles rather the default circles. As always, check the documentation for more.
+
+6. Line charts in plotly.express
+01:31 - 02:00
+A line chart is common visualization to plot some variable over time. We can create a line chart of Microsoft's monthly stock price over the last 5 years using plotly express. The code is familiar, specifying the DataFrame and relevant columns. Open means the opening stock price on that date. We have also added a title this time. This is what we produce.
+
+7. scatterplots and line plots with graph_objects
+02:00 - 02:32
+Graph_objects uses go dot Scatter for both scatterplots and line graphs. Here is the code for our penguins scatter using graph_objects. And for our Microsoft stock line chart. Both are very similar, but we need to set the mode argument to "markers" for scatterplots and to "lines" for line plots. Also note that graph_objects requires actual DataFrame column subsets rather than only names of columns.
+
+8. graph_objects vs. plotly.express?
+02:32 - 02:47
+So when do you use each library? Largely it is about customization. Both have a lot to offer, though graph_objects does less automatically and has more customization options, seen here in the size of the documentation.
+
+9. Correlation plot
+02:47 - 03:14
+A correlation plot visualizes a correlation metric between several variables. The Pearson Correlation Coefficient summarizes this relationship. It has a value between -1 and 1. 1 means the two variables are completely correlated 0 is not at all correlated -1 is totally negatively correlated
+
+10. Correlation plot setup
+03:14 - 03:40
+For this example, we'll use some data on bike sharing rental numbers as compared to various weather variables. We can utilize the built in dot corr method from pandas to create the data needed for our plot. The returned table has the Pearson correlation coefficient at the intersection of each variable. The diagonals are 1 because each variable perfectly correlates with itself.
+
+11. Correlation plot with Plotly
+03:40 - 04:37
+For this graph, we will need to use graph_objects since it's a more complex to create. We create a figure object with one trace, a Heatmap type. We know that a correlation plot will have the same values on the x and y (our variable names). We also set a 'z' value - our correlation coefficient values. The method 'to list' turns the correlation DataFrame to a list of lists for our plot. Let's do some simple customization too. These arguments set the color scale to be red-yellow-green and the min-max of that color scale. Without this, Plotly will chose the range based on your data, not the actual min and max of a Pearson correlation, which may not be desirable. Finally we display the plot.
+
+12. Our correlation plot
+04:37 - 04:56
+And here we have it. A correlation plot,where the intersection is the Pearson correlation coefficient. We can see that bike rental numbers have a positive correlation with the temperature and visibility, but negative correlations with more snowfall, rain and humidity.
+
+13. Let's practice!
+04:56 - 05:03
+Let's create some bivariate visualizations to explore our data!

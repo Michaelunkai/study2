@@ -1,0 +1,1 @@
+sudo mkdir -p /mnt/f && sudo mount -t drvfs F: /mnt/f

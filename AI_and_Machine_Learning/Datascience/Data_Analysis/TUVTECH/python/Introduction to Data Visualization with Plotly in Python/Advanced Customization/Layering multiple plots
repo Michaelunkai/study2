@@ -1,0 +1,28 @@
+Transcript
+1. Layering multiple plots
+00:00 - 00:06
+Let's learn how to layer multiple plots in the same visualization.
+
+2. What is plot layering?
+00:06 - 00:41
+Layering plots, unlike subplots, is where we overlay several plots with each other, all within the same plot. We don't have each plot in a separate grid location (or separate plot) To create this we use add_trace() which you just used in the previous lesson. Whilst we won't use them, a variety of 'shortcut' functions exist such as add_bar(), add_area(), add_box(), etc. Search for 'add_' on the documentation for more!
+
+3. Why layer plots?
+00:41 - 01:22
+Layering plots is useful for a variety of reasons such as: Accessing more customization options. For example, we could use add_trace to add and format multiple line graphs, rather than just setting the color argument as before. Displaying complementary plot types without clutter, Different plot types can also direct attention compared with all data using the same plot type. In addition, layering plots keeps the visualizations tight for close comparisons as compared to split out subplots or separate plots.
+
+4. Bar + line layered plot
+01:22 - 01:37
+A common layered plot type you may see is a bar chart with a line-chart layered over the top. This allows a trend to be analyzed as well as some data at that particular point in time.
+
+5. GDP growth layered plot
+01:37 - 02:30
+Consider the Australian GDP growth per quarter (and yearly rolling growth). That is, the GDP growth for that quarter and the total growth for the year up to and including that quarter. We create a graph_objects figure object. Then we add our bar chart using add_trace. As before, we set the name here so our legend and hover make more sense. We then add the line chart. Recall that creating a line chart in graph_objects requires using go dot scatter. We'll set the mode to lines and markers to get dots and a connecting line. Here is our plot. We can see the trend in the rolling year-to-date GDP growth as well as the current GDP growth of that quarter.
+
+6. Nonsensical combinations
+02:30 - 03:00
+Whilst you could layer a number of different traces together, be careful to stick to those that make sense, such as a line plot plus another plot to show a trend. For example, a line plot plus a bar plot or a line plot plus a scatterplot. You could also use the same plot type together, such as line and line or bar and bar. Make sure that the x and y axes have the same units, otherwise the plot may be distorted.
+
+7. Let's practice!
+03:00 - 03:07
+Let's practice building layered plots with Plotly in Python.

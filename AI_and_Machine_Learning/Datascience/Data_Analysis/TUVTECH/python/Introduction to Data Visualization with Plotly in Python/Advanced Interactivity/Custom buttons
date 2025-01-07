@@ -1,0 +1,40 @@
+Transcript
+1. Custom buttons
+00:00 - 00:06
+Let's learn how to add custom buttons to our Plotly visualizations.
+
+2. What can custom buttons do?
+00:06 - 00:28
+Custom buttons in Plotly are small but powerful items that can update the data or layout elements used in the plot. Remember all the work you've done so far with update_layout. This could be in a button! Buttons can also be used for animations, though animations are beyond the scope of this course.
+
+3. Custom buttons in Plotly
+00:28 - 01:11
+Custom buttons are facilitated through the updatemenus layout element. This is a list of dictionaries for each set of buttons with important arguments. The type sets if it is buttons or a dropdown menu. We will cover dropdowns later! The direction sets if we want buttons beside or on top of each other. The x and y arguments you have used before to position elements. showactive allows you to indicate whether the active button appears as pressed. Active here means currently selected. And finally, the buttons argument is a list of button objects.
+
+4. Plot type with buttons
+01:11 - 01:32
+Let's first set up a simple bar chart using our revenue data. We can use plotly express to create bars per industry. Each sample is stacked together with a small gap, rather than a single aggregate bar. Though you can see the total size of industry revenue by the height of the overall bar.
+
+5. Button set up
+01:32 - 02:07
+Let's create the buttons to switch plot type. This is a list of dictionaries. For us, of size two. The label is the button text. The method is set to update, which allows the button to alter data or layout elements. The args option is a dictionary of what will be updated. For the first button, we want to update the plot type to bar. For the second button, we want to update the plot type to scatter and set the mode to 'markers' (rather than lines).
+
+6. The args argument
+02:07 - 02:44
+The args argument is one of the most confusing parts of Plotly. It is a list of several dictionaries. The first dictionary sets the arguments and values to send to the data element of the figure trace. The second dictionary contains the arguments to send to the layout element of the figure. To understand this, we can use Python's dir on a figure object to see the internal structure. We see some familiar faces, like the layout and data elements and our familiar show method.
+
+7. Using args for layout updates
+02:44 - 02:58
+Let's go further to see inside the layout element. Again we use Python's helpful dir function. Some of these are familiar. We can use args to update any of these.
+
+8. Using args for data updates
+02:58 - 03:14
+Let's also see see inside the first data element. Remember there is a data element for each trace. Also some familiar arguments. We haven't used 'visible' before, but it will be helpful later!
+
+9. Button interactivity
+03:14 - 04:01
+Back to the example, let's set up our button placement, stacking, and focus. We call update_layout and set the updatemenus argument. The type is buttons. We set the direction to 'down' since we want our buttons on top of each other. We also set x and y to position them to the right of the plot about halfway up. Let's have the active button as our bar plot and make it look active, otherwise it may be confusing why the button isn't active, but a bar chart is there. Finally, we add our buttons list we made on the previous slide using the buttons argument and show the plot. Nice work! We can toggle between plot types using this button.
+
+10. Let's practice!
+04:01 - 04:08
+Let's practice creating and styling buttons on our Plotly visualizations.

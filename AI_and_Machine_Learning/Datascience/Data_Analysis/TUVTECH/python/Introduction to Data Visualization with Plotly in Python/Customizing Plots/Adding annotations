@@ -1,0 +1,32 @@
+Transcript
+1. Adding annotations
+00:00 - 00:07
+Let's learn how to create, style and position specific annotations in visualizations.
+
+2. What are annotations?
+00:07 - 00:33
+Annotations are extra boxes of text and data added to a plot. They are always present. These serve two main purposes. Firstly you may wish to draw attention to or add notes on a particular data point. Or, you may just wish to add a text box with variables and text, much like a text box in Microsoft Word.
+
+3. Creating annotations
+00:33 - 01:01
+In Plotly you can add annotations in several ways. There is the add_annotation method for adding a single annotation. You can also use the update_layout method which has an annotations argument. This is a list of annotation-objects, so this method is useful for adding multiple annotations. For consistency, we will stick with update_layout() since you're already familiar with it.
+
+4. Important annotation arguments
+01:01 - 01:56
+There are a few key arguments of an annotation object, a dictionary, worth noting. The showarrow Boolean argument determines whether an arrow is added to point to a particular data point. Without this you just have a textbox. The arrow can be styled too. The text argument is the actual text to be displayed. As it is a pythonic string you can insert variables here too. The x and y arguments are coordinates that position the annotation. These can either be linked to a data point or absolutely on the plot, like a text box in Microsoft Word. Be careful of placing annotations absolutely as if your data changes, it may overlap. We'll look at how to specify positioning in both ways.
+
+5. Positioning annotations
+01:56 - 02:32
+By default, the x and y arguments will be in the units of the plot You can also position absolutely by setting the xref and yref arguments to be paper. Then the x and y arguments are between 0 and 1 and represent the percentage along that axis to place the annotation. It is not linked to a particular x-y point. For example, setting x and y to zero point 5 with this method would be right in the center of the plot.
+
+6. Data-linked annotations
+02:32 - 03:05
+Perhaps in our company revenue scatterplot we want to annotate our company. We know the revenue and employee count for this. Here is the code. You can see an x and y position in the DataFrame units We want an arrow of a certain size using the arrowhead argument and we want some text that is black. We use update_layout to add the annotation. This is what we produce, an arrow and some text linked to a specific point.
+
+7. Floating annotation
+03:05 - 03:53
+We can also just add an annotation without any data link, positioned absolutely. Let's say we were pitching to investors and wanted a strong message in our plot. We have set xref and yref to 'paper'. Now our x and y are not in our DataFrame units, but in a percentage across the plot to position the annotation. Let's set the position to be 50% across the x-axis and 80% up the y-axis. We turn off the arrow and put in some text in a box with a background color of red. This is what is produced: an annotation floating in the middle of the x axis and most of the way up the y with our text and style.
+
+8. Let's practice!
+03:53 - 03:59
+Let's practice creating and styling some annotations.

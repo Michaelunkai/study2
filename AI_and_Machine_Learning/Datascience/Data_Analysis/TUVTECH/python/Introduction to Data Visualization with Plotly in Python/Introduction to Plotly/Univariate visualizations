@@ -1,0 +1,52 @@
+Transcript
+1. Univariate visualizations
+00:00 - 00:08
+Let's learn to create some basic univariate visualizations in Plotly with Python.
+
+2. Our approach
+00:08 - 00:39
+As discussed in the previous lesson, we won't generally create figures by specifying everything in a large dictionary. Instead we will take advantage of Plotly's powerful shortcut libraries. plotly express allows quick, simple plots to be created by specifying a DataFrame and using it's column names as arguments. graph_objects specific constructors such as go dot bar and go dot scatter allow more customization options, but requires more code.
+
+3. What are univariate plots?
+00:39 - 01:02
+Univariate plots display only one variable. For example, just data on your height. These allow insights into the distribution of that particular variable. Some common univariate plots include Bar Charts Histograms Box Plots and Density Plots
+
+4. Bar charts
+01:02 - 01:29
+Bar charts have An x axis with a bar (or column ) for each group in your data. With only one group, there is one bar - hence it being a univariate plot. The height of the bar (on the y-axis) is equal to the value of that variable for that group. We saw one of these in the last lesson, note there are multiple groups (days) in this example.
+
+5. Bar charts with plotly.express
+01:29 - 02:01
+Let's rebuild the plot from the last lesson using plotly express. When using plotly express, it's convention to import as px. Here is the DataFrame used. We create a figure object using px dot bar. The core arguments are the DataFrame that contains the data and which columns in that DataFrame to assign to the x-axis and y-axis. Finally we show the plot.
+
+6. Histograms
+02:01 - 02:29
+Whilst a histogram may look like a bar chart, it has some key differences. Each column, called a bin, represents a range of values that samples could have for a particular variable. The height of each bar is usually the count of how many samples fell within that range, though other aggregations are possible. You can choose the bins yourself or have Plotly choose the bins for you.
+
+7. Our dataset
+02:29 - 02:42
+For these next exercises, we will use a dataset collected by scientific researches on Penguins! It contains various body measurements from different types of penguins.
+
+8. Histograms with plotly.express
+02:42 - 03:14
+Let's create a simple histogram of penguin body mass using plotly express. Here we use px dot histogram. As with the bar chart, we firstly set the DataFrame containing our data. Then we specify the column to aggregate into our bins. You can optionally specify the number of bins. Here is our graph. See the hover automatically displays the bin size and count of samples inside that bin.
+
+9. Useful histogram arguments
+03:14 - 03:35
+There are a variety of helpful plotly.express arguments that you could use to enhance your histogram plots. These allow you to set the orientation to be horizontal or vertical and change the way you aggregate within the bins. Check the documentation for many more options.
+
+10. Box (and whisker) plots
+03:35 - 04:23
+A box and whisker plot summarizes a variable using quartile calculations. The middle colored area is the interquartile range. It has a top line representing the third quartile or the 75th percentile. A value where 75% of all data points fall below this. A middle line representing the median. The bottom line representing the first quartile or 25th percentile. The top and bottom lines on the box plot overall represent the min and max values excluding outliers according to a special definition. Finally, extra dots at the top and bottom are outliers.
+
+11. Box plots with plotly.express
+04:23 - 04:45
+Let's create a box plot using plotly express to visualize flipper lengths. For this we use px dot box and only need to specify the DataFrame and the variable to aggregate. For a box plot, the key argument is y. This is what is produced.
+
+12. Useful box plot arguments
+04:45 - 04:59
+Here are some other other useful arguments to a plotly express box plot. You can set other variables to appear in the hover data, assisting in analyzing outliers. You can also specify how to show outliers.
+
+13. Let's practice!
+04:59 - 05:06
+Let's practice creating some univariate plots using Plotly in Python!

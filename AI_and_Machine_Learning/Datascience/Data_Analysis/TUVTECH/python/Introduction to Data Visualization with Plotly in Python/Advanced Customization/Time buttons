@@ -1,0 +1,32 @@
+Transcript
+1. Time buttons
+00:00 - 00:06
+Let's learn how to create time buttons in Plotly with Python.
+
+2. What are time buttons?
+00:06 - 00:37
+Time buttons can be added to line charts to filter or zoom in on a specific time slice. You can see common time buttons on most stock websites, like this from Yahoo Finance (TESLA stock). 1D shows the data from the last day, 1M shows data from the last month, 1Y from the last year, etc. YTD shows the data from the 'year to date'.
+
+3. Time buttons in Plotly
+00:37 - 01:15
+Time buttons in Plotly are a dictionary specifying the following. The label is just the text to appear on the button, count is how many steps to take when clicking the button, and step is what date period to move such as year, month, day and more. stepmode is a bit more complex. It can either be 'todate' or 'backwards'. 'todate' means from the beginning of the nearest whole time period denoted in step (after going backwards by count). 'backwards' is just go backwards by count. Let's see an example to demonstrate stepmode.
+
+4. 'todate' vs. 'backward'
+01:15 - 01:52
+To illustrate todate vs backward, consider a dataset finishing on October 20th and a 6-month button (that is, count equals 6 and step equals month) with each option. For stepmode as backward, it would zoom the plot to start at April 20th as this is just 6 months backwards. stepmode as todate would zoom the plot to start at May 1st, the start of the nearest month once the zoom is taken, so after April 20th.
+
+5. Sydney rainfall example
+01:52 - 02:27
+Let's chart the rainfall from a weather station in Sydney in 2020. Firstly, let's create the buttons. Buttons are specified as a list of dictionaries. We create a list of two buttons. The first we want to have is six-months-to-date so we set count as 6, the step as month and the stepmode as todate with an appropriate label. We also want the last two weeks to date. There is no week step so we set 14 days.
+
+6. Adding the time buttons
+02:27 - 02:57
+Now let's create the chart and add the buttons. For simplicity, let's use Plotly Express to create a line chart, setting the appropriate arguments. To add the buttons, we set the buttons argument which is part of the rangeselector argument which, in turn, is part of the xaxis argument of our generic update_layout function. We can see our plot now has buttons. But what do they do?
+
+7. Clicking our time buttons
+02:57 - 03:20
+Clicking the 2 week to date button zooms the plot to begin at October 17th, 14 days before the last date in the data. Clicking the 6 month to date button zooms the plot to begin at May 1st, which is 6 months before the last date in the data. Clicking the buttons again will reset the plot.
+
+8. Let's practice!
+03:20 - 03:26
+Let's practice adding time buttons to our visualizations.

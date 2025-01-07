@@ -1,0 +1,40 @@
+Transcript
+1. Customizing hover information and legends
+00:00 - 00:05
+Let's learn to customize hover information and legends.
+
+2. What do we mean by hover?
+00:05 - 00:18
+Hover information is what appears when your mouse hovers over a data point in a Plotly visualization. Out of the box, you get some hover information already.
+
+3. Other default hover information
+00:18 - 00:38
+By default, the hover-style is 'closest' seen in your plots so far. You can update your plot to change this. x or y adds a highlight on the X or Y axis x unified or y unified creates a line and all data is in the hover box
+
+4. Hover information using plotly.express
+00:38 - 01:10
+To customize hovers with plotly express there are several key arguments. The hover_name argument is a specified column which will appear in bold at the top of the hover box. hover_data is a list of column names or a dictionary to include/exclude columns. For example, this dictionary sets a column_name to False to exclude it. These methods don't provide extensive formatting options.
+
+5. Variables in hover information
+01:10 - 01:34
+For these methods, you can use columns not in the visualization itself. In this scatterplot of revenue vs company size, let's add the age of the company into the hover. This code uses the hover_data argument, even though age isn't in the visualization itself, we see age in the hover.
+
+6. Styling hover information
+01:34 - 01:57
+There are two main ways to style hover information. Using the hoverlabel layout element which is a dictionary specifying many possible stylistic properties, or using the hovertemplate layout element which is a html-like string helping style the text, though this is beyond the scope of this course.
+
+7. What is a legend?
+01:57 - 02:34
+Another customization you may want to add to your plots is a legend. A legend is an information box that provides a key to the elements inside the plot, particularly the color or style. With Plotly, a legend will often automatically appear when specifying arguments that create elements that require it. For example, the color argument we added to the student scores bar chart. Notice that the legend was automatically added even though we didn't specifically ask for it in the code.
+
+8. Creating and styling the legend
+02:34 - 03:15
+You can turn on and style the legend using update_layout(). The argument showlegend set to true will show a legend with default styling and position (top, right outside the plot). The legend argument is a dictionary specifying the style and position of the legend. The x and y arguments are 0-1 floats setting the percentage across these axes to position the legend. There are many other stylistic elements such as bgcolor (background color), borderwidth, title, and font. As always, check the documentation for more!
+
+9. A styled legend
+03:15 - 03:45
+Let's create a styled legend & position it in our finance scatterplot. We use update layout and set showlegend to be true. Inside the legend dictionary, we set a title and put it in the middle of the x-axis and most of the way up the y-axis. We also make the background color a faded yellow. Here we have it, a deliberately positioned, titled, yellow background legend.
+
+10. Let's practice!
+03:45 - 03:52
+Let's practice customizing hover information and legends in our plots.
