@@ -1,0 +1,1 @@
+getc && git clone https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator && cd VulkanMemoryAllocator && mkdir build && cd build && cmake .. && make

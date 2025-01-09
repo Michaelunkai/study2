@@ -1,0 +1,85 @@
+Transcript
+1. Discrete distributions
+00:00 - 00:04
+Now we will look at probability distributions.
+
+2. Rolling the dice
+00:04 - 00:08
+Let's consider rolling a standard, six-sided die.
+
+3. Rolling the dice
+00:08 - 00:16
+There are six possible outcomes and each has a one-sixth chance of occurring. This is an example of a probability distribution.
+
+4. Choosing salespeople
+00:16 - 00:27
+This is similar to our earlier scenario, except we had names instead of numbers. Just like rolling a die, each outcome, or name, had an equal chance of occurring.
+
+5. Probability distribution
+00:27 - 00:52
+A probability distribution describes the probability of each possible outcome in a scenario. We can also find the expected value of a distribution, which is the mean. We calculate this by multiplying each value by its probability, one-sixth in this case, and adding everything together. So the expected value of rolling a fair die is 3.5.
+
+6. Why are probability distributions important?
+00:52 - 01:10
+Why is it important to understand probability distributions. Well, they help us to quantify risk and inform decision making. Also, as we will see later in the course, probability distributions are used in hypothesis testing to understand whether results may have occurred by chance.
+
+1 Image credit: https://unsplash.com/@timmossholder
+7. Visualizing a probability distribution
+01:10 - 01:21
+We can visualize a probability distribution using a histogram, where each bar represents an outcome, and each bar's height represents the probability of that outcome.
+
+8. Probability = area
+01:21 - 01:40
+We can calculate probabilities of different outcomes by taking areas of the probability distribution. For example, what's the probability that our die roll is less than or equal to two? To figure this out, we'll take the area of each bar representing an outcome of two or less.
+
+9. Probability = area
+01:40 - 01:53
+Each bar has a width of one and a height of one-sixth, so the area of each bar is one-sixth. Summing the areas for one and two, we get a probability of one-third.
+
+10. Uneven die
+01:53 - 02:20
+Now let's say we have a die where the two got turned into a three. This means we now have a zero percent chance of getting a two, and a 33% chance of getting a three. To calculate the expected value of this die, we now multiply two by zero, since it's impossible to get a two, and three by its new probability, one-third. This gives us an expected value of 3.67.
+
+11. Visualizing uneven probabilities
+02:20 - 02:25
+When we visualize these new probabilities, the bars are no longer even.
+
+12. Adding areas
+02:25 - 02:36
+With this die, what's the probability of getting something less than or equal to two? There's a one-sixth probability of getting one, and zero probability of getting two,
+
+13. Adding areas
+02:36 - 02:38
+which sums to one sixth.
+
+14. Discrete probability distributions
+02:38 - 03:06
+The probability distributions we've seen so far are discrete, since they represent situations with discrete outcomes. Therefore, they represent count or interval data. In the case of a die, we're counting dots, so we can't roll a 1.5 or 4.3. When all outcomes have the same probability, like a fair die, this is called a discrete uniform distribution.
+
+15. Sampling from a discrete distribution
+03:06 - 03:28
+Just like we sampled names from a box, we can do the same thing with dice rolls. Here are the potential outcomes of a roll. Its expected value is 3.5. If we roll a die 10 times we are sampling with replacement as we can get the same result more than once. Here four rolls produced a two.
+
+16. Visualizing a sample
+03:28 - 03:32
+We can visualize the outcomes of the 10 rolls using a histogram.
+
+17. Sample distribution vs theoretical distribution
+03:32 - 03:47
+As the sample was random we have different numbers, despite there being the same probability of rolling each number. The mean of our sample is 3.0, which isn't super close to the 3.5 we were expecting.
+
+18. A bigger sample
+03:47 - 03:56
+If we roll the die 100 times, the distribution of the rolls looks a bit more even, and the mean is closer to 3.5.
+
+19. An even bigger sample
+03:56 - 04:05
+If we roll 1000 times, it looks even more like the theoretical probability distribution and the mean closely matches 3.5.
+
+20. Law of large numbers
+04:05 - 04:13
+This is called the law of large numbers! If we increase the size of the sample then its mean will approach the theoretical mean.
+
+21. Let's practice!
+04:13 - 04:18
+Time to solidify our knowledge of probability distributions.

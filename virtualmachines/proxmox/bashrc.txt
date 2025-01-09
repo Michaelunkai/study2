@@ -49,3 +49,135 @@ alias backiso="cd /var/lib/vz/template/iso &&  docker build -t michadockermisha/
 alias bubu="ccubu && b ackupubu && reubu && snapubu && udocker"
 alias s='echo "root ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && sudo su'
 alias ccubu="du -sh /var/lib/vz/images/101 && cd /var/lib/vz/images/101 && qemu-img convert -O qcow2 vm-101-disk-0.qcow2 vm-101-disk-1.qcow2 && mv vm-101-disk-1.qcow2 vm-101-disk-0.qcow2 && du -sh /var/lib/vz/images/101"
+function allrc {
+echo -e "\033[31mProxmox Host:\033[0m" && cat ~/.bashrc && echo && for id in $(pct list | awk 'NR>1 {print $1}'); do name=$(pct config $id | grep -oP '^hostname: \K.*'); echo -e "\033[31m$name ($id):\033[0m"; pct exec $id -- cat ~/.bashrc || echo "No ~/.bashrc found"; echo; done
+}
+
+
+cct() {
+    if [ -z "$1" ]; then
+        echo "Usage: cct <hostname>"
+        return 1
+    fi
+    HOSTNAME=$1
+
+    # Prompt for CTID
+    read -p "Enter desired CTID (container number): " CTID
+
+    # Validate CTID is a number
+    if ! [[ "$CTID" =~ ^[0-9]+$ ]]; then
+        echo "Error: CTID must be a number"
+        return 1
+    fi
+
+    # Check if CTID already exists
+    if pct status $CTID >/dev/null 2>&1; then
+        echo "Error: CTID $CTID already exists"
+        return 1
+    fi
+
+    # Set fixed password for root
+    PASSWORD="123456"
+
+    TEMPLATE="local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst"
+    STORAGE="local"
+    CORES=4
+    MEMORY=2000
+    SWAP=2000
+    DISK_SIZE="1000"
+    NAMESERVER="8.8.8.8"
+    BRIDGE="vmbr0"
+    NETWORK="name=eth0,bridge=${BRIDGE},ip=dhcp,ip6=dhcp"
+
+    echo "Creating container with CTID: $CTID and Hostname: $HOSTNAME"
+    pct create $CTID $TEMPLATE \
+        --hostname $HOSTNAME \
+        --password "$PASSWORD" \
+        --cores $CORES \
+        --memory $MEMORY \
+        --swap $SWAP \
+        --rootfs "$STORAGE:${DISK_SIZE}" \
+        --net0 $NETWORK \
+        --nameserver $NAMESERVER \
+        --start 0  # Don't start immediately
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to create container."
+        return 1
+    fi
+
+    echo "Container created successfully. Setting up SSH..."
+
+    # Start the container
+    pct start $CTID
+
+    # Wait for container to be ready
+    echo "Waiting for container to initialize..."
+    sleep 10
+
+    # Execute commands inside the container to set up SSH
+    pct exec $CTID -- bash -c '
+        # Update package list
+        apt-get update
+
+        # Install SSH server
+        apt-get install -y openssh-server
+
+        # Configure SSH to allow root login with password
+        sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
+        sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
+
+        # Enable password authentication
+        sed -i "s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
+
+        # Enable SSH service
+        systemctl enable ssh
+
+        # Start SSH service
+        systemctl start ssh
+
+        # Set root password explicitly
+        echo "root:123456" | chpasswd
+
+        # Restart SSH service to apply changes
+        systemctl restart ssh
+    '
+
+    # Get the container's IP address
+    IP=$(pct exec $CTID -- ip addr show eth0 | grep "inet " | awk "{print \$2}" | cut -d/ -f1)
+
+    # Final status check
+    echo "Container setup completed."
+    echo "Container '$HOSTNAME' (CTID: $CTID) status:"
+    pct status $CTID
+    echo "Network configuration:"
+    pct config $CTID | grep net
+    if [ ! -z "$IP" ]; then
+        echo "Container IP address: $IP"
+        echo "You can connect via SSH using: ssh root@$IP"
+        echo "Root password is: 123456"
+    else
+        echo "IP address not yet assigned. Please check network configuration."
+    fi
+
+    # Final SSH status check
+    echo "SSH service status:"
+    pct exec $CTID -- systemctl status ssh | grep Active
+}
+addrc() {
+  for ct in $(pct list | awk 'NR>1 {print $1}'); do
+    pct exec $ct -- bash -c "
+      tmpfile=/tmp/temp_bashrc
+      grep -E '^(function|alias)' /root/.bashrc | while read -r line; do
+        if ! grep -Fxq \"\$line\" /root/.bashrc; then
+          echo \"\$line\" >> \$tmpfile
+        fi
+      done
+      if [ -f \$tmpfile ]; then
+        cat \$tmpfile >> /root/.bashrc
+        rm \$tmpfile
+      fi
+    "
+  done < <(grep -E '^(function|alias)' /root/.bashrc)
+}
+alias ss="sudo rtcwake -m mem -s"

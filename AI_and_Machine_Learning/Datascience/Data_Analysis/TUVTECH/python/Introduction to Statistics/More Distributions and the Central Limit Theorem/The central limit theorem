@@ -1,0 +1,68 @@
+Transcript
+1. The central limit theorem
+00:00 - 00:06
+Now that we're familiar with the normal distribution, it's time to learn about what makes it so important.
+
+2. Rolling a die five times
+00:06 - 00:19
+Let's go back to our dice rolling example. We can roll a six-sided fair die five times and record the results Now, we'll take the mean of the five rolls, which gives us two.
+
+3. Rolling a die five times
+00:19 - 00:27
+If we roll another five times and take the mean, we get a different mean. And if we do it again, we get another mean.
+
+4. 10 sets of five die rolls
+00:27 - 00:40
+We can repeat this 10 times: we'll roll a die five times, take the mean of that set of five rolls, and repeat 10 times. Here are the results, showing the mean from each set of five rolls.
+
+5. Sampling distributions
+00:40 - 00:54
+We can plot these means too. A distribution of a summary statistic such as the mean is called a sampling distribution. This distribution, specifically, is a sampling distribution of the sample mean.
+
+6. 100 sample means
+00:54 - 01:09
+We can repeat this process to take 100 sample means. If we look at the new sampling distribution, its shape somewhat resembles the normal distribution, even though the distribution of outcomes for each individual die roll is uniform.
+
+7. 1000 sample means
+01:09 - 01:16
+Let's take 1000 means. This sampling distribution more closely resembles the normal distribution.
+
+8. 10000 sample means
+01:16 - 01:19
+The shape stays consistent at ten thousand sample means,
+
+9. 100000 sample means
+01:19 - 01:22
+one hundred thousand sample means,
+
+10. One million sample means
+01:22 - 01:24
+and one million sample means!
+
+11. Central limit theorem
+01:24 - 02:02
+This phenomenon is known as the central limit theorem, which states that a sampling distribution will approach a normal distribution as the size of the sample increases. In our example, the sampling distribution became closer to the normal distribution as we took more and more sample means. It's important to note that the central limit theorem only applies when samples are taken randomly and are independent, for example, randomly picking sales deals with replacement. Generally, a sample size of at least 30 is required for the central limit theorem to apply.
+
+12. Standard deviation and the CLT
+02:02 - 02:22
+The central limit theorem, or CLT, applies to other summary statistics as well. If we take the standard deviation of five rolls 100000 times, the sample standard deviations are distributed normally, centered around 1.9, which is the distribution's standard deviation.
+
+13. Proportions and the CLT
+02:22 - 02:40
+Another statistic that the central limit theorem applies to is proportion. Let's sample from a die five times with replacement and see how many times we roll a four. In this case, 20% of rolls were a four. If we sample again, 60% of rolls are a four.
+
+14. Sampling distribution of proportion
+02:40 - 02:53
+If we repeat this 1000 times and plot the distribution of fours rolled in each sample, it resembles a normal distribution centered around 0.16, since there is a one in six chance of rolling a four.
+
+15. Mean of the sampling distribution
+02:53 - 03:37
+Since these sampling distributions are normal, we can take their mean to get an estimate of a distribution's mean, standard deviation, or proportion. Here we can see our distribution of one thousand sample means, with a red dotted line showing the theoretical mean for a dice roll of 3.5. We've also included the sample mean as a green dotted line, which is 3.53. This is an example of the law of large numbers in action! With our die rolling examples we know what the underlying distributions look like for the mean, standard deviation, and proportions, but if we don't, this can be a useful method for estimating characteristics of an underlying distribution.
+
+16. Benefits of the central limit theorem
+03:37 - 03:53
+The central limit theorem also comes in handy when we have a huge population and don't have the time or resources to collect data on everyone. Instead, we can collect smaller samples and create a sampling distribution to estimate summary statistics.
+
+17. Let's practice!
+03:53 - 03:59
+Now, it's time to practice utilizing the central limit theorem.

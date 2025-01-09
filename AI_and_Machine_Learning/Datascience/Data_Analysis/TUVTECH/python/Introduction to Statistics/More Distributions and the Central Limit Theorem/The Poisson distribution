@@ -1,0 +1,36 @@
+1. The Poisson distribution
+00:00 - 00:06
+In this video, we'll talk about another probability distribution called the Poisson distribution.
+
+2. Poisson processes
+00:06 - 00:55
+Before we talk about probability, let's define a Poisson process. A Poisson process is a process where the average number of events in a given time period is known, but the time or space between events is random. Poisson processes are very common in our day-to-day lives! For example, the number of animals adopted from an animal shelter each week is a Poisson process - we may know that on average there are eight adoptions per week, but the time between adoptions can differ randomly. Other examples would be the number of people arriving at a restaurant each hour, or the number of visits to a company's website in a day. Understanding Poisson processes can be extremely valuable in a range of settings!
+
+1 Image credit: https://unsplash.com/@rodlong
+3. Poisson distribution
+00:55 - 01:19
+The Poisson distribution describes the probability of some number of events happening over a fixed period of time. We can use the Poisson distribution to calculate the probability of at least five animals getting adopted in a week, the probability of 12 people arriving at a restaurant in an hour, or the probability of fewer than 200 visits to a company's website in a day.
+
+4. Lambda ($\lambda$)
+01:19 - 01:54
+The Poisson distribution is described by a value called lambda, which represents the average number of events per time period. In the restaurant example, this would be the average number of patrons per hour, which is 20. This value is also the expected value of the distribution! A Poisson distribution of sample size 200 and lambda equal to 20 looks like this. Notice that it's a discrete distribution since we're counting events, and 20 is the most likely number of patrons to visit in an hour.
+
+5. Lambda is the distribution's peak
+01:54 - 02:23
+Lambda changes the shape of the distribution. Using our restaurant patrons per hour example, we can see a Poisson distribution with lambda equals 10, in green, represents a typical value of 10 patrons per hour. This looks quite different to a Poisson distribution with lambda equals 20, in blue, or lambda equals 50, in red, but no matter what, the distribution's peak is always at its lambda value.
+
+6. Central limit theorem still applies!
+02:23 - 02:34
+Just like other distributions, if we have a large number of samples and calculate the mean for each, then the distribution of sample means of a Poisson distribution looks like the normal distribution!
+
+7. Probability of 13 patrons in an hour
+02:34 - 02:54
+We can calculate the probability of a specific number of patrons visiting a restaurant by measuring the height of the bar representing that value. For example, the probability of exactly 13 patrons visiting the restaurant in an hour, given the average is 20 patrons, is 2.71 percent.
+
+8. Probability of 25 or more patrons
+02:54 - 03:08
+Likewise, to calculate the probability of at least 25 patrons visiting in an hour we can add up the heights of all the bars from 25 onwards. In this case, the probability is just over 11 percent.
+
+9. Let's practice!
+03:08 - 03:13
+Time to work with the Poisson distribution!

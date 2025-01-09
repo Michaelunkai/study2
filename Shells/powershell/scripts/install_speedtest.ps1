@@ -1,5 +1,5 @@
 # Define installation path
-$installPath = "C:\backup\home\installed\speedtest-cli"
+$installPath = "C:\backup\windosapps\installed\speedtest-cli"
 
 # Download the Speedtest CLI ZIP file
 Write-Host "Downloading Speedtest CLI..."

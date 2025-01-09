@@ -5,7 +5,6 @@ alias fixtime='sudo date -s "$(curl -sI http://www.google.com | grep -i "^date:"
 
 
 2)install:
-getaudio && audioh
 
 
 3)add/change:

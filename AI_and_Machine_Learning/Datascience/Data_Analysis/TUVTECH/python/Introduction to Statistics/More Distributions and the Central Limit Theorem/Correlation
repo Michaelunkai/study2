@@ -1,0 +1,66 @@
+Transcript
+1. Correlation
+00:00 - 00:08
+We've talked about relationships between variables; now let's look at one way to measure relationships - correlation.
+
+2. Relationships between two variables
+00:08 - 00:23
+Recall that we can use a scatter plot to visualize relationships. Here we plot the costs of water versus gym memberships in different cities. It's hard to determine whether a clear relationship exists between these two variables.
+
+3. Pearson correlation coefficient
+00:23 - 00:55
+This is where the Pearson correlation coefficient, often referred to as the correlation coefficient, comes in handy. It was developed by Karl Pearson and published back in 1896! It quantifies the strength of a relationship between two variables, producing a value between minus one and one. This number corresponds to the strength of the relationship between the variables, and the sign, positive or negative, corresponds to the direction of the relationship.
+
+1 https://royalsocietypublishing.org/doi/10.1098/rsta.1896.0007
+4. Linear relationships
+00:55 - 01:20
+Note that the Pearson correlation coefficient can only be used for linear relationships, meaning changes between variables are proportionate. For example, let's say that a bottle of water costs one dollar and the monthly price of a gym membership is twenty dollars in London. If water costs twice as much in Paris then a gym membership should cost 40 dollars.
+
+5. Values = strength of the relationship
+01:20 - 01:44
+Here's a scatterplot of two variables, x and y, that have a correlation coefficient of 0.99. The data is closely clustered around a diagonal line, so we describe this as a near-perfect or very strong relationship. If we know the value of x, we'll have a good idea of what the value of y could be.
+
+6. Values = strength of the relationship
+01:44 - 01:53
+Comparing this to a correlation coefficient of 0.75, the data points still trend up and to the right, but are more spread out.
+
+7. Values = strength of the relationship
+01:53 - 02:00
+This plot shows a correlation of 0.56, which would be considered a moderate relationship.
+
+8. Values = strength of the relationship
+02:00 - 02:06
+A correlation coefficient around 0.2 would be considered a weak relationship.
+
+9. Values = strength of the relationship
+02:06 - 02:20
+When the correlation coefficient is close to zero, x and y have no relationship and the scatterplot looks completely random. This means that knowing the value of x doesn't tell us anything about the value of y.
+
+10. Sign = direction
+02:20 - 02:39
+The sign of the correlation coefficient corresponds to the direction of the relationship. A positive correlation coefficient indicates that as x increases, y also increases. A negative correlation coefficient indicates that as x increases, y decreases.
+
+11. Gym costs vs. water costs
+02:39 - 03:00
+Given what we now know about correlation, what do we think the correlation coefficient is between water costs and gym costs? Well, there isn't a clear line, suggesting it isn't a very strong relationship, but the values both tend to increase together. So, perhaps there is a weak-to-moderate positive correlation.
+
+12. Adding a trendline
+03:00 - 03:16
+A trendline makes it easier to visualize the relationship. The Pearson correlation coefficient is 0.35, confirming a weak to moderate positive relationship between the cost of a gym membership and the cost of a bottle of water.
+
+13. Life expectancy vs. cost of a bottle of water
+03:16 - 03:34
+Be careful when interpreting the relationship between variables using the correlation coefficient. Here is a plot of life expectancy and the cost of a bottle of water. There is a correlation coefficient of 0.61, suggesting a moderate positive relationship.
+
+14. Correlation does not equal causation
+03:34 - 03:55
+Does this mean increasing the cost of water will increase life expectancy? Well, it is important to distinguish that just because a relationship exists, it doesn't mean that changes in water costs will result in a change in life expectancy. A popular phrase among statisticians is that correlation does not equal causation.
+
+1 Image credit: https://unsplash.com/@micheile; https://unsplash.com/@jon_chng
+15. Confounding variables
+03:55 - 04:31
+When looking at relationships among data, it is important to ask what else might be affecting the values. The cost of a bottle of water is typically higher in locations with stronger economies, and they may offer better access to high quality healthcare. So perhaps life expectancy is not affected by the cost of a bottle of water, it is actually affected by the strength of the economy. This is known as a confounding variable, which is something that affects the data we are analyzing, but was not accounted for when assessing the relationship between variables.
+
+16. Let's practice!
+04:31 - 04:39
+Now let's see how strong the relationship is between watching this video and understanding correlation!

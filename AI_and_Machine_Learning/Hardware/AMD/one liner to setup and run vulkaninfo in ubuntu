@@ -1,0 +1,1 @@
+ getlib && apt install vulkan-tools -y && vulkaninfo
