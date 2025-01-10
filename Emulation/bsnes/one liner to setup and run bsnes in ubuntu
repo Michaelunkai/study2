@@ -1,0 +1,1 @@
+gx11  && flatpak install flathub dev.bsnes.bsnes -y && flatpak run dev.bsnes.bsnes

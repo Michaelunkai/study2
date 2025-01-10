@@ -1,0 +1,1 @@
+getflat && flatpak install flathub com.leinardi.gwe && flatpak run com.leinardi.gwe

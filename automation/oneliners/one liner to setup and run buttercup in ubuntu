@@ -1,0 +1,1 @@
+getfuse && getlib && wget https://github.com/buttercup/buttercup-desktop/releases/latest/download/Buttercup-linux-x86_64.AppImage -O buttercup.AppImage && chmod +x buttercup.AppImage && ./buttercup.AppImage  --no-sandboxsudo apt install microsudo apt install micro

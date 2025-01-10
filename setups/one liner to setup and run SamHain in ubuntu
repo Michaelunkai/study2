@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y samhain && sudo systemctl start samhain && echo "SamHain started. Logs available in /var/log/samhain/"

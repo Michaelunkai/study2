@@ -1,0 +1,1 @@
+getnix && nix-env -i haskellPackages.postgrest

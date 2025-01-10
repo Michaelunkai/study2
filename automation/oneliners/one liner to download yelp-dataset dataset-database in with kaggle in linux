@@ -1,0 +1,1 @@
+rkag  download -d yelp-dataset/yelp-dataset && mkdir yelp_dataset && unzip yelp-dataset.zip -d yelp_dataset

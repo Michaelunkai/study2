@@ -1,0 +1,1 @@
+flatpak install -y flathub im.riot.Riot com.viber.Viber io.github.tdesktop_x64.TDesktop com.slack.Slack com.mattermost.Desktop flathub org.kde.tokodon org.signal.Signal && echo "Messaging and social apps installed via Flatpak."

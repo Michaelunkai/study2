@@ -1,0 +1,1 @@
+sudo apt install python3-pip -y && pip3 install csvkit && echo "col1,col2\n1,2\n3,4" > example.csv && csvcut -c col1 example.csv

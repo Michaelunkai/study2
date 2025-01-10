@@ -1,0 +1,1 @@
+apt install unzip -y && cd && gkag && dkag baraazaid/how-long-to-beat-video-games && unzip how-long-to-beat-video-games.zip -d howlongtobeat_dataset

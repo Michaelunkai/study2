@@ -1,0 +1,1 @@
+sudo apt-get remove --purge ubuntu-advantage-tools -y && sudo rm /etc/apt/apt.conf.d/20apt-esm-hook.conf && remove && clean

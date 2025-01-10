@@ -1,0 +1,1 @@
+getflat && flatpak install flathub org.ppsspp.PPSSPP && flatpak run org.ppsspp.PPSSPP

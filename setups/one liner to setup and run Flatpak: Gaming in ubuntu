@@ -1,0 +1,1 @@
+flatpak install -y flathub net.lutris.Lutris org.libretro.RetroArch com.heroicgameslauncher.hgl org.winehq.Wine com.valvesoftware.Steam com.valvesoftware.SteamLink com.parsecgaming.parsec io.itch.itch && echo "Gaming software installed via Flatpak."

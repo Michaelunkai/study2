@@ -1,0 +1,1 @@
+getlib && wget https://github.com/LightTable/LightTable/releases/download/0.8.1/lighttable-0.8.1-linux.tar.gz && tar -xvf lighttable-0.8.1-linux.tar.gz && sudo mv lighttable-0.8.1-linux /opt/LightTable && sudo ln -s /opt/LightTable/LightTable /usr/bin/lighttable && lighttable

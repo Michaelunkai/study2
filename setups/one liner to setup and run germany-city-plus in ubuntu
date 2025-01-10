@@ -1,0 +1,1 @@
+venv && git clone https://github.com/ANikfarjam/CS133Project.git && cd CS133Project && python3 -m home

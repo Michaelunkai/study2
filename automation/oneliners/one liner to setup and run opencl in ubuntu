@@ -1,0 +1,1 @@
+sudo apt install -y ocl-icd-opencl-dev clinfo && clinfo

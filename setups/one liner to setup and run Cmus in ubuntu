@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y cmus && cmus && echo ":open ~/Music" | cmus-remote -

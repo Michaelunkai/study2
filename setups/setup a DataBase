@@ -1,0 +1,1 @@
+gcloud sql instances create my-instance --database-version=POSTGRES_12 --tier=db-f1-micro --region=us-central1 && gcloud sql users set-password postgres --instance=my-instance --password=my-password

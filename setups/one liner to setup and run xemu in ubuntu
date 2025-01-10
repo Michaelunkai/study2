@@ -1,0 +1,1 @@
+getflat && flatpak install flathub app.xemu.xemu && flatpak run app.xemu.xemu

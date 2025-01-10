@@ -1,0 +1,1 @@
+updates && getlib && getfuse && cd && wget https://raw.githubusercontent.com/Michaelunkai/downloadables/main/pcloud64b && chmod +x pcloud64b && ./pcloud64b

@@ -1,0 +1,1 @@
+docker run -d --name photoprism -p 2342:2342 -v ~/photoprism/storage:/photoprism/storage -v ~/photoprism/import:/photoprism/import -v ~/photoprism/originals:/photoprism/originals photoprism/photoprism:latest && echo "PhotoPrism is running. Access it at http://localhost:2342 with default credentials: username: admin, password: photoprism"

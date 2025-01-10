@@ -1,0 +1,1 @@
+ exai && venv &&  cd /mnt/c/study/programming/python/apps/bots/chatGPTbot/askgpt && python askgpt.py -p "make one liner to setup and run ant tech/IT tool off your choosing in ubuntu 22 wsl2 and enter the tool in the end"

@@ -1,0 +1,1 @@
+sudo apt install curl -y && curl wttr.in/LOCATION

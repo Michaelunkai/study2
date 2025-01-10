@@ -1,0 +1,1 @@
+yes | bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)" && systemctl --user start kite-autostart && ~/.local/share/kite/kited && ps aux | grep kited

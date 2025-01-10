@@ -1,0 +1,1 @@
+sudo wget -qO /root/nm-quick.sh https://raw.githubusercontent.com/gravitl/netmaker/master/scripts/nm-quick.sh &&sudo chmod +x /root/nm-quick.sh && sudo /root/nm-quick.sh

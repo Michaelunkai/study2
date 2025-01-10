@@ -1,0 +1,1 @@
+getnvm && nvm install 18 && sudo npm install -g zwave-js-ui && zwave-js-ui

@@ -1,0 +1,1 @@
+echo -e "\033[31mProxmox Host:\033[0m" && cat ~/.bashrc && echo && for id in $(pct list | awk 'NR>1 {print $1}'); do name=$(pct config $id | grep -oP '^hostname: \K.*'); echo -e "\033[31m$name ($id):\033[0m"; pct exec $id -- cat ~/.bashrc || echo "No ~/.bashrc found"; echo; done

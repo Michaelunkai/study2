@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y beets && mkdir -p ~/.config/beets && echo -e "plugins: play" > ~/.config/beets/config.yaml && beet import ~/Music && beet play album:"Album Name"
