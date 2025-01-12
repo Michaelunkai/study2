@@ -1,0 +1,1 @@
+sudo apt install -y earlyoom && sudo systemctl enable earlyoom && sudo systemctl start earlyoom && systemctl status earlyoom

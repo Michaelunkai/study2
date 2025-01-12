@@ -1,0 +1,8 @@
+echo -e "token=YOUR_VALID_BUILDKITE_AGENT_TOKEN\nname=example-agent\nbuild-path=/var/lib/buildkite/builds" > /var/lib/buildkite/buildkite-agent.cfg && docker run --detach \
+    --restart always \
+    --publish 5000:5000 \
+    --env BUILDKITE_AGENT_TOKEN=YOUR_VALID_BUILDKITE_AGENT_TOKEN \
+    --volume /var/lib/buildkite:/buildkite \
+    --volume /var/lib/buildkite/buildkite-agent.cfg:/buildkite/buildkite-agent.cfg \
+    buildkite/agent && \
+echo "Web UI available at: http://localhost:5000"

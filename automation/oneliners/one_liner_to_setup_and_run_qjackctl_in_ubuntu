@@ -1,0 +1,1 @@
+sudo apt install -y libgl1-mesa-dri && sudo apt install -y jackd2 qjackctl && qjackctl

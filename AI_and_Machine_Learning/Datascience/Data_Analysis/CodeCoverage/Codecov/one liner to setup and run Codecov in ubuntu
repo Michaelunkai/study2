@@ -1,0 +1,1 @@
+curl -s https://uploader.codecov.io/latest/linux/codecov -o codecov && chmod +x codecov && sudo mv codecov /usr/local/bin/ 

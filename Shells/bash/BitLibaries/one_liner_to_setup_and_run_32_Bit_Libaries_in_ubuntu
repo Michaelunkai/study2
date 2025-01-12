@@ -1,0 +1,1 @@
+sudo dpkg --add-architecture i386 && sudo apt update && sudo apt install -y libc6:i386 libstdc++6:i386 libgcc-s1:i386 libncurses6:i386 libz1:i386 && dpkg --print-foreign-architectures | grep i386 && dpkg -l | grep i386

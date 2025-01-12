@@ -77,6 +77,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 
 # Step 6: Update Package Index with Docker Packages
 echo_info "Updating package index with Docker packages..."
+sudo apt install docker-compose -y
 sudo apt-get update -y
 
 # Step 7: Install Docker Engine and Related Components

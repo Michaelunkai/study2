@@ -1,0 +1,7 @@
+sudo apt update && sudo apt install -y pipewire pipewire-audio-client-libraries pipewire-pulse && systemctl --user --now enable pipewire pipewire-pulse && systemctl --user start pipewire pipewire-pulse
+
+
+su - ubuntu
+
+
+pw-top

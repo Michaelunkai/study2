@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y curl wget tar jq podman && wget https://github.com/okd-project/okd/releases/download/4.17.0-okd-scos.0/ccoctl-linux-4.17.0-okd-scos.0.tar.gz && tar -xvzf ccoctl-linux-4.17.0-okd-scos.0.tar.gz && sudo mv ccoctl /usr/local/bin/ && echo "Verify the correct URL for openshift-install at https://github.com/okd-project/okd/releases"

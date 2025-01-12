@@ -30,17 +30,14 @@ This tutorial will show you how to install and enable Bash auto-completion on Ub
 
 1. **Open the Terminal Application**.
 2. Refresh the package database by running:
-   ```bash
+     
    sudo apt update
-   ```
 3. Get information about the `bash-completion` package:
-   ```bash
-   apt info bash-completion
-   ```
+     
+   apt info  -completion
 4. Install the `bash-completion` package:
-   ```bash
+     
    sudo apt install bash-completion
-   ```
 5. Log out and log in again to verify that Bash auto-completion is working properly.
 
 Let’s go through these steps in more detail.
@@ -51,57 +48,49 @@ Let’s go through these steps in more detail.
 
 #### **1. Install Bash Completion**
 Bash completion is a useful tool for automatically completing file names, commands, and more. Use the following commands to install it:
-   ```bash
+     
    sudo apt update
    sudo apt upgrade
    sudo apt install bash-completion
-   ```
 
 #### **2. Verify the Installation**
 The installer places a shell script at `/etc/profile.d/bash_completion.sh`. View it using:
-   ```bash
-   cat /etc/profile.d/bash_completion.sh
-   ```
+     
+   cat /etc/profile.d/ _completion.sh
 
 #### **3. Enable Bash Completion in Your Shell**
 To enable Bash completion, source the script from your `~/.bashrc` file:
-   ```bash
+     
    echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
-   ```
    Or use the following command to ensure it’s added only if it’s not already present:
-   ```bash
+     
    grep -wq '^source /etc/profile.d/bash_completion.sh' ~/.bashrc || echo 'source /etc/profile.d/bash_completion.sh' >> ~/.bashrc
-   ```
    The `grep` command checks if the line exists, and if not, the `echo` command appends it.
 
 #### **4. Test Bash Auto Completion**
 For the current session, use the `source` command to load the script manually:
-   ```bash
-   source /etc/profile.d/bash_completion.sh
-   ```
+     
+   source /etc/profile.d/ _completion.sh
    Now, press the `[TAB]` key while typing a command to auto-complete syntax or options:
-   ```bash
+     
    sudo apt i[TAB]
    cat /etc/re[TAB]
-   ```
 
 ---
 
 ### Writing Your First Simple Bash Completion Code
 You can create custom completions. For example, use the `host` command to check IP addresses of specific domains:
-   ```bash
+     
    complete -W 'google.com cyberciti.biz nixcraft.com' host
-   ```
    Now, type `host` and press `[TAB]` to see the options.
 
 ---
 
 ### Conclusion
 The easiest way to enable Bash auto-completion is by installing the `bash-completion` package. You’ve also learned how to write simple custom completion code. For more details, consult the Bash manual:
-   ```bash
-   man bash
+     
+   man  
    help complete
-   ```
 
 ---
 

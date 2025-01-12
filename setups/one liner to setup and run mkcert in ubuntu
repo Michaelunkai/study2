@@ -1,0 +1,5 @@
+sudo apt install libnss3-tools -y
+wget https://dl.filippo.io/mkcert/latest?for=linux/amd64 -O mkcert
+chmod +x mkcert
+sudo mv mkcert /usr/local/bin/
+mkcert --help

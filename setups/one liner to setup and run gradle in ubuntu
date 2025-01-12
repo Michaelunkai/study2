@@ -1,0 +1,1 @@
+ uz && sudo apt install -y openjdk-11-jdk && wget https://services.gradle.org/distributions/gradle-8.3-bin.zip && unzip gradle-8.3-bin.zip -d /opt/gradle && export PATH=$PATH:/opt/gradle/gradle-8.3/bin && gradle -v

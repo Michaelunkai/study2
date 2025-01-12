@@ -1,0 +1,1 @@
+flutter pub add flutter_boost && flutter pub get

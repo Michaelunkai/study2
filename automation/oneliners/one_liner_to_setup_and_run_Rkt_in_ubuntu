@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y curl && curl -sSL https://github.com/rkt/rkt/releases/download/v1.30.0/rkt-v1.30.0.tar.gz | tar xz && sudo mv rkt-v1.30.0 /opt/rkt && sudo ln -s /opt/rkt/rkt /usr/local/bin/rkt && rkt version

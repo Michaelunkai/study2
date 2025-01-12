@@ -1,0 +1,6 @@
+sudo apt install -y mssql-tools unixodbc-dev && \
+export PATH=$PATH:/opt/mssql-tools/bin && \
+echo 'export PATH=$PATH:/opt/mssql-tools/bin' >> ~/.bashrc && \
+source ~/. rc
+
+bcp

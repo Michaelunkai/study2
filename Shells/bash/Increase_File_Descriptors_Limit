@@ -1,0 +1,10 @@
+Increase the limit by adding the following lines to your shell configuration file (~/.bashrc or ~/.zshrc):
+
+ 
+ 
+ulimit -n 65535
+Reload the configuration:
+
+ 
+ 
+source ~/. rc
