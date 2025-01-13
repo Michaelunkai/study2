@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install openjdk-11-jre unzip wget -y && wget -q https://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip && unzip cruisecontrol-bin-2.8.4.zip && cd cruisecontrol-bin-2.8.4 && ./cruisecontrol.sh

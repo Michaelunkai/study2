@@ -1,0 +1,46 @@
+ Nginx Reverse Proxy
+Install Nginx and Certbot. This will allow a secure HTTPS connection to the server once configured.
+
+$ sudo apt install -y nginx certbot
+Get an HTTPS certificate for your domain. This requires that your domain points towards the IP of your Vultr instance. Consult your domain provider for instructions on how to add an A record for your instance. Make sure to replace example.org with your domain name.
+
+$ sudo certbot certonly --webroot -w /var/www/html -d ci.example.org
+Enable auto-renew for Certbot by editing the Crontab file.
+
+$ crontab -e
+Once the file is opened, add the following line.
+
+30 5 * * * /usr/bin/certbot renew
+Once done, save and exit the file.
+
+Now, configure the Nginx virtual host to proxy traffic for the domain to the Concourse ATC server and to use the HTTPS certificate.
+
+$ sudo nano /etc/nginx/sites-enabled/concourse
+Once the file is opened, add the following lines. Replace ci.example.org with your server's fully-qualified domain name in four places.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ci.example.org;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name ci.example.org;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_certificate /etc/letsencrypt/live/ci.example.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ci.example.org/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:8080;
+    }
+}
+Once done, exit and save the file. Now, reload the Nginx configuration.
+
+$ sudo systemctl reload nginx
+Conclusion
+The web UI should now be available at your server's domain name. For example: https://ci.example.org

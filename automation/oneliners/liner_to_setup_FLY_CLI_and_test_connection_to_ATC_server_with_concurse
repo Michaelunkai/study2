@@ -1,0 +1,1 @@
+ sudo curl -o /usr/local/bin/fly "http://localhost:8080/api/v1/cli?arch=amd64&platform=linux" && chmod 755 /usr/local/bin/fly && fly -t tutorial login -c http://localhost:8080 -u test -p test
