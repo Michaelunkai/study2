@@ -1,0 +1,12 @@
+gx11 && sudo apt update && sudo apt install -y gazebo && echo "export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0" >> ~/.bashrc && export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0 && gazebo
+
+
+
+Here's a one-liner to set up and run Gazebo on Ubuntu WSL2:
+
+ 
+ 
+sudo apt update && sudo apt install -y gazebo && echo "export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0" >> ~/.bashrc && export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0 && gazebo
+Prerequisites:
+You need an X server (like VcXsrv or Xming) installed and running on your Windows system.
+Ensure DISPLAY is properly configured to point to the Windows host for GUI rendering.

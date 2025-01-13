@@ -1,0 +1,65 @@
+What is Temperature in NLP?🐭
+Temperature is a parameter used in natural language processing models to increase or decrease the “confidence” a model has in its most likely response.
+
+In my opinion, the most intuitive way of understanding how temperature affects model outputs is to play with it yourself. If you’re interested in the mathematical details, I’ve included them below, but I won’t be offended if you just want to play around with the slider 😃 .
+
+Temperature (θ): 
+ 25.0
+
+What’s going on?
+Suppose we have a language model which predicts the last word in the sentence “The mouse ate the _____”. Given the previous words in the sentence and its prior training, our language model will try to fill in the blank with a reasonable final token. Suppose those raw outputs are as follows:
+
+token	logit
+cat	3
+cheese	70
+pizza	40
+cookie	65
+fondue	55
+banana	10
+baguette	15
+cake	12
+These outputs make sense. A mouse probably eats cheese, but mice are also known to eat cookies. A mouse probably wouldn’t eat a baguette unless it was a French mouse.
+
+Since these are the raw outputs of the model, they won’t sum to 100. To normalize these values, we typically use softmax:
+
+σ
+(
+z
+i
+)
+=
+e
+z
+i
+∑
+N
+j
+=
+0
+e
+z
+j
+
+When modulating with temperature, we introduce an additional temperature variable θ which affects the softmax distribution. A higher temperature θ “excites” previously low probability outputs. A lower temperature θ lowers the smaller outputs relative to the largest outputs. To accomplish this, we replace each zi in the formula above with the quotient zi/θ:
+
+σ
+(
+z
+i
+)
+=
+e
+z
+i
+θ
+∑
+N
+j
+=
+0
+e
+z
+j
+θ
+
+Higher temperatures make the model more “creative” which can be useful when generating prose, for example. Lower temperatures make the model more “confident” which can be useful in applications like question answering.
