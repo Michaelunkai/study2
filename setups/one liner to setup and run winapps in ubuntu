@@ -1,0 +1,4 @@
+mkdir -p ~/.config/winapps && echo 'RDP_USER="YourWindowsUsername"
+RDP_PASS="YourWindowsPassword"
+RDP_IP="YourWindowsIP"
+RDP_FLAGS=""' > ~/.config/winapps/winapps.conf  && git clone https://github.com/Fmstrat/winapps.git && cd winapps && chmod +x installer.sh && ./installer.sh
