@@ -1,0 +1,58 @@
+# Comprehensive Guide to Disabling Audible Typing Feedback on Samsung Galaxy S22 Using Accessibility Settings, Keyboard Options, and Text-to-Speech Tools
+
+This tutorial explains how to disable the audible feedback on your Samsung Galaxy S22, which announces each letter you type. It includes steps to turn off accessibility features like TalkBack, adjust keyboard settings, and manage text-to-speech tools for a seamless typing experience.
+
+---
+
+### Step 1: Disable TalkBack Using Accessibility Settings
+The TalkBack feature in Android is designed for users with visual impairments, and it might be causing your device to announce each letter as you type.
+
+1. **Access the Settings Menu**:
+   - Swipe down from the top of your screen to open the **Notification Panel**.
+   - Tap the **gear icon** to access **Settings**.
+
+2. **Navigate to Accessibility**:
+   - Scroll down in the Settings menu and tap **Accessibility**.
+
+3. **Turn Off TalkBack**:
+   - Select **TalkBack** (may also appear as **Screen Reader** on some devices).
+   - Toggle the **TalkBack switch** to **Off**.
+
+4. **Confirm Disabling TalkBack**:
+   - If prompted, tap **OK** or **Turn Off** to confirm.
+
+---
+
+### Step 2: Adjust Keyboard Feedback Settings to Disable Sounds or Vibrations
+Sometimes, keyboard feedback settings may include sounds or vibrations that mimic voice feedback.
+
+1. **Access the Settings Menu**:
+   - Open the **Settings** app from your home screen or app drawer.
+
+2. **Go to Sounds and Vibration**:
+   - In the Settings menu, tap **Sounds and Vibration**.
+
+3. **Adjust System Sound Settings**:
+   - Tap **System Sound/Vibration Control** (or a similar option depending on your software version).
+   - Look for **Keyboard Sound** or **Keyboard Vibration** and toggle these options **Off**.
+
+---
+
+### Step 3: Modify Samsung Keyboard Text-to-Speech Feedback
+If you’re using the Samsung Keyboard, its text-to-speech feature may be enabled, causing the letters to be read aloud.
+
+1. **Open Samsung Keyboard Settings**:
+   - While the keyboard is open, tap the **gear icon** in the toolbar.
+   - If the gear icon isn’t visible, press and hold the **comma key** until the settings icon appears, then tap it.
+
+2. **Disable Text-to-Speech Feedback**:
+   - In the Samsung Keyboard settings, look for options like **Text-to-Speech Feedback** or **Voice Input Settings**.
+   - Toggle these options **Off** to stop the voice announcements.
+
+---
+
+### Additional Tips
+- **Restart Your Device**: If the issue persists, restarting your phone might help apply changes.
+- **Update Software**: Ensure your Samsung Galaxy S22 is running the latest Android and One UI version to avoid bugs.
+
+This tutorial has comprehensively covered all necessary tools and settings to ensure your device stops announcing typed letters. Let me know if you need further assistance!

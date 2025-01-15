@@ -1,0 +1,1 @@
+sudo apt install gh && gitoken && gh auth login && gh codespace create && gh codespace code
