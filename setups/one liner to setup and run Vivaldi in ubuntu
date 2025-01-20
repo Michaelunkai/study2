@@ -1,0 +1,1 @@
+flatpak install flathub com.vivaldi.Vivaldi -y && flatpak run com.vivaldi.Vivaldi --no-sandbox

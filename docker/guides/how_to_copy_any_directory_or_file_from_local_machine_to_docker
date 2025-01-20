@@ -3,7 +3,7 @@
 1)create new directory in the container (app for example)
 docker exec -it <containerid> mkdir /app
 
-2)copy 
+2)  
 docker cp /path/to/file <containerid>:/app/
 
 

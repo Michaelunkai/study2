@@ -8,7 +8,7 @@ docker run -d   --name qbittorrent   -e PUID=$(id -u)   -e PGID=$(id -g)   -e TZ
 
 docker logs <container id>
 
-copy the password
+  the password
 
 3) localhost:8080
  

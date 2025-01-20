@@ -1,0 +1,1 @@
+curl -fsSL https://get.caddyserver.com | bash && caddy run --config /path/to/Caddyfile --https-port 8443

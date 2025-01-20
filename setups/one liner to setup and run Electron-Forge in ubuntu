@@ -1,0 +1,1 @@
+sudo apt install -y nodejs npm && sudo npm install -g @electron-forge/cli && electron-forge init myApp && cd myApp && npm start

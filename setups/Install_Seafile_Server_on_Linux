@@ -58,7 +58,7 @@ seafile database name: seafile-db
 seahub database name: seahub-db
 
 Continue with the following command:
-# edit gunicorn.conf.py
+#   gunicorn.conf.py
 nano /opt/seafile/conf/gunicorn.conf.py
 Press CTRL + W and search for bind =
 Change the value to 0.0.0.0:8000

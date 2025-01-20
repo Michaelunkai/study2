@@ -1,0 +1,1 @@
+ flatpak install flathub io.gitlab.librewolf-community -y && flatpak run io.gitlab.librewolf-community -y

@@ -36,7 +36,7 @@ password
 mysql> set global log_bin_trust_function_creators = 0;
 my > quit;
 d. Configure the database for Zabbix server
-Edit file /etc/zabbix/zabbix_server.conf
+  file /etc/zabbix/zabbix_server.conf
 
 DBPassword=password
 e. Start Zabbix server and agent processes

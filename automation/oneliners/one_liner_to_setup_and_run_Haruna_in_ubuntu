@@ -1,0 +1,1 @@
+flatpak install -y flathub org.kde.haruna && flatpak run org.kde.haruna

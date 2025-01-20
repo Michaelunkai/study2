@@ -45,7 +45,7 @@ sudo mkdir /var/www/html/invoiceplane
 sudo unzip ./invoiceplane.zip -d /var/www/html/invoiceplane
 # copy sample config file
 sudo cp /var/www/html/invoiceplane/ipconfig.php.example /var/www/html/invoiceplane/ipconfig.php
-# edit config. 
+#   config. 
 sudo nano /var/www/html/invoiceplane/ipconfig. 
 Scroll down to the const IP_URL variable and set the value to the IP address or DNS name of the host
 IP_URL=http://localhost/invoiceplane

@@ -44,7 +44,7 @@ msg_ok "OpenJDK installed"
 # Install HiveMQ CE
 msg_info "Installing HiveMQ CE"
 RELEASE=$(curl -s https://api.github.com/repos/hivemq/hivemq-community-edition/releases/latest | grep "tag_name" | awk -F '"' '{print $4}')
-wget -q https://github.com/hivemq/hivemq-community-edition/releases/download/${RELEASE}/hivemq-ce-${RELEASE}.zip
+wget -q https://github.com/hivemq/hivemq-community- ion/releases/download/${RELEASE}/hivemq-ce-${RELEASE}.zip
 unzip -q hivemq-ce-${RELEASE}.zip
 mkdir -p /opt/hivemq
 mv hivemq-ce-${RELEASE}/* /opt/hivemq

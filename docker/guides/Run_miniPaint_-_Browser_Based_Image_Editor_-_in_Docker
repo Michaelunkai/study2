@@ -36,7 +36,7 @@ git clone https://github.com/viliusle/miniPaint.git ~/docker/miniPaint
 cd ~/docker/miniPaint
 # checkout the latest tagged release
 git checkout "$(git tag --sort=v:refname | tail -n1)"
-# edit webpack.config.js
+#   webpack.config.js
 sudo nano webpack.config.js
 Scroll to the bottom of the file and locate devServer, then add the following line inside the devServer block
 allowedHosts: "all",

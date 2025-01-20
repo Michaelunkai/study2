@@ -47,7 +47,7 @@ sudo unzip ./easyappointments.zip -d /var/www/html/easyappointments
 sudo chown -R www-data:www-data /var/www/html/easyappointments
 # copy sample config file
 sudo cp /var/www/html/easyappointments/config-sample.php /var/www/html/easyappointments/config.php
-# edit config. 
+#   config. 
 sudo nano /var/www/html/easyappointments/config. 
 Scroll down to the const BASE_URL variable and set the value to the IP address or DNS name of the host
 const BASE_URL = 'http://localhost/easyappointments';

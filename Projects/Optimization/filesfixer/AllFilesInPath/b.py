@@ -23,7 +23,7 @@ def replace_with_space_in_file(file_path):
 
         if word_count <= 3:
             # Replace specified words with a space
-            line = re.sub(r'Copy\s+code|scss|css|bash|sql|Output|php|csharp|ruby|lua|yaml|powershell|python|vbnet|makefile|csv|markdown|```|```sh', ' ', line)
+            line = re.sub(r'Copy\s+code|scss|css|bash|sql|Output|php|csharp|ruby|lua|yaml|powershell|python|vbnet|makefile|csv|markdown|copy|Copy|Edit|edit|```|```sh', ' ', line)
 
         modified_lines.append(line)
 

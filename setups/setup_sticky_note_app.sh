@@ -114,7 +114,7 @@ cat > templates/index.html << EOL
     <button id="clearNote">Clear</button>
     <button id="startSpeech">Start Speech-to-Text</button>
     <button id="stopSpeech" disabled>Stop Speech-to-Text</button>
-    <button id="copyNote">Copy</button>
+    <button id=" Note"> </button>
     <canvas id="waveform" width="800" height="200"></canvas>
     <p id="language"></p>
 
@@ -213,9 +213,9 @@ function loadNote() {
     });
 }
 
-function copyNote() {
+function  Note() {
     noteTextarea.select();
-    document.execCommand("copy");
+    document.execCommand(" ");
     alert("Note copied to clipboard!");
 }
 
@@ -292,7 +292,7 @@ saveButton.addEventListener("click", saveNote);
 clearButton.addEventListener("click", clearNote);
 startSpeechButton.addEventListener("click", startRecording);
 stopSpeechButton.addEventListener("click", stopRecording);
-copyButton.addEventListener("click", copyNote);
+ Button.addEventListener("click",  Note);
 
 window.onload = loadNote;
 

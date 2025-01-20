@@ -1,0 +1,1 @@
+flatpak install -y flathub org.gnome.boxes && flatpak run org.gnome.boxes

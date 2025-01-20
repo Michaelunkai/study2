@@ -45,7 +45,7 @@ sudo mv /var/www/html/kanboard* /var/www/html/kanboard
 sudo chown -R www-data:www-data /var/www/html/kanboard
 # make a copy of config template
 sudo cp /var/www/html/kanboard/config.default.php /var/www/html/kanboard/config.php
-# edit config. 
+#   config. 
 sudo nano /var/www/html/kanboard/config. 
 Press CTRL + W and search for DB_DRIVER
 Set the DB_DRIVER value to mysql

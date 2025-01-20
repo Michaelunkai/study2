@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y tigervnc-standalone-server && vncserver :1

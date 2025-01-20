@@ -1,0 +1,2 @@
+# NES/Famicom emulator with debugger
+sudo apt install -y fceux && fceux

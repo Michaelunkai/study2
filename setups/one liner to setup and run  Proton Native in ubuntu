@@ -1,0 +1,1 @@
+sudo apt install -y nodejs npm && npm install -g create-react-native-app && npx create-react-native-app myApp && cd myApp && npm start

@@ -1,0 +1,1 @@
+sudo apt install python3-certbot-dns-cloudflare && sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /path/to/credentials.ini -d yourdomain.com

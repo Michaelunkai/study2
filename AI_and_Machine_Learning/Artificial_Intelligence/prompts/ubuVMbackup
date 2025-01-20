@@ -1,8 +1,4 @@
 1)add aliases:
-alias gchrome="cd && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install -y ./google-chrome-stable_current_amd64.deb && sudo apt install -y chromium-chromedriver && sudo apt-get install -y libnss3 && sudo apt-get install -y libnss3 && cc && which chromedriver"
-alias gepub="git clone https://github.com/aedocw/epub2tts.git && cd epub2tts &&  pip install . && python -m nltk.downloader punkt_tab && edge-tts --list-voices | grep -i hebrew"
-alias fixtime='sudo date -s "$(curl -sI http://www.google.com | grep -i "^date:" | cut -d" " -f3-6)Z"'
-
 
 2)install:
 

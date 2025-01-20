@@ -1,0 +1,1 @@
+flatpak install -y flathub org.signal.Signal && flatpak run org.signal.Signal --no-sandbox
