@@ -1,7 +1,7 @@
 import os
 
 # Directory containing the videos
-video_directory = "C:\\Users\\micha\\videos"
+video_directory = "C:\\Users\\micha\\Videos"
 
 # List all files in the directory
 video_files = os.listdir(video_directory)
