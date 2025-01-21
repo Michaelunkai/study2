@@ -1,6 +1,8 @@
 1)add aliases:
+alias rmn='f() { rm "$1" && n "$1"; }; f'
 
 2)install:
+venv && pip install telethon tqdm googletrans==3.1.0a0
 
 
 3)add/change:

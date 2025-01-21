@@ -1,0 +1,1 @@
+curl https://get.acme.sh | sh && ~/.acme.sh/acme.sh --upgrade --auto-upgrade

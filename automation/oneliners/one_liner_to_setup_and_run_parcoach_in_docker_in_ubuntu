@@ -1,0 +1,1 @@
+docker run -v `pwd`:/home/ubuntu/sources -it registry.gitlab.inria.fr/parcoach/parcoach-demo:2.4.1 bash
