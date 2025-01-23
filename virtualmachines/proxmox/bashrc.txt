@@ -42,13 +42,12 @@ alias backupubu="bash /root/backup_vm_101.sh"
 alias snapubu="cd && ./manage_snapshots_vm_101.sh"
 alias reubu="cd && ./restore_and_start_vm.sh"
 alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'
-alias clean='bash /root/cleanprox.sh && plex && bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"'
-alias updates='bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/update-lxcs.sh)" && bash /root/updateUbu.sh && update'
+alias clean='bash /root/cleanprox.sh && plex && bash /root/auto_trim_LXC.sh'
 alias scpmyg="sshpass -p 'blackablacka2' ssh micha@192.168.1.178 \"powershell -Command \\\"scp -v 'C:/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/games_data.json' ubuntu@192.168.1.193:/home/ubuntu\\\"\""
 alias udocker="scpmyg && backupubu && snapubu && ubudocker"
 alias ex="exit"
 alias backiso="cd /var/lib/vz/template/iso &&  docker build -t michadockermisha/backup:proxiso . && docker push michadockermisha/backup:proxiso && docker rmi michadockermisha/backup:proxdump michadockermisha/backup:proxiso && docker system prune -af && docker volume prune -f && docker container prune -f && docker image prune -af && docker network prune -f"
-alias bubu="ccubu && b ackupubu && reubu && snapubu && udocker"
+alias bubu="ccubu && backupubu && reubu && snapubu && udocker"
 alias s='echo "root ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo && sudo su'
 alias ccubu="du -sh /var/lib/vz/images/101 && cd /var/lib/vz/images/101 && qemu-img convert -O qcow2 vm-101-disk-0.qcow2 vm-101-disk-1.qcow2 && mv vm-101-disk-1.qcow2 vm-101-disk-0.qcow2 && du -sh /var/lib/vz/images/101"
 function allrc {
@@ -66,7 +65,7 @@ cct() {
     # Prompt for CTID
     read -p "Enter desired CTID (container number): " CTID
     
-    # Validate CTID is a number
+5B    # Validate CTID is a number
     if ! [[ "$CTID" =~ ^[0-9]+$ ]]; then
         echo "Error: CTID must be a number"
         return 1
@@ -166,26 +165,29 @@ cct() {
     echo "SSH service status:"
     pct exec $CTID -- systemctl status ssh | grep Active
 }
-addrc() {
-  for ct in $(pct list | awk 'NR>1 {print $1}'); do
-    pct exec $ct -- bash -c "
-      tmpfile=/tmp/temp_bashrc
-      grep -E '^(function|alias)' /root/.bashrc | while read -r line; do
-        if ! grep -Fxq \"\$line\" /root/.bashrc; then
-          echo \"\$line\" >> \$tmpfile
-        fi
-      done
-      if [ -f \$tmpfile ]; then
-        cat \$tmpfile >> /root/.bashrc
-        rm \$tmpfile
-      fi
-    "
-  done < <(grep -E '^(function|alias)' /root/.bashrc)
-}
 alias ss="sudo rtcwake -m mem -s"
 alias top="du -sm * | sort -n"
 alias restoreconf="bash /root/restoreconf.sh"
 alias scprc="scp -p /root/.bashrc micha@192.168.1.178:'C:/study/virtualmachines/proxmox/bashrc.txt'"
 alias dtemp="pveam download local ubuntu-22.04-standard_22.04-1_amd64.tar.zst"
 alias cprc='for CTID in $(pct list | awk '\''NR>1 {print $1}'\''); do pct exec $CTID -- bash -c "cat > /root/.bashrc" < /root/.bashrc; done'
+alias updates="bash /root/update-lxcs.sh && bash /root/updateUbu.sh && update"
+alias rollubu='qm rollback 101 snap'
+alias rmsources='rm -rf /etc/apt/sources.list.d/*'
+alias tv="cd /home/TV"
+alias anime="cd /home/anime"
+alias movies="cd /home/movies"
+addrc() {
+  # Read the host's .bashrc content safely
+  bashrc_content=$(base64 /root/.bashrc)
 
+  # Iterate through all running containers
+  for ct in $(pct list | awk 'NR>1 && $2=="running" {print $1}'); do
+    pct exec $ct -- bash -c "
+      cp /root/.bashrc /root/.bashrc.bak 2>/dev/null || true
+      echo '$bashrc_content' | base64 -d > /root/.bashrc
+      source /root/.bashrc
+    "
+  done
+}
+alias fullup="updates && clean && reboot"

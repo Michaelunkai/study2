@@ -1,0 +1,1 @@
+sudo postconf -e 'myhostname=localhost.localdomain' 'mydomain=localdomain' && sudo dpkg --configure -a

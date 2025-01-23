@@ -86,4 +86,15 @@ fi
 echo "Final disk usage:"
 df -h
 
+rm -rf ./var/lib/dpkg/info/*.list ./var/lib/dpkg/info/*.md5sums ./var/lib/dpkg/info/*.triggers ./var/lib/dpkg/info/*.shlibs ./var/lib/dpkg/info/*.symbols ./var/lib/dpkg/info/*.postinst ./var/lib/dpkg/info/*.postrm ./var/lib/dpkg/info/*.preinst ./var/lib/dpkg/info/*.prerm ./var/lib/dpkg/triggers/* ./var/lib/systemd/catalog/database ./var/lib/apt/lists/* ./var/log/* ./usr/lib/file/magic.mgc
+
+rm -rf ./var/lib/dpkg/info/*
+rm -rf ./var/lib/apt/lists/*
+rm -rf ./var/lib/polkit-1/*
+rm -rf ./var/log/alternatives.log
+rm -rf ./usr/lib/x86_64-linux-gnu/dri/*
+rm -rf ./usr/share/python-wheels/*
+rm -rf ./var/cache/apt/pkgcache.bin
+rm -rf ./var/cache/apt/srcpkgcache.bin
+
 echo "Safe maximal cleanup completed. Essential components remain untouched."

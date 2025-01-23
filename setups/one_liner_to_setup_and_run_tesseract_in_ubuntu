@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y tesseract-ocr && tesseract sample.png extracted_text

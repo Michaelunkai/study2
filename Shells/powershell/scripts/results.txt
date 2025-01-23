@@ -1,0 +1,1355 @@
+# Automatically generated
+# duptype id depth size device inode priority name
+DUPTYPE_FIRST_OCCURRENCE 2105 1 27 82 6755399441232346 3 /mnt/c/study/setups/one liner to setup and run vizex in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2105 5 27 82 9570149208400666 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/vizex/one liner to setup and run vizex in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1918 1 28 82 6755399441231964 3 /mnt/c/study/setups/one liner to setup and run bluej in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1918 3 28 82 7881299348136429 3 /mnt/c/study/IDE/IDEs/bluej/one liner to setup and run bluej in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1901 1 30 82 7036874417942800 3 /mnt/c/study/setups/one liner to setup and run anbox in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1901 3 30 82 5629499534451329 3 /mnt/c/study/Platforms/Android/anbox/one liner to setup and run anbox in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1979 1 31 82 7036874417942997 3 /mnt/c/study/setups/one liner to setup and run gt5 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1979 5 31 82 4222124650898199 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/gt5/one liner to setup and run gt5 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2117 1 31 82 6755399441232350 3 /mnt/c/study/setups/one liner to setup and run xdu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2117 5 31 82 6473924464583452 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/xdu/one liner to setup and run xdu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 454 1 31 82 5066549581298934 3 /mnt/c/study/setups/liner to setup and run Zim note app in ubuntu with apt
+DUPTYPE_WITHIN_SAME_TREE -454 2 31 82 7036874417942661 3 /mnt/c/study/automation/oneliners/liner to setup and run Zim note app in ubuntu with apt
+DUPTYPE_WITHIN_SAME_TREE -454 3 31 82 9851624185111053 3 /mnt/c/study/IDE/Notes/zim/liner to setup and run Zim note app in ubuntu with apt
+DUPTYPE_FIRST_OCCURRENCE 1669 1 33 82 6192449487810666 3 /mnt/c/study/setups/one liner to setup and run IDLE in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1669 3 33 82 10977524091953654 3 /mnt/c/study/IDE/IDEs/IDLE/one liner to setup and run IDLE in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1995 1 33 82 6473924464521335 3 /mnt/c/study/setups/one liner to setup and run kate in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1995 4 33 82 10414574138532352 3 /mnt/c/study/IDE/IDEs/TextEditors/kate/one liner to setup and run kate in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2027 1 33 82 7036874417942999 3 /mnt/c/study/setups/one liner to setup and run ncdu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2027 5 33 82 3940649674187544 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/ncdu/one liner to setup and run ncdu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1956 1 35 82 6755399441135113 3 /mnt/c/study/setups/one liner to setup and run etcd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1956 3 35 82 11540474045310725 3 /mnt/c/study/Disturbed/disturbed_key-value_store/etcd/one liner to setup and run etcd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1866 1 35 82 6192449487687438 3 /mnt/c/study/setups/one liner to setup and run Video Game Data in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1866 6 35 82 5066549580835154 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Video Game Data/one liner to setup and run Video Game Data in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 484 1 35 82 5066549581299069 3 /mnt/c/study/setups/liner to setup vercel with npm in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -484 2 35 82 7036874417942613 3 /mnt/c/study/automation/oneliners/liner to setup vercel with npm in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -484 3 35 82 4222124650897896 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup vercel with npm in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1905 1 35 82 6755399441232420 3 /mnt/c/study/setups/one liner to setup and run aqemu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1905 2 35 82 3940649674187609 3 /mnt/c/study/virtualmachines/aqemu/one liner to setup and run aqemu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2030 1 35 82 6473924464521321 3 /mnt/c/study/setups/one liner to setup and run neovim in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2030 4 35 82 11540474045374965 3 /mnt/c/study/IDE/IDEs/IDLE/neovim/one liner to setup and run neovim in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2017 1 35 82 6192449487810682 3 /mnt/c/study/setups/one liner to setup and run micro in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2017 4 35 82 4222124650897926 3 /mnt/c/study/IDE/IDEs/TextEditors/micro/one liner to setup and run micro in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2092 1 36 82 7036874417942606 3 /mnt/c/study/setups/one liner to setup and run telebit in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2092 3 36 82 10414574138532324 3 /mnt/c/study/hosting/tunneling/telebit/one liner to setup and run telebit in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4083 2 36 82 6755399441233673 3 /mnt/c/study/automation/oneliners/liner to check all running services
+DUPTYPE_WITHIN_SAME_TREE -4083 3 36 82 3940649674188586 3 /mnt/c/study/Shells/bash/services/liner to check all running services
+DUPTYPE_FIRST_OCCURRENCE 1571 1 37 82 6755399441232333 3 /mnt/c/study/setups/one liner to setup and run Baobab in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1571 5 37 82 9851624185111313 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/Baobab/one liner to setup and run Baobab in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1931 1 37 82 7036874417942932 3 /mnt/c/study/setups/one liner to setup and run clamtk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1931 5 37 82 3940649674187486 3 /mnt/c/study/security/Firewall/AntiMalware/ClamAV/clamtk/one liner to setup and run clamtk in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2084 1 37 82 6755399441231987 3 /mnt/c/study/setups/one liner to setup and run spyder in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2084 3 37 82 7036874418004475 3 /mnt/c/study/IDE/IDEs/spyder/one liner to setup and run spyder in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2095 1 37 82 7036874417942651 3 /mnt/c/study/setups/one liner to setup and run thonny in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2095 3 37 82 8444249301557768 3 /mnt/c/study/IDE/IDEs/thonny/one liner to setup and run thonny in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1867 1 38 82 4785074604134176 3 /mnt/c/study/setups/one liner to setup and run Video Games Datase in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1867 7 38 82 4785074604124724 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Video Game Data/Video Games Datase/one liner to setup and run Video Games Datase in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1701 1 38 82 5910974511100186 3 /mnt/c/study/setups/one liner to setup and run MangoHud in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1701 4 38 82 5629499534451341 3 /mnt/c/study/Platforms/linux/Gaming Peripherals/MangoHud/one liner to setup and run MangoHud in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2055 1 38 82 7036874417942968 3 /mnt/c/study/setups/one liner to setup and run pass in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2055 4 38 82 4222124650898177 3 /mnt/c/study/security/secrets/Secret_Management/pass/one liner to setup and run pass in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1545 1 39 82 8444249301372684 3 /mnt/c/study/setups/one liner to setup and run 80,000 Steam Games Dataset in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1545 7 39 82 7036874417809742 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Video Game Data/80,000 Steam Games Dataset/one liner to setup and run 80,000 Steam Games Dataset in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1569 1 39 82 4222124650737944 3 /mnt/c/study/setups/one liner to setup and run Backblaze B2 CLI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1569 2 39 82 17451448556125433 3 /mnt/c/study/cloud/Backblaze B2 CLI/one liner to setup and run Backblaze B2 CLI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2044 1 39 82 4785074604244068 3 /mnt/c/study/setups/one liner to setup and run openmsx in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2044 3 39 82 10977524091901435 3 /mnt/c/study/Emulation/Games/openmsx/one liner to setup and run openmsx in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 451 1 39 82 5348024558009641 3 /mnt/c/study/setups/liner to setup and run PCManFM in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -451 2 39 82 8162774324778035 3 /mnt/c/study/automation/oneliners/liner to setup and run PCManFM in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -451 3 39 82 13229323905618115 3 /mnt/c/study/FilesystemManagement/FileManagers/PCManFM/liner to setup and run PCManFM in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2073 1 39 82 6755399441231985 3 /mnt/c/study/setups/one liner to setup and run racket in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2073 3 39 82 4222124650897914 3 /mnt/c/study/IDE/IDEs/racket/one liner to setup and run racket in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2057 1 39 82 6473924464508969 3 /mnt/c/study/setups/one liner to setup and run pcsxr in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2057 3 39 82 7599824371375350 3 /mnt/c/study/Emulation/Games/pcsxr/one liner to setup and run pcsxr in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2114 1 40 82 7036874417943127 3 /mnt/c/study/setups/one liner to setup and run wslpath in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2114 3 40 82 6473924464583548 3 /mnt/c/study/virtualmachines/wsl2/wslpath/one liner to setup and run wslpath in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 479 1 41 82 4785074604588243 3 /mnt/c/study/setups/liner to setup rambox with snap in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -479 2 41 82 3659174697289898 3 /mnt/c/study/communication/rambox/liner to setup rambox with snap in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -479 2 41 82 3940649674005883 3 /mnt/c/study/automation/oneliners/liner to setup rambox with snap in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1937 1 41 82 6473924464521311 3 /mnt/c/study/setups/one liner to setup and run codelite in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1937 3 41 82 4503599627608559 3 /mnt/c/study/IDE/IDEs/codelite/one liner to setup and run codelite in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2069 1 41 82 6755399441232080 3 /mnt/c/study/setups/one liner to setup and run psad in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2069 2 41 82 5629499534451287 3 /mnt/c/study/networking/psad/one liner to setup and run psad in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1795 1 41 82 7318349394653656 3 /mnt/c/study/setups/one liner to setup and run QDirStat in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1795 5 41 82 6755399441294105 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/QDirStat/one liner to setup and run QDirStat in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1955 1 42 82 7036874417942962 3 /mnt/c/study/setups/one liner to setup and run enpass in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1955 4 42 82 10977524091953917 3 /mnt/c/study/security/secrets/Secret_Management/enpass/one liner to setup and run enpass in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 430 1 42 82 5066549581299062 3 /mnt/c/study/setups/liner to setup Kube-Hunter
+DUPTYPE_WITHIN_SAME_TREE -430 2 42 82 6755399441232130 3 /mnt/c/study/automation/oneliners/liner to setup Kube-Hunter
+DUPTYPE_WITHIN_SAME_TREE -430 3 42 82 4222124650898039 3 /mnt/c/study/Orchestration/kubernetes/Kube-Hunter/liner to setup Kube-Hunter
+DUPTYPE_FIRST_OCCURRENCE 1951 1 42 82 7036874417942990 3 /mnt/c/study/setups/one liner to setup and run dstat in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1951 5 42 82 9851624185111314 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/dstat/one liner to setup and run dstat in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1742 1 43 82 11258999068478043 3 /mnt/c/study/setups/one liner to setup and run Online Gaming Anxiety Data in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1742 6 43 82 3940649673991393 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Online Gaming Anxiety Data/one liner to setup and run Online Gaming Anxiety Data in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2013 1 43 82 7036874417943061 3 /mnt/c/study/setups/one liner to setup and run mapscii in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2013 3 43 82 4222124650898252 3 /mnt/c/study/Travel/maps/mapscii/one liner to setup and run mapscii in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1645 1 43 82 6473924464396620 3 /mnt/c/study/setups/one liner to setup and run Global Video Game in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1645 6 43 82 2251799813727393 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Global Video Game/one liner to setup and run Global Video Game in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1617 1 43 82 7036874417935576 3 /mnt/c/study/setups/one liner to setup and run FileZilla in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1617 3 43 82 7318349394694579 3 /mnt/c/study/FilesystemManagement/FileSharing/FileZilla/one liner to setup and run FileZilla in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1834 1 43 82 6192449487710830 3 /mnt/c/study/setups/one liner to setup and run Syncthing in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1834 3 43 82 3096224743870937 3 /mnt/c/study/backup/sync/Syncthing/one liner to setup and run Syncthing in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1999 1 43 82 6755399441232131 3 /mnt/c/study/setups/one liner to setup and run kubecolor in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1999 3 43 82 4222124650898041 3 /mnt/c/study/Orchestration/kubernetes/kubecolor/one liner to setup and run kubecolor in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 433 1 43 82 5066549581299068 3 /mnt/c/study/setups/liner to setup Varnish cache in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -433 2 43 82 5629499534451355 3 /mnt/c/study/automation/oneliners/liner_to_setup_Varnish_cache_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -433 2 43 82 7036874417942831 3 /mnt/c/study/automation/oneliners/liner to setup Varnish cache in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1939 1 44 82 7318349394524661 3 /mnt/c/study/setups/one liner to setup and run comai in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1939 4 44 82 2533274790411761 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/terminalAI/comai/one liner to setup and run comai in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1640 1 45 82 10696049115178595 3 /mnt/c/study/setups/one liner to setup and run GameMode in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1640 3 45 82 11258999068650877 3 /mnt/c/study/hosting/Gaming/GameMode/one liner to setup and run GameMode in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2116 1 45 82 7036874417943003 3 /mnt/c/study/setups/one liner to setup and run xdiskusage in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2116 5 45 82 9851624185111323 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/xdiskusage/one liner to setup and run xdiskusage in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1936 1 45 82 6755399441231966 3 /mnt/c/study/setups/one liner to setup and run codeblocks in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1936 3 45 82 6473924464583150 3 /mnt/c/study/IDE/IDEs/codeblocks/one liner to setup and run codeblocks in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1959 1 45 82 7036874417943047 3 /mnt/c/study/setups/one liner to setup and run flameshot in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1959 4 45 82 9288674231690049 3 /mnt/c/study/Shells/tools/screenshots/flameshot/one liner to setup and run flameshot in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1992 1 45 82 4222124650738881 3 /mnt/c/study/setups/one liner to setup and run in ubuntu (witout update command) :   Hexchat
+DUPTYPE_WITHIN_SAME_TREE -1992 2 45 82 6473924464413460 3 /mnt/c/study/communication/hexchat/one liner to setup and run in ubuntu (witout update command) :   Hexchat
+DUPTYPE_FIRST_OCCURRENCE 1865 1 46 82 7318349394653556 3 /mnt/c/study/setups/one liner to setup and run VcXsrv in powershell
+DUPTYPE_WITHIN_SAME_TREE -1865 3 46 82 3940649674187464 3 /mnt/c/study/Remote/Xservers/VcXsrv/one liner to setup and run VcXsrv in powershell
+DUPTYPE_FIRST_OCCURRENCE 2053 1 46 82 6473924464521654 3 /mnt/c/study/setups/one liner to setup and run padloc in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2053 4 46 82 3940649674187520 3 /mnt/c/study/security/secrets/Secret_Management/padloc/one liner to setup and run padloc in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1773 1 46 82 9851624184924827 3 /mnt/c/study/setups/one liner to setup and run Popular Video Games 1980 - 2023 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1773 6 46 82 1970324837017220 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Popular Video Games 1980 - 2023/one liner to setup and run Popular Video Games 1980 - 2023 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2065 1 47 82 4503599627421601 3 /mnt/c/study/setups/one liner to setup and run postgrest in ubuntu with nix
+DUPTYPE_WITHIN_SAME_TREE -2065 6 47 82 3377699720563686 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/postgres/postgrest/one liner to setup and run postgrest in ubuntu with nix
+DUPTYPE_FIRST_OCCURRENCE 475 1 47 82 5066549581299060 3 /mnt/c/study/setups/liner to setup iperf3 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -475 2 47 82 6755399441232055 3 /mnt/c/study/automation/oneliners/liner to setup iperf3 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -475 2 47 82 4222124650897978 3 /mnt/c/study/networking/iperf3/liner to setup iperf3 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1927 1 47 82 8162774324784168 3 /mnt/c/study/setups/one liner to setup and run cherrymusic in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1927 3 47 82 5066549581029576 3 /mnt/c/study/hosting/MediaPlayers/cherrymusic/one liner to setup and run cherrymusic in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1996 1 48 82 6755399441232307 3 /mnt/c/study/setups/one liner to setup and run keepassxc in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1996 4 48 82 9288674231689982 3 /mnt/c/study/security/secrets/Secret_Management/keepassxc/one liner to setup and run keepassxc in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1769 1 48 82 6755399441232264 3 /mnt/c/study/setups/one liner to setup and run PkiManager in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1769 3 48 82 5629499534451414 3 /mnt/c/study/security/CertificateManagement/PkiManager/one liner to setup and run PkiManager in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1630 1 49 82 6473924464521546 3 /mnt/c/study/setups/one liner to setup and run FlutterBoost in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1630 2 49 82 7318349394715308 3 /mnt/c/study/programming/Flutter/one liner to setup and run FlutterBoost in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1960 1 49 82 7036874417942855 3 /mnt/c/study/setups/one liner to setup and run fluro in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1960 2 49 82 9570149208400555 3 /mnt/c/study/programming/Flutter/one liner to setup and run fluro in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 469 1 49 82 5066549581298890 3 /mnt/c/study/setups/liner to setup and tun DataGrip in ubuntu with snap
+DUPTYPE_WITHIN_SAME_TREE -469 3 49 82 3940649673966183 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and tun DataGrip in ubuntu with snap
+DUPTYPE_WITHIN_SAME_TREE -469 2 49 82 11821949021895402 3 /mnt/c/study/automation/oneliners/liner to setup and tun DataGrip in ubuntu with snap
+DUPTYPE_FIRST_OCCURRENCE 2035 1 50 82 6755399441231984 3 /mnt/c/study/setups/one liner to setup and run nteract in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2035 3 50 82 4503599627608569 3 /mnt/c/study/IDE/IDEs/nteract/one liner to setup and run nteract in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 441 1 50 82 4785074604588265 3 /mnt/c/study/setups/liner to setup and run Detect-Secrets in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -441 3 50 82 5629499534451345 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run Detect-Secrets in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -441 2 50 82 6755399441232159 3 /mnt/c/study/automation/oneliners/liner to setup and run Detect-Secrets in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2012 1 50 82 7036874417943064 3 /mnt/c/study/setups/one liner to setup and run maps.sh in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2012 3 50 82 6192449487872847 3 /mnt/c/study/Travel/weather/maps.sh/one liner to setup and run maps.sh in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 458 1 51 82 4785074604588269 3 /mnt/c/study/setups/liner to setup and run in ubuntu arptables
+DUPTYPE_WITHIN_SAME_TREE -458 3 51 82 6192449487872589 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run in ubuntu arptables
+DUPTYPE_WITHIN_SAME_TREE -458 2 51 82 6755399441232069 3 /mnt/c/study/automation/oneliners/liner to setup and run in ubuntu arptables
+DUPTYPE_FIRST_OCCURRENCE 1972 1 51 82 6473924464521320 3 /mnt/c/study/setups/one liner to setup and run gnome-builder in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1972 3 51 82 4503599627608564 3 /mnt/c/study/IDE/IDEs/gnome-builder/one liner to setup and run gnome-builder in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1693 1 51 82 7036874417942927 3 /mnt/c/study/setups/one liner to setup and run Libgcrypt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1693 3 51 82 3940649674187482 3 /mnt/c/study/security/encryption/Libgcrypt/one liner to setup and run Libgcrypt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 485 1 52 82 5066549581299070 3 /mnt/c/study/setups/liner to setup waffle with npm and compile in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -485 3 52 82 2533274790452581 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup waffle with npm and compile in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -485 2 52 82 6192449487712040 3 /mnt/c/study/automation/oneliners/liner to setup waffle with npm and compile in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1748 1 52 82 7036874417942944 3 /mnt/c/study/setups/one liner to setup and run OpenSCAP in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1748 2 52 82 5629499534451436 3 /mnt/c/study/security/OpenSCAP/one liner to setup and run OpenSCAP in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1636 1 52 82 7036874417942630 3 /mnt/c/study/setups/one liner to setup and run FreePascal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1636 3 52 82 4222124650897906 3 /mnt/c/study/IDE/IDEs/FreePascal/one liner to setup and run FreePascal in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2107 1 53 82 10414574138356814 3 /mnt/c/study/setups/one liner to setup and run vulkaninfo in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2107 3 53 82 3096224743870365 3 /mnt/c/study/AI_and_Machine_Learning/Hardware/AMD/one liner to setup and run vulkaninfo in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 473 1 54 82 5066549581299059 3 /mnt/c/study/setups/liner to setup in linx Visual Studio Code with Jupyter Extension
+DUPTYPE_WITHIN_SAME_TREE -473 2 54 82 5348024557728578 3 /mnt/c/study/hosting/jupyter/liner to setup in linx Visual Studio Code with Jupyter Extension
+DUPTYPE_WITHIN_SAME_TREE -473 2 54 82 8162774324783904 3 /mnt/c/study/automation/oneliners/liner to setup in linx Visual Studio Code with Jupyter Extension
+DUPTYPE_FIRST_OCCURRENCE 1596 1 54 82 7036874417942627 3 /mnt/c/study/setups/one liner to setup and run DBeaver in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1596 3 54 82 4503599627608561 3 /mnt/c/study/IDE/IDEs/DBeaver/one liner to setup and run DBeaver in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2086 1 54 82 7036874417817899 3 /mnt/c/study/setups/one liner to setup and run sratoolkit in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2086 5 54 82 2251799813727391 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/sratoolkit/one liner to setup and run sratoolkit in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1897 1 55 82 7036874417942987 3 /mnt/c/study/setups/one liner to setup and run agedu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1897 5 55 82 6473924464583440 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/agedu/one liner to setup and run agedu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1722 1 55 82 8162774324778032 3 /mnt/c/study/setups/one liner to setup and run Nautilus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1722 3 55 82 12103423998775485 3 /mnt/c/study/FilesystemManagement/FileManagers/nautilus/one liner to setup and run Nautilus in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1830 1 56 82 3940649674002204 3 /mnt/c/study/setups/one liner to setup and run Steam Games, Reviews, and Rankings in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1830 7 56 82 5066549580835227 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Video Game Data/Steam Games, Reviews, and Rankings/one liner to setup and run Steam Games, Reviews, and Rankings in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1850 1 56 82 8725724278082409 3 /mnt/c/study/setups/one liner to setup and run Top Video Games 1995-2021 Metacritic in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1850 6 56 82 4785074604123784 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Top Video Games 1995-2021 Metacritic/one liner to setup and run Top Video Games 1995-2021 Metacritic in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2043 1 56 82 7881299347953636 3 /mnt/c/study/setups/one liner to setup and run opencl in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2043 4 56 82 4222124650711209 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Parallel_computing/opencl/one liner to setup and run opencl in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1612 1 56 82 2814749767241092 3 /mnt/c/study/setups/one liner to setup and run Evince in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1612 3 56 82 13510798882292274 3 /mnt/c/study/documents/PDF/Evince/one liner to setup and run Evince in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2088 1 56 82 10696049115173747 3 /mnt/c/study/setups/one liner to setup and run stella in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2088 3 56 82 11258999068635015 3 /mnt/c/study/Emulation/Games/stella/one liner to setup and run stella in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1907 1 57 82 6755399441232008 3 /mnt/c/study/setups/one liner to setup and run ardour in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1907 3 57 82 4503599627608592 3 /mnt/c/study/MediaEditing/AudioEditing/ardour/one liner to setup and run ardour in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1646 1 58 82 7881299348068899 3 /mnt/c/study/setups/one liner to setup and run Globus CLI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1646 3 58 82 10133099161801210 3 /mnt/c/study/FilesystemManagement/FileSharing/Globus CLI/one liner to setup and run Globus CLI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1966 1 58 82 6755399441232402 3 /mnt/c/study/setups/one liner to setup and run geocode in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1966 3 58 82 9570149208400715 3 /mnt/c/study/Travel/maps/geocode/one liner to setup and run geocode in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 452 1 58 82 5348024558009691 3 /mnt/c/study/setups/liner to setup and run Remix in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -452 2 58 82 6755399441232166 3 /mnt/c/study/automation/oneliners/liner to setup and run Remix in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -452 3 58 82 4222124650898069 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run Remix in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1744 1 58 82 6755399441232192 3 /mnt/c/study/setups/one liner to setup and run OpenGL in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1744 4 58 82 3940649674187430 3 /mnt/c/study/programming/APIs/graphicsrenderingAPI/OpenGL/one liner to setup and run OpenGL in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1561 1 58 82 12666373952037100 3 /mnt/c/study/setups/one liner to setup and run Arduino in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1561 4 58 82 4503599627422494 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Robotics/Arduino/one liner to setup and run Arduino in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1573 1 59 82 5629499534264647 3 /mnt/c/study/setups/one liner to setup and run Best-Selling Video Games of All Time in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1573 6 59 82 2251799813727392 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/Best-Selling Video Games of All Time/one liner to setup and run Best-Selling Video Games of All Time in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 457 1 59 82 4785074604588268 3 /mnt/c/study/setups/liner to setup and run in ubuntu arping
+DUPTYPE_WITHIN_SAME_TREE -457 2 59 82 6473924464521411 3 /mnt/c/study/automation/oneliners/liner to setup and run in ubuntu arping
+DUPTYPE_WITHIN_SAME_TREE -457 3 59 82 4222124650897995 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run in ubuntu arping
+DUPTYPE_FIRST_OCCURRENCE 1882 1 59 82 9570149208333723 3 /mnt/c/study/setups/one liner to setup and run Wormhole in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1882 3 59 82 12384898975486542 3 /mnt/c/study/FilesystemManagement/FileSharing/Wormhole/one liner to setup and run Wormhole in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1697 1 59 82 10414574138469772 3 /mnt/c/study/setups/one liner to setup and run MPV in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1697 3 59 82 4222124650897611 3 /mnt/c/study/hosting/MediaPlayers/MPV/one liner to setup and run MPV in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2039 1 60 82 7036874417943057 3 /mnt/c/study/setups/one liner to setup and run ogrinfo in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2039 3 60 82 10133099161822026 3 /mnt/c/study/Travel/data handling/ogrinfo/one liner to setup and run ogrinfo in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1912 1 60 82 7318349394653321 3 /mnt/c/study/setups/one liner to setup and run audacity in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1912 3 60 82 4222124650897941 3 /mnt/c/study/MediaEditing/AudioEditing/audacity/one liner to setup and run audacity in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1681 1 60 82 6192449487810706 3 /mnt/c/study/setups/one liner to setup and run Kdenlive in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1681 3 60 82 5910974511161882 3 /mnt/c/study/MediaEditing/VideoEditing/Kdenlive/one liner to setup and run Kdenlive in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2011 1 61 82 30399297484904991 3 /mnt/c/study/setups/one liner to setup and run mame in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2011 3 61 82 14355223812428313 3 /mnt/c/study/Emulation/Games/mame/one liner to setup and run mame in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2120 1 61 82 2814749767241154 3 /mnt/c/study/setups/one liner to setup and run xpdf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2120 5 61 82 10133099161764418 3 /mnt/c/study/documents/PDF/Ghostscript/Pdfsandwich/xpdf/one liner to setup and run xpdf in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1796 1 62 82 2814749767241045 3 /mnt/c/study/setups/one liner to setup and run QPDF in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1796 4 62 82 13510798882292268 3 /mnt/c/study/documents/PDF/ Poppler Utils/QPDF/one liner to setup and run QPDF in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1692 1 63 82 6473924464521381 3 /mnt/c/study/setups/one liner to setup and run Leto in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1692 2 63 82 8444249301557801 3 /mnt/c/study/monitoring/Leto/one liner to setup and run Leto in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4093 2 63 82 7036874417944036 3 /mnt/c/study/automation/oneliners/liner to install firebase cli and login
+DUPTYPE_WITHIN_SAME_TREE -4093 2 63 82 3940649674188334 3 /mnt/c/study/programming/firebase/liner_to_install_firebase_cli_and_login
+DUPTYPE_FIRST_OCCURRENCE 1876 1 63 82 6192449487810934 3 /mnt/c/study/setups/one liner to setup and run Wayland with Weston in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1876 3 63 82 4222124650898122 3 /mnt/c/study/Remote/Xservers/Wayland with Weston/one liner to setup and run Wayland with Weston in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 472 1 64 82 5066549581299058 3 /mnt/c/study/setups/liner to setup fly for ci-cd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -472 2 64 82 7599824371425945 3 /mnt/c/study/automation/oneliners/liner_to_setup_fly_for_ci-cd_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -472 2 64 82 7036874417942827 3 /mnt/c/study/automation/oneliners/liner to setup fly for ci-cd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2007 1 64 82 6755399441232011 3 /mnt/c/study/setups/one liner to setup and run lmms in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2007 3 64 82 4222124650897942 3 /mnt/c/study/MediaEditing/AudioEditing/lmms/one liner to setup and run lmms in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1757 1 64 82 9288674231586640 3 /mnt/c/study/setups/one liner to setup and run PDFtk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1757 3 64 82 10133099161764442 3 /mnt/c/study/documents/PDF/PDFtk/one liner to setup and run PDFtk in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1844 1 64 82 7599824371356618 3 /mnt/c/study/setups/one liner to setup and run Terminator in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1844 3 64 82 7599824371397525 3 /mnt/c/study/Emulation/terminals/Terminator/one liner to setup and run Terminator in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1647 1 66 82 7036874417943080 3 /mnt/c/study/setups/one liner to setup and run GnomeBoxes in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1647 2 66 82 10414574138532699 3 /mnt/c/study/virtualmachines/GnomeBoxes/one liner to setup and run GnomeBoxes in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2064 1 67 82 6755399441232269 3 /mnt/c/study/setups/one liner to setup and run pop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2064 4 67 82 4222124650898137 3 /mnt/c/study/security/Email/Tempmail/pop/one liner to setup and run pop in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1643 1 67 82 2814749767241137 3 /mnt/c/study/setups/one liner to setup and run Ghostscript in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1643 3 67 82 13229323905581626 3 /mnt/c/study/documents/PDF/Ghostscript/one liner to setup and run Ghostscript in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1943 1 68 82 4503599627449569 3 /mnt/c/study/setups/one liner to setup and run darktable in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1943 2 68 82 2533274790506143 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_darktable_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1756 1 68 82 22236523160276537 3 /mnt/c/study/setups/one liner to setup and run PDFgrep in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1756 3 68 82 10414574138475092 3 /mnt/c/study/documents/PDF/PDFgrep/one liner to setup and run PDFgrep in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1684 1 68 82 6755399441231716 3 /mnt/c/study/setups/one liner to setup and run Kodi in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1684 3 68 82 6755399441293545 3 /mnt/c/study/hosting/MediaServers/Kodi/one liner to setup and run Kodi in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1539 1 69 82 2814749767241012 3 /mnt/c/study/setups/one liner to setup and run  Poppler Utils in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1539 3 69 82 10133099161764394 3 /mnt/c/study/documents/PDF/ Poppler Utils/one liner to setup and run  Poppler Utils in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1904 1 70 82 7881299348067369 3 /mnt/c/study/setups/one liner to setup and run apt-fest in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1904 3 70 82 11821949022064441 3 /mnt/c/study/FilesystemManagement/FileManagers/apt-fest/one liner to setup and run apt-fest in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1883 1 70 82 6755399441232248 3 /mnt/c/study/setups/one liner to setup and run X2Go in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1883 3 70 82 5348024557740747 3 /mnt/c/study/Remote/Xservers/X2Go/one liner to setup and run X2Go in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1922 1 70 82 4503599627448192 3 /mnt/c/study/setups/one liner to setup and run buddy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1922 2 70 82 12103423998622940 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_buddy_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1917 1 71 82 7318349394650628 3 /mnt/c/study/setups/one liner to setup and run blender in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1917 3 71 82 7881299348117149 3 /mnt/c/study/hosting/3Dprint/blender/one liner to setup and run blender in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 486 1 71 82 5066549581299072 3 /mnt/c/study/setups/liner to setup webassembly in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -486 2 71 82 7036874417942882 3 /mnt/c/study/automation/oneliners/liner to setup webassembly in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -486 2 71 82 7036874418004669 3 /mnt/c/study/programming/WebAssembly/liner to setup webassembly in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1863 1 72 82 10977524091891291 3 /mnt/c/study/setups/one liner to setup and run VLC in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1863 3 72 82 12947848928927964 3 /mnt/c/study/hosting/MediaPlayers/VLC/one liner to setup and run VLC in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1655 1 72 82 8444249301495167 3 /mnt/c/study/setups/one liner to setup and run Haruna in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1655 3 72 82 5629499534450890 3 /mnt/c/study/hosting/MediaPlayers/Haruna/one liner to setup and run Haruna in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1958 1 72 82 5066549580931175 3 /mnt/c/study/setups/one liner to setup and run fceux in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1958 3 72 82 12384898975453016 3 /mnt/c/study/Emulation/Games/fceux/one liner to setup and run fceux in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1887 1 73 82 7036874417942908 3 /mnt/c/study/setups/one liner to setup and run Xrdp in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1887 3 73 82 5629499534451406 3 /mnt/c/study/Remote/Xservers/Xrdp/one liner to setup and run Xrdp in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1578 1 74 82 7036874417943079 3 /mnt/c/study/setups/one liner to setup and run Boxes in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1578 2 74 82 4222124650898266 3 /mnt/c/study/virtualmachines/Boxes/one liner to setup and run Boxes in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1973 1 74 82 7318349394653663 3 /mnt/c/study/setups/one liner to setup and run gnome-shell-extension-manager in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1973 3 74 82 4222124650898205 3 /mnt/c/study/Shells/bash/Gnome/one liner to setup and run gnome-shell-extension-manager in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2047 1 74 82 6755399441232020 3 /mnt/c/study/setups/one liner to setup and run openshot in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2047 3 74 82 8444249301557787 3 /mnt/c/study/MediaEditing/VideoEditing/openshot/one liner to setup and run openshot in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1798 1 74 82 8444249301488053 3 /mnt/c/study/setups/one liner to setup and run RPCS3 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1798 3 74 82 12384898975476783 3 /mnt/c/study/Emulation/Games/RPCS3/one liner to setup and run RPCS3 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1895 1 75 82 4785074604157393 3 /mnt/c/study/setups/one liner to setup and run Zwave in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1895 3 75 82 3940649674002655 3 /mnt/c/study/automation/SmarthomeManagementSystems/Zwave/one liner to setup and run Zwave in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2122 1 75 82 7881299348067192 3 /mnt/c/study/setups/one liner to setup and run yabause in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2122 3 75 82 8162774324818203 3 /mnt/c/study/Emulation/Games/yabause/one liner to setup and run yabause in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1906 1 76 82 5910974511063124 3 /mnt/c/study/setups/one liner to setup and run aranym in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1906 3 76 82 14073748835715672 3 /mnt/c/study/Emulation/Games/aranym/one liner to setup and run aranym in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1760 1 76 82 2814749767241146 3 /mnt/c/study/setups/one liner to setup and run Pdfsandwich in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1760 4 76 82 10414574138475068 3 /mnt/c/study/documents/PDF/Ghostscript/Pdfsandwich/one liner to setup and run Pdfsandwich in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1654 1 76 82 7318349394650853 3 /mnt/c/study/setups/one liner to setup and run Gwenview in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1654 3 76 82 10133099161809649 3 /mnt/c/study/hosting/Image/Gwenview/one liner to setup and run Gwenview in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 444 1 76 82 4785074604588274 3 /mnt/c/study/setups/liner to setup and run Libreoffice with docker
+DUPTYPE_WITHIN_SAME_TREE -444 2 76 82 13229323905581498 3 /mnt/c/study/docker/guides/liner_to_setup_and_run_Libreoffice_with_docker
+DUPTYPE_WITHIN_SAME_TREE -444 2 76 82 3659174697372952 3 /mnt/c/study/automation/oneliners/liner to setup and run Libreoffice with docker
+DUPTYPE_FIRST_OCCURRENCE 1548 1 77 82 6755399441232257 3 /mnt/c/study/setups/one liner to setup and run Acme in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1548 3 77 82 3940649674187473 3 /mnt/c/study/security/CertificateManagement/Acme/one liner to setup and run Acme in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 455 1 77 82 4785074604588266 3 /mnt/c/study/setups/liner to setup and run ext4magic in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -455 2 77 82 8162774324777938 3 /mnt/c/study/automation/oneliners/liner to setup and run ext4magic in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -455 2 77 82 6192449487848340 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_ext4magic_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1827 1 78 82 8162774324777794 3 /mnt/c/study/setups/one liner to setup and run Snes9x in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1827 3 78 82 14355223812451901 3 /mnt/c/study/Emulation/Games/Snes9x/one liner to setup and run Snes9x in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1618 1 78 82 7036874417942993 3 /mnt/c/study/setups/one liner to setup and run Filelight in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1618 5 78 82 3940649674187540 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/Filelight/one liner to setup and run Filelight in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2118 1 78 82 8162774324777845 3 /mnt/c/study/setups/one liner to setup and run xemu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2118 3 78 82 9288674231660427 3 /mnt/c/study/Emulation/Games/xemu/one liner to setup and run xemu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2045 1 79 82 4503599627421951 3 /mnt/c/study/setups/one liner to setup and run openneuro-cli in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2045 5 79 82 2251799813727389 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/openneuro-cli/one liner to setup and run openneuro-cli in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1713 1 79 82 6755399441232282 3 /mnt/c/study/setups/one liner to setup and run ModSecurity in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1713 3 79 82 5629499534451429 3 /mnt/c/study/security/Firewall/ModSecurity/one liner to setup and run ModSecurity in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2082 1 79 82 6755399441232238 3 /mnt/c/study/setups/one liner to setup and run spacedesk in powershell
+DUPTYPE_WITHIN_SAME_TREE -2082 2 79 82 4222124650898117 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_spacedesk_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 1945 1 79 82 4785074604132573 3 /mnt/c/study/setups/one liner to setup and run datalad in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1945 5 79 82 4503599627412519 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/datalad/one liner to setup and run datalad in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1662 1 81 82 3940649674025311 3 /mnt/c/study/setups/one liner to setup and run Home Assistant OS VM in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1662 2 81 82 2814749767159901 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Home Assistant OS VM in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 456 1 81 82 4785074604588267 3 /mnt/c/study/setups/liner to setup and run feroxbuster in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -456 3 81 82 9288674231669615 3 /mnt/c/study/Hacking/Fuzzing/feroxbuster/liner to setup and run feroxbuster in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -456 2 81 82 8162774324780574 3 /mnt/c/study/automation/oneliners/liner to setup and run feroxbuster in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 445 1 81 82 4785074604588242 3 /mnt/c/study/setups/liner to setup and run LightGBM
+DUPTYPE_WITHIN_SAME_TREE -445 2 81 82 5629499534267144 3 /mnt/c/study/automation/oneliners/liner to setup and run LightGBM
+DUPTYPE_WITHIN_SAME_TREE -445 4 81 82 4222124650711208 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/EfficientBoostingAlgorithm/LightGBM/liner to setup and run LightGBM
+DUPTYPE_FIRST_OCCURRENCE 481 1 82 82 5066549581299066 3 /mnt/c/study/setups/liner to setup scoop in powershell not in admin
+DUPTYPE_WITHIN_SAME_TREE -481 2 82 82 7036874417943045 3 /mnt/c/study/automation/oneliners/liner to setup scoop in powershell not in admin
+DUPTYPE_WITHIN_SAME_TREE -481 3 82 82 3940649674187584 3 /mnt/c/study/Shells/tools/scoop/liner to setup scoop in powershell not in admin
+DUPTYPE_FIRST_OCCURRENCE 1849 1 82 82 7036874417942897 3 /mnt/c/study/setups/one liner to setup and run TigerVNC in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1849 3 82 82 4222124650898119 3 /mnt/c/study/Remote/Xservers/TigerVNC/one liner to setup and run TigerVNC in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1930 1 82 82 5910974511063127 3 /mnt/c/study/setups/one liner to setup and run citra in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1930 3 82 82 16888498602822321 3 /mnt/c/study/Emulation/Games/citra/one liner to setup and run citra in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1599 1 82 82 5910974511063128 3 /mnt/c/study/setups/one liner to setup and run DeSmuME in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1599 3 82 82 15199648742558400 3 /mnt/c/study/Emulation/Games/DeSmuME/one liner to setup and run DeSmuME in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1755 1 82 82 15199648742539245 3 /mnt/c/study/setups/one liner to setup and run PCSX2 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1755 3 82 82 11540474045322762 3 /mnt/c/study/Emulation/Games/PCSX2/one liner to setup and run PCSX2 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2058 1 82 82 6755399441107222 3 /mnt/c/study/setups/one liner to setup and run pgcli in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2058 5 82 82 2251799813727390 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/pgcli/one liner to setup and run pgcli in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1921 1 83 82 5910974511063125 3 /mnt/c/study/setups/one liner to setup and run bsnes in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1921 3 83 82 32651097298619034 3 /mnt/c/study/Emulation/Games/bsnes/one liner to setup and run bsnes in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1738 1 83 82 3096224743951642 3 /mnt/c/study/setups/one liner to setup and run Okular in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1738 2 83 82 10414574138474960 3 /mnt/c/study/documents/Okular/one liner to setup and run Okular in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2020 1 84 82 7036874417943040 3 /mnt/c/study/setups/one liner to setup and run minecraft with flatpak in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2020 3 84 82 4222124650898226 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run minecraft with flatpak in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1857 1 84 82 7036874417942981 3 /mnt/c/study/setups/one liner to setup and run Ubuntu Codecs in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1857 3 84 82 8725724278268683 3 /mnt/c/study/Shells/bash/Codecs/one liner to setup and run Ubuntu Codecs in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 449 1 84 82 5066549581298905 3 /mnt/c/study/setups/liner to setup and run NVIDIA Linux Open GPU Kernel Module Source in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -449 2 84 82 7599824371251427 3 /mnt/c/study/automation/oneliners/liner to setup and run NVIDIA Linux Open GPU Kernel Module Source in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -449 3 84 82 2814749767159859 3 /mnt/c/study/AI_and_Machine_Learning/Hardware/NVIDIA/liner to setup and run NVIDIA Linux Open GPU Kernel Module Source in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2127 1 85 82 5066549580868893 3 /mnt/c/study/setups/one liner to setup and run zen in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2127 2 85 82 2533274790451563 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_zen_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1641 1 85 82 8162774324777935 3 /mnt/c/study/setups/one liner to setup and run GearLever in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1641 3 85 82 10414574138504314 3 /mnt/c/study/FilesystemManagement/AppImages/GearLever/one liner to setup and run GearLever in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2123 1 85 82 3940649673996102 3 /mnt/c/study/setups/one liner to setup and run yai in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2123 5 85 82 1125899906857967 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/OpenAI/bots/yai/one liner to setup and run yai in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1671 1 86 82 3940649674028261 3 /mnt/c/study/setups/one liner to setup and run ImageMagick in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1671 2 86 82 1970324837084838 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_ImageMagick_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2066 1 86 82 7599824371354699 3 /mnt/c/study/setups/one liner to setup and run ppsspp in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2066 3 86 82 16325548649406239 3 /mnt/c/study/Emulation/Games/ppsspp/one liner to setup and run ppsspp in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2019 1 86 82 6755399441232382 3 /mnt/c/study/setups/one liner to setup and run minecraft  Bedrock Launcher with flatpak in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2019 3 86 82 3940649674187569 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run minecraft  Bedrock Launcher with flatpak in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1674 1 86 82 6755399441232016 3 /mnt/c/study/setups/one liner to setup and run Inkscape in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1674 3 86 82 3940649674187289 3 /mnt/c/study/MediaEditing/Vector graphics editor/Inkscape/one liner to setup and run Inkscape in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1696 1 86 82 7318349394650732 3 /mnt/c/study/setups/one liner to setup and run Lutris in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1696 3 86 82 6755399441280385 3 /mnt/c/study/hosting/Gaming/Lutris/one liner to setup and run Lutris in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1938 1 87 82 6755399441231970 3 /mnt/c/study/setups/one liner to setup and run codium in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1938 3 87 82 4222124650897904 3 /mnt/c/study/IDE/IDEs/codium/one liner to setup and run codium in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2072 1 87 82 6755399441232013 3 /mnt/c/study/setups/one liner to setup and run qjackctl in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2072 3 87 82 7599824371425815 3 /mnt/c/study/MediaEditing/AudioEditing/qjackctl/one liner to setup and run qjackctl in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1660 1 87 82 4222124650735956 3 /mnt/c/study/setups/one liner to setup and run Home Assistant Container LXC in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1660 2 87 82 2814749767159899 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Home Assistant Container LXC in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1767 1 87 82 4222124650735980 3 /mnt/c/study/setups/one liner to setup and run PiMox HAOS VM for home assistant in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1767 2 87 82 2814749767159903 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run PiMox HAOS VM for home assistant in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1821 1 88 82 7036874417942937 3 /mnt/c/study/setups/one liner to setup and run Shorewall in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1821 4 88 82 5348024557740772 3 /mnt/c/study/security/Firewall/iptables/Shorewall/one liner to setup and run Shorewall in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1752 1 88 82 5066549580868555 3 /mnt/c/study/setups/one liner to setup and run Opera in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1752 2 88 82 3940649674003079 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Opera_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 442 1 88 82 4785074604588271 3 /mnt/c/study/setups/liner to setup and run Iotop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -442 2 88 82 3940649674187302 3 /mnt/c/study/monitoring/Iotop/liner to setup and run Iotop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -442 2 88 82 6755399441232034 3 /mnt/c/study/automation/oneliners/liner to setup and run Iotop in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2083 1 88 82 6473924464521264 3 /mnt/c/study/setups/one liner to setup and run spotify in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2083 3 88 82 5629499534451034 3 /mnt/c/study/hosting/MediaServers/spotify/one liner to setup and run spotify in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1963 1 89 82 5066549580845284 3 /mnt/c/study/setups/one liner to setup and run gcovr in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1963 4 89 82 2251799813729025 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/CodeCoverage/one liner to setup and run gcovr in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2037 1 89 82 5348024557555872 3 /mnt/c/study/setups/one liner to setup and run nyc in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2037 5 89 82 7599824371231395 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/CodeCoverage/nyc/one liner to setup and run nyc in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1678 1 89 82 6755399441232330 3 /mnt/c/study/setups/one liner to setup and run KDEIsoMaker in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1678 5 89 82 9570149208400655 3 /mnt/c/study/Shells/bash/disk/Create bootable drives/KDEIsoMaker/one liner to setup and run KDEIsoMaker in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2133 1 89 82 6755399441232468 3 /mnt/c/study/setups/one liner to setup x11 server in wsl2 using x server in windows
+DUPTYPE_WITHIN_SAME_TREE -2133 2 89 82 9570149208400763 3 /mnt/c/study/virtualmachines/wsl2/one liner to setup x11 server in wsl2 using x server in windows
+DUPTYPE_FIRST_OCCURRENCE 435 1 90 82 4785074604588260 3 /mnt/c/study/setups/liner to setup and fix key.pem for ssh to ec2 instance from ubuntu
+DUPTYPE_WITHIN_SAME_TREE -435 2 90 82 4785074604159168 3 /mnt/c/study/automation/oneliners/liner to setup and fix key.pem for ssh to ec2 instance from ubuntu
+DUPTYPE_WITHIN_SAME_TREE -435 2 90 82 14918173765729520 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_fix_key.pem_for_ssh_to_ec2_instance_from_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1762 1 90 82 14918173765833839 3 /mnt/c/study/setups/one liner to setup and run PeaZip in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1762 3 90 82 7318349394694341 3 /mnt/c/study/FilesystemManagement/FileManagers/PeaZip/one liner to setup and run PeaZip in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1792 1 90 82 9007199254914576 3 /mnt/c/study/setups/one liner to setup and run PrusaSlicer in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1792 3 90 82 10133099161802438 3 /mnt/c/study/hosting/3Dprint/PrusaSlicer/one liner to setup and run PrusaSlicer in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2026 1 91 82 11540474045201975 3 /mnt/c/study/setups/one liner to setup and run n8n in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2026 2 91 82 2814749767159877 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run n8n in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1823 1 91 82 4222124650739057 3 /mnt/c/study/setups/one liner to setup and run Signal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1823 4 91 82 19703248369895482 3 /mnt/c/study/Disturbed/distributed_messaging/Tools/Signal/one liner to setup and run Signal in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1746 1 91 82 6192449487810619 3 /mnt/c/study/setups/one liner to setup and run OpenMediaVault in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1746 2 91 82 4222124650897769 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run OpenMediaVault in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1781 1 91 82 7318349394653751 3 /mnt/c/study/setups/one liner to setup and run Proxmox Backup Server in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1781 2 91 82 4222124650898280 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox Backup Server in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1690 1 91 82 6755399441231743 3 /mnt/c/study/setups/one liner to setup and run LastPass in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1690 3 91 82 8162774324846827 3 /mnt/c/study/hosting/MediaServers/LastPass/one liner to setup and run LastPass in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2010 1 92 82 4503599627446646 3 /mnt/c/study/setups/one liner to setup and run mafl in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2010 2 92 82 2814749767159907 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run mafl in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1741 1 92 82 8444249301495841 3 /mnt/c/study/setups/one liner to setup and run Ombi in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1741 2 92 82 5348024557740283 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Ombi in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2109 1 92 82 7036874417943120 3 /mnt/c/study/setups/one liner to setup and run will add-remove a crontab schedule that updates all LXCs every Sunday at midnight in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2109 2 92 82 9007199254979447 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run will add-remove a crontab schedule that updates all LXCs every Sunday at midnight in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2093 1 92 82 5066549580870869 3 /mnt/c/study/setups/one liner to setup and run telegram in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2093 2 92 82 6192449487744668 3 /mnt/c/study/communication/telegram/one liner to setup and run telegram in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2036 1 92 82 6755399441232123 3 /mnt/c/study/setups/one liner to setup and run ntfy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2036 2 92 82 5910974511161971 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_ntfy_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1614 1 92 82 4222124650735867 3 /mnt/c/study/setups/one liner to setup and run FHEM in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1614 2 92 82 2814749767159894 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run FHEM in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1716 1 92 82 4785074604191400 3 /mnt/c/study/setups/one liner to setup and run Mosquitto in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1716 2 92 82 16607023626109076 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Mosquitto in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1862 1 92 82 6755399441232460 3 /mnt/c/study/setups/one liner to setup and run VE CPU Scaling Governor in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1862 2 92 82 4222124650898292 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run VE CPU Scaling Governor in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1957 1 92 82 7881299348072015 3 /mnt/c/study/setups/one liner to setup and run evcc in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1957 2 92 82 9288674231676275 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run evcc in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2062 1 92 82 7318349394653223 3 /mnt/c/study/setups/one liner to setup and run plex in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2062 2 92 82 3940649674187089 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run plex in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1954 1 92 82 7036874417942273 3 /mnt/c/study/setups/one liner to setup and run emby in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1954 2 92 82 9851624185110755 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run emby in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1601 1 92 82 7036874417943090 3 /mnt/c/study/setups/one liner to setup and run Disable the Enterprise Repo, Add-Correct PBS Sources, Enable the No-Subscription Repo, Add Test Repo, Disable Subscription Nag, Update Proxmox Backup Server and Reboot PBS in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1601 2 92 82 7318349394715492 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Disable the Enterprise Repo, Add-Correct PBS Sources, Enable the No-Subscription Repo, Add Test Repo, Disable Subscription Nag, Update Proxmox Backup Server and Reboot PBS in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1587 1 92 82 7599824371363082 3 /mnt/c/study/setups/one liner to setup and run Cmus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1587 3 92 82 5066549581029577 3 /mnt/c/study/hosting/MediaPlayers/Cmus/one liner to setup and run Cmus in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1661 1 92 82 4222124650735960 3 /mnt/c/study/setups/one liner to setup and run Home Assistant Core LXC in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1661 2 92 82 2814749767159900 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Home Assistant Core LXC in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1589 1 92 82 7036874417943075 3 /mnt/c/study/setups/one liner to setup and run Codespaces in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1589 3 92 82 11821949022085976 3 /mnt/c/study/Version_control/github/Codespaces/one liner to setup and run Codespaces in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2015 1 92 82 8444249301481402 3 /mnt/c/study/setups/one liner to setup and run melonDS in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2015 3 92 82 9851624185057980 3 /mnt/c/study/Emulation/Games/melonDS/one liner to setup and run melonDS in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1688 1 92 82 9007199254912363 3 /mnt/c/study/setups/one liner to setup and run Kubo in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1688 2 92 82 8725724278247950 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Kubo in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1984 1 93 82 7036874417943092 3 /mnt/c/study/setups/one liner to setup and run homer in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1984 2 93 82 5910974511162213 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run homer in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1944 1 93 82 7318349394650693 3 /mnt/c/study/setups/one liner to setup and run dashy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1944 2 93 82 10977524091939930 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run dashy in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2016 1 93 82 6755399441232001 3 /mnt/c/study/setups/one liner to setup and run memos in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2016 2 93 82 4503599627608587 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run memos in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1859 1 93 82 6755399441232109 3 /mnt/c/study/setups/one liner to setup and run UniFi in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1859 2 93 82 4222124650898026 3 /mnt/c/study/networking/UniFi/one liner to setup and run UniFi in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1683 1 93 82 4503599627448176 3 /mnt/c/study/setups/one liner to setup and run Kimai in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1683 2 93 82 2814749767164217 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Kimai in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1725 1 93 82 6755399441117532 3 /mnt/c/study/setups/one liner to setup and run Neo4j in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1725 2 93 82 4222124650711844 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Neo4j in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2101 1 93 82 7318349394531056 3 /mnt/c/study/setups/one liner to setup and run umami in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2101 2 93 82 5910974510975143 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run umami in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1946 1 93 82 5629499534266637 3 /mnt/c/study/setups/one liner to setup and run datamash in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1946 4 93 82 1970324837018370 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/datamash/one liner to setup and run datamash in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1718 1 93 82 6473924464396121 3 /mnt/c/study/setups/one liner to setup and run MySQL in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1718 2 93 82 5348024557537398 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run MySQL in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1689 1 93 82 6473924464521419 3 /mnt/c/study/setups/one liner to setup and run LLDAP in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1689 2 93 82 4222124650898003 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run LLDAP in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1685 1 93 82 7036874417942398 3 /mnt/c/study/setups/one liner to setup and run Komga in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1685 2 93 82 11821949022085354 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Komga in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1581 1 93 82 7318349394653539 3 /mnt/c/study/setups/one liner to setup and run Caddy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1581 2 93 82 4222124650898273 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Caddy_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1970 1 93 82 7036874417943072 3 /mnt/c/study/setups/one liner to setup and run gitea in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1970 2 93 82 6755399441294167 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_gitea_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1763 1 93 82 7036874417942566 3 /mnt/c/study/setups/one liner to setup and run Petio in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1763 2 93 82 6473924464582913 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Petio in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1635 1 93 82 5066549580856831 3 /mnt/c/study/setups/one liner to setup and run FreeCAD in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1635 3 93 82 5066549580845121 3 /mnt/c/study/AI_and_Machine_Learning/Mechanism/FreeCAD/one liner to setup and run FreeCAD in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1977 1 93 82 7599824371361506 3 /mnt/c/study/setups/one liner to setup and run grocy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1977 2 93 82 8725724278256346 3 /mnt/c/study/hosting/grocy/one liner to setup and run grocy in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1808 1 93 82 19703248369795497 3 /mnt/c/study/setups/one liner to setup and run Redis in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1808 2 93 82 1407374883573973 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Redis in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2091 1 93 82 5066549580871005 3 /mnt/c/study/setups/one liner to setup and run tdarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2091 2 93 82 14355223812377586 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run tdarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1740 1 93 82 7036874417942718 3 /mnt/c/study/setups/one liner to setup and run Omada in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1740 2 93 82 4222124650897989 3 /mnt/c/study/networking/Omada/one liner to setup and run Omada in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1908 1 93 82 6755399441195028 3 /mnt/c/study/setups/one liner to setup and run aria2 in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1908 2 93 82 12947848928871284 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_aria2_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1961 1 93 82 3096224743967993 3 /mnt/c/study/setups/one liner to setup and run flycast in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1961 3 93 82 10977524091899783 3 /mnt/c/study/Emulation/Games/flycast/one liner to setup and run flycast in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1648 1 94 82 7318349394647588 3 /mnt/c/study/setups/one liner to setup and run Gokapi in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1648 2 94 82 7881299348115970 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Gokapi in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1707 1 94 82 7036874417942469 3 /mnt/c/study/setups/one liner to setup and run Medusa in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1707 2 94 82 6192449487872242 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Medusa in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1680 1 94 82 7881299348071997 3 /mnt/c/study/setups/one liner to setup and run Kavita in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1680 2 94 82 6755399441276549 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Kavita in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1694 1 94 82 7036874417942443 3 /mnt/c/study/setups/one liner to setup and run Lidarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1694 2 94 82 11540474045374701 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Lidarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1600 1 94 82 6755399441232100 3 /mnt/c/study/setups/one liner to setup and run Deluge in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1600 2 94 82 4222124650898020 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Deluge in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1582 1 94 82 7881299347974286 3 /mnt/c/study/setups/one liner to setup and run CasaOS in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1582 2 94 82 2814749767159891 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run CasaOS in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2059 1 94 82 6755399441232054 3 /mnt/c/study/setups/one liner to setup and run pi-hole in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2059 2 94 82 4222124650897977 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run pi-hole in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1893 1 94 82 6755399441232093 3 /mnt/c/study/setups/one liner to setup and run Zoraxy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1893 2 94 82 4222124650898015 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Zoraxy in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2038 1 94 82 5066549580931131 3 /mnt/c/study/setups/one liner to setup and run nzbget in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2038 2 94 82 14918173765847489 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_nzbget_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1822 1 94 82 6755399441231940 3 /mnt/c/study/setups/one liner to setup and run Shortwave in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1822 3 94 82 4503599627608437 3 /mnt/c/study/hosting/radio/Shortwave/one liner to setup and run Shortwave in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1720 1 94 82 7599824371363854 3 /mnt/c/study/setups/one liner to setup and run Mylar3 in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1720 2 94 82 9288674231689462 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Mylar3 in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1801 1 94 82 7036874417942569 3 /mnt/c/study/setups/one liner to setup and run Radarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1801 2 94 82 10414574138532181 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Radarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1615 1 94 82 7881299348072008 3 /mnt/c/study/setups/one liner to setup and run Fenrus in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1615 2 94 82 8444249301544126 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Fenrus in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1974 1 94 82 6755399441232396 3 /mnt/c/study/setups/one liner to setup and run go2rtc in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1974 2 94 82 3940649674187589 3 /mnt/c/study/streaming/go2rtc/one liner to setup and run go2rtc in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2081 1 94 82 6755399441231917 3 /mnt/c/study/setups/one liner to setup and run sonarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2081 2 94 82 3940649674187096 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run sonarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1658 1 94 82 4503599627459438 3 /mnt/c/study/setups/one liner to setup and run HiveMQ in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1658 2 94 82 31525197391773807 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run HiveMQ in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1873 1 94 82 5629499534290353 3 /mnt/c/study/setups/one liner to setup and run Wallos in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1873 2 94 82 2814749767162904 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Wallos in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2063 1 94 82 3377699720662248 3 /mnt/c/study/setups/one liner to setup and run podman in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2063 2 94 82 25051272927428851 3 /mnt/c/study/docker/podman/one liner to setup and run podman in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1556 1 94 82 7318349394653741 3 /mnt/c/study/setups/one liner to setup and run Alpine in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1556 2 94 82 4222124650898272 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Alpine in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1705 1 94 82 8162774324785164 3 /mnt/c/study/setups/one liner to setup and run MeTube in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1705 2 94 82 5066549581029620 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run MeTube in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1815 1 94 82 7318349394647578 3 /mnt/c/study/setups/one liner to setup and run SFTPGo in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1815 2 94 82 6755399441273275 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run SFTPGo in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1880 1 94 82 7036874417905681 3 /mnt/c/study/setups/one liner to setup and run Wiki.js in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1880 2 94 82 10414574138475285 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Wiki.js in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1948 1 94 82 6192449487810765 3 /mnt/c/study/setups/one liner to setup and run deconz in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1948 2 94 82 4222124650898004 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run deconz in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1813 1 94 82 8444249301488055 3 /mnt/c/study/setups/one liner to setup and run Ryujinx in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1813 3 94 82 11258999068634517 3 /mnt/c/study/Emulation/Games/Ryujinx/one liner to setup and run Ryujinx in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1603 1 94 82 3377699720662233 3 /mnt/c/study/setups/one liner to setup and run Dockge in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1603 2 94 82 14636698789134498 3 /mnt/c/study/docker/Dockge/one liner to setup and run Dockge in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1659 1 94 82 6755399441229387 3 /mnt/c/study/setups/one liner to setup and run Homarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1659 2 94 82 8162774324833647 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Homarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1761 1 94 82 7036874417942697 3 /mnt/c/study/setups/one liner to setup and run PeaNUT in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1761 2 94 82 9007199254979115 3 /mnt/c/study/monitoring/PeaNUT/one liner to setup and run PeaNUT in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2031 1 94 82 6755399441231934 3 /mnt/c/study/setups/one liner to setup and run netbox in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2031 2 94 82 10977524091953520 3 /mnt/c/study/hosting/netbox/one liner to setup and run netbox in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1772 1 94 82 4785074604157296 3 /mnt/c/study/setups/one liner to setup and run Podman Home Assistant Container LXC in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1772 2 94 82 3096224743870562 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Podman Home Assistant Container LXC in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1731 1 94 82 9288674231499561 3 /mnt/c/study/setups/one liner to setup and run NocoDB in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1731 2 94 82 9007199254758103 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run NocoDB in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1543 1 94 82 4503599627448427 3 /mnt/c/study/setups/one liner to setup and run  in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1543 2 94 82 11258999068490976 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run__in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1575 1 94 82 6473924464521623 3 /mnt/c/study/setups/one liner to setup and run Blocky in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1575 2 94 82 5629499534451427 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Blocky in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1572 1 94 82 6755399441231488 3 /mnt/c/study/setups/one liner to setup and run Bazarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1572 2 94 82 4503599627608288 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Bazarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1607 1 95 82 4785074604157166 3 /mnt/c/study/setups/one liner to setup and run ESPHome in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1607 2 95 82 2814749767159892 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run ESPHome in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1675 1 95 82 6755399441232102 3 /mnt/c/study/setups/one liner to setup and run Jackett in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1675 2 95 82 5629499534451302 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Jackett in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2074 1 95 82 4785074604157343 3 /mnt/c/study/setups/one liner to setup and run runtipi in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2074 2 95 82 3940649674002653 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run runtipi in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1875 1 95 82 7036874417943117 3 /mnt/c/study/setups/one liner to setup and run Wavelog in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1875 2 95 82 4222124650898294 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Wavelog in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2022 1 95 82 5066549580840629 3 /mnt/c/study/setups/one liner to setup and run mongoDB in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2022 2 95 82 1688849860284627 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run mongoDB in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1869 1 95 82 5910974510992452 3 /mnt/c/study/setups/one liner to setup and run Vikunja in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1869 2 95 82 2814749767159883 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Vikunja in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1751 1 95 82 6473924464521408 3 /mnt/c/study/setups/one liner to setup and run OpenWrt in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1751 2 95 82 4222124650897990 3 /mnt/c/study/networking/OpenWRT/one liner to setup and run OpenWrt in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1652 1 95 82 6473924464521375 3 /mnt/c/study/setups/one liner to setup and run Grafana in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1652 2 95 82 4222124650897954 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Grafana in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1990 1 95 82 6192449487810774 3 /mnt/c/study/setups/one liner to setup and run iVentoy in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1990 2 95 82 5629499534451290 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run iVentoy in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1542 1 95 82 12103423998697554 3 /mnt/c/study/setups/one liner to setup and run  Rosalies Mupen GUI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1542 3 95 82 16325548649400910 3 /mnt/c/study/Emulation/Games/ Rosalies Mupen GUI/one liner to setup and run  Rosalies Mupen GUI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2060 1 95 82 6755399441232042 3 /mnt/c/study/setups/one liner to setup and run pi.alert in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2060 2 95 82 4222124650897965 3 /mnt/c/study/monitoring/pi.alert/one liner to setup and run pi.alert in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1914 1 95 82 4503599627414883 3 /mnt/c/study/setups/one liner to setup and run babyagi in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1914 4 95 82 3096224743824153 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Agents/babyagi/one liner to setup and run babyagi in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1879 1 95 82 6755399441232255 3 /mnt/c/study/setups/one liner to setup and run Whoogle in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1879 2 95 82 4222124650898127 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Whoogle in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1991 1 95 82 5348024557578246 3 /mnt/c/study/setups/one liner to setup and run in ubuntu  UVdesk (Customer support platform) in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1991 3 95 82 4222124650898110 3 /mnt/c/study/QA/helpdesk/UVdesk/one liner to setup and run in ubuntu  UVdesk (Customer support platform) in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1728 1 95 82 6473924464521285 3 /mnt/c/study/setups/one liner to setup and run NextPVR in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1728 2 95 82 7318349394715006 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run NextPVR in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1852 1 95 82 9288674231625435 3 /mnt/c/study/setups/one liner to setup and run Traccar in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1852 2 95 82 11540474045361545 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Traccar in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1702 1 95 82 6755399441105856 3 /mnt/c/study/setups/one liner to setup and run Mariadb in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1702 2 95 82 4503599627395334 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Mariadb in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1719 1 95 82 6473924464521401 3 /mnt/c/study/setups/one liner to setup and run MySpeed in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1719 2 95 82 4222124650897979 3 /mnt/c/study/networking/MySpeed/one liner to setup and run MySpeed in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1814 1 95 82 5629499534352465 3 /mnt/c/study/setups/one liner to setup and run SABnzbd in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1814 2 95 82 19140298416507394 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_SABnzbd_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1896 1 95 82 6755399441232052 3 /mnt/c/study/setups/one liner to setup and run adguard in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1896 2 95 82 4222124650897976 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run adguard in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2041 1 95 82 6755399441121150 3 /mnt/c/study/setups/one liner to setup and run openHAB in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2041 2 95 82 2814749767159879 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run openHAB in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1663 1 95 82 4503599627446597 3 /mnt/c/study/setups/one liner to setup and run HomeBox in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1663 2 95 82 2814749767159895 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run HomeBox in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2128 1 95 82 7599824371359178 3 /mnt/c/study/setups/one liner to setup and run zipline in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2128 2 95 82 9570149208380002 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run zipline in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1768 1 95 82 8162774324780440 3 /mnt/c/study/setups/one liner to setup and run Pingvin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1768 2 95 82 10414574138511944 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Pingvin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1982 1 95 82 7036874417942655 3 /mnt/c/study/setups/one liner to setup and run hoarder in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1982 2 95 82 9570149208400394 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_hoarder_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1820 1 95 82 8725724278203968 3 /mnt/c/study/setups/one liner to setup and run Shinobi in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1820 2 95 82 8444249301543163 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Shinobi in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1860 1 95 82 7881299348067519 3 /mnt/c/study/setups/one liner to setup and run Unmanic in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1860 2 95 82 7599824371405110 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Unmanic in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1564 1 95 82 7036874417942755 3 /mnt/c/study/setups/one liner to setup and run Autobrr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1564 2 95 82 3940649674187363 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Autobrr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1638 1 95 82 4785074604143081 3 /mnt/c/study/setups/one liner to setup and run Frigate in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1638 2 95 82 6473924464397094 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Frigate in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1871 1 95 82 4785074604158220 3 /mnt/c/study/setups/one liner to setup and run Vivaldi in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1871 2 95 82 2533274790451562 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Vivaldi_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1854 1 95 82 6755399441232003 3 /mnt/c/study/setups/one liner to setup and run Trilium in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1854 2 95 82 4222124650897932 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Trilium in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1803 1 95 82 7036874417942570 3 /mnt/c/study/setups/one liner to setup and run Readarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1803 2 95 82 7599824371425622 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Readarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1804 1 95 82 7036874417942572 3 /mnt/c/study/setups/one liner to setup and run Readeck in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1804 2 95 82 5348024557740375 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Readeck in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1633 1 95 82 7036874417943067 3 /mnt/c/study/setups/one liner to setup and run Forgejo in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1633 2 95 82 4222124650898259 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Forgejo_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1853 1 95 82 6755399441113242 3 /mnt/c/study/setups/one liner to setup and run Traefik in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1853 2 95 82 5629499534264554 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Traefik in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2090 1 95 82 14073748835706459 3 /mnt/c/study/setups/one liner to setup and run tandoor in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2090 2 95 82 11258999068650871 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run tandoor in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1828 1 96 82 8444249301493279 3 /mnt/c/study/setups/one liner to setup and run Spoolman in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1828 2 96 82 13792273859042160 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Spoolman in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1676 1 96 82 7599824371363638 3 /mnt/c/study/setups/one liner to setup and run Jellyfin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1676 2 96 82 4785074604318950 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Jellyfin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1666 1 96 82 7881299348073419 3 /mnt/c/study/setups/one liner to setup and run HyperHDR in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1666 2 96 82 7881299348133349 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run HyperHDR in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1673 1 96 82 7881299347946780 3 /mnt/c/study/setups/one liner to setup and run InfluxDB in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1673 2 96 82 3659174697259217 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run InfluxDB in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1787 1 96 82 6755399441232450 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE LXC Filesystem Trim in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1787 2 96 82 15199648742613871 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Proxmox_VE_LXC_Filesystem_Trim_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 2005 1 96 82 7318349394652115 3 /mnt/c/study/setups/one liner to setup and run listmonk in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2005 2 96 82 5910974511161032 3 /mnt/c/study/hosting/listmonk/one liner to setup and run listmonk in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1758 1 96 82 8162774324780399 3 /mnt/c/study/setups/one liner to setup and run PairDrop in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1758 2 96 82 13510798882329158 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run PairDrop in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1919 1 96 82 7036874417943021 3 /mnt/c/study/setups/one liner to setup and run bottles in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1919 3 96 82 9851624185111334 3 /mnt/c/study/Shells/tools/bottles/one liner to setup and run bottles in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1593 1 96 82 8162774324780504 3 /mnt/c/study/setups/one liner to setup and run Cronicle Primary LXC in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1593 2 96 82 11258999068644087 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Cronicle Primary LXC in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1878 1 96 82 7036874417942579 3 /mnt/c/study/setups/one liner to setup and run Whisparr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1878 2 96 82 6192449487872350 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Whisparr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1585 1 96 82 7599824371363533 3 /mnt/c/study/setups/one liner to setup and run Channels DVR Server in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1585 2 96 82 4503599627608289 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Channels DVR Server in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1665 1 96 82 4222124650735952 3 /mnt/c/study/setups/one liner to setup and run Homepage in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1665 2 96 82 2814749767159898 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Homepage in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1706 1 96 82 12103423998734269 3 /mnt/c/study/setups/one liner to setup and run MediaMTX in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1706 2 96 82 5629499534450929 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run MediaMTX in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1839 1 96 82 6755399441231922 3 /mnt/c/study/setups/one liner to setup and run Tautulli in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1839 2 96 82 5066549581029724 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Tautulli in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1877 1 96 82 7599824371356866 3 /mnt/c/study/setups/one liner to setup and run Webmin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1877 2 96 82 7599824371405130 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Webmin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1611 1 96 82 7318349394652931 3 /mnt/c/study/setups/one liner to setup and run ErsatzTV in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1611 2 96 82 11258999068664037 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run ErsatzTV in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1552 1 96 82 7599824371361269 3 /mnt/c/study/setups/one liner to setup and run AgentDVR in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1552 2 96 82 10414574138513033 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run AgentDVR in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1732 1 96 82 7599824371252863 3 /mnt/c/study/setups/one liner to setup and run Node-RED in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1732 2 96 82 2814749767159878 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Node-RED in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1888 1 96 82 6755399441231963 3 /mnt/c/study/setups/one liner to setup and run YunoHost in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1888 2 96 82 7881299348136428 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run YunoHost in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 8422 2 96 82 5910974510926628 3 /mnt/c/study/troubleshooting/dpkg/troubleshoot_error_E:_Sub-process_usr_bin_dpkg_returned_an_error_code_(1)_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -8422 3 96 82 1125899907061146 3 /mnt/c/study/Platforms/linux/Ubuntu/troubleshoot_error_E:_Sub-process_usr_bin_dpkg_returned_an_error_code_(1)_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1779 1 96 82 6192449487810626 3 /mnt/c/study/setups/one liner to setup and run Prowlarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1779 2 96 82 5066549581029748 3 /mnt/c/study/hosting/Prowlarr/one liner to setup and run Prowlarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1997 1 96 82 7036874417942941 3 /mnt/c/study/setups/one liner to setup and run keycloak in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1997 2 96 82 4222124650898151 3 /mnt/c/study/security/keycloak/one liner to setup and run keycloak in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1667 1 96 82 7599824371362767 3 /mnt/c/study/setups/one liner to setup and run Hyperion in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1667 2 96 82 10977524091952786 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Hyperion in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1800 1 96 82 3659174697372885 3 /mnt/c/study/setups/one liner to setup and run RabbitMQ in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1800 2 96 82 15199648742555805 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run RabbitMQ in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1807 1 97 82 5629499534214074 3 /mnt/c/study/setups/one liner to setup and run Recyclarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1807 2 97 82 2814749767159889 3 /mnt/c/study/automation/recyclarr/one liner to setup and run Recyclarr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1656 1 97 82 7036874417942977 3 /mnt/c/study/setups/one liner to setup and run Headscale in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1656 2 97 82 6473924464583432 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Headscale in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1580 1 97 82 6755399441232256 3 /mnt/c/study/setups/one liner to setup and run BunkerWeb in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1580 2 97 82 4222124650898128 3 /mnt/c/study/security/BunkerWeb/one liner to setup and run BunkerWeb in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1723 1 97 82 7318349394653214 3 /mnt/c/study/setups/one liner to setup and run Navidrome in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1723 2 97 82 7318349394714872 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Navidrome in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1833 1 97 82 6473924464421473 3 /mnt/c/study/setups/one liner to setup and run Syncthing in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1833 2 97 82 3659174697292008 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Syncthing in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1644 1 97 82 7036874417942686 3 /mnt/c/study/setups/one liner to setup and run Glances in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1644 2 97 82 5348024557740577 3 /mnt/c/study/monitoring/glances/one liner to setup and run Glances in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1717 1 97 82 7318349394650627 3 /mnt/c/study/setups/one liner to setup and run MotionEye in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1717 2 97 82 8162774324827803 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run MotionEye in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1727 1 97 82 6755399441232038 3 /mnt/c/study/setups/one liner to setup and run Netdata in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1727 2 97 82 8725724278268458 3 /mnt/c/study/monitoring/netdata/one liner to setup and run Netdata in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1733 1 97 82 6755399441232121 3 /mnt/c/study/setups/one liner to setup and run Notifiarr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1733 2 97 82 6192449487872626 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Notifiarr_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1777 1 97 82 6755399441232388 3 /mnt/c/study/setups/one liner to setup and run ProtonUp-Qt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1777 3 97 82 4222124650898228 3 /mnt/c/study/Shells/tools/ProtonUp-Qt/one liner to setup and run ProtonUp-Qt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1805 1 97 82 6755399441232107 3 /mnt/c/study/setups/one liner to setup and run Real-Debrid in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1805 2 97 82 9288674231689833 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Real-Debrid in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1753 1 97 82 7599824371363875 3 /mnt/c/study/setups/one liner to setup and run Overseerr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1753 2 97 82 9288674231689471 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Overseerr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1847 1 97 82 7036874417942950 3 /mnt/c/study/setups/one liner to setup and run Threadfin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1847 2 97 82 3940649674187504 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Threadfin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1628 1 97 82 6473924464409610 3 /mnt/c/study/setups/one liner to setup and run FlowiseAI in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1628 2 97 82 2814749767159860 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run FlowiseAI in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1799 1 97 82 7318349394653710 3 /mnt/c/study/setups/one liner to setup and run RTSPtoWeb in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1799 2 97 82 9851624185111368 3 /mnt/c/study/streaming/RTSPtoWeb/one liner to setup and run RTSPtoWeb in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1737 1 97 82 10977524091889167 3 /mnt/c/study/setups/one liner to setup and run OctoPrint in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1737 2 97 82 7318349394695873 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run OctoPrint in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1826 1 97 82 7036874417942752 3 /mnt/c/study/setups/one liner to setup and run SmokePing in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1826 2 97 82 4222124650898017 3 /mnt/c/study/networking/SmokePing/one liner to setup and run SmokePing in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1771 1 98 82 7036874417943093 3 /mnt/c/study/setups/one liner to setup and run PocketBase in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1771 2 98 82 5910974511162214 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run PocketBase in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1739 1 98 82 7036874417942943 3 /mnt/c/study/setups/one liner to setup and run OliveTin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1739 2 98 82 3940649674187498 3 /mnt/c/study/security/OliveTin/one liner to setup and run OliveTin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1776 1 98 82 6473924464521387 3 /mnt/c/study/setups/one liner to setup and run Prometheus in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1776 2 98 82 4222124650897967 3 /mnt/c/study/monitoring/prometheus/one liner to setup and run Prometheus in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1560 1 98 82 7881299348071969 3 /mnt/c/study/setups/one liner to setup and run ArchiveBox in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1560 2 98 82 5910974511144172 3 /mnt/c/study/hosting/ArchiveBox/one liner to setup and run ArchiveBox in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1861 1 98 82 6755399441232035 3 /mnt/c/study/setups/one liner to setup and run Uptime Kuma in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1861 2 98 82 7881299348136488 3 /mnt/c/study/monitoring/kuma/one liner to setup and run Uptime Kuma in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1598 1 98 82 4503599627446782 3 /mnt/c/study/setups/one liner to setup and run Daemon Sync Server in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1598 2 98 82 3659174697292007 3 /mnt/c/study/backup/sync/one liner to setup and run Daemon Sync Server in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1664 1 98 82 4503599627446603 3 /mnt/c/study/setups/one liner to setup and run Homebridge in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1664 2 98 82 2814749767159897 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Homebridge in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2009 1 98 82 9007199254914623 3 /mnt/c/study/setups/one liner to setup and run lubelogger in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2009 2 98 82 14636698789175059 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run lubelogger in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1677 1 98 82 7318349394653004 3 /mnt/c/study/setups/one liner to setup and run Jellyseerr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1677 2 98 82 9288674231689448 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Jellyseerr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1695 1 98 82 5910974511002167 3 /mnt/c/study/setups/one liner to setup and run Linkwarden in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1695 2 98 82 17169973579414798 3 /mnt/c/study/collaboration/Linkwarden/one liner to setup and run Linkwarden in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1765 1 98 82 6755399441231935 3 /mnt/c/study/setups/one liner to setup and run PhotoPrism in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1765 2 98 82 10414574138532209 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run PhotoPrism in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 482 1 98 82 4785074604588232 3 /mnt/c/study/setups/liner to setup tgpt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -482 2 98 82 5348024557550103 3 /mnt/c/study/automation/oneliners/liner to setup tgpt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -482 4 98 82 5348024557518719 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/terminalAI/tgpt/liner to setup tgpt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1837 1 98 82 6755399441231944 3 /mnt/c/study/setups/one liner to setup and run TasmoAdmin in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1837 2 98 82 5629499534451079 3 /mnt/c/study/hosting/TasmoAdmin/one liner to setup and run TasmoAdmin in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1770 1 98 82 7318349394538994 3 /mnt/c/study/setups/one liner to setup and run PlaidML in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1770 3 98 82 4503599627422538 3 /mnt/c/study/AI_and_Machine_Learning/DeepLearning/PlaidML/one liner to setup and run PlaidML in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2087 1 98 82 8162774324782780 3 /mnt/c/study/setups/one liner to setup and run steam in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2087 3 98 82 6473924464569735 3 /mnt/c/study/hosting/Gaming/steam/one liner to setup and run steam in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2071 1 99 82 6473924464521450 3 /mnt/c/study/setups/one liner to setup and run qbittorent in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2071 2 99 82 8162774324847208 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run qbittorent in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1729 1 99 82 6473924464521272 3 /mnt/c/study/setups/one liner to setup and run Nextcloud in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1729 2 99 82 3940649674187109 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Nextcloud_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1934 1 99 82 3940649674027322 3 /mnt/c/study/setups/one liner to setup and run cloudflared in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1934 2 99 82 10696049115069696 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run cloudflared in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1747 1 99 82 4222124650737528 3 /mnt/c/study/setups/one liner to setup and run OpenObserve in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1747 2 99 82 18295873486257344 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_OpenObserve_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1892 1 99 82 7036874417942735 3 /mnt/c/study/setups/one liner to setup and run Zigbee2MQTT in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1892 2 99 82 4222124650898006 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Zigbee2MQTT in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 425 1 99 82 4785074604588255 3 /mnt/c/study/setups/limer to setup and run Taskwarrior in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -425 3 99 82 2814749767159882 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/Taskwarrior/limer to setup and run Taskwarrior in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1708 1 99 82 6473924464521269 3 /mnt/c/study/setups/one liner to setup and run MeshCentral in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1708 2 99 82 5348024557740383 3 /mnt/c/study/hosting/MeshCentral/one liner to setup and run MeshCentral in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1709 1 99 82 5629499534276523 3 /mnt/c/study/setups/one liner to setup and run Microcode in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1709 2 99 82 3377699720581043 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Microcode in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1925 1 99 82 3096224743951631 3 /mnt/c/study/setups/one liner to setup and run calibre in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1925 2 99 82 13229323905581438 3 /mnt/c/study/documents/calibre/one liner to setup and run calibre in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1889 1 99 82 6473924464521457 3 /mnt/c/study/setups/one liner to setup and run Z-Wave in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1889 2 99 82 4222124650898028 3 /mnt/c/study/networking/Z-Wave/one liner to setup and run Z-Wave in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 431 1 99 82 4785074604588227 3 /mnt/c/study/setups/liner to setup MLflow in ubuntu with pip
+DUPTYPE_WITHIN_SAME_TREE -431 3 99 82 2251799813698362 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup MLflow in ubuntu with pip
+DUPTYPE_WITHIN_SAME_TREE -431 2 99 82 3377699720572716 3 /mnt/c/study/automation/oneliners/liner to setup MLflow in ubuntu with pip
+DUPTYPE_FIRST_OCCURRENCE 1864 1 99 82 7036874417942969 3 /mnt/c/study/setups/one liner to setup and run Vaultwarden in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1864 2 99 82 3940649674187522 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Vaultwarden in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1698 1 99 82 7036874417940046 3 /mnt/c/study/setups/one liner to setup and run MagicMirror in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1698 2 99 82 12103423998782833 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run MagicMirror in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1619 1 100 82 6755399441232290 3 /mnt/c/study/setups/one liner to setup and run FlareSolverr in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1619 2 100 82 5348024557740781 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run FlareSolverr in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1786 1 100 82 7036874417943105 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE LXC Cleaner in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1786 2 100 82 7318349394715502 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE LXC Cleaner in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1704 1 100 82 4785074604157330 3 /mnt/c/study/setups/one liner to setup and run Matterbridge in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1704 2 100 82 4222124650713226 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Matterbridge in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2008 1 100 82 5910974511099981 3 /mnt/c/study/setups/one liner to setup and run localXspose in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2008 3 100 82 6473924464583128 3 /mnt/c/study/hosting/tunneling/localXspose/one liner to setup and run localXspose in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1549 1 100 82 5348024557579621 3 /mnt/c/study/setups/one liner to setup and run Actual Budget in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1549 2 100 82 3096224743872992 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Actual Budget in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1874 1 100 82 7036874417942766 3 /mnt/c/study/setups/one liner to setup and run WatchYourLAN in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1874 2 100 82 4222124650898027 3 /mnt/c/study/networking/WatchYourLAN/one liner to setup and run WatchYourLAN in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1856 1 100 82 9570149208333853 3 /mnt/c/study/setups/one liner to setup and run TurnKey in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1856 2 100 82 11821949022065405 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_TurnKey_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1831 1 100 82 10696049115139993 3 /mnt/c/study/setups/one liner to setup and run Stirling-PDF in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1831 2 100 82 13510798882292340 3 /mnt/c/study/documents/Stirling-PDF/one liner to setup and run Stirling-PDF in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1551 1 100 82 6473924464521290 3 /mnt/c/study/setups/one liner to setup and run AdventureLog in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1551 2 100 82 5066549581029774 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run AdventureLog in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1691 1 101 82 7036874417942417 3 /mnt/c/study/setups/one liner to setup and run LazyLibrarian in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1691 2 101 82 13792273859059948 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run LazyLibrarian in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1759 1 101 82 2814749767240992 3 /mnt/c/study/setups/one liner to setup and run Paperless-ngx in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1759 2 101 82 10414574138475044 3 /mnt/c/study/documents/Paperless-ngx/one liner to setup and run Paperless-ngx in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1616 1 101 82 8162774324778029 3 /mnt/c/study/setups/one liner to setup and run File Browser in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1616 2 101 82 12384898975485827 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run File Browser in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1609 1 101 82 4222124650736579 3 /mnt/c/study/setups/one liner to setup and run Edge in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1609 2 101 82 3940649674002977 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Edge_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2106 1 101 82 6755399441231998 3 /mnt/c/study/setups/one liner to setup and run vscode in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2106 2 101 82 8162774324847113 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run vscode in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1784 1 101 82 6755399441232446 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Host Backup in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1784 2 101 82 4222124650898284 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE Host Backup in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1788 1 101 82 6755399441232453 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE LXC Updater in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1788 2 101 82 9570149208400752 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE LXC Updater in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1559 1 101 82 7036874417943041 3 /mnt/c/study/setups/one liner to setup and run Apt-Cacher-NG in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1559 2 101 82 9007199254979379 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Apt-Cacher-NG in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1840 1 101 82 7318349394653384 3 /mnt/c/study/setups/one liner to setup and run Technitium in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1840 2 101 82 4222124650898002 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Technitium in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1541 1 101 82 8444249301377251 3 /mnt/c/study/setups/one liner to setup and run  Robot Framework in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1541 4 101 82 4785074604133018 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Robotics/ Robot Framework/one liner to setup and run  Robot Framework in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1940 1 102 82 5066549580871045 3 /mnt/c/study/setups/one liner to setup and run couchdb in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1940 2 102 82 10696049115174609 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run couchdb in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1785 1 102 82 7036874417943103 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Kernel Clean in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1785 2 102 82 6192449487872877 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE Kernel Clean in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1562 1 102 82 10977524091891327 3 /mnt/c/study/setups/one liner to setup and run Audiobookshelf in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1562 2 102 82 4503599627608286 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Audiobookshelf in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2033 1 102 82 7036874417942965 3 /mnt/c/study/setups/one liner to setup and run nordpass in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2033 4 102 82 4222124650898175 3 /mnt/c/study/security/secrets/Secret_Management/nordpass/one liner to setup and run nordpass in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1592 1 102 82 6755399441232151 3 /mnt/c/study/setups/one liner to setup and run Create bootable Fedora USB with flatflak in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1592 3 102 82 4222124650898053 3 /mnt/c/study/Platforms/linux/fedora/one liner to setup and run Create bootable Fedora USB with flatflak in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1555 1 103 82 7036874417943082 3 /mnt/c/study/setups/one liner to setup and run All Templates in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1555 2 103 82 4222124650898268 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run All Templates in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1605 1 103 82 7318349394653648 3 /mnt/c/study/setups/one liner to setup and run Dust in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1605 5 103 82 4222124650898195 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/Dust/one liner to setup and run Dust in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1584 1 103 82 6755399441232116 3 /mnt/c/study/setups/one liner to setup and run Change Detection in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1584 2 103 82 4222124650898031 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Change_Detection_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1967 1 103 82 6755399441232217 3 /mnt/c/study/setups/one liner to setup and run germany-city-plus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1967 6 103 82 7599824371425976 3 /mnt/c/study/programming/python/apps/travel/germany/germany-city-plus/one liner to setup and run germany-city-plus in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1557 1 104 82 7318349394524981 3 /mnt/c/study/setups/one liner to setup and run Apache-Cassandra in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1557 2 104 82 5910974510943107 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Apache-Cassandra in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1715 1 104 82 7036874417942890 3 /mnt/c/study/setups/one liner to setup and run Moonlight in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1715 3 104 82 7318349394715331 3 /mnt/c/study/Remote/RemoteDesktop/Moonlight/one liner to setup and run Moonlight in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2098 1 104 82 6755399441232023 3 /mnt/c/study/setups/one liner to setup and run tilt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2098 2 104 82 5629499534451229 3 /mnt/c/study/microservices/tilt/one liner to setup and run tilt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1627 1 104 82 7036874417943023 3 /mnt/c/study/setups/one liner to setup and run Flatseal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1627 4 104 82 4222124650898215 3 /mnt/c/study/Shells/tools/Flatpak/Flatseal/one liner to setup and run Flatseal in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1710 1 105 82 6473924464521436 3 /mnt/c/study/setups/one liner to setup and run Mikrotik RouterOS CHR in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1710 2 105 82 4222124650898014 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Mikrotik RouterOS CHR in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2077 1 105 82 8444249301488447 3 /mnt/c/study/setups/one liner to setup and run samboy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2077 3 105 82 11258999068634523 3 /mnt/c/study/Emulation/Games/samboy/one liner to setup and run samboy in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1726 1 105 82 7318349394653370 3 /mnt/c/study/setups/one liner to setup and run NetBird in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1726 2 105 82 4222124650897983 3 /mnt/c/study/networking/NetBird/one liner to setup and run NetBird in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1924 1 105 82 6755399441232258 3 /mnt/c/study/setups/one liner to setup and run caddy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1924 3 105 82 4222124650898130 3 /mnt/c/study/security/CertificateManagement/caddy/one liner to setup and run caddy in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1783 1 106 82 7036874417943100 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Cron LXC Updater in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1783 2 106 82 4222124650898283 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE Cron LXC Updater in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1782 1 106 82 7036874417943099 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE CPU Scaling Governor in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1782 2 106 82 5910974511162218 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE CPU Scaling Governor in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1657 1 106 82 9570149208335945 3 /mnt/c/study/setups/one liner to setup and run Heimdall in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1657 2 106 82 10977524091940203 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Heimdall in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2067 1 106 82 6192449487773787 3 /mnt/c/study/setups/one liner to setup and run primehack in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2067 4 106 82 15199648742559056 3 /mnt/c/study/Emulation/Games/Dolphin/primehack/one liner to setup and run primehack in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1672 1 106 82 7036874417942984 3 /mnt/c/study/setups/one liner to setup and run Impression in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1672 5 106 82 3940649674187534 3 /mnt/c/study/Shells/bash/disk/Create bootable drives/Impression/one liner to setup and run Impression in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1780 1 106 82 7036874417943096 3 /mnt/c/study/setups/one liner to setup and run Proxmox Backup Server Post Install in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1780 2 106 82 3940649674187625 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox Backup Server Post Install in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2003 1 106 82 4785074604157895 3 /mnt/c/study/setups/one liner to setup and run librewolf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2003 2 106 82 4222124650713634 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_librewolf_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1790 1 106 82 7036874417943110 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Post Install in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1790 2 106 82 4222124650898289 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Proxmox_VE_Post_Install_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1836 1 107 82 7036874417942978 3 /mnt/c/study/setups/one liner to setup and run Tailscale in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1836 2 107 82 4222124650898185 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Tailscale in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1597 1 107 82 6755399441195102 3 /mnt/c/study/setups/one liner to setup and run DOSBox in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1597 3 107 82 16888498602823007 3 /mnt/c/study/Emulation/Games/DOSBox/one liner to setup and run DOSBox in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1952 1 107 82 4785074604220516 3 /mnt/c/study/setups/one liner to setup and run duckstation in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1952 3 107 82 13792273859005967 3 /mnt/c/study/Emulation/Games/duckstation/one liner to setup and run duckstation in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1712 1 107 82 6473924464521584 3 /mnt/c/study/setups/one liner to setup and run MobaXterm in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1712 3 107 82 3940649674187462 3 /mnt/c/study/Remote/Xservers/MobaXterm/one liner to setup and run MobaXterm in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2100 1 108 82 5910974511099984 3 /mnt/c/study/setups/one liner to setup and run tunnelto in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2100 3 108 82 4222124650897893 3 /mnt/c/study/hosting/tunneling/tunnelto/one liner to setup and run tunnelto in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1547 1 108 82 7036874417828387 3 /mnt/c/study/setups/one liner to setup and run AMD FidelityFX Super Resolution (FSR) 2.0 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1547 3 108 82 5066549580843868 3 /mnt/c/study/AI_and_Machine_Learning/Hardware/AMD/one liner to setup and run AMD FidelityFX Super Resolution (FSR) 2.0 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1602 1 109 82 5066549580870836 3 /mnt/c/study/setups/one liner to setup and run Discord in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1602 2 109 82 6473924464411643 3 /mnt/c/study/communication/Discord/one liner to setup and run Discord in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2129 1 109 82 4222124650737524 3 /mnt/c/study/setups/one liner to setup and run zoom in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2129 3 109 82 5066549580854031 3 /mnt/c/study/Business/VideoMeetings/zoom/one liner to setup and run zoom in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1721 1 109 82 3940649674028322 3 /mnt/c/study/setups/one liner to setup and run Nativefier in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1721 2 109 82 2251799813795586 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Nativefier_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2054 1 111 82 3096224743874176 3 /mnt/c/study/setups/one liner to setup and run pagekite in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2054 5 111 82 4222124650711214 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/Reverse_Proxy/pagekite/one liner to setup and run pagekite in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 470 1 112 82 5629499534720344 3 /mnt/c/study/setups/liner to setup and use traefik as certificate manager
+DUPTYPE_WITHIN_SAME_TREE -470 3 112 82 4222124650898161 3 /mnt/c/study/security/Reverse_Proxy/Traefik/liner to setup and use traefik as certificate manager
+DUPTYPE_WITHIN_SAME_TREE -470 2 112 82 6755399441232296 3 /mnt/c/study/automation/oneliners/liner to setup and use traefik as certificate manager
+DUPTYPE_FIRST_OCCURRENCE 1994 1 112 82 6755399441232212 3 /mnt/c/study/setups/one liner to setup and run jabba in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1994 3 112 82 3940649674187442 3 /mnt/c/study/programming/java/jabba/one liner to setup and run jabba in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 477 1 112 82 5066549581299063 3 /mnt/c/study/setups/liner to setup mattermost in ubuntu with flatpak
+DUPTYPE_WITHIN_SAME_TREE -477 3 112 82 3940649674187560 3 /mnt/c/study/Shells/tools/Flatpak/liner to setup mattermost in ubuntu with flatpak
+DUPTYPE_WITHIN_SAME_TREE -477 2 112 82 7036874417943024 3 /mnt/c/study/automation/oneliners/liner to setup mattermost in ubuntu with flatpak
+DUPTYPE_FIRST_OCCURRENCE 483 1 113 82 5066549581299067 3 /mnt/c/study/setups/liner to setup upgrade and login to Firebase CLI in linux
+DUPTYPE_WITHIN_SAME_TREE -483 2 113 82 4222124650898090 3 /mnt/c/study/programming/firebase/liner to setup upgrade and login to Firebase CLI in linux
+DUPTYPE_WITHIN_SAME_TREE -483 2 113 82 6473924464521542 3 /mnt/c/study/automation/oneliners/liner to setup upgrade and login to Firebase CLI in linux
+DUPTYPE_FIRST_OCCURRENCE 1558 1 113 82 6755399441232205 3 /mnt/c/study/setups/one liner to setup and run AppJS in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1558 6 113 82 7318349394715310 3 /mnt/c/study/programming/frontend/javascript/npm_nodejs/Frameworks/AppJS/one liner to setup and run AppJS in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1637 1 114 82 7599824371361376 3 /mnt/c/study/setups/one liner to setup and run FreeTube in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1637 2 114 82 6473924464569721 3 /mnt/c/study/hosting/FreeTube/one liner to setup and run FreeTube in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 446 1 115 82 4785074604588275 3 /mnt/c/study/setups/liner to setup and run LinEnum in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -446 3 115 82 10133099161802298 3 /mnt/c/study/Hacking/privilege_escalation/LinEnum/liner to setup and run LinEnum in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -446 2 115 82 7036874417939898 3 /mnt/c/study/automation/oneliners/liner to setup and run LinEnum in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1778 1 116 82 8444249301493380 3 /mnt/c/study/setups/one liner to setup and run Protontricks in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1778 3 116 82 6755399441280389 3 /mnt/c/study/hosting/Gaming/Protontricks/one liner to setup and run Protontricks in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2048 1 117 82 7036874417943065 3 /mnt/c/study/setups/one liner to setup and run openweathermap in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2048 3 117 82 4222124650898256 3 /mnt/c/study/Travel/weather/openweathermap/one liner to setup and run openweathermap in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1987 1 117 82 10133099161635044 3 /mnt/c/study/setups/one liner to setup and run httrack in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1987 5 117 82 2251799813727386 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/httrack/one liner to setup and run httrack in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1631 1 117 82 6473924464521547 3 /mnt/c/study/setups/one liner to setup and run FlutterFire in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1631 2 117 82 7599824371425965 3 /mnt/c/study/programming/Flutter/one liner to setup and run FlutterFire in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2124 1 117 82 5629499534260917 3 /mnt/c/study/setups/one liner to setup and run yolov5 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2124 4 117 82 33776997205295609 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/ComputerVision/yolov5/one liner to setup and run yolov5 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1980 1 119 82 7318349394650730 3 /mnt/c/study/setups/one liner to setup and run heroicgameslauncher in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1980 3 119 82 12103423998782847 3 /mnt/c/study/hosting/Gaming/heroicgameslauncher/one liner to setup and run heroicgameslauncher in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1868 1 119 82 7036874417942610 3 /mnt/c/study/setups/one liner to setup and run VideoDownloader in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1868 2 119 82 4222124650897894 3 /mnt/c/study/hosting/VideoDownloader/one liner to setup and run VideoDownloader in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2001 1 119 82 7318349394653545 3 /mnt/c/study/setups/one liner to setup and run laplace in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2001 3 119 82 7599824371425986 3 /mnt/c/study/Remote/RemoteDesktop/laplace/one liner to setup and run laplace in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1809 1 119 82 10133099161751982 3 /mnt/c/study/setups/one liner to setup and run RetroArch in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1809 3 119 82 10414574138502159 3 /mnt/c/study/Emulation/Games/RetroArch/one liner to setup and run RetroArch in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1846 1 120 82 19984723346521333 3 /mnt/c/study/setups/one liner to setup and run Theano in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1846 3 120 82 2814749767159872 3 /mnt/c/study/AI_and_Machine_Learning/Machine_Learning/Theano/one liner to setup and run Theano in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2096 1 121 82 7036874417943010 3 /mnt/c/study/setups/one liner to setup and run tillx in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2096 3 121 82 4222124650898207 3 /mnt/c/study/Shells/emulators/tillx/one liner to setup and run tillx in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1932 1 122 82 6755399441232193 3 /mnt/c/study/setups/one liner to setup and run clj-kondo in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1932 3 122 82 4222124650898087 3 /mnt/c/study/programming/clojure/clj-kondo/one liner to setup and run clj-kondo in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2130 1 123 82 7599824371359180 3 /mnt/c/study/setups/one liner to setup and run zrok in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2130 3 123 82 9007199254958763 3 /mnt/c/study/FilesystemManagement/FileSharing/zrok/one liner to setup and run zrok in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4091 2 124 82 6755399441233683 3 /mnt/c/study/automation/oneliners/liner to fix Get more security updates through Ubuntu Pro with esm-apps enabled
+DUPTYPE_WITHIN_SAME_TREE -4091 2 124 82 1125899907061116 3 /mnt/c/study/troubleshooting/security/liner_to_fix_Get_more_security_updates_through_Ubuntu_Pro_with_esm-apps_enabled
+DUPTYPE_FIRST_OCCURRENCE 1588 1 124 82 3940649674002234 3 /mnt/c/study/setups/one liner to setup and run Codecov in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1588 5 124 82 3096224743860874 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/CodeCoverage/Codecov/one liner to setup and run Codecov in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1608 1 125 82 7036874417943009 3 /mnt/c/study/setups/one liner to setup and run EarlyOOM in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1608 4 125 82 4222124650898206 3 /mnt/c/study/Shells/bash/Memory/EarlyOOM/one liner to setup and run EarlyOOM in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 432 1 125 82 5066549581299064 3 /mnt/c/study/setups/liner to setup Nishang in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -432 3 125 82 9570149208380996 3 /mnt/c/study/Hacking/reverseSHELL/Nishang/liner to setup Nishang in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -432 2 125 82 8162774324782552 3 /mnt/c/study/automation/oneliners/liner to setup Nishang in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2097 1 126 82 6755399441232022 3 /mnt/c/study/setups/one liner to setup and run tilt in powershell
+DUPTYPE_WITHIN_SAME_TREE -2097 2 126 82 5910974511161884 3 /mnt/c/study/microservices/tilt/one liner to setup and run tilt in powershell
+DUPTYPE_FIRST_OCCURRENCE 1842 1 127 82 6755399441232268 3 /mnt/c/study/setups/one liner to setup and run Tempmail in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1842 3 127 82 5348024557740760 3 /mnt/c/study/security/Email/Tempmail/one liner to setup and run Tempmail in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 465 1 128 82 5066549581299054 3 /mnt/c/study/setups/liner to setup and run steam in powershell
+DUPTYPE_WITHIN_SAME_TREE -465 3 128 82 11821949021865217 3 /mnt/c/study/hosting/Gaming/steam/liner to setup and run steam in powershell
+DUPTYPE_WITHIN_SAME_TREE -465 2 128 82 7881299348072101 3 /mnt/c/study/automation/oneliners/liner to setup and run steam in powershell
+DUPTYPE_FIRST_OCCURRENCE 1610 1 128 82 7036874417942862 3 /mnt/c/study/setups/one liner to setup and run Electron-Forge in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1610 6 128 82 3940649674187439 3 /mnt/c/study/programming/frontend/javascript/npm_nodejs/Frameworks/Electron-Forge/one liner to setup and run Electron-Forge in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1797 1 129 82 9007199254914546 3 /mnt/c/study/setups/one liner to setup and run RKHunter in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1797 3 129 82 8444249301538433 3 /mnt/c/study/Hacking/Rootkit/RKHunter/one liner to setup and run RKHunter in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1942 1 129 82 3096224743951637 3 /mnt/c/study/setups/one liner to setup and run csvkit in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1942 3 129 82 10977524091896248 3 /mnt/c/study/documents/CSV/csvkit/one liner to setup and run csvkit in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1567 1 130 82 7036874417943055 3 /mnt/c/study/setups/one liner to setup and run BCUninstaller in powershell
+DUPTYPE_WITHIN_SAME_TREE -1567 3 130 82 7599824371426121 3 /mnt/c/study/SystemMaintenance/windows/BCUninstaller/one liner to setup and run BCUninstaller in powershell
+DUPTYPE_FIRST_OCCURRENCE 1885 1 130 82 6473924464521595 3 /mnt/c/study/setups/one liner to setup and run Xming in powershell
+DUPTYPE_WITHIN_SAME_TREE -1885 3 130 82 5629499534451405 3 /mnt/c/study/Remote/Xservers/Xming/one liner to setup and run Xming in powershell
+DUPTYPE_FIRST_OCCURRENCE 2108 1 130 82 5910974511099988 3 /mnt/c/study/setups/one liner to setup and run wastebin in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2108 2 130 82 4503599627608551 3 /mnt/c/study/hosting/wastebin/one liner to setup and run wastebin in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1546 1 131 82 3377699720574852 3 /mnt/c/study/setups/one liner to setup and run AI-CLI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1546 4 131 82 1407374883568983 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/terminalAI/AI-CLI/one liner to setup and run AI-CLI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1793 1 132 82 6755399441232223 3 /mnt/c/study/setups/one liner to setup and run PyJanitor in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1793 3 132 82 4222124650898107 3 /mnt/c/study/programming/python/PyJanitor/one liner to setup and run PyJanitor in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2034 1 134 82 6755399441232318 3 /mnt/c/study/setups/one liner to setup and run nordvpn in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2034 3 134 82 11540474045375238 3 /mnt/c/study/security/vpn/nordvpn/one liner to setup and run nordvpn in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2075 1 134 82 8444249301493161 3 /mnt/c/study/setups/one liner to setup and run sagan in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2075 3 134 82 13792273859040676 3 /mnt/c/study/Hacking/Intrusion_Detection/sagan/one liner to setup and run sagan in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2103 1 134 82 6755399441232273 3 /mnt/c/study/setups/one liner to setup and run veracrypt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2103 3 134 82 4222124650898139 3 /mnt/c/study/security/encryption/veracrypt/one liner to setup and run veracrypt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1540 1 135 82 7036874417942866 3 /mnt/c/study/setups/one liner to setup and run  Proton Native in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1540 6 135 82 6755399441294001 3 /mnt/c/study/programming/frontend/javascript/react/frameworks/Proton Native/one liner to setup and run  Proton Native in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1743 1 135 82 5910974510971472 3 /mnt/c/study/setups/one liner to setup and run OpenCV in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1743 4 135 82 1970324836991125 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/ComputerVision/OpenCV/one liner to setup and run OpenCV in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2078 1 135 82 6755399441232209 3 /mnt/c/study/setups/one liner to setup and run screen-sharing in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2078 5 135 82 4222124650898096 3 /mnt/c/study/programming/frontend/javascript/npm_nodejs/screen-sharing/one liner to setup and run screen-sharing in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1774 1 135 82 7036874417942844 3 /mnt/c/study/setups/one liner to setup and run Positioner in powershell
+DUPTYPE_WITHIN_SAME_TREE -1774 3 135 82 5629499534451364 3 /mnt/c/study/Platforms/windows/Positioner/one liner to setup and run Positioner in powershell
+DUPTYPE_FIRST_OCCURRENCE 1817 1 136 82 5348024557580824 3 /mnt/c/study/setups/one liner to setup and run Scaleway in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1817 2 136 82 9007199254805769 3 /mnt/c/study/cloud/Scaleway/one liner to setup and run Scaleway in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1553 1 136 82 7599824371265694 3 /mnt/c/study/setups/one liner to setup and run Alibaba cloud CLI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1553 2 136 82 16325548649282797 3 /mnt/c/study/cloud/Alibaba/one liner to setup and run Alibaba cloud CLI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1750 1 137 82 4222124650738168 3 /mnt/c/study/setups/one liner to setup and run OpenStack Horizon in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1750 2 137 82 7036874417831173 3 /mnt/c/study/cloud/OpenStack/one liner to setup and run OpenStack Horizon in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2076 1 139 82 6192449487710225 3 /mnt/c/study/setups/one liner to setup and run salt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2076 2 139 82 2814749767159890 3 /mnt/c/study/automation/salt/one liner to setup and run salt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2820 1 141 82 6192449487684528 3 /mnt/c/study/setups/oneliner to setup and run redis in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2820 5 141 82 1688849860284684 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/redis/oneliner to setup and run redis in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1682 1 141 82 8162774324779782 3 /mnt/c/study/setups/one liner to setup and run Keybase in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1682 3 141 82 10977524091933192 3 /mnt/c/study/FilesystemManagement/FileSharing/Keybase/one liner to setup and run Keybase in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1816 1 142 82 7318349394650553 3 /mnt/c/study/setups/one liner to setup and run SamHain in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1816 3 142 82 9007199254959656 3 /mnt/c/study/Hacking/Intrusion_Detection/SamHain/one liner to setup and run SamHain in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 480 1 143 82 5066549581299065 3 /mnt/c/study/setups/liner to setup scoop in powershell
+DUPTYPE_WITHIN_SAME_TREE -480 2 143 82 7036874417943012 3 /mnt/c/study/automation/oneliners/liner to setup scoop in powershell
+DUPTYPE_WITHIN_SAME_TREE -480 2 143 82 4222124650898208 3 /mnt/c/study/automation/oneliners/liner_to_setup_scoop_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 1642 1 145 82 7599824371235356 3 /mnt/c/study/setups/one liner to setup and run Geekbench in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1642 3 145 82 1688849860280405 3 /mnt/c/study/AI_and_Machine_Learning/benchmark/Geekbench/one liner to setup and run Geekbench in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2018 1 146 82 7036874417942983 3 /mnt/c/study/setups/one liner to setup and run microcode in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2018 4 146 82 4222124650898188 3 /mnt/c/study/Shells/bash/cpu/microcode/one liner to setup and run microcode in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1703 1 147 82 5348024557553804 3 /mnt/c/study/setups/one liner to setup and run Marquez in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1703 4 147 82 5066549580833546 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/DataPipeLineFramework/Marquez/one liner to setup and run Marquez in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2024 1 147 82 6473924464484406 3 /mnt/c/study/setups/one liner to setup and run motrix in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -2024 2 147 82 13792273859004858 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_motrix_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 2068 1 148 82 7036874417942975 3 /mnt/c/study/setups/one liner to setup and run protonvpn in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2068 3 148 82 10977524091953927 3 /mnt/c/study/security/vpn/protonvpn/one liner to setup and run protonvpn in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1985 1 149 82 9288674231503208 3 /mnt/c/study/setups/one liner to setup and run howlongtobeat 2 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1985 6 149 82 2251799813727394 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DownloadDatasets/games/howlongtobeat/one liner to setup and run howlongtobeat 2 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1624 1 150 82 7036874417943033 3 /mnt/c/study/setups/one liner to setup and run Flatpak: Organization in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1624 3 150 82 9570149208400686 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: Organization in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1724 1 150 82 7318349394653216 3 /mnt/c/study/setups/one liner to setup and run Navidrome in ubuntu with docker
+DUPTYPE_WITHIN_SAME_TREE -1724 3 150 82 5910974511161594 3 /mnt/c/study/hosting/MediaServers/Navidrome/one liner to setup and run Navidrome in ubuntu with docker
+DUPTYPE_FIRST_OCCURRENCE 2102 1 151 82 5348024557579023 3 /mnt/c/study/setups/one liner to setup and run ungoogled_chromium with flatpak in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2102 2 151 82 3096224743870944 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_ungoogled_chromium_with_flatpak_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1563 1 153 82 11258999068484028 3 /mnt/c/study/setups/one liner to setup and run AutoGluon in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1563 4 153 82 3940649674001186 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Robotics/AutoGluon/one liner to setup and run AutoGluon in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1653 1 153 82 7318349394653318 3 /mnt/c/study/setups/one liner to setup and run Gruntwork in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1653 2 153 82 4503599627608590 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Gruntwork_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1802 1 154 82 4785074604143487 3 /mnt/c/study/setups/one liner to setup and run Radeon Raytracing Analyzer (RRA) in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1802 3 154 82 7036874417818491 3 /mnt/c/study/AI_and_Machine_Learning/Hardware/AMD/one liner to setup and run Radeon Raytracing Analyzer (RRA) in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1735 1 154 82 7036874417943062 3 /mnt/c/study/setups/one liner to setup and run OSMAndMapCreator in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1735 3 154 82 4222124650898253 3 /mnt/c/study/Travel/maps/OSMAndMapCreator/one liner to setup and run OSMAndMapCreator in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 471 1 154 82 5066549581299057 3 /mnt/c/study/setups/liner to setup datadog
+DUPTYPE_WITHIN_SAME_TREE -471 2 154 82 3940649674187295 3 /mnt/c/study/monitoring/Datadog/liner to setup datadog
+DUPTYPE_WITHIN_SAME_TREE -471 2 154 82 6473924464521371 3 /mnt/c/study/automation/oneliners/liner to setup datadog
+DUPTYPE_FIRST_OCCURRENCE 1700 1 155 82 7036874417942934 3 /mnt/c/study/setups/one liner to setup and run Maldet in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1700 4 155 82 5629499534451426 3 /mnt/c/study/security/Firewall/AntiMalware/Maldet/one liner to setup and run Maldet in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2056 1 156 82 5348024557580816 3 /mnt/c/study/setups/one liner to setup and run pcloud in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2056 2 156 82 6192449487699208 3 /mnt/c/study/cloud/pcloud/one liner to setup and run pcloud in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2079 1 156 82 5629499534389517 3 /mnt/c/study/setups/one liner to setup and run skaffold in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2079 3 156 82 5629499534451328 3 /mnt/c/study/Orchestration/kubernetes/skaffold/one liner to setup and run skaffold in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1911 1 157 82 7036874417942644 3 /mnt/c/study/setups/one liner to setup and run atom in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1911 4 157 82 4222124650897916 3 /mnt/c/study/IDE/IDEs/TextEditors/atom/one liner to setup and run atom in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1986 1 159 82 7318349394528824 3 /mnt/c/study/setups/one liner to setup and run howlongtobeat in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1986 5 159 82 3659174697280736 3 /mnt/c/study/programming/python/apps/games/howlongtobeat/one liner to setup and run howlongtobeat in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1872 1 159 82 16044073672569873 3 /mnt/c/study/setups/one liner to setup and run Vulkan Memory Allocator (VMA) in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1872 3 159 82 3096224743869416 3 /mnt/c/study/AI_and_Machine_Learning/Hardware/AMD/one liner to setup and run Vulkan Memory Allocator (VMA) in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 453 1 160 82 5066549581299052 3 /mnt/c/study/setups/liner to setup and run Sikulix in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -453 2 160 82 7036874417942824 3 /mnt/c/study/automation/oneliners/liner to setup and run Sikulix in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -453 3 160 82 4222124650898071 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run Sikulix in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1583 1 162 82 6755399441232260 3 /mnt/c/study/setups/one liner to setup and run Certbot DNS Plugins in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1583 3 162 82 3940649674187476 3 /mnt/c/study/security/CertificateManagement/Certbot/one liner to setup and run Certbot DNS Plugins in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2021 1 162 82 6755399441232262 3 /mnt/c/study/setups/one liner to setup and run mkcert in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2021 3 162 82 5629499534451413 3 /mnt/c/study/security/CertificateManagement/mkcert/one liner to setup and run mkcert in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1884 1 163 82 6755399441232249 3 /mnt/c/study/setups/one liner to setup and run X410 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1884 3 163 82 5629499534451404 3 /mnt/c/study/Remote/Xservers/X410/one liner to setup and run X410 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1894 1 165 82 4785074604160172 3 /mnt/c/study/setups/one liner to setup and run Zulip in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1894 2 165 82 12666373952044908 3 /mnt/c/study/collaboration/Zulip/one liner to setup and run Zulip in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2014 1 165 82 5629499534347831 3 /mnt/c/study/setups/one liner to setup and run masterpdfeditor5 in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2014 3 165 82 10133099161764430 3 /mnt/c/study/documents/PDF/masterpdfeditor5/one liner to setup and run masterpdfeditor5 in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1998 1 166 82 7036874417942636 3 /mnt/c/study/setups/one liner to setup and run kite in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1998 3 166 82 8725724278268407 3 /mnt/c/study/IDE/IDEs/kite/one liner to setup and run kite in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1613 1 167 82 6473924464406646 3 /mnt/c/study/setups/one liner to setup and run F Prime in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1613 4 167 82 6473924464397091 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Robotics/F Prime/one liner to setup and run F Prime in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1806 1 167 82 7036874417942671 3 /mnt/c/study/setups/one liner to setup and run Reaper in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1806 3 167 82 4222124650897944 3 /mnt/c/study/MediaEditing/AudioEditing/Reaper/one liner to setup and run Reaper in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2070 1 167 82 6755399441232087 3 /mnt/c/study/setups/one liner to setup and run pxeserver in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2070 3 167 82 4222124650898011 3 /mnt/c/study/networking/PXE/pxeserver/one liner to setup and run pxeserver in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1550 1 168 82 7318349394524892 3 /mnt/c/study/setups/one liner to setup and run Adminer in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1550 5 168 82 11258999068443134 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/Managers/Adminer/one liner to setup and run Adminer in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1649 1 169 82 7036874417942947 3 /mnt/c/study/setups/one liner to setup and run Google Cloud SQL Proxy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1649 3 169 82 5348024557740782 3 /mnt/c/study/security/proxy/Google Cloud SQL Proxy/one liner to setup and run Google Cloud SQL Proxy in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 450 1 170 82 4785074604588277 3 /mnt/c/study/setups/liner to setup and run Netmaker in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -450 2 170 82 6473924464521404 3 /mnt/c/study/automation/oneliners/liner to setup and run Netmaker in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -450 2 170 82 9288674231689795 3 /mnt/c/study/networking/Netmaker/liner to setup and run Netmaker in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1629 1 174 82 33495522228632688 3 /mnt/c/study/setups/one liner to setup and run FlowiseAI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1629 4 174 82 2814749767159862 3 /mnt/c/study/AI_and_Machine_Learning/Machine_Learning/LLM/FlowiseAI/one liner to setup and run FlowiseAI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1898 1 176 82 3940649674000500 3 /mnt/c/study/setups/one liner to setup and run airbyte in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1898 4 176 82 2251799813726441 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/DataIntegration/airbyte/one liner to setup and run airbyte in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1566 1 177 82 6473924464395194 3 /mnt/c/study/setups/one liner to setup and run BCP in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1566 5 177 82 1407374883574037 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/BCP/one liner to setup and run BCP in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1586 1 179 82 6473924464521427 3 /mnt/c/study/setups/one liner to setup and run Cloud-init in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1586 3 179 82 5629499534451288 3 /mnt/c/study/networking/PXE/Cloud-init/one liner to setup and run Cloud-init in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1935 1 181 82 7881299348067210 3 /mnt/c/study/setups/one liner to setup and run cmder in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1935 3 181 82 11540474045346392 3 /mnt/c/study/Emulation/terminals/cmder/one liner to setup and run cmder in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1913 1 182 82 7036874417943016 3 /mnt/c/study/setups/one liner to setup and run autocomplete typing command in powershell
+DUPTYPE_WITHIN_SAME_TREE -1913 2 182 82 10977524091953955 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_autocomplete_typing_command_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 2042 1 183 82 7599824371362770 3 /mnt/c/study/setups/one liner to setup and run openRGB in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2042 4 183 82 5629499534450368 3 /mnt/c/study/hosting/lighting/RGB/openRGB/one liner to setup and run openRGB in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1634 1 184 82 8444249301399045 3 /mnt/c/study/setups/one liner to setup and run FoundationDB in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1634 3 184 82 8162774324778707 3 /mnt/c/study/Disturbed/disturbed_database/FoundationDB/one liner to setup and run FoundationDB in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 440 1 184 82 4785074604588264 3 /mnt/c/study/setups/liner to setup and run Brunch in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -440 2 184 82 5066549580968222 3 /mnt/c/study/automation/oneliners/liner to setup and run Brunch in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -440 3 184 82 5629499534451344 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run Brunch in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1916 1 185 82 7318349394652194 3 /mnt/c/study/setups/one liner to setup and run beets in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1916 3 185 82 11258999068664007 3 /mnt/c/study/hosting/MediaPlayers/beets/one liner to setup and run beets in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1775 1 187 82 9007199254912635 3 /mnt/c/study/setups/one liner to setup and run Prelude SIEM in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1775 3 187 82 8725724278248568 3 /mnt/c/study/Hacking/Intrusion_Detection/Prelude SIEM/one liner to setup and run Prelude SIEM in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1965 1 189 82 6755399441232145 3 /mnt/c/study/setups/one liner to setup and run genymotion in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1965 3 189 82 5629499534451330 3 /mnt/c/study/Platforms/Android/genymotion/one liner to setup and run genymotion in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1745 1 190 82 6755399441231960 3 /mnt/c/study/setups/one liner to setup and run OpenLiteSpeed in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1745 4 190 82 7318349394715115 3 /mnt/c/study/hosting/WebHosting/WebServers/OpenLiteSpeed/one liner to setup and run OpenLiteSpeed in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1964 1 191 82 7036874417942995 3 /mnt/c/study/setups/one liner to setup and run gdu in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1964 5 191 82 3940649674187542 3 /mnt/c/study/Shells/bash/disk/Visualize disk usage statistics/gdu/one liner to setup and run gdu in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1711 1 192 82 6755399441232219 3 /mnt/c/study/setups/one liner to setup and run Miniconda in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1711 3 192 82 7599824371425977 3 /mnt/c/study/programming/python/conda/one liner to setup and run Miniconda in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 464 1 192 82 5348024558009689 3 /mnt/c/study/setups/liner to setup and run playright webui in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -464 3 192 82 4222124650898068 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run playright webui in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -464 2 192 82 5066549580968228 3 /mnt/c/study/automation/oneliners/liner to setup and run playright webui in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1929 1 194 82 8725724278078725 3 /mnt/c/study/setups/one liner to setup and run chronograf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1929 5 194 82 1688849860284612 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/InfluxDB/one liner to setup and run chronograf in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1855 1 198 82 7036874417942940 3 /mnt/c/study/setups/one liner to setup and run Tripwire in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1855 3 198 82 9288674231689958 3 /mnt/c/study/security/IntegrityCheck/Tripwire/one liner to setup and run Tripwire in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 448 1 199 82 4785074604588239 3 /mnt/c/study/setups/liner to setup and run Milvus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -448 4 199 82 2814749767154539 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/milvus/liner to setup and run Milvus in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -448 2 199 82 10977524091769298 3 /mnt/c/study/automation/oneliners/liner to setup and run Milvus in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1622 1 203 82 6755399441232374 3 /mnt/c/study/setups/one liner to setup and run Flatpak: Media in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1622 3 203 82 4222124650898220 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: Media in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1971 1 203 82 7036874417942953 3 /mnt/c/study/setups/one liner to setup and run gitleaks in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1971 4 203 82 5066549581030130 3 /mnt/c/study/security/secrets/secret_key_detection/gitleaks/one liner to setup and run gitleaks in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1933 1 208 82 6755399441232195 3 /mnt/c/study/setups/one liner to setup and run clojure in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1933 2 208 82 5066549581030056 3 /mnt/c/study/programming/clojure/one liner to setup and run clojure in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1975 1 208 82 6755399441232119 3 /mnt/c/study/setups/one liner to setup and run gotify in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1975 2 208 82 10133099161821809 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_gotify_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4077 2 209 82 6473924464523032 3 /mnt/c/study/automation/oneliners/liner to  create a new Proxmox VE Docker LXC
+DUPTYPE_WITHIN_SAME_TREE -4077 2 209 82 3940649674188596 3 /mnt/c/study/virtualmachines/proxmox/liner_to__create_a_new_Proxmox_VE_Docker_LXC
+DUPTYPE_FIRST_OCCURRENCE 1829 1 212 82 6192449487810901 3 /mnt/c/study/setups/one liner to setup and run SpringBoot in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1829 3 212 82 4222124650898102 3 /mnt/c/study/programming/java/SpringBoot/one liner to setup and run SpringBoot in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 428 1 212 82 5348024558009709 3 /mnt/c/study/setups/liner to setup AWSOME-Testing in ubuntu and run OWASP scan with npm node github and ruby
+DUPTYPE_WITHIN_SAME_TREE -428 3 212 82 5629499534451352 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup AWSOME-Testing in ubuntu and run OWASP scan with npm node github and ruby
+DUPTYPE_WITHIN_SAME_TREE -428 2 212 82 7036874417942825 3 /mnt/c/study/automation/oneliners/liner to setup AWSOME-Testing in ubuntu and run OWASP scan with npm node github and ruby
+DUPTYPE_FIRST_OCCURRENCE 1947 1 213 82 6755399441232432 3 /mnt/c/study/setups/one liner to setup and run debian in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1947 2 213 82 7036874418004835 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run debian in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 487 1 214 82 5066549581299073 3 /mnt/c/study/setups/liner to setup yarn with apt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -487 3 214 82 3940649674187421 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup yarn with apt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -487 2 214 82 6473924464521522 3 /mnt/c/study/automation/oneliners/liner to setup yarn with apt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1976 1 215 82 4503599627446040 3 /mnt/c/study/setups/one liner to setup and run gradle in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1976 2 215 82 2814749767159886 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_gradle_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1838 1 217 82 7036874417942880 3 /mnt/c/study/setups/one liner to setup and run Tauri in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1838 4 217 82 4222124650898108 3 /mnt/c/study/programming/Rust/Frameworks/Tauri/one liner to setup and run Tauri in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1668 1 217 82 6192449487685877 3 /mnt/c/study/setups/one liner to setup and run ICU in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1668 5 217 82 2251799813727388 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/ICU/one liner to setup and run ICU in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1606 1 217 82 3940649674028654 3 /mnt/c/study/setups/one liner to setup and run EMQX in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1606 2 217 82 11821949022026518 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run EMQX in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1848 1 220 82 6473924464398863 3 /mnt/c/study/setups/one liner to setup and run Tianji in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1848 2 220 82 4785074604129733 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Tianji in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2089 1 221 82 8162774324777926 3 /mnt/c/study/setups/one liner to setup and run tabby in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2089 3 221 82 8444249301529188 3 /mnt/c/study/Emulation/terminals/tabby/one liner to setup and run tabby in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1890 1 221 82 6192449487810735 3 /mnt/c/study/setups/one liner to setup and run Zabbix in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1890 2 221 82 6473924464583221 3 /mnt/c/study/monitoring/zabbix/one liner to setup and run Zabbix in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1910 1 221 82 7036874417942872 3 /mnt/c/study/setups/one liner to setup and run askgpt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1910 6 221 82 7599824371425975 3 /mnt/c/study/programming/python/apps/bots/chatGPTbot/askgpt/one liner to setup and run askgpt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1754 1 222 82 7318349394653220 3 /mnt/c/study/setups/one liner to setup and run Owncast in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1754 2 222 82 6192449487872256 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Owncast in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1651 1 222 82 7036874417942773 3 /mnt/c/study/setups/one liner to setup and run Gotify in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1651 2 222 82 6473924464583280 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Gotify_in_proxmox_shell
+DUPTYPE_FIRST_OCCURRENCE 1632 1 223 82 7036874417942740 3 /mnt/c/study/setups/one liner to setup and run Fog in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1632 3 223 82 5629499534451289 3 /mnt/c/study/networking/PXE/Fog/one liner to setup and run Fog in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1568 1 225 82 6755399441232126 3 /mnt/c/study/setups/one liner to setup and run BOSH in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1568 2 225 82 3940649674187381 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_BOSH_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 439 1 225 82 4785074604588263 3 /mnt/c/study/setups/liner to setup and run BrowserStackLocal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -439 2 225 82 7036874417942811 3 /mnt/c/study/automation/oneliners/liner to setup and run BrowserStackLocal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -439 3 225 82 5348024557740687 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup and run BrowserStackLocal in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2080 1 225 82 6473924464521441 3 /mnt/c/study/setups/one liner to setup and run sniffnet in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2080 2 225 82 4222124650898018 3 /mnt/c/study/networking/sniffnet/one liner to setup and run sniffnet in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2061 1 225 82 6755399441231926 3 /mnt/c/study/setups/one liner to setup and run pipewire in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2061 3 225 82 7599824371425633 3 /mnt/c/study/hosting/Multimedia/pipewire/one liner to setup and run pipewire in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1881 1 226 82 6755399441232324 3 /mnt/c/study/setups/one liner to setup and run WireGuard in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1881 2 226 82 4222124650898186 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run WireGuard in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1590 1 227 82 7036874417940035 3 /mnt/c/study/setups/one liner to setup and run CommaFeed in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1590 2 227 82 10977524091939920 3 /mnt/c/study/hosting/CommaFeed/one liner to setup and run CommaFeed in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1623 1 228 82 7318349394653687 3 /mnt/c/study/setups/one liner to setup and run Flatpak: Messaging and Social in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1623 3 228 82 7318349394715437 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: Messaging and Social in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1810 1 231 82 3096224743951621 3 /mnt/c/study/setups/one liner to setup and run Rkt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1810 2 231 82 13229323905581373 3 /mnt/c/study/docker/Rkt/one liner to setup and run Rkt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 466 1 234 82 5066549581299055 3 /mnt/c/study/setups/liner to setup and run ttyd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -466 2 234 82 6755399441293729 3 /mnt/c/study/hosting/ttyd/liner to setup and run ttyd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -466 2 234 82 6755399441231947 3 /mnt/c/study/automation/oneliners/liner to setup and run ttyd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1604 1 237 82 6192449487773786 3 /mnt/c/study/setups/one liner to setup and run Dolphin in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1604 3 237 82 15481123719269071 3 /mnt/c/study/Emulation/Games/Dolphin/one liner to setup and run Dolphin in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2049 1 237 82 6755399441232138 3 /mnt/c/study/setups/one liner to setup and run operator-sdk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2049 3 237 82 4222124650898045 3 /mnt/c/study/Orchestration/kubernetes/operator-sdk/one liner to setup and run operator-sdk in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1928 1 237 82 4222124650736246 3 /mnt/c/study/setups/one liner to setup and run chrome in powershell
+DUPTYPE_WITHIN_SAME_TREE -1928 2 237 82 3096224743870940 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_chrome_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 1577 1 240 82 3096224743951628 3 /mnt/c/study/setups/one liner to setup and run BookStack in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1577 2 240 82 13792273859002707 3 /mnt/c/study/documents/BookStack/one liner to setup and run BookStack in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1978 1 248 82 7599824371356624 3 /mnt/c/study/setups/one liner to setup and run grocy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1978 2 248 82 6473924464555154 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_grocy_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1625 1 249 82 7036874417943034 3 /mnt/c/study/setups/one liner to setup and run Flatpak: System Tooling in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1625 3 249 82 9851624185111343 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: System Tooling in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1621 1 250 82 7036874417943028 3 /mnt/c/study/setups/one liner to setup and run Flatpak: Gaming in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1621 3 250 82 3940649674187562 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: Gaming in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1670 1 256 82 5629499534291424 3 /mnt/c/study/setups/one liner to setup and run Icloud in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1670 2 256 82 7036874417831172 3 /mnt/c/study/cloud/Icloud/one liner to setup and run Icloud in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1791 1 257 82 7318349394653768 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Processor Microcode For Intel or AMD Processors in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1791 2 257 82 4222124650898290 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Proxmox VE Processor Microcode For Intel or AMD Processors in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1730 1 260 82 7036874417942949 3 /mnt/c/study/setups/one liner to setup and run Nginx Proxy Manager in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1730 2 260 82 5629499534451439 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Nginx Proxy Manager in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2050 1 264 82 6755399441232275 3 /mnt/c/study/setups/one liner to setup and run osquery in ubuntu.save
+DUPTYPE_WITHIN_SAME_TREE -2050 3 264 82 4222124650898140 3 /mnt/c/study/security/endpoint/osquery/one liner to setup and run osquery in ubuntu.save
+DUPTYPE_FIRST_OCCURRENCE 1832 1 265 82 6192449487810631 3 /mnt/c/study/setups/one liner to setup and run StreamDeck in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1832 3 265 82 6473924464583046 3 /mnt/c/study/hosting/Stream/StreamDeck/one liner to setup and run StreamDeck in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1923 1 265 82 6755399441232304 3 /mnt/c/study/setups/one liner to setup and run buttercup in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1923 4 265 82 8725724278268668 3 /mnt/c/study/security/secrets/Secret_Management/buttercup/one liner to setup and run buttercup in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1679 1 266 82 6755399441232185 3 /mnt/c/study/setups/one liner to setup and run Katalon_Studio in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1679 3 266 82 5629499534451362 3 /mnt/c/study/Platforms/linux/Ubuntu/one liner to setup and run Katalon_Studio in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1595 1 266 82 5629499534290873 3 /mnt/c/study/setups/one liner to setup and run CruiseControl in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1595 2 266 82 14073748835597535 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_CruiseControl_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1620 1 267 82 5910974511100403 3 /mnt/c/study/setups/one liner to setup and run Flatpak: Development in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1620 3 267 82 9288674231690025 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: Development in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 443 1 273 82 4785074604588272 3 /mnt/c/study/setups/liner to setup and run JIRAServiceDesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -443 2 273 82 6192449487810849 3 /mnt/c/study/automation/oneliners/liner to setup and run JIRAServiceDesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -443 3 273 82 4222124650898066 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/JIRAServiceDesk/liner_to_setup_and_run_JIRAServiceDesk_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1845 1 274 82 5910974510999355 3 /mnt/c/study/setups/one liner to setup and run Terraform-docs in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1845 4 274 82 2814749767159887 3 /mnt/c/study/automation/Infrastructure_as_Code/terraform/Terraform-docs/one liner to setup and run Terraform-docs in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1794 1 275 82 6755399441232220 3 /mnt/c/study/setups/one liner to setup and run PyWebView in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1794 4 275 82 7318349394715322 3 /mnt/c/study/programming/python/Libaries/PyWebView/one liner to setup and run PyWebView in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2004 1 277 82 6755399441231992 3 /mnt/c/study/setups/one liner to setup and run lighttable in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2004 4 277 82 9288674231689732 3 /mnt/c/study/IDE/IDEs/TextEditors/lighttable/one liner to setup and run lighttable in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2110 1 278 82 6755399441232392 3 /mnt/c/study/setups/one liner to setup and run winapps in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2110 3 278 82 3940649674187586 3 /mnt/c/study/Shells/tools/winapps/one liner to setup and run winapps in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 4073 2 280 82 6755399441233685 3 /mnt/c/study/automation/oneliners/liner display ~.bashrc contents of the Proxmox host and all containers sequentially.
+DUPTYPE_WITHIN_SAME_TREE -4073 2 280 82 5629499534452529 3 /mnt/c/study/virtualmachines/proxmox/liner_display_~.bashrc_contents_of_the_Proxmox_host_and_all_containers_sequentially.
+DUPTYPE_FIRST_OCCURRENCE 1764 1 282 82 7599824371235382 3 /mnt/c/study/setups/one liner to setup and run PhoronixTestSuite in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1764 3 282 82 1688849860280416 3 /mnt/c/study/AI_and_Machine_Learning/benchmark/PhoronixTestSuite/one liner to setup and run PhoronixTestSuite in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1902 1 284 82 5348024557678868 3 /mnt/c/study/setups/one liner to setup and run anydesk in Fedora, CentOS, RHEL
+DUPTYPE_WITHIN_SAME_TREE -1902 3 284 82 4222124650898052 3 /mnt/c/study/Platforms/linux/fedora/one liner to setup and run anydesk in Fedora, CentOS, RHEL
+DUPTYPE_FIRST_OCCURRENCE 437 1 285 82 4785074604588262 3 /mnt/c/study/setups/liner to setup and run Alluxio in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -437 2 285 82 4503599627449644 3 /mnt/c/study/automation/oneliners/liner to setup and run Alluxio in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -437 2 285 82 3096224743939382 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Alluxio_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1819 1 290 82 7036874417942971 3 /mnt/c/study/setups/one liner to setup and run Security-Onion in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1819 2 290 82 3940649674187524 3 /mnt/c/study/security/Security-Onion/one liner to setup and run Security-Onion in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2028 1 291 82 7036874417941903 3 /mnt/c/study/setups/one liner to setup and run ncmpcpp in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2028 3 291 82 4503599627608276 3 /mnt/c/study/hosting/MediaPlayers/ncmpcpp/one liner to setup and run ncmpcpp in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2032 1 291 82 6755399441232357 3 /mnt/c/study/setups/one liner to setup and run nircmd in powershell
+DUPTYPE_WITHIN_SAME_TREE -2032 3 291 82 4222124650898209 3 /mnt/c/study/Shells/powershell/nircmd/one liner to setup and run nircmd in powershell
+DUPTYPE_FIRST_OCCURRENCE 1626 1 294 82 7036874417943037 3 /mnt/c/study/setups/one liner to setup and run Flatpak: User Software in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1626 3 294 82 6755399441294128 3 /mnt/c/study/Shells/tools/Flatpak/one liner to setup and run Flatpak: User Software in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2052 1 294 82 6473924464521484 3 /mnt/c/study/setups/one liner to setup and run pachyderm in ubuntu with kubernetes
+DUPTYPE_WITHIN_SAME_TREE -2052 3 294 82 7599824371425919 3 /mnt/c/study/Orchestration/kubernetes/pachyderm/one liner to setup and run pachyderm in ubuntu with kubernetes
+DUPTYPE_FIRST_OCCURRENCE 1576 1 295 82 6755399441232124 3 /mnt/c/study/setups/one liner to setup and run Bolt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1576 2 295 82 4222124650898036 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Bolt_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2040 1 298 82 5910974510971387 3 /mnt/c/study/setups/one liner to setup and run ollama in ubuntu terminal with llama3 and webui
+DUPTYPE_WITHIN_SAME_TREE -2040 4 298 82 5066549580808012 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/terminalAI/ollama/one liner to setup and run ollama in ubuntu terminal with llama3 and webui
+DUPTYPE_FIRST_OCCURRENCE 1639 1 305 82 5629499534264542 3 /mnt/c/study/setups/one liner to setup and run GDC-Client in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1639 5 305 82 2251799813727384 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/GDC-Client/one liner to setup and run GDC-Client in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1594 1 306 82 12103423998729760 3 /mnt/c/study/setups/one liner to setup and run CrowdSec in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1594 3 306 82 12947848928908394 3 /mnt/c/study/Hacking/Intrusion_Detection/CrowdSec/one liner to setup and run CrowdSec in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1687 1 306 82 6755399441232135 3 /mnt/c/study/setups/one liner to setup and run Kubespray in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1687 3 306 82 4222124650898043 3 /mnt/c/study/Orchestration/kubernetes/Kubespray/one liner to setup and run Kubespray in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1909 1 308 82 7036874417943018 3 /mnt/c/study/setups/one liner to setup and run asdf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1909 3 308 82 14636698789192484 3 /mnt/c/study/Shells/tools/asdf/one liner to setup and run asdf in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 474 1 313 82 5066549581298891 3 /mnt/c/study/setups/liner to setup influxdb with chronograf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -474 2 313 82 9570149208210548 3 /mnt/c/study/automation/oneliners/liner to setup influxdb with chronograf in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -474 5 313 82 1407374883573940 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/InfluxDB/liner to setup influxdb with chronograf in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2119 1 314 82 7036874417942747 3 /mnt/c/study/setups/one liner to setup and run xinetd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2119 3 314 82 4222124650898013 3 /mnt/c/study/networking/PXE/xinetd/one liner to setup and run xinetd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 5947 2 324 82 7036874417943132 3 /mnt/c/study/automation/oneliners/one-liner installs Kedro, PySpark, and Java, creates a new Kedro project with an example pipeline, automates input using expect, installs dependencies, and runs the default Kedro pipeline
+DUPTYPE_WITHIN_SAME_TREE -5947 3 324 82 4222124650898303 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Pipeline/one-liner installs Kedro, PySpark, and Java, creates a new Kedro project with an example pipeline, automates input using expect, installs dependencies, and runs the default Kedro pipeline
+DUPTYPE_FIRST_OCCURRENCE 1903 1 326 82 6755399441232231 3 /mnt/c/study/setups/one liner to setup and run anydesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1903 3 326 82 7036874418004673 3 /mnt/c/study/Remote/RemoteDesktop/anydesk/one liner to setup and run anydesk in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2125 1 326 82 7036874417943050 3 /mnt/c/study/setups/one liner to setup and run yq in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2125 3 326 82 6192449487872836 3 /mnt/c/study/Shells/tools/yq/one liner to setup and run yq in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1949 1 331 82 6755399441232071 3 /mnt/c/study/setups/one liner to setup and run dhcpd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1949 4 331 82 4222124650898001 3 /mnt/c/study/networking/protocols/DHCP/dhcpd/one liner to setup and run dhcpd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1870 1 332 82 6755399441232465 3 /mnt/c/study/setups/one liner to setup and run VirtualBox in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1870 2 332 82 4222124650898296 3 /mnt/c/study/virtualmachines/VirtualBox/one liner to setup and run VirtualBox in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1766 1 340 82 6755399441231937 3 /mnt/c/study/setups/one liner to setup and run PhotoPrism in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1766 3 340 82 8162774324846962 3 /mnt/c/study/hosting/pictures/PhotoPrism/one liner to setup and run PhotoPrism in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1858 1 340 82 7036874417943113 3 /mnt/c/study/setups/one liner to setup and run Ubuntu in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1858 2 340 82 4222124650898291 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run Ubuntu in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 1899 1 341 82 5348024557678187 3 /mnt/c/study/setups/one liner to setup and run airsonic in ubuntu with docker
+DUPTYPE_WITHIN_SAME_TREE -1899 3 341 82 4222124650897629 3 /mnt/c/study/hosting/MediaServers/airsonic/one liner to setup and run airsonic in ubuntu with docker
+DUPTYPE_FIRST_OCCURRENCE 2869 1 342 82 7036874417942759 3 /mnt/c/study/setups/setup Cli utility for fetching and downloading torrents from 1337x.to on your default torrent client
+DUPTYPE_WITHIN_SAME_TREE -2869 4 342 82 9851624185111143 3 /mnt/c/study/programming/python/apps/torrents/setup Cli utility for fetching and downloading torrents from 1337x.to on your default torrent client
+DUPTYPE_FIRST_OCCURRENCE 1699 1 345 82 5348024557578233 3 /mnt/c/study/setups/one liner to setup and run MagicMirror in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1699 2 345 82 2814749767159888 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_MagicMirror_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1835 1 351 82 6192449487810778 3 /mnt/c/study/setups/one liner to setup and run TFTPD-HPA in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1835 3 351 82 4222124650898012 3 /mnt/c/study/networking/PXE/TFTPD-HPA/one liner to setup and run TFTPD-HPA in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 478 1 353 82 5066549581298907 3 /mnt/c/study/setups/liner to setup polyaxon with kubernetes
+DUPTYPE_WITHIN_SAME_TREE -478 2 353 82 17732923532836076 3 /mnt/c/study/automation/oneliners/liner to setup polyaxon with kubernetes
+DUPTYPE_WITHIN_SAME_TREE -478 2 353 82 7036874417819710 3 /mnt/c/study/automation/oneliners/liner_to_setup_polyaxon_with_kubernetes
+DUPTYPE_FIRST_OCCURRENCE 2817 1 355 82 4785074604130231 3 /mnt/c/study/setups/oneliner to setup ad run neo4j in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2817 5 355 82 2533274790416596 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/Neo4j/oneliner to setup ad run neo4j in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1926 1 367 82 3940649674027318 3 /mnt/c/study/setups/one liner to setup and run ccoctl in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1926 2 367 82 17169973579414780 3 /mnt/c/study/cloud/ccoctl/one liner to setup and run ccoctl in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2025 1 370 82 9288674231502364 3 /mnt/c/study/setups/one liner to setup and run mssql-tools in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2025 5 370 82 3377699720562790 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/microsoft/one liner to setup and run mssql-tools in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1818 1 376 82 5066549580968211 3 /mnt/c/study/setups/one liner to setup and run Scrcpy in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1818 3 376 82 4222124650898051 3 /mnt/c/study/Platforms/Android/Scrcpy/one liner to setup and run Scrcpy in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 436 1 383 82 4785074604588261 3 /mnt/c/study/setups/liner to setup and run 1password in Fedora, CentOS, RHEL
+DUPTYPE_WITHIN_SAME_TREE -436 2 383 82 6755399441232299 3 /mnt/c/study/automation/oneliners/liner to setup and run 1password in Fedora, CentOS, RHEL
+DUPTYPE_WITHIN_SAME_TREE -436 4 383 82 4222124650898163 3 /mnt/c/study/security/secrets/Secret_Management/1Password/liner to setup and run 1password in Fedora, CentOS, RHEL
+DUPTYPE_FIRST_OCCURRENCE 1812 1 384 82 7036874417942893 3 /mnt/c/study/setups/one liner to setup and run RustDesk in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1812 3 384 82 5629499534451396 3 /mnt/c/study/Remote/RemoteDesktop/RustDesk/one liner to setup and run RustDesk in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2134 1 390 82 7036874417942615 3 /mnt/c/study/setups/one liners to setup dokku PaaS for ubuntu or debian (not wsl2)
+DUPTYPE_WITHIN_SAME_TREE -2134 3 390 82 4503599627608554 3 /mnt/c/study/Platforms/linux/Ubuntu/one_liners_to_setup_dokku_PaaS_for_ubuntu_or_debian_(not_wsl2)
+DUPTYPE_FIRST_OCCURRENCE 2818 1 393 82 6192449487685300 3 /mnt/c/study/setups/oneliner to setup and run microsoft sql server with docker
+DUPTYPE_WITHIN_SAME_TREE -2818 2 393 82 4503599627405427 3 /mnt/c/study/docker/guides/oneliner_to_setup_and_run_microsoft_sql_server_with_docker
+DUPTYPE_FIRST_OCCURRENCE 468 1 397 82 4785074604588257 3 /mnt/c/study/setups/liner to setup and run wekan in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -468 3 397 82 2814749767159884 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/wekan/liner to setup and run wekan in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -468 2 397 82 5629499534286425 3 /mnt/c/study/automation/oneliners/liner to setup and run wekan in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2121 1 398 82 7036874417942852 3 /mnt/c/study/setups/one liner to setup and run xxToolbelt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2121 3 398 82 3940649674187433 3 /mnt/c/study/programming/DevelopmentTools/xxToolbelt/one liner to setup and run xxToolbelt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2029 1 400 82 7036874417942921 3 /mnt/c/study/setups/one liner to setup and run neomutt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2029 4 400 82 5629499534451415 3 /mnt/c/study/security/Email/Tempmail/neomutt/one liner to setup and run neomutt in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2099 1 402 82 4503599627449313 3 /mnt/c/study/setups/one liner to setup and run tmate in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2099 2 402 82 6755399441120681 3 /mnt/c/study/collaboration/tmate/one liner to setup and run tmate in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 462 1 404 82 4785074604588254 3 /mnt/c/study/setups/liner to setup and run openproject in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -462 3 404 82 2814749767159880 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/openproject/liner to setup and run openproject in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -462 2 404 82 5348024557567901 3 /mnt/c/study/automation/oneliners/liner to setup and run openproject in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1650 1 410 82 6473924464392697 3 /mnt/c/study/setups/one liner to setup and run Googleterminal-ai in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1650 4 410 82 4222124650675732 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/terminalAI/Googleterminal-ai/one liner to setup and run Googleterminal-ai in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2000 1 415 82 6473924464521477 3 /mnt/c/study/setups/one liner to setup and run kubeseal in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2000 3 415 82 5348024557740666 3 /mnt/c/study/Orchestration/kubernetes/kubeseal/one liner to setup and run kubeseal in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1714 1 422 82 4503599627419197 3 /mnt/c/study/setups/one liner to setup and run Mongo Compass in Fedora, CentOS, RHEL
+DUPTYPE_WITHIN_SAME_TREE -1714 7 422 82 1407374883573970 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/mongo/Mongo Compass/Mongo Compass/one liner to setup and run Mongo Compass in Fedora, CentOS, RHEL
+DUPTYPE_FIRST_OCCURRENCE 2046 1 428 82 5629499534278561 3 /mnt/c/study/setups/one liner to setup and run openproject in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2046 3 428 82 2814749767159881 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/openproject/one liner to setup and run openproject in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1969 1 431 82 7036874417943071 3 /mnt/c/study/setups/one liner to setup and run git-crypt in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1969 2 431 82 9851624185111382 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_git-crypt_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1851 1 432 82 5066549580868737 3 /mnt/c/study/setups/one liner to setup and run Tor browser in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1851 2 432 82 3096224743871134 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Tor_browser_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1891 1 435 82 6192449487810738 3 /mnt/c/study/setups/one liner to setup and run Zenoss in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1891 2 435 82 6473924464583223 3 /mnt/c/study/monitoring/Zenoss/one liner to setup and run Zenoss in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2023 1 436 82 6755399441231981 3 /mnt/c/study/setups/one liner to setup and run monodevelop in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2023 3 436 82 9570149208400376 3 /mnt/c/study/IDE/IDEs/monodevelop/one liner to setup and run monodevelop in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1915 1 438 82 6755399441232230 3 /mnt/c/study/setups/one liner to setup and run bazel in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1915 3 438 82 3940649674187456 3 /mnt/c/study/QA/testing/bazel/one liner to setup and run bazel in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2126 1 441 82 6755399441232114 3 /mnt/c/study/setups/one liner to setup and run zeek in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2126 2 441 82 4222124650898029 3 /mnt/c/study/networking/zeek/one liner to setup and run zeek in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1825 1 442 82 4503599627449309 3 /mnt/c/study/setups/one liner to setup and run Slackdump in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1825 3 442 82 15762598695861627 3 /mnt/c/study/collaboration/slack/Slackdump/one liner to setup and run Slackdump in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1574 1 453 82 6755399441232303 3 /mnt/c/study/setups/one liner to setup and run Bitwarden CLI in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1574 4 453 82 8162774324847355 3 /mnt/c/study/security/secrets/Secret_Management/BitWarden/one liner to setup and run Bitwarden CLI in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1841 1 472 82 7036874417942972 3 /mnt/c/study/setups/one liner to setup and run Teleport in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1841 2 472 82 7881299348136709 3 /mnt/c/study/security/Teleport/one liner to setup and run Teleport in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 2085 1 474 82 7881299347949234 3 /mnt/c/study/setups/one liner to setup and run sqlcmd in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2085 5 474 82 3377699720562791 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/microsoft/one liner to setup and run sqlcmd in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1968 1 476 82 6755399441232413 3 /mnt/c/study/setups/one liner to setup and run ghorg in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1968 2 476 82 9851624185111381 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_ghorg_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1579 1 494 82 5348024557580164 3 /mnt/c/study/setups/one liner to setup and run Buildkite in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1579 2 494 82 6755399441120478 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Buildkite_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1570 1 497 82 4785074604158844 3 /mnt/c/study/setups/one liner to setup and run Bamboo in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1570 2 497 82 20266198323231944 3 /mnt/c/study/automation/oneliners/one_liner_to_setup_and_run_Bamboo_in_ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1591 1 500 82 4222124650739061 3 /mnt/c/study/setups/one liner to setup and run Cosmos DB with docker in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1591 3 500 82 23925373020559811 3 /mnt/c/study/Disturbed/disturbed_database/CosmosDB/one liner to setup and run Cosmos DB with docker in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1988 1 518 82 7036874417942784 3 /mnt/c/study/setups/one liner to setup and run hubble cli in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1988 3 518 82 5629499534451318 3 /mnt/c/study/Orchestration/kubernetes/hubble/one liner to setup and run hubble cli in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1554 1 533 82 6755399441232427 3 /mnt/c/study/setups/one liner to setup and run All Templates LXC in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1554 2 533 82 4222124650898271 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run All Templates LXC in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 476 1 562 82 5066549581298882 3 /mnt/c/study/setups/liner to setup latest python and pip in powershell
+DUPTYPE_WITHIN_SAME_TREE -476 2 562 82 4222124650704604 3 /mnt/c/study/automation/oneliners/liner to setup latest python and pip in powershell
+DUPTYPE_WITHIN_SAME_TREE -476 2 562 82 6755399441062901 3 /mnt/c/study/automation/oneliners/liner_to_setup_latest_python_and_pip_in_powershell
+DUPTYPE_FIRST_OCCURRENCE 1811 1 579 82 6755399441232152 3 /mnt/c/study/setups/one liner to setup and run RustDesk fedora centos or RHEL
+DUPTYPE_WITHIN_SAME_TREE -1811 3 579 82 4222124650898060 3 /mnt/c/study/Platforms/linux/fedora/one liner to setup and run RustDesk fedora centos or RHEL
+DUPTYPE_FIRST_OCCURRENCE 2006 1 611 82 6755399441106867 3 /mnt/c/study/setups/one liner to setup and run litestream in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -2006 6 611 82 2251799813726440 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/sqlite/litestream/one liner to setup and run litestream in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 467 1 635 82 5066549581299056 3 /mnt/c/study/setups/liner to setup and run unleash in ubuntu with docker compose
+DUPTYPE_WITHIN_SAME_TREE -467 2 635 82 6755399441132018 3 /mnt/c/study/automation/unleash/liner to setup and run unleash in ubuntu with docker compose
+DUPTYPE_FIRST_OCCURRENCE 1983 1 654 82 3940649674025315 3 /mnt/c/study/setups/one liner to setup and run home_assistant in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1983 2 654 82 2814749767159902 3 /mnt/c/study/virtualmachines/proxmox/one liner to setup and run home_assistant in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2873 1 656 82 7318349394653377 3 /mnt/c/study/setups/setup openWRT in ubuntu with 2 liners
+DUPTYPE_WITHIN_SAME_TREE -2873 2 656 82 4222124650897993 3 /mnt/c/study/networking/OpenWRT/setup openWRT in ubuntu with 2 liners
+DUPTYPE_FIRST_OCCURRENCE 1749 1 797 82 5629499534292177 3 /mnt/c/study/setups/one liner to setup and run OpenSIPS in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1749 2 797 82 2814749767216792 3 /mnt/c/study/communication/OpenSIPS/one liner to setup and run OpenSIPS in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 460 1 808 82 4785074604588253 3 /mnt/c/study/setups/liner to setup and run jira in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -460 3 808 82 2814749767159876 3 /mnt/c/study/AI_and_Machine_Learning/Workflow_Management/jira/liner to setup and run jira in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -460 2 808 82 5910974510988807 3 /mnt/c/study/automation/oneliners/liner to setup and run jira in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1544 1 814 82 7036874417942956 3 /mnt/c/study/setups/one liner to setup and run 1Password in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1544 4 814 82 4222124650898166 3 /mnt/c/study/security/secrets/Secret_Management/1Password/one liner to setup and run 1Password in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 429 1 833 82 5066549581299061 3 /mnt/c/study/setups/liner to setup JBehave in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -429 2 833 82 7036874417942828 3 /mnt/c/study/automation/oneliners/liner to setup JBehave in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -429 3 833 82 5629499534451354 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup JBehave in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 463 1 848 82 4785074604588279 3 /mnt/c/study/setups/liner to setup and run osqueryi in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -463 2 848 82 4222124650898067 3 /mnt/c/study/monitoring/osqueryi/liner_to_setup_and_run_osqueryi_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -463 2 848 82 6473924464521506 3 /mnt/c/study/automation/oneliners/liner to setup and run osqueryi in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 438 1 851 82 4785074604588258 3 /mnt/c/study/setups/liner to setup and run Bazel in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -438 2 851 82 2814749767159885 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_Bazel_in_ubuntu
+DUPTYPE_WITHIN_SAME_TREE -438 2 851 82 5066549580866026 3 /mnt/c/study/automation/oneliners/liner to setup and run Bazel in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 434 1 902 82 5066549581299071 3 /mnt/c/study/setups/liner to setup Waterliner in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -434 2 902 82 6473924464521520 3 /mnt/c/study/automation/oneliners/liner to setup Waterliner in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -434 3 902 82 4222124650898076 3 /mnt/c/study/Platforms/linux/Ubuntu/liner to setup Waterliner in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 8419 2 1048 82 3659174697241390 3 /mnt/c/study/troubleshooting/dpkg/Troubleshooting:_Resolving_"Could_Not_Get_Lock_var_lib_dpkg_lock-frontend"_Error_on_Ubuntu
+DUPTYPE_WITHIN_SAME_TREE -8419 3 1048 82 1125899907061068 3 /mnt/c/study/Platforms/linux/Ubuntu/Troubleshooting:_Resolving_"Could_Not_Get_Lock_var_lib_dpkg_lock-frontend"_Error_on_Ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1734 1 1053 82 7036874417942793 3 /mnt/c/study/setups/one liner to setup and run OKE in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1734 3 1053 82 5066549581030012 3 /mnt/c/study/Orchestration/kubernetes/OKE/one liner to setup and run OKE in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 447 1 1096 82 4785074604588276 3 /mnt/c/study/setups/liner to setup and run Matrix-Synapse in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -447 2 1096 82 7599824371266392 3 /mnt/c/study/automation/oneliners/liner to setup and run Matrix-Synapse in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -447 2 1096 82 4785074604145962 3 /mnt/c/study/collaboration/Matrix-Synapse/liner to setup and run Matrix-Synapse in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 459 1 1237 82 4785074604588270 3 /mnt/c/study/setups/liner to setup and run in ubuntu vsftpd
+DUPTYPE_WITHIN_SAME_TREE -459 2 1237 82 9007199254958552 3 /mnt/c/study/automation/oneliners/liner_to_setup_and_run_in_ubuntu_vsftpd
+DUPTYPE_WITHIN_SAME_TREE -459 2 1237 82 7318349394647579 3 /mnt/c/study/automation/oneliners/liner to setup and run in ubuntu vsftpd
+DUPTYPE_FIRST_OCCURRENCE 1736 1 1312 82 9851624185044561 3 /mnt/c/study/setups/one liner to setup and run OSSEC in ubuntu
+DUPTYPE_WITHIN_SAME_TREE -1736 3 1312 82 8444249301537908 3 /mnt/c/study/Hacking/Intrusion_Detection/OSSEC/one liner to setup and run OSSEC in ubuntu
+DUPTYPE_FIRST_OCCURRENCE 1789 1 1318 82 6755399441232045 3 /mnt/c/study/setups/one liner to setup and run Proxmox VE Monitor-All in proxmox shell
+DUPTYPE_WITHIN_SAME_TREE -1789 2 1318 82 9851624185111092 3 /mnt/c/study/monitoring/Proxmox VE Monitor-All/one liner to setup and run Proxmox VE Monitor-All in proxmox shell
+DUPTYPE_FIRST_OCCURRENCE 2819 1 1748 82 6755399441231929 3 /mnt/c/study/setups/oneliner to setup and run nextcloud in debian
+DUPTYPE_WITHIN_SAME_TREE -2819 3 1748 82 5910974511161704 3 /mnt/c/study/Shells/powershell/setups/oneliner_to_setup_and_run_nextcloud_in_debian
+DUPTYPE_FIRST_OCCURRENCE 2131 1 1775 82 13229323905451474 3 /mnt/c/study/setups/one liner to setup liquidbase database schema change management tool for tracking, managing, and deploying database changes with mariaDB
+DUPTYPE_WITHIN_SAME_TREE -2131 5 1775 82 6755399441082260 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/mariadb/one liner to setup liquidbase database schema change management tool for tracking, managing, and deploying database changes with mariaDB
+# end of file

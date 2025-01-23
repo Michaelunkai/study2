@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y xdg-utils && echo 'alias xdg-open="powershell.exe /c start explorer"' >> ~/.bashrc && source ~/.bashrc && powershell.exe /c start explorer .

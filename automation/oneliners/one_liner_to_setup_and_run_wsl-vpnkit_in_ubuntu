@@ -1,0 +1,1 @@
+sudo apt-get install -y iproute2 iputils-ping dnsutils && wget https://github.com/sakai135/wsl-vpnkit/releases/download/v0.4.1/wsl-vpnkit.tar.gz && tar --strip-components=1 -xf wsl-vpnkit.tar.gz app/wsl-vpnkit app/wsl-gvproxy.exe app/wsl-vm app/wsl-vpnkit.service && rm wsl-vpnkit.tar.gz && sudo VMEXEC_PATH=$(pwd)/wsl-vm GVPROXY_PATH=$(pwd)/wsl-gvproxy.exe ./wsl-vpnkit

@@ -1,0 +1,1 @@
+sudo bash -c 'echo -e "[network]\ngenerateResolvConf = false" > /etc/wsl.conf && rm /etc/resolv.conf && echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 1.1.1.1" > /etc/resolv.conf' && wsl.exe --shutdown

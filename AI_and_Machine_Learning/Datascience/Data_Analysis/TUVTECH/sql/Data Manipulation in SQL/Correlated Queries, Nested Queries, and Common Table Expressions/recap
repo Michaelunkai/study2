@@ -1,0 +1,27 @@
+Your recent learnings
+When you left 14 hours ago, you worked on Correlated Queries, Nested Queries, and Common Table Expressions, chapter 3 of the course Data Manipulation in SQL. Here is what you covered in your last lesson:
+
+You learned about the power and flexibility of subqueries in SQL, specifically how they can be used in the SELECT, FROM, and WHERE clauses to construct complex queries. Subqueries allow you to perform operations that would otherwise require multiple queries or complex joins, making them a vital tool for data analysis and manipulation. Here are the key points:
+
+Subqueries in SELECT: You discovered how to include a subquery within the SELECT statement to calculate derived columns, such as the average goals scored across different stages of soccer matches. For instance, using a subquery to determine the overall average goals in a season and comparing it to the stage averages.
+
+Subqueries in FROM: You learned to use a subquery in the FROM clause to create a derived table, which you can then query as if it were a regular table. This is useful for filtering or aggregating data from the derived table, like finding stages with average home goals higher than the overall average.
+
+Subqueries in WHERE: You explored how to use subqueries within the WHERE clause to filter records based on a condition that involves a calculation or aggregation, such as selecting stages where the average goals exceed the season's overall average.
+
+Best Practices: The lesson emphasized the importance of formatting and commenting your SQL queries for readability and maintainability. Proper indentation, use of comments, and alignment of SQL clauses make complex queries with multiple subqueries easier to understand and debug.
+
+Here's an example of using a subquery in the SELECT clause to calculate the overall average goals for the 2012/2013 season and compare it to the average goals per stage:
+
+SELECT 
+    m.stage,
+    ROUND(AVG(m.home_goal + m.away_goal),2) AS avg_goals,
+    ROUND((SELECT AVG(home_goal + away_goal) 
+           FROM match 
+           WHERE season = '2012/2013'),2) AS overall
+FROM match AS m
+WHERE m.season = '2012/2013'
+GROUP BY m.stage;
+This query demonstrates how subqueries can enrich your data analysis by allowing comparisons and calculations that reflect complex relationships within your data.
+
+The goal of the next lesson is to learn how to use subqueries in SQL to perform complex data transformations and filtering within your queries.

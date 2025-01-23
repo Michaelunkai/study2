@@ -1,0 +1,1 @@
+getgo23 && go install github.com/hetznercloud/cli/cmd/hcloud@latest && hcloud context create my-project

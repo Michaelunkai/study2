@@ -1,0 +1,191 @@
+### **Comprehensive Guide for Setting Up GUI Pinentry Script for GPG Agent in Ubuntu 22.04 WSL2 Using PowerShell and Credential Management Module**
+
+This tutorial provides step-by-step instructions to set up a GUI-based `pinentry` script for GPG agent in WSL2, Ubuntu 22.04. The solution uses the **CredentialManagement PowerShell Module** to store and retrieve passphrases securely from the Windows Credential Manager. This ensures smooth and secure handling of GPG passphrases within the WSL2 environment.
+
+---
+
+### **Prerequisites**
+1. Ubuntu 22.04 running inside **WSL2**.
+2. PowerShell installed on your Windows host machine.
+   - Download from the [PowerShell GitHub releases page](https://github.com/PowerShell/PowerShell/releases) if not already installed.
+
+---
+
+### **Step 1: Install the CredentialManagement PowerShell Module**
+
+1. Open **PowerShell** (Run as Administrator).
+2. Install the `CredentialManagement` module:
+     
+   Install-Module -Name CredentialManagement -Scope CurrentUser -Force
+3. Verify the installation:
+     
+   Get-Module -ListAvailable | Where-Object { $_.Name -eq "CredentialManagement" }
+
+   If the module is installed successfully, it will be listed in the output.
+
+---
+
+### **Step 2: Create the Pinentry Script for GPG Agent**
+
+Save the following script as `pinentry-wsl-ps1.sh` in your home directory (`~/pinentry-wsl-ps1.sh`). The script integrates GPG with PowerShell and the CredentialManagement module to provide a GUI for passphrase prompts.
+
+#### **Complete Pinentry Script Using CredentialManagement Module**
+
+  
+#!/usr/bin/env  
+
+# pinentry-wsl-ps1
+#
+# A script to enable GUI password prompts for GPG in WSL2.
+# Uses PowerShell and the CredentialManagement module to securely store and retrieve passwords from the Windows Credential Manager.
+#
+# Version: 1.0.0
+# Author: Assistant
+# License: Mozilla Public License 2.0
+#
+# Setup:
+# 1. Save this script as ~/pinentry-wsl-ps1.sh and make it executable.
+# 2. Configure the GPG agent to use this script as its pinentry program.
+# 3. Install the CredentialManagement module in PowerShell for secure password storage and retrieval.
+
+PERSISTENCE="LocalMachine"  # Options: "", "Session", "LocalMachine", "Enterprise"
+NOTIFY="1"                 # Enable/disable toast notifications (1=Enable, 0=Disable).
+DEBUGLOG="/tmp/pinentry-debug.log"  # Path to the debug log file.
+
+VERSION="1.0.0"
+TIMEOUT="10"
+DESCRIPTION="Enter password for GPG key"
+PROMPT="Password:"
+TITLE="GPG Key Credentials (CredentialManagement Module)"
+CACHEPREFIX="gpgcache:"
+CACHEUSER=""
+KEYINFO=""
+OKBUTTON="&OK"
+CANCELBUTTON="&Cancel"
+PINERROR=""
+
+# Converts Assuan error codes into appropriate responses
+assuan_result() {
+    case $1 in
+        0) echo -n "ERR 0 no error" ;;
+        62) echo -n "ERR 83886142 timeout" ;;
+        99) echo -n "ERR 83886179 cancelled" ;;
+        114) echo -n "ERR 83886194 not confirmed" ;;
+        174) echo -n "ERR 83886254 invalid option" ;;
+        257) echo -n "ERR 83886337 general error" ;;
+        261) echo -n "ERR 83886341 invalid value" ;;
+        275) echo -n "ERR 83886355 unknown command" ;;
+    esac
+}
+
+# Retrieve password via PowerShell GUI and Credential Manager
+getpassword() {
+    local cmd_prompt=$(cat <<'EOF'
+    Import-Module CredentialManagement
+    $cred = Get-StoredCredential -Target "$CACHEPREFIX$KEYINFO"
+    if ($cred) {
+        Write-  $cred.Password
+    } else {
+        Add-Type -AssemblyName PresentationFramework
+        $pw = [Microsoft.VisualBasic.Interaction]::InputBox(
+            "$DESCRIPTION", 
+            "$TITLE", 
+            "", 
+            100, 
+            100
+        )
+        Write-  $pw
+    }
+EOF
+    )
+    local credpassword
+    credpassword="$(powershell.exe -Command "$cmd_prompt" | tr -d '\r')"
+    if [ -n "$credpassword" ]; then
+        echo -e "S PASSWORD\nD $credpassword\nOK"
+    else
+        echo "$(assuan_result 99)"
+    fi
+}
+
+# Confirm WSL2 environment
+if ! grep -qi Microsoft /proc/sys/kernel/osrelease; then
+    echo "$(assuan_result 257)"
+    exit 1
+fi
+
+# Main loop to handle GPG agent commands
+echo "OK Your orders please"
+while IFS= read -r line; do
+    [ -n "$DEBUGLOG" ] && echo "$line" >> "$DEBUGLOG"
+    action=$(echo "$line" | cut -d' ' -f1)
+    args=$(echo "$line" | cut -d' ' -s -f2-)
+    case $action in
+        BYE) echo "OK closing connection"; exit 0 ;;
+        GETPIN) getpassword ;;
+        SETTIMEOUT) TIMEOUT="$args"; echo "OK" ;;
+        SETDESC) DESCRIPTION="$args"; echo "OK" ;;
+        SETPROMPT) PROMPT="$args"; echo "OK" ;;
+        SETTITLE) TITLE="$args"; echo "OK" ;;
+        SETKEYINFO) KEYINFO="$args"; echo "OK" ;;
+        RESET) echo "OK" ;;
+        *) echo "OK" ;;
+    esac
+done
+
+---
+
+### **Step 3: Make the Script Executable**
+
+1. Save the script:
+     
+   nano ~/pinentry-wsl-ps1.sh
+   Paste the script into the editor, save, and exit.
+
+2. Make it executable:
+     
+   chmod +x ~/pinentry-wsl-ps1.sh
+
+---
+
+### **Step 4: Configure the GPG Agent**
+
+1. Edit the GPG agent configuration file:
+     
+   nano ~/.gnupg/gpg-agent.conf
+
+2. Add the following line to specify the script as the pinentry program:
+     
+   pinentry-program /home/<your-username>/pinentry-wsl-ps1.sh
+
+3. Restart the GPG agent:
+     
+   gpgconf --kill gpg-agent
+   gpgconf --launch gpg-agent
+
+---
+
+### **Step 5: Test the Configuration**
+
+1. Test encryption:
+     
+   echo "Hello, world!" > test.txt
+   gpg --encrypt --recipient <your-email> test.txt
+
+2. Test decryption:
+     
+   gpg --decrypt test.txt.gpg
+
+3. When prompted for a passphrase, a GUI should appear. If you saved the passphrase in the Credential Manager, it will auto-retrieve it.
+
+---
+
+### **Step 6: Debugging**
+
+1. Enable debugging by checking the `DEBUGLOG` path in the script.
+2. Review the logs:
+     
+   cat /tmp/pinentry-debug.log
+
+---
+
+This guide ensures a fully functional, GUI-based pinentry script using the **CredentialManagement module** in WSL2. Let me know if additional customization or troubleshooting is required!

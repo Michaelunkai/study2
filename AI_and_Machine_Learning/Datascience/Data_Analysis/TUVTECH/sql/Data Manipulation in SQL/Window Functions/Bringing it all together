@@ -1,0 +1,24 @@
+Transcript
+1. Bringing it all Together
+00:00 - 00:06
+Congratulations! You've made it to the final lesson of the course.
+
+2. What you've learned so far
+00:06 - 00:50
+Throughout the course we've covered a wide variety of methods for transforming, manipulating, and calculating data to answer a wide variety of questions in SQL. Specifically, you've learned how to use CASE statements for categorizing, aggregating, and calculating information, and how to use simple subqueries in SELECT, FROM, and WHERE clauses. You also learned how to use nested and correlated subqueries, and common table expressions to extract, match, and organize large amounts of data in order to generate a final table. Finally, you learned how to use some of the many window functions available to you in SQL.
+
+3. Let's do a case study!
+00:50 - 01:02
+Let's put several of these topics together to answer one question about your data set -- Who defeated Manchester United in the 2013/2014 season?
+
+4. Steps to construct the query
+01:02 - 01:38
+In the following exercises, you will generate a data set that tackles one of the issues we've explored during this course -- namely, that it's difficult to retrieve the names of teams who played in a given match. Since this isn't feasible with joins, we will accomplish it with common table expressions. We'll also be using CASE statements to categorize the outcomes of matches based on whether or not Manchester United won a particular match. Finally, we'll be ranking matches by the number of goals they lost the match using a window function.
+
+5. Getting the database for yourself
+01:38 - 01:56
+If Manchester United happens to be a team that you favor, or if there are other European teams you consider a rival to your favorite team, I encourage you to explore the European Soccer Database for yourself and create similar, or completely different queries to answer your questions.
+
+6. Let's practice!
+01:56 - 02:02
+Okay! Let's get to it!
