@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install git -y && git clone https://github.com/neilpa/cmd-colors-solarized.git ~/cmd-colors-solarized && echo "source ~/cmd-colors-solarized/ansi.sh" >> ~/.bashrc && source ~/cmd-colors-solarized/ansi.sh && source ~/.bashrc

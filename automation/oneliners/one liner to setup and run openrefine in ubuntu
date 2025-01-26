@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y openjdk-11-jdk wget unzip && wget https://github.com/OpenRefine/OpenRefine/releases/download/3.7.4/openrefine-linux-3.7.4.tar.gz && tar -xvzf openrefine-linux-3.7.4.tar.gz && cd openrefine-3.7.4 && ./refine -i 0.0.0.0

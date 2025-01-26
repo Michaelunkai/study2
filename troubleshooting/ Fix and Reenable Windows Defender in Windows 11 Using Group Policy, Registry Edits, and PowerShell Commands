@@ -1,0 +1,159 @@
+# Comprehensive Guide to Fix and Reenable Windows Defender in Windows 11 Using Group Policy, Registry Edits, and PowerShell Commands
+
+This guide provides a step-by-step tutorial to fix, reset, and reenable **Windows Defender** in **Windows 11** using tools such as **Group Policy Editor**, **Registry Editor**, and **PowerShell Commands**. If Windows Defender is unable to start or has been disabled (e.g., by policies or third-party software), this tutorial will help you resolve the issue completely.
+
+---
+
+## **Step 1: Restart Your Computer**
+After running any scripts or making changes to your system, always restart your computer first. Many services and registry changes only take effect after a reboot. If the issue persists after restarting, proceed with the following steps.
+
+---
+
+## **Step 2: Verify and Reenable Windows Defender Services**
+Windows Defender relies on specific services that must be running for it to function properly.
+
+### **Tools Used: `services.msc`**
+1. Press `Win + R`, type `services.msc`, and press Enter.
+2. Locate the following services:
+   - **Windows Defender Antivirus Service** (Service name: `WinDefend`)
+   - **Windows Security Center Service** (Service name: `wscsvc`)
+3. Perform these actions for each service:
+   - Right-click the service > Select **Properties**.
+   - Set **Startup type** to **Automatic**.
+   - Click **Start** if the service is not already running.
+4. Click **Apply**, then **OK**.
+
+---
+
+## **Step 3: Remove Group Policy Restrictions**
+If Windows Defender has been disabled through Group Policy, these restrictions must be removed.
+
+### **Tools Used: Group Policy Editor (`gpedit.msc`)**
+1. Press `Win + R`, type `gpedit.msc`, and press Enter.
+2. Navigate to:
+   ```
+   Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Antivirus
+   ```
+3. Double-click on **Turn off Microsoft Defender Antivirus**.
+   - Set it to **Disabled** or **Not Configured**.
+   - Click **Apply** and **OK**.
+
+4. Navigate to:
+   ```
+   Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Security Center
+   ```
+5. Ensure all sub-settings (e.g., notifications, security health) are set to **Not Configured**.
+
+6. Restart your computer to apply the changes.
+
+---
+
+## **Step 4: Reset Registry Settings**
+Windows Defender can also be disabled via registry keys. Resetting these keys can resolve the issue.
+
+### **Tools Used: Registry Editor (`regedit`)**
+1. Press `Win + R`, type `regedit`, and press Enter.
+2. Navigate to:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender
+   ```
+3. Perform the following:
+   - If the key **DisableAntiSpyware** exists, delete it or set its value to `0`.
+   - Remove the entire `Windows Defender` key if Defender still fails to start:
+     - Right-click on the `Windows Defender` key > Select **Delete**.
+
+4. Check for additional policies in:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center
+   ```
+   - If any keys exist under this path, delete them.
+
+5. Restart your computer to apply changes.
+
+---
+
+## **Step 5: Repair Windows Defender Using PowerShell**
+If the above steps do not resolve the issue, use PowerShell commands to reset Defender and its components.
+
+### **Tools Used: PowerShell (Run as Administrator)**
+1. Open PowerShell as Administrator by searching for "PowerShell" in the Start Menu, right-clicking it, and selecting **Run as Administrator**.
+2. Run the following commands one by one:
+
+   **Reset Defender preferences:**
+   ```powershell
+   Remove-MpPreference -Force
+   Set-MpPreference -DisableRealtimeMonitoring $false
+   ```
+
+   **Reinstall Windows Defender components:**
+   ```powershell
+   Add-AppxPackage -Register -DisableDevelopmentMode `
+   -Path "C:\Program Files\Windows Defender\SystemApp\Microsoft.Windows.SecHealthUI_cw5n1h2txyewy\AppxManifest.xml"
+   ```
+
+   **Perform a quick scan:**
+   ```powershell
+   Start-MpScan -ScanType QuickScan
+   ```
+
+   > **Note:** If you encounter `0x800106ba` errors, Defender’s core components may be corrupted. Follow the next step for repairs.
+
+---
+
+## **Step 6: Repair System Files Using DISM and SFC**
+If Defender still fails to work, your system files may be corrupted. Use the **DISM** and **SFC** tools to repair them.
+
+### **Tools Used: DISM and SFC**
+1. Open Command Prompt as Administrator (search for `cmd`, right-click, and select **Run as Administrator**).
+2. Run the following commands in sequence:
+
+   **Check for component store corruption:**
+   ```cmd
+   DISM /Online /Cleanup-Image /CheckHealth
+   ```
+
+   **Scan and repair the component store:**
+   ```cmd
+   DISM /Online /Cleanup-Image /RestoreHealth
+   ```
+
+   **Repair system files:**
+   ```cmd
+   sfc /scannow
+   ```
+
+3. After the scans complete, restart your computer.
+
+---
+
+## **Step 7: Reset All Windows Security Settings**
+If all else fails, resetting the Windows Security app may resolve the issue.
+
+### **Tools Used: PowerShell**
+1. Open PowerShell as Administrator.
+2. Run the following command:
+   ```powershell
+   Get-AppxPackage *Microsoft.Windows.SecHealthUI* | Reset-AppxPackage
+   ```
+
+3. Restart your computer after running the command.
+
+---
+
+## **Step 8: Final Step – Verify and Test Windows Defender**
+1. Open Windows Security from the Start Menu.
+2. Check if all Defender features are working:
+   - Virus & Threat Protection
+   - Firewall & Network Protection
+   - App & Browser Control
+3. Perform a test scan to ensure Defender is active.
+
+---
+
+## **Additional Notes**
+- If third-party antivirus software is installed, it may disable Defender. Uninstall the third-party antivirus if you want to use Windows Defender.
+- If the issue persists, consider performing a **repair installation** of Windows 11 using the Windows Media Creation Tool.
+
+---
+
+This concludes the comprehensive guide to fixing Windows Defender in Windows 11 using **Group Policy Editor**, **Registry Editor**, **PowerShell**, **DISM**, and **SFC**. Let me know if you encounter any issues!
