@@ -1,0 +1,12 @@
+ Mount a WIM File
+
+dism /Mount-Wim /WimFile:"C:\path\install.wim" /Index:1 /MountDir:"C:\mount"
+
+
+Explanation: Mounts the specified WIM file index to a local directory.
+
+Unmount a WIM File
+dism /Unmount-Wim /MountDir:"C:\mount" /Commit
+
+Explanation: Unmounts the WIM file and applies any pending changes.
+

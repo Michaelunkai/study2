@@ -1,1 +1,0 @@
-python3 -m venv venv && source venv/bin/activate && pip install Flask-SQLAlchemy flask && python3 app.py

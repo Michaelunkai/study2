@@ -1,0 +1,111 @@
+# Remote Access and Management of Proxmox Using Tailscale
+
+Since Wake-on-LAN (WoL) is not supported on your network interface, Tailscale offers an excellent alternative for maintaining remote access to your Proxmox system. Below are the steps to configure and use Tailscale for persistent remote management.
+
+---
+
+## **Step 1: Verify Tailscale is Active**
+1. **Check Tailscale Status**:
+   Run the following command to confirm that Tailscale is running:
+   ```bash
+   tailscale status
+   ```
+   From your output, the Tailscale IP address of your Proxmox system is:
+   ```
+   100.92.145.21   pve
+   ```
+
+2. Ensure the service is enabled and running:
+   ```bash
+   systemctl enable tailscaled
+   systemctl start tailscaled
+   ```
+
+   Verify the service is active:
+   ```bash
+   systemctl status tailscaled
+   ```
+
+---
+
+## **Step 2: Access Proxmox from Another Device**
+1. On your second device (e.g., a laptop), install Tailscale if not already installed:
+   - **For Ubuntu/Debian**:
+     ```bash
+     curl -fsSL https://tailscale.com/install.sh | sh
+     sudo tailscale up
+     ```
+
+   - **For Windows**:
+     Download and install the Tailscale client from [Tailscale Downloads](https://tailscale.com/download).
+
+2. Log in to Tailscale on your second device using the same account (`michaelovsky5@`).
+
+3. Check your Tailscale device list:
+   ```bash
+   tailscale status
+   ```
+   You should see both your Proxmox system (`pve`) and your second device.
+
+4. Use SSH to connect to the Proxmox system using its Tailscale IP:
+   ```bash
+   ssh root@100.92.145.21
+   ```
+
+---
+
+## **Step 3: Keep Tailscale Running Persistently**
+To ensure Tailscale is always running, follow these steps:
+
+1. **Enable Tailscale on Boot**:
+   The command below ensures Tailscale starts automatically when the system boots:
+   ```bash
+   systemctl enable tailscaled
+   ```
+
+2. **Verify Persistent Connectivity**:
+   Test by rebooting your Proxmox system:
+   ```bash
+   reboot
+   ```
+   Once it restarts, verify that Tailscale is active:
+   ```bash
+   tailscale status
+   ```
+
+---
+
+## **Step 4: Simplify SSH Access (Optional)**
+To make SSH access easier, add an entry to your SSH config file on the second device:
+
+1. Edit the SSH config file:
+   ```bash
+   nano ~/.ssh/config
+   ```
+
+2. Add the following block:
+   ```plaintext
+   Host proxmox
+       HostName 100.92.145.21
+       User root
+   ```
+
+3. Save and exit:
+   - Press `Ctrl+O`, then `Enter`, and `Ctrl+X`.
+
+4. Now, you can connect to your Proxmox system using:
+   ```bash
+   ssh proxmox
+   ```
+
+---
+
+## **Optional: Monitor and Manage Tailscale Devices**
+You can monitor and manage all your connected Tailscale devices from the Tailscale admin panel:
+- Visit: [https://login.tailscale.com/admin/machines](https://login.tailscale.com/admin/machines)
+
+This allows you to check connectivity, rename devices, or remove them if needed.
+
+---
+
+Your Proxmox system is now accessible remotely via Tailscale, providing secure, persistent connectivity even without Wake-on-LAN support! Let me know if you have further questions or need additional assistance.

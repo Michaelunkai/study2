@@ -215,13 +215,15 @@
         "YakuzaKiwami",
         "YakuzaKiwami2",
         "Yakuza6",
-        "Melatonin"
+        "Melatonin",
+        "games27"
     ],
     "category_games": {
         "interactive": [
             "batmantts",
             "thexpanse",
-            "beyond2soul"
+            "beyond2soul",
+            "games27"
         ],
         "mouse": [
             "hackersimulator"

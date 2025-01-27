@@ -1,1 +1,0 @@
-pip install faster_whisper torch gradio && python3 transcribe.py

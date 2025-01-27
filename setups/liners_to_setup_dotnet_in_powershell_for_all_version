@@ -1,0 +1,15 @@
+# .NET 6
+winget install Microsoft.DotNet.SDK.6 -s winget
+winget install Microsoft.DotNet.Runtime.6 -s winget
+
+# .NET 7
+winget install Microsoft.DotNet.SDK.7 -s winget
+winget install Microsoft.DotNet.Runtime.7 -s winget
+
+# .NET 8
+winget install Microsoft.DotNet.SDK.8 -s winget
+winget install Microsoft.DotNet.Runtime.8 -s winget
+
+# .NET 9 (Preview)
+winget install Microsoft.DotNet.SDK.9 -s winget
+winget install Microsoft.DotNet.Runtime.9 -s winget

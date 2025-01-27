@@ -1,1 +1,0 @@
-npm install && cd server && npm install && npm init -y && npm install express ws chokidar && cd .. && npm install axios socket.io-client && npm install concurrently && npm install --save-dev @babel/plugin-proposal-private-property-in-object && npm install react react-dom react-scripts ws express && npm run dev
