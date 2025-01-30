@@ -1,1 +1,1 @@
-dism /Online /Get-TargetEditions
+dism /Online /Get-Target ions

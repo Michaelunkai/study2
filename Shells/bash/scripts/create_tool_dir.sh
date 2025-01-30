@@ -1,16 +1,16 @@
-#!/bin/ 
+#!/bin/bash
 
 # -----------------------------------
 # Script: create_tool_dir.sh
 # Description:
 #   - Creates a directory named after the latest tool used in the last tool-related install command.
-#   - Places it in the previous directory (from `cd -`).
+#   - Places it in the current working directory.
 #   - Navigates to the newly created directory.
 #   - Creates a file named "liner to setup and run in ubuntu <tool_name>" containing the install command.
 # Usage:
-#   source ~/create_tool_dir.sh
+#   source /path/to/create_tool_dir.sh
 #   or
-#   . ~/create_tool_dir.sh
+#   . /path/to/create_tool_dir.sh
 # -----------------------------------
 
 # Function to extract the tool name from a command
@@ -49,7 +49,8 @@ find_last_tool_command() {
 
     for pattern in "${patterns[@]}"; do
         # Search history for the pattern
-        local cmd=$(history | grep -E "$pattern" | tail -n1 | sed -E 's/^[ ]*[0-9]+\s+//')
+        local cmd
+        cmd=$(history | grep -E "$pattern" | tail -n1 | sed -E 's/^[ ]*[0-9]+\s+//')
         if [[ -n "$cmd" ]]; then
             echo "$cmd"
             return
@@ -66,7 +67,7 @@ ensure_sourced() {
     # BASH_SOURCE[0] != $0 means it's being sourced
     if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
         echo "Error: This script must be sourced to affect the current shell."
-        echo "Usage: source ~/create_tool_dir.sh"
+        echo "Usage: source /path/to/create_tool_dir.sh"
         exit 1
     fi
 }
@@ -98,29 +99,17 @@ if [[ -z "$tool_name" ]]; then
     return 1
 fi
 
-# Step 3: Get the previous directory from OLDPWD
-previous_dir="$OLDPWD"
+# Step 3: Get the current working directory
+current_dir="$(pwd)"
 
-# If OLDPWD is not set, attempt to extract it from history
-if [[ -z "$previous_dir" ]]; then
-    # Find the last 'cd' command in history
-    cd_command=$(history | grep -E '^\s*[0-9]+\s+cd\s+' | tail -n 1 | sed -E 's/^[ ]*[0-9]+\s+cd\s+//')
-    previous_dir="$cd_command"
-fi
-
-# Validate previous_dir
-if [[ -z "$previous_dir" ]]; then
-    echo "Error: Could not determine the previous directory."
-    return 1
-fi
-
-if [[ ! -d "$previous_dir" ]]; then
-    echo "Error: The previous directory '$previous_dir' does not exist."
+# Validate current_dir
+if [[ ! -d "$current_dir" ]]; then
+    echo "Error: The current directory '$current_dir' does not exist."
     return 1
 fi
 
 # Step 4: Create the new directory
-new_dir="$previous_dir/$tool_name"
+new_dir="$current_dir/$tool_name"
 
 if [[ -d "$new_dir" ]]; then
     echo "Directory '$new_dir' already exists."

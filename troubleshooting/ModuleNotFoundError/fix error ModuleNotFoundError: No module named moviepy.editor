@@ -1,0 +1,3 @@
+pip uninstall moviepy
+pip install moviepy==1.0.3
+

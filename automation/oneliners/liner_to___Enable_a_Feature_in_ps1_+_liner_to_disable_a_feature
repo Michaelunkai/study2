@@ -1,0 +1,8 @@
+dism /Online /Enable-Feature /FeatureName:NetFx3
+
+Explanation: Enables the specified Windows feature (e.g., .NET Framework 3.5).
+
+
+dism /Online /Disable-Feature /FeatureName:TelnetClient
+
+Explanation: Disables the specified feature from your Windows installation.
