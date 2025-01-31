@@ -1,0 +1,1 @@
+sudo apt install joycond -y && sudo systemctl enable joycond && sudo systemctl start joycond && sudo systemctl status joycond

@@ -1,0 +1,1 @@
+sudo apt install libsdl2-dev -y && git clone https://github.com/General Arcade/SDL2-Game-Controller-Database && cd SDL2-Game-Controller-Database && echo "SDL2 Gamepad Database configured"

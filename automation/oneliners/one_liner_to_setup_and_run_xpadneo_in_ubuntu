@@ -1,0 +1,1 @@
+sudo apt install dkms linux-headers-$(uname -r) -y && git clone https://github.com/atar-axis/xpadneo && cd xpadneo && sudo ./install.sh && sudo modprobe xpadneo && sudo systemctl status xpadneo

@@ -1,0 +1,1 @@
+sudo apt install libevdev2 libevdev-dev -y && git clone https://github.com/RetroPie/reicast-emulator && cd reicast-emulator && sudo make && sudo make install && echo "Reicast Emulator with Xbox support installed"
