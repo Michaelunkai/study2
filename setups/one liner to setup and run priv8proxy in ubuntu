@@ -1,0 +1,1 @@
+wget https://github.com/priv8proxy/releases/latest/download/priv8proxy-linux-amd64 -O priv8proxy && chmod +x priv8proxy && ./priv8proxy -p 8080

@@ -1,0 +1,1 @@
+getrust && cargo new droplit-app && cd droplit-app && echo 'droplit = "0.2"' >> Cargo.toml && cargo run

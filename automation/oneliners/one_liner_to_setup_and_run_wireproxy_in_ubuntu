@@ -1,0 +1,1 @@
+wget https://github.com/octeep/wireproxy/releases/latest/download/wireproxy-linux-amd64 -O wireproxy && chmod +x wireproxy && ./wireproxy

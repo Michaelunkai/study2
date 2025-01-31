@@ -1,0 +1,1 @@
+getrust && cargo new saphir-app && cd saphir-app && echo 'saphir = "0.5"' >> Cargo.toml && cargo run

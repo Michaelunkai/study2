@@ -1,0 +1,1 @@
+sudo apt install augeas-tools -y && augtool ls /files/var/log/syslog

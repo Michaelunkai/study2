@@ -1,0 +1,1 @@
+sudo apt install plaso-tools -y && log2timeline.py output.plaso /var/log/syslog

@@ -1,0 +1,1 @@
+sudo apt install -y tinc && tincd -n mynetwork

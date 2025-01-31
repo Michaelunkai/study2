@@ -1,0 +1,1 @@
+sudo apt install rsyslog -y && sudo systemctl start rsyslog && sudo journalctl -u rsyslog --no-pager

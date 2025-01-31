@@ -1,0 +1,1 @@
+getrust && cargo new rustembed-app && cd rustembed-app && echo 'rust-embed = "6.6"' >> Cargo.toml && cargo run

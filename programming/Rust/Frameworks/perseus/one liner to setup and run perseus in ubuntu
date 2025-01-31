@@ -1,0 +1,1 @@
+getrust && cargo new perseus-app && cd perseus-app && echo 'perseus = "0.3"' >> Cargo.toml && cargo run

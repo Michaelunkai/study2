@@ -1,0 +1,1 @@
+sudo apt install -y e2fsprogs && sudo e4defrag -c /

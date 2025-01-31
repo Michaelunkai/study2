@@ -1,0 +1,1 @@
+wget https://github.com/tsunami-releases/tsunami/releases/latest/download/tsunami-linux -O tsunami && chmod +x tsunami && ./tsunami

@@ -1,0 +1,1 @@
+sudo apt install -y valgrind && valgrind --tool=helgrind ./your_program

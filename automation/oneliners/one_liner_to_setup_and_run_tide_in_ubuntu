@@ -1,0 +1,1 @@
+getrust && cargo new tide-app && cd tide-app && echo 'tide = "0.16"' >> Cargo.toml && cargo run

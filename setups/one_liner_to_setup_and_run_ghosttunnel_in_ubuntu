@@ -1,0 +1,1 @@
+wget https://github.com/ghostunnel/ghostunnel/releases/latest/download/ghostunnel-linux-amd64 -O ghostunnel && chmod +x ghostunnel && ./ghostunnel server --listen 0.0.0.0:8443 --target 127.0.0.1:8080

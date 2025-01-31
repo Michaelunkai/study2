@@ -1,0 +1,1 @@
+sudo apt install -y openvpn && sudo openvpn --config myconfig.ovpn

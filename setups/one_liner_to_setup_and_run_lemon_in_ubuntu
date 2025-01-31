@@ -1,0 +1,1 @@
+getrust && cargo new lemon-app && cd lemon-app && echo 'lemon = "0.2"' >> Cargo.toml && cargo run

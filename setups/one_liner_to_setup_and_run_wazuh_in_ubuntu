@@ -1,0 +1,1 @@
+sudo apt install wazuh-agent -y && sudo systemctl start wazuh-agent

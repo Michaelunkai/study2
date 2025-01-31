@@ -1,0 +1,1 @@
+getrust && cargo new warp-app && cd warp-app && echo 'warp = "0.3"' >> Cargo.toml && cargo run

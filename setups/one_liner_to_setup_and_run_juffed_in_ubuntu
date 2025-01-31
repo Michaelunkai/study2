@@ -1,0 +1,1 @@
+sudo apt install libqt5xml5 -y && sudo ldconfig && which juffed || sudo apt install --reinstall juffed -y && sudo ldconfig && juffed

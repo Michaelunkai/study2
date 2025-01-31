@@ -1,0 +1,1 @@
+wget https://github.com/surge-networks/surge/releases/latest/download/surge-linux-amd64 -O surge && chmod +x surge && ./surge

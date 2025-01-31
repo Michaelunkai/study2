@@ -1,0 +1,1 @@
+getrust && cargo new stannum-app && cd stannum-app && echo 'stannum = "0.1"' >> Cargo.toml && cargo run

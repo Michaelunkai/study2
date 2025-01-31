@@ -1,0 +1,1 @@
+curl -O https://www.rapid7.com/install.sh && sudo bash install.sh

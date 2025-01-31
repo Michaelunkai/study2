@@ -1,0 +1,1 @@
+sudo apt install -y libproxy1-plugin-webkit && pxgsettings

@@ -1,0 +1,1 @@
+sudo apt install -y pv && pv /path/to/largefile > /dev/null

@@ -1,0 +1,1 @@
+wget https://github.com/cloudflare/tinyproxy-go/releases/latest/download/tinyproxy-go -O tinyproxy-go && chmod +x tinyproxy-go && ./tinyproxy-go -addr :8888

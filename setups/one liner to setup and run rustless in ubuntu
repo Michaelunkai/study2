@@ -1,0 +1,1 @@
+getrust && cargo new rustless-app && cd rustless-app && echo 'rustless = "0.9"' >> Cargo.toml && cargo run

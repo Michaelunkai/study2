@@ -1,0 +1,1 @@
+sudo apt install pound -y && echo "ListenHTTP\nAddress 0.0.0.0\nPort 8080\nService\nBackEnd\nAddress 127.0.0.1\nPort 3000\nEnd\nEnd\nEnd" | sudo tee /etc/pound/pound.cfg && sudo systemctl restart pound && sudo systemctl start pound

@@ -1,0 +1,1 @@
+getrust && cargo new yew-app --lib && cd yew-app && echo 'yew = { version = "0.20", features = ["csr"] }' >> Cargo.toml && cargo build --target wasm32-unknown-unknown

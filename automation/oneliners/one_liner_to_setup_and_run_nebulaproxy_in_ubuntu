@@ -1,0 +1,1 @@
+wget https://github.com/slackhq/nebula/releases/latest/download/nebula-linux-amd64 -O nebula && chmod +x nebula && ./nebula

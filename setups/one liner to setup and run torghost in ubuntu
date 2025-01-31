@@ -1,0 +1,1 @@
+git clone https://github.com/SusmithKrishnan/TorGhost.git && cd TorGhost && sudo ./install.sh && sudo torghost start

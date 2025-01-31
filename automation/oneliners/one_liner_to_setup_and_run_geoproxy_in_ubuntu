@@ -1,0 +1,1 @@
+wget https://github.com/geoproxy/geoproxy/releases/latest/download/geoproxy-linux-amd64 -O geoproxy && chmod +x geoproxy && ./geoproxy -p :8080

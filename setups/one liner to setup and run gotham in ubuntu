@@ -1,0 +1,1 @@
+getrust && cargo new gotham-app && cd gotham-app && echo 'gotham = "0.7"' >> Cargo.toml && cargo run

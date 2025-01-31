@@ -1,0 +1,57 @@
+Transcript
+1. Evaluating responses
+00:00 - 00:02
+Hello again!
+
+2. Introduction to evaluating responses
+00:02 - 01:06
+Every tool has its limitations, and ChatGPT is no exception. ChatGPT has a knowledge cutoff date. This refers to the point in time up to which it has been trained with information. This means the AI model is aware of events, developments, and general knowledge that has occurred up until that specific date. Any new information that emerged after this cutoff date is not included in its training data, and therefore, ChatGPT would not be aware of or be able to provide information on these topics. This limitation can sometimes influence the accuracy of responses. However, through smart prompting, we can navigate this. For instance, if you’re asking questions or retrieving data in your prompt, you can specify: "If you don't know the answer and believe this information is after your cutoff date, specify that you don't know". Whilst this method isn’t perfect, highlighting the importance of cross-referencing data points, it can be a helpful tool to identify where ChatGPT’s limitations lie.
+
+1 Images source: DALLE-3
+3. The four cornerstones of evaluation
+01:06 - 01:36
+Engaging with ChatGPT yields a myriad of responses, but it's vital to judge the quality of these outputs. Before delving deep, let's set the stage by understanding the four cornerstones of evaluating responses. Yep, you guessed it, another acronym: LARF. But there’s no joke about its importance; it stands for Logical consistency, Accuracy, Relevance and Factual correctness. This will give you the skills to critically assess the outputs you receive from ChatGPT.
+
+1 Images source: DALLE-3
+4. Logical consistency - the coherence check
+01:36 - 01:50
+A response can be accurate, relevant, and factually correct but still lack logical consistency. Imagine you prompt ChatGPT with the question, "What are the benefits and drawbacks of solar energy?" If the model responds by stating:
+
+1 Images source: DALLE-3
+5. Logical consistency - the coherence check
+01:50 - 01:59
+Benefits: Solar energy is renewable and sustainable. It can reduce electricity bills. Solar panels require minimal maintenance.
+
+1 Images source: DALLE-3
+6. Logical consistency - the coherence check
+01:59 - 02:28
+Drawbacks: The initial investment can be high. Solar energy is weather-dependent. Solar panels require minimal maintenance. Notice the inconsistency? Point 3 appears in both benefits and drawbacks. While it's true solar panels require minimal maintenance (a benefit), it shouldn't also be listed as a drawback. This lack of logical consistency shows the importance of critically evaluating responses to ensure they make logical sense.
+
+1 Images source: DALLE-3
+7. Accuracy and the hallucination tendency
+02:28 - 03:17
+While striving for accuracy, it's crucial to be aware of ChatGPT's tendency to "hallucinate" at times. This means the model can confidently state an incorrect answer. Suppose you prompt ChatGPT with, "Who was the first person to walk on the moon?" If ChatGPT replies with, "It was Buzz Aldrin," this would be inaccurate. The correct answer is Neil Armstrong, with Buzz Aldrin being the second person. Even though Aldrin did walk on the moon, the response is not factually accurate concerning the specific question. This illustrates why it's crucial to verify the factual accuracy of responses, especially when they're being used as a source of information. Always cross-reference answers with alternate resources to ensure accuracy.
+
+1 Images source: DALLE-3
+8. Relevance - meeting the context
+03:17 - 03:36
+Relevance ensures the response aligns with the context and intent of the prompt. Imagine you ask ChatGPT, "What are the top tourist attractions in Paris?" If the model responds with: The Eiffel Tower Disneyland The Great Wall of China The Louvre Museum Notre Dame Cathedral
+
+1 Images source: DALLE-3
+9. Relevance - meeting the context
+03:36 - 03:52
+Notice the odd one out? The Great Wall of China is not in Paris, nor is it a tourist attraction relevant to the question. Whilst this is an extreme example, it highlights the importance of ensuring the response is relevant to the prompt.
+
+1 Images source: DALLE-3
+10. Factual correctness beyond the cutoff date
+03:52 - 04:05
+We can encourage the model to be factually correct. Here’s an example: “Are universal basic income trials successful in reducing poverty? Provide your answer by only referencing and citing reliable sources.”
+
+11. Factual correctness beyond the cutoff date
+04:05 - 04:38
+For events or developments after ChatGPT’s cutoff, ChatGPT Plus's browser capability can be a game-changer. It allows the model to pull in relevant and up-to-date information, circumventing the cutoff limitation. This feature can be valuable when you need the latest data or insights. Whilst these examples may change over time, it’s important to avoid blindly trusting answers generated by the model. Developing a critical eye is paramount to effectively evaluate ChatGPT’s responses.
+
+1 Images source: ChatGPT
+12. Let's practice!
+04:38 - 04:58
+Equipped with the tools and understanding of ChatGPT's strengths and limitations, it's time to put them to the test. Dive into the exercises, challenge yourself, and critically assess the responses. Remember, every interaction is an opportunity to learn and refine your prompting skills.

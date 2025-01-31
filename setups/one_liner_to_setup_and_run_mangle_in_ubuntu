@@ -1,0 +1,1 @@
+wget https://github.com/google/mangle/releases/latest/download/mangle-linux-amd64 -O mangle && chmod +x mangle && ./mangle

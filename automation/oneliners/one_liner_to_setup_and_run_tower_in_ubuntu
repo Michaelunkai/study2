@@ -1,0 +1,1 @@
+getrust && cargo new tower-app && cd tower-app && echo 'tower = "0.4"' >> Cargo.toml && cargo run

@@ -1,0 +1,1 @@
+wget https://github.com/sproxy/releases/latest/download/sproxy-linux -O sproxy && chmod +x sproxy && ./sproxy

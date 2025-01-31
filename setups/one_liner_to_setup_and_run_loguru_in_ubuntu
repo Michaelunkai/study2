@@ -1,0 +1,1 @@
+pip install loguru && python -c "from loguru import logger; logger.info(\"Hello Loguru!\")"

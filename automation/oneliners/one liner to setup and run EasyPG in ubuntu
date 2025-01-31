@@ -1,0 +1,1 @@
+sudo apt install -y emacs && emacs --eval "(require 'epa-file)" --eval "(epa-global-set-passphrase 'your-passphrase)"

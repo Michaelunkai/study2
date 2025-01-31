@@ -1,0 +1,1 @@
+wget https://sourceforge.net/projects/jproxy/files/latest/download -O jproxy.jar && java -jar jproxy.jar

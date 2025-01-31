@@ -1,0 +1,1 @@
+pip install hindsight && hindsight -i ~/.config/google-chrome/Default/History

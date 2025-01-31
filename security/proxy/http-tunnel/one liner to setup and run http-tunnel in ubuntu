@@ -1,0 +1,1 @@
+wget https://github.com/http-tunnel/http-tunnel/releases/latest/download/http-tunnel-linux-amd64 -O http-tunnel && chmod +x http-tunnel && ./http-tunnel

@@ -1,0 +1,1 @@
+sudo apt install -y sshuttle && sshuttle -r user@remote-server 0/0

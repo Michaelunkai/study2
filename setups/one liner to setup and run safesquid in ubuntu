@@ -1,0 +1,1 @@
+wget https://safesquid.com/downloads/latest -O safesquid && chmod +x safesquid && ./safesquid

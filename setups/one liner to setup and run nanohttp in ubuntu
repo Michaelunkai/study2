@@ -1,0 +1,1 @@
+getrust && cargo new nanohttp-app && cd nanohttp-app && echo 'nanohttp = "0.1"' >> Cargo.toml && cargo run

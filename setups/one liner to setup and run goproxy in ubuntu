@@ -1,0 +1,1 @@
+wget https://github.com/snail007/goproxy/releases/latest/download/proxy-linux-amd64 -O goproxy && chmod +x goproxy && ./goproxy http -p :8080

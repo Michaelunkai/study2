@@ -1,0 +1,1 @@
+sudo apt install octopussy -y && sudo systemctl start octopussy

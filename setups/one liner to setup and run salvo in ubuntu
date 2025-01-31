@@ -1,0 +1,1 @@
+getrust && cargo new salvo-app && cd salvo-app && echo 'salvo = "0.37"' >> Cargo.toml && cargo run

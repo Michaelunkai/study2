@@ -1,0 +1,1 @@
+sudo apt install sixad -y && sudo systemctl enable sixad && sudo systemctl start sixad && sudo systemctl status sixad

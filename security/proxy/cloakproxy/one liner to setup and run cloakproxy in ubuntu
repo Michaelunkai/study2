@@ -1,0 +1,1 @@
+wget https://github.com/cbeuw/Cloak/releases/latest/download/ck-server-linux-amd64 -O cloak && chmod +x cloak && ./cloak

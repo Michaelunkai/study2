@@ -1,0 +1,1 @@
+sudo apt install -y poppler-utils python3-pip && pip3 install pdf2image && python3 -c "import pdf2image"

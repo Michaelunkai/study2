@@ -1,0 +1,1 @@
+curl -O https://raw.githubusercontent.com/grafana/loki/main/clients/cmd/promtail/promtail-linux-amd64 && chmod +x promtail-linux-amd64 && ./promtail-linux-amd64

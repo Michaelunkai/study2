@@ -1,0 +1,1 @@
+sudo apt install squid -y && echo "http_port 8080\ncache_peer localhost parent 3000 0 no-query originserver" | sudo tee /etc/squid/squid.conf && sudo systemctl restart squid && sudo systemctl start squid

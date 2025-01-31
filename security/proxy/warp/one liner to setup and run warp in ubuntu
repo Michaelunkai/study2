@@ -1,0 +1,1 @@
+curl -fsSL https://pkg.cloudflareclient.com/install.sh | bash && warp-cli connect

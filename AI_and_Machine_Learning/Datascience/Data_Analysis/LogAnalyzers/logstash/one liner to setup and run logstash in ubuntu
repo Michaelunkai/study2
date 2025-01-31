@@ -1,0 +1,1 @@
+sudo apt install logstash -y && sudo systemctl start logstash

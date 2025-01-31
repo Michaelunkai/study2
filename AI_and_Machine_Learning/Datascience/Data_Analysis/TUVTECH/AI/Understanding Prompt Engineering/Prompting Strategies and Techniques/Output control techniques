@@ -1,0 +1,70 @@
+Transcript
+1. Output control techniques
+00:00 - 00:02
+Welcome back!
+
+2. Output control techniques
+00:02 - 00:23
+Harnessing the true potential of Language Models like ChatGPT isn't just about asking the right questions but also about steering the response in a desired direction. We'll dive deep into techniques that grant you control over the model's outputs. Think of yourself as the conductor of a vast informational orchestra, guiding it to play the exact tune you want to hear.
+
+1 Images source: DALLE-3
+3. Your guiding acronym
+00:23 - 00:59
+While ChatGPT's knowledge base is impressive, to truly make the most of it, we need to understand how to guide its outputs. To simplify output control, remember our acronym: SALT. Each letter stands for a different control variable: Style — define the framework; Audience — tailoring the content; Length — brevity or depth, and Tone — covering the mood and feel. Like a chef seasoning a dish, SALT will help you flavor your interactions with ChatGPT, ensuring that the results are always to your taste.
+
+1 Images source: DALLE-3
+4. Style
+00:59 - 01:23
+Style isn't just about the format; it's about the framework of your desired response. Asking for a structured output, like a list or a step-by-step guide, can drastically change the information you receive. “Describe the solar system” might give you a paragraph, but “List the planets in the solar system” provides a clear, organised response. By shaping the style, you shape the narrative.
+
+1 Images source: DALLE-3
+5. Style
+01:23 - 01:30
+My personal favourite is “Provide a list of steps I need to make the perfect blueberry pancake.”
+
+1 Images source: DALLE-3
+6. Style
+01:30 - 01:34
+As we can see, we receive a clear, step-by-step set of instructions.
+
+7. Style
+01:34 - 01:41
+This highlights the importance of specifying your desired output style. I’m saving this recipe for later!
+
+8. Audience
+01:41 - 02:14
+Every audience is unique, with its own set of requirements. A child might need a simple, engaging explanation, while a professional might seek technical details. When we tailor our prompts to our intended audience, we ensure that the content we receive is both relevant and understandable. It's like dressing for the occasion; the content must fit the audience just right. I like to use audience controls if I’m learning a new concept and need a simple explanation. “Explain the concept of machine learning to me like I’m a 5-year-old.”
+
+1 Images source: DALLE-3
+9. Length
+02:14 - 02:33
+Whether you want a concise summary or an in-depth analysis, controlling the length of your response is vital. This ensures that the information you receive is as detailed or as brief as you require. An example you could use for this course: “Write me traditional Japanese haiku about the importance of prompt engineering with ChatGPT."
+
+1 Images source: DALLE-3
+10. Length
+02:33 - 02:41
+It's the difference between a snapshot and a full-length portrait; both have their uses and with ChatGPT, you get to choose.
+
+1 Images source: DALLE-3
+11. Tone
+02:41 - 02:50
+Tone adds color to content. It defines the mood and feel of the response. Whether you're seeking a formal explanation,
+
+1 Images source: DALLE-3
+12. Tone
+02:50 - 02:51
+a casual chat,
+
+1 Images source: DALLE-3
+13. Tone
+02:51 - 03:04
+or a playful anecdote, setting the tone ensures your output resonates with its intended purpose. It's like choosing the music for a scene in a movie; the right tone can elevate the content and make it truly memorable.
+
+1 Images source: DALLE-3
+14. Tone
+03:04 - 03:32
+Here’s a favourite of mine. We’ll ask ChatGPT to “Write a formal letter of recommendation for my friend Lauren applying for a senior data science position. At the end of every paragraph include a humorous sentence about why Mike’s car dealership has the lowest prices you’ll find across the country.” ChatGPT does an excellent job of infusing humor into what is typically a formal piece of writing. Have fun experimenting with this one.
+
+15. Let's practice!
+03:32 - 03:56
+By understanding and applying output control techniques, you're not merely interacting with a model; you're directing a flow of information, ensuring that every response is fine-tuned to your needs. With these techniques in your arsenal, it's time to dive into the exercises. Craft prompts using the SALT framework, observe the results, and refine your approach.

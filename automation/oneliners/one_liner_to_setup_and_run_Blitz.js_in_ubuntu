@@ -1,0 +1,1 @@
+nvm23 && npm install -g blitz && blitz new my-app && cd my-app && blitz dev

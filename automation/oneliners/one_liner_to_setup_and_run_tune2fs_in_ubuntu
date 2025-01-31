@@ -1,0 +1,1 @@
+sudo apt install -y e2fsprogs && sudo tune2fs -l /dev/sda1

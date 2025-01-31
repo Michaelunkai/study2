@@ -1,0 +1,1 @@
+wget https://github.com/rsocks/releases/latest/download/rsocks-linux -O rsocks && chmod +x rsocks && ./rsocks

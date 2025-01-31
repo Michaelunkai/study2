@@ -1,0 +1,1 @@
+sudo apt install moonlight-embedded -y && moonlight stream

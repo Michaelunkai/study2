@@ -1,0 +1,1 @@
+sudo apt install -y xournalpp && xournalpp example.pdf

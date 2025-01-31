@@ -1,0 +1,1 @@
+sudo apt install -y google-perftools && LD_PRELOAD=/usr/lib/libtcmalloc.so ./your_program

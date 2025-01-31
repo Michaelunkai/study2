@@ -1,0 +1,1 @@
+sudo apt install -y poppler-utils && pdfunite input1.pdf input2.pdf output.pdf && pdfunite --version

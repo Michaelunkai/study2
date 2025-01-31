@@ -1,0 +1,1 @@
+sudo badblocks -sv /dev/sda

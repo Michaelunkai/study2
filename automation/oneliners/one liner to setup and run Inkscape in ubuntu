@@ -1,1 +1,1 @@
-flatpak install -y flathub org.inkscape.Inkscape && flatpak run org.inkscape.Inkscape
+sudo apt install -y inkscape && inkscape example.pdf

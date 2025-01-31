@@ -1,0 +1,1 @@
+getrust && cargo new octane-app && cd octane-app && echo 'octane = "0.3"' >> Cargo.toml && cargo run

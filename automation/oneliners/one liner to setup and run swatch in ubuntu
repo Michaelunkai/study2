@@ -1,0 +1,1 @@
+sudo apt install swatch -y && swatch --config-file ~/.swatchrc --tail-file /var/log/syslog

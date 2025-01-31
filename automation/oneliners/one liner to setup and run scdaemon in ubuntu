@@ -1,0 +1,1 @@
+ sudo apt install -y scdaemon && gpg-connect-agent "scd getinfo version" /bye

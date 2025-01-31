@@ -1,0 +1,1 @@
+curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent3.sh | sh && td-agent --version

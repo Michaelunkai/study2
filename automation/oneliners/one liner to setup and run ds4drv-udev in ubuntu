@@ -1,0 +1,1 @@
+sudo apt install ds4drv -y && sudo systemctl enable ds4drv && sudo systemctl start ds4drv && sudo systemctl status ds4drv

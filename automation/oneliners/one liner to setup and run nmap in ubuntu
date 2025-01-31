@@ -1,0 +1,1 @@
+sudo apt install nmap -y && sudo nmap -A localhost

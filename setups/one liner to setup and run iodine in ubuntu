@@ -1,0 +1,1 @@
+sudo apt install -y iodine && iodine -f 10.0.0.1 mydomain.com

@@ -1,0 +1,1 @@
+sudo apt install salt-master -y && sudo systemctl start salt-master

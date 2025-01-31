@@ -1,0 +1,62 @@
+# **Optimizing Docker Image Push: Enabling Resumable Uploads and Maximizing Push Speed with Concurrent Layer Transfers**
+
+When pushing large Docker images (e.g., **over 70GB**), interruptions or slow uploads can cause significant delays. Docker supports **resumable layer uploads** and **parallel transfers**, which prevent restarts if the upload is interrupted and ensure faster completion. Follow this guide to configure Docker to **optimize push performance and prevent data loss**.
+
+---
+
+## **🔹 Step 2: Enable Resumable Uploads and Parallel Layer Transfers**
+By default, Docker uploads image layers sequentially, and an interruption (network drop, power failure, timeout) may **cause an entire restart** of the push process. To avoid this, you can **enable resumable uploads and concurrent uploads**.
+
+---
+
+### **📌 Step 2.1: Modify Docker Daemon Configuration**
+1. Open the **Docker daemon configuration file**:
+     
+   sudo nano /etc/docker/daemon.json
+
+2. Add the following optimizations inside the file:
+    json
+   {
+     "max-concurrent-uploads": 4,
+     "live-restore": true
+   }
+   - **"max-concurrent-uploads": 4** → Allows Docker to push **4 layers in parallel**, significantly improving speed.
+   - **"live-restore": true** → Prevents Docker from restarting running containers after a daemon crash or unexpected stop.
+
+3. **Save the file** (`CTRL+X`, then `Y`, then `ENTER`).
+
+---
+
+### **📌 Step 2.2: Restart Docker Daemon to Apply Changes**
+For the changes to take effect, restart Docker:
+  
+sudo systemctl restart docker
+
+---
+
+### **📌 Step 2.3: Verify the New Configuration**
+To confirm that the settings were applied correctly:
+  
+docker info | grep -i "Concurrent Uploads"
+If configured properly, you should see:
+Max Concurrent Uploads: 4
+
+---
+
+## **🔹 Why This Optimization is Important**
+✅ **Prevents restarting uploads from scratch if interrupted** (useful for large images)  
+✅ **Speeds up Docker image pushes by utilizing multiple connections**  
+✅ **Improves Docker stability by ensuring the daemon does not restart running containers unexpectedly**  
+
+---
+
+## **🔹 Additional Recommendations**
+- If **upload speed is unstable**, reduce `max-concurrent-uploads` to `2`:
+   json
+  {
+    "max-concurrent-uploads": 2,
+    "live-restore": true
+  }
+- If pushing to **Docker Hub Free Plan**, consider alternative registries like **GitHub Container Registry (GHCR)** or **AWS ECR**, which support better **resumable uploads**.
+
+By following these steps, your **Docker image push process will be more reliable and significantly faster**! 🚀

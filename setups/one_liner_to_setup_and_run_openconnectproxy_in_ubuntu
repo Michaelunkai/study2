@@ -1,0 +1,1 @@
+sudo apt install -y openconnect && sudo openconnect vpn.example.com

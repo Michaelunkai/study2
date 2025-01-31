@@ -1,0 +1,1 @@
+getrust && cargo new ziggurat-app && cd ziggurat-app && echo 'ziggurat = "0.3"' >> Cargo.toml && cargo run

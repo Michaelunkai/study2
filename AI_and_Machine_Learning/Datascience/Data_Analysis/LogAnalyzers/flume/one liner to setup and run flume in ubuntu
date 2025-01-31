@@ -1,0 +1,1 @@
+sudo apt install flume -y && flume-ng agent --name agent --conf conf/

@@ -1,0 +1,61 @@
+Transcript
+1. What is a prompt?
+00:00 - 00:02
+Welcome back!
+
+2. The essence of a prompt
+00:02 - 00:23
+Every day, we use prompts without even realizing it. When you search on Google, question Siri, or ask a friend for advice, you're using prompts. These are more than just questions — they're gateways to information, insights, and solutions. “What’s the tallest mountain in the world?” “Set a timer for 10 minutes” “What’s the best pizza in London?”
+
+1 Images: DALLE-3, Pixabay, Apple
+3. The anatomy of a prompt
+00:23 - 01:30
+A prompt isn't just a question thrown into the void, expecting an answer. It's carefully crafted, with each word pivotal in guiding the response. Effective prompts typically exhibit three distinct traits: Clarity: A well-defined prompt includes the relevant context to reduce ambiguity. Specificity: The more specific you are, the closer you get to your desired answer. Make sure to avoid any unnecessary information. And finally, open-endedness: Sometimes, allowing the model to think outside the box can yield richer results that were non-obvious from the outset. Let's dissect the earlier example. A lack of clarity might lead to misconceptions about the tallest mountain. On Earth, it’s Mt. Everest, but in our solar system, it’s Olympus Mons, on the planet Mars. Without specificity, if we ask Siri to just “set a timer,” it would likely respond with “For how long?”. And the open-ended nature of asking a friend for their best pizza recommendations invites diverse answers. Leaving room for interpretation often brings newfound creativity.
+
+1 Images: Midjourney, Pixabay, DALLE-3
+4. A simple example - clear
+01:30 - 01:52
+Let's illustrate the importance of clarity, specificity, and open-endedness using a practical example with ChatGPT. Imagine you’re a teacher and you want to design a lesson plan. Clarity: Start by providing ChatGPT with a clear context. Inform it, "I'm an 8th-grade math teacher preparing to teach trigonometry."
+
+1 Image: DALLE-3
+5. A simple example - specific
+01:52 - 02:01
+Specificity: Dive into specifics. Request, "Design a lesson plan tailored for a 60-minute session with 20 students."
+
+1 Image: DALLE-3
+6. A simple example - open-ended
+02:01 - 02:11
+Open-endedness: Encourage creative inputs. Pose a challenge like, "Can you also recommend some creative, real-world examples to make the lesson more engaging for the students?"
+
+1 Image: DALLE-3
+7. A simple example
+02:11 - 02:20
+With these guiding principles, what could have been a generic lesson plan is now transformed into a tailored and stimulating roadmap for your class.
+
+8. The art and science of prompt engineering
+02:20 - 02:47
+Harnessing ChatGPT’s full potential requires a mix of art and science. This combination is what we call 'Prompt Engineering'. It’s all about writing inputs that maximize the quality of the output. The art lies in understanding the nuances of language, tone, and context. The science is about recognizing the model's capabilities and decoding strategies. Together, they help in sculpting the ideal prompt.
+
+1 Image: Midjourney
+9. Common pitfalls when crafting prompts
+02:47 - 03:36
+Mastering prompt engineering also involves understanding what not to do. While it may seem that any question or statement can serve as a prompt, not all prompts yield effective results. As we journey through this course, you'll learn the nuances that separate a good prompt from a great one, letting you achieve optimal responses from language models like ChatGPT. Just as there are best practices in prompt engineering, there are also pitfalls to avoid: Overloading: Bombarding the model with too much information can dilute the essence of your query. Ambiguity: Being vague can lead to generalized answers. Over-Complication: Using jargon, complex phrasing, or unnecessary technicalities can confuse the model, leading to misinterpretations or overly complex answers.
+
+1 Image: Midjourney
+10. Prompt evolution - refinement is key
+03:36 - 03:53
+Prompts aren’t static. The beauty lies in their iterative nature. Feedback-driven refinement enhances prompt quality, creating a continuous loop of improvement. Think of it as a dialogue, with both user and model striving for perfection.
+
+1 Images: DALLE-3
+11. Prompt evolution - refinement is key
+03:53 - 04:09
+Let’s take that simple example from earlier. We can ask for follow-up messages to ChatGPTs responses to dial in our preferences. In this case, we can ask for more real-world applications of trigonometry within navigation and astronomy.
+
+1 Image: DALLE-3
+12. Prompt evolution - refinement is key
+04:09 - 04:32
+Prompts are the bridge between curiosity and knowledge. With ChatGPT, they become powerful tools, unlocking vast reserves of information and insights. Nonetheless, it’s important to remember to use ChatGPT to augment, not replace, your creativity. Let it be a partnership where you break conventional thinking patterns, ushering in new ideas.
+
+13. Let's practice!
+04:32 - 04:44
+Now, let's put theory into practice, it’s time for the exercises. Remember, a true prompt guides ChatGPT towards a specific output, steering the narrative

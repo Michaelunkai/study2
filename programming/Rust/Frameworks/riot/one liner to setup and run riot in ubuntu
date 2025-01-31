@@ -1,0 +1,1 @@
+getrust && cargo new riot-app && cd riot-app && echo 'riot = "0.2"' >> Cargo.toml && cargo run

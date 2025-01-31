@@ -1,0 +1,57 @@
+Transcript
+1. Structuring a prompt
+00:00 - 00:03
+Welcome back to our exploration of ChatGPT.
+
+2. Introduction to prompt structure
+00:03 - 00:25
+Crafting a prompt is like laying the foundation for a building. It sets the stage for everything that follows. Just as a wise builder wouldn't construct their house upon the sand, we must master the art of prompt construction. We're diving deep into the architecture of prompts, understanding the intricacies of their structure, and setting the stage for meaningful interactions ahead.
+
+1 Images source: DALLE-3
+3. Recap - prompt traits
+00:25 - 00:34
+A lot of people think a prompt is just a simple sentence like “make this better”, “summarise this text” or “correct my writing”.
+
+1 Images source: DALLE-3
+4. Recap - prompt traits
+00:34 - 01:08
+However effective prompts typically exhibit three distinct traits: Clarity: A well-defined prompt includes the relevant context to reduce ambiguity. Specificity: The more specific you are, the closer you get to your desired answer. And finally, open-endedness: Sometimes, allowing the model to think outside the box can yield richer results that were non-obvious from the outset. In this lesson, we’re going one step deeper and define the five elements that can turn a good prompt into a great one. Let’s explore.
+
+1 Images source: DALLE-3
+5. Elements of a prompt - instructions
+01:08 - 01:26
+In order to have a good prompt, at least one of the following elements should be present. Make your instructions clear to reduce ambiguity. Instead of “What is the name of the monarch?” which assumes the country, ask “What is the name of the current monarch in Denmark” This narrows down the response domain.
+
+1 Images source: DALLE-3
+6. Elements of a prompt - persona
+01:26 - 01:52
+When writing prompts, adopting a persona is sometimes helpful. This can help ensure the model’s output is specific, relevant and useful to the target audience. Instead of “Write me a short story” which is a very broad statement, ask “You are J.K Rowling. Write me a short story about magic”. ChatGPT now adopts J.K Rowling’s writing style for your short story, leading to a much higher quality output.
+
+1 Images source: DALLE-3
+7. Elements of a prompt - output format
+01:52 - 02:05
+We can ask for a summary, detailed explanations or even checklists. Let’s start with a simple prompt. “I’m applying for a job as a data scientist. Create a checklist for how I can best prepare.”
+
+1 Images source: DALLE-3
+8. Elements of a prompt - output format
+02:05 - 02:20
+By specifying your desired format, ChatGPT understands the output style and tailors the result appropriately. Output controls are a critical element to help guide the model’s response through specifications. We’ll dive deeper into this later.
+
+1 Images source: DALLE-3
+9. Elements of a prompt - context
+02:20 - 02:36
+We can give ChatGPT background information surrounding the topic at hand. “Here's the transcript from "How to Breathe Correctly for Optimal Health, Mood, Learning & Performance" by the Huberman Lab podcast. What does it say about physiological sighs?”
+
+1 Images source: DALLE-3
+10. Elements of a prompt - context
+02:36 - 02:43
+ChatGPT is able to quickly locate relevant insights within large bodies of text that would typically take humans hours to do.
+
+11. Elements of a prompt - examples
+02:43 - 03:12
+Proving examples to ChatGPT is a great way for the model to learn style and tone — especially if you want to emulate the writing style of your own or somebody else. "Here’s an example of a typical email response in my writing style: {insert example email}. Use my writing style demonstrated in the example email to reply to the following message: {insert email you want to respond to}.” This is perhaps one of my favourite prompting techniques. Getting ChatGPT to learn your writing style and persona - a powerful tool when used correctly.
+
+1 Images source: DALLE-3
+12. Let's practice!
+03:12 - 03:37
+As you craft your prompts, clarity should be your compass. A well-defined, concise prompt often paves the way for a more insightful and relevant output. Engage with our exercises, where you'll experiment with different prompt structures. As you'll find out, a simple change in question or instruction can elicit entirely different responses from ChatGPT. It's all in the art of asking.

@@ -1,0 +1,1 @@
+wget https://github.com/ginuerzh/gost/releases/latest/download/gost-linux-amd64 -O gost && chmod +x gost && ./gost -L=:1080

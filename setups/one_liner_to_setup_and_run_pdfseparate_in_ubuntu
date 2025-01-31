@@ -1,0 +1,1 @@
+sudo apt install -y poppler-utils && pdfseparate example.pdf output_%d.pdf

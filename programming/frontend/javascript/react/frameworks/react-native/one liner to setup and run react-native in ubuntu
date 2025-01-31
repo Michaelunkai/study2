@@ -1,0 +1,1 @@
+nvm23 && npx react-native init MyApp && cd MyApp && npx react-native start

@@ -215,7 +215,8 @@
         "YakuzaKiwami2",
         "Yakuza6",
         "Melatonin",
-        "games27"
+        "games27",
+        "baldursgate3"
     ],
     "category_games": {
         "interactive": [
@@ -225,7 +226,8 @@
             "games27"
         ],
         "mouse": [
-            "hackersimulator"
+            "hackersimulator",
+            "baldursgate3"
         ],
         "shooter": [
             "sniperelite3",

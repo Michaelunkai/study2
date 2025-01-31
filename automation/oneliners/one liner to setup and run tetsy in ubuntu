@@ -1,0 +1,1 @@
+getrust && cargo new tetsy-app && cd tetsy-app && echo 'tetsy = "0.3"' >> Cargo.toml && cargo run

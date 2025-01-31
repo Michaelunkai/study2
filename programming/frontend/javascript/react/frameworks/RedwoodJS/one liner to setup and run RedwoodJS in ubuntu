@@ -1,0 +1,1 @@
+nvm23 && npm create redwood-app@latest my-app && cd my-app && yarn rw dev

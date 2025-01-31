@@ -1,0 +1,1 @@
+sudo apt install -y simpleproxy && simpleproxy -l 8080 -r 80

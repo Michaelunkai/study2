@@ -1,0 +1,1 @@
+sudo apt install multitail -y && multitail /var/log/syslog

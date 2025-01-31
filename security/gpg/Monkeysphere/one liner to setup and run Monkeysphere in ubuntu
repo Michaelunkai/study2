@@ -1,0 +1,1 @@
+ sudo apt install -y monkeysphere && monkeysphere-authentication keys-from-gpg-agent

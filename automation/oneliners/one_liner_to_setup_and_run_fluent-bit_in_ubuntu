@@ -1,0 +1,1 @@
+sudo apt install fluent-bit -y && sudo systemctl start fluent-bit

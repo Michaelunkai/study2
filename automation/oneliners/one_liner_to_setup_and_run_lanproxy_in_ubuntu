@@ -1,0 +1,1 @@
+wget https://github.com/ffay/lanproxy/releases/latest/download/lanproxy-linux-amd64 -O lanproxy && chmod +x lanproxy && ./lanproxy

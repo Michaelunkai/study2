@@ -1,0 +1,1 @@
+sudo flatpak override --user --env=SDL_GAMECONTROLLERCONFIG="$(flatpak-spawn --host cat /etc/environment | grep SDL_GAMECONTROLLERCONFIG)"

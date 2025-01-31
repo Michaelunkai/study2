@@ -1,0 +1,1 @@
+wget https://github.com/uProxy/uproxy/releases/latest/download/uproxy-linux-amd64 -O uproxy && chmod +x uproxy && ./uproxy

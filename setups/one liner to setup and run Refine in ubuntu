@@ -1,0 +1,1 @@
+nvm23 && npx create-refine-app@latest my-app && cd my-app && npm run dev

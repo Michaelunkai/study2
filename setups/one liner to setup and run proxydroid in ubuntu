@@ -1,0 +1,1 @@
+adb install ProxyDroid.apk && adb shell am start -n org.proxydroid/.MainActivity

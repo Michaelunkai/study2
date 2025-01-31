@@ -1,0 +1,1 @@
+wget https://github.com/WithSecureLabs/chainsaw/releases/latest/download/chainsaw-linux-x86_64.zip && unzip chainsaw-linux-x86_64.zip && chmod +x chainsaw && ./chainsaw

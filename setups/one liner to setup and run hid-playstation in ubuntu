@@ -1,0 +1,1 @@
+sudo apt install dkms linux-headers-$(uname -r) -y && git clone https://github.com/Sony/hid-playstation && cd hid-playstation && sudo make install && sudo modprobe hid-playstation
