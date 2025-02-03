@@ -1,0 +1,1 @@
+docker run -d --name dolt -p 3306:3306 dolthub/dolt:latest dolt sql-server --port 3306 && gcl 3306

@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget https://exkode.com/dxtory-downloads-en.html && wine DxtorySetup.exe

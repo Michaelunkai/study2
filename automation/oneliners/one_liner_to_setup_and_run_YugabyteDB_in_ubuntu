@@ -1,0 +1,1 @@
+docker run -d --name yugabyte -p 7000:7000 -p 9000:9000 -p 5433:5433 yugabytedb/yugabyte:latest yugabyted start --daemon=false && gcl 7000

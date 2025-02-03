@@ -1,0 +1,1 @@
+npx create-keystone-app my-keystone-app && cd my-keystone-app && npm start

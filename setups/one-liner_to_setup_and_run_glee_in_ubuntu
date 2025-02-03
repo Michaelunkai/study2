@@ -1,0 +1,1 @@
+npm install glee && echo "const { Glee } = require('glee'); new Glee().start();" > app.js && node app.js

@@ -1,0 +1,1 @@
+sudo apt install -y jetty9 && sudo systemctl start jetty9 && gc http://localhost:8080

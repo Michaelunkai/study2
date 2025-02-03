@@ -1,0 +1,1 @@
+npm install aptos.js && echo "const Aptos = require('aptos.js'); new Aptos().listen(3000);" > app.js && node app.js

@@ -1,0 +1,1 @@
+npm install flowmatic && echo "const FlowMatic = require('flowmatic'); new FlowMatic().run();" > app.js && node app.js

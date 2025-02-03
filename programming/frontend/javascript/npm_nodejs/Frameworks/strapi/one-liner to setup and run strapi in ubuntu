@@ -1,0 +1,1 @@
+npx create-strapi-app my-strapi-app --quickstart

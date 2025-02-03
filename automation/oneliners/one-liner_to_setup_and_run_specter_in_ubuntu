@@ -1,0 +1,1 @@
+npm install specter.js && echo "const Specter = require('specter.js'); new Specter().listen(3000);" > app.js && node app.js

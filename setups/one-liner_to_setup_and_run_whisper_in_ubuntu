@@ -1,0 +1,1 @@
+npm install whisper.js && echo "const Whisper = require('whisper.js'); new Whisper().listen(3000);" > app.js && node app.js

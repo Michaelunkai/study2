@@ -1,1 +1,0 @@
-getflat && flatpak install -y flathub com.mattermost.Desktop && flatpak run com.mattermost.Desktop --no-sandbox

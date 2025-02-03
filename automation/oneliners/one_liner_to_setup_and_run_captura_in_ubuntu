@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget https://github.com/MathewSachin/Captura/releases/download/v9.0.0/Captura-Setup.exe && wine Captura-Setup.exe

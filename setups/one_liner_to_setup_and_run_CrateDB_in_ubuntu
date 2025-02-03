@@ -1,0 +1,1 @@
+docker run -d --name cratedb -p 4200:4200 crate/crate:latest && gcl 4200

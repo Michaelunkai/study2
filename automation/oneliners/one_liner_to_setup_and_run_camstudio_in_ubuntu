@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget http://camstudio.org/release/CamStudio_Setup_v2.7.4_r354.exe && wine CamStudio_Setup_v2.7.4_r354.exe

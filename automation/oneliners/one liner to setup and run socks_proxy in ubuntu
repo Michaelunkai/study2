@@ -1,1 +1,0 @@
-ssh -D 1080 -N -f user@your-server

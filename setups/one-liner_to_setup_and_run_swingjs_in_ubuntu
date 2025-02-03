@@ -1,0 +1,1 @@
+npm install swing.js && echo "const Swing = require('swing.js'); new Swing().listen(3000);" > app.js && node app.js

@@ -1,1 +1,0 @@
-getsnap && sudo snap install dbeaver-ce && dbeaver-ce

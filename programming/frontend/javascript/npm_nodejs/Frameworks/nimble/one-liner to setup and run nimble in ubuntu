@@ -1,0 +1,1 @@
+npm install nimble.js && echo "const Nimble = require('nimble.js'); new Nimble().listen(3000);" > app.js && node app.js

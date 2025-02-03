@@ -1,0 +1,1 @@
+curl -fsSL https://get.planetscale.com/install.sh | sh && pscale auth login && pscale create <database>

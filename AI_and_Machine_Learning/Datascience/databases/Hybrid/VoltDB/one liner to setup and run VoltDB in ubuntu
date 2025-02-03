@@ -1,0 +1,1 @@
+docker run -d --name voltdb -p 21212:21212 voltdb/voltdb:latest && gcl 21212

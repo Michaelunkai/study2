@@ -1,1 +1,0 @@
- curl -L "https://git.io/tempmail" > tempmail && chmod +x tempmail && sudo mv tempmail /usr/bin/tempmail && tempmail --version

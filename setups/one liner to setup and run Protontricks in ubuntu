@@ -1,1 +1,0 @@
-getflat && flatpak install flathub com.github.Matoking.protontricks && flatpak run com.github.Matoking.protontricks

@@ -1,1 +1,0 @@
-getflat && flatpak install flathub com.microsoft.Edge && flatpak run com.microsoft.Edge --no-sandbox

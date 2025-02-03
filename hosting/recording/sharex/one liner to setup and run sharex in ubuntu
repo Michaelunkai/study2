@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget https://github.com/ShareX/ShareX/releases/download/v14.1.0/ShareX-14.1.0-setup.exe && wine ShareX-14.1.0-setup.exe

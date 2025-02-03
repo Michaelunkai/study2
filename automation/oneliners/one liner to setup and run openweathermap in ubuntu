@@ -1,1 +1,0 @@
-sudo apt install jq -y && curl -s "https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=YOUR_API_KEY" | jq

@@ -1,0 +1,1 @@
+npm install yoa && echo "const Yoa = require('yoa'); new Yoa().start();" > app.js && node app.js

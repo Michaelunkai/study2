@@ -1,1 +1,0 @@
-getrust && cargo new meio-app && cd meio-app && echo 'meio = "0.6"' >> Cargo.toml && cargo run

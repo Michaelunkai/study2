@@ -1,1 +1,0 @@
-git clone https://github.com/yoheinakajima/babyagi.git &&  cd babyagi & pipreq &&  py  main.py

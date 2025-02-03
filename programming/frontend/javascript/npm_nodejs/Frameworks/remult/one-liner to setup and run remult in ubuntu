@@ -1,0 +1,1 @@
+npx create-remult-app my-remult-app && cd my-remult-app && npm start

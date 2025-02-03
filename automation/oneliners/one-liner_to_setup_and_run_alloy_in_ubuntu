@@ -1,0 +1,1 @@
+npm install alloy && echo "const Alloy = require('alloy'); new Alloy().listen(3000);" > app.js && node app.js

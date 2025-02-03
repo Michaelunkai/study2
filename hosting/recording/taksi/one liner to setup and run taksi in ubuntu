@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget https://sourceforge.net/projects/taksi/files/latest/download && wine taksi.exe

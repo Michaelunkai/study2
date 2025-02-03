@@ -1,0 +1,1 @@
+wget https://camdesk.googlecode.com/files/CamDesk.zip && unzip CamDesk.zip && ./CamDesk

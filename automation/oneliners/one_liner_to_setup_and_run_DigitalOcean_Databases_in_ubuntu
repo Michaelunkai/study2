@@ -1,0 +1,1 @@
+snap install doctl && doctl auth init && doctl databases list

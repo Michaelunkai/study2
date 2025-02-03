@@ -1,0 +1,1 @@
+wget https://sourceforge.net/projects/krut/files/KRUT/KRUT%200.9.3/KRUT-0.9.3.jar && java -jar KRUT-0.9.3.jar

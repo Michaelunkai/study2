@@ -1,1 +1,0 @@
-wget https://cdn.geekbench.com/Geekbench-5.5.1-Linux.tar.gz && tar -xvf Geekbench-5.5.1-Linux.tar.gz && cd Geekbench-5.5.1-Linux && ./geekbench5

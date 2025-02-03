@@ -1,0 +1,1 @@
+npx create-derby-app my-derby-app && cd my-derby-app && npm start

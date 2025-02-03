@@ -1,0 +1,1 @@
+npx create-redwood-app my-redwood-app && cd my-redwood-app && yarn rw dev

@@ -1,0 +1,1 @@
+npm install catalyst && echo "const Catalyst = require('catalyst'); new Catalyst().start();" > app.js && node app.js

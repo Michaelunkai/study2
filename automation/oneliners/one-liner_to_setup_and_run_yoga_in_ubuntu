@@ -1,0 +1,1 @@
+npm install @graphql-yoga/node && echo "const { createServer } = require('@graphql-yoga/node'); createServer().start();" > server.js && node server.js

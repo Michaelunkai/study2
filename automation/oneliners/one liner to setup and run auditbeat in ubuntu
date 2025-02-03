@@ -1,1 +1,0 @@
-sudo apt install auditbeat -y && sudo systemctl start auditbeat

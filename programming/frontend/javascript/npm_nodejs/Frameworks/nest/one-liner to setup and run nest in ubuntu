@@ -1,0 +1,1 @@
+npx @nestjs/cli new my-nest-app && cd my-nest-app && npm run start

@@ -1,1 +1,0 @@
-getrust && cargo new trillium-app && cd trillium-app && echo 'trillium = "0.2"' >> Cargo.toml && cargo run

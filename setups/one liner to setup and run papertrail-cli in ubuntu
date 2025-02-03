@@ -1,1 +1,0 @@
-curl -sSL https://papertrailapp.com/install.sh | sudo bash

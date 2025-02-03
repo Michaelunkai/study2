@@ -1,1 +1,0 @@
-getflat && flatpak install -y flathub org.kde.okular && flatpak run org.kde.okular

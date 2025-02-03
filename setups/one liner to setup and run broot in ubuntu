@@ -1,1 +1,0 @@
-wget https://dystroy.org/broot/download/x86_64-linux/broot && chmod +x broot && sudo mv broot /usr/local/bin/ && broot --install && broot

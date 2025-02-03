@@ -1,0 +1,1 @@
+wget https://github.com/wulkano/kap/releases/download/v3.3.2/Kap-3.3.2.AppImage && chmod +x Kap-3.3.2.AppImage && ./Kap-3.3.2.AppImage

@@ -1,0 +1,1 @@
+npm install bedrock && echo "const Bedrock = require('bedrock'); new Bedrock().start();" > app.js && node app.js

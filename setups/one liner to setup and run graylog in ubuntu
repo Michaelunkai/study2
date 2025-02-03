@@ -1,1 +1,0 @@
-sudo docker run --name graylog -d -p 9000:9000 graylog/graylog:4.0
