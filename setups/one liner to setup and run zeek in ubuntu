@@ -1,0 +1,1 @@
+sudo apt install zeek -y && sudo zeekctl deploy

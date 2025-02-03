@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y php-cli php-json php-xml curl git && curl -sL https://phoronix-test-suite.com/releases/repo/pts.debian/files/phoronix-test-suite_10.8.4_all.deb -o phoronix-test-suite.deb && sudo apt install -y ./phoronix-test-suite.deb && phoronix-test-suite

@@ -1,0 +1,1 @@
+choco install mobaxterm -y --force; Start-Process "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe"

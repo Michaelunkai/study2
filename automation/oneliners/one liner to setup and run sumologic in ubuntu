@@ -1,0 +1,1 @@
+curl -O https://www.sumologic.com/install.sh && sudo bash install.sh

@@ -1,0 +1,1 @@
+sudo apt install ansible -y && ansible-playbook /path/to/playbook.yml

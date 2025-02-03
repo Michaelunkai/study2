@@ -1,0 +1,1 @@
+sudo apt install auditd -y && sudo systemctl start auditd

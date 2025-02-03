@@ -1,0 +1,2 @@
+wget https://github.com/sneljo1/auryo/releases/download/v2.5.4/auryo_2.5.4_amd64.deb -O auryo.deb && sudo dpkg -i auryo.deb && sudo apt -f install -y && apt --fix-br
+oken install && auryo --no-sandbox

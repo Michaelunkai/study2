@@ -1,0 +1,1 @@
+curl -L https://github.com/BlackReloaded/wsl2-ssh-pageant/releases/latest/download/wsl2-ssh-pageant.exe -o ~/wsl2-ssh-pageant.exe && chmod +x ~/wsl2-ssh-pageant.exe && ~/wsl2-ssh-pageant.exe --winssh ssh-agent

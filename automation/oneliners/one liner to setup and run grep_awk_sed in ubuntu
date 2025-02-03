@@ -1,0 +1,1 @@
+cat /var/log/syslog | grep "error" | awk "{print $1, $2, $3, $5}" | sed "s/\[.*\]//g"

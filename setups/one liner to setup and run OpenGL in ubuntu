@@ -1,0 +1,1 @@
+sudo apt install -y mesa-utils && glxinfo | grep "OpenGL"

@@ -1,0 +1,1 @@
+sudo apt install -y wipe && sudo wipe -r /path/to/directory

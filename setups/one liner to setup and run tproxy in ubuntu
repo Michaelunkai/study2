@@ -1,0 +1,1 @@
+sudo apt install -y iptables && iptables -t mangle -A PREROUTING -p tcp --dport 8080 -j TPROXY --on-port 3128 --tproxy-mark 1

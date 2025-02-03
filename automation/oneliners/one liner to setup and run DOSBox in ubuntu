@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y dosbox && dosbox -c "mount c ~/dosgames" -c "c:" -c "DIR" -c "exit"

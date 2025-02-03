@@ -1,0 +1,1 @@
+flatpak install -y flathub com.moonlight_stream.Moonlight && flatpak run com.moonlight_stream.Moonlight

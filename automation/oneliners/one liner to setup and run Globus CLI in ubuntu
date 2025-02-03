@@ -1,0 +1,1 @@
+ pip install globus-cli && globus login --no-local-server

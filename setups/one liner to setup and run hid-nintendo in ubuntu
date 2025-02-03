@@ -1,0 +1,1 @@
+sudo apt install dkms linux-headers-$(uname -r) -y && git clone https://github.com/nicman23/dkms-hid-nintendo && cd dkms-hid-nintendo && sudo ./install.sh && sudo modprobe hid_nintendo && echo "hid-nintendo installed"

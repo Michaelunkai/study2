@@ -1,0 +1,1 @@
+flatpak install -y flathub md.obsidian.Obsidian net.mkiol.SpeechNote com.github.ryonakano.reco && echo "Organization software installed via Flatpak."

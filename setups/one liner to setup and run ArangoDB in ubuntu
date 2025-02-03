@@ -1,0 +1,1 @@
+docker run -d --name arangodb -p 8529:8529 arangodb/arangodb:latest && gcl 8529

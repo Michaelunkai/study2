@@ -1,0 +1,1 @@
+docker run -d --name airsonic -p 5544:4040 -v /home/user/airsonic/data:/data -v /home/user/airsonic/music:/music -v /home/user/airsonic/playlists:/playlists airsonicadvanced/airsonic-advanced:latest && echo "Airsonic Advanced is running. Access it at: http://localhost:5544" && echo "Default credentials: Username - admin, Password - admin"

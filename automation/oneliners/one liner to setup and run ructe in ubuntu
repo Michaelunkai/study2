@@ -1,0 +1,2 @@
+getrust && cargo new ructe-app && cd ructe-app && echo 'ructe = "0.13"' >> Cargo.toml && cargo run
+

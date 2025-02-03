@@ -1,0 +1,1 @@
+sudo apt install -y paperkey && gpg --export-secret-key YOUR_KEY_ID | paperkey --output secret-key-backup.txt

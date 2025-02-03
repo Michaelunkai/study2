@@ -1,0 +1,1 @@
+getrust && cargo new oge-app && cd oge-app && echo 'oge = "0.1"' >> Cargo.toml && cargo run

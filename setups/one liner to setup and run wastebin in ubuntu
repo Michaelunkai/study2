@@ -1,0 +1,1 @@
+getrust && git clone https://github.com/matze/wastebin.git && cd wastebin && cargo run --release -- --address 0.0.0.0 --port 8088

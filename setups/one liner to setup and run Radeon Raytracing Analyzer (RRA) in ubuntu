@@ -1,0 +1,1 @@
+getc && git clone https://github.com/GPUOpen-Tools/RadeonRaytracingAnalyzer && cd RadeonRaytracingAnalyzer && mkdir build && cd build && cmake .. && make

@@ -1,0 +1,1 @@
+getrust && cargo new skyr-app && cd skyr-app && echo 'skyr = "0.1"' >> Cargo.toml && cargo run

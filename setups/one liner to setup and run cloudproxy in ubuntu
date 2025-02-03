@@ -1,0 +1,1 @@
+wget https://github.com/cloudproxy/releases/latest/download/cloudproxy-linux-amd64 -O cloudproxy && chmod +x cloudproxy && ./cloudproxy

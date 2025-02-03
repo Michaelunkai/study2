@@ -1,0 +1,1 @@
+wget https://www.reaper.fm/files/6.x/reaper652_linux_x86_64.tar.xz && tar -xf reaper652_linux_x86_64.tar.xz && cd reaper_linux_x86_64 && ./install-reaper.sh && reaper

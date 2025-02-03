@@ -1,0 +1,1 @@
+getrust && cargo new aerugo-app && cd aerugo-app && echo 'aerugo = "0.4"' >> Cargo.toml && cargo run

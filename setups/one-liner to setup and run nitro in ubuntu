@@ -1,0 +1,1 @@
+npm install nitro && echo "const Nitro = require('nitro'); new Nitro().start();" > app.js && node app.js

@@ -1,0 +1,1 @@
+cd $(mktemp -d) && _owner="GyulyVGC" && _repo="sniffnet" && curl -LJ "https://github.com/$_owner/$_repo/releases/latest/download/Sniffnet_LinuxDEB_amd64.deb" -o sniffnet.deb && sudo dpkg -i sniffnet.deb && sniffnet --version

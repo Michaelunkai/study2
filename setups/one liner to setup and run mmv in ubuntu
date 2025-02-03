@@ -1,0 +1,1 @@
+sudo apt install -y mmv && mmv '*.TXT' '#1.txt'

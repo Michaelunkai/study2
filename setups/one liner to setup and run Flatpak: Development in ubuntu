@@ -1,0 +1,1 @@
+flatpak install -y flathub cc.arduino.IDE2 io.dbeaver.DBeaverCommunity com.redis.RedisInsight org.apache.directory.studio com.microsoft.AzureStorageExplorer com.getpostman.Postman org.soapui.SoapUI org.apache.jmeter && echo "Development tools installed via Flatpak."

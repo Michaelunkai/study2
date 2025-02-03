@@ -1,0 +1,1 @@
+getrust && cargo new quiche-app && cd quiche-app && echo 'quiche = "0.15"' >> Cargo.toml && cargo run

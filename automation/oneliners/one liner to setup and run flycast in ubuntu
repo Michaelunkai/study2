@@ -1,0 +1,1 @@
+getflat && flatpak install flathub org.flycast.Flycast -y && flatpak run org.flycast.Flycast

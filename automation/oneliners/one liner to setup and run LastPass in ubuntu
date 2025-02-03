@@ -1,0 +1,1 @@
+sudo apt install -y lastpass-cli && lpass login michaelovsky5@gmail.com && lpass --version

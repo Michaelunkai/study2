@@ -1,0 +1,1 @@
+sudo apt install -y httptunnel && hts -F 1080 8888

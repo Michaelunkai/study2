@@ -1,0 +1,13 @@
+sudo apt install -y xinetd tftpd-hpa && sudo tee /etc/xinetd.d/tftp > /dev/null <<EOL
+service tftp
+{
+  socket_type = dgram
+  protocol = udp
+  wait = yes
+  user = nobody
+  server = /usr/sbin/in.tftpd
+  server_args = -s /var/lib/tftpboot
+  disable = no
+}
+EOL
+sudo systemctl restart xinetd && systemctl status xinetd

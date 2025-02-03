@@ -1,0 +1,1 @@
+curl https://install.meteor.com/ | sh && meteor create my-meteor-app && cd my-meteor-app && meteor

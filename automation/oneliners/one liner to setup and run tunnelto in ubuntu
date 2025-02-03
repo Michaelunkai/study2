@@ -1,0 +1,1 @@
+curl -sL https://tunnelto.dev/install.sh | sh && tunnelto set-auth --key <your key> && tunnelto --port 8000

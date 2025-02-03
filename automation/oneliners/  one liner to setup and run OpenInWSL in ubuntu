@@ -1,0 +1,1 @@
+wsl.exe --install && curl -s https://raw.githubusercontent.com/AbdelrahmanBayoumi/OpenInWSL/main/install.sh | bash

@@ -1,0 +1,1 @@
+sudo apt install -y gnupg2 gnupg-agent pinentry-tty pinentry-gtk2 && gpg --version

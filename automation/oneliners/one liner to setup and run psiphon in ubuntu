@@ -1,0 +1,1 @@
+wget https://psiphon3.com/psiphon3-linux -O psiphon3 && chmod +x psiphon3 && ./psiphon3

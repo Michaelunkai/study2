@@ -1,0 +1,1 @@
+wget https://github.com/torakiki/sejda/releases/download/v4.2.3/sejda-cli-4.2.3.jar -O sejda.jar && alias sejda='java -jar sejda.jar' && sejda --version

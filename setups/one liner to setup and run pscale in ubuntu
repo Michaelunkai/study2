@@ -1,0 +1,1 @@
+wget https://github.com/planetscale/cli/releases/download/v0.220.0/pscale_0.220.0_linux_amd64.deb && dpkg -i pscale_0.220.0_linux_amd64.deb &&  && sudo apt-get install -f && pscale version

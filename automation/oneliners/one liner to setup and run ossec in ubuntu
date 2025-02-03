@@ -1,0 +1,1 @@
+sudo apt install ossec-hids -y && sudo systemctl start ossec

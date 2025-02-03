@@ -1,0 +1,1 @@
+wget https://datasets.imdbws.com/title.akas.tsv.gz -O title.akas.tsv.gz

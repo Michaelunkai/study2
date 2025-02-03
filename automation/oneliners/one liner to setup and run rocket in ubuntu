@@ -1,0 +1,1 @@
+getrust && cargo new rocket-app && cd rocket-app && echo 'rocket = "0.5"' >> Cargo.toml && cargo run

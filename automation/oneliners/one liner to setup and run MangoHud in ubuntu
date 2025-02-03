@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y mangohud && echo "mangohud %command%" > ~/.local/share/mangohud && chmod +x ~/.local/share/mangohud && mangohud

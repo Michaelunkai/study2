@@ -1,0 +1,1 @@
+flatpak install -y flathub me.kozec.syncthingtk nz.mega.MEGAsync com.nextcloud.desktopclient.nextcloud com.calibre_ebook.calibre org.filezillaproject.Filezilla org.torproject.torbrowser-launcher com.obsproject.Studio io.github.slgobinath.SafeEyes && echo "User software installed via Flatpak."

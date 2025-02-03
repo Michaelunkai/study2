@@ -1,0 +1,1 @@
+ pip3 install kedro pyspark && apt install -y expect default-jre && expect -c 'spawn kedro new --name new-kedro-project --tools all --example y; expect "Project Name"; send "\r"; expect "Example Pipeline"; send "y\r"; interact' && cd new-kedro-project && pip3 install -r requirements.txt && kedro run --pipeline=__default__

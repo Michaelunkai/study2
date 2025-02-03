@@ -1,0 +1,1 @@
+Start-Process "C:\backup\windowsapps\install\SteamSetup.exe" -ArgumentList "/SILENT /DIR=C:\backup\windowsapps\installed\steam"

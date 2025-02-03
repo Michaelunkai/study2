@@ -1,0 +1,1 @@
+wget https://github.com/net-byte/websocks/releases/latest/download/websocks-linux-amd64 -O websocks && chmod +x websocks && ./websocks -l :1080 -s ws://server:port

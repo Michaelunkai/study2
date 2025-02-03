@@ -1,0 +1,1 @@
+sudo apt install sysmon -y && sysmon

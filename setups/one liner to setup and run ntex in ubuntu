@@ -1,0 +1,1 @@
+getrust && cargo new ntex-app && cd ntex-app && echo 'ntex = "0.5"' >> Cargo.toml && cargo run

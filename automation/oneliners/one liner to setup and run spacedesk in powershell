@@ -1,0 +1,1 @@
+wget -O spacedesk.msi https://www.spacedesk.net/downloadidd64; ./spacedesk.msi

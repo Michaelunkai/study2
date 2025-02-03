@@ -1,0 +1,1 @@
+getrust && cargo new weld-app && cd weld-app && echo 'weld = "0.3"' >> Cargo.toml && cargo run

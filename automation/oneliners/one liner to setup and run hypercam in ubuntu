@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget http://www.hyperionics.com/downloads/HC3Setup.exe && wine HC3Setup.exe

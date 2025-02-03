@@ -1,0 +1,1 @@
+sudo apt install datalad -y && datalad install https://example.com/dataset.git

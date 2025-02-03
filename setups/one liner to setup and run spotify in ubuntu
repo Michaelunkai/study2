@@ -1,0 +1,1 @@
+getflat && flatpak install flathub com.spotify.Client && flatpak run com.spotify.Client

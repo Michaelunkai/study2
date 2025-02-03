@@ -1,0 +1,9 @@
+sudo apt update && \
+sudo apt install -y curl git build-essential && \
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && \
+sudo apt install -y nodejs && \
+git clone https://github.com/MichMich/MagicMirror && \
+cd MagicMirror && \
+npm install && \
+cp config/config.js.sample config/config.js && \
+npm run start -- --no-sandbox

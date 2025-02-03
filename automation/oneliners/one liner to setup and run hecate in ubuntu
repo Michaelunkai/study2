@@ -1,0 +1,1 @@
+getrust && cargo new hecate-app && cd hecate-app && echo 'hecate = "0.3"' >> Cargo.toml && cargo run

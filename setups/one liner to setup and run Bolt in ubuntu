@@ -1,0 +1,1 @@
+wget https://apt.puppet.com/puppet-tools-release-jammy.deb && sudo dpkg -i puppet-tools-release-jammy.deb && sudo apt update && sudo apt install -y puppet-bolt && bolt --version && bolt command run 'pxe_boot_command' --targets target_host --user username --password password --no-host-key-check

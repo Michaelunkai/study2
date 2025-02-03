@@ -1,0 +1,1 @@
+sudo apt install dkms -y && git clone https://github.com/RetroPie/GameCon-Driver && cd GameCon-Driver && sudo ./install.sh && sudo modprobe gamecon_gpio_rpi && echo "Gamecon GPIO Driver installed"

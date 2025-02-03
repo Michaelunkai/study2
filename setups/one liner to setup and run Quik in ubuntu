@@ -1,0 +1,1 @@
+nvm23 && npm create qwik@latest my-app --template react && cd my-app && npm start

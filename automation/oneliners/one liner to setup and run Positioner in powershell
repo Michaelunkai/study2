@@ -1,0 +1,1 @@
+down; wget https://github.com/s0d3s/Positioner/releases/download/v0.8.6a1/positioner_installer_x64.exe; ./positioner_installer_x64.exe

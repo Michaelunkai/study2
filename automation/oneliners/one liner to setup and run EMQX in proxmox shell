@@ -1,0 +1,8 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/emqx.sh)"
+
+
+Default Login Credentials
+You can use the following credentials to login to the EMQX ct.
+
+Username: admin
+Password: public

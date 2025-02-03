@@ -1,0 +1,1 @@
+sudo apt install dkms linux-headers-$(uname -r) -y && git clone https://github.com/medusalix/xone && cd xone && sudo ./install.sh && sudo systemctl enable xone && sudo systemctl start xone && sudo systemctl status xone

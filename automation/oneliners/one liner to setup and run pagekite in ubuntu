@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y pagekite && pagekite <YOUR_LOCAL_PORT> <YOUR_PAGEKITE_NAME>.pagekite.me

@@ -1,0 +1,1 @@
+ getfuse && wget https://openrgb.org/releases/release_0.9/OpenRGB_0.9_x86_64_b5f46e3.AppImage && chmod +x OpenRGB_0.9_x86_64_b5f46e3.AppImage && ./OpenRGB_0.9_x86_64_b5f46e3.AppImage

@@ -1,0 +1,1 @@
+getfuse && getlib &&  wget https://github.com/mifi/lossless-cut/releases/download/v3.64.0/LosslessCut-linux-x86_64.AppImage -O LosslessCut.AppImage && chmod +x LosslessCut.AppImage &&  ./LosslessCut.AppImage --no-sandbox

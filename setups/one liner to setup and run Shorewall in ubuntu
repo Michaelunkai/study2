@@ -1,0 +1,1 @@
+sudo apt install -y shorewall && echo "Edit /etc/shorewall/shorewall.conf to configure"

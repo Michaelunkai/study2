@@ -1,0 +1,1 @@
+getsnap && sudo snap install codium --classic && codium --no-sandbox --user-data-dir=.

@@ -1,0 +1,8 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/tianji.sh)"
+
+
+Default Login Credentials
+You can use the following credentials to login to the Tianji ct.
+
+Username: admin
+Password: admin

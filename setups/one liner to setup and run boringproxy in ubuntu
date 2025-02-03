@@ -1,0 +1,1 @@
+wget https://github.com/boringproxy/boringproxy/releases/latest/download/boringproxy-linux-amd64 -O boringproxy && chmod +x boringproxy && ./boringproxy

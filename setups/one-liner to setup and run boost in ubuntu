@@ -1,0 +1,1 @@
+npm install @boost/core && echo "const { Application } = require('@boost/core'); const app = new Application(); app.start();" > app.js && node app.js

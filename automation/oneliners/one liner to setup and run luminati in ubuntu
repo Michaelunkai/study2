@@ -1,0 +1,1 @@
+npm install -g @luminati/luminati-proxy && luminati --www 22999

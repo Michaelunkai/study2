@@ -1,0 +1,6 @@
+ranch && curl -Lo install-oci-cli.sh https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh && bash install-oci-cli.sh --accept-all-defaults && mkdir -p ~/.oci && echo -e "[DEFAULT]\nuser=<YOUR_USER_OCID>\nfingerprint=<YOUR_FINGERPRINT>\ntenancy=<YOUR_TENANCY_OCID>\nregion=<YOUR_REGION>\nkey_file=~/.oci/oci_api_key.pem" > ~/.oci/config && chmod 600 ~/.oci/config && oci ce cluster create --compartment-id <YOUR_COMPARTMENT_OCID> --name MyOKECluster --kubernetes-version v1.24.10 && oci ce cluster create-kubeconfig --cluster-id <YOUR_CLUSTER_OCID> --file $HOME/.kube/config --region <YOUR_REGION> --token-version 2.0.0 && curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash && pip install oci && echo "Setup complete!"
+
+
+What you need to replace manually:
+Replace <YOUR_USER_OCID>, <YOUR_FINGERPRINT>, <YOUR_TENANCY_OCID>, <YOUR_REGION>, <YOUR_COMPARTMENT_OCID>, and <YOUR_CLUSTER_OCID> with the actual values from your Oracle Cloud Console.
+Add your private key file at ~/.oci/oci_api_key.pem.

@@ -1,0 +1,1 @@
+sudo apt install flowblade -y && GDK_BACKEND=x11 flowblade

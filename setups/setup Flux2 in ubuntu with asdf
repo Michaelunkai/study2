@@ -1,0 +1,3 @@
+asdf plugin-add flux2 https://github.com/tablexi/asdf-flux2.git
+asdf install flux2 2.3.0
+asdf global flux 2.3.0

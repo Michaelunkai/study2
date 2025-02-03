@@ -1,0 +1,1 @@
+npx create-remix@latest && cd my-remix-app && npm run dev

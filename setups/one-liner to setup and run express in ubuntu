@@ -1,0 +1,1 @@
+npx express-generator && cd myapp && npm install && npm start

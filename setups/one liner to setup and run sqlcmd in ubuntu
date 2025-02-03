@@ -1,0 +1,10 @@
+curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
+sudo add-apt-repository "$(curl -s https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list)" && \
+sudo apt update && \
+sudo apt install -y mssql-tools unixodbc-dev && \
+export PATH=$PATH:/opt/mssql-tools/bin && \
+echo 'export PATH=$PATH:/opt/mssql-tools/bin' >> ~/.bashrc && \
+source ~/. rc
+
+ cmd

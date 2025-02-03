@@ -1,0 +1,1 @@
+sudo apt install -y intel-microcode amd64-microcode && sudo update-initramfs -u && sudo systemctl restart systemd-udevd && dmesg | grep microcode

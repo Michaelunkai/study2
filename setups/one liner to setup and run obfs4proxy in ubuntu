@@ -1,0 +1,1 @@
+sudo apt install -y obfs4proxy && obfs4proxy

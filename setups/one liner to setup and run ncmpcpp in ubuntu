@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y mpd mpc ncmpcpp && mkdir -p ~/.config/mpd/playlists && echo -e "music_directory \"~/Music\"\nplaylist_directory \"~/.config/mpd/playlists\"\ndb_file \"~/.config/mpd/database\"\nlog_file \"~/.config/mpd/log\"" > ~/.config/mpd/mpd.conf && mpd && ncmpcpp

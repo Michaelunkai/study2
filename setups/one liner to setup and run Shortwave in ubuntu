@@ -1,0 +1,1 @@
+flatpak install -y flathub de.haeckerfelix.Shortwave && flatpak run de.haeckerfelix.Shortwave

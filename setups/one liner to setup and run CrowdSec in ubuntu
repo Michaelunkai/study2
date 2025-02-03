@@ -1,0 +1,1 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/crowdsec.sh)" && apt install crowdsec -y && apt install -y crowdsec-firewall-bouncer-iptables && cscli collections list && cscli dashboard setup && cscli simulation enable crowdsecurity/ssh-bf && systemctl reload crowdsec

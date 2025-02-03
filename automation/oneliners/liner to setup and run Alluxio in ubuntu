@@ -1,0 +1,1 @@
+sudo apt install openjdk-11-jdk -y && java -version && wget https://downloads.alluxio.io/downloads/files/2.7.1/alluxio-2.7.1-bin.tar.gz && tar xzf alluxio-2.7.1-bin.tar.gz && cd alluxio-2.7.1 && ./bin/alluxio-start.sh local && echo "Alluxio is running. Visit: https://www.alluxio.io/"

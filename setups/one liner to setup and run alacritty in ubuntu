@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y software-properties-common && sudo add-apt-repository ppa:aslatter/ppa -y && sudo apt update && sudo apt install -y alacritty && alacritty

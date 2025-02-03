@@ -1,0 +1,1 @@
+sudo apt install libsdl2-dev -y && git clone https://github.com/grumbel/sdl-jstest && cd sdl-jstest && make && ./sdl2-jstest

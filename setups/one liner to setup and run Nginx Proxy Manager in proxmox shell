@@ -1,0 +1,8 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/nginxproxymanager.sh)"\
+
+
+Default Login Credentials
+You can use the following credentials to login to the Nginx Proxy Manager ct.
+
+Username: admin@example.com
+Password: changeme

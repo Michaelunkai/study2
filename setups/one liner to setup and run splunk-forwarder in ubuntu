@@ -1,0 +1,1 @@
+wget -O splunkforwarder.tgz https://download.splunk.com/products/universalforwarder/releases/latest/linux/splunkforwarder.tgz && tar -xzf splunkforwarder.tgz && cd splunkforwarder/bin && ./splunk start --accept-license

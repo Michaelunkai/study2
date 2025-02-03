@@ -1,0 +1,1 @@
+flatpak install flathub org.citra_emu.citra -y && flatpak run org.citra_emu.citra

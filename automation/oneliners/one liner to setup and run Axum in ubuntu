@@ -1,0 +1,1 @@
+getrust && cargo new axum-app && cd axum-app && echo 'axum = "0.6"' >> Cargo.toml && cargo run

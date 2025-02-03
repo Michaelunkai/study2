@@ -1,0 +1,1 @@
+sudo apt install -y wget && wget https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz -O gdu.tgz && tar xvf gdu.tgz && sudo mv gdu_linux_amd64 /usr/local/bin/gdu && gdu

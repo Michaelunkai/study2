@@ -1,0 +1,1 @@
+choco install xming -y --force; Start-Process "C:\Program Files (x86)\Xming\Xming.exe" -ArgumentList ":0 -multiwindow -clipboard"

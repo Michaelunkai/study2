@@ -1,0 +1,1 @@
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && sudo apt install -y libwebkit2gtk-4.0-dev build-essential && cargo install create-tauri-app && create-tauri-app myApp && cd myApp && npm run tauri dev

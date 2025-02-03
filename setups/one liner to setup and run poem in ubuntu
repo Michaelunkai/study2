@@ -1,0 +1,1 @@
+getrust && cargo new poem-app && cd poem-app && echo 'poem = "1.3"' >> Cargo.toml && cargo run

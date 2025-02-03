@@ -1,0 +1,1 @@
+sudo apt install -y age && echo "Hello, world!" | age -o test.age -r AGE_PUBLIC_KEY && age -d test.age -i AGE_PRIVATE_KEY

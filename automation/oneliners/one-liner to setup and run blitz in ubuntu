@@ -1,0 +1,1 @@
+npx create-blitz-app my-blitz-app && cd my-blitz-app && blitz dev

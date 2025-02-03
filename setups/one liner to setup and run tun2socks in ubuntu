@@ -1,0 +1,1 @@
+wget https://github.com/xjasonlyu/tun2socks/releases/latest/download/tun2socks-linux-amd64 -O tun2socks && chmod +x tun2socks && ./tun2socks -device tun0 -proxy socks5://127.0.0.1:1080

@@ -1,0 +1,1 @@
+npm install barrel-js && echo "const Barrel = require('barrel-js'); new Barrel().listen(3000);" > app.js && node app.js

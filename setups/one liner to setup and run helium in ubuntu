@@ -1,0 +1,1 @@
+getrust && cargo new helium-app && cd helium-app && echo 'helium = "0.1"' >> Cargo.toml && cargo run
