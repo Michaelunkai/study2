@@ -1,6 +1,0 @@
-run whisper:
-
-docker run -v /mnt/c/:/c/ -it michadockermisha/backup:whisper bash
-
-start container:
-alias startwh='docker start -ai whisper'

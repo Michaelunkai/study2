@@ -1,0 +1,1 @@
+wget https://download.arangodb.com/arangodb37/DEBIAN/Release.key && sudo apt-key add Release.key && echo 'deb https://download.arangodb.com/arangodb37/DEBIAN/ /' | sudo tee /etc/apt/sources.list.d/arangodb.list && sudo apt update && sudo apt install -y arangodb3 && sudo systemctl start arangodb3

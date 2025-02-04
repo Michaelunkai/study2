@@ -1,0 +1,1 @@
+git clone https://github.com/example/imagevault.git && cd imagevault && composer install && php artisan serve

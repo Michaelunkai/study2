@@ -1,0 +1,1 @@
+wget https://galleryproject.org/download/Gallery-3.2.10.tar.gz && tar -xzf Gallery-3.2.10.tar.gz && mv Gallery-3.2.10 gallery && echo 'Follow Gallery installation guide'

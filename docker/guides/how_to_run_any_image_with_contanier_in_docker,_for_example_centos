@@ -1,8 +1,0 @@
-#how to run any image with contanier in docker, for example centos:
-
-
-1) docker pull centos:7
-2)docker run -d -t --name centos7 centos:7
-3) docker exec -it centos7 bash
-
-

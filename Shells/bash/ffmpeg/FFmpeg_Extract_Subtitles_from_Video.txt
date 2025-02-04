@@ -1,1 +1,0 @@
-ffmpeg -i input.mkv -map 0:s:0 subs.srt

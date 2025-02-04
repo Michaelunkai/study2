@@ -1,7 +1,0 @@
-Simple Aggregation:
-
-db.mycollection.aggregate([
-  { $match: { age: { $gt: 25 } } },
-  { $group: { _id: "$city", total: { $sum: 1 } } }
-])
-

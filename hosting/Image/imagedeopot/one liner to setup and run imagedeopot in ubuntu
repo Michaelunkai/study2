@@ -1,0 +1,1 @@
+git clone https://github.com/example/imagedeopot.git && cd imagedeopot && npm install && node server.js

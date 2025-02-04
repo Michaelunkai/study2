@@ -1,1 +1,0 @@
-db.sessions.createIndex({ createdAt: 1 }, { expireAfterSeconds: 3600 })

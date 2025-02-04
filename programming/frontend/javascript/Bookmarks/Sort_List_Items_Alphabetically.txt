@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('ul').forEach(ul => { let items = [...ul.children]; items.sort((a, b) => a.textContent.localeCompare(b.textContent)); ul.innerHTML = ''; items.forEach(item => ul.appendChild(item)); }); })();

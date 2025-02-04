@@ -1,0 +1,14 @@
+wget https://github.com/fabiolb/fabio/releases/download/v1.5.15/fabio-1.5.15-go1.17.6-linux_amd64 -O fabio && chmod +x fabio && sudo mv fabio /usr/local/bin/ && fabio
+
+
+or: 
+
+wget -qO- https://releases.hashicorp.com/consul/1.11.4/consul_1.11.4_linux_amd64.zip -O consul.zip && unzip consul.zip && sudo mv consul /usr/local/bin/ && rm consul.zip && consul agent -dev &
+
+
+
+
+wget -qO- https://github.com/fabiolb/fabio/releases/download/v1.6.1/fabio-1.6.1-linux_amd64 -O fabio && sudo mv fabio /usr/local/bin/ && sudo chmod +x /usr/local/bin/fabio && fabio -insecure &
+
+
+

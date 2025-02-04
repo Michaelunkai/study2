@@ -1,7 +1,0 @@
-Voila
-Overview: Voila turns Jupyter notebooks into standalone web applications. It allows you to share interactive Jupyter notebooks with others without exposing the underlying code.
-Features:
-Leverages the power of Jupyter notebooks
-No need to write additional UI code
-Supports all Jupyter interactive widgets
-Use Case: Perfect for sharing data science projects or ML models with interactivity, directly from Jupyter notebooks

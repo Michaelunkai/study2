@@ -1,7 +1,0 @@
-history = model.fit(x, y, epochs=100, verbose=0)
-
-weights = model.layers[0].get_weights()[0]
-
-plt.plot(weights)
-plt.title('Weights of the first layer')
-plt. ow()

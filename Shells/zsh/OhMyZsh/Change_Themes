@@ -1,5 +1,0 @@
-Change Themes: Edit the ~/.zshrc file to change themes. For example:
-
- 
- 
-ZSH_THEME="agnoster"

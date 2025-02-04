@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('a').forEach(link => link.download = true); })();

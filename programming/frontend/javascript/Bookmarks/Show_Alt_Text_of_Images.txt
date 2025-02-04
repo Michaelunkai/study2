@@ -1,3 +1,0 @@
-(function() {
-    document.querySelectorAll('img').forEach(img => alert(img.alt));
-})();

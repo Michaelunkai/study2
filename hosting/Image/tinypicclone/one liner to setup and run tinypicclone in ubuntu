@@ -1,0 +1,1 @@
+git clone https://github.com/example/tinypicclone.git && cd tinypicclone && npm install && npm start

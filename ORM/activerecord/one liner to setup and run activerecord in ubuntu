@@ -1,0 +1,1 @@
+gem install activerecord && ruby -e 'require "active_record"; puts ActiveRecord::VERSION::STRING'

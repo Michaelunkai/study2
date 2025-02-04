@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://download.jetbrains.com/datagrip/datagrip-2021.2.3.exe -OutFile datagrip_installer.exe; Start-Process datagrip_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

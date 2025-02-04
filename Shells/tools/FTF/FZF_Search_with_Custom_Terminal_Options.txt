@@ -1,1 +1,0 @@
-fzf --height 40% --margin=1,0,0,0

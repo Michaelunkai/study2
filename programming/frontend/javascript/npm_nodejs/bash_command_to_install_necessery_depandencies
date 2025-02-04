@@ -1,2 +1,0 @@
-sudo apt install -y nodejs npm && sudo npm install -gy yarn eslint prettier @babel/core webpack express && sudo apt install -y git
-

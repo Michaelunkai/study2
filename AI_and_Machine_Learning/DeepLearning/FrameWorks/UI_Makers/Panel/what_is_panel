@@ -1,7 +1,0 @@
- Panel
-Overview: Panel is an open-source Python library for creating interactive data apps and dashboards. It works well with a wide range of plotting libraries and supports different data formats.
-Features:
-Integrates with Bokeh, Matplotlib, Plotly, and other plotting libraries
-Supports various types of input widgets
-Can be used for both simple and complex applications
-Use Case: Suitable for building sophisticated data apps with a high level of customization and interactivity.

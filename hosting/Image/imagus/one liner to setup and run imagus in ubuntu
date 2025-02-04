@@ -1,0 +1,1 @@
+git clone https://github.com/example/imagus.git && cd imagus && composer install && php -S localhost:8000 -t public

@@ -1,1 +1,0 @@
-winget install --id=AdoptOpenJDK.Hotspot.16 -e

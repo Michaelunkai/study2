@@ -1,1 +1,0 @@
-sudo docker run -d -p 8086:80 --name filebrowser --restart=always filebrowser/filebrowser && gcl 8086 && echo "admin admin"

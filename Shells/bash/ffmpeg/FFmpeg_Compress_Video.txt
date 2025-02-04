@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vcodec h264 -b:v 1000k -acodec aac -b:a 128k output.mp4

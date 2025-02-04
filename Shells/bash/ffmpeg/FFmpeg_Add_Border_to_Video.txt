@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf "pad=iw+20:ih+20:10:10" output.mp4

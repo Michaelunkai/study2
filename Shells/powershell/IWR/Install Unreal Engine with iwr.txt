@@ -1,1 +1,0 @@
-iwr -Uri https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/Release/UnrealEngineLauncherInstaller.msi -OutFile unreal_engine_installer.msi; Start-Process msiexec.exe -ArgumentList '/i unreal_engine_installer.msi /quiet' -NoNewWindow -Wait

@@ -1,0 +1,1 @@
+pip3 install kaggler && python3 -c 'import kaggler; print(kaggler.__version__)'

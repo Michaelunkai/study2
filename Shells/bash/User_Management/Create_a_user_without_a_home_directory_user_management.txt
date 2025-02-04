@@ -1,3 +1,0 @@
-Command: sudo adduser --no-create-home <username>
-Description: Creates a user without a home directory.
-User Management

@@ -1,1 +1,0 @@
-subprocess.Popen(['gcc', 'main.c', '-o', 'main'])

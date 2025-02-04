@@ -1,6 +1,0 @@
-If your application requires a custom build environment, you can specify custom buildpacks.
-
-Add a custom buildpack to your app:
-
-dokku buildpacks:add myapp https://github.com/heroku/heroku-buildpack-ruby
-

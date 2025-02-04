@@ -1,1 +1,0 @@
-colab-cli rename-nb <old_notebook_name.ipynb> <new_notebook_name.ipynb>

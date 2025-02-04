@@ -1,7 +1,0 @@
- Configuring Matomo
-Once the installation is complete, you can configure Matomo to track your website. Here are the basic steps:
-
-Log in to your Matomo dashboard.
-Add a new website to track.
-Copy the JavaScript tracking code provided by Matomo.
-Paste this code into the <head> section of your website's HTML.

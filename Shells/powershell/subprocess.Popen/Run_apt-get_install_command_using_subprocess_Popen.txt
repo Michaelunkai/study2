@@ -1,1 +1,0 @@
-subprocess.Popen(['sudo', 'apt-get', 'install', 'package_name'])

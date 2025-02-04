@@ -1,1 +1,0 @@
-scrapy crawl myspider -s ROBOTSTXT_OBEY=True

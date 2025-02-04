@@ -1,1 +1,0 @@
-iwr -Uri https://sourceforge.net/projects/dosbox/files/dosbox/0.74-3/DOSBox0.74-3-win32-installer.exe -OutFile dosbox_installer.exe; Start-Process dosbox_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

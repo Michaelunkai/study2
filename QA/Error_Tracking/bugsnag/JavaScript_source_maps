@@ -1,4 +1,0 @@
-JavaScript source maps
-To get unminified stack traces for JavaScript code on the web, source maps must be generated and uploaded to BugSnag.
-
-$ bugsnag-cli upload js

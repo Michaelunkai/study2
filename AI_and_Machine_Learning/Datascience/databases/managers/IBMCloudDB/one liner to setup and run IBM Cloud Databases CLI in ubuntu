@@ -1,1 +1,0 @@
-curl -sL https://ibm.biz/idt-installer | bash && ibmcloud login && ibmcloud resource service-instances

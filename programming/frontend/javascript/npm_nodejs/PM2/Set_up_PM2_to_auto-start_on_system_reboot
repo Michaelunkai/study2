@@ -1,6 +1,0 @@
-Set up PM2 to auto-start on system reboot: You can configure PM2 to restart your applications automatically after a system reboot:
-
- 
- 
-pm2 startup systemd
-The output will show a command to run. Copy and paste the command it provides to finalize the setup.

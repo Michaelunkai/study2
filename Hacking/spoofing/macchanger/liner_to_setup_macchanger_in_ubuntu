@@ -1,1 +1,0 @@
-cd spoofing && sudo apt install -y macchanger && sudo macchanger -r eth0

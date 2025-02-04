@@ -1,1 +1,0 @@
-find / -type d -name "dirname" 2>/dev/null

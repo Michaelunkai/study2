@@ -1,0 +1,1 @@
+npm install -g mongoose && node -e 'console.log(require("mongoose").version)'

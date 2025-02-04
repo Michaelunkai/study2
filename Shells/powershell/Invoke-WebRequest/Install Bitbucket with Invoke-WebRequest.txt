@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://bitbucket.org/downloads/BitbucketInstaller.exe -OutFile bitbucket_installer.exe; Start-Process bitbucket_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

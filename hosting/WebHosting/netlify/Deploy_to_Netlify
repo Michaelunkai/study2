@@ -1,6 +1,0 @@
-Deploy to Netlify:
-
- 
- 
-netlify deploy --dir=public --prod
-Follow the prompts to select your site name or create a new site.

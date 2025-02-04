@@ -1,8 +1,0 @@
-Understanding the Model Architecture
-Here is the sequence of layers we defined for our text classification model:
-
-Word Embedding Layer
-GlobalAveragePooling1D
-Dense
-Dense
-We are familiar with what the two dense layers are but what the heck is an embedding layer and what does GlobalAveragePooling1D do?

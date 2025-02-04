@@ -1,7 +1,0 @@
-Prevention of SSTI
-To prevent SSTI vulnerabilities, follow these best practices:
-
-Sanitize User Input: Always sanitize and validate user input before using it in templates.
-Use a Safe Subset of Template Syntax: Restrict the template syntax to a safe subset if possible.
-Avoid Direct User Input in Templates: Avoid directly inserting user input into templates. Use context variables and render them safely.
-Use a Template Engine with Built-in Protections: Some template engines have built-in mechanisms to mitigate SSTI vulnerabilities.

@@ -1,1 +1,0 @@
-(function() { let media = [...document.querySelectorAll('img, video, audio')].map(el => el.src); alert(media.join('\n')); })();

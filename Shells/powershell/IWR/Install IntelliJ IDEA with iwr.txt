@@ -1,1 +1,0 @@
-iwr -Uri https://download.jetbrains.com/idea/ideaIC-2021.2.3.exe -OutFile intellij_installer.exe; Start-Process intellij_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

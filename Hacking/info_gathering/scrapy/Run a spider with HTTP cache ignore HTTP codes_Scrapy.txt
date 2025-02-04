@@ -1,1 +1,0 @@
-scrapy crawl myspider -s HTTPCACHE_IGNORE_HTTP_CODES=[500,503]

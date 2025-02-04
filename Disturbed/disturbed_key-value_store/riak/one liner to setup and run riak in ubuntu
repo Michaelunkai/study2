@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y curl && curl -O https://packagecloud.io/basho/riak/packages/ubuntu/trusty/riak_2.2.3-1_amd64.deb && sudo dpkg -i riak_2.2.3-1_amd64.deb && sudo systemctl start riak

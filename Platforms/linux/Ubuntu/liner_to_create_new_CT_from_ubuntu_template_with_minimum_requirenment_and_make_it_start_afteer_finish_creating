@@ -1,1 +1,0 @@
-pct create 100 /var/lib/vz/template/cache/ubuntu-23.04-standard_23.04-1_amd64.tar.zst --hostname Speach2Text --cores 1 --memory 512 --net0 name=eth0,bridge=vmbr0,ip=dhcp --nameserver 8.8.8.8 --password 123456 --start 1

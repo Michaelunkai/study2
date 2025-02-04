@@ -1,4 +1,0 @@
-Additional Tips
-Documentation: Refer to the official OpenVAS documentation for advanced configurations and troubleshooting.
-Backup: Regularly backup your OpenVAS configuration and data.
-Security: Ensure that your OpenVAS setup is secured, especially if accessible over a network.

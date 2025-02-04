@@ -1,5 +1,0 @@
-Open "Server Manager" and click on "Add roles and features."
-Select "DNS Server" and follow the wizard to install the role.
-After installing the role, open "DNS Manager" from the Tools menu.
-Right-click on "Forward Lookup Zones" and select "New Zone" to create a new primary DNS zone.
-Follow the wizard to configure the zone settings, including the zone name and file name.

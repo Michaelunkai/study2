@@ -1,3 +1,0 @@
-Command: w
-Description: Shows detailed information about users currently logged in.
-User Management

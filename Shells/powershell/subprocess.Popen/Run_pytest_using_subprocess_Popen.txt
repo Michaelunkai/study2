@@ -1,1 +1,0 @@
-subprocess.Popen(['pytest', 'test_module.py'])

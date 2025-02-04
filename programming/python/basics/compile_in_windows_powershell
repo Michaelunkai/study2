@@ -1,8 +1,0 @@
-pyinstaller --onefile --icon=a.ico --windowed --name=MyApp script.py
-
-
-** or with pyinstaller full path: 
-
- & "C:\Users\micha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts\pyinstaller" --onefile --icon=a.ico --windowed --name=WinOptimize a.py
-
-

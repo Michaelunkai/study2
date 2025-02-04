@@ -1,1 +1,0 @@
-scrapy crawl myspider -s HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'

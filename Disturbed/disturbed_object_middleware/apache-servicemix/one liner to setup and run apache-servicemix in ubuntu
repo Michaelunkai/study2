@@ -1,0 +1,1 @@
+wget https://archive.apache.org/dist/servicemix/servicemix-7.0.1/apache-servicemix-7.0.1.zip && unzip apache-servicemix-7.0.1.zip && cd apache-servicemix-7.0.1/bin && ./servicemix

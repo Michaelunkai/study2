@@ -1,1 +1,0 @@
-docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3307 mariadb:latest && docker exec -it mariadb mariadb -u root -p

@@ -1,3 +1,0 @@
-(function() {
-    window.open('view-source:' + location.href);
-})();

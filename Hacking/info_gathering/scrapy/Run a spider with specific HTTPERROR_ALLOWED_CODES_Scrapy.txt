@@ -1,1 +1,0 @@
-scrapy crawl myspider -s HTTPERROR_ALLOWED_CODES=[403,404]

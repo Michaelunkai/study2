@@ -1,4 +1,0 @@
-docker run -it \
---name hummingbot-instance \
---mount type=bind,source="$(pwd)",target=/hummingbot_files \
-coinalpha/hummingbot:latest

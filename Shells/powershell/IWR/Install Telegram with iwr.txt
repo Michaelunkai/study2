@@ -1,1 +1,0 @@
-iwr -Uri https://telegram.org/dl/desktop/win -OutFile telegram_installer.exe; Start-Process telegram_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

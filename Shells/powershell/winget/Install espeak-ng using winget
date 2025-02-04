@@ -1,1 +1,0 @@
-winget install --id=espeak-ng.espeak-ng --silent

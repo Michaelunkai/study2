@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y default-jdk maven && git clone https://github.com/apache/camel.git && cd camel && mvn install && mvn camel:run

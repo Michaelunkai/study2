@@ -1,4 +1,0 @@
-Configure the Webhook in Telnyx
-Log in to the Telnyx Portal.
-Navigate to Webhooks: Find the section where you can configure webhooks.
-Set the Webhook URL: Use the ngrok URL followed by /webhook (e.g., http://123456.ngrok.io/webhook).

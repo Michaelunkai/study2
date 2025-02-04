@@ -1,1 +1,0 @@
-awk '$2 == "OK" || $2 == "Failed"' filename.txt

@@ -1,1 +1,0 @@
-Get-Command Get-Process | Select-Object -ExpandProperty Syntax

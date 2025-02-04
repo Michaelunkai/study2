@@ -1,1 +1,0 @@
-iwr -Uri https://update.code.visualstudio.com/latest/win32-x64-user/stable -OutFile vscode_installer.exe; Start-Process vscode_installer.exe -ArgumentList '/silent /mergetasks=!runcode' -NoNewWindow -Wait

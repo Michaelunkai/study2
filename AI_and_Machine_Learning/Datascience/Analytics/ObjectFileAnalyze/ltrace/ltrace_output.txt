@@ -1,6 +1,0 @@
-gdb_debugger
-ltrace_output.txt
-objdump
-readelf
-strace
-trace_library_calls_with_ltrace.sh

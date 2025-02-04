@@ -1,7 +1,0 @@
-New: Gemini 1.5 Pro Leads the Chatbot Rankings ✨
-For the first time ever, Google's experimental DeepMind Gemini 1.5 Pro has claimed the top spot in the AI Chatbot Arena rankings, surpassing OpenAI's GPT-4o and Anthropic's Claude-3.5 with an impressive score of 1300. The Gemini 1.5 Pro (Experimental 0801) received over 12K community votes during a week of testing in the LMSYS Chatbot Arena.
-The new experimental model achieved first place in both the overall ranking and the visual ranking. The experimental version is available for early testing in Google AI Studio, through the Gemini API, and in the LMSYS Chatbot Arena. Google DeepMind has not disclosed specific improvements but promises further updates soon. Without any prior announcement, the Gemini 1.5 Pro unexpectedly rose to the top of the overall chatbot rankings by a margin of 14 points. This significant leap suggests that Google may have quietly established itself as a new leader in the LLM field, or we may be on the brink of significant competitive responses from industry rivals.
-_________________________________
-Join AIMR Club
-https://aimr.cc
-_________________________________

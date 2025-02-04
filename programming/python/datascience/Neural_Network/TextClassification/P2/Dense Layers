@@ -1,2 +1,0 @@
-Dense Layers
-The last two layers in our network are dense fully connected layers. The output layer is one neuron that uses the sigmoid function to get a value between a 0 and a 1 which will represent the likelihood of the review being positive or negative. The layer before that contains 16 neurons with a relu activation function designed to find patterns between different words present in the review.

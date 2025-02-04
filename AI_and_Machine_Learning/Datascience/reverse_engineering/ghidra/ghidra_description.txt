@@ -1,8 +1,0 @@
-Ghidra is a software reverse engineering (SRE) framework developed by the National Security Agency (NSA) of the United States. It was publicly released in 2019 as free and open-source software. Ghidra provides tools for analyzing compiled code on various platforms, enabling users to understand the functionality and structure of the software.
-Key features of Ghidra include:
-1. Multi-platform Support: Ghidra runs on Windows, macOS, and Linux.
-2. Graphical User Interface (GUI): It offers a user-friendly GUI to facilitate analysis.
-3. Decompiler: Ghidra includes a decompiler that translates machine code back into a higher-level programming language, which aids in understanding the code's logic.
-4. Scripting: Users can write scripts in Python or Java to automate tasks and extend functionality.
-5. Collaboration: Ghidra supports collaborative analysis, allowing multiple users to work on the same project simultaneously.
-Ghidra is widely used by cybersecurity professionals, researchers, and software engineers to analyze malware, discover vulnerabilities, and understand legacy code.

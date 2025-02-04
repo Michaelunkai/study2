@@ -1,1 +1,0 @@
-cd && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common  && getnpm && sudo npm install -g sitespeed.io  && sitespeed.io --version && docker pull sitespeedio/sitespeed.io && docker images | grep sitespeed.io

@@ -1,7 +1,0 @@
- Run Suricata
-Finally, start Suricata in IDS mode:
-
- 
- 
-sudo suricata -c /etc/suricata/suricata.yaml -i eth0
-Replace eth0 with your actual network interface if different.

@@ -1,0 +1,1 @@
+flatpak install -y flathub org.toonz.TupiTube && flatpak run org.toonz.TupiTube

@@ -1,1 +1,0 @@
-sudo apt install ssl-cert-check -y && ssl-cert-check

@@ -1,1 +1,0 @@
-aws codepipeline acknowledge-third-party-job --job-id <job-id> --nonce <nonce>

@@ -1,7 +1,0 @@
-Get Help Information for Honeybadger:
-
-To see all available options and commands for Honeybadger, run the following command:
-
- 
- 
-  honeybadger/honeybadger.py --help

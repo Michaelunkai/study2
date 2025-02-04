@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y lizardfs-master lizardfs-chunkserver lizardfs-client && sudo systemctl start lizardfs-master lizardfs-chunkserver

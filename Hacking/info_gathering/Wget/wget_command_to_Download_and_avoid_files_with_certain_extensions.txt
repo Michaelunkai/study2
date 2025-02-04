@@ -1,1 +1,0 @@
-wget -R .jpg,.gif http://example.com/

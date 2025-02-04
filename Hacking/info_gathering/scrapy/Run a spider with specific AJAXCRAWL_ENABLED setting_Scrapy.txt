@@ -1,1 +1,0 @@
-scrapy crawl myspider -s AJAXCRAWL_ENABLED=True

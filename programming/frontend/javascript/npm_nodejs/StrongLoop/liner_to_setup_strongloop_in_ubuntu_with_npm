@@ -1,1 +1,0 @@
-sudo apt install -y build-essential && getnpm && sudo npm install -g strongloop && slc -v

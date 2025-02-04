@@ -1,3 +1,0 @@
-CREATE USER myuser WITH PASSWORD 'mypassword';
-CREATE DATABASE mydb;
-GRANT ALL ON DATABASE mydb TO myuser;

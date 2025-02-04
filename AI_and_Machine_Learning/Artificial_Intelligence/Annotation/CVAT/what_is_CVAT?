@@ -1,9 +1,0 @@
-CVAT (Computer Vision Annotation Tool) is an open-source web-based tool designed for annotating digital images and videos. It is used to create labels, bounding boxes, polygons, and other annotations that are essential for training computer vision models. CVAT supports multiple annotation formats and is widely used in various machine learning and artificial intelligence projects where labeled data is required for tasks such as object detection, image segmentation, and more.
-
-Key features of CVAT:
-- **Collaborative environment**: Multiple users can work on the same annotation project.
-- **Supports various annotation types**: Bounding boxes, polygons, points, lines, etc.
-- **Automated tools**: CVAT integrates with AI models to speed up the annotation process using automatic labeling tools.
-- **Scalability**: It can be used for small to large-scale annotation projects.
-
-It's commonly used in industries like autonomous driving, healthcare, and other fields that require precise annotation of visual data.

@@ -1,1 +1,0 @@
- dpkg --add-architecture i386 && apt-get update && apt-get install wine32 && sudo apt install wine -y

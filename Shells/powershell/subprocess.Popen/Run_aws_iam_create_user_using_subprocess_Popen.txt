@@ -1,1 +1,0 @@
-subprocess.Popen(['aws', 'iam', 'create-user', '--user-name', 'new_user'])

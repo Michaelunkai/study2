@@ -1,5 +1,0 @@
-Monitoring processes: You can monitor the resource usage of your processes using:
-
- 
- 
-pm2 monit

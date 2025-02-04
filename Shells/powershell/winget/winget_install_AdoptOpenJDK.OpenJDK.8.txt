@@ -1,1 +1,0 @@
-winget install --id=AdoptOpenJDK.OpenJDK.8 -e

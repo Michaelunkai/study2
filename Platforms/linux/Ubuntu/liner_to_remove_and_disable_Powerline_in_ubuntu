@@ -1,4 +1,0 @@
-sed -i '/source \/usr\/share\/powerline\/bindings\/bash\/powerline.sh/d' ~/.bashrc
-sudo apt remove --purge -y powerline fonts-powerline
-source ~/. rc
- 

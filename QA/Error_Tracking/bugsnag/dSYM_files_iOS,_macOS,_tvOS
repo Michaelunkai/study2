@@ -1,4 +1,0 @@
-dSYM files (iOS, macOS, tvOS)
-Upload dSYM files to allow BugSnag to show human-friendly function names, file paths, and line numbers in your iOS, macOS, and tvOS stacktraces.
-
-$ bugsnag-cli upload dsym

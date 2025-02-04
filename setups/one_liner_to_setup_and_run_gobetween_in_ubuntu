@@ -1,0 +1,1 @@
+wget -qO- https://github.com/yyyar/gobetween/releases/download/0.8.0/gobetween_0.8.0_linux_386.tar.gz | tar -xz && chmod +x gobetween && sudo mv gobetween /usr/local/bin/ && gobetween --version

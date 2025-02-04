@@ -1,8 +1,0 @@
-Build the Model Using Cog and Docker
-Build the Docker image:
-
-Run the following command to build your Docker image:
-
- 
- 
-cog build -t my-model

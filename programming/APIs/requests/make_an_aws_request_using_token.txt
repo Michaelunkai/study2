@@ -1,1 +1,0 @@
-aws s3api list-buckets --profile default

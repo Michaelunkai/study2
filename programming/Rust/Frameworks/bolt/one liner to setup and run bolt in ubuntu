@@ -1,1 +1,0 @@
-getrust && cargo new bolt-app && cd bolt-app && echo 'bolt = "0.1"' >> Cargo.toml && cargo run

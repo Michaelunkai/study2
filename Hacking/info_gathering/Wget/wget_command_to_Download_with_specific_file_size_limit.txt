@@ -1,1 +1,0 @@
-wget --max-filesize=5m http://example.com/files/

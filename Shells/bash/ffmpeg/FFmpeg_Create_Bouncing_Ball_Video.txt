@@ -1,1 +1,0 @@
-ffmpeg -f lavfi -i "color=white:s=640x360,format=rgb24" -vf "drawbox=x=100:y=100:w=50:h=50:color=red:t=max" -t 5 output.mp4

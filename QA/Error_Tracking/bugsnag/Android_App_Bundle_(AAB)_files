@@ -1,5 +1,0 @@
-Android App Bundle (AAB) files
-If you distribute your app as an Android App Bundle (AAB), they contain all required files and so can be uploaded in a single command:
-
-$ bugsnag-cli upload android-aab app/build/outputs/bundle/release/app-release.aab
-See the upload android-aab command reference for full usage information.

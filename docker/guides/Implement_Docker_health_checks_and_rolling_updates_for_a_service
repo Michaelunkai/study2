@@ -1,1 +1,0 @@
-docker service create --name myapp --health-cmd "curl -f http://localhost/health || exit 1" --health-interval 30s --health-retries 3 --health-timeout 10s myapp:latest && docker service update --image myapp:latest myapp

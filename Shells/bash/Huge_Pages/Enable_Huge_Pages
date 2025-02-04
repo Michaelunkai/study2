@@ -1,2 +1,0 @@
-Huge Pages: Improve performance for applications with large memory requirements (e.g., databases).Enable Huge Pages:sudo sysctl -w vm.nr_hugepages=128
-sudo sysctl -p

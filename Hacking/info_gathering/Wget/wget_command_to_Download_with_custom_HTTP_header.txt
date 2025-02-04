@@ -1,1 +1,0 @@
-wget --header="Authorization: Bearer token" http://example.com/file.zip

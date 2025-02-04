@@ -1,1 +1,0 @@
-subprocess.Popen(['aws', 'iam', 'delete-user', '--user-name', 'old_user'])

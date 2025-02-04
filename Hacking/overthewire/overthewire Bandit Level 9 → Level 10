@@ -1,9 +1,0 @@
-The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.
-
-**
-strings data.txt | grep -o '[=]\{3,\}.*'
-
-This command uses strings to extract human-readable strings from data.txt and then grep to find strings starting with three or more '=' characters, which indicates the presence of the password.
-
-
-

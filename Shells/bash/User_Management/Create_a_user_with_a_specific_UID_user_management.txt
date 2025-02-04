@@ -1,3 +1,0 @@
-Command: sudo adduser --uid <UID> <username>
-Description: Creates a user with a specified UID.
-User Management

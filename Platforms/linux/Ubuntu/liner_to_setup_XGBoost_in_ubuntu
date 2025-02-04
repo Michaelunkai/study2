@@ -1,1 +1,0 @@
-pip install xgboost && python -c "import xgboost; print(xgboost.__version__)"

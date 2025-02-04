@@ -1,9 +1,0 @@
-docker run -d -p 8080:80 --name nagios jasonrivers/nagios
-
-in web browser:
-http://localhost:8080/nagios
-
-
-credentials:
-nagiosadmin
-nagios

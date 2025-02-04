@@ -1,1 +1,0 @@
-pip install --upgrade pip && pip install flask matplotlib && python3 a.py

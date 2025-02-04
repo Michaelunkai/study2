@@ -1,1 +1,0 @@
-iwr -Uri https://dl.dolphin-emu.org/builds/dolphin-master-5.0-15445-x64.7z -OutFile dolphin.7z; Expand-Archive dolphin.7z -DestinationPath C:\Dolphin

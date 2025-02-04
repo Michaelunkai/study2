@@ -1,2 +1,0 @@
-curl -X GET "https://graph.facebook.com/v12.0/me?fields=id,name,email" \
--H "Authorization: Bearer YOUR_FACEBOOK_ACCESS_TOKEN"

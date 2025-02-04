@@ -1,1 +1,0 @@
-docker run -d --name kanboard -p 81:80 -v /var/lib/kanboard:/var/www/app/data kanboard/kanboard && gcl 81

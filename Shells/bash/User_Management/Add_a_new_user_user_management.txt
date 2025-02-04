@@ -1,3 +1,0 @@
-Command: sudo adduser <username>
-Description: Creates a new user account.
-User Management

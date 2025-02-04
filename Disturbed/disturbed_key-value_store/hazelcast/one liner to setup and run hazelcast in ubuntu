@@ -1,0 +1,1 @@
+wget https://github.com/hazelcast/hazelcast/releases/download/v5.0/hazelcast-5.0.tar.gz && tar -xzf hazelcast-5.0.tar.gz && cd hazelcast-5.0 && ./bin/start.sh

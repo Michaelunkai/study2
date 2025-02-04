@@ -1,3 +1,0 @@
-Command: sudo chsh -s /bin/bash <username>
-Description: Changes the default shell for a user.
-User Management

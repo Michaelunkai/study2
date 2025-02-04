@@ -1,5 +1,0 @@
-drun outerworlds alpine /bin/sh -c "apk add rsync && rsync -aP /f/games/'The Outer Worlds' /home/ && exit"
-
-
-###here i run new container named outerworlds and immidiatly use the commands after /bin/sh -c ""
-

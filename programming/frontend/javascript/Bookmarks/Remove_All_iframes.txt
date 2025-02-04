@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('iframe').forEach(frame => frame.remove()); })();

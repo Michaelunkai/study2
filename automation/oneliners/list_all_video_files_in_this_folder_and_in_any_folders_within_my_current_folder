@@ -1,1 +1,0 @@
-Get-ChildItem -Path . -Recurse -Include *.mp4, *.avi, *.mkv, *.mov, *.flv, *.wmv, *.m4v

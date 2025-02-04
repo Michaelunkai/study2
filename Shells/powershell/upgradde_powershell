@@ -1,5 +1,0 @@
-# Download and install the latest version of PowerShell
-iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
-
-# Restart PowerShell to apply the update
-Start-Process -FilePath pwsh -ArgumentList '-NoExit' -Wait

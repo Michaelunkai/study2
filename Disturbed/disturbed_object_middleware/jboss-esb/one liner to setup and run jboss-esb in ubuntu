@@ -1,0 +1,1 @@
+wget https://sourceforge.net/projects/jboss/files/JBoss_ESB/4.11/jbossesb-server-4.11.zip && unzip jbossesb-server-4.11.zip && cd jbossesb-server-4.11/bin && ./run.sh

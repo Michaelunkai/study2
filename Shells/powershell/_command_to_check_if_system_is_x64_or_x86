@@ -1,5 +1,0 @@
-if ([Environment]::Is64BitOperatingSystem) {
-    "x64"
-} else {
-    "x86"
-}

@@ -1,1 +1,0 @@
-subprocess.Popen(['robot', 'test_suite.robot'])

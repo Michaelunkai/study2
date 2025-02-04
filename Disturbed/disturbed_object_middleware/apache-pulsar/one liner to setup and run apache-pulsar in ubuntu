@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y openjdk-11-jre && wget https://downloads.apache.org/pulsar/pulsar-2.8.0/apache-pulsar-2.8.0-bin.tar.gz && tar -xzf apache-pulsar-2.8.0-bin.tar.gz && cd apache-pulsar-2.8.0 && bin/pulsar standalone

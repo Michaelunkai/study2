@@ -1,0 +1,1 @@
+wget -O vectr.deb https://download.vectr.com/desktop/0.1.16/linux/Vectr-linux64.deb && sudo dpkg -i vectr.deb && vectr

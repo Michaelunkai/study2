@@ -1,1 +1,0 @@
-getsnap && sudo apt install -y snapd && sudo snap install intellij-idea-community --classic && intellij-idea-community 

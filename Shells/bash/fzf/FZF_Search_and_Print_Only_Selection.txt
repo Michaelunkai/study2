@@ -1,1 +1,0 @@
-fzf --print-query --no-select-1

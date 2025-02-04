@@ -1,1 +1,0 @@
-scrapy crawl myspider -s CONCURRENT_REQUESTS=16

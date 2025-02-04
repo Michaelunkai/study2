@@ -1,0 +1,1 @@
+wget -O drawio.deb https://github.com/jgraph/drawio-desktop/releases/latest/download/draw.io-x86_64.deb && sudo dpkg -i drawio.deb && drawio

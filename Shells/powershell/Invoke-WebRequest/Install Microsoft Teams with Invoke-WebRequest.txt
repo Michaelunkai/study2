@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://aka.ms/teams_windows_x64 -OutFile teams_installer.exe; Start-Process teams_installer.exe -ArgumentList '/quiet' -NoNewWindow -Wait

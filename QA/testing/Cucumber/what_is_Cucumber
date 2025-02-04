@@ -1,5 +1,0 @@
-Cucumber is not specifically a Linux tool but a widely-used testing tool that supports Behavior-Driven Development (BDD). BDD is an approach that allows developers, testers, and non-technical stakeholders to collaborate on defining the behavior of software.
-
-With Cucumber, you write test scenarios in a natural language format called Gherkin, which describes how the software should behave from the user's perspective. These scenarios are mapped to code that tests whether the application behaves as expected.
-
-Cucumber supports multiple programming languages, including Ruby, Java, and JavaScript, and integrates well with various testing frameworks. It can be run on different platforms, including Linux, making it versatile for testing applications across various environments.

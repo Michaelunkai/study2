@@ -1,5 +1,0 @@
-**Poe Integrates with Pika Labs to Bring AI Video Capabilities to Its Chatbot Interface**
-**Poe**, the AI chatbot platform by X (formerly Twitter), now allows users to create videos using Pika and LivePortrait technologies. With just text, images, or audio input, users can generate unique AI-based videos directly within the Poe app.
-**Pika**, developed by Pika Labs, enables video creation from various input types such as text and images.
-**LivePortrait**, hosted by FAL (Fundamental AI Lab), is another tool integrated into Poe for video creation.
-Users can access these new video creation features directly within the Poe platform.

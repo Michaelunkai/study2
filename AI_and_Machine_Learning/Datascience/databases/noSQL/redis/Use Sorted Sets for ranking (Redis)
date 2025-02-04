@@ -1,3 +1,0 @@
-redis-cli zadd leaderboard 100 "player1"
-redis-cli zadd leaderboard 200 "player2"
-redis-cli zrange leaderboard 0 -1 withscores

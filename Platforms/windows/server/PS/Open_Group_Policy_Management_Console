@@ -1,2 +1,0 @@
-# Open Group Policy Management Console
-Start-Process -FilePath "gpmc.msc"

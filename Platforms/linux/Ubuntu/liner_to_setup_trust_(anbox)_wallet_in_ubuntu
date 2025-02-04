@@ -1,1 +1,0 @@
-sudo apt-get install anbox && anbox launch com.wallet.crypto.trustapp && anbox version

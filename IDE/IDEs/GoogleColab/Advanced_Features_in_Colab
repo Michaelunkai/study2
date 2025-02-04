@@ -1,6 +1,0 @@
-Advanced Features in Colab
-Explore the advanced features of Colab:
-
-Using GPUs: Enable GPU acceleration through Runtime > Change runtime type.
-TPU Support: Leverage TPU support for TensorFlow models for even faster computation.
-Collaborative Editing: Share notebooks for collaborative real-time editing.

@@ -1,1 +1,0 @@
-wget -A pdf,doc http://example.com/files/

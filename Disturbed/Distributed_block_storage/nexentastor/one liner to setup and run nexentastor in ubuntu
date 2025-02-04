@@ -1,0 +1,1 @@
+wget http://download.nexenta.com/os/NexentaStor-Community-5.2.1.iso && sudo dd if=NexentaStor-Community-5.2.1.iso of=/dev/sdX bs=4M

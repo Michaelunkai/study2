@@ -1,3 +1,0 @@
-Command: sudo adduser --system <username>
-Description: Creates a system user account.
-User Management

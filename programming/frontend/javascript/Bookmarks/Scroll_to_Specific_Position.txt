@@ -1,4 +1,0 @@
-(function() {
-    let pos = parseInt(prompt('Enter Y-position to scroll to:'));
-    if (!isNaN(pos)) window.scrollTo(0, pos);
-})();

@@ -1,3 +1,0 @@
-Command: sudo usermod -U <username>
-Description: Unlocks a user account.
-User Management

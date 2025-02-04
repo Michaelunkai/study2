@@ -1,6 +1,0 @@
-
-1) docker run command for this image:
-michadockermi a/backup:ha
-
-
-2) in web : http://localhost:8123/

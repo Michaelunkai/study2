@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://www.apachelounge.com/download/VC15/binaries/httpd-2.4.51-win64-VS16.zip -OutFile apache_httpd.zip; Expand-Archive apache_httpd.zip -DestinationPath C:\Apache24

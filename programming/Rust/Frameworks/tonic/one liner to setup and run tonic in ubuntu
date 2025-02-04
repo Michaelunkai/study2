@@ -1,1 +1,0 @@
-getrust && cargo new tonic-app && cd tonic-app && echo 'tonic = "0.9"' >> Cargo.toml && cargo run

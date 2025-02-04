@@ -1,9 +1,0 @@
-Open "Server Manager" and click on "Add roles and features."
-Select "Network Policy and Access Services" and follow the wizard to install the role.
-After installing the role, open "Network Policy Server" from the Tools menu.
-Import NPS configuration by right-clicking on the server name in the left pane, selecting "Import Configuration," and choosing the XML file.
-After configuring Network Policy Server (NPS), you can define network access policies for authentication, authorization, and accounting of network clients, enhancing the security and control of your network environment.
-
-
-
-

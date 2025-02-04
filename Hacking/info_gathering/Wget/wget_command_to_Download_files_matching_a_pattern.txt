@@ -1,1 +1,0 @@
-wget -A "*.pdf" http://example.com/

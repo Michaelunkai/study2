@@ -1,7 +1,0 @@
-Understanding the Colab Interface
-The Colab interface comprises several key components:
-
-Cells: These are the fundamental units for code execution. You can write code in a cell and execute it by clicking "Run" or pressing Shift+Enter.
-Notebook: This is the container for your cells, allowing you to add, delete, and rearrange them as needed.
-Menu Bar: Located at the top, it grants access to file operations, editing, and debugging tools.
-Tool Bar: Positioned below the menu bar, it provides quick access to common actions, such as running cells and adding new ones.

@@ -1,1 +1,0 @@
-yarn config set strict-semver true

@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("treemap", repos="https://cloud.r-project.org")'

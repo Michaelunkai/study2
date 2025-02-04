@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -map_metadata -1 -c:v copy -c:a copy output.mp4

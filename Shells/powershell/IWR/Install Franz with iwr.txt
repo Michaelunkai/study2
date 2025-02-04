@@ -1,1 +1,0 @@
-iwr -Uri https://github.com/meetfranz/franz/releases/download/v5.7.0/franz-setup-5.7.0.exe -OutFile franz_installer.exe; Start-Process franz_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

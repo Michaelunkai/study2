@@ -1,1 +1,0 @@
-docker run -d --name smokeping -p 81:80 --restart unless-stopped linuxserver/smokeping && gc http://localhost:81

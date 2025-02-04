@@ -1,1 +1,0 @@
- git clone https://github.com/SxNade/Rudrastra &&  cd Rudrastra && chmod +x install.sh && ./install.sh && python3 dhcp.py

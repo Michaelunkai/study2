@@ -1,1 +1,0 @@
-sudo snap install slack-term && slack-term --version && slack-term

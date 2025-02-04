@@ -1,1 +1,0 @@
-subprocess.Popen(['python', 'test_selenium.py'])

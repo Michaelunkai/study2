@@ -1,7 +1,0 @@
-Kite AI was a popular AI-powered code completion tool designed to assist developers by providing smart code suggestions, completions, and documentation. It integrated with several code editors like Visual Studio Code, PyCharm, and Atom, and supported various programming languages including Python, JavaScript, and more. Key features of Kite AI included:
-1. Code Completions: Kite provided context-aware code completions to help speed up coding by suggesting the next part of your code based on the current context.
-2. Documentation: It offered inline documentation for libraries and functions, allowing developers to access relevant information without leaving their code editor.
-3. Function Signatures: Kite displayed function signatures as you typed, showing you the expected arguments and return types.
-4. Code Snippets: It suggested commonly used code snippets, which could be inserted into your code with a single click.
-5. Error Detection: Kite helped identify potential errors in your code and suggested fixes.
-Kite aimed to improve productivity by reducing the time developers spent searching for information or writing repetitive code. However, as of January 2023, Kite discontinued its services and is no longer available.

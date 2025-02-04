@@ -1,0 +1,89 @@
+Advanced Setup of hMailServer E-Mail Server Create and Apply SSL Cert
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Email Server SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: smtp.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+smtp.domain
+imap.domain
+pop3.domain
+
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name with a .key extension and verify the export format is PEM private (*.pem)
+Click OK
+Setting Up SSL in hMailServer
+Launch hMailServer Administrator
+Select localhost > Click Connect > Login with the administrative password
+Expand Settings > Advanced > SSL Certificates > Click Add...
+Give the certificate a friendly name
+Browse to the certificate and key files exported earlier
+NOTE: The .crt and .key files need to stay on the file system to be read by hMailServer. I place them in the hMailServer installation directory in a real world scenario
+
+Click Save
+Expand Settings > Advanced > IP Ranges
+Select the LAN IP Range created previously
+Check the Require SSL/TLS for authentication box
+Click Save
+Expand Settings > Advanced > TCP/IP Ports
+Click on 0.0.0.0 / 25 / SMTP
+Update the port to 465, Select SSL/TLS from the Connection Security dropdown, Select the SSL certificate imported previously
+Click Save
+Click No to the popup to restart the service
+Click on 0.0.0.0 / 143 / IMAP
+Update the port to 993, Select SSL/TLS from the Connection Security dropdown, Select the SSL certificate imported previously
+Click Save
+Click Yesto the popup to restart the service
+Setting Up SSL in the Client
+Launch Thunderbird
+Right click on the e-mail address setup previously > Settings > Server Settings
+Set Connection security to SSL/TLS
+Verify the port updated to 993
+Click Outgoing Server (SMTP)
+Set Connection security to SSL/TLS
+Verify the port updated to 465
+Click OK
+Click OK
+Click Tools > Options > Advanced > Security > Manage Certificates
+Click Import...
+Browse to the CA-chain.pem file exported earlier
+Click OK
+Testing Your New E-Mail Server
+In hMailServer Administrator, Expand Utilities > Server sendout
+Select Specific domain and select the domain created earlier from the dropdown
+Fill out the form to send a test e-mail > Click Send
+Back in Thunderbird, click the Get Messages button
+The test email should arrive in the inbox

@@ -1,1 +1,0 @@
-docker network create --driver bridge my_custom_network && docker run -d --name container1 --network my_custom_network alpine sleep 1000 && docker run -d --name container2 --network my_custom_network alpine sleep 1000

@@ -1,2 +1,0 @@
-Proximal Policy Optimization (PPO)
-In 2017, OpenAI introduced Proximal Policy Optimization (PPO), which builds on TRPO. PPO has become an industry standard due to its applicability to both continuous and discrete action spaces and its suitability for multithreaded learning systems.

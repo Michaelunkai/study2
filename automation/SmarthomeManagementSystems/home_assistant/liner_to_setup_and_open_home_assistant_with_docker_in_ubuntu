@@ -1,6 +1,0 @@
- docker run -d \
-  --name homeassistant \
-  --restart unless-stopped \
-  -e TZ=Asia/Jerusalem \
-  -v /mnt/c/backup/windowsapps/installed/myapps/homeassistant:/config \
-  -p 8123:8123 \ && gcl 8123

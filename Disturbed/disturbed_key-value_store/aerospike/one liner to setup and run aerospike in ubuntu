@@ -1,0 +1,1 @@
+wget -O aerospike.tgz 'https://www.aerospike.com/download/server/latest/artifact/ubuntu20' && tar -xzf aerospike.tgz && cd aerospike-server-community-*-ubuntu20 && sudo ./asinstall && sudo systemctl start aerospike

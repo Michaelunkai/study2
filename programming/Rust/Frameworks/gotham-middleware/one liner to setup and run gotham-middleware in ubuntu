@@ -1,1 +1,0 @@
-getrust && cargo new gotham-middleware-app && cd gotham-middleware-app && echo 'gotham_middleware = "0.7"' >> Cargo.toml && cargo run

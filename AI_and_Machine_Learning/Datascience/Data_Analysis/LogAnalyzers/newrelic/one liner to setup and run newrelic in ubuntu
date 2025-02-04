@@ -1,1 +1,0 @@
-curl -Ls https://download.newrelic.com/install.sh | bash

@@ -1,0 +1,1 @@
+wget https://packages.couchbase.com/releases/6.6.0/couchbase-server-enterprise_6.6.0-ubuntu18.04_amd64.deb && sudo dpkg -i couchbase-server-enterprise_6.6.0-ubuntu18.04_amd64.deb && sudo systemctl start couchbase-server

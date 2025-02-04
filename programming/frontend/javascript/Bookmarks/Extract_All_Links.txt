@@ -1,4 +1,0 @@
-(function() {
-    alert([...document.querySelectorAll('a')].map(link => link.href).join('
-'));
-})();

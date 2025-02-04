@@ -1,7 +1,0 @@
-**Google Launches 'Prompt Gallery' in AI Studio, Significantly Enhancing Developer Tools**
-
-Google has unveiled a new feature called 'Prompt Gallery' within its AI Studio platform, aiming to significantly enhance the capabilities available to developers working with the Gemini API. Announced by Logan Kilpatrick, this latest addition offers a diverse array of pre-built prompts that showcase the versatility of Google's Gemini models.
-
-The Prompt Gallery includes a variety of useful tools, such as a JSON schema-based recipe generator, a private math tutor for solving quadratic equations, and a time complexity analyzer. Additionally, it features creative applications like a treasure hunt game creator and a travel recommendation system. 
-
-This update greatly improves AI Studio by adding support for long context inputs, multi-modal inputs, and structured outputs, making it a more powerful and flexible tool for developers.

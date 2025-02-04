@@ -1,7 +1,0 @@
-List Honeypot Scripts in the Container:
-
-After entering the container, list all available honeypots:
-
- 
- 
-ls honeypots/

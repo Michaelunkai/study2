@@ -1,1 +1,0 @@
-aws codepipeline describe-custom-action-type --category <category> --provider <provider> --version <version>

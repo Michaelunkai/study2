@@ -1,1 +1,0 @@
-npm install flightplan && echo "const plan = require('flightplan'); plan.target('production', { host: 'server', username: 'user' });" > flightplan.js && node flightplan.js

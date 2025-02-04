@@ -1,1 +1,0 @@
-fzf --bind 'ctrl-p:toggle-preview'

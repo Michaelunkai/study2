@@ -1,1 +1,0 @@
-subprocess.Popen(['tslint', 'src/**/*.ts'])

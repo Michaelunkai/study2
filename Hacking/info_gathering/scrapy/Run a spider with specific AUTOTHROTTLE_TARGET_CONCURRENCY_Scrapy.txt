@@ -1,1 +1,0 @@
-scrapy crawl myspider -s AUTOTHROTTLE_TARGET_CONCURRENCY=1.0

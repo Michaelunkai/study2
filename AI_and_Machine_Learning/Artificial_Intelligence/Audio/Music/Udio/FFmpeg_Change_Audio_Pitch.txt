@@ -1,1 +1,0 @@
-ffmpeg -i input.mp3 -af "asetrate=44100*0.9,aresample=44100,atempo=1.1" output.mp3

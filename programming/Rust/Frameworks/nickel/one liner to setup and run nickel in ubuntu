@@ -1,1 +1,0 @@
-getrust && cargo new nickel-app && cd nickel-app && echo 'nickel = "0.11"' >> Cargo.toml && cargo run

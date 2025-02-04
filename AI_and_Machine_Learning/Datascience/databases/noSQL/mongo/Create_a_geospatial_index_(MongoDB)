@@ -1,1 +1,0 @@
-db.places.createIndex({ location: "2dsphere" })

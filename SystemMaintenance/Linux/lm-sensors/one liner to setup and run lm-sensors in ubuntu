@@ -1,0 +1,1 @@
+sudo apt install -y lm-sensors && sudo sensors-detect && sensors

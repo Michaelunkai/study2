@@ -1,1 +1,0 @@
-ffmpeg -f lavfi -i color=c=blue:s=1280x720:d=10 -vf "drawtext=fontfile=/path/to/font.ttf:text='Hello World':fontcolor=white:fontsize=45:x=(w-text_w)/2:y=(h-text_h)/2" -codec:a libmp3lame -qscale:a 2 output.mp4

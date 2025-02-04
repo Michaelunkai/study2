@@ -1,4 +1,0 @@
-(function() {
-    let word = prompt('Enter word to highlight:');
-    if (word) document.body.innerHTML = document.body.innerHTML.replace(new RegExp(word, 'g'), `<span style='background-color: yellow;'>${word}</span>`);
-})();

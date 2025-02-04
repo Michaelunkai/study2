@@ -1,9 +1,0 @@
-To control your devices using the Home Assistant API on localhost, use the following example command to turn on the light:
-
-
-curl -X POST \
-  -H "Authorization: Bearer YOUR_LONG_LIVED_ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"entity_id": "light.your_light_name"}' \
-  http://localhost:8123/api/services/light/turn_on
-

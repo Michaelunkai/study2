@@ -1,1 +1,0 @@
-Get-Command | Where-Object {$_.DefaultParameterSet -match "Default"}

@@ -1,1 +1,0 @@
-awk '{print NR, $0}' filename.txt | sort -nr | awk '{print $2, $3, $4}'

@@ -1,1 +1,0 @@
-iwr -Uri https://files.openscad.org/OpenSCAD-2021.01-x86_64-Installer.exe -OutFile openscad_installer.exe; Start-Process openscad_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

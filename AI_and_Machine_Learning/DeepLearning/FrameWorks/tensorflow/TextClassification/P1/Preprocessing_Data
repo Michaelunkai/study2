@@ -1,9 +1,0 @@
-Preprocessing Data
-If we have a look at some of our loaded in reviews we'll notice that they are different lengths. This is an issue. We cannot pass different length data into out neural network. Therefore we must make each review the same length. To do this we will follow the procedure below:
-
-if the review is greater than 250 words then trim off the extra words
-if the review is less than 250 words add the necessary amount of 's to make it equal to 250.
-Luckily for us keras has a function that can do this for us:
-
-train_data = keras.preprocessing.sequence.pad_sequences(train_data, value=word_index["<PAD>"], padding="post", maxlen=250)
-test_data = keras.preprocessing.sequence.pad_sequences(test_data, value=word_index["<PAD>"], padding="post", maxlen=250)

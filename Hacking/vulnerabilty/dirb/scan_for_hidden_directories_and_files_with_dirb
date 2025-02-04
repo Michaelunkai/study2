@@ -1,6 +1,0 @@
-Dirb Scan:
-
- 
- 
-dirb http://192.168.1.193
-This scans for hidden directories and files.

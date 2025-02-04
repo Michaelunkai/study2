@@ -1,1 +1,0 @@
-Add-ADGroupMember -Identity "GroupName" -Members "jdoe"

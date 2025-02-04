@@ -1,4 +1,0 @@
-#show app install size
-
-sudo apt show appnane | grep "Installed-Size"
-

@@ -1,2 +1,0 @@
-curl -X POST "https://api.dropboxapi.com/2/users/get_current_account" \
--H "Authorization: Bearer YOUR_DROPBOX_ACCESS_TOKEN"

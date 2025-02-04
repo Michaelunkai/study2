@@ -1,5 +1,0 @@
-Open "Server Manager" and click on "Add roles and features."
-Select "DHCP Server" and follow the wizard to install the role.
-After installing the role, open "DHCP Manager" from the Tools menu.
-Right-click on "IPv4" and select "New Scope" to create a new DHCP scope.
-Follow the wizard to configure the scope settings, including the range of IP addresses to be assigned.

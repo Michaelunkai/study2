@@ -1,1 +1,0 @@
-subprocess.Popen(['ping', 'google.com'])

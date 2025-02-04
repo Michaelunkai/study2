@@ -1,0 +1,1 @@
+wget https://piwigo.org/download/dlcounter.php?code=latest -O piwigo.zip && unzip piwigo.zip && mv piwigo piwigo_site && echo 'Configure your web server for piwigo'

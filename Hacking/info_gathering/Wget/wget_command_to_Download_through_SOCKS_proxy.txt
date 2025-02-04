@@ -1,1 +1,0 @@
-wget --proxy=on --proxy-user=user --proxy-password=password --proxy=127.0.0.1:1080 http://example.com/file.zip

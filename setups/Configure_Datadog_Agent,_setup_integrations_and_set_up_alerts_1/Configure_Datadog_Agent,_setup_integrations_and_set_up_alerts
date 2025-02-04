@@ -1,0 +1,45 @@
+Datadog is a cloud-based monitoring and analytics platform for IT infrastructure, operations, and development teams. It provides real-time visibility into the performance of applications, servers, databases, and other services through comprehensive dashboards, alerts, and integrations.
+
+### Steps to Use Datadog on Ubuntu (Skipping Installation):
+
+1. **Configure Datadog Agent:**
+   - Edit the configuration file:
+      sh
+     sudo nano /etc/datadog-agent/datadog. 
+   - Set your Datadog API key:
+       
+     api_key: <YOUR_DATADOG_API_KEY>
+
+2. **Start the Datadog Agent:**
+    sh
+   sudo systemctl start datadog-agent
+   sudo systemctl enable datadog-agent
+
+3. **Verify Agent Status:**
+    sh
+   sudo datadog-agent status
+
+4. **Setup Integrations:**
+   - For example, to monitor Apache, create a configuration file:
+      sh
+     sudo nano /etc/datadog-agent/conf.d/apache.d/conf. 
+   - Add the following content:
+       
+     instances:
+       - apache_status_url: http://localhost/server-status?auto
+
+5. **Restart Datadog Agent:**
+    sh
+   sudo systemctl restart datadog-agent
+
+6. **View Data in Datadog:**
+   - Log in to your Datadog account.
+   - Navigate to the Infrastructure tab to see your Ubuntu server metrics.
+   - Use Dashboards to create visual representations of your data.
+
+7. **Set Up Alerts:**
+   - Go to Monitors > New Monitor in the Datadog web interface.
+   - Choose the metric you want to monitor and set conditions for alerts.
+   - Configure notifications for alerting your team.
+
+By following these steps, you can effectively monitor and manage your infrastructure using Datadog on Ubuntu.

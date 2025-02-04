@@ -1,1 +1,0 @@
-ffmpeg -i input.mp3 -filter:a "atempo=1.5" -vn output.mp3

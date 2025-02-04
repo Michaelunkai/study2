@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://kicad-downloads.s3.cern.ch/windows/KiCad-5.1.12_2-x86_64.exe -OutFile kicad_installer.exe; Start-Process kicad_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

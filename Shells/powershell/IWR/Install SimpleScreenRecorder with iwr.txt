@@ -1,1 +1,0 @@
-iwr -Uri https://www.maartenbaert.be/simplescreenrecorder/downloads/ssr-x86_64-w64-mingw32.zip -OutFile simplescreenrecorder.zip; Expand-Archive simplescreenrecorder.zip -DestinationPath C:\SimpleScreenRecorder

@@ -1,1 +1,0 @@
-docker run --rm -d -p 9999:8080 -v /var/run/docker.sock:/var/run/docker.sock amir20/dozzle:latest && gc http://localhost:9999

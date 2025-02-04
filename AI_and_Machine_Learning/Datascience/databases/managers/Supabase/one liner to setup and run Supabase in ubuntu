@@ -1,1 +1,0 @@
-curl -fsSL https://supabase.com/cli/install | sh && supabase login && supabase init

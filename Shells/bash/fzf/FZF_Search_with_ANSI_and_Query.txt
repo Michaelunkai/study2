@@ -1,1 +1,0 @@
-fzf --ansi --query 'pattern'

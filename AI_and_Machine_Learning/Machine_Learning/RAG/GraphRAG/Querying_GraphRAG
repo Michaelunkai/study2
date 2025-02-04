@@ -1,1 +1,0 @@
-python -m graphrag.query --root ./ragdir --method global "Your query from the context"

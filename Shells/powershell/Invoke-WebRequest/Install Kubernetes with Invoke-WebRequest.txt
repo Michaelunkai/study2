@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://storage.googleapis.com/kubernetes-release/release/v1.21.0/bin/windows/amd64/kubectl.exe -OutFile kubectl.exe

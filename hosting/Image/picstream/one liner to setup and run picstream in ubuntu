@@ -1,0 +1,1 @@
+wget https://github.com/example/picstream/archive/refs/heads/master.zip && unzip master.zip && mv picstream-master picstream && echo 'Configure and run'

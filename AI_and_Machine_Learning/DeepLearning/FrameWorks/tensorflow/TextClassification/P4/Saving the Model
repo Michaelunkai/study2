@@ -1,4 +1,0 @@
-Saving the Model
-Up until this point we have simply been retraining our models every time that we wanted to use them. This is fine for now on our small models that take only a few seconds to train but for larger models this is not realistic. Luckily for us keras provides a very easy way to save our models:
-
-model.save("model.h5")  # name it whatever you want but end with .h5

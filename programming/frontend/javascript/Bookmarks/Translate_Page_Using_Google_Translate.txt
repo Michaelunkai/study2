@@ -1,3 +1,0 @@
-(function() {
-    window.open('https://translate.google.com/translate?u=' + encodeURIComponent(location.href));
-})();

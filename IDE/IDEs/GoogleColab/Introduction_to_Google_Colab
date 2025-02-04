@@ -1,2 +1,0 @@
-Introduction to Google Colab
-Google Colab is a free, web-based platform tailored for data science and machine learning development. It offers a Jupyter notebook environment where you can write and execute Python code directly in the cloud. Colab provides seamless integration with numerous libraries and frameworks such as TensorFlow, PyTorch, and scikit-learn, eliminating the need for local installations.

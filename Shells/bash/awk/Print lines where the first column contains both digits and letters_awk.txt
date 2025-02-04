@@ -1,1 +1,0 @@
-awk '$1 ~ /[0-9]/ && $1 ~ /[A-Za-z]/' filename.txt

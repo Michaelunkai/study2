@@ -1,1 +1,0 @@
-lsblk -o NAME,SIZE,MODEL,VENDOR,TRAN | grep 'usb\|sata'

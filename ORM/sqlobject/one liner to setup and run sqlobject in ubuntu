@@ -1,0 +1,1 @@
+pip3 install SQLObject && python3 -c 'import sqlobject; print(sqlobject.__version__)'

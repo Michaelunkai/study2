@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://github.com/obsproject/obs-studio/releases/download/27.1.3/OBS-Studio-27.1.3-Full-Installer-x64.exe -OutFile obs_studio_installer.exe; Start-Process obs_studio_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

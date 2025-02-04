@@ -1,1 +1,0 @@
-curl -sS https://raw.githubusercontent.com/ekkinox/yai/main/install.sh | bash && exai && yai

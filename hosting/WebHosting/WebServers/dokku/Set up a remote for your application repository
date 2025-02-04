@@ -1,7 +1,0 @@
-git remote add dokku dokku@your-domain.com:myapp
-
-Push your application to Dokku:
-
-git push dokku master
-
-

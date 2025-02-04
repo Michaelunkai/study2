@@ -1,2 +1,0 @@
-subst [drive_letter]: [path]
-To undo: subst /d [drive_letter]:

@@ -1,6 +1,0 @@
-You can use the following PowerShell command to determine if your PC is running a 32-bit (x86) or 64-bit (x64) version of Windows:
-
-
-[System.Environment]::Is64BitOperatingSystem
-
-This command will return `True` if your system is 64-bit and `False` if it is 32-bit. Please note that you need to run this command in a PowerShell window.

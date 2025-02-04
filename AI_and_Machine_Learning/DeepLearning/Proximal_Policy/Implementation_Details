@@ -1,4 +1,0 @@
-Implementation Details
-The loss function is combined with a stochastic minibatch gradient descent algorithm. This alternates between collecting data for 
-𝑇
-T time steps (e.g., 2048 steps) and performing 10 epochs of updates on batches of 64 transitions. The memory is then reset, and the agent resumes play. This approach allows the agent to navigate environments with both continuous and discrete action spaces while maintaining performance stability.

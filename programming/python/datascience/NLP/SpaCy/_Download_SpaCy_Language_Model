@@ -1,6 +1,0 @@
- Download SpaCy Language Model
-SpaCy requires language models to work. You can download the default English model using:
-
- 
- 
-python -m spacy download en_core_web_sm

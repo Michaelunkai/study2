@@ -1,1 +1,0 @@
-scrapy crawl myspider -s LOG_FORMATTER='myproject.logformatter.PoliteLogFormatter'

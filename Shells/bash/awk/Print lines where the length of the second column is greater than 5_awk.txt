@@ -1,1 +1,0 @@
-awk 'length($2) > 5' filename.txt

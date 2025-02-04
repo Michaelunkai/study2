@@ -1,1 +1,0 @@
-GraphQL is a **query language** for APIs that allows clients to request exactly the data they need, making it more efficient than traditional REST APIs. It enables clients to define the structure of the response, reducing over-fetching or under-fetching of data.

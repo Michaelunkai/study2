@@ -1,2 +1,0 @@
-curl -X GET "https://api.spotify.com/v1/me" \
--H "Authorization: Bearer YOUR_SPOTIFY_ACCESS_TOKEN"

@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf "fade=in:0:30" output.mp4

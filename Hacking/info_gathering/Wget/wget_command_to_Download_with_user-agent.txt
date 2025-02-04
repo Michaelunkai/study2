@@ -1,1 +1,0 @@
-wget --user-agent="Mozilla/5.0" http://example.com/file.zip

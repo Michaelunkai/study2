@@ -1,1 +1,0 @@
-docker run -d -p 8182:8182 --name sshwifty niruix/sshwifty && gc http://localhost:8182

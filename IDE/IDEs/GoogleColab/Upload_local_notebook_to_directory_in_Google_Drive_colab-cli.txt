@@ -1,1 +1,0 @@
-colab-cli upload-nb <notebook_name.ipynb> --directory <directory_name>

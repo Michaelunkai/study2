@@ -1,5 +1,0 @@
-Viewing logs: To view the logs of a process:
-
- 
- 
-pm2 logs <process-id or process-name>

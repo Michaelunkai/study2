@@ -1,1 +1,0 @@
-docker run -d -p 80:80 vulnerables/web-dvwa && gc http://localhost/index.php

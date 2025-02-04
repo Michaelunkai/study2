@@ -1,0 +1,1 @@
+pip3 install plotnine && python3 -c 'import plotnine; print(plotnine.__version__)'

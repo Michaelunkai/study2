@@ -1,1 +1,0 @@
-iwr -Uri https://download.jetbrains.com/python/pycharm-community-2021.2.3.exe -OutFile pycharm_installer.exe; Start-Process pycharm_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

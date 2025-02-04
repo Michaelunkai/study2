@@ -1,1 +1,0 @@
-wget -r -l 3 http://example.com/

@@ -1,1 +1,0 @@
-ffmpeg -stream_loop 5 -i input.mp4 -c copy output.mp4

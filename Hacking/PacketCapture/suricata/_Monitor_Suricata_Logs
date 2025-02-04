@@ -1,6 +1,0 @@
- Monitor Suricata Logs
-Suricata logs activity to /var/log/suricata. You can monitor these logs to see real-time intrusion detection alerts:
-
- 
- 
-sudo tail -f /var/log/suricata/fast.log

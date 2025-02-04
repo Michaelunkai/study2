@@ -1,5 +1,0 @@
-# Delete a user from Active Directory
-Remove-ADUser -Identity "UserName" -Confirm:$false
-
-# Delete a local user account
-Remove-LocalUser -Name "UserName"

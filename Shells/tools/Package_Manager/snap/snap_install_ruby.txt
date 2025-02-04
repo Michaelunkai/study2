@@ -1,1 +1,0 @@
-snap install ruby --classic

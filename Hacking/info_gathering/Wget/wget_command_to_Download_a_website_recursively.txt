@@ -1,1 +1,0 @@
-wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains example.com --no-parent http://www.example.com/

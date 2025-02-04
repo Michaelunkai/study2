@@ -1,2 +1,0 @@
-# Create a new NIC team
-New-NetLbfoTeam -Name "Team1" -TeamMembers "Ethernet1","Ethernet2" -TeamingMode SwitchIndependent -LoadBalancingAlgorithm Dynamic

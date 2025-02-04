@@ -1,1 +1,0 @@
-awk '{sum += length($0)} END {print sum/NR}' filename.txt

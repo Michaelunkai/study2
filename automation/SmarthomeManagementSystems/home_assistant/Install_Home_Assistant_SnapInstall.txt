@@ -1,1 +1,0 @@
-snap install home-assistant-snap

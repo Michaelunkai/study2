@@ -1,0 +1,1 @@
+pip3 install holoviews && python3 -c 'import holoviews; print(holoviews.__version__)'

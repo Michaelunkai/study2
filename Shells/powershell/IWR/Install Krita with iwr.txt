@@ -1,1 +1,0 @@
-iwr -Uri https://download.kde.org/stable/krita/4.4.8/krita-x64-4.4.8-setup.exe -OutFile krita_installer.exe; Start-Process krita_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

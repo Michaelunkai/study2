@@ -1,2 +1,0 @@
-sudo apt install wipe
-wipe /path/to/sensitive_file

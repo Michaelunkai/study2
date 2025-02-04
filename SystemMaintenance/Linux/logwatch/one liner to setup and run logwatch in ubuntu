@@ -1,0 +1,1 @@
+sudo apt install -y logwatch && sudo logwatch --detail high --mailto root

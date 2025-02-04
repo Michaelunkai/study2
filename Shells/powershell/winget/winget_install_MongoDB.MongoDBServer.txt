@@ -1,1 +1,0 @@
-winget install --id=MongoDB.MongoDBServer -e

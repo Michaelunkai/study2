@@ -1,9 +1,0 @@
-Optimize CPU Governor
-Ensure the CPU is running in the appropriate performance mode:
-
-Install cpufrequtils:
-
-sudo apt install cpufrequtils
-Set the CPU governor to performance:
-
-sudo cpufreq-set -r -g performance

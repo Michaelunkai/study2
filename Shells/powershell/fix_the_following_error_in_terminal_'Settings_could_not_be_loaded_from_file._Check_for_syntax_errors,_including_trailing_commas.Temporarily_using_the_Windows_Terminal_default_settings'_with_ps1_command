@@ -1,3 +1,0 @@
-reinstall terminal:
-
-Rename-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -NewName "settings.json.old"

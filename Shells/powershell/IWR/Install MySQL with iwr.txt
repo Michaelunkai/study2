@@ -1,1 +1,0 @@
-iwr -Uri https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.26.0.msi -OutFile mysql_installer.msi; Start-Process msiexec.exe -ArgumentList '/i mysql_installer.msi /quiet' -NoNewWindow -Wait

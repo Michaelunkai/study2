@@ -1,0 +1,1 @@
+wget https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.tar.gz && tar -xzf orientdb-3.2.0.tar.gz && cd orientdb-3.2.0/bin && ./server.sh

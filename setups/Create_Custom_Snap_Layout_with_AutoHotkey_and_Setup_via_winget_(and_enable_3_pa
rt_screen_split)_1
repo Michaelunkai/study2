@@ -1,0 +1,59 @@
+### Step-by-Step Guide to Create Custom Snap Layout with AutoHotkey and Setup via `winget`
+
+1. **Install AutoHotkey**:
+
+    Open PowerShell and use the following command to install AutoHotkey using `winget`:
+
+      
+    winget install --id=AutoHotkey.AutoHotkey
+
+2. **Create an AutoHotkey Script**:
+
+    Open PowerShell and navigate to your desired directory. Then, use the following command to create and edit a new AutoHotkey script using `nano`:
+
+      
+    cd "C:\Users\micha\Downloads"
+    nano ThreePartSnap.ahk
+
+    Paste the following AutoHotkey script into `nano`:
+
+     autohotkey
+    ; Define screen dimensions
+    SysGet, ScreenWidth, 78
+    SysGet, ScreenHeight, 79
+    ThirdWidth := ScreenWidth / 3
+
+    ; Snap window to the left third
+    ^!1::
+        WinGet, currentWindow, ID, A
+        WinMove, ahk_id %currentWindow%, , 0, 0, ThirdWidth, ScreenHeight
+    return
+
+    ; Snap window to the middle third
+    ^!2::
+        WinGet, currentWindow, ID, A
+        WinMove, ahk_id %currentWindow%, , ThirdWidth, 0, ThirdWidth, ScreenHeight
+    return
+
+    ; Snap window to the right third
+    ^!3::
+        WinGet, currentWindow, ID, A
+        WinMove, ahk_id %currentWindow%, , 2*ThirdWidth, 0, ThirdWidth, ScreenHeight
+    return
+
+    Save the file by pressing `Ctrl + O`, then press `Enter` to confirm. Exit `nano` by pressing `Ctrl + X`.
+
+3. **Run the Script**:
+
+    Open File Explorer, navigate to `C:\Users\micha\Downloads`, and double-click `ThreePartSnap.ahk` to run the script. You should see a green "H" icon in your system tray indicating that the script is active.
+
+4. **Use the Hotkeys**:
+
+    Use the following hotkeys to snap the active window into three equal parts:
+    - `Ctrl + Alt + 1` to snap to the left third
+    - `Ctrl + Alt + 2` to snap to the middle third
+    - `Ctrl + Alt + 3` to snap to the right third
+
+### Summary
+
+This guide walks you through the installation of AutoHotkey using `winget`, the creation of a custom script using `nano`, and the steps to run and use the script to snap windows into three equal parts. The script provides hotkeys for snapping the active window to different parts of the screen, offering a flexible and powerful alternative to built-in Windows snapping features.

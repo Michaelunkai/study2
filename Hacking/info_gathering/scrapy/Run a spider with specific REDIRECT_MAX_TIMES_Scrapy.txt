@@ -1,1 +1,0 @@
-scrapy crawl myspider -s REDIRECT_MAX_TIMES=5

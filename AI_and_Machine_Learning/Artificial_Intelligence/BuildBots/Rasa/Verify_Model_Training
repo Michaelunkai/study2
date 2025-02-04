@@ -1,8 +1,0 @@
-Verify Model Training
-After initializing your project, ensure that Rasa has created and trained an initial model. Navigate to the models directory and list the contents to verify:
-
- 
- 
-cd your-rasa-project
-ls models
-You should see at least one model file, typically named with a timestamp or as a .tar.gz file.

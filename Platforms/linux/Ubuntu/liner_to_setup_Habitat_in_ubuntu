@@ -1,1 +1,0 @@
-curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash && hab --version

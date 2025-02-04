@@ -1,1 +1,0 @@
-awk '{if(NR == 1 || length($0) < min) min = length($0)} END {print min}' filename.txt

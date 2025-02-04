@@ -1,9 +1,0 @@
-Keras Datasets
-In these first few tutorials we will simply use some built in keras datasets which will make loading data fairly easy. The dataset we will use to start is the Fashion MNIST datset. This dataset contains 60000 images of different clothing/apparel items. The goal of our network will be to look at these images and classify them appropriately To load our first dataset in we will do the following:
-
-import tensorflow as tf 
-from tensorflow import keras
-import numpy as np 
-import matplotlib.pyplot as plt
-
-data = keras.datasets.fashion_mnist

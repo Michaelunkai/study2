@@ -1,1 +1,0 @@
-awk '{low = tolower($1); rev = ""; for (i = length(low); i > 0; i--) rev = rev substr(low, i, 1); if (low == rev) print}' filename.txt

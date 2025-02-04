@@ -1,2 +1,0 @@
-results = model.evaluate(test_data, test_labels)
-print(results)

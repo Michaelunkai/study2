@@ -1,1 +1,0 @@
-colab-cli move-nb <notebook_name.ipynb> <new_directory>

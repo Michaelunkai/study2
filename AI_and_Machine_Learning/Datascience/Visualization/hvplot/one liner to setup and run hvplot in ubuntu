@@ -1,0 +1,1 @@
+pip3 install hvplot && python3 -c 'import hvplot; print(hvplot.__version__)'

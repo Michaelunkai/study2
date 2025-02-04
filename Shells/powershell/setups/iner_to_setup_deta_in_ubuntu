@@ -1,1 +1,0 @@
-cd && curl -fsSL https://get.deta.dev/cli.sh | sh && export PATH="$HOME/.deta/bin:$PATH" && source ~/.bashrc && deta --help

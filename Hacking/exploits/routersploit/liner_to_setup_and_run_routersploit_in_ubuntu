@@ -1,1 +1,0 @@
-sudo git clone https://github.com/threat9/routersploit.git /opt/routersploit && cd /opt/routersploit && sudo python3 -m pip install -r requirements.txt && sudo python3 rsf.py

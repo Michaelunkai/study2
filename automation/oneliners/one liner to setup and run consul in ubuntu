@@ -1,0 +1,1 @@
+wget -qO- https://releases.hashicorp.com/consul/1.11.4/consul_1.11.4_linux_amd64.zip -O consul.zip && unzip consul.zip && sudo mv consul /usr/local/bin/ && consul agent -dev &

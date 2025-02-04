@@ -1,0 +1,1 @@
+pip3 install orator && python3 -c 'import orator; print(orator.__version__)'

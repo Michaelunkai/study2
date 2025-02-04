@@ -1,5 +1,0 @@
-db.sales.aggregate([
-  { $match: { date: { $gte: ISODate("2023-01-01") } } },
-  { $group: { _id: "$productId", totalSales: { $sum: "$amount" } } },
-  { $sort: { totalSales: -1 } }
-])

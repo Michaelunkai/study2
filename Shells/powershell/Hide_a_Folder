@@ -1,2 +1,0 @@
-attrib +h +s +r [folder]
-To unhide: attrib -h -s -r [folder]

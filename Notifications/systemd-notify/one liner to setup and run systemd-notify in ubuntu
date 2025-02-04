@@ -1,0 +1,1 @@
+echo 'Use systemd-notify in your systemd service (e.g. systemd-notify "Test Notification")'

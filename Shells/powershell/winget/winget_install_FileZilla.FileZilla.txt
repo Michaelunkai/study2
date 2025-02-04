@@ -1,1 +1,0 @@
-winget install --id=FileZilla.FileZilla -e

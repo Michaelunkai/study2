@@ -1,0 +1,1 @@
+docker run -d --name cloudimagehost -p 8082:80 example/cloudimagehost:latest

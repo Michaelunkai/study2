@@ -1,2 +1,0 @@
-curl -X GET "https://slack.com/api/users.info?user=USER_ID" \
--H "Authorization: Bearer YOUR_SLACK_API_TOKEN"

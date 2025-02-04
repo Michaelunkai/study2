@@ -1,1 +1,0 @@
-scrapy crawl myspider -s GZIP_ENABLED=True

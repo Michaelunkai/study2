@@ -1,4 +1,0 @@
-Installing Other Language Models: You can install other language models by specifying their names, like de_core_news_sm for German, es_core_news_sm for Spanish, etc.
- 
- 
-python -m spacy download de_core_news_sm

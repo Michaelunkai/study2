@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://dl.xamarin.com/Installer/Windows/xamarin.ios-15.0.0.1.msi -OutFile xamarin_installer.msi; Start-Process msiexec.exe -ArgumentList '/i xamarin_installer.msi /quiet' -NoNewWindow -Wait

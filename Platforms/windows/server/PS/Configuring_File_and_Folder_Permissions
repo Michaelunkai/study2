@@ -1,9 +1,0 @@
-#configuring file and folder permissions on Windows Server. This involves granting or denying access to specific files and folders for users and groups.
-
-
-# Set permissions for a folder
-$folderPath = "C:\Path\To\Folder"
-$rule = New-Object System.Security.AccessControl.FileSystemAccessRule("Domain\User", "FullControl", "Allow")
-$acl = Get-Acl $folderPath
-$acl.SetAccessRule($rule)
-Set-Acl $folderPath $acl

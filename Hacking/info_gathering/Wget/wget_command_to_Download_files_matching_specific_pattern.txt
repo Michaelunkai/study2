@@ -1,1 +1,0 @@
-wget -A "*.tar.gz" http://example.com/files/

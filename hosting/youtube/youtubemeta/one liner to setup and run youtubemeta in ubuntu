@@ -1,0 +1,1 @@
+echo 'Install youtubemeta via npm if available: npm install -g youtubemeta'

@@ -1,1 +1,0 @@
-sudo apt install -y btrfs-progs && sudo mkfs.btrfs /dev/sdX && sudo btrfs filesystem df /dev/sdX

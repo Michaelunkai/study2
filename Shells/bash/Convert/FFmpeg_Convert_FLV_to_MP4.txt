@@ -1,1 +1,0 @@
-ffmpeg -i input.flv -c:v libx264 -crf 19 output.mp4

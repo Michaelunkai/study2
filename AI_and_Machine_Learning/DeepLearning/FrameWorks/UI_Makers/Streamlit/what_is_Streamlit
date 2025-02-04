@@ -1,7 +1,0 @@
-Streamlit
-Overview: Streamlit is an open-source Python library that makes it easy to create and share custom web apps for machine learning and data science projects.
-Features:
-Instant updates as you code
-Supports complex UIs with simple code
-Integration with popular Python libraries (e.g., Pandas, NumPy, Matplotlib)
-Use Case: Best suited for creating interactive dashboards and visualizations for data science workflows.

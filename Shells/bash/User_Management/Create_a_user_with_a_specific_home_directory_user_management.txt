@@ -1,3 +1,0 @@
-Command: sudo adduser --home /path/to/home <username>
-Description: Creates a user with a specified home directory.
-User Management

@@ -1,1 +1,0 @@
-wget --header="X-Auth-Token: token" http://example.com/file.zip

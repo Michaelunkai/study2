@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("networkD3", repos="https://cloud.r-project.org")'

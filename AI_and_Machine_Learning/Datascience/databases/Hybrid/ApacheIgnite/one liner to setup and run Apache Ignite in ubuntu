@@ -1,1 +1,0 @@
-docker run -d --name ignite -p 10800:10800 apacheignite/ignite && gcl 10800

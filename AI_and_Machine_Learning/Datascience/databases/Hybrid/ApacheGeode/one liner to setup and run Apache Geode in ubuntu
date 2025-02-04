@@ -1,1 +1,0 @@
-docker run -d --name geode -p 7070:7070 apachegeode/geode:latest && gcl 7070

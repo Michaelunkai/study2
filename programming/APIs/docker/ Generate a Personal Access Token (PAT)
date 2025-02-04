@@ -1,6 +1,0 @@
- Generate a Personal Access Token (PAT)
-Log in to Docker Hub.
-Go to Account Settings > Security.
-Click New Access Token.
-Set a name (e.g., backup-access-token) and create a token with the Read permission.
-Copy the token securely (it will only be shown once).

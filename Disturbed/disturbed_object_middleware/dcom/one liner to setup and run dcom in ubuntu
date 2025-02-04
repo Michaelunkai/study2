@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y samba && sudo nano /etc/samba/smb.conf

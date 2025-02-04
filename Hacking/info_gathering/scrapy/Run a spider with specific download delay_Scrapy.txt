@@ -1,1 +1,0 @@
-scrapy crawl myspider -s DOWNLOAD_DELAY=2

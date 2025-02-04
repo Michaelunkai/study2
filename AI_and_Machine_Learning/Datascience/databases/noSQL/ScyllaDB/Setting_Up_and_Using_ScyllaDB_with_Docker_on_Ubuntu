@@ -1,5 +1,0 @@
-sudo docker run --name some-scylla -d scylladb/scylla
-
-wait few seconds... and run : 
-
-cqlsh 172.17.0.2

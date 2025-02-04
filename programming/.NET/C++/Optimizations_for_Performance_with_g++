@@ -1,3 +1,0 @@
-To optimize your C++ code, use the following g++ flags:
-
-g++ -O2 -o optimized_hello main.cpp

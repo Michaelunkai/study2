@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = 'red'); })();

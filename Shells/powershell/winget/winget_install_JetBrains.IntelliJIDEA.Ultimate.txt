@@ -1,1 +1,0 @@
-winget install --id=JetBrains.IntelliJIDEA.Ultimate -e

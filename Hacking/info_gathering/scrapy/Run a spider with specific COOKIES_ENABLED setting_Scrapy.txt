@@ -1,1 +1,0 @@
-scrapy crawl myspider -s COOKIES_ENABLED=False

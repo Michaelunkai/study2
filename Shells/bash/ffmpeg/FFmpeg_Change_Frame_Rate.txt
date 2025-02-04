@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -r 24 output.mp4

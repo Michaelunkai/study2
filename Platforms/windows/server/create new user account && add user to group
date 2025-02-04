@@ -1,4 +1,0 @@
-Open "Server Manager" and navigate to "Tools" > "Active Directory Users and Computers."
-Right-click on the desired organizational unit (OU) and select "New" > "User."
-Fill in the user details such as name, username, and password in the wizard.
-To add the user to a specific group, navigate to the group in Active Directory Users and Computers, right-click, select "Properties," go to the "Members" tab, and click "Add" to add the user.

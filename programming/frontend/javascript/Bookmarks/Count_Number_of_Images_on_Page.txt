@@ -1,1 +1,0 @@
-(function() { alert(`Number of images: ${document.querySelectorAll('img').length}`); })();

@@ -1,1 +1,0 @@
-snap install datadog-agent

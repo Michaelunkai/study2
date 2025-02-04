@@ -1,1 +1,0 @@
-colab-cli new-nb <notebook_name.ipynb>

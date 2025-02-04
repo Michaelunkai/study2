@@ -1,0 +1,1 @@
+git clone https://github.com/example/photomanager.git && cd photomanager && docker-compose up -d

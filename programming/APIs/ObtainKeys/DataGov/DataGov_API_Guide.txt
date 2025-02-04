@@ -1,9 +1,0 @@
-Step-by-Step Guide to Get a Data.gov API Key:
-1. Create an Account:
-   - Go to https://api.data.gov/signup/ and sign up.
-
-2. Get API Key:
-   - Upon registration, you’ll receive an API key immediately.
-
-3. Explore Available APIs:
-   - Visit the API catalog at https://data.gov to find relevant datasets.

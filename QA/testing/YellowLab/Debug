@@ -1,3 +1,0 @@
-If you need to run your instance in debug mode, add 'DEBUG=* to the environment variables:
-
- docker run  --privileged --env 'DEBUG=*' -p 8383:8383 ousamabenyounes/yellowlabtools

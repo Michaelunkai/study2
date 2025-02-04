@@ -1,1 +1,0 @@
-wget -q -O world_cannabis_dataset.zip https://www.datasetshop.com/datasets/world-cannabis-dataset.zip

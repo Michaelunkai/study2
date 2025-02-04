@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -map_chapters -1 -codec copy output.mp4

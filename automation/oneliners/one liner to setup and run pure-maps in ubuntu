@@ -1,0 +1,1 @@
+getflat && flatpak install flathub io.github.rinigus.PureMaps -y && flatpak run io.github.rinigus.PureMaps

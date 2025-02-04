@@ -1,3 +1,0 @@
-- Matplotlib Official Documentation: https://matplotlib.org/stable/contents.html
-- Pandas Documentation: https://pandas.pydata.org/docs/
-- NumPy Documentation: https://numpy.org/doc/

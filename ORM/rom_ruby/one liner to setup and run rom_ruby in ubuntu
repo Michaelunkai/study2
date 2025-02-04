@@ -1,0 +1,1 @@
+gem install rom rom-sql && ruby -e 'require "rom"; puts ROM::SQL::VERSION'

@@ -1,1 +1,0 @@
-iwr -Uri https://downloads.apache.org/ant/binaries/apache-ant-1.10.12-bin.zip -OutFile ant.zip; Expand-Archive ant.zip -DestinationPath C:\Ant

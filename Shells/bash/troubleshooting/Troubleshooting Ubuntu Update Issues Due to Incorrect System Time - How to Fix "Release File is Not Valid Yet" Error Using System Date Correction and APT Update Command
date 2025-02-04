@@ -1,6 +1,0 @@
-sudo date -s "$(curl -s --head http://google.com | grep ^Date: | sed 's/Date: //g')" && sudo apt-get update
-
-
-
-
-This command corrects the system date and time using Google's server time, which resolves the "Release file is not valid yet" error during the Ubuntu package update process.

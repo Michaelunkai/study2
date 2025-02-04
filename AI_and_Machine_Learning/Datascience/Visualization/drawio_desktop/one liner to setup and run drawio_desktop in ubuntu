@@ -1,0 +1,1 @@
+wget -O drawio.AppImage https://github.com/jgraph/drawio-desktop/releases/latest/download/draw.io-x86_64.AppImage && chmod +x drawio.AppImage && ./drawio.AppImage

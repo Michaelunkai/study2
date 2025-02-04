@@ -1,2 +1,0 @@
- curl -fsSL https://ollama.com/install.sh | sh && ollama ru
-n llama2

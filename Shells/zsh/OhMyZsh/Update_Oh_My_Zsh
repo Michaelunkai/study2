@@ -1,1 +1,0 @@
-omz update

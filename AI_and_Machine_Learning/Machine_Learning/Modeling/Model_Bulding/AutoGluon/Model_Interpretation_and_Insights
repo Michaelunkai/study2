@@ -1,8 +1,0 @@
- Model Interpretation and Insights
-AutoGluon also provides tools to understand and interpret your model. For example:
-
- 
- 
-# Feature importance
-importance = predictor.feature_importance(train_data)
-print(importance)

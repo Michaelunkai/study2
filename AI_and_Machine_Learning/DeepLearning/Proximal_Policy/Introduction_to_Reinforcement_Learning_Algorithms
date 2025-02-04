@@ -1,2 +1,0 @@
-Introduction to Reinforcement Learning Algorithms
-Policy gradient and actor critic algorithms are essential tools for designing agents that interact with environments with continuous action spaces. Traditional value-based algorithms, like Deep Q Learning, are not suitable for these continuous spaces. Discretizing the action space introduces significant issues, such as the inability to learn a truly optimal policy if the bins are not fine-grained enough.

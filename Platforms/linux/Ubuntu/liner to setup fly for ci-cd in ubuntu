@@ -1,1 +1,0 @@
-curl -L https://fly.io/install.sh | sh && /root/.fly/bin/flyctl

@@ -1,8 +1,0 @@
-Cog is a command-line tool used to manage machine learning model inference and deployment. It simplifies the process of running models in a reproducible and portable manner. With Cog, you can define a model’s environment and dependencies in a `cog.yaml` file, and then use the `cog` command to build, run, and share the model.
-
-The command you provided installs Cog by downloading the latest release from GitHub and making it executable. Here’s a brief breakdown:
-
-- `sudo curl -o /usr/local/bin/cog -L "https://github.com/replicate/cog/releases/latest/download/cog_$(uname -s)_$(uname -m)"`: Downloads the latest version of Cog for your operating system and architecture and saves it to `/usr/local/bin/cog`.
-- `sudo chmod +x /usr/local/bin/cog`: Makes the Cog binary executable.
-
-Once installed, you can use Cog to work with machine learning models more easily by following the instructions and configurations defined in your `cog.yaml` file.

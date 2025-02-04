@@ -1,1 +1,0 @@
-yarn add <package-name> --peer

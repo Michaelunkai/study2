@@ -1,8 +1,0 @@
-Configure the Extractor with Your GitLab Token and Project
-Set the required configuration for tap-gitlab. You need to provide your GitLab access token and specify the project from which data will be extracted:
-
- 
- 
-meltano config tap-gitlab set private_token YOUR_GITLAB_TOKEN
-meltano config tap-gitlab set project YOUR_GITLAB_PROJECT
-Replace YOUR_GITLAB_TOKEN and YOUR_GITLAB_PROJECT with your actual credentials.

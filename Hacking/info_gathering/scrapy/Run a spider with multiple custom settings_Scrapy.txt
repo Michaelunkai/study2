@@ -1,1 +1,0 @@
-scrapy crawl myspider -s SETTING1=value1 -s SETTING2=value2

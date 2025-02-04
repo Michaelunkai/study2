@@ -1,1 +1,0 @@
-(function() { location.href = location.href.replace('https://', 'http://'); })();

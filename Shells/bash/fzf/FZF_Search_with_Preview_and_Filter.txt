@@ -1,1 +1,0 @@
-fzf --preview 'cat {}' --filter 'pattern'

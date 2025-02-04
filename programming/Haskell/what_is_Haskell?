@@ -1,9 +1,0 @@
-**Haskell** is a **functional programming language** known for its strong static typing, purity (functions have no side effects), and lazy evaluation (expressions are evaluated only when needed). It is named after the mathematician **Haskell Curry**.
-
-Key features of Haskell include:
-- **Pure Functions**: Haskell enforces the concept of pure functions, meaning functions always produce the same output for the same input and have no side effects.
-- **Type System**: Haskell has a strong, static type system with type inference, meaning types are known at compile time, reducing runtime errors.
-- **Lazy Evaluation**: Code is evaluated only when necessary, allowing for potentially more efficient execution and enabling infinite data structures.
-- **Immutability**: Data cannot be modified after it is created, which leads to safer and more predictable code.
-
-Haskell is widely used in academic research, but it is also employed in industry for tasks requiring high reliability, concurrency, and mathematical precision.

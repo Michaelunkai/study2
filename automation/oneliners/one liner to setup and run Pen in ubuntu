@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y pen && sudo pen -c /etc/pen/pen.conf

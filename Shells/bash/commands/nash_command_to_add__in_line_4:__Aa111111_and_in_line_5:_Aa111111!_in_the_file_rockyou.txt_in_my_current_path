@@ -1,1 +1,0 @@
-sed -i '4i Aa111111' rockyou.txt && sed -i '5i Aa111111!' rockyou.txt

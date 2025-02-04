@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://github.com/tporadowski/redis/releases/download/v5.0.10/Redis-x64-5.0.10.1.msi -OutFile redis_installer.msi; Start-Process msiexec.exe -ArgumentList '/i redis_installer.msi /quiet' -NoNewWindow -Wait

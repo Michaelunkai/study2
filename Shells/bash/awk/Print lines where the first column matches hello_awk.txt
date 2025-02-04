@@ -1,1 +1,0 @@
-awk '$1 == "hello"' filename.txt

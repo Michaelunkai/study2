@@ -1,1 +1,0 @@
-sudo apt install -y duc && duc index / && duc gui

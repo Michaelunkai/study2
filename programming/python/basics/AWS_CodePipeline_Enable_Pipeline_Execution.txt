@@ -1,1 +1,0 @@
-aws codepipeline enable-pipeline-execution --pipeline-name <pipeline-name>

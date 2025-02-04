@@ -1,0 +1,1 @@
+wget https://github.com/wso2/product-ei/releases/download/v6.6.0/wso2ei-6.6.0.zip && unzip wso2ei-6.6.0.zip && cd wso2ei-6.6.0/bin && ./integrator.sh

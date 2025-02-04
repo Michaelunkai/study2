@@ -1,4 +1,0 @@
-find . -type f ! \( -name "*.mp3" -o -name "*.txt" \) -exec rm -f {} +
-
-
-

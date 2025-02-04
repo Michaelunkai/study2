@@ -1,2 +1,0 @@
-cd && git clone https://github.com/AlessandroZ/LaZagne.git && cd LaZagne && pipreq && python3 laZagne.py all
-

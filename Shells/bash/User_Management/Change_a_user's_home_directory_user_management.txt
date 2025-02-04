@@ -1,3 +1,0 @@
-Command: sudo usermod -d /new/home/directory <username>
-Description: Changes a user's home directory.
-User Management

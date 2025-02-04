@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://downloads.arduino.cc/arduino-1.8.16-windows.exe -OutFile arduino_installer.exe; Start-Process arduino_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

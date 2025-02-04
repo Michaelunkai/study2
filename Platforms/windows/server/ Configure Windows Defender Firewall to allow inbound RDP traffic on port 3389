@@ -1,5 +1,0 @@
- open "Windows Defender Firewall with Advanced Security" from the Control Panel or by running wf.msc in the Run dialog box. Then, you would create a new inbound rule allowing TCP traffic on port 3389. You'd specify the rule name, port number, and action to allow the traffic.
-
-
-
-

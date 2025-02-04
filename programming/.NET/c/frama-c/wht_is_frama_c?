@@ -1,8 +1,0 @@
-Frama-C is an open-source platform designed for the formal verification of C programs. It provides a collection of tools for analyzing C code to detect possible errors, prove the correctness of algorithms, ensure security properties, and check for memory safety. Frama-C uses formal methods like deductive verification and abstract interpretation, allowing developers to rigorously ensure the correctness of their programs, especially for safety-critical software such as in aviation, automotive, and nuclear industries.
-
-Frama-C supports multiple analyzers and plugins, such as:
-- **Value Analysis**: Detects potential run-time errors.
-- **WP Plugin**: Proves functional properties using the Weakest Precondition calculus.
-- **EVA (Abstract Interpretation)**: For large-scale analysis of programs.
-  
-It's widely used in industries where ensuring software correctness is critical.

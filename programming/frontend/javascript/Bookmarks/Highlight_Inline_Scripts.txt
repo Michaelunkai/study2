@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('script:not([src])').forEach(script => script.style.backgroundColor = 'yellow'); })();

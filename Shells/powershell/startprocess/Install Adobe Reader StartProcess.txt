@@ -1,1 +1,0 @@
-Start-Process -FilePath 'C:\path\to\adobe_reader_installer.exe' -ArgumentList '/sAll /msi /quiet /norestart' -NoNewWindow -Wait

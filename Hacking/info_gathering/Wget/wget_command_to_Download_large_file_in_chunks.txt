@@ -1,1 +1,0 @@
-wget -c -r -np -k http://example.com/largefile.zip

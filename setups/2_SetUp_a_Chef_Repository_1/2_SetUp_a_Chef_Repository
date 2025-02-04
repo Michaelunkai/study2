@@ -1,0 +1,11 @@
+ Set Up a Chef Repository
+2.1 Create a Chef Repository
+Create a directory for your Chef repository and generate the repository structure:
+
+mkdir ~/chef-repo
+cd ~/chef-repo
+chef generate repo .
+2.2 Create .chef Directory
+Create the .chef directory inside your repository:
+
+mkdir .chef

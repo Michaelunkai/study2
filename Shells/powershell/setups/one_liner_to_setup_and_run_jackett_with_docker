@@ -1,1 +1,0 @@
-docker run -d --name=jackett -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -p 9117:9117 -v ~/jackett/config:/config --restart unless-stopped ghcr.io/linuxserver/jackett && sleep 10 && gc http://172.24.52.110:9117

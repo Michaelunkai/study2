@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('audio').forEach(audio => audio.muted = true); })();

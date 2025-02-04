@@ -1,7 +1,0 @@
-Risks of SSTI
-SSTI can lead to severe consequences, including:
-
-Remote Code Execution (RCE): Execute arbitrary commands on the server.
-Data Leakage: Access sensitive data stored on the server.
-Denial of Service (DoS): Crash the server or make it unavailable.
-Privilege Escalation: Gain higher privileges on the server.

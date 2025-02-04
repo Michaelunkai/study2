@@ -1,1 +1,0 @@
-wget https://www.kaggle.com/mlg-ulb/creditcardfraud/download -O creditcard.csv

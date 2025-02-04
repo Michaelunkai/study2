@@ -1,0 +1,1 @@
+wget https://github.com/example/photodepot/archive/refs/heads/master.zip && unzip master.zip && mv photodepot-master photodepot && echo 'Follow installation steps'

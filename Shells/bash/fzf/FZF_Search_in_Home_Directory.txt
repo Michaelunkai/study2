@@ -1,1 +1,0 @@
-fzf --bind 'enter:execute(cd ~ && ls)'

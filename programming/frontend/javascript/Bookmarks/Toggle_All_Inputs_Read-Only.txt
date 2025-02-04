@@ -1,3 +1,0 @@
-(function() {
-    document.querySelectorAll('input, textarea').forEach(input => input.readOnly = !input.readOnly);
-})();

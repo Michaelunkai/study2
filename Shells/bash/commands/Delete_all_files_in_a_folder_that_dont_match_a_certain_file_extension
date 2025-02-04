@@ -1,1 +1,0 @@
-rm !(*.foo|*.bar|*.baz)

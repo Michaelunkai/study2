@@ -1,2 +1,0 @@
-curl -X GET "https://api.stripe.com/v1/balance" \
--u YOUR_STRIPE_SECRET_KEY:

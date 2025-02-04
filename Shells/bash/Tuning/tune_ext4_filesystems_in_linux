@@ -1,2 +1,0 @@
-sudo tune2fs -o journal_data_writeback /dev/sda1
-sudo tune2fs -o commit=60 /dev/sda1

@@ -1,1 +1,0 @@
-awk 'NR % 3 == 0' filename.txt

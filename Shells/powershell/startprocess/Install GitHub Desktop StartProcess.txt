@@ -1,1 +1,0 @@
-Start-Process -FilePath 'C:\path\to\github_desktop_installer.exe' -ArgumentList '/silent' -NoNewWindow -Wait

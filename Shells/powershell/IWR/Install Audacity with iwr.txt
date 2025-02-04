@@ -1,1 +1,0 @@
-iwr -Uri https://fossies.org/windows/misc/audacity-win-3.1.0.zip -OutFile audacity.zip; Expand-Archive audacity.zip -DestinationPath C:\Audacity

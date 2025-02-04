@@ -1,5 +1,0 @@
-Download a Theme:
-Download a sample theme, such as jandedobbeleer:
- 
- 
-wget https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json -O ~/jandedobbeleer.omp.json

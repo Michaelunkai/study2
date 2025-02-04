@@ -1,1 +1,0 @@
-dokku config:set myapp KEY=value

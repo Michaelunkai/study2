@@ -1,7 +1,0 @@
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
-
-sudo apt update
-
-sudo apt install microsoft-edge-dev -y
-
-microsoft-edge-dev  --no-sandbox

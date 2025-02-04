@@ -1,5 +1,0 @@
-(function() {
-    document.querySelectorAll('div, span').forEach(el => {
-        if (getComputedStyle(el).position === 'fixed') el.remove();
-    });
-})();

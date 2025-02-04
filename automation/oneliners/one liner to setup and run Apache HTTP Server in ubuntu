@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y apache2 && sudo a2enmod proxy proxy_balancer proxy_http && sudo service apache2 restart

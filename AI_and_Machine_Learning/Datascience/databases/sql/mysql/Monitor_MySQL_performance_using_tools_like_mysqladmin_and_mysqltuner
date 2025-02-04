@@ -1,2 +1,0 @@
-Monitor MySQL performance using tools like mysqladmin and mysqltuner.mysqladmin:mysqladmin -u root -p statusmysqltuner:sudo apt install mysqltuner
-mysqltunerStep 9: ReplicationSet up replication for high availability.

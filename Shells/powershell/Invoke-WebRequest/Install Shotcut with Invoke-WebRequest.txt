@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri https://github.com/mltframework/shotcut/releases/download/v21.10.31/shotcut-win64-211031.exe -OutFile shotcut_installer.exe; Start-Process shotcut_installer.exe -ArgumentList '/S' -NoNewWindow -Wait

@@ -1,1 +1,0 @@
-wget -e use_proxy=yes -e http_proxy=proxy_url:port http://example.com/file.zip

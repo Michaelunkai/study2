@@ -1,3 +1,0 @@
-(function() {
-    alert(document.body.innerText.split(/\s+/).length + ' words');
-})();

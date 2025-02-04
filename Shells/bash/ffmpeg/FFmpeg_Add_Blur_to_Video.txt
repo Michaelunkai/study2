@@ -1,1 +1,0 @@
-ffmpeg -i input.mp4 -vf "boxblur=10:1" output.mp4

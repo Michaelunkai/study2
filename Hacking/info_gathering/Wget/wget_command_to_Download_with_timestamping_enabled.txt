@@ -1,1 +1,0 @@
-wget --timestamping http://example.com/file.zip

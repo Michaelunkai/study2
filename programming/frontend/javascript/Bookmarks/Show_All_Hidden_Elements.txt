@@ -1,1 +1,0 @@
-(function() { document.querySelectorAll('*').forEach(el => { if (el.style.display === 'none') el.style.display = ''; }); })();

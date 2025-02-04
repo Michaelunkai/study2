@@ -1,1 +1,0 @@
-(function() { document.body.style.backgroundColor = document.body.style.backgroundColor === 'black' ? '' : 'black'; })();

@@ -1,0 +1,1 @@
+git clone https://github.com/shish/shimmie2.git && cd shimmie2 && cp config.default.php config.php && echo 'Edit config.php and deploy on web server'

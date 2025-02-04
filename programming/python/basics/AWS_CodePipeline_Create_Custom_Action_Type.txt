@@ -1,1 +1,0 @@
-aws codepipeline create-custom-action-type --category Source --provider <provider> --version <version> --configuration-properties <properties>

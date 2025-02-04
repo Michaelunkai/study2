@@ -1,9 +1,0 @@
-Multiple Sessions:
-List all backgrounded sessions:
-msf > sessions -l
-Interact with a backgrounded session:
-msf > session -i [SessionID]
-Background the current interactive session:
-meterpreter > <Ctrl+Z>
-or
-meterpreter > background

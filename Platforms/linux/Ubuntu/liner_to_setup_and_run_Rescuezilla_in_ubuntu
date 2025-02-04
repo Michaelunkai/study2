@@ -1,1 +1,0 @@
-sudo add-apt-repository ppa:rescuezilla-team/stable && sudo apt update && sudo apt install rescuezilla -y && rescuezilla

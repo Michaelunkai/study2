@@ -1,0 +1,1 @@
+echo 'Install ytmusic CLI tool via npm if available: npm install -g ytmusic-cli'

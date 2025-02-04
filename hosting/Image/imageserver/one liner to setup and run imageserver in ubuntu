@@ -1,0 +1,1 @@
+git clone https://github.com/example/imageserver.git && cd imageserver && npm install && npm start

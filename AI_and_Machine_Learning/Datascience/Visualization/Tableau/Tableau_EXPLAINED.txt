@@ -1,3 +1,0 @@
-### Tableau
-**Tableau: Explained**
-Tableau is a leading data visualization tool that helps users transform raw data into visually appealing, interactive, and shareable dashboards. It supports a wide variety of data sources, including spreadsheets, databases, and cloud services. Tableau’s drag-and-drop interface allows users to easily create complex visualizations without the need for programming knowledge. It is particularly praised for its ability to handle large datasets and its extensive range of visualization options. Tableau’s capabilities also extend to real-time data analysis, making it an invaluable tool for business intelligence, providing insights that drive informed decision-making and operational efficiency.

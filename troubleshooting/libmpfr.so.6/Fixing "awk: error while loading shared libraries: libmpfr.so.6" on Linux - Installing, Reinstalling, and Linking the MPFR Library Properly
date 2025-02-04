@@ -1,0 +1,146 @@
+## **Complete Guide to Fixing "awk: error while loading shared libraries: libmpfr.so.6" on Linux - Installing, Reinstalling, and Linking the MPFR Library Properly**
+
+If you encounter the following error while using `awk`:
+
+```
+awk: error while loading shared libraries: libmpfr.so.6: cannot open shared object file: No such file or directory
+```
+
+This indicates that the **MPFR (Multiple Precision Floating-Point) library** is either missing, improperly installed, or the system is unable to locate it. `awk` depends on `libmpfr.so.6` for floating-point operations, and without it, `awk` cannot function correctly.
+
+This guide will walk you through **checking for missing dependencies, installing/reinstalling the required package, manually linking the library, refreshing the system cache, and reinstalling awk if necessary.** The instructions apply to **Debian-based (Ubuntu, Kali, etc.), Arch Linux, Fedora, and CentOS-based distributions.**
+
+---
+
+## **Step 1: Check If libmpfr Is Installed**
+Before installing or fixing anything, check if `libmpfr` is already installed but not linked properly.
+
+Run the following command:
+
+```bash
+ldconfig -p | grep libmpfr
+```
+
+### **Expected Output (If Installed)**
+```
+libmpfr.so.6 (libc6,x86-64) => /usr/lib/libmpfr.so.6
+```
+or
+```
+libmpfr.so.6 (libc6,x86-64) => /usr/lib64/libmpfr.so.6
+```
+
+If you see this output, the library exists but is not properly linked, and you should proceed to **Step 3**.
+
+If no output is shown, the library is missing, and you need to install it as explained in **Step 2**.
+
+---
+
+## **Step 2: Install or Reinstall the MPFR Library**
+If `libmpfr.so.6` is missing, install it using the package manager specific to your Linux distribution.
+
+### **For Debian/Ubuntu/Kali**
+```bash
+sudo apt update
+sudo apt install --reinstall libmpfr6
+```
+
+### **For Arch Linux**
+```bash
+sudo pacman -Sy mpfr
+```
+
+### **For Fedora**
+```bash
+sudo dnf install mpfr
+```
+
+### **For CentOS/RHEL**
+```bash
+sudo yum install mpfr
+```
+
+Once installed, verify that the library exists by running:
+
+```bash
+ls -l /usr/lib/libmpfr.so* /usr/lib64/libmpfr.so*
+```
+
+---
+
+## **Step 3: Manually Create a Symlink (If Necessary)**
+If the correct `libmpfr` version is installed but the system is looking for `libmpfr.so.6` while only `libmpfr.so.10` or another version exists, you need to create a symbolic link.
+
+1. **Check Available Versions:**
+   ```bash
+   ls -l /usr/lib/libmpfr.so* /usr/lib64/libmpfr.so*
+   ```
+   If the output shows something like:
+   ```
+   /usr/lib/libmpfr.so.10
+   ```
+   But `libmpfr.so.6` is missing, proceed to the next step.
+
+2. **Create a Symlink to `libmpfr.so.6`**
+   ```bash
+   sudo ln -s /usr/lib/libmpfr.so.10 /usr/lib/libmpfr.so.6
+   ```
+   Or if your system uses `/usr/lib64`:
+   ```bash
+   sudo ln -s /usr/lib64/libmpfr.so.10 /usr/lib64/libmpfr.so.6
+   ```
+
+---
+
+## **Step 4: Refresh the Library Cache**
+After installing or linking the library, you must refresh the system's shared library cache.
+
+Run:
+```bash
+sudo ldconfig
+```
+
+Then check if `awk` runs without errors:
+```bash
+awk --version
+```
+
+If the command runs successfully, the problem is resolved.
+
+---
+
+## **Step 5: Reinstall `awk` If Necessary**
+If you still get an error, `awk` itself might be corrupted or require a reinstall.
+
+### **For Debian/Ubuntu/Kali**
+```bash
+sudo apt install --reinstall gawk
+```
+
+### **For Arch Linux**
+```bash
+sudo pacman -S gawk
+```
+
+### **For Fedora**
+```bash
+sudo dnf install gawk
+```
+
+### **For CentOS/RHEL**
+```bash
+sudo yum install gawk
+```
+
+After reinstalling, verify that `awk` works:
+
+```bash
+awk --version
+```
+
+---
+
+## **Conclusion**
+This guide covered **how to diagnose and fix the missing libmpfr.so.6 error for awk by checking the installation, reinstalling the library, manually linking it if necessary, refreshing the system cache, and reinstalling awk as a last resort.** 
+
+These steps should resolve the issue in most Linux distributions. If you still experience problems, let me know, and I can help troubleshoot further! 🚀

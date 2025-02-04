@@ -1,1 +1,0 @@
-Get-Command -Source Microsoft.PowerShell.Management

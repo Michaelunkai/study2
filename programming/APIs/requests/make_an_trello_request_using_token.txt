@@ -1,1 +1,0 @@
-curl -X GET "https://api.trello.com/1/members/me?key=YOUR_TRELLO_API_KEY&token=YOUR_TRELLO_API_TOKEN"

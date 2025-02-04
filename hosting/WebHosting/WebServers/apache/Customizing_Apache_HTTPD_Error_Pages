@@ -1,9 +1,0 @@
-
-Customizing Apache HTTPD Error Pages
-Download Apache HTTPD Download
-Install Apache HTTPD
-Navigate to <ApacheInstallDirectory>/error
-Edit top.html and bottom.html to your liking
-Save top.html and bottom.html
-Open a web browser
-Browse to a local URL that is invalid to force a 404 error from Apache HTTPD Forced 404

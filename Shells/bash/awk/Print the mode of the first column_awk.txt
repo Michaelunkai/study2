@@ -1,1 +1,0 @@
-awk '{count[$1]++} END {for (val in count) {if (count[val] > max) {max = count[val]; mode = val}} print mode}' filename.txt

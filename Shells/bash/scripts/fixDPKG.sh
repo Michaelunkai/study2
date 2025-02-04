@@ -1,98 +1,91 @@
 #!/bin/bash
-
-############################################################
-# fdpkg.sh - A script to repair dpkg and related packages
-# Author: Your Name
-# Date: YYYY-MM-DD
 #
-# Description:
-# This script repairs the dpkg package management system by
-# backing up and resetting the /var/lib/dpkg/info directory,
-# updating package lists, reinstalling essential packages,
-# adding the i386 architecture, reinstalling Mesa-related packages,
-# and performing additional recovery steps.
-#
-# Usage:
-#   sudo ./fdpkg.sh
-############################################################
+# fix-package-dependencies.sh
+# 
+# This script specifically fixes the dependency chain:
+# libpaper1 -> libgs9 -> ghostscript -> gimp
 
-# Exit immediately if a command exits with a non-zero status
-set -e
-
-# Function to display messages
-echo_msg() {
-    echo -e "\n==== $1 ====\n"
-}
-
-echo_msg "Starting dpkg repair process..."
-
-# Step 1: Backup and Reset /var/lib/dpkg/info
-echo_msg "Backing up /var/lib/dpkg/info..."
-
-if sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old 2>/dev/null; then
-    echo "Moved /var/lib/dpkg/info to /var/lib/dpkg/info_old."
-else
-    echo "/var/lib/dpkg/info_old already exists. Removing it."
-    sudo rm -rf /var/lib/dpkg/info_old
-    sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old
-    echo "Moved /var/lib/dpkg/info to /var/lib/dpkg/info_old after removing existing info_old."
+# Ensure script is run as root
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 
+   exit 1
 fi
 
-# Recreate the info directory
-echo_msg "Recreating /var/lib/dpkg/info directory..."
-sudo mkdir /var/lib/dpkg/info
-sudo chmod 755 /var/lib/dpkg/info
-echo "Recreated /var/lib/dpkg/info directory."
+# Function to print section headers
+print_header() {
+    echo -e "\n=== $1 ===\n"
+}
 
-# Step 2: Update package lists and reinstall essential packages
-echo_msg "Updating package lists..."
-sudo apt-get update -y
-echo "Package lists updated."
+print_header "Starting dependency fix"
 
-echo_msg "Reinstalling dpkg and apt..."
-sudo apt-get install --reinstall -y dpkg apt
-echo "Reinstalled dpkg and apt."
+# Stop any running package managers
+killall apt apt-get dpkg 2>/dev/null || true
+sleep 2
 
-# Step 3: Add i386 architecture and reinstall Mesa packages
-echo_msg "Adding i386 architecture..."
-sudo dpkg --add-architecture i386
-echo "i386 architecture added."
+# Remove locks
+print_header "Removing package locks"
+rm -f /var/lib/dpkg/lock*
+rm -f /var/lib/apt/lists/lock
+rm -f /var/cache/apt/archives/lock
 
-echo_msg "Updating package lists after adding i386 architecture..."
-sudo apt-get update -y
-echo "Package lists updated."
+# Remove the problematic packages completely
+print_header "Removing problematic packages"
+apt-get purge -y libpaper1 libgs9 libpaper-utils ghostscript gimp
+dpkg --remove --force-remove-reinstreq libpaper1 libgs9 libpaper-utils ghostscript gimp
 
-echo_msg "Reinstalling Mesa-related packages..."
-sudo apt-get install --reinstall -y libgl1-mesa-glx libglx-mesa0 libgl1-mesa-dri mesa-vulkan-drivers libgl1-mesa-dri:i386
-echo "Reinstalled Mesa-related packages."
+# Clean up package database
+print_header "Cleaning package database"
+rm -rf /var/lib/dpkg/info/libpaper1*
+rm -rf /var/lib/dpkg/info/libgs9*
+rm -rf /var/lib/dpkg/info/libpaper-utils*
+rm -rf /var/lib/dpkg/info/ghostscript*
+rm -rf /var/lib/dpkg/info/gimp*
 
-echo_msg "Setting permissions for /run/user/$(id -u)..."
-sudo chmod 0700 /run/user/$(id -u)
-echo "Permissions set."
+# Update package lists
+print_header "Updating package lists"
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+apt-get update
 
-# Optional Step 4: Additional Recovery Steps
-echo_msg "Performing additional recovery steps..."
+# Fix package system
+print_header "Fixing package system"
+dpkg --configure -a
+apt-get install -f -y
 
-echo_msg "Reconfiguring all partially installed packages..."
-sudo dpkg --configure -a
-echo "Reconfigured packages."
+# Install packages in correct order
+print_header "Installing packages in dependency order"
 
-echo_msg "Fixing broken dependencies..."
-sudo apt-get install -f -y
-echo "Fixed broken dependencies."
+# First, install libpaper1 alone
+apt-get install -y --no-install-recommends libpaper1
+dpkg --configure -a
+apt-get install -f -y
 
-echo_msg "Cleaning package caches..."
-sudo apt-get clean
-sudo apt-get autoclean
-echo "Package caches cleaned."
+# Then install libgs9
+apt-get install -y --no-install-recommends libgs9
+dpkg --configure -a
+apt-get install -f -y
 
-echo_msg "Removing unnecessary packages..."
-sudo apt-get autoremove -y
-echo "Unnecessary packages removed."
+# Install libpaper-utils
+apt-get install -y --no-install-recommends libpaper-utils
+dpkg --configure -a
+apt-get install -f -y
 
-# Uncomment the following lines if you want to reinstall all installed packages
-# echo_msg "Reinstalling all installed packages..."
-# sudo apt-get install --reinstall -y $(dpkg --get-selections | grep install | awk '{print $1}')
-# echo "Reinstalled all installed packages."
+# Install ghostscript
+apt-get install -y --no-install-recommends ghostscript
+dpkg --configure -a
+apt-get install -f -y
 
-echo_msg "dpkg repair process completed successfully."
+# Finally install GIMP
+apt-get install -y gimp
+dpkg --configure -a
+apt-get install -f -y
+
+# Verify installations
+print_header "Verifying package states"
+dpkg -l | grep -E "libpaper1|libgs9|libpaper-utils|ghostscript|gimp"
+
+print_header "Script completed"
+echo "If you still see errors, please check:"
+echo "1. /var/log/dpkg.log"
+echo "2. /var/log/apt/term.log"
+echo "3. Try running 'apt-get install -f' again"

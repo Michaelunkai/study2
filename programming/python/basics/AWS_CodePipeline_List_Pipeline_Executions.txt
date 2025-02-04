@@ -1,1 +1,0 @@
-aws codepipeline list-pipeline-executions --pipeline-name <pipeline-name>

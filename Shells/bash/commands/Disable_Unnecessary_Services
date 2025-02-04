@@ -1,3 +1,0 @@
-sudo systemctl list-units --type=service --state=running
-sudo systemctl disable servicename
-sudo systemctl stop servicename

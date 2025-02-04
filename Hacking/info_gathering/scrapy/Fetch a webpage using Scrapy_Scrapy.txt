@@ -1,1 +1,0 @@
-scrapy fetch http://example.com
