@@ -1,0 +1,1 @@
+pip3 install PyPDF2 && python3 -c 'import PyPDF2; print(PyPDF2.__version__)'

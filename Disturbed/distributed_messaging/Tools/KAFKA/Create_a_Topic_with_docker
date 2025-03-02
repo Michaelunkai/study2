@@ -1,1 +1,0 @@
-docker exec -it kafka kafka-topics --bootstrap-server localhost:7000 --create --topic my-topic

@@ -1,0 +1,1 @@
+pip3 install h5py && python3 -c 'import h5py; print(h5py.__version__)'

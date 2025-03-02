@@ -1,1 +1,0 @@
-curl -O https://www.mezmo.com/install.sh && sudo bash install.sh

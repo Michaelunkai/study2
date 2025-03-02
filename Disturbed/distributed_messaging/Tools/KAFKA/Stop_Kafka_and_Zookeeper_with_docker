@@ -1,7 +1,0 @@
-Stop Kafka and Zookeeper:
-To stop the Kafka and Zookeeper containers, run:
-docker stop kafka zookeeper
-
-Start Kafka and Zookeeper Again:
-To start the containers again, run:
-docker start kafka zookeeper

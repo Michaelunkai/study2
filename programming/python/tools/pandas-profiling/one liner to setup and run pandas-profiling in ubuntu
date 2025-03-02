@@ -1,0 +1,1 @@
+pip3 install pandas-profiling && python3 -c 'import pandas_profiling; print(pandas_profiling.__version__)'

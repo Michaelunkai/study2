@@ -1,0 +1,1 @@
+pip3 install memray && python3 -c 'import memray; print(memray.__version__)'

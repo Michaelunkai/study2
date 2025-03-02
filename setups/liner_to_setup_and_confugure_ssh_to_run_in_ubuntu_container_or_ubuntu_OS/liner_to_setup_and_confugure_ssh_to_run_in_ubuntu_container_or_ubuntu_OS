@@ -1,5 +1,0 @@
-apt update && apt upgrade -y && apt-get install openssh-server tmux python3 python3-pip -y && systemctl start ssh && systemctl enable ssh && echo "
-# Custom SSH configuration to enable root login and password authentication
-PermitRootLogin yes
-PasswordAuthentication yes
-" >> /etc/ssh/sshd_config && systemctl restart ssh && ssh localhost

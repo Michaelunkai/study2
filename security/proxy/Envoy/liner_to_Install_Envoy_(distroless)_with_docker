@@ -1,2 +1,0 @@
-docker pull envoyproxy/envoy:distroless-dev-91cc5e35ad2d24c3112c1eaaf5d7538691df234f
-docker run --rm envoyproxy/envoy:distroless-dev-91cc5e35ad2d24c3112c1eaaf5d7538691df234f --version

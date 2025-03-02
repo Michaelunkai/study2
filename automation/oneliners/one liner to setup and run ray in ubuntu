@@ -1,0 +1,1 @@
+pip3 install ray && python3 -c 'import ray; print(ray.__version__)'

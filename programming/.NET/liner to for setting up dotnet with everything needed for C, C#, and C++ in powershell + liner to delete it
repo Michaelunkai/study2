@@ -1,0 +1,8 @@
+setting up dotnet with everything needed for C, C#, and C++
+
+winget install Microsoft.DotNet.SDK.8 --override "--add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended"; winget install Microsoft.VisualStudio.2022.BuildTools --override "--add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
+
+
+For completely purging dotnet and related components:
+
+Get-ChildItem -Path "C:\Program Files\dotnet\", "${env:ProgramFiles(x86)}\Microsoft Visual Studio", "$env:USERPROFILE\.dotnet" -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force; Remove-Item -Path "HKLM:\SOFTWARE\dotnet", "HKLM:\SOFTWARE\Microsoft\dotnet" -Recurse -Force -ErrorAction SilentlyContinue

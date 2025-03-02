@@ -1,1 +1,0 @@
- docker run -d -p 8983:8983 --name solr solr:latest &&  gc http://localhost:8983/solr

@@ -1,1 +1,0 @@
-sudo apt install -y python3-serial && python3 -m serial.tools.miniterm

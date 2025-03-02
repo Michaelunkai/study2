@@ -1,0 +1,1 @@
+pip3 install storm && python3 -c 'import storm; print(storm.__version__)'

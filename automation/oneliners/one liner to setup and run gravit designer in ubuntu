@@ -1,0 +1,1 @@
+wget -O gravit-designer.AppImage https://designer.gravit.io/_downloads/linux && chmod +x gravit-designer.AppImage && ./gravit-designer.AppImage

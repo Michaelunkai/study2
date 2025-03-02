@@ -1,2 +1,0 @@
-sudo nano /etc/awstats/awstats.mywebsite.conf
-SkipHosts=\"REGEX[192.168.*]\"

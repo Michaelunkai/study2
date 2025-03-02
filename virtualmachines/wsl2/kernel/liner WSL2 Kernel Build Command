@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y build-essential flex bison dwarves libssl-dev libelf-dev cpio && git clone https://github.com/microsoft/WSL2-Linux-Kernel.git && cd WSL2-Linux-Kernel && make KCONFIG_CONFIG=Microsoft/config-wsl

@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y openjdk-11-jdk && wget https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final.zip && unzip wildfly-24.0.1.Final.zip && cd wildfly-24.0.1.Final/bin && ./standalone.sh

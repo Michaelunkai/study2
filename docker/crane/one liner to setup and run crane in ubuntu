@@ -1,0 +1,1 @@
+curl -LO https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz && tar -xvzf go-containerregistry_Linux_x86_64.tar.gz && sudo mv crane /usr/local/bin/ && rm -f go-containerregistry_Linux_x86_64.tar.gz && crane version

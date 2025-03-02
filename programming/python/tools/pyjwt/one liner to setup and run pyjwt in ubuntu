@@ -1,0 +1,1 @@
+pip3 install pyjwt && python3 -c 'import jwt; print(jwt.__version__)'

@@ -1,1 +1,0 @@
-npx create-nuxt-app my-nuxt-app && cd my-nuxt-app && npm run dev

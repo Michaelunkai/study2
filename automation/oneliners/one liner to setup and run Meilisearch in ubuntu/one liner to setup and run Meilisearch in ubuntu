@@ -1,1 +1,0 @@
-docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:latest && gcl 7700

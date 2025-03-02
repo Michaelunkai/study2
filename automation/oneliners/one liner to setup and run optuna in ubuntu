@@ -1,0 +1,1 @@
+pip3 install optuna && python3 -c 'import optuna; print(optuna.__version__)'

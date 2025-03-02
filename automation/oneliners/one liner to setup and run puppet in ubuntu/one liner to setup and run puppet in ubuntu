@@ -1,1 +1,0 @@
-sudo apt install puppet -y && sudo puppet agent --test

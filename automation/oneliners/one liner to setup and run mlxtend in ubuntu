@@ -1,0 +1,1 @@
+pip3 install mlxtend && python3 -c 'import mlxtend; print(mlxtend.__version__)'

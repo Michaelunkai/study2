@@ -1,0 +1,25 @@
+Configure Static IP for Server
+Edit the netplan configuration file:
+
+ 
+ 
+sudo nano /etc/netplan/00-installer-config. 
+Configure the static IP:
+
+ 
+ 
+network:
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.1/24
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+  version: 2
+Apply the changes:
+
+ 
+ 
+sudo netplan apply

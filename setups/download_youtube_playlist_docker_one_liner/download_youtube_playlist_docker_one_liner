@@ -1,1 +1,0 @@
-docker run -d -p 8081:8081 -v /mnt/c/Users/micha/videos:/downloads ghcr.io/alexta69/metube && gc localhost:8081

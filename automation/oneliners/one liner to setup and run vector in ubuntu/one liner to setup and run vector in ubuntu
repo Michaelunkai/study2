@@ -1,1 +1,0 @@
-curl -L https://packages.timber.io/vector.sh | bash && vector --version

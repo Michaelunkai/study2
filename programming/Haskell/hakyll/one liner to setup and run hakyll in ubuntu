@@ -1,0 +1,1 @@
+cabal install hakyll && echo 'Hakyll installed'

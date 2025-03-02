@@ -1,1 +1,0 @@
-npx create-hydrogen-app my-hydrogen-app && cd my-hydrogen-app && npm run dev

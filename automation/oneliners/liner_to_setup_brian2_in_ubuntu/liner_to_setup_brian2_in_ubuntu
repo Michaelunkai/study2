@@ -1,1 +1,0 @@
-pip install brian2 && python -c "import brian2; print(brian2.__version__)"

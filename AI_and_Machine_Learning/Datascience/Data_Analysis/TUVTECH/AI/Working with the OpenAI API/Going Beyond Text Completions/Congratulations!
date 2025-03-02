@@ -1,0 +1,25 @@
+Transcript
+1. Congratulations!
+00:00 - 00:06
+Congratulations on making it to the end of the course! You've come a long way!
+
+2. Chapter 1
+00:06 - 00:16
+In Chapter 1, you started to learn about the OpenAI API, and how to make requests to the via the Chat Completions endpoint.
+
+3. Chapter 2
+00:16 - 00:46
+In Chapter 2, you utilized OpenAI's chat models to solve a range of tasks, including question answering, text transformation, content generation, sentiment analysis, and categorization. You even learned how to control the model's behavior by tweaking the max_tokens and temperature parameters. From there, you unlocked the potential for multi-turn conversations using chat roles, and created your very first AI chatbot.
+
+4. Chapter 3
+00:46 - 01:08
+In Chapter 3, you explored OpenAI's moderation and audio functionality, and used these models to detect inappropriate content, and translate and transcribe audio recordings. Finally, you brought everything together by chaining models together to start automating more complex tasks like creating meeting summaries from recordings.
+
+5. What next?
+01:08 - 01:22
+Although AI application development is a relatively new field, DataCamp already has courses and learning pathways to help you create more impressive and diverse applications, so feel free to check them out!
+
+6. Let's practice!
+01:22 - 01:34
+Congratulations, again! I hope you enjoyed learning about some of the amazing functionality available through the OpenAI API. Have fun applying your newly-learned skills!
+

@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/openai/dall-e/blob/master/notebooks/image_generation.ipynb -O dalle_image_generation.ipynb

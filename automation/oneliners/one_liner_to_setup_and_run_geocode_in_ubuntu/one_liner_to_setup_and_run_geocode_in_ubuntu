@@ -1,1 +1,0 @@
-apt install ruby-geocoder -y && geocode "Berlin, Germany"

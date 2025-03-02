@@ -1,0 +1,1 @@
+go install github.com/labstack/echo/v4@latest && echo 'Echo Web Framework installed'

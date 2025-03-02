@@ -1,0 +1,1 @@
+wget https://downloads.tibco.com/software/tibco-activespaces-4.0.0-linux64.zip && unzip tibco-activespaces-4.0.0-linux64.zip && cd tibco-activespaces-4.0.0/bin && ./as-agent

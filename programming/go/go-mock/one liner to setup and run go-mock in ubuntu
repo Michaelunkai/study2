@@ -1,0 +1,1 @@
+go install github.com/golang/mock@latest && echo 'Go Mock installed'

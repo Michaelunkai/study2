@@ -1,0 +1,1 @@
+pip3 install feature_engine && python3 -c 'import feature_engine; print(feature_engine.__version__)'

@@ -1,0 +1,1 @@
+pip3 install plotly && python3 -c 'import plotly; print(plotly.__version__)'

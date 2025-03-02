@@ -1,1 +1,0 @@
-sudo apt install -y i2p && i2prouter start

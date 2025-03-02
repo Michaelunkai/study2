@@ -1,1 +1,0 @@
-sudo apt install -y chromium-browser && chromium-browser --app='https://www.google.com/maps'

@@ -1,0 +1,1 @@
+sudo apt install -y clang cmake ninja-build && git clone https://github.com/WAVM/WAVM.git && cd WAVM && mkdir build && cd build && cmake .. && ninja && echo 'WAVM installed'

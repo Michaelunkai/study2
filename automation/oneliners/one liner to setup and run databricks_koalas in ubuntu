@@ -1,0 +1,1 @@
+pip3 install databricks-koalas && python3 -c 'import databricks.koalas as ks; print(ks.__version__)'

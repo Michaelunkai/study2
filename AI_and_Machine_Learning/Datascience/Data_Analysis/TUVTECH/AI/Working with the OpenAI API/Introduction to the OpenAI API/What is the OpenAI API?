@@ -1,0 +1,54 @@
+Transcript
+1. What is the OpenAI API?
+00:00 - 00:10
+Welcome to the course! I'm James, and I'll be your host as we explore the artificial intelligence functionality available via the OpenAI API!
+
+2. Coming up...
+00:10 - 00:42
+In this course, you'll learn how to use the AI models available through the OpenAI API to solve a wide range of real-world tasks. To do this, we'll be using Python code throughout the course, and expect familiarity with a few Python programming topics like subsetting lists and dictionaries, control flow, and looping. However, no experience with AI or machine learning is required. With that, let's dive in!
+
+3. OpenAI, ChatGPT, and the OpenAI API
+00:42 - 01:13
+OpenAI is a company that researches and develops artificial intelligence systems. One of their most famous developments is ChatGPT, which is an application that allows users to communicate with an AI-powered chatbot to ask questions, perform tasks, or generate content. The OpenAI API allows individuals or organizations to access and customize any of the models developed and released by OpenAI.
+
+1 Image Credit: OpenAI
+4. OpenAI, ChatGPT, and the OpenAI API
+01:13 - 01:23
+If OpenAI was a car manufacturer, ChatGPT would be their shiny new sports car that people can walk into a dealership and test drive.
+
+5. OpenAI, ChatGPT, and the OpenAI API
+01:23 - 01:31
+The OpenAI API would be like the system customers could use to customize and order cars from the manufacturer's catalog.
+
+6. What is an API?
+01:31 - 01:49
+So what actually is an API? API stands for Application Programming Interface, and they act as messengers between software applications, taking a request to a system and receiving a response containing data or services.
+
+7. What is an API?
+01:49 - 02:05
+APIs are like waiters in a restaurant; they take our order, or request, communicate it to the kitchen - the system providing the service - and finally, deliver the food, or response from the system, back to our table.
+
+8. What is an API?
+02:05 - 02:18
+Many applications interact using APIs; for example, a mobile weather app may send our location to an API and request the local weather forecast, which is returned back to our phones.
+
+9. The OpenAI API
+02:18 - 02:27
+Similarly, we can write code to interact with the OpenAI API and request the use of one of their models.
+
+10. The OpenAI API
+02:27 - 02:43
+Our request, in this case, will specify which model we want, the data for the model to use, and any other parameters to customize the model's behavior. The response, containing the model result, is then returned.
+
+11. API vs. web interface
+02:43 - 03:12
+Some of OpenAI's models can be used from the web browser, such as via ChatGPT. This low-setup browser experience is often sufficient for streamlining our workflows using AI. However, if we're looking to begin integrating AI into our products, customer experiences, and business processes, we'll need the flexibility of working with the models programmatically using an API.
+
+12. Building AI applications
+03:12 - 03:39
+The OpenAI API has enabled the development of powerful new features, that before, would have required enormous computational resources and data. In this example, from DataLab-DataCamp's own AI-powered IDE-we developed a feature where you can use natural language to extract insights from data - all built on the OpenAI API! I highly recommend giving it a try!
+
+1 https://www.datacamp.com/datalab
+13. Let's practice!
+03:39 - 03:43
+Time to test your understanding!

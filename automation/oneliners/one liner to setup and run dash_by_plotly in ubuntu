@@ -1,0 +1,1 @@
+pip3 install dash && python3 -c 'import dash; print(dash.__version__)'

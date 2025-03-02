@@ -1,0 +1,1 @@
+pip3 install sklearn-pandas && python3 -c 'import sklearn_pandas; print(sklearn_pandas.__version__)'

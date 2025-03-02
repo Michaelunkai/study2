@@ -1,8 +1,0 @@
- cd && rm -rf ~/wazuh-docker && git clone https://github.com/wazuh/wazuh-docker.git -b v4.7.5 && cd wazuh-docker/single-node && echo 'version: "3"
-services:
-  generator:
-    image: wazuh/wazuh-certs-generator:0.0.1
-    hostname: wazuh-certs-generator
-    volumes:
-      - ./config/wazuh_indexer_ssl_certs/:/certificates/
-      - ./config/certs.yml:/config/certs.yml' > generate-indexer-certs.yml && docker-compose -f generate-indexer-certs.yml run --rm generator && docker-compose up -d && sleep 60 && docker-compose ps && docker exec -it $(docker ps -qf "name=single-node_wazuh.manager_1") /var/ossec/bin/manage_agents -l && curl -X GET https://localhost:9200 -u admin:SecretPassword --insecure && echo "Access the Wazuh dashboard at https://localhost with username 'admin' and password 'SecretPassword'" && gc https://localhost

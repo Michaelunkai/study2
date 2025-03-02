@@ -2,10 +2,9 @@
 
 2)install:
 
-
 3)add/change:
-wishlist - /mnt/c/study/programming/python/apps/wishlist/UbuntuVM/b.py
 
+scp -r /mnt/c/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/ubuvm/b.py ubuntu@192.168.1.193:/home/ubuntu/myg.py
 
 alias not in root:
 

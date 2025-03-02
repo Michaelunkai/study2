@@ -1,0 +1,1 @@
+curl https://get.wasmer.io -sSfL | sh && wasmer --version

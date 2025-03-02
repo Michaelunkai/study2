@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/generative/style_transfer.ipynb -O neural_style_transfer.ipynb

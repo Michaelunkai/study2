@@ -1,1 +1,0 @@
-docker run   -v /mnt/c/study/Projects:/mnt/c/study/Projects   -it   -e DISPLAY=$DISPLAY   -v /tmp/.X11-unix:/tmp/.X11-unix   --name Projects   michadockermisha/backup:Projects   sh -c 'cp -r /home/* /mnt/c/study/Projects

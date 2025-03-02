@@ -1,0 +1,1 @@
+pip3 install turicreate && python3 -c 'import turicreate; print(turicreate.__version__)'

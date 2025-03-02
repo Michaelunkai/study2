@@ -1,0 +1,1 @@
+pip3 install fabric && python3 -c 'import fabric; print(fabric.__version__)'

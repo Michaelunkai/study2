@@ -1,0 +1,1 @@
+go install github.com/gin-gonic/gin@latest && echo 'Gin Web Framework installed'

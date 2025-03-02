@@ -1,0 +1,1 @@
+wget -O etcher.AppImage https://github.com/balena-io/etcher/releases/latest/download/balenaEtcher-1.7.9-x64.AppImage && chmod +x etcher.AppImage && ./etcher.AppImage

@@ -1,0 +1,1 @@
+pip3 install mail-parser && python3 -c 'import mailparser; print(mailparser.__version__)'

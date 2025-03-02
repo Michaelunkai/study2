@@ -1,0 +1,1 @@
+pip3 install fastparquet && python3 -c 'import fastparquet; print(fastparquet.__version__)'

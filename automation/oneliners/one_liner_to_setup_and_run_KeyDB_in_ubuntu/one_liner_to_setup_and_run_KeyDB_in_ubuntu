@@ -1,1 +1,0 @@
-docker run -d --name keydb -p 6379:6379 keydb/keydb:latest && gcl 6379

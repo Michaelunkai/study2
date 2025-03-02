@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y npm && npm install -g imgix-cli && imgix --version

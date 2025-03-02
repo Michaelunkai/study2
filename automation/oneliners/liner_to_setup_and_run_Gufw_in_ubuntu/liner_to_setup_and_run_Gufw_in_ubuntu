@@ -1,1 +1,0 @@
-sudo apt install -y gufw && gufw && echo "Gufw launched for firewall management"

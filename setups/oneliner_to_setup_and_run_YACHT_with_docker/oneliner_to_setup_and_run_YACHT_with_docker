@@ -1,6 +1,0 @@
- docker run -d --name yacht -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock selfhostedpro/yacht && gc http://localhost:8000
-
-
-
-Username: admin@yacht.local
-Password: pass

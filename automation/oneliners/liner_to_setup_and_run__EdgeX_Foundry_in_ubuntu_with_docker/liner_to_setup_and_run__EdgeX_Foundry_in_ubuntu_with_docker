@@ -1,1 +1,0 @@
-curl -sSL https://raw.githubusercontent.com/edgexfoundry/edgex-compose/main/docker-compose-no-secty.yml -o docker-compose.yml && docker-compose up -d && docker ps | grep edgex && gcl 4000

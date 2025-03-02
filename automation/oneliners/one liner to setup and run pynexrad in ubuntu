@@ -1,0 +1,1 @@
+pip3 install pynexrad && python3 -c 'import pynexrad; print(pynexrad.__version__)'

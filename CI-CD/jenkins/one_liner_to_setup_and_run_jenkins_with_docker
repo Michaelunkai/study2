@@ -1,1 +1,0 @@
-docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name jenkins jenkins/jenkins:lts && sleep 30 && docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword && echo "Access Jenkins at: http://$(hostname -I | awk '\''{print $1}'\''):8080" && gc http://172.27.127.95:8080

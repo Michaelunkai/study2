@@ -1,0 +1,1 @@
+pip3 install torch torchvision && python3 -c 'import torch; print(torch.__version__)'

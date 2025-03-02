@@ -1,1 +1,0 @@
-sudo add-apt-repository ppa:mysteriumnetwork/node && update && sudo apt install myst -y &&  sudo systemctl status mysterium-node.service && gc http://localhost:4449

@@ -1,1 +1,0 @@
-npm install elyssa && echo "const Elyssa = require('elyssa'); new Elyssa().listen(3000);" > app.js && node app.js

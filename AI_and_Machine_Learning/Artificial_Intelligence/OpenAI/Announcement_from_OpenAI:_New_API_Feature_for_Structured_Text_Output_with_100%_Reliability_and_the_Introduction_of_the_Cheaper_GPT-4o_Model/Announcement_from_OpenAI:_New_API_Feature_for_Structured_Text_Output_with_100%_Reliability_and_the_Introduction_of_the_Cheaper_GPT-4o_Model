@@ -1,0 +1,20 @@
+# Announcement from OpenAI: New API Feature for Structured Text Output with 100% Reliability and the Introduction of the Cheaper GPT-4o Model
+
+A new API feature from OpenAI is here: structured text output according to a predefined format (with 100% reliability).
+
+Have you ever wanted your answer in JSON with specific fields?
+Now you no longer need to beg the model not to add "Here's your answer in JSON format!" and mess everything up.
+And there's no need to ask it to take a deep breath.
+
+This new service comes with 100% reliability (doesn't rely on the model).
+Additionally, the new GPT-4o model is also half the price of the previous one.
+
+Link: [https://openai.com/index/introducing-structured-outputs-in-the-api/](https://openai.com/index/introducing-structured-outputs-in-the-api/)
+
+---
+
+## Super Easy!
+
+"100% reliability" may sound crazy, but in reality, it's very easy to get the model to output JSON in a specific predefined structure every time. There are several packages on the internet that do this with any model you want. One particularly simple one is this: [https://github.com/1rgs/jsonformer](https://github.com/1rgs/jsonformer)
+
+For those who are unfamiliar: go check it out.

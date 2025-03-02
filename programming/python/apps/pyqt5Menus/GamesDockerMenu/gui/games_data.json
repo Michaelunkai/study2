@@ -189,14 +189,16 @@
         "YakuzaKiwami2",
         "Yakuza6",
         "games27",
-        "baldursgate3"
+        "baldursgate3",
+        "continue"
     ],
     "category_games": {
         "interactive": [
             "batmantts",
             "thexpanse",
             "beyond2soul",
-            "games27"
+            "games27",
+            "continue"
         ],
         "mouse": [
             "hackersimulator",

@@ -1,0 +1,1 @@
+cabal install tidal && ghci -XOverloadedStrings -XTypeApplications Sound.Tidal.Context

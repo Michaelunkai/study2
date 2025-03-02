@@ -1,1 +1,0 @@
-sudo add-apt-repository ppa:ubuntuhandbook1/apps -y && sudo apt install -y blue-recorder && blue-recorder

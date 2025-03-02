@@ -1,0 +1,1 @@
+pip3 install watchdog && python3 -c 'import watchdog; print(watchdog.__version__)'

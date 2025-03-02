@@ -1,1 +1,0 @@
-getkali && sudo apt install -y intrace && intrace google.com && echo "Intrace completed for google.com"

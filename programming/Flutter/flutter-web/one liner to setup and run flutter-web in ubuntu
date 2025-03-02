@@ -1,0 +1,1 @@
+flutter config --enable-web && flutter create . && flutter run -d chrome

@@ -1,0 +1,1 @@
+python3 -c 'import tracemalloc; print(tracemalloc.__doc__)'

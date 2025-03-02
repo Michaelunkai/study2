@@ -1,1 +1,0 @@
-find . -name "*.py" | xargs wc -l && mkdir -p backup && cp *.py backup/ && echo "Python files processed and backed up" && ls -R backup

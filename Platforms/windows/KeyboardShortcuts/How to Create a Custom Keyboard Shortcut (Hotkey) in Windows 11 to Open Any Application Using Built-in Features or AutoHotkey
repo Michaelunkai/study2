@@ -1,0 +1,95 @@
+Here's a full, detailed tutorial with a long, descriptive title:  
+
+---
+
+# **How to Create a Custom Keyboard Shortcut (Hotkey) in Windows 11 to Open Any Application Using Built-in Features or AutoHotkey**
+
+## **Introduction**  
+If you frequently use a specific application and want to launch it quickly using a custom keyboard shortcut, Windows 11 provides two main ways to achieve this:  
+
+1. **Using Windows' Built-in Shortcut Key Feature** – This method requires you to use `Ctrl + Alt + <your key>` as the shortcut.  
+2. **Using AutoHotkey (AHK) for Advanced Custom Shortcuts** – This allows you to assign any combination of keys, even a simple **"A + S"** without additional modifiers.  
+
+This guide will walk you through both methods so you can set up a keyboard shortcut for any application of your choice.
+
+---
+
+## **Method 1: Creating a Shortcut Using Windows' Built-in Features**  
+Windows 11 allows you to set a hotkey for launching applications, but it requires the use of the `Ctrl + Alt` combination.
+
+### **Step 1: Create a Desktop Shortcut for Your Application**  
+1. Press `Win + S`, type the name of the application (e.g., **OBS Studio**, **Google Chrome**, **Notepad**).  
+2. Right-click the application and select **Open File Location**.  
+3. If the application shortcut is already there, proceed to the next step. Otherwise, right-click the app file and choose **Send to → Desktop (Create Shortcut)**.  
+
+### **Step 2: Assign a Keyboard Shortcut to the Shortcut File**  
+1. Go to your **Desktop** and find the shortcut you created.  
+2. Right-click the shortcut and select **Properties**.  
+3. Click inside the **Shortcut key** field.  
+4. Press the key combination you want (Windows automatically adds `Ctrl + Alt`).  
+   - Example: If you press **A + S**, it will be recorded as `Ctrl + Alt + A + S`.  
+5. Click **Apply**, then **OK**.  
+
+✅ Now, whenever you press **Ctrl + Alt + A + S**, your chosen application will launch.
+
+---
+
+## **Method 2: Using AutoHotkey (AHK) for Fully Custom Keyboard Shortcuts**  
+If you want **a shortcut without the Ctrl + Alt limitation**, AutoHotkey (AHK) is the best option. It allows you to assign **any** key combination, such as just "A + S", to open an app.
+
+### **Step 1: Install AutoHotkey**  
+1. Go to the [official AutoHotkey website](https://www.autohotkey.com/) and download the latest version.  
+2. Install AutoHotkey using the **Express Installation** option.
+
+### **Step 2: Create a New AutoHotkey Script**  
+1. Right-click your **Desktop** and select **New → AutoHotkey Script**.  
+2. Name the file something like **CustomShortcut.ahk**.  
+3. Right-click the file and choose **Edit Script**.
+
+### **Step 3: Add a Custom Keyboard Shortcut to Open Any App**  
+Replace the content of the script with this code:
+
+```ahk
+a & s:: 
+Run, "C:\Path\To\Your\Application.exe"
+return
+```
+
+🔹 Replace `"C:\Path\To\Your\Application.exe"` with the actual path of your application.  
+- To find the path:  
+  - Right-click the app shortcut → **Properties** → Copy the **Target** field.  
+
+For example, if you want to open **Google Chrome**, the script should look like:
+
+```ahk
+a & s:: 
+Run, "C:\Program Files\Google\Chrome\Application\chrome.exe"
+return
+```
+
+### **Step 4: Save and Run the Script**  
+1. Save the file.  
+2. Double-click **CustomShortcut.ahk** to start the script.  
+3. Now, pressing **A + S** will open your chosen application.
+
+### **Step 5 (Optional): Make the Script Run at Startup**  
+To ensure your custom shortcut works every time you start Windows:  
+1. Press `Win + R`, type **shell:startup**, and hit **Enter**.  
+2. Copy and paste your **CustomShortcut.ahk** file into the **Startup** folder.  
+
+✅ Now, the shortcut will work automatically whenever you boot up your PC.
+
+---
+
+## **Which Method Should You Use?**
+| Method | Pros | Cons |
+|--------|------|------|
+| **Windows Built-in Shortcut (`Ctrl + Alt + Key`)** | Quick and easy | Requires `Ctrl + Alt`, cannot use plain `A + S` |
+| **AutoHotkey (AHK)** | Fully customizable, supports any key combo | Requires installing AHK and running a script |
+
+---
+
+## **Conclusion**  
+Now, you can quickly open any application in Windows 11 using a **custom keyboard shortcut**! If you’re okay with `Ctrl + Alt + Key`, use **Method 1** (Windows built-in). But if you want **pure "A + S"** or another combination, **AutoHotkey** is the way to go.
+
+🚀 Try it out and let me know if you need any help! 🚀

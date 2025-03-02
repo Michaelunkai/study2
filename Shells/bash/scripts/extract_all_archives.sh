@@ -7,9 +7,8 @@ for file; do
     echo "Processing: $file"
     case "$file" in
         *.zip)
-            # Try unzip first, then fallback to 7z
-            unzip -P "$PASSWORD" -d "${file%.*}" "$file" 2>/dev/null || \
-            7z x -p"$PASSWORD" "$file" -o"${file%.*}" 2>/dev/null || \
+            unzip -P "$PASSWORD" -d "${file%.*}" "$file" -o >/dev/null 2>&1 || \
+            7z x -p"$PASSWORD" "$file" -o"${file%.*}" -y >/dev/null 2>&1 || \
             echo "Failed to extract (possibly wrong password): $file"
             ;;
         *.tar)
@@ -19,10 +18,10 @@ for file; do
             mkdir -p "${file%.*}" && tar -xzf "$file" -C "${file%.*}" || echo "Failed to extract: $file"
             ;;
         *.rar)
-            mkdir -p "${file%.*}" && unrar x -p"$PASSWORD" "$file" "${file%.*}" 2>/dev/null || echo "Failed to extract: $file"
+            mkdir -p "${file%.*}" && unrar x -p"$PASSWORD" "$file" "${file%.*}" -o+ >/dev/null 2>&1 || echo "Failed to extract: $file"
             ;;
         *.7z)
-            mkdir -p "${file%.*}" && 7z x -p"$PASSWORD" "$file" -o"${file%.*}" 2>/dev/null || echo "Failed to extract: $file"
+            mkdir -p "${file%.*}" && 7z x -p"$PASSWORD" "$file" -o"${file%.*}" -y >/dev/null 2>&1 || echo "Failed to extract: $file"
             ;;
         *)
             echo "Unsupported file type: $file"

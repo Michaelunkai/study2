@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y frama-c && frama-c -version

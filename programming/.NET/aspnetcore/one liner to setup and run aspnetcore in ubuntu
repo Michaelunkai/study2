@@ -1,0 +1,1 @@
+sudo apt install -y aspnetcore-runtime-7.0 && echo 'ASP.NET Core installed'

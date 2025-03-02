@@ -1,1 +1,0 @@
-curl -s https://api.github.com/repos/nuclio/nuclio/releases/latest | grep -i "browser_download_url.*nuctl.*linux-amd64" | cut -d : -f 2,3 | tr -d \" | wget -O nuctl -qi - && chmod +x nuctl && sudo mv nuctl /usr/local/bin/ && nuctl version && docker run -d -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock nuclio/dashboard:stable-amd64 && gcl 8070

@@ -1,0 +1,1 @@
+pip3 install sanic && python3 -c 'import sanic; print(sanic.__version__)'

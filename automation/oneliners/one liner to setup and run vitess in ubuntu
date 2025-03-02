@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y etcd && git clone https://github.com/vitessio/vitess.git && cd vitess && make build && ./bin/vtctl

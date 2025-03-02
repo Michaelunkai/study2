@@ -1,0 +1,1 @@
+pip3 install pygraphviz && python3 -c 'import pygraphviz; print(pygraphviz.__version__)'

@@ -1,7 +1,0 @@
-sudo docker run -itd --name theoracle -e ORACLE_PWD='password' -p 1521:1521 container-registry.oracle.com/database/free:latest && docker exec -it theoracle bash
-
-
-inside the bash shell run:
-sqlplus sys/password@localhost:1521 as sysdba
-
-

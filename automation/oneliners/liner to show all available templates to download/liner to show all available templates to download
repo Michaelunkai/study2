@@ -1,1 +1,0 @@
-pveam update && pveam available --section system | awk '{print $2}'

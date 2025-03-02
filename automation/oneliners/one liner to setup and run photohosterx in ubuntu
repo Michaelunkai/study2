@@ -1,0 +1,1 @@
+wget https://github.com/example/photohosterx/archive/refs/heads/master.zip && unzip master.zip && mv photohosterx-master photohosterx && echo 'Configure and deploy'

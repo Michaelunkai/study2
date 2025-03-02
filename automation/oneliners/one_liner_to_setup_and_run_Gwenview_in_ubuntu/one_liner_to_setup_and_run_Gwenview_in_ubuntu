@@ -1,1 +1,0 @@
-flatpak install -y flathub org.kde.gwenview && flatpak run org.kde.gwenview

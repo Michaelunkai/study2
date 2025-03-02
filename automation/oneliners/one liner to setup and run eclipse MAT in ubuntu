@@ -1,0 +1,1 @@
+wget https://download.eclipse.org/mat/1.11.0/eclipse-mat-1.11.0-linux.gtk.x86_64.tar.gz && tar -xzf eclipse-mat-1.11.0-linux.gtk.x86_64.tar.gz && cd eclipse-mat-1.11.0 && ./MemoryAnalyzer

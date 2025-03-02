@@ -1,0 +1,1 @@
+sudo apt install -y libglib2.0-dev && echo 'GLib installed'

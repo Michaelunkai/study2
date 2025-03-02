@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y wgrib2 && wgrib2 -v

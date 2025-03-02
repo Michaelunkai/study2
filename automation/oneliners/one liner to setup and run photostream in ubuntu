@@ -1,0 +1,1 @@
+docker run -d --name photostream -p 8084:80 example/photostream:latest

@@ -1,0 +1,15 @@
+# Use an official base image
+FROM ubuntu:latest
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the current directory contents into the container
+COPY . /app
+
+# Install dependencies
+RUN apt-get update && apt-get install -y your_dependency
+
+# Specify the command to run on container start
+CMD ["./your_app"]
+

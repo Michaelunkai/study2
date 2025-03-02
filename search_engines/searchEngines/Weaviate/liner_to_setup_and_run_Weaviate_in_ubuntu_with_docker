@@ -1,1 +1,0 @@
-docker run -d -p 8080:8080 semitechnologies/weaviate && gc http://localhost:8080

@@ -1,0 +1,1 @@
+pip3 install pytest-benchmark && python3 -c 'import pytest_benchmark; print(pytest_benchmark.__version__)'

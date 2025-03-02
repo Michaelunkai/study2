@@ -1,0 +1,1 @@
+go install google.golang.org/grpc@latest && echo 'gRPC installed'

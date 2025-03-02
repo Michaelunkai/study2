@@ -1,0 +1,1 @@
+git clone https://github.com/example/selfhostedimage.git && cd selfhostedimage && npm install && npm start

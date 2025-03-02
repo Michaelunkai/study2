@@ -1,0 +1,1 @@
+pip3 install dagster && python3 -c 'import dagster; print(dagster.__version__)'

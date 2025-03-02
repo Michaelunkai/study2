@@ -1,0 +1,1 @@
+sudo apt install -y cryptsetup && sudo cryptsetup luksFormat /dev/sdX && sudo cryptsetup luksOpen /dev/sdX my_encrypted_drive && sudo mkfs.ext4 /dev/mapper/my_encrypted_drive && sudo mount /dev/mapper/my_encrypted_drive /mnt

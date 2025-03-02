@@ -1,0 +1,4 @@
+winget install --id=Docker.DockerCLI -e; `
+$env:PATH += ";C:\Users\micha\AppData\Local\Microsoft\WinGet\Packages\Docker.DockerCLI_Microsoft.Winget.Source_8wekyb3d8bbwe\docker"; `
+Start-Process "C:\Users\micha\AppData\Local\Microsoft\WinGet\Packages\Docker.DockerCLI_Microsoft.Winget.Source_8wekyb3d8bbwe\docker\dockerd.exe"; `
+docker login

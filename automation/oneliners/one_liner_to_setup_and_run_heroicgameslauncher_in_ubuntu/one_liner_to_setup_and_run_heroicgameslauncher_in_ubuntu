@@ -1,1 +1,0 @@
-getflat && flatpak install flathub com.heroicgameslauncher.hgl && flatpak run com.heroicgameslauncher.hgl --no-sandbox

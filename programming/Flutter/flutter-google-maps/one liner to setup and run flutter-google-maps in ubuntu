@@ -1,0 +1,1 @@
+flutter pub add google_maps_flutter && echo 'Google Maps added'

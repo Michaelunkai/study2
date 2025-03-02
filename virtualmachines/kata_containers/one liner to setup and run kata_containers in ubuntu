@@ -1,0 +1,1 @@
+curl -sL https://github.com/kata-containers/kata-containers/releases/download/2.4.0/kata-static-2.4.0-x86_64.tar.xz | tar -xJ && ./kata-static-*/kata-runtime --version

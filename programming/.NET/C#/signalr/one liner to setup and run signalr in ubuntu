@@ -1,0 +1,1 @@
+dotnet add package Microsoft.AspNetCore.SignalR && echo 'SignalR installed'

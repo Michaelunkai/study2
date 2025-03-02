@@ -1,0 +1,24 @@
+Transcript
+1. Speech Translation with Whisper
+00:00 - 00:06
+In this video, we'll discuss Whisper's translation capabilities. Let's dive right in!
+
+2. Whisper's translation capabilities
+00:06 - 00:35
+The Whisper model not only has the ability to transcribe audio into the language it's in, but also translate and transcribe audio in one go. This is currently limited to an English transcript, so we can translate and transcribe German into English, but not German into French. Like with its transcription functionality, Whisper can translate audio from most common audio file types up to a particular size limit.
+
+3. Translating audio
+00:35 - 01:38
+The process for translating and transcribing audio is almost identical to normal transcription, with just one change. We open the non-English audio to translate and transcribe, which in this case is an m4a file. This is where the change comes in - instead of using the create method on client.audio.transcriptions, we call it on client.audio.translations. The translated transcription can be extracted using the text attribute. Looking at the transcript, we can see that it wasn't perfect - making two spelling errors. The performance of Whisper can vary wildly depending on audio quality, the language the audio is recorded in, and the model's knowledge of the subject matter. Before creating a full-fledged application on this model, you'll need to test that the model's performance is sufficiently good for the particular use case. Let's see how we can give Whisper a helping hand here.
+
+4. Bringing prompts into the mix
+01:38 - 02:31
+When we send our audio to the Whisper model, we can also provide an optional prompt. This prompt can be used to improve the quality of the response by providing an example of how we want the transcript to be styled. For example, if we want the transcript to retain filler words from the audio, like ummms and uhhhhs, we can provide the following prompt along with the audio. If we know broadly what the topic of the audio is about, we can also this context as a prompt to help the model narrow-down the correct words. Here's an example of a prompt to give the model more context. Transcriptions also supports prompts that can be used in a very similar way. Let's adapt our last request with a prompt to try and fix the spelling errors outputted by the model.
+
+5. Adding in a prompt
+02:31 - 03:03
+Let's assume that we know the audio discusses AI trends and ChatGPT; we can define a prompt with this context, and pass it to the prompt argument. Printing the response, shows, that with a little extra context, the model was able to accurately determine the correct spelling and style of the words. In this example, the original response was already pretty close to what we wanted, but for other cases, it's possible to see quite dramatic improvements using prompts.
+
+6. Let's practice!
+03:03 - 03:10
+Time for you to try using AI to bridge language barriers. Good luck!

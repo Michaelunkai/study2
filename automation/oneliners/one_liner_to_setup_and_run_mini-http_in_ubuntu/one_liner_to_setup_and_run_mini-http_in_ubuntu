@@ -1,1 +1,0 @@
-getrust && cargo new mini-http-app && cd mini-http-app && echo 'mini-http = "0.6"' >> Cargo.toml && cargo run

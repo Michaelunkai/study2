@@ -1,0 +1,1 @@
+flutter pub add share_plus && echo 'Share Plugin added'

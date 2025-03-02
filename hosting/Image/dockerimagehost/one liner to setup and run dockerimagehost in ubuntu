@@ -1,1 +1,0 @@
-docker run -d --name dockerimagehost -p 8080:80 example/dockerimagehost:latest

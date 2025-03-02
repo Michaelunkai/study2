@@ -1,3 +1,0 @@
-sed -i '/eval "\$(starship init bash)"/d' ~/.bashrc
-rm -f ~/.config/starship.toml
-source ~/. rc

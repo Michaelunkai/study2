@@ -1,5 +1,0 @@
-docker run -it --privileged -p 8383:8383 ousamabenyounes/yellowlabtools
-
-detatched mode:
-
-docker run -d --privileged -p 8383:8383 ousamabenyounes/yellowlabtools

@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y scylla && sudo scylla_setup && sudo systemctl start scylla-server

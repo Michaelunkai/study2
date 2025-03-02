@@ -1,1 +1,0 @@
-sudo add-apt-repository ppa:fossproject/ppa -y && sudo apt install -y green-recorder && green-recorder

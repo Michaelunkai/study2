@@ -1,1 +1,0 @@
- curl -Ls https://cli.doppler.com/install.sh | sudo sh

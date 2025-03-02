@@ -1,0 +1,1 @@
+pip3 install netCDF4 && python3 -c 'import netCDF4; print(netCDF4.__version__)'

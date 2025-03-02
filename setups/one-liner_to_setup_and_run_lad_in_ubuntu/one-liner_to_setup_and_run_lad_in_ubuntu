@@ -1,1 +1,0 @@
-npx lad new my-lad-app && cd my-lad-app && npm start

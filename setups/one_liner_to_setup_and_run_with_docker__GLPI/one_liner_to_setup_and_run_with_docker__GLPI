@@ -1,1 +1,0 @@
-docker run -d --name glpi-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=glpi -e MYSQL_USER=glpi -e MYSQL_PASSWORD=glpi mysql:5.7 && docker run -d --name glpi -p 80:80 -e GLPI_DB_USER=glpi -e GLPI_DB_PASSWORD=glpi -e GLPI_DB_NAME=glpi -e GLPI_DB_HOST=glpi-mysql -v /var/lib/glpi:/var/www/html --link glpi-mysql:db diouxx/glpi && gc http://localhost:81

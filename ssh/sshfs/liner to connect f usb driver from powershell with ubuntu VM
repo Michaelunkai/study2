@@ -1,0 +1,1 @@
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.178" && killall -9 sshfs; fusermount -u /mnt/f; apt install sshfs -y && sudo mkdir -p /mnt/f && sudo chown ubuntu:ubuntu /mnt/f && sshfs micha@192.168.1.178:"F:" /mnt/f -o allow_other,default_permissions && cd /mnt/f

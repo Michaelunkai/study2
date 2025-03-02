@@ -1,0 +1,1 @@
+go install github.com/gofiber/fiber/v2@latest && echo 'Fiber Web Framework installed'

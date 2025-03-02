@@ -1,0 +1,1 @@
+go install github.com/go-resty/resty/v2@latest && echo 'Resty HTTP Client installed'

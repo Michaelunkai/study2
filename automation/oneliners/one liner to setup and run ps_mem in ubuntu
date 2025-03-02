@@ -1,0 +1,1 @@
+wget -O ps_mem https://raw.githubusercontent.com/pixelb/ps_mem/master/ps_mem && chmod +x ps_mem && ./ps_mem --version

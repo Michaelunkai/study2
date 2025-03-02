@@ -1,0 +1,1 @@
+echo 'Use virsh net-list to show network info'

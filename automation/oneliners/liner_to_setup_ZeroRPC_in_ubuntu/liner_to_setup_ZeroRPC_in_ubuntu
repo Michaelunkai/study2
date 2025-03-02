@@ -1,1 +1,0 @@
-pip install zerorpc && echo "ZeroRPC setup done"

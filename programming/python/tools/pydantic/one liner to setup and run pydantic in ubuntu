@@ -1,0 +1,1 @@
+pip3 install pydantic && python3 -c 'import pydantic; print(pydantic.__version__)'

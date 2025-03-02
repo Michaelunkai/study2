@@ -1,0 +1,1 @@
+pip3 install pydub && python3 -c 'import pydub; print(pydub.__version__)'

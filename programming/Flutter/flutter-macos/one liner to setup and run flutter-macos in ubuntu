@@ -1,0 +1,1 @@
+flutter config --enable-macos-desktop && flutter create . && flutter run -d macos

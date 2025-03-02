@@ -1,1 +1,0 @@
-npm install hummingbird.js && echo "const Hummingbird = require('hummingbird.js'); new Hummingbird().listen(3000);" > app.js && node app.js

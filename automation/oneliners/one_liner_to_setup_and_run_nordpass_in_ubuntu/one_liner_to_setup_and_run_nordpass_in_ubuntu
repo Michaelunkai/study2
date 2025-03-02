@@ -1,1 +1,0 @@
-getsnap && snap install nordpass && sudo apt-get install gnome-keyring libsecret-1-dev -y && nordpass

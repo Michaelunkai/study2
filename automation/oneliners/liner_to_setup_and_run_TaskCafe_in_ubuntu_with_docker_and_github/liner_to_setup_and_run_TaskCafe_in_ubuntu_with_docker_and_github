@@ -1,1 +1,0 @@
-git clone https://github.com/JordanKnott/taskcafe && cd taskcafe && docker-compose -p taskcafe up -d && gcl 3333

@@ -1,0 +1,1 @@
+pip3 install vtk && python3 -c 'import vtk; print(vtk.__version__)'

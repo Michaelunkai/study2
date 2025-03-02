@@ -1,0 +1,1 @@
+docker run -d --name pigallery2 -p 3000:80 dgozman/pigallery2:latest

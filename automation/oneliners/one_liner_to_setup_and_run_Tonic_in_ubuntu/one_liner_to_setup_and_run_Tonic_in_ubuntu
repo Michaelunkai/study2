@@ -1,1 +1,0 @@
-npm create tonic@latest my-app && cd my-app && npm start

@@ -1,0 +1,1 @@
+git clone https://github.com/LycheeOrg/Lychee.git && cd Lychee && cp .env.example .env && echo 'Set up your database and run web server'

@@ -1,0 +1,1 @@
+pip3 install sunpy && python3 -c 'import sunpy; print(sunpy.__version__)'

@@ -1,0 +1,1 @@
+dotnet add package Elasticsearch.Net && echo 'Elasticsearch.NET installed'

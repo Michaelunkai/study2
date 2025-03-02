@@ -1,0 +1,1 @@
+pip3 install pymars && python3 -c 'import mars; print(mars.__version__)'

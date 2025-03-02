@@ -1,1 +1,0 @@
-npm install scriptkit && echo "const kit = require('scriptkit'); kit.run();" > app.js && node app.js

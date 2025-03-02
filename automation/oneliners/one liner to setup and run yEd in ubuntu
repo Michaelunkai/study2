@@ -1,0 +1,1 @@
+wget -O yEd.jar https://www.yworks.com/resources/yed/yEd-3.20.2.jar && java -jar yEd.jar

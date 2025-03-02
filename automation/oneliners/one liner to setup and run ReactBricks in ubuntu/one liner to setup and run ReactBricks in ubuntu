@@ -1,1 +1,0 @@
-nvm23 && npx create-reactbricks-app && cd my-app && npm start

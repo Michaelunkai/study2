@@ -1,0 +1,1 @@
+flutter config --enable-windows-desktop && flutter create . && flutter run -d windows

@@ -1,1 +1,0 @@
-dotnet tool install -g Yarp.ReverseProxy && yarp --help

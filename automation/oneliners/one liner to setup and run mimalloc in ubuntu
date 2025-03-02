@@ -1,0 +1,1 @@
+echo 'Install mimalloc via: pip3 install mimalloc (if available) or compile from source'

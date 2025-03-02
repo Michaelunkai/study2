@@ -1,0 +1,1 @@
+pip3 install lxml && python3 -c 'import lxml; print(lxml.__version__)'

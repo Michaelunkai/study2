@@ -1,0 +1,1 @@
+pip3 install gino && python3 -c 'import gino; print(gino.__version__)'

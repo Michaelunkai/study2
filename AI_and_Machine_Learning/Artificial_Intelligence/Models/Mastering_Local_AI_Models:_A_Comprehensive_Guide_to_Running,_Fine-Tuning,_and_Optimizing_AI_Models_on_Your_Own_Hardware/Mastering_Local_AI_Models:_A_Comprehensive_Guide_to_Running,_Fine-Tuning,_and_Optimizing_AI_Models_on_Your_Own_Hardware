@@ -1,0 +1,62 @@
+### **Mastering Local AI Models: A Comprehensive Guide to Running, Fine-Tuning, and Optimizing AI Models on Your Own Hardware**
+
+---
+
+### Overview
+This tutorial provides an in-depth guide on how to run AI models locally, bypassing costly subscription services. It covers essential tools, interfaces, and techniques for setting up, optimizing, and fine-tuning AI models on your personal hardware.
+
+### 1. **Understanding the AI Subscription Dilemma**
+   - **Context**: The video starts by discussing the current state of the job market in 2024 and the rising trend of AI services offered via subscription models.
+   - **Problem**: Many AI services cost around $20 per month, offering limited functionality that could be achieved for free by running AI models locally.
+   - **Solution**: This tutorial guides you on how to avoid these costs by setting up AI models on your own system.
+
+### 2. **Setting Up Your Local AI Environment**
+   - **Choosing the Right Interface**:
+     - **Text Generation Web UI (Uaba)**: A versatile tool offering different modes like default input-output, chat for dialogue, and notebook for text completion. This is the most popular UI for local AI model deployment.
+     - **Silly Tarvin**: A front-end focused on enhancing the visual experience, ideal for those interested in AI chatbots, role-playing, and visual novel-like presentations.
+     - **LM Studio**: An executable file with native functions, including a model browser that simplifies finding and running AI models. It’s a good alternative for those who prefer not to use the Gradio interface.
+     - **Axel AO**: A command-line interface offering the best support for fine-tuning AI models, ideal for advanced users.
+
+### 3. **Installing and Running AI Models Locally**
+   - **Step-by-Step Guide**:
+     - **Installation**: Begin by installing the chosen UI, such as Uaba, which supports multiple operating systems including NVIDIA, AMD, and Apple M series.
+     - **Model Download**: Use Uaba’s built-in downloader to access free and open-source models from Hugging Face by copying and pasting URLs.
+     - **Model Selection**: Learn how to choose the right models based on your GPU capabilities, with a focus on understanding model parameters like the number of billions of parameters and context length requirements.
+
+### 4. **Optimizing AI Models for Local Use**
+   - **Model Quantization and Format Options**:
+     - **EXL 2**: A format used by X Llama V2, mixing quantization levels within a model for optimized performance on NVIDIA GPUs.
+     - **AWQ and GGF**: Methods for reducing model size by setting smaller weights to zero and minimizing output error, respectively.
+     - **Safe Tensors**: A secure file format that prevents potentially harmful modifications when loading models from unknown sources.
+   - **Optimization Techniques**:
+     - **Quantization**: Learn how shrinking the model’s precision or reducing the bits used can help run large models on limited hardware without significantly affecting performance.
+     - **Context Length Management**: Understand the importance of context length in AI models, which impacts the memory usage and the quality of AI-generated outputs.
+
+### 5. **Advanced Techniques: CPU Offloading and Hardware Acceleration**
+   - **CPU Offloading**:
+     - **Llama C++**: A tool that allows you to offload models onto CPU and system RAM, enabling you to run larger models on hardware with limited VRAM.
+     - **Practical Example**: Run Mixr Ax 7B (a model with 45 billion parameters) on a system with 12GB VRAM by distributing the model between VRAM and CPU/system RAM.
+   - **Hardware Acceleration**:
+     - **TensorRT LM**: NVIDIA’s tool for accelerating model inference on RTX GPUs, increasing speed by up to four times.
+     - **VM Inference Engine**: A framework ideal for server-side deployment, significantly enhancing model performance when handling parallel requests.
+
+### 6. **Fine-Tuning AI Models**
+   - **Kora**:
+     - **Overview**: The best method for fine-tuning models without needing to retrain the entire model, focusing on training a small fraction of the parameters.
+     - **Important Considerations**: Emphasizes the importance of using high-quality training data, following the format of the original data set used to train the model.
+   - **Additional Fine-Tuning Techniques**:
+     - Learn about other fine-tuning techniques that serve specific purposes, such as aligning model outputs with moral guidelines or generating more human-preferred responses.
+
+### 7. **Extending AI Model Capabilities**
+   - **Integration with Local Files and Databases**:
+     - **RAG and Llama Index**: Tools that enable the connection of AI models to local databases, allowing for advanced functionalities like querying local files.
+     - **Replacing GitHub Copilot**: Use local models to take over the role of AI coding assistants, potentially saving subscription costs while maintaining performance.
+
+### 8. **Conclusion and Giveaway**
+   - **NVIDIA RTX 4080 Super Giveaway**:
+     - **How to Participate**: Attend a virtual GTC session and submit proof of attendance to enter the giveaway. A link to the participation form is provided.
+   - **Recommendation**: Attend the GTC session featuring the original authors of the Transformers paper "Attention is All You Need."
+
+---
+
+This comprehensive tutorial equips you with the knowledge and tools to run and optimize AI models locally, saving on subscription costs while maintaining high performance. Whether you’re a beginner or an advanced user, this guide provides the necessary steps to master the world of local AI models.

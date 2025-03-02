@@ -1,1 +1,0 @@
-curl -sSL https://cli.openfaas.com | sudo sh &&  faas-cli template store pull python3 &&  faas-cli version

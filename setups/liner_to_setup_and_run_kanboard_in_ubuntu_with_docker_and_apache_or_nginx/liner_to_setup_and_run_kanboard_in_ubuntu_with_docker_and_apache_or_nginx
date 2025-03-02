@@ -1,1 +1,0 @@
-cd && git clone https://github.com/kanboard/kanboard.git && cd kanboard && dcu && gcl 

@@ -1,0 +1,1 @@
+git clone https://github.com/wasmerio/warp.git && cd warp && cargo build --release && echo 'Warp WASM installed'

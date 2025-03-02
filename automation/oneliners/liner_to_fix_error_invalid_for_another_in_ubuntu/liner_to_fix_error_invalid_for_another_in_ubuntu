@@ -1,1 +1,0 @@
-sudo date -s "$(curl -s --head http://www.google.com | grep '^Date:' | cut -d' ' -f3-6)Z"

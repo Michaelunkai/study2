@@ -1,0 +1,1 @@
+getflat && flatpak install flathub org.exaile.Exaile -y && flatpak run org.exaile.Exaile

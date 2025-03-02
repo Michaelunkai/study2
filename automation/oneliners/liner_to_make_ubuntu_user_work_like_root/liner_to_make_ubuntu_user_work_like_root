@@ -1,1 +1,0 @@
-sudo usermod -aG sudo ubuntu && sudo usermod -aG root ubuntu && sudo chmod -R 777 /root && sudo chown -R ubuntu:root /root && echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/ubuntu

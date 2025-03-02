@@ -1,0 +1,1 @@
+pip3 install objgraph && python3 -c 'import objgraph; print(objgraph.__version__)'

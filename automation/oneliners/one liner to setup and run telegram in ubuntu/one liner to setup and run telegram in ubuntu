@@ -1,1 +1,0 @@
-getflat && flatpak install flathub org.telegram.desktop && flatpak run org.telegram.desktop

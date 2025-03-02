@@ -1,0 +1,1 @@
+flutter config --enable-linux-desktop && flutter create . && flutter run -d linux

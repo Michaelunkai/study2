@@ -1,0 +1,1 @@
+wget https://github.com/example/nextgenphotohost/archive/refs/heads/master.zip && unzip master.zip && mv nextgenphotohost-master nextgenphotohost && echo 'Follow installation instructions'

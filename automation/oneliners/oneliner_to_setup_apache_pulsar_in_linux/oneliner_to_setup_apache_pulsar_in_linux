@@ -1,3 +1,0 @@
-wget https://archive.apache.org/dist/pulsar/pulsar-2.11.1/apache-pulsar-2.11.1-bin.tar.gz
-tar -xvf apache-pulsar-2.11.1-bin.tar.gz
-cd apache-pulsar-2.11.1

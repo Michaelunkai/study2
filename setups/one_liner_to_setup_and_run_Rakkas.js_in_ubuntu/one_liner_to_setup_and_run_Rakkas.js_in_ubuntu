@@ -1,2 +1,0 @@
-nvm23 && npm create rakkas-app@latest my-app && cd my-app && npm install && npm run dev
-

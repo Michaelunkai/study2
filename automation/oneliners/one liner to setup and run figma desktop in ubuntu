@@ -1,0 +1,1 @@
+wget -O figma-linux.deb https://github.com/Figma-Linux/figma-linux/releases/latest/download/figma-linux_amd64.deb && sudo dpkg -i figma-linux.deb && figma-linux

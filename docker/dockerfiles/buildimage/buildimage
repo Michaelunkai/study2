@@ -1,0 +1,14 @@
+# Use a base image
+FROM alpine:latest
+
+# Install rsync
+RUN apk --no-cache add rsync
+
+# Set the working directory
+WORKDIR /app
+
+# Copy only the necessary files for rsync operation
+COPY ./Starfield /home/Starfield
+
+# Default runtime options
+CMD ["rsync", "-aP", "/home/Starfield", "/home/"]

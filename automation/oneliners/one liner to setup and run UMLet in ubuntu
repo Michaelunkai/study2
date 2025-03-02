@@ -1,0 +1,1 @@
+wget -O UMLet.jar https://www.umlet.com/umlet.jar && java -jar UMLet.jar

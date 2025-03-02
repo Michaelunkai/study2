@@ -1,1 +1,0 @@
-getrust && sudo apt install -y cargo && cargo install feroxbuster && feroxbuster

@@ -1,0 +1,1 @@
+ nvm23 && curl -sSL https://get.wasp-lang.dev/installer.sh | sh && export PATH=$PATH:/root/.local/bin && wasp new

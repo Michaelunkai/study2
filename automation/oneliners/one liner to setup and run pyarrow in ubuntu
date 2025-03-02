@@ -1,0 +1,1 @@
+pip3 install pyarrow && python3 -c 'import pyarrow; print(pyarrow.__version__)'

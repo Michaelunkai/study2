@@ -1,0 +1,106 @@
+# **Ultimate Guide: How to Stream PC Games to Your Smart TV Using Sunshine & Moonlight (2025) – Best NVIDIA GameStream Alternative**  
+
+**Want to stream PC games from your gaming laptop to your Smart TV, Fire Stick, or TV box? Since NVIDIA discontinued GameStream and replaced GeForce Experience with the new NVIDIA App, Moonlight no longer works natively. But don’t worry! The best solution is to use an open-source alternative called **Sunshine**, which works perfectly with Moonlight. This tutorial will guide you step-by-step on how to set up Sunshine on your gaming PC and stream games with Moonlight on your TV.**  
+
+---
+
+## **🚀 Why Use Sunshine & Moonlight Instead of NVIDIA GameStream?**  
+✅ **Low latency and high FPS (supports 4K, 120FPS, and HDR)**  
+✅ **Works with NVIDIA, AMD, and Intel GPUs (not just NVIDIA like GameStream)**  
+✅ **Completely free and open-source (no corporate restrictions!)**  
+✅ **Supports keyboard, mouse, and game controllers**  
+
+---
+
+## **🛠️ Step 1: Check the Requirements**  
+Before we start, make sure you have:  
+
+### **🎮 Gaming PC (Host)**  
+✅ **Windows 10 or 11**  
+✅ **GPU: NVIDIA (GTX 1000 or newer), AMD, or Intel ARC**  
+✅ **Good CPU (Recommended: Intel i5 or Ryzen 5 and up)**  
+✅ **Fast Network: Preferably wired Ethernet or Wi-Fi 5GHz**  
+
+### **📺 Smart TV or Streaming Device (Client)**  
+✅ **Android TV (Google TV, Fire Stick, Nvidia Shield, etc.)**  
+✅ **Apple TV (tvOS 14+)**  
+✅ **Other devices that support the Moonlight app (Tablets, Phones, etc.)**  
+
+---
+
+## **🔧 Step 2: Install Sunshine on Your Gaming PC**  
+Since **NVIDIA GameStream is discontinued**, you need **Sunshine**, an open-source streaming app that works with Moonlight.  
+
+### **🖥️ Install Sunshine**  
+1️⃣ **Download Sunshine** from the official [GitHub page](https://github.com/LizardByte/Sunshine/releases).  
+2️⃣ **Run the installer** and follow the setup instructions.  
+3️⃣ After installation, **launch Sunshine**.  
+
+### **🔑 Set Up Sunshine**  
+1️⃣ Open a web browser and go to **`http://localhost:47990`** (Sunshine’s control panel).  
+2️⃣ **Create a username and password** (used for security when connecting).  
+3️⃣ Go to **Settings** and:  
+   - Enable **hardware encoding** (for best performance).  
+   - Set the resolution and FPS (**1080p 60FPS or 4K 120FPS** if your TV supports it).  
+4️⃣ In the **Applications tab**, click **"Add"** to manually add the games you want to stream.  
+
+---
+
+## **📲 Step 3: Install Moonlight on Your TV or Client Device**  
+Now, you need to install Moonlight on your **TV, Fire Stick, or streaming device**.  
+
+### **📥 Install Moonlight**  
+1️⃣ **On your TV or streaming device**, open the **app store** (Google Play Store, Amazon App Store, or Apple TV App Store).  
+2️⃣ **Search for "Moonlight Game Streaming"** and install it.  
+3️⃣ Open **Moonlight** and wait for it to detect your gaming PC.  
+
+---
+
+## **🔗 Step 4: Connect Moonlight to Your Gaming PC**  
+1️⃣ Open **Moonlight** on your TV. It should automatically find your PC running Sunshine.  
+2️⃣ Click on your **PC name**.  
+3️⃣ Enter the **username and password** you set up in Sunshine when prompted.  
+4️⃣ Once connected, you will see a list of games available for streaming.  
+
+---
+
+## **⚙️ Step 5: Optimize for Best FPS & Low Latency**  
+For **best performance**, tweak the settings in **Moonlight**:  
+
+### **🎮 Best Settings for Gaming**  
+- **Resolution:** Set to **1080p 60FPS** (or **4K 120FPS** if supported).  
+- **Bitrate:** Set to **20-50 Mbps** for smooth gameplay.  
+- **Codec:** Use **H.265** if your network supports it (better compression & quality).  
+- **Network:** **Use wired Ethernet** or **5GHz Wi-Fi** to reduce lag.  
+
+---
+
+## **🎉 Step 6: Start Playing!**  
+1️⃣ On Moonlight, select the game you want to play.  
+2️⃣ Your game will launch on your gaming PC and stream to your TV.  
+3️⃣ Enjoy low-latency, high-FPS gaming from your couch!  
+
+---
+
+## **🔍 Troubleshooting & Common Issues**  
+### **❌ Moonlight Can’t Find My PC?**  
+✅ Make sure your PC and TV are on the same network.  
+✅ Restart **Sunshine** on your PC.  
+✅ Try **entering your PC’s IP manually** in Moonlight.  
+
+### **❌ Lag or High Latency?**  
+✅ Use **wired Ethernet** instead of Wi-Fi.  
+✅ Lower the **bitrate** to **10-20 Mbps**.  
+✅ Switch from **H.265 to H.264 codec** (some devices have trouble decoding H.265).  
+
+---
+
+## **🏆 Final Thoughts – Why This Method is the Best NVIDIA GameStream Alternative**  
+With **NVIDIA GameStream discontinued**, **Sunshine + Moonlight** is now the best way to stream PC games to your Smart TV or streaming device. Unlike other solutions like **Steam Link or Parsec**, Sunshine is **fully open-source, supports all GPUs (NVIDIA, AMD, Intel), and provides the best performance** with **low latency and high FPS**.  
+
+Now you can enjoy your favorite PC games from the comfort of your couch, **without an expensive gaming console or long HDMI cables**!  
+
+---
+
+### **💬 Need Help?**  
+Let me know if you have any questions or run into issues during setup! 🚀

@@ -1,1 +1,0 @@
-docker run -d --name citus -p 5432:5432 citusdata/citus:latest && gcl 5432

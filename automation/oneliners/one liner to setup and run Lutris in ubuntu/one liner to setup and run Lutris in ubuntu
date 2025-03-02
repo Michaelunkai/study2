@@ -1,1 +1,0 @@
-getflat && flatpak install flathub net.lutris.Lutris && flatpak run net.lutris.Lutris

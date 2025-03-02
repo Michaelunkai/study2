@@ -1,0 +1,1 @@
+dotnet add package Dapper && echo 'Dapper installed'

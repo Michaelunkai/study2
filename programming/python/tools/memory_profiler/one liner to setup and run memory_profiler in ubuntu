@@ -1,0 +1,1 @@
+pip3 install memory-profiler && python3 -c 'import memory_profiler; print(memory_profiler.__version__)'

@@ -1,0 +1,1 @@
+pip3 install statsmodels && python3 -c 'import statsmodels; print(statsmodels.__version__)'

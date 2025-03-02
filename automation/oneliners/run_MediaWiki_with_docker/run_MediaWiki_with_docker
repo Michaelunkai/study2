@@ -1,1 +1,0 @@
-docker run --name mediawiki -p 5555:80 -d mediawiki && gc http://localhost:5555

@@ -1,0 +1,1 @@
+wget https://github.com/Byron/dua-cli/releases/download/v2.30.0/dua-v2.30.0-x86_64-unknown-linux-musl.tar.gz && tar -xvf dua-v2.30.0-x86_64-unknown-linux-musl.tar.gz && sudo mv dua-v2.30.0-x86_64-unknown-linux-musl/dua /usr/local/bin/ && stu && dua

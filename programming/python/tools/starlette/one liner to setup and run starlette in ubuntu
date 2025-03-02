@@ -1,0 +1,1 @@
+pip3 install starlette && python3 -c 'import starlette; print(starlette.__version__)'

@@ -1,0 +1,1 @@
+pip3 install records && python3 -c 'import records; print(records.__version__)'

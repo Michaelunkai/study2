@@ -1,1 +1,0 @@
-npx sails new my-sails-app && cd my-sails-app && sails lift

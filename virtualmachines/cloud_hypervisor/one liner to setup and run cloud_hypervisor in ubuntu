@@ -1,0 +1,1 @@
+git clone https://github.com/cloud-hypervisor/cloud-hypervisor.git && cd cloud-hypervisor && cargo build --release && ./target/release/cloud-hypervisor --version

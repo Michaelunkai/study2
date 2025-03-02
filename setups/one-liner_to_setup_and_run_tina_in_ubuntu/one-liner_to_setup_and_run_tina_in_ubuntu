@@ -1,1 +1,0 @@
-npx create-tina-app my-tina-app && cd my-tina-app && npm run dev

@@ -1,0 +1,1 @@
+echo 'Install Apache Guacamole via Docker or manual setup (see https://guacamole.apache.org)'

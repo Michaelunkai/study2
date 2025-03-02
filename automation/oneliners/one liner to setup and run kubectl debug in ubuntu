@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y kubectl && echo 'kubectl debug -it <pod> --image=busybox'

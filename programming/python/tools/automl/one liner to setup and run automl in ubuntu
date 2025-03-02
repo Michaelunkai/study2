@@ -1,0 +1,1 @@
+pip3 install auto-sklearn && python3 -c 'import autosklearn; print(autosklearn.__version__)'

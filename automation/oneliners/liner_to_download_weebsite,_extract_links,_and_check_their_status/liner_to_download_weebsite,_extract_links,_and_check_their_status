@@ -1,1 +1,0 @@
-wget -r -l 1 -p https://example.com && grep -roP "(?<=href=")https?://[^"]*" example.com | sort -u > links.txt && cat links.txt | xargs -n1 -P10 curl -o /dev/null --silent --head --write-out "%{url_effective} %{http_code}\n" > status.txt && cat status.txt | sort -k2 -n

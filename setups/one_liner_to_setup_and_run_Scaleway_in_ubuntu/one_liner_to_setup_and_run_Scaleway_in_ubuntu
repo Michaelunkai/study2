@@ -1,1 +1,0 @@
-curl -s https://raw.githubusercontent.com/scaleway/scaleway-cli/master/scripts/get.sh | bash && scw init --access-key YOUR_ACCESS_TOKEN

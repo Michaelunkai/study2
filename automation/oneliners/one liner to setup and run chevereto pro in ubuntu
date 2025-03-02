@@ -1,0 +1,1 @@
+wget https://chevereto.com/download && unzip chevereto-pro.zip && mv chevereto-pro chevereto && echo 'Configure web server for chevereto pro'

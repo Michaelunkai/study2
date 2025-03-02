@@ -1,0 +1,1 @@
+composer require propel/propel && echo 'Propel installed'

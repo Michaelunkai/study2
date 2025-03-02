@@ -1,0 +1,1 @@
+pip3 install mayavi && python3 -c 'import mayavi; print(mayavi.__version__)'

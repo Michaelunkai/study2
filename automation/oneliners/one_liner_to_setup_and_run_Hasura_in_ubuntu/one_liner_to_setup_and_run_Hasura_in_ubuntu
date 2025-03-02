@@ -1,1 +1,0 @@
-npm install -g hasura-cli && hasura init --endpoint https://hasura.io && hasura console

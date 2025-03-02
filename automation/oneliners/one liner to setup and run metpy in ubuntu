@@ -1,0 +1,1 @@
+pip3 install metpy && python3 -c 'import metpy; print(metpy.__version__)'

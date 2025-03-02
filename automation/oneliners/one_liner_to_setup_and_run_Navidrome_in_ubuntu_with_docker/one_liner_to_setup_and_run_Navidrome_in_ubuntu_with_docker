@@ -1,5 +1,0 @@
-docker run -d --name navidrome \
- -p 4533:4533 \
- -v /home/user/navidrome/data:/data \
- -v /home/user/navidrome/music:/music \
- de n/navidrome:latest

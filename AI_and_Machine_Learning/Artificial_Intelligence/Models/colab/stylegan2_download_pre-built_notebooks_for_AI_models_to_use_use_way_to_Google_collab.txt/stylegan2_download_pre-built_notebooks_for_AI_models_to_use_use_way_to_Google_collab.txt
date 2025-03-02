@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/NVlabs/stylegan2/blob/master/stylegan2-colab.ipynb -O stylegan2.ipynb

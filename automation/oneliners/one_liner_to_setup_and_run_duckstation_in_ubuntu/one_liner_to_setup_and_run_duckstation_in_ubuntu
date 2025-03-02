@@ -1,1 +1,0 @@
-getflat &&  flatpak install flathub org.duckstation.DuckStation && flatpak run org.duckstation.DuckStation

@@ -1,0 +1,1 @@
+sudo apt install -y clamav && sudo freshclam && clamscan -r /

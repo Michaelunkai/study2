@@ -1,1 +1,0 @@
-getrust && cargo new thruster-app && cd thruster-app && echo 'thruster = "0.7"' >> Cargo.toml && cargo run

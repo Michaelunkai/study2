@@ -1,1 +1,0 @@
-apt install npm -y && npm install nyc --save-dev && npx nyc --reporter=html node test.js

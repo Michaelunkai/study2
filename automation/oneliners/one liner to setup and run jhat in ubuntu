@@ -1,0 +1,1 @@
+echo 'For Java: use jhat to analyze heap dumps (requires manual setup)'

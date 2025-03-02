@@ -1,0 +1,1 @@
+pip3 install pysolar && python3 -c 'import pysolar; print(pysolar.__version__)'

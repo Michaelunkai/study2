@@ -1,0 +1,1 @@
+git clone https://github.com/bytecodealliance/lucet.git && cd lucet && cargo build --release && echo 'Lucet installed'

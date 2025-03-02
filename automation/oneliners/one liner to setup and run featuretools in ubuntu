@@ -1,0 +1,1 @@
+pip3 install featuretools && python3 -c 'import featuretools; print(featuretools.__version__)'

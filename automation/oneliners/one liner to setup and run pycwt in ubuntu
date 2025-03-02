@@ -1,0 +1,1 @@
+pip3 install pycwt && python3 -c 'import pycwt; print(pycwt.__version__)'

@@ -1,0 +1,1 @@
+pip3 install anyio && python3 -c 'import anyio; print(anyio.__version__)'

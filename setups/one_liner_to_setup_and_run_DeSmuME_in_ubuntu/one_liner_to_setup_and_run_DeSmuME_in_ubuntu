@@ -1,1 +1,0 @@
-flatpak install flathub org.desmume.DeSmuME -y && flatpak run org.desmume.DeSmuME

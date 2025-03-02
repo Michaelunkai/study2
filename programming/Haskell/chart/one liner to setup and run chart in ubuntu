@@ -1,0 +1,1 @@
+cabal install Chart && echo 'Chart installed'

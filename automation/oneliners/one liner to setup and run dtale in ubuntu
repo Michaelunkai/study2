@@ -1,0 +1,1 @@
+pip3 install dtale && python3 -c 'import dtale; print(dtale.__version__)'

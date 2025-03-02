@@ -1,0 +1,1 @@
+pip3 install seaborn && python3 -c 'import seaborn; print(seaborn.__version__)'

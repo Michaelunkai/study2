@@ -1,0 +1,1 @@
+git clone https://github.com/example/imagestream.git && cd imagestream && npm install && npm start

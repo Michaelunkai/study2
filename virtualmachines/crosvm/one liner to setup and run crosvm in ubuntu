@@ -1,0 +1,1 @@
+git clone https://chromium.googlesource.com/chromiumos/platform/crosvm && cd crosvm && cargo build --release && ./target/release/crosvm --version

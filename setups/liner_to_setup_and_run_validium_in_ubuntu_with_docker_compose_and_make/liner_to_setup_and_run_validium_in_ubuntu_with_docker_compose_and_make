@@ -1,1 +1,0 @@
-getc && cd && git clone https://github.com/Snapchain/zkValidium-quickstart.git && cd zkValidium-quickstart && docker-compose pull && make run && gcl 4001
