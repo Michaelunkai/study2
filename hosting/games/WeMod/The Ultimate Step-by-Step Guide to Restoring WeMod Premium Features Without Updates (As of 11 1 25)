@@ -1,0 +1,78 @@
+# The Ultimate Step-by-Step Guide to Restoring WeMod Premium Features Without Updates (As of 11/1/25)
+
+Below is a comprehensive tutorial detailing the process that worked as of today. Follow these steps carefully to reinstall WeMod with premium features, while preventing unwanted updates and potential issues.
+
+---
+
+## 1. Uninstall and Clean Previous Installations
+
+- **Uninstall WeMod:**  
+  Remove any installed version of WeMod from your computer.
+
+- **Delete Residual Files:**  
+  Manually clean out the following directories:
+  - `<user>/AppData/Local/WeMod`
+  - `<user>/AppData/Roaming/WeMod`
+
+- **Optional Registry Cleanup:**  
+  Run CCleaner (or a similar tool) to clean the registry. *(Note: Its effectiveness may vary.)*
+
+---
+
+## 2. Download and Install the Older Version of WeMod
+
+- **Download Older Version:**  
+  Get WeMod version 8.2.0 from:  
+  [https://www.wingetgui.com/apps/WeMod-WeMod/8-2-0](https://www.wingetgui.com/apps/WeMod-WeMod/8-2-0)
+
+- **Install and Block Updates:**  
+  - Install the downloaded version.  
+  - As soon as WeMod starts updating, immediately close it to prevent the update process.
+
+---
+
+## 3. Prevent Future Updates
+
+- **Rename the Updater File:**  
+  Navigate to `<user>/AppData/Local/WeMod` and locate the file `Update.exe`.  
+  Rename it (e.g., to `Update1.exe`) to disable the update function.
+
+---
+
+## 4. Patch WeMod for Premium Features
+
+- **Download the Premium Patch Zip:**  
+  Get the ZIP file containing the patched `app.asar` file from:  
+  [https://sharemods.com/gg9zios3hjxy/WeMod_Premium.zip.html](https://sharemods.com/gg9zios3hjxy/WeMod_Premium.zip.html)  
+  *This file is reported to be safe and solely contains the updated `app.asar`.*
+
+- **Replace the App.asar File:**  
+  - Extract the ZIP file to access the `app.asar` file.
+  - Copy the new `app.asar` file into the following folder:  
+    `<user>/AppData/Local/WeMod/app-8.2.0/resources`  
+  - Replace the existing `app.asar` file with the new one.
+
+---
+
+## 5. Launch and Enjoy Premium Features
+
+- **Run WeMod:**  
+  Start the application.  
+- **Login:**  
+  It is advisable to log in using a temporary email account for extra safety.  
+- **Experience Premium:**  
+  Enjoy the premium features as provided by the patched version.
+
+---
+
+## Important Notes and Warnings
+
+- **Account Settings:**  
+  Changing your username or other account settings in WeMod may cause you to lose the premium status. If this happens, simply replace the `app.asar` file again after closing WeMod to restore premium access.
+
+- **Security Alert:**  
+  Previous links provided in older comments may now contain malware (trojans/viruses). Ensure you use the updated and verified links mentioned above. The current links have been reported to be working properly, but always exercise caution when downloading and installing software patches.
+
+---
+
+By following these steps carefully, you should be able to reinstall and maintain premium access on WeMod without unwanted updates. Always stay cautious about file sources and maintain good cybersecurity practices.

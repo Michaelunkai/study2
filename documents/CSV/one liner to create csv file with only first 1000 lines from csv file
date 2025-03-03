@@ -1,0 +1,1 @@
+head -n 1000 gaming20082024.csv > first1000_gaming20082024.csv

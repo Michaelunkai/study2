@@ -1,0 +1,6 @@
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin'
+
+interactibe mode:
+
+atgpt -i
+to ask, start command with: tgpt

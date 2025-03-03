@@ -1,0 +1,26 @@
+You can fix the `QStandardPaths: wrong permissions on runtime directory /run/user/0/, 0755 instead of 0700` error by changing the permissions of the `/run/user/0/` directory to `0700`. Run the following command:
+
+```bash
+sudo chmod 0700 /run/user/0/
+```
+
+If the issue persists after rebooting, you may need to modify the PAM configuration to ensure the directory is created with the correct permissions. Try the following:
+
+1. Edit the PAM systemd configuration file:
+   ```bash
+   sudo nano /etc/pam.d/systemd-user
+   ```
+   
+2. Ensure the following line is present:
+   ```plaintext
+   session optional pam_systemd.so
+   ```
+
+3. Save the file (Ctrl + X, then Y, then Enter).
+
+4. Restart your system:
+   ```bash
+   sudo reboot
+   ```
+
+If you’re still experiencing issues, let me know what context you're running this command in (e.g., running a Qt application, logging in as root, etc.), and I can provide more targeted troubleshooting.

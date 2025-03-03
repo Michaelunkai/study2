@@ -1,0 +1,1 @@
+winget install -e --id Microsoft.VisualStudioCode --location "C:\backup\windowsapps\installed\vscode" --silent; & "$env:LOCALAPPDATA\Programs\Microsoft.VSCode\bin\code.cmd" --install-extension sourcegraph.cody --install-extension ms-python.python --install-extension ms-toolsai.jupyter --install-extension ms-azuretools.vscode-docker
