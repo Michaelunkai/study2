@@ -1,0 +1,1 @@
+sudo apt insttall ffmpeg -y && gpip && pip install yt-dlp && cd /mnt/c/study/programming/python/apps/music/MusicDownloadFromFile && pya

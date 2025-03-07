@@ -3,16 +3,26 @@ import os
 import json
 import subprocess
 import requests
+import re
 from datetime import datetime
+from functools import partial
+
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout,
     QScrollArea, QLineEdit, QGridLayout, QLabel, QMenu, QDialog,
     QListWidget, QListWidgetItem, QMessageBox, QInputDialog,
     QTabWidget, QCheckBox
 )
-from PyQt5.QtGui import QFont, QDrag, QCursor, QPalette, QColor, QPixmap, QImage, QIcon
+from PyQt5.QtGui import QFont, QDrag, QCursor, QPixmap, QImage, QIcon
 from PyQt5.QtCore import Qt, QTimer, QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot, QMimeData, QSize
+
 from howlongtobeatpy import HowLongToBeat
+
+# --- Optional word segmentation ---
+try:
+    import wordninja
+except ImportError:
+    wordninja = None
 
 # ------------------------- Persistence Functions -------------------------
 
@@ -61,10 +71,37 @@ def save_tabs_config(config):
 persistent_settings = load_settings()
 tabs_config = load_tabs_config()
 
+# ------------------------- Word Segmentation Helper -------------------------
+
+def normalize_game_title(tag):
+    """
+    Insert spaces into a concatenated game title.
+    If tag already contains spaces, return it.
+    If tag is camel case, insert spaces before uppercase letters.
+    Otherwise, if wordninja is available, use it; else use title().
+    """
+    if " " in tag:
+        return tag
+    if any(c.isupper() for c in tag[1:]):
+        return re.sub(r'(?<!^)(?=[A-Z])', ' ', tag).strip()
+    if wordninja is not None:
+        return " ".join(wordninja.split(tag))
+    return tag.title()
+
+# ------------------------- HTTP Session with Retries -------------------------
+
+from requests.adapters import HTTPAdapter, Retry
+
+session = requests.Session()
+retries = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
+adapter = HTTPAdapter(max_retries=retries)
+session.mount("http://", adapter)
+session.mount("https://", adapter)
+
 # ------------------------- Worker Classes -------------------------
 
 class WorkerSignals(QObject):
-    finished = pyqtSignal(object)  # emits any object
+    finished = pyqtSignal(object)
 
 class Worker(QRunnable):
     def __init__(self, fn, *args, **kwargs):
@@ -81,34 +118,41 @@ class Worker(QRunnable):
 # ------------------------- Helper Functions -------------------------
 
 def fetch_game_time(alias):
-    time_val = ""
+    """
+    Normalize alias then query HowLongToBeat.
+    Returns (original alias, "<time> hours") or ("N/A").
+    """
+    normalized = normalize_game_title(alias)
     try:
-        results = HowLongToBeat().search(alias)
+        results = HowLongToBeat().search(normalized)
         if results:
             main_time = getattr(results[0], 'gameplay_main', None) or getattr(results[0], 'main_story', None)
             if main_time:
-                time_val = f"{main_time} hours"
-            else:
-                extra_time = getattr(results[0], 'gameplay_main_extra', None) or getattr(results[0], 'main_extra', None)
-                if extra_time:
-                    time_val = f"{extra_time} hours"
+                return (alias, f"{main_time} hours")
+            extra_time = getattr(results[0], 'gameplay_main_extra', None) or getattr(results[0], 'main_extra', None)
+            if extra_time:
+                return (alias, f"{extra_time} hours")
     except Exception as e:
-        print(f"Error searching howlongtobeat for '{alias}': {e}")
-    return (alias, time_val)
+        print(f"Error searching HowLongToBeat for '{normalized}': {e}")
+    return (alias, "N/A")
 
 def fetch_image(query):
+    """
+    Retrieve an image for the given query via DuckDuckGo.
+    Uses the shared session with retries and a timeout of 15 seconds.
+    """
     try:
         url = "https://duckduckgo.com/i.js"
         params = {"q": query, "o": "json", "iax": "images", "ia": "images"}
         headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(url, params=params, headers=headers, timeout=5)
+        response = session.get(url, params=params, headers=headers, timeout=15)
         if response.status_code == 200:
             data = response.json()
             results = data.get("results", [])
             if results:
                 image_url = results[0].get("image")
                 if image_url:
-                    img_response = requests.get(image_url, stream=True, timeout=5)
+                    img_response = session.get(image_url, stream=True, timeout=15)
                     if img_response.status_code == 200:
                         img = QImage()
                         img.loadFromData(img_response.content)
@@ -119,8 +163,7 @@ def fetch_image(query):
 
 def update_docker_tag_name(old_alias, new_alias):
     QMessageBox.information(None, "Info",
-        "Renaming tags on Docker Hub is not supported by the API.\n"
-        "Only the local display name (alias) will be updated.")
+        "Renaming tags on Docker Hub is not supported by the API.\nOnly the local display name (alias) will be updated.")
     return True
 
 def parse_date(date_str):
@@ -230,7 +273,6 @@ class GameButton(QPushButton):
             move_menu.addAction(tab["name"])
         action = menu.exec_(event.globalPos())
         main_window = self.get_main_window()
-        # For both renaming and moving, require Docker Hub authentication.
         token = main_window.get_docker_token() if main_window else None
         if not token:
             return
@@ -251,8 +293,8 @@ class GameButton(QPushButton):
                     if main_window and hasattr(main_window, "handle_tag_rename"):
                         main_window.handle_tag_rename(self.tag_info["docker_name"], new_alias)
                     worker = Worker(fetch_game_time, new_alias)
-                    if main_window and hasattr(main_window, "handle_game_time_update"):
-                        worker.signals.finished.connect(main_window.handle_game_time_update)
+                    worker.signals.finished.connect(partial(main_window.handle_game_time_update, new_alias))
+                    main_window.add_worker(worker)
                     QThreadPool.globalInstance().start(worker)
         elif action in menu.actions()[1].menu().actions():
             target_tab_name = action.text()
@@ -271,26 +313,8 @@ class ImageWorker(QRunnable):
         self.signals = WorkerSignals()
     @pyqtSlot()
     def run(self):
-        try:
-            url = "https://duckduckgo.com/i.js"
-            params = {"q": self.query, "o": "json", "iax": "images", "ia": "images"}
-            headers = {"User-Agent": "Mozilla/5.0"}
-            response = requests.get(url, params=params, headers=headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                results = data.get("results", [])
-                if results:
-                    image_url = results[0].get("image")
-                    if image_url:
-                        img_response = requests.get(image_url, stream=True, timeout=5)
-                        if img_response.status_code == 200:
-                            img = QImage()
-                            img.loadFromData(img_response.content)
-                            self.signals.finished.emit((self.query, img))
-                            return
-        except Exception as e:
-            print(f"Error fetching image for '{self.query}':", e)
-        self.signals.finished.emit((self.query, QImage()))
+        result = fetch_image(self.query)
+        self.signals.finished.emit(result)
 
 # ------------------------- Dialog for Deleting Tags -------------------------
 
@@ -423,9 +447,13 @@ class DockerApp(QWidget):
         self.tabs_config = load_tabs_config()
         self.tab_containers = {}
         self.docker_token = None
+        self.active_workers = []
         self.init_ui()
         QThreadPool.globalInstance().setMaxThreadCount(10)
         QTimer.singleShot(0, self.start_game_time_queries)
+    def add_worker(self, worker):
+        self.active_workers.append(worker)
+        worker.signals.finished.connect(lambda _: self.active_workers.remove(worker))
     def fetch_tags(self):
         url = "https://hub.docker.com/v2/repositories/michadockermisha/backup/tags?page_size=100"
         tag_list = []
@@ -464,7 +492,7 @@ class DockerApp(QWidget):
             }
         """)
         main_layout.addWidget(title, alignment=Qt.AlignCenter)
-        # Control layout for tag operations
+        # Control layout
         control_layout = QHBoxLayout()
         control_layout.setSpacing(10)
         self.search_box = QLineEdit()
@@ -498,18 +526,12 @@ class DockerApp(QWidget):
             }
         """)
         sort_menu = QMenu(self)
-        action_heavy = sort_menu.addAction("Heaviest to Lightest")
-        action_light = sort_menu.addAction("Lightest to Heaviest")
-        action_time_long = sort_menu.addAction("Sort by HowLong: Longest to Shortest")
-        action_time_short = sort_menu.addAction("Sort by HowLong: Shortest to Longest")
-        action_newest = sort_menu.addAction("Sort by Date: Newest to Oldest")
-        action_oldest = sort_menu.addAction("Sort by Date: Oldest to Newest")
-        action_heavy.triggered.connect(lambda: self.sort_tags(descending=True))
-        action_light.triggered.connect(lambda: self.sort_tags(descending=False))
-        action_time_long.triggered.connect(lambda: self.sort_tags_by_time(descending=True))
-        action_time_short.triggered.connect(lambda: self.sort_tags_by_time(descending=False))
-        action_newest.triggered.connect(lambda: self.sort_tags_by_date(descending=True))
-        action_oldest.triggered.connect(lambda: self.sort_tags_by_date(descending=False))
+        sort_menu.addAction("Heaviest to Lightest", lambda: self.sort_tags(descending=True))
+        sort_menu.addAction("Lightest to Heaviest", lambda: self.sort_tags(descending=False))
+        sort_menu.addAction("Sort by HowLong: Longest to Shortest", lambda: self.sort_tags_by_time(descending=True))
+        sort_menu.addAction("Sort by HowLong: Shortest to Longest", lambda: self.sort_tags_by_time(descending=False))
+        sort_menu.addAction("Sort by Date: Newest to Oldest", lambda: self.sort_tags_by_date(descending=True))
+        sort_menu.addAction("Sort by Date: Oldest to Newest", lambda: self.sort_tags_by_date(descending=False))
         sort_button.setMenu(sort_menu)
         control_layout.addWidget(sort_button)
         run_selected = QPushButton("Run Selected")
@@ -546,8 +568,27 @@ class DockerApp(QWidget):
         """)
         delete_tag_button.clicked.connect(self.open_delete_dialog)
         control_layout.addWidget(delete_tag_button)
+        # New "Save as .txt" button
+        save_txt_button = QPushButton("Save as .txt")
+        save_txt_button.setStyleSheet("""
+            QPushButton {
+                border: none;
+                border-radius: 8px;
+                padding: 12px;
+                font-size: 14px;
+                background-color: #8E44AD;
+            }
+            QPushButton:hover {
+                background-color: #9B59B6;
+            }
+            QPushButton:pressed {
+                background-color: #71368A;
+            }
+        """)
+        save_txt_button.clicked.connect(self.save_as_txt)
+        control_layout.addWidget(save_txt_button)
         main_layout.addLayout(control_layout)
-        # Tab management buttons (these operations require authentication)
+        # Tab management buttons
         tab_mgmt_layout = QHBoxLayout()
         tab_mgmt_layout.setSpacing(10)
         add_tab_btn = QPushButton("Add Tab")
@@ -560,7 +601,7 @@ class DockerApp(QWidget):
         delete_tab_btn.clicked.connect(self.delete_tab)
         tab_mgmt_layout.addWidget(delete_tab_btn)
         main_layout.addLayout(tab_mgmt_layout)
-        # Create QTabWidget with dynamic tabs
+        # Tabs
         self.tabs = QTabWidget()
         self.tab_containers = {}
         for tab in self.tabs_config:
@@ -574,6 +615,25 @@ class DockerApp(QWidget):
         self.tabs.currentChanged.connect(self.on_tab_changed)
         self.previous_tab_index = 0
         self.create_tag_buttons()
+    def save_as_txt(self):
+        # Use the Downloads folder; if not available, use home.
+        downloads = os.path.join(os.path.expanduser("~"), "Downloads")
+        if not os.path.exists(downloads):
+            downloads = os.path.expanduser("~")
+        filepath = os.path.join(downloads, "tags.txt")
+        output = []
+        for tab in self.tabs_config:
+            output.append(f"Tab: {tab['name']}")
+            for tag in self.all_tags:
+                if tag.get("category", "all") == tab["id"]:
+                    output.append(tag["alias"])
+            output.append("")  # blank line
+        try:
+            with open(filepath, "w") as f:
+                f.write("\n".join(output))
+            QMessageBox.information(self, "Save as .txt", f"Tags saved to {filepath}")
+        except Exception as e:
+            QMessageBox.warning(self, "Save as .txt", f"Error saving tags: {e}")
     def create_tag_buttons(self):
         for container in self.tab_containers.values():
             for i in reversed(range(container.layout.count())):
@@ -584,9 +644,10 @@ class DockerApp(QWidget):
         self.tag_buttons = {}
         pos = {tab_id: [0, 0] for tab_id in self.tab_containers}
         for tag in self.all_tags:
-            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})"]
-            if tag["alias"] in self.game_times_cache and self.game_times_cache[tag["alias"]]:
-                text_lines.append(f"Approx Time: {self.game_times_cache[tag['alias']]}")
+            time_line = (f"Approx Time: {self.game_times_cache[tag['alias']]}"
+                         if tag["alias"] in self.game_times_cache and self.game_times_cache[tag["alias"]]
+                         else "Approx Time: Loading...")
+            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})", time_line]
             display_text = "\n".join(text_lines)
             button = GameButton(display_text)
             button.tag_info = tag
@@ -606,7 +667,8 @@ class DockerApp(QWidget):
                 button.setIcon(QIcon(self.image_cache[alias]))
             elif alias not in getattr(self, "started_image_queries", set()):
                 worker = Worker(fetch_image, alias)
-                worker.signals.finished.connect(lambda result: self.handle_image_update(*result))
+                worker.signals.finished.connect(partial(self.handle_image_update, alias))
+                self.add_worker(worker)
                 QThreadPool.globalInstance().start(worker)
                 if not hasattr(self, "started_image_queries"):
                     self.started_image_queries = set()
@@ -616,7 +678,8 @@ class DockerApp(QWidget):
             alias = tag["alias"]
             if alias not in self.game_times_cache:
                 worker = Worker(fetch_game_time, alias)
-                worker.signals.finished.connect(lambda result: self.handle_game_time_update(*result))
+                worker.signals.finished.connect(partial(self.handle_game_time_update, alias))
+                self.add_worker(worker)
                 QThreadPool.globalInstance().start(worker)
     def handle_game_time_update(self, alias, time_info):
         self.game_times_cache[alias] = time_info
@@ -624,13 +687,10 @@ class DockerApp(QWidget):
             for button in buttons:
                 if button.tag_info["alias"] == alias:
                     lines = button.text().splitlines()
-                    if len(lines) == 2 and time_info:
-                        lines.append(f"Approx Time: {time_info}")
-                    elif len(lines) >= 3:
-                        if time_info:
-                            lines[2] = f"Approx Time: {time_info}"
-                        else:
-                            lines = lines[:2]
+                    if len(lines) >= 3:
+                        lines[2] = f"Approx Time: {time_info}" if time_info != "N/A" else "Approx Time: N/A"
+                    else:
+                        lines.append(f"Approx Time: {time_info}" if time_info != "N/A" else "Approx Time: N/A")
                     button.setText("\n".join(lines))
     def handle_image_update(self, alias, image):
         if not image.isNull():
@@ -731,7 +791,6 @@ class DockerApp(QWidget):
         self.create_tag_buttons()
     def on_tab_changed(self, index):
         current_tab_text = self.tabs.tabText(index)
-        # For the "MyBackup" tab, require authentication.
         if current_tab_text == "MyBackup":
             token = self.get_docker_token()
             if token:
@@ -743,7 +802,6 @@ class DockerApp(QWidget):
         self.previous_tab_index = index
     # --------------- Docker Hub Authentication ---------------
     def get_docker_token(self):
-        # If we already have a token, use it.
         if self.docker_token is not None:
             return self.docker_token
         password, ok = QInputDialog.getText(self, "Docker Hub Authentication",
@@ -828,7 +886,7 @@ class DockerApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # Global dark theme with black background, white text, and bulkier font
+    # Running as non-root is recommended to avoid QStandardPaths warnings.
     font = QFont("Segoe UI", 12, QFont.Bold)
     app.setFont(font)
     app.setStyleSheet("""

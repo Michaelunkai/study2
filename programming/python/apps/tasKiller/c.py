@@ -1,27 +1,35 @@
 import subprocess
 import time
 import psutil
+import os
+import shutil
+from collections import defaultdict
 import difflib
+
+# Define important processes (all names in lowercase)
+IMPORTANT_PROCESSES = {
+    "system idle process", "system", "csrss.exe", "wininit.exe", "winlogon.exe",
+    "services.exe", "lsass.exe", "smss.exe", "svchost.exe", "explorer.exe"
+}
 
 # ANSI escape codes for colors and formatting
 RED = "\033[91m"
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
 BLUE = "\033[94m"
+MAGENTA = "\033[95m"
 CYAN = "\033[96m"
 WHITE = "\033[97m"
 BOLD = "\033[1m"
+UNDERLINE = "\033[4m"
 RESET = "\033[0m"
-
-# Track suspended processes
-suspended_processes = {}
 
 def get_windows_processes():
     """
     Retrieves a list of processes with aggregated CPU and memory usage.
     Returns a list of tuples: (Process Name, Instance Count, Total CPU %, Total Memory (MB), [PIDs])
     """
-    process_dict = {}
+    process_dict = defaultdict(lambda: {"count": 0, "cpu": 0.0, "memory": 0.0, "pids": []})
 
     try:
         # Prime CPU measurements (this pass initializes CPU percent values)
@@ -30,16 +38,13 @@ def get_windows_processes():
 
         time.sleep(0.5)  # Brief pause for better CPU readings
 
-        # Now aggregate data
+        # Aggregate data from each process
         for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_info']):
             try:
                 name = proc.info['name']
                 pid = proc.info['pid']
                 cpu_percent = proc.info['cpu_percent']
                 mem_mb = proc.info['memory_info'].rss / (1024 * 1024)
-
-                if name not in process_dict:
-                    process_dict[name] = {"count": 0, "cpu": 0.0, "memory": 0.0, "pids": []}
 
                 process_dict[name]["count"] += 1
                 process_dict[name]["cpu"] += cpu_percent
@@ -50,151 +55,177 @@ def get_windows_processes():
     except Exception as e:
         print(f"{RED}{BOLD}Error retrieving processes: {e}{RESET}")
 
-    # Convert dictionary to list of tuples
-    processes = [(name, data["count"], data["cpu"], data["memory"], data["pids"]) for name, data in process_dict.items()]
+    processes = []
+    for name, data in process_dict.items():
+        processes.append((name, data["count"], data["cpu"], data["memory"], data["pids"]))
+
     return processes
 
 def display_processes(processes):
     """
-    Displays the process list sorted from least to most resource usage (CPU + memory).
+    Sorts and displays the process list along with an index number.
+    The processes are sorted in ascending order by memory usage (i.e. from the least resource‐intensive to the most).
+    Processes that match important system names are highlighted in red.
+    Returns the sorted list.
     """
-    # Sort by total resource usage (CPU + memory)
-    processes_sorted = sorted(processes, key=lambda x: x[2] + x[3])
+    # Sorting by memory usage (ascending) so that the process using the least memory appears first
+    processes_sorted = sorted(processes, key=lambda x: x[3])
+    
+    try:
+        terminal_width = shutil.get_terminal_size().columns
+    except Exception:
+        terminal_width = 100
 
-    print(f"\n{BOLD}{WHITE}{'Process Name':<30} {'Instances':<10} {'CPU (%)':<10} {'Memory (MB)':<12}{RESET}")
-    for name, count, cpu, mem, pids in processes_sorted:
-        print(f"{name:<30} {count:<10} {cpu:.2f}".rjust(10) + f" {mem:.2f}".rjust(12))
+    header = f"{BOLD}{UNDERLINE}{WHITE}{'No.':<4} {'Process Name':<30} {'Instances':<10} {'CPU (%)':<10} {'Memory (MB)':<12}{RESET}"
+    print(header)
 
-    print(f"\n{BOLD}Total processes: {len(processes_sorted)}{RESET}")
+    for idx, (name, count, cpu, mem, pids) in enumerate(processes_sorted, start=1):
+        idx_str = f"{idx:<4}"
+        name_str = f"{name:<30}"
+        count_str = f"{count:<10}"
+        cpu_str = f"{cpu:.2f}".rjust(10)
+        mem_str = f"{mem:.2f}".rjust(12)
+
+        # Highlight important system processes in red
+        color = RED if name.lower() in IMPORTANT_PROCESSES else RESET
+        print(f"{idx_str} {color}{name_str}{RESET} {count_str} {cpu_str} {mem_str}")
+
+    print("-" * terminal_width)
+    total_instances = sum(count for _, count, _, _, _ in processes_sorted)
+    total_memory = sum(mem for _, _, _, mem, _ in processes_sorted)
+    print(f"{BOLD}Total: {len(processes_sorted)} unique processes, {total_instances} instances, {total_memory:.2f} MB used{RESET}")
     return processes_sorted
 
-def find_matching_processes(processes, search_term):
+def search_processes(processes, search_term):
     """
-    Finds processes that match the search term using fuzzy matching.
-    Returns a list of matching process names.
+    Filters the process list based on a search term.
+    Uses fuzzy matching to include related process names even if not an exact substring.
+    Returns the filtered list.
     """
-    matches = []
+    filtered = []
     search_lower = search_term.lower()
-    for name, _, _, _, _ in processes:
+    for proc in processes:
+        name, count, cpu, mem, pids = proc
         name_lower = name.lower()
+        # Include if search term is a substring or if fuzzy matching ratio is high enough
         if search_lower in name_lower or difflib.SequenceMatcher(None, search_lower, name_lower).ratio() > 0.6:
-            matches.append(name)
-    return matches
+            filtered.append(proc)
+    return filtered
 
-def kill_processes_by_name(processes, name):
+def kill_processes_by_image(image_name):
     """
-    Kills all processes with the given name.
+    Kills all processes matching the given image name using taskkill.exe.
     """
     try:
-        for proc in processes:
-            if proc[0] == name:
-                for pid in proc[4]:
-                    try:
-                        psutil.Process(pid).terminate()
-                        print(f"{GREEN}{BOLD}Killed process {name} (PID: {pid}).{RESET}")
-                    except Exception as e:
-                        print(f"{RED}{BOLD}Error killing process {name} (PID: {pid}): {e}{RESET}")
-    except Exception as e:
-        print(f"{RED}{BOLD}Error killing processes: {e}{RESET}")
+        result = subprocess.run(
+            ['taskkill.exe', '/F', '/IM', image_name],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        print(f"{GREEN}{BOLD}Killed all processes with image name '{image_name}'.{RESET}")
+        print(result.stdout.strip())
+    except subprocess.CalledProcessError as e:
+        print(f"{RED}{BOLD}Error killing processes with image name '{image_name}':{RESET}")
+        print(e.stderr.strip())
 
-def suspend_processes_by_name(processes, name):
+def prompt_kill(processes):
     """
-    Suspends all processes with the given name and tracks them.
+    Prompts the user to enter process numbers to kill from a given list of processes.
+    Processes the input and calls kill_processes_by_image for each selected process.
     """
-    try:
-        for proc in processes:
-            if proc[0] == name:
-                for pid in proc[4]:
-                    try:
-                        psutil.Process(pid).suspend()
-                        print(f"{GREEN}{BOLD}Suspended process {name} (PID: {pid}).{RESET}")
-                        # Track suspended processes
-                        if name not in suspended_processes:
-                            suspended_processes[name] = []
-                        suspended_processes[name].append(pid)
-                    except Exception as e:
-                        print(f"{RED}{BOLD}Error suspending process {name} (PID: {pid}): {e}{RESET}")
-    except Exception as e:
-        print(f"{RED}{BOLD}Error suspending processes: {e}{RESET}")
-
-def display_suspended_processes():
-    """
-    Displays all processes currently suspended by the user.
-    """
-    if not suspended_processes:
-        print(f"{YELLOW}{BOLD}No processes are currently suspended by you.{RESET}")
+    user_input = input(f"\n{BOLD}Enter process numbers to kill (e.g. 1,3,5) or press Enter to cancel: {RESET}").strip()
+    if not user_input:
+        print(f"{YELLOW}{BOLD}No processes selected for killing. Returning to main menu.{RESET}")
         return
 
-    print(f"\n{BOLD}{WHITE}{'Process Name':<30} {'Suspended PIDs':<20}{RESET}")
-    for name, pids in suspended_processes.items():
-        print(f"{name:<30} {', '.join(map(str, pids))}")
-
-def resume_processes_by_name(name):
-    """
-    Resumes all processes with the given name that were suspended by the user.
-    """
-    if name not in suspended_processes:
-        print(f"{YELLOW}{BOLD}No suspended processes found for '{name}'.{RESET}")
-        return
-
-    for pid in suspended_processes[name]:
+    # Replace commas with spaces, then split into parts
+    parts = user_input.replace(",", " ").split()
+    indices = []
+    for part in parts:
         try:
-            psutil.Process(pid).resume()
-            print(f"{GREEN}{BOLD}Resumed process {name} (PID: {pid}).{RESET}")
-        except Exception as e:
-            print(f"{RED}{BOLD}Error resuming process {name} (PID: {pid}): {e}{RESET}")
+            idx = int(part) - 1  # adjust for 0-based index
+            if idx < 0 or idx >= len(processes):
+                print(f"{RED}{BOLD}Index {part} out of range.{RESET}")
+                return
+            indices.append(idx)
+        except ValueError:
+            print(f"{RED}{BOLD}Invalid number: {part}.{RESET}")
+            return
 
-    # Remove the process from the suspended list
-    del suspended_processes[name]
+    # Build a dictionary mapping process names to their PIDs (avoid duplicates)
+    pids_dict = {}
+    for idx in indices:
+        proc = processes[idx]
+        name = proc[0]
+        if name in pids_dict:
+            pids_dict[name].extend(proc[4])
+        else:
+            pids_dict[name] = proc[4].copy()
+
+    # Kill each process by image name
+    for name in pids_dict.keys():
+        kill_processes_by_image(name)
 
 def main():
     """
-    Main loop: display processes and prompt for commands.
+    Main loop: display processes and prompt for commands:
+      - Enter process numbers to kill.
+      - Type 'search' to filter processes by a search term.
+      - Type 'exit' to quit the program.
     """
     while True:
         print("\n" + "=" * 80)
         processes = get_windows_processes()
         processes_sorted = display_processes(processes)
 
-        print(f"\n{BOLD}Commands:{RESET}")
-        print(f"{CYAN}kill <name>{RESET} - Kill processes by name.")
-        print(f"{CYAN}suspend <name>{RESET} - Suspend processes by name.")
-        print(f"{CYAN}resume{RESET} - Resume suspended processes.")
-        print(f"{CYAN}exit{RESET} - Quit the program.")
-
-        user_input = input(f"\n{BOLD}Enter command: {RESET}").strip().lower()
-        if user_input == "exit":
+        user_command = input(f"\n{BOLD}Enter process numbers to kill, 'search' to search, or 'exit' to quit: {RESET}").strip().lower()
+        if user_command == "exit":
             print(f"{GREEN}{BOLD}Exiting...{RESET}")
             break
-        elif user_input.startswith("kill "):
-            search_term = user_input[5:].strip()
-            matches = find_matching_processes(processes_sorted, search_term)
-            if not matches:
-                print(f"{YELLOW}{BOLD}No processes found matching '{search_term}'.{RESET}")
-            else:
-                for name in matches:
-                    kill_processes_by_name(processes_sorted, name)
-        elif user_input.startswith("suspend "):
-            search_term = user_input[8:].strip()
-            matches = find_matching_processes(processes_sorted, search_term)
-            if not matches:
-                print(f"{YELLOW}{BOLD}No processes found matching '{search_term}'.{RESET}")
-            else:
-                for name in matches:
-                    suspend_processes_by_name(processes_sorted, name)
-                # Display suspended processes after suspending
-                display_suspended_processes()
-        elif user_input == "resume":
-            if not suspended_processes:
-                print(f"{YELLOW}{BOLD}No processes are currently suspended by you.{RESET}")
-            else:
-                display_suspended_processes()
-                name = input(f"{BOLD}Enter the name of the process to resume: {RESET}").strip()
-                resume_processes_by_name(name)
+        elif user_command == "search":
+            search_term = input(f"{BOLD}Enter search term: {RESET}").strip()
+            if not search_term:
+                print(f"{YELLOW}{BOLD}No search term entered. Returning to main menu.{RESET}")
+                continue
+            filtered_processes = search_processes(processes_sorted, search_term)
+            if not filtered_processes:
+                print(f"{YELLOW}{BOLD}No processes matching '{search_term}' found.{RESET}")
+                continue
+            print(f"\n{CYAN}{BOLD}Search results for '{search_term}':{RESET}")
+            filtered_sorted = display_processes(filtered_processes)
+            prompt_kill(filtered_sorted)
         else:
-            print(f"{RED}{BOLD}Invalid command. Try again.{RESET}")
+            # Assume the input is a list of process numbers for the full list
+            parts = user_command.replace(",", " ").split()
+            indices = []
+            for part in parts:
+                try:
+                    idx = int(part) - 1  # adjust for 0-based index
+                    if idx < 0 or idx >= len(processes_sorted):
+                        print(f"{RED}{BOLD}Index {part} out of range.{RESET}")
+                        break
+                    indices.append(idx)
+                except ValueError:
+                    print(f"{RED}{BOLD}Invalid number: {part}.{RESET}")
+                    break
+            else:
+                # Build dictionary of process names to their PIDs
+                pids_dict = {}
+                for idx in indices:
+                    proc = processes_sorted[idx]
+                    name = proc[0]
+                    if name in pids_dict:
+                        pids_dict[name].extend(proc[4])
+                    else:
+                        pids_dict[name] = proc[4].copy()
+
+                # Kill each process by image name
+                for name in pids_dict.keys():
+                    kill_processes_by_image(name)
 
         time.sleep(1)
 
 if __name__ == "__main__":
     main()
+

@@ -1,18 +1,23 @@
-import sys
-import os
-import json
-import subprocess
-import requests
+import sys, os, json, subprocess, requests, re
 from datetime import datetime
+from functools import partial
+
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout,
     QScrollArea, QLineEdit, QGridLayout, QLabel, QMenu, QDialog,
     QListWidget, QListWidgetItem, QMessageBox, QInputDialog,
-    QTabWidget, QCheckBox
+    QStackedWidget, QCheckBox, QTextEdit
 )
-from PyQt5.QtGui import QFont, QDrag, QCursor, QPalette, QColor, QPixmap, QImage, QIcon
+from PyQt5.QtGui import QFont, QDrag, QPixmap, QImage, QIcon
 from PyQt5.QtCore import Qt, QTimer, QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot, QMimeData, QSize
+
 from howlongtobeatpy import HowLongToBeat
+
+# --- Optional word segmentation ---
+try:
+    import wordninja
+except ImportError:
+    wordninja = None
 
 # ------------------------- Persistence Functions -------------------------
 
@@ -61,10 +66,59 @@ def save_tabs_config(config):
 persistent_settings = load_settings()
 tabs_config = load_tabs_config()
 
+# ------------------------- Word Segmentation & Normalization -------------------------
+
+def normalize_game_title(tag):
+    # If tag already has spaces, return as is.
+    if " " in tag:
+        return tag
+    # First, insert spaces before capital letters if any (e.g., AlanWake -> Alan Wake)
+    spaced = re.sub(r'(?<!^)(?=[A-Z])', ' ', tag).strip()
+    # If wordninja is available, try to split further; else return the spaced version.
+    if wordninja is not None:
+        words = wordninja.split(tag)
+        # If the segmentation gives a result with more than one word, return joined with spaces.
+        if len(words) > 1:
+            return " ".join(words)
+    return spaced
+
+# ------------------------- Fixed Approx Time Dictionary -------------------------
+# (Keys are normalized versions: lowercase with spaces removed)
+
+fixed_times = {
+    "alanwake": "~10 hrs",
+    "alanwake2": "~12 hrs",
+    "ancestorshumankind": "~15 hrs",
+    "artfulescape": "~5 hrs",
+    "asduskfalls": "~3 hrs",
+    "baldursgate3": "~100 hrs",
+    "battlefield1": "~6 hrs",
+    "bayonetta2": "~8 hrs",
+    "bayonetta3": "~10 hrs",
+    "beyond2souls": "~10-12 hrs",
+    "binarydomain": "~8 hrs",
+    "bloodsrainedritualofthenight": "~10 hrs",
+    # ... (Add additional fixed times as desired)
+}
+
+def get_fixed_time(alias):
+    key = ''.join(alias.lower().split())
+    return fixed_times.get(key, None)
+
+# ------------------------- HTTP Session with Retries -------------------------
+
+from requests.adapters import HTTPAdapter, Retry
+
+session = requests.Session()
+retries = Retry(total=3, backoff_factor=1, status_forcelist=[429,500,502,503,504])
+adapter = HTTPAdapter(max_retries=retries)
+session.mount("http://", adapter)
+session.mount("https://", adapter)
+
 # ------------------------- Worker Classes -------------------------
 
 class WorkerSignals(QObject):
-    finished = pyqtSignal(object)  # emits any object
+    finished = pyqtSignal(object)
 
 class Worker(QRunnable):
     def __init__(self, fn, *args, **kwargs):
@@ -81,34 +135,36 @@ class Worker(QRunnable):
 # ------------------------- Helper Functions -------------------------
 
 def fetch_game_time(alias):
-    time_val = ""
+    normalized = normalize_game_title(alias)
+    fixed = get_fixed_time(alias)
+    if fixed:
+        return (alias, fixed)
     try:
-        results = HowLongToBeat().search(alias)
+        results = HowLongToBeat().search(normalized)
         if results:
             main_time = getattr(results[0], 'gameplay_main', None) or getattr(results[0], 'main_story', None)
             if main_time:
-                time_val = f"{main_time} hours"
-            else:
-                extra_time = getattr(results[0], 'gameplay_main_extra', None) or getattr(results[0], 'main_extra', None)
-                if extra_time:
-                    time_val = f"{extra_time} hours"
+                return (alias, f"{main_time} hrs")
+            extra_time = getattr(results[0], 'gameplay_main_extra', None) or getattr(results[0], 'main_extra', None)
+            if extra_time:
+                return (alias, f"{extra_time} hrs")
     except Exception as e:
-        print(f"Error searching howlongtobeat for '{alias}': {e}")
-    return (alias, time_val)
+        print(f"Error searching HowLongToBeat for '{normalized}': {e}")
+    return (alias, "N/A")
 
 def fetch_image(query):
     try:
         url = "https://duckduckgo.com/i.js"
         params = {"q": query, "o": "json", "iax": "images", "ia": "images"}
         headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(url, params=params, headers=headers, timeout=5)
+        response = requests.get(url, params=params, headers=headers, timeout=20)
         if response.status_code == 200:
             data = response.json()
             results = data.get("results", [])
             if results:
                 image_url = results[0].get("image")
                 if image_url:
-                    img_response = requests.get(image_url, stream=True, timeout=5)
+                    img_response = requests.get(image_url, stream=True, timeout=20)
                     if img_response.status_code == 200:
                         img = QImage()
                         img.loadFromData(img_response.content)
@@ -119,8 +175,7 @@ def fetch_image(query):
 
 def update_docker_tag_name(old_alias, new_alias):
     QMessageBox.information(None, "Info",
-        "Renaming tags on Docker Hub is not supported by the API.\n"
-        "Only the local display name (alias) will be updated.")
+        "Renaming tags on Docker Hub is not supported by the API.\nOnly the local display name (alias) will be updated.")
     return True
 
 def parse_date(date_str):
@@ -129,7 +184,7 @@ def parse_date(date_str):
     except Exception:
         return datetime.min
 
-# ------------------------- Custom Widgets -------------------------
+# ------------------------- TagContainerWidget -------------------------
 
 class TagContainerWidget(QWidget):
     def __init__(self, type_name, parent=None):
@@ -151,27 +206,211 @@ class TagContainerWidget(QWidget):
             main_window.update_tag_category(docker_name, self.type_name)
         event.acceptProposedAction()
 
-class StyledButton(QPushButton):
-    def __init__(self, text, color, parent=None):
-        super().__init__(text, parent)
-        self.setStyleSheet(f"""
-            QPushButton {{
-                background-color: {color};
-                border: none;
-                border-radius: 5px;
-                padding: 10px;
-                color: white;
-                font-weight: bold;
-                font-size: 14px;
-            }}
-            QPushButton:hover {{
-                background-color: {color}99;
-                border: 2px solid white;
-            }}
-            QPushButton:pressed {{
-                background-color: {color}77;
-            }}
-        """)
+# ------------------------- Tab Navigation Widget (5 per row) -------------------------
+
+class TabNavigationWidget(QWidget):
+    def __init__(self, tabs_config, parent=None):
+        super().__init__(parent)
+        self.tabs_config = tabs_config
+        self.init_ui()
+    def init_ui(self):
+        self.layout = QGridLayout(self)
+        self.layout.setSpacing(5)
+        self.setLayout(self.layout)
+        self.create_tab_buttons()
+    def create_tab_buttons(self):
+        while self.layout.count():
+            child = self.layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+        self.buttons = {}
+        col = 0
+        row = 0
+        for tab in self.tabs_config:
+            btn = QPushButton(tab["name"])
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #34495E;
+                    color: white;
+                    padding: 6px;
+                    border: none;
+                    border-radius: 4px;
+                }
+                QPushButton:hover {
+                    background-color: #2C3E50;
+                }
+            """)
+            btn.clicked.connect(partial(self.tab_clicked, tab["id"]))
+            self.layout.addWidget(btn, row, col)
+            self.buttons[tab["id"]] = btn
+            col += 1
+            if col >= 5:
+                col = 0
+                row += 1
+    def tab_clicked(self, tab_id):
+        self.parent().set_current_tab(tab_id)
+    def update_tabs(self, tabs_config):
+        self.tabs_config = tabs_config
+        self.create_tab_buttons()
+
+# ------------------------- MoveToDialog (for right-click Move To) -------------------------
+
+class MoveToDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Select Target Tab")
+        self.selected_tab_id = None
+        self.init_ui()
+    def init_ui(self):
+        layout = QGridLayout(self)
+        layout.setSpacing(5)
+        col = 0
+        row = 0
+        for tab in tabs_config:
+            btn = QPushButton(tab["name"])
+            btn.setCheckable(True)
+            btn.clicked.connect(partial(self.select_tab, tab["id"], btn))
+            layout.addWidget(btn, row, col)
+            col += 1
+            if col >= 5:
+                col = 0
+                row += 1
+        self.setLayout(layout)
+    def select_tab(self, tab_id, btn):
+        self.selected_tab_id = tab_id
+        for widget in self.findChildren(QPushButton):
+            if widget is not btn:
+                widget.setChecked(False)
+        self.accept()
+
+# ------------------------- TabGridWidget (for Bulk Move/Paste) -------------------------
+
+class TabGridWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.layout = QGridLayout(self)
+        self.layout.setSpacing(5)
+        self.setLayout(self.layout)
+        self.selected_tab_id = None
+        self.create_tab_buttons()
+    def create_tab_buttons(self):
+        while self.layout.count():
+            child = self.layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+        col = 0
+        row = 0
+        self.buttons = {}
+        for tab in tabs_config:
+            if tab["id"] == "all":
+                continue
+            btn = QPushButton(tab["name"])
+            btn.setCheckable(True)
+            btn.clicked.connect(partial(self.tab_clicked, tab["id"]))
+            self.layout.addWidget(btn, row, col)
+            self.buttons[tab["id"]] = btn
+            col += 1
+            if col >= 5:
+                col = 0
+                row += 1
+    def tab_clicked(self, tid):
+        self.selected_tab_id = tid
+        for k, b in self.buttons.items():
+            if k != tid:
+                b.setChecked(False)
+
+# ------------------------- BulkMoveDialog -------------------------
+
+class BulkMoveDialog(QDialog):
+    def __init__(self, all_tags, parent=None):
+        super().__init__(parent)
+        self.all_tags = all_tags
+        self.setWindowTitle("Bulk Move Tags")
+        self.setMinimumSize(400, 500)
+        self.init_ui()
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        self.search_box = QLineEdit()
+        self.search_box.setPlaceholderText("Search tags...")
+        self.search_box.textChanged.connect(self.filter_list)
+        layout.addWidget(self.search_box)
+        self.list_widget = QListWidget()
+        self.list_widget.setSelectionMode(QListWidget.MultiSelection)
+        layout.addWidget(self.list_widget)
+        self.populate_list()
+        layout.addWidget(QLabel("Move selected tags to:"))
+        self.tab_grid = TabGridWidget()
+        layout.addWidget(self.tab_grid)
+        self.move_button = QPushButton("Move Selected")
+        self.move_button.clicked.connect(self.move_tags)
+        layout.addWidget(self.move_button)
+        self.setLayout(layout)
+    def populate_list(self):
+        self.list_widget.clear()
+        for tag in self.all_tags:
+            item = QListWidgetItem(tag["alias"])
+            item.setData(Qt.UserRole, tag)
+            self.list_widget.addItem(item)
+    def filter_list(self, text):
+        for i in range(self.list_widget.count()):
+            item = self.list_widget.item(i)
+            tag = item.data(Qt.UserRole)
+            item.setHidden(text.lower() not in tag["alias"].lower())
+    def move_tags(self):
+        selected = self.list_widget.selectedItems()
+        if not selected:
+            QMessageBox.information(self, "No Selection", "Please select at least one tag to move.")
+            return
+        if not self.tab_grid.selected_tab_id:
+            QMessageBox.information(self, "No Tab Selected", "Please select a target tab from the grid.")
+            return
+        target_tab_id = self.tab_grid.selected_tab_id
+        for item in selected:
+            tag = item.data(Qt.UserRole)
+            tag["category"] = target_tab_id
+        QMessageBox.information(self, "Bulk Move", "Selected tags moved.")
+        self.accept()
+
+# ------------------------- BulkPasteMoveDialog -------------------------
+
+class BulkPasteMoveDialog(QDialog):
+    def __init__(self, all_tags, parent=None):
+        super().__init__(parent)
+        self.all_tags = all_tags
+        self.setWindowTitle("Bulk Paste Move Tags")
+        self.setMinimumSize(400, 400)
+        self.init_ui()
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        layout.addWidget(QLabel("Paste tag names (one per line):"))
+        self.text_edit = QTextEdit()
+        layout.addWidget(self.text_edit)
+        layout.addWidget(QLabel("Move pasted tags to:"))
+        self.tab_grid = TabGridWidget()
+        layout.addWidget(self.tab_grid)
+        move_button = QPushButton("Move Pasted Tags")
+        move_button.clicked.connect(self.move_pasted_tags)
+        layout.addWidget(move_button)
+        self.setLayout(layout)
+    def move_pasted_tags(self):
+        lines = self.text_edit.toPlainText().splitlines()
+        pasted = [line.strip().lower() for line in lines if line.strip()]
+        if not pasted:
+            QMessageBox.information(self, "No Input", "Please paste at least one tag name.")
+            return
+        if not self.tab_grid.selected_tab_id:
+            QMessageBox.information(self, "No Tab Selected", "Please select a target tab from the grid.")
+            return
+        target_tab_id = self.tab_grid.selected_tab_id
+        moved = 0
+        for tag in self.all_tags:
+            if tag["alias"].lower() in pasted:
+                tag["category"] = target_tab_id
+                moved += 1
+        QMessageBox.information(self, "Bulk Paste Move", f"Moved {moved} tag(s) to selected tab.")
+        self.accept()
+
+# ------------------------- GameButton -------------------------
 
 class GameButton(QPushButton):
     dragThreshold = 10
@@ -225,12 +464,9 @@ class GameButton(QPushButton):
     def contextMenuEvent(self, event):
         menu = QMenu(self)
         change_action = menu.addAction("Change Tag Name")
-        move_menu = menu.addMenu("Move To")
-        for tab in tabs_config:
-            move_menu.addAction(tab["name"])
+        move_to_action = menu.addAction("Move To")
         action = menu.exec_(event.globalPos())
         main_window = self.get_main_window()
-        # For both renaming and moving, require Docker Hub authentication.
         token = main_window.get_docker_token() if main_window else None
         if not token:
             return
@@ -251,18 +487,17 @@ class GameButton(QPushButton):
                     if main_window and hasattr(main_window, "handle_tag_rename"):
                         main_window.handle_tag_rename(self.tag_info["docker_name"], new_alias)
                     worker = Worker(fetch_game_time, new_alias)
-                    if main_window and hasattr(main_window, "handle_game_time_update"):
-                        worker.signals.finished.connect(main_window.handle_game_time_update)
+                    worker.signals.finished.connect(partial(main_window.handle_game_time_update, new_alias))
+                    main_window.add_worker(worker)
                     QThreadPool.globalInstance().start(worker)
-        elif action in menu.actions()[1].menu().actions():
-            target_tab_name = action.text()
-            target_tab_id = None
-            for tab in tabs_config:
-                if tab["name"] == target_tab_name:
-                    target_tab_id = tab["id"]
-                    break
-            if target_tab_id and main_window and hasattr(main_window, "handle_tag_move"):
-                main_window.handle_tag_move(self.tag_info["docker_name"], target_tab_id)
+        elif action == move_to_action:
+            dialog = MoveToDialog(parent=main_window)
+            if dialog.exec_():
+                target_tab_id = dialog.selected_tab_id
+                if target_tab_id:
+                    main_window.handle_tag_move(self.tag_info["docker_name"], target_tab_id)
+
+# ------------------------- ImageWorker -------------------------
 
 class ImageWorker(QRunnable):
     def __init__(self, query):
@@ -271,28 +506,10 @@ class ImageWorker(QRunnable):
         self.signals = WorkerSignals()
     @pyqtSlot()
     def run(self):
-        try:
-            url = "https://duckduckgo.com/i.js"
-            params = {"q": self.query, "o": "json", "iax": "images", "ia": "images"}
-            headers = {"User-Agent": "Mozilla/5.0"}
-            response = requests.get(url, params=params, headers=headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                results = data.get("results", [])
-                if results:
-                    image_url = results[0].get("image")
-                    if image_url:
-                        img_response = requests.get(image_url, stream=True, timeout=5)
-                        if img_response.status_code == 200:
-                            img = QImage()
-                            img.loadFromData(img_response.content)
-                            self.signals.finished.emit((self.query, img))
-                            return
-        except Exception as e:
-            print(f"Error fetching image for '{self.query}':", e)
-        self.signals.finished.emit((self.query, QImage()))
+        result = fetch_image(self.query)
+        self.signals.finished.emit(result)
 
-# ------------------------- Dialog for Deleting Tags -------------------------
+# ------------------------- DeleteTagDialog -------------------------
 
 class DeleteTagDialog(QDialog):
     def __init__(self, all_tags, parent=None):
@@ -338,6 +555,7 @@ class DeleteTagDialog(QDialog):
         """)
         self.delete_button.clicked.connect(self.delete_selected)
         layout.addWidget(self.delete_button)
+        self.setLayout(layout)
     def populate_list(self):
         self.list_widget.clear()
         only_duplicates = self.dup_checkbox.isChecked()
@@ -419,13 +637,24 @@ class DockerApp(QWidget):
         self.image_cache = {}
         self.started_image_queries = set()
         self.mybackup_authorized = False
-        self.previous_tab_index = 0
         self.tabs_config = load_tabs_config()
-        self.tab_containers = {}
         self.docker_token = None
+        self.active_workers = []
         self.init_ui()
         QThreadPool.globalInstance().setMaxThreadCount(10)
         QTimer.singleShot(0, self.start_game_time_queries)
+
+    def require_authentication(self):
+        token = self.get_docker_token()
+        if token is None:
+            QMessageBox.warning(self, "Authentication Required", "Please enter your Docker Hub password.")
+            return False
+        return True
+
+    def add_worker(self, worker):
+        self.active_workers.append(worker)
+        worker.signals.finished.connect(lambda _: self.active_workers.remove(worker))
+
     def fetch_tags(self):
         url = "https://hub.docker.com/v2/repositories/michadockermisha/backup/tags?page_size=100"
         tag_list = []
@@ -445,16 +674,43 @@ class DockerApp(QWidget):
                 break
         tag_list.sort(key=lambda x: x["name"].lower())
         return tag_list
+
     def format_size(self, size):
         for unit in ["B", "KB", "MB", "GB", "TB"]:
             if size < 1024:
                 return f"{size:.1f}{unit}"
             size /= 1024
         return f"{size:.1f}PB"
+
     def init_ui(self):
         main_layout = QVBoxLayout(self)
-        main_layout.setSpacing(20)
-        main_layout.setContentsMargins(20, 20, 20, 20)
+        main_layout.setSpacing(10)
+        main_layout.setContentsMargins(10, 10, 10, 10)
+
+        # Top bar with Exit button
+        top_bar = QHBoxLayout()
+        top_bar.addStretch()
+        exit_button = QPushButton("Exit")
+        exit_button.setStyleSheet("""
+            QPushButton {
+                background-color: #E74C3C;
+                border: none;
+                border-radius: 5px;
+                padding: 8px;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #C0392B;
+            }
+            QPushButton:pressed {
+                background-color: #A93226;
+            }
+        """)
+        exit_button.clicked.connect(QApplication.instance().quit)
+        top_bar.addWidget(exit_button)
+        main_layout.addLayout(top_bar)
+
+        # Title
         title = QLabel("michael fedro's backup&restore tool")
         title.setStyleSheet("""
             QLabel {
@@ -463,10 +719,30 @@ class DockerApp(QWidget):
                 padding: 10px;
             }
         """)
-        main_layout.addWidget(title, alignment=Qt.AlignCenter)
-        # Control layout for tag operations
+        title.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(title)
+
+        # Tab Management Buttons
+        tab_mgmt_layout = QHBoxLayout()
+        add_tab_btn = QPushButton("Add Tab")
+        add_tab_btn.clicked.connect(lambda: self.require_authentication() and self.add_tab())
+        tab_mgmt_layout.addWidget(add_tab_btn)
+        rename_tab_btn = QPushButton("Rename Tab")
+        rename_tab_btn.clicked.connect(lambda: self.require_authentication() and self.rename_tab())
+        tab_mgmt_layout.addWidget(rename_tab_btn)
+        delete_tab_btn = QPushButton("Delete Tab")
+        delete_tab_btn.clicked.connect(lambda: self.require_authentication() and self.delete_tab())
+        tab_mgmt_layout.addWidget(delete_tab_btn)
+        main_layout.addLayout(tab_mgmt_layout)
+
+        # Custom Tab Navigation with 5 per row
+        self.tab_nav = TabNavigationWidget(self.tabs_config, parent=self)
+        main_layout.addWidget(self.tab_nav)
+
+        # Control layout
         control_layout = QHBoxLayout()
         control_layout.setSpacing(10)
+
         self.search_box = QLineEdit()
         self.search_box.setPlaceholderText("Search tags...")
         self.search_box.setStyleSheet("""
@@ -482,6 +758,7 @@ class DockerApp(QWidget):
         """)
         self.search_box.textChanged.connect(self.filter_buttons)
         control_layout.addWidget(self.search_box)
+
         sort_button = QPushButton("Sort")
         sort_button.setStyleSheet("""
             QPushButton {
@@ -498,20 +775,15 @@ class DockerApp(QWidget):
             }
         """)
         sort_menu = QMenu(self)
-        action_heavy = sort_menu.addAction("Heaviest to Lightest")
-        action_light = sort_menu.addAction("Lightest to Heaviest")
-        action_time_long = sort_menu.addAction("Sort by HowLong: Longest to Shortest")
-        action_time_short = sort_menu.addAction("Sort by HowLong: Shortest to Longest")
-        action_newest = sort_menu.addAction("Sort by Date: Newest to Oldest")
-        action_oldest = sort_menu.addAction("Sort by Date: Oldest to Newest")
-        action_heavy.triggered.connect(lambda: self.sort_tags(descending=True))
-        action_light.triggered.connect(lambda: self.sort_tags(descending=False))
-        action_time_long.triggered.connect(lambda: self.sort_tags_by_time(descending=True))
-        action_time_short.triggered.connect(lambda: self.sort_tags_by_time(descending=False))
-        action_newest.triggered.connect(lambda: self.sort_tags_by_date(descending=True))
-        action_oldest.triggered.connect(lambda: self.sort_tags_by_date(descending=False))
+        sort_menu.addAction("Heaviest to Lightest", lambda: self.sort_tags(descending=True))
+        sort_menu.addAction("Lightest to Lightest", lambda: self.sort_tags(descending=False))
+        sort_menu.addAction("HowLong: Shortest to Longest", lambda: self.sort_tags_by_time(descending=False))
+        sort_menu.addAction("HowLong: Longest to Shortest", lambda: self.sort_tags_by_time(descending=True))
+        sort_menu.addAction("Date: Newest to Oldest", lambda: self.sort_tags_by_date(descending=True))
+        sort_menu.addAction("Date: Oldest to Newest", lambda: self.sort_tags_by_date(descending=False))
         sort_button.setMenu(sort_menu)
         control_layout.addWidget(sort_button)
+
         run_selected = QPushButton("Run Selected")
         run_selected.setStyleSheet("""
             QPushButton {
@@ -529,6 +801,7 @@ class DockerApp(QWidget):
         """)
         run_selected.clicked.connect(self.run_selected_commands)
         control_layout.addWidget(run_selected)
+
         delete_tag_button = QPushButton("Delete Docker Tag")
         delete_tag_button.setStyleSheet("""
             QPushButton {
@@ -544,94 +817,245 @@ class DockerApp(QWidget):
                 background-color: #A93226;
             }
         """)
-        delete_tag_button.clicked.connect(self.open_delete_dialog)
+        delete_tag_button.clicked.connect(lambda: self.require_authentication() and self.open_delete_dialog())
         control_layout.addWidget(delete_tag_button)
+
+        move_tags_button = QPushButton("Move Tags")
+        move_tags_button.setStyleSheet("""
+            QPushButton {
+                border: none;
+                border-radius: 8px;
+                padding: 12px;
+                font-size: 14px;
+                background-color: #27AE60;
+            }
+            QPushButton:hover {
+                background-color: #2ECC71;
+            }
+            QPushButton:pressed {
+                background-color: #1E8449;
+            }
+        """)
+        move_tags_button.clicked.connect(lambda: self.require_authentication() and self.open_bulk_move_dialog())
+        control_layout.addWidget(move_tags_button)
+
+        bulk_paste_button = QPushButton("Bulk Paste Move")
+        bulk_paste_button.setStyleSheet("""
+            QPushButton {
+                border: none;
+                border-radius: 8px;
+                padding: 12px;
+                font-size: 14px;
+                background-color: #F39C12;
+            }
+            QPushButton:hover {
+                background-color: #F1C40F;
+            }
+            QPushButton:pressed {
+                background-color: #D68910;
+            }
+        """)
+        bulk_paste_button.clicked.connect(lambda: self.require_authentication() and self.open_bulk_paste_move_dialog())
+        control_layout.addWidget(bulk_paste_button)
+
+        save_txt_button = QPushButton("Save as .txt")
+        save_txt_button.setStyleSheet("""
+            QPushButton {
+                border: none;
+                border-radius: 8px;
+                padding: 12px;
+                font-size: 14px;
+                background-color: #8E44AD;
+            }
+            QPushButton:hover {
+                background-color: #9B59B6;
+            }
+            QPushButton:pressed {
+                background-color: #71368A;
+            }
+        """)
+        save_txt_button.clicked.connect(lambda: self.require_authentication() and self.save_as_txt())
+        control_layout.addWidget(save_txt_button)
+
         main_layout.addLayout(control_layout)
-        # Tab management buttons (these operations require authentication)
-        tab_mgmt_layout = QHBoxLayout()
-        tab_mgmt_layout.setSpacing(10)
-        add_tab_btn = QPushButton("Add Tab")
-        add_tab_btn.clicked.connect(self.add_tab)
-        tab_mgmt_layout.addWidget(add_tab_btn)
-        rename_tab_btn = QPushButton("Rename Tab")
-        rename_tab_btn.clicked.connect(self.rename_tab)
-        tab_mgmt_layout.addWidget(rename_tab_btn)
-        delete_tab_btn = QPushButton("Delete Tab")
-        delete_tab_btn.clicked.connect(self.delete_tab)
-        tab_mgmt_layout.addWidget(delete_tab_btn)
-        main_layout.addLayout(tab_mgmt_layout)
-        # Create QTabWidget with dynamic tabs
-        self.tabs = QTabWidget()
-        self.tab_containers = {}
+
+        # QStackedWidget for tag containers
+        self.stacked = QStackedWidget()
+        self.tab_pages = {}
         for tab in self.tabs_config:
             container = TagContainerWidget(tab["id"], parent=self)
-            self.tab_containers[tab["id"]] = container
+            self.tab_pages[tab["id"]] = container
             scroll = QScrollArea()
             scroll.setWidgetResizable(True)
             scroll.setWidget(container)
-            self.tabs.addTab(scroll, tab["name"])
-        main_layout.addWidget(self.tabs)
-        self.tabs.currentChanged.connect(self.on_tab_changed)
-        self.previous_tab_index = 0
+            self.stacked.addWidget(scroll)
+        main_layout.addWidget(self.stacked)
+
         self.create_tag_buttons()
+        self.setLayout(main_layout)
+
+    def set_current_tab(self, tab_id):
+        for i, tab in enumerate(self.tabs_config):
+            if tab["id"] == tab_id:
+                self.stacked.setCurrentIndex(i)
+                break
+
+    def add_tab(self):
+        new_name, ok = QInputDialog.getText(self, "Add Tab", "Enter new tab name:")
+        if not (ok and new_name):
+            return
+        new_id = new_name.lower().replace(" ", "_")
+        if any(tab["id"] == new_id for tab in self.tabs_config):
+            QMessageBox.warning(self, "Error", "A tab with that identifier already exists.")
+            return
+        self.tabs_config.append({"id": new_id, "name": new_name})
+        save_tabs_config(self.tabs_config)
+        container = TagContainerWidget(new_id, parent=self)
+        self.tab_pages[new_id] = container
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setWidget(container)
+        self.stacked.addWidget(scroll)
+        self.tab_nav.update_tabs(self.tabs_config)
+        self.create_tag_buttons()
+
+    def rename_tab(self):
+        current_index = self.stacked.currentIndex()
+        current_tab = self.tabs_config[current_index]
+        new_name, ok = QInputDialog.getText(self, "Rename Tab", "Enter new tab name:", QLineEdit.Normal, current_tab["name"])
+        if not (ok and new_name):
+            return
+        self.tabs_config[current_index]["name"] = new_name
+        save_tabs_config(self.tabs_config)
+        self.tab_nav.update_tabs(self.tabs_config)
+        self.create_tag_buttons()
+
+    def delete_tab(self):
+        current_index = self.stacked.currentIndex()
+        current_tab = self.tabs_config[current_index]
+        if current_tab["id"] == "all":
+            QMessageBox.warning(self, "Error", "You cannot delete the 'All' tab.")
+            return
+        reply = QMessageBox.question(self, "Delete Tab", f"Delete tab '{current_tab['name']}'?",
+                                     QMessageBox.Yes | QMessageBox.No)
+        if reply != QMessageBox.Yes:
+            return
+        del self.tabs_config[current_index]
+        save_tabs_config(self.tabs_config)
+        self.tab_nav.update_tabs(self.tabs_config)
+        widget_to_remove = self.stacked.widget(current_index)
+        self.stacked.removeWidget(widget_to_remove)
+        widget_to_remove.deleteLater()
+        self.create_tag_buttons()
+
+    def open_bulk_move_dialog(self):
+        dialog = BulkMoveDialog(self.all_tags, parent=self)
+        if dialog.exec_():
+            for tag in self.all_tags:
+                persistent = persistent_settings.get(tag["docker_name"], {})
+                persistent["category"] = tag["category"]
+                persistent_settings[tag["docker_name"]] = persistent
+            save_settings(persistent_settings)
+            self.create_tag_buttons()
+
+    def open_bulk_paste_move_dialog(self):
+        dialog = BulkPasteMoveDialog(self.all_tags, parent=self)
+        if dialog.exec_():
+            for tag in self.all_tags:
+                persistent = persistent_settings.get(tag["docker_name"], {})
+                persistent["category"] = tag["category"]
+                persistent_settings[tag["docker_name"]] = persistent
+            save_settings(persistent_settings)
+            self.create_tag_buttons()
+
+    def save_as_txt(self):
+        downloads = os.path.join(os.path.expanduser("~"), "Downloads")
+        if not os.path.exists(downloads):
+            downloads = os.path.expanduser("~")
+        filepath = os.path.join(downloads, "tags.txt")
+        output = []
+        for tab in self.tabs_config:
+            output.append(f"Tab: {tab['name']}")
+            for tag in self.all_tags:
+                if tag.get("category", "all") == tab["id"]:
+                    output.append(tag["alias"])
+            output.append("")
+        try:
+            with open(filepath, "w") as f:
+                f.write("\n".join(output))
+            QMessageBox.information(self, "Save as .txt", f"Tags saved to {filepath}")
+        except Exception as e:
+            QMessageBox.warning(self, "Save as .txt", f"Error saving tags: {e}")
+
     def create_tag_buttons(self):
-        for container in self.tab_containers.values():
+        for container in self.tab_pages.values():
             for i in reversed(range(container.layout.count())):
                 widget = container.layout.itemAt(i).widget()
                 if widget:
                     widget.setParent(None)
         self.buttons = []
         self.tag_buttons = {}
-        pos = {tab_id: [0, 0] for tab_id in self.tab_containers}
+        positions = {}
+        for tab in self.tabs_config:
+            positions[tab["id"]] = [0, 0]
         for tag in self.all_tags:
-            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})"]
-            if tag["alias"] in self.game_times_cache and self.game_times_cache[tag["alias"]]:
-                text_lines.append(f"Approx Time: {self.game_times_cache[tag['alias']]}")
+            fixed = get_fixed_time(tag["alias"])
+            if fixed:
+                time_line = f"Approx Time: {fixed}"
+            elif tag["alias"] in self.game_times_cache:
+                val = self.game_times_cache[tag["alias"]]
+                time_line = f"Approx Time: {val}" if val != "" and val != "N/A" else "Approx Time: N/A"
+            else:
+                time_line = "Approx Time: N/A"
+            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})", time_line]
             display_text = "\n".join(text_lines)
             button = GameButton(display_text)
             button.tag_info = tag
             button.setIconSize(QSize(64, 64))
             self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
             self.buttons.append(button)
-            container = self.tab_containers.get(tag.get("category"), self.tab_containers.get("all"))
-            row, col = pos[container.type_name]
+            cat = tag.get("category", "all")
+            container = self.tab_pages.get(cat, self.tab_pages.get("all"))
+            row, col = positions.get(cat, [0, 0])
             container.layout.addWidget(button, row, col)
             col += 1
-            if col == 4:
+            if col >= 4:
                 col = 0
                 row += 1
-            pos[container.type_name] = [row, col]
+            positions[cat] = [row, col]
             alias = tag["alias"]
             if alias in self.image_cache:
                 button.setIcon(QIcon(self.image_cache[alias]))
             elif alias not in getattr(self, "started_image_queries", set()):
                 worker = Worker(fetch_image, alias)
-                worker.signals.finished.connect(lambda result: self.handle_image_update(*result))
+                worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
+                self.add_worker(worker)
                 QThreadPool.globalInstance().start(worker)
                 if not hasattr(self, "started_image_queries"):
                     self.started_image_queries = set()
                 self.started_image_queries.add(alias)
+
     def start_game_time_queries(self):
         for tag in self.all_tags:
             alias = tag["alias"]
             if alias not in self.game_times_cache:
                 worker = Worker(fetch_game_time, alias)
-                worker.signals.finished.connect(lambda result: self.handle_game_time_update(*result))
+                worker.signals.finished.connect(lambda result, a=alias: self.handle_game_time_update(a, result[1]))
+                self.add_worker(worker)
                 QThreadPool.globalInstance().start(worker)
+
     def handle_game_time_update(self, alias, time_info):
         self.game_times_cache[alias] = time_info
         for docker_name, buttons in self.tag_buttons.items():
             for button in buttons:
                 if button.tag_info["alias"] == alias:
                     lines = button.text().splitlines()
-                    if len(lines) == 2 and time_info:
-                        lines.append(f"Approx Time: {time_info}")
-                    elif len(lines) >= 3:
-                        if time_info:
-                            lines[2] = f"Approx Time: {time_info}"
-                        else:
-                            lines = lines[:2]
+                    if len(lines) >= 3:
+                        lines[2] = f"Approx Time: {time_info}" if time_info != "N/A" else "Approx Time: N/A"
+                    else:
+                        lines.append(f"Approx Time: {time_info}" if time_info != "N/A" else "Approx Time: N/A")
                     button.setText("\n".join(lines))
+
     def handle_image_update(self, alias, image):
         if not image.isNull():
             pixmap = QPixmap.fromImage(image)
@@ -642,26 +1066,45 @@ class DockerApp(QWidget):
                         button.setIcon(QIcon(pixmap))
         else:
             self.image_cache[alias] = QPixmap()
+
     def sort_tags(self, descending=True):
         self.all_tags.sort(key=lambda x: x["full_size"], reverse=descending)
         self.create_tag_buttons()
+
     def sort_tags_by_time(self, descending=True):
-        def parse_time(time_str):
-            try:
-                return float(time_str.split()[0])
-            except:
-                return 0.0
-        self.all_tags.sort(key=lambda x: parse_time(self.game_times_cache.get(x["alias"], "")), reverse=descending)
+        # Build a sort key where valid times yield (0, time_value) and missing times yield (1, 0)
+        def get_time_sort_key(tag):
+            fixed = get_fixed_time(tag["alias"])
+            if fixed:
+                nums = re.findall(r'\d+(?:\.\d+)?', fixed)
+                if nums:
+                    return (0, float(nums[0]))
+            val = self.game_times_cache.get(tag["alias"], "")
+            nums = re.findall(r'\d+(?:\.\d+)?', val)
+            if nums:
+                return (0, float(nums[0]))
+            return (1, 0)  # Missing times
+        def get_time_sort_key_desc(tag):
+            key = get_time_sort_key(tag)
+            # Invert numeric part for descending order but keep missing ones at end.
+            return (key[0], -key[1] if key[0] == 0 else key[1])
+        if descending:
+            self.all_tags.sort(key=get_time_sort_key_desc)
+        else:
+            self.all_tags.sort(key=get_time_sort_key)
         self.create_tag_buttons()
+
     def sort_tags_by_date(self, descending=True):
         self.all_tags.sort(key=lambda x: parse_date(x.get("last_updated", "")), reverse=descending)
         self.create_tag_buttons()
+
     def filter_buttons(self, text):
         for button in self.buttons:
             if text.lower() in button.tag_info["alias"].lower():
                 button.setVisible(True)
             else:
                 button.setVisible(False)
+
     def run_selected_commands(self):
         selected_buttons = [btn for btn in self.buttons if btn.isChecked()]
         if not selected_buttons:
@@ -688,6 +1131,7 @@ class DockerApp(QWidget):
         self.run_timer = QTimer()
         self.run_timer.timeout.connect(lambda: self.check_run_processes(sender))
         self.run_timer.start(500)
+
     def check_run_processes(self, run_button):
         still_running = []
         for tag, proc in self.run_processes:
@@ -698,9 +1142,13 @@ class DockerApp(QWidget):
             run_button.setEnabled(True)
             QMessageBox.information(self, "Run Complete", "All selected commands have finished.")
         self.run_processes = still_running
+
     def open_delete_dialog(self):
+        if not self.require_authentication():
+            return
         dialog = DeleteTagDialog(self.all_tags, parent=self)
         dialog.exec_()
+
     def update_tag_category(self, docker_name, new_category):
         for tag in self.all_tags:
             if tag["docker_name"] == docker_name:
@@ -710,8 +1158,10 @@ class DockerApp(QWidget):
                 persistent_settings[docker_name] = persistent
                 save_settings(persistent_settings)
         self.create_tag_buttons()
+
     def handle_tag_move(self, docker_name, new_category):
         self.update_tag_category(docker_name, new_category)
+
     def handle_tag_rename(self, docker_name, new_alias):
         for tag in self.all_tags:
             if tag["docker_name"] == docker_name:
@@ -720,6 +1170,7 @@ class DockerApp(QWidget):
                 persistent["alias"] = new_alias
                 persistent_settings[docker_name] = persistent
         self.create_tag_buttons()
+
     def refresh_tags(self):
         self.all_tags = self.fetch_tags()
         for tag in self.all_tags:
@@ -729,21 +1180,8 @@ class DockerApp(QWidget):
             tag["alias"] = stored_alias
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in self.tabs_config) else "all"
         self.create_tag_buttons()
-    def on_tab_changed(self, index):
-        current_tab_text = self.tabs.tabText(index)
-        # For the "MyBackup" tab, require authentication.
-        if current_tab_text == "MyBackup":
-            token = self.get_docker_token()
-            if token:
-                self.mybackup_authorized = True
-            else:
-                QMessageBox.warning(self, "Access Denied", "Authentication failed.")
-                self.tabs.setCurrentIndex(self.previous_tab_index)
-                return
-        self.previous_tab_index = index
-    # --------------- Docker Hub Authentication ---------------
+
     def get_docker_token(self):
-        # If we already have a token, use it.
         if self.docker_token is not None:
             return self.docker_token
         password, ok = QInputDialog.getText(self, "Docker Hub Authentication",
@@ -760,75 +1198,9 @@ class DockerApp(QWidget):
         else:
             QMessageBox.warning(self, "Authentication Failed", "Incorrect Docker Hub password.")
             return None
-    # ----------------- Tab Management Functions -----------------
-    def add_tab(self):
-        new_name, ok = QInputDialog.getText(self, "Add Tab", "Enter new tab name:")
-        if not (ok and new_name):
-            return
-        new_id = new_name.lower().replace(" ", "_")
-        if any(tab["id"] == new_id for tab in self.tabs_config):
-            QMessageBox.warning(self, "Error", "A tab with that identifier already exists.")
-            return
-        token = self.get_docker_token()
-        if not token:
-            return
-        new_tab = {"id": new_id, "name": new_name}
-        self.tabs_config.append(new_tab)
-        save_tabs_config(self.tabs_config)
-        container = TagContainerWidget(new_id, parent=self)
-        self.tab_containers[new_id] = container
-        scroll = QScrollArea()
-        scroll.setWidgetResizable(True)
-        scroll.setWidget(container)
-        self.tabs.addTab(scroll, new_name)
-        self.create_tag_buttons()
-    def rename_tab(self):
-        current_index = self.tabs.currentIndex()
-        if current_index < 0:
-            return
-        current_tab = self.tabs_config[current_index]
-        new_name, ok = QInputDialog.getText(self, "Rename Tab", "Enter new tab name:", QLineEdit.Normal, current_tab["name"])
-        if not (ok and new_name):
-            return
-        token = self.get_docker_token()
-        if not token:
-            return
-        current_tab["name"] = new_name
-        save_tabs_config(self.tabs_config)
-        self.tabs.setTabText(current_index, new_name)
-        self.create_tag_buttons()
-    def delete_tab(self):
-        current_index = self.tabs.currentIndex()
-        if current_index < 0:
-            return
-        current_tab = self.tabs_config[current_index]
-        if current_tab["id"] == "all":
-            QMessageBox.warning(self, "Error", "You cannot delete the 'All' tab.")
-            return
-        token = self.get_docker_token()
-        if not token:
-            return
-        reply = QMessageBox.question(self, "Confirm Deletion", f"Are you sure you want to delete the tab '{current_tab['name']}'?",
-                                     QMessageBox.Yes | QMessageBox.No)
-        if reply != QMessageBox.Yes:
-            return
-        for tag in self.all_tags:
-            if tag.get("category") == current_tab["id"]:
-                tag["category"] = "all"
-                persistent = persistent_settings.get(tag["docker_name"], {})
-                persistent["category"] = "all"
-                persistent_settings[tag["docker_name"]] = persistent
-        save_settings(persistent_settings)
-        del self.tabs_config[current_index]
-        save_tabs_config(self.tabs_config)
-        self.tabs.removeTab(current_index)
-        if current_tab["id"] in self.tab_containers:
-            del self.tab_containers[current_tab["id"]]
-        self.create_tag_buttons()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # Global dark theme with black background, white text, and bulkier font
     font = QFont("Segoe UI", 12, QFont.Bold)
     app.setFont(font)
     app.setStyleSheet("""

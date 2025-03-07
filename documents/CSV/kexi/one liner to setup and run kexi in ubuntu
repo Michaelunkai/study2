@@ -1,0 +1,1 @@
+sudo apt install -y kexi && for f in *.csv; do kexi "$f" & done

@@ -1,0 +1,1 @@
+sudo apt install -y calligra && for f in *.csv; do calligrasheets "$f" & done
