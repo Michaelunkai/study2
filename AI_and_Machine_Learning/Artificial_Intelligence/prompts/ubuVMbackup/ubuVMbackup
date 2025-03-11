@@ -4,7 +4,6 @@
 
 3)add/change:
 
-scp -r /mnt/c/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/ubuvm/b.py ubuntu@192.168.1.193:/home/ubuntu/myg.py
 
 alias not in root:
 

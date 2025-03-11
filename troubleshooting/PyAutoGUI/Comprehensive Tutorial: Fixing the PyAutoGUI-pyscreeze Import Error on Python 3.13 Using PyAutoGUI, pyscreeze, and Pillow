@@ -1,0 +1,93 @@
+# Comprehensive Tutorial: Fixing the PyAutoGUI-pyscreeze Import Error on Python 3.13 Using PyAutoGUI, pyscreeze, and Pillow
+
+This tutorial explains step-by-step how to resolve the error:
+> *"PyAutoGUI was unable to import pyscreeze. (This is likely because you're running a version of Python that Pillow (which pyscreeze depends on) doesn't support currently.) Please install this module to enable the function you tried to call."*
+
+We’ll cover everything from verifying your installations to upgrading or downgrading the necessary packages and Python version.
+
+---
+
+## Step 1: Understand the Problem
+
+When running a PyAutoGUI script to take a screenshot, the error occurs because:
+- **pyscreeze** depends on **Pillow**.
+- The installed version of Pillow may not support Python 3.13, leading to a compatibility issue.
+
+---
+
+## Step 2: Verify Your Environment
+
+Before making changes, ensure you’re using the correct Python version and package installations.
+
+1. **Check your Python version:**
+   ```powershell
+   py --version
+   ```
+2. **List installed packages:**
+   ```powershell
+   py -m pip list
+   ```
+
+Look for:
+- **pyautogui**
+- **pyscreeze**
+- **Pillow**
+
+---
+
+## Step 3: Option 1 – Upgrade Pillow to a Pre-release Version
+
+If you want to continue using Python 3.13, try upgrading Pillow to a version that might support it.
+
+1. Open your PowerShell and run:
+   ```powershell
+   py -m pip install --upgrade --pre Pillow
+   ```
+2. Confirm the Pillow version:
+   ```powershell
+   py -m pip show Pillow
+   ```
+3. Run your PyAutoGUI script again:
+   ```powershell
+   py a.py
+   ```
+   
+If the error is resolved, you’re set! If not, proceed to Option 2.
+
+---
+
+## Step 4: Option 2 – Downgrade Your Python Version
+
+If no compatible Pillow version is available for Python 3.13, consider using an earlier Python version (e.g., Python 3.11).
+
+1. **Download Python 3.11:**
+   - Visit the [Python Downloads Page](https://www.python.org/downloads/) and download Python 3.11.
+2. **Install Python 3.11:**
+   - Follow the installation instructions for your operating system.
+3. **Create a Virtual Environment (Recommended):**
+   ```powershell
+   py -3.11 -m venv venv
+   .\venv\Scripts\Activate.ps1
+   ```
+4. **Reinstall Your Packages:**
+   ```powershell
+   pip install pyautogui pyscreeze Pillow
+   ```
+5. **Run Your Script Again:**
+   ```powershell
+   py a.py
+   ```
+
+---
+
+## Step 5: Verify the Fix
+
+After following either option:
+- Run your script.
+- Confirm that the screenshot function works without raising the pyscreeze error.
+
+---
+
+## Conclusion
+
+By following these steps, you can resolve the PyAutoGUI-pyscreeze import error caused by an incompatible version of Pillow in Python 3.13. Either upgrading Pillow to a pre-release version or downgrading to a supported Python version should eliminate the issue. Happy coding!
