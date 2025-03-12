@@ -1,9 +1,0 @@
-To be able to give a Kaggle notebook access to load data from the internet, you need to verify your Kaggle account with a phone number at https://www.kaggle.com/settings
-
-
-Then, to let a specific Kaggle notebook access the internet please click on the little arrow in the bottom-right of your Kaggle notebook page.
-A new settings area will open.
-
-Scroll down until you see the internet toggle.
-
-Make sure the toggle is set to internet-on.

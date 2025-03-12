@@ -1,1 +1,0 @@
-pip3 install python-igraph && python3 -c 'import igraph; print(igraph.__version__)'
