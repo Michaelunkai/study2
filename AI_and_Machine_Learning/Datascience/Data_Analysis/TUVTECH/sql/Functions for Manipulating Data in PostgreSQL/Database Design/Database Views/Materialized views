@@ -1,0 +1,44 @@
+Transcript
+1. Materialized views
+00:00 - 00:08
+Nice job on those exercises! You now know what views are and how to manage them. In this video, I will introduce materialized views.
+
+2. Two types of views
+00:08 - 00:21
+There are two types of views. When you come across the term "view" plainly, it is most likely referring to non-materialized views. Accordingly, in the past two videos covering views, I defined views as non-materialized views.
+
+3. Two types of views
+00:21 - 00:34
+In this video, we will look into materialized views. As the names begin to hint, materialized views are physically materialized, while non-materialized remain virtual. What does this mean?
+
+4. Materialized views
+00:34 - 01:21
+Instead of storing a query, a materialized view stores the query results. These query results are stored on disk. This means the query becomes precomputed via the view. When you query a materialized view, it accesses the stored query results on the disk, rather than running the query like a non-materialized view and creating a virtual table. Materialized views are refreshed or rematerialized when prompted. By refreshed or rematerialized, I mean that the query is run and the stored query results are updated. This can be scheduled depending on how often you expect the underlying query results are changing. At Datacamp, some of our views are refreshed once-a-day during non-working hours, and others are refreshed every hour.
+
+5. When to use materialized views
+01:21 - 02:10
+Materialized views are great if you have queries with long execution time. Some queries take hours to complete if you are crunching a lot of data or have complex joins. Materialized views allow data scientists and analysts to run long queries and get results very quickly. The caveat is the data is only as up-to-date as the last time the view was refreshed. So, you shouldn't use materialized views on data that is being updated often, because then analyses will be run too often on out-of-date data. Materialized views are particularly useful in data warehouses. Data warehouses are typically used for OLAP, meaning more for analysis than writing to data. This means less worry about out-of-date data. Furthermore, the same queries are often run in data warehouses, and the computational cost of them can add up.
+
+6. Implementing materialized views
+02:10 - 02:33
+Creating materialized views is very similar to creating non-materialized views, except that you specify "Materialized" in the SQL statement. You use the "REFRESH MATERIALIZED VIEW" syntax to refresh a view. There isn't a PostgresSQl command to schedule refreshing views. However, there are several ways to do so, like using cron jobs. I won't get into the details of cron as it is outside of the scope of the course, but cron is a UNIX based job scheduler.
+
+7. Managing dependencies
+02:33 - 02:47
+As we learned in the last video, it's common to build views from other views. The same can be said about materialized views. Unlike non-materialized views, you need to manage when you refresh materialized views when you have dependencies.
+
+8. Dependency example
+02:47 - 03:09
+For example, let's say you have two materialized views: X and Y. Y uses X in its query; meaning Y depends on X. X doesn't depend on Y as it doesn't use Y in its query. Let' s say X has a more time-consuming query. If Y is refreshed before X's refresh is completed, then Y now has out-of-date data.
+
+9. Managing dependencies
+03:09 - 03:21
+This creates a dependency chain when refreshing views. Scheduling when to refresh is not trivial. Refreshing them all at the same time is not the most efficient when you consider query time and dependencies.
+
+10. Tools for managing dependencies
+03:21 - 03:54
+Companies that have many materialized views, use directed acyclic graphs to track dependencies and pipeline scheduler tools, like Airflow and Luigi, to schedule and run REFRESH statements. A directed acyclic graph, also known as a DAG, is a finite directed graph with no cycles. Here, you can see an example where the directed arrows reflect a dependency in a certain direction where one node depends on another. The no cycles part is important because two views can't depend on each other - only one can rely on another.
+
+11. Let's practice!
+03:54 - 03:59
+Okay, let's get to some exercises!

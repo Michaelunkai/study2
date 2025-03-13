@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/t5_question_answering.ipynb -O t5_question_answering.ipynb

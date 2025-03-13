@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/google-research/biggan/blob/master/BigGAN-TF.ipynb -O biggan_image_synthesis.ipynb

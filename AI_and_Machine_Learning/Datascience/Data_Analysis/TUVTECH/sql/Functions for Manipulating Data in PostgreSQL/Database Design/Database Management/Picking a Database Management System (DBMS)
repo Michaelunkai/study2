@@ -1,0 +1,44 @@
+Transcript
+1. Picking a Database Management System (DBMS)
+00:00 - 00:04
+In this final video, you will learn about Database Management Systems.
+
+2. DBMS
+00:04 - 00:31
+DBMS stands for Database Management System. A DBMS is a system software for creating and maintaining databases. The DBMS manages three important aspects: the data, the database schema which defines the database’s logical structure, and the database engine that allows data to be accessed, locked and modified. Essentially, the DBMS serves as an interface between the database and end users or application programs.
+
+3. DBMS types
+00:31 - 00:48
+Your choice of DBMS is informed by the type of database you need, which depends largely on the kind of data you have and how you want to use it. There are two common types of DBMSs: SQL DBMSs, and NoSQL DBMSs. Let's take a closer look.
+
+4. SQL DBMS
+00:48 - 01:25
+A SQL DBMS, also called a Relational DataBase Management System, is a kind of DBMS based on the relational data model. This is what's been used in the course so far. RDBMSs typically employ SQL for managing and accessing data. Some examples of RDBMSs include SQL Server, PostgreSQL, and Oracle SQL. There are two reasons why you might consider an RDBMS. It's a good option when working with structured, unchanging data that will benefit from a predefined schema. Or if all data must be consistent without leaving room for error, such as with accounting systems for example.
+
+5. NoSQL DBMS
+01:25 - 02:05
+Non-relational DBMSs are called NoSQL DBMSs. They’re much less structured than relational databases, and are document-centered, rather than table-centered. Data in NoSQL databases don’t have to fit into well-defined rows and columns. NoSQL is a good choice for those companies experiencing rapid data growth with no clear schema definitions. NoSQL offers much more flexibility than a SQL DBMS and is a solid option for companies who must analyze large quantities of data or manage data structures that vary. NoSQL DBMSs are generally classified as one of four types: key-value store, document store, columnar, or graph databases.
+
+6. NoSQL DBMS - key-value store
+02:05 - 02:32
+A key-value database stores combinations of keys and values. The key serves as a unique identifier to retrieve an associated value. Values can be anything from simple objects, like integers or strings, to more complex objects, like JSON structures. They are most frequently used for managing session information in web applications. For example, managing shopping carts for online buyers. An example DBMS is Redis.
+
+7. NoSQL DBMS - document store
+02:32 - 03:06
+Document stores are similar to key-value in that they consist of keys, each corresponding to a value. The difference is that the stored values, referred to as documents, provide some structure and encoding of the managed data. That structure can be used to do more advanced queries on the data instead of just value retrieval. A document database is a great choice for content management applications such as blogs and video platforms. Each entity that the application tracks can be stored as a single document. An example of a document store DBMS is mongoDB.
+
+8. NoSQL DBMS - columnar database
+03:06 - 03:24
+Rather than grouping columns together into tables, columnar databases store each column in a separate file in the system’s storage. This allows for databases that are more scalable, and faster at scale. Use a columnar database for big data analytics where speed is important. An example is Cassandra.
+
+9. NoSQL DBMS - graph database
+03:24 - 03:43
+Here, the data is interconnected and best represented as a graph. This method is capable of lots of complexity. Graph databases are used by most social networks and pretty much any website that recommends anything based on your behavior. An example of a graph DBMS is Neo4j.
+
+10. Choosing a DBMS
+03:43 - 04:02
+So, the choice of the database depends on the business need. If your application has a fixed structure and doesn’t need frequent modifications, a SQL DBMS is preferable. Conversely, if you have applications where data is changing frequently and growing rapidly, like in big data analytics, NoSQL is the best option for you.
+
+11. Let's practice!
+04:02 - 04:07
+Let's move on to the last set of exercises.

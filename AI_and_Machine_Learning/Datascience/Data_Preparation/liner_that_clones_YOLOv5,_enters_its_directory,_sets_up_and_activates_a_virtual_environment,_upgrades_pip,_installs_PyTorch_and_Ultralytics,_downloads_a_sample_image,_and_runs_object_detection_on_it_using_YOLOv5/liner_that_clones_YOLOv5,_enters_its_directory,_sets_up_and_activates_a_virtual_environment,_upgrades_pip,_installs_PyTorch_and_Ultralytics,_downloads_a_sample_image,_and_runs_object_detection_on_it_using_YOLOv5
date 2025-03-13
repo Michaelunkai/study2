@@ -1,0 +1,1 @@
+cd && git clone https://github.com/ultralytics/yolov5.git && cd yolov5 && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install torch torchvision && wget -O data/images/zidane.jpg https://ultralytics.com/images/zidane.jpg && pip install ultralytics && python detect.py --source data/images/zidane.jpg

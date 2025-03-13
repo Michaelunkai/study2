@@ -1,0 +1,1 @@
+sudo apt install -y binutils && echo -e '#!/bin/bash\nreadelf -a /usr/bin/ls > readelf_output.txt' > display_information_with_readelf.sh && chmod +x display_information_with_readelf.sh && ./display_information_with_readelf.sh && cat readelf_output.txt

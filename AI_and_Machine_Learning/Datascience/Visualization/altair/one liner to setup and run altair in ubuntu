@@ -1,0 +1,1 @@
+pip3 install altair && python3 -c 'import altair; print(altair.__version__)'

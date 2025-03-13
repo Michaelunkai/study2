@@ -1,0 +1,57 @@
+Transcript
+1. Making requests to the OpenAI API
+00:00 - 00:07
+Welcome back! Let's learn how to make requests to the OpenAI API!
+
+2. API endpoints
+00:07 - 00:13
+Depending on the model or services required, APIs have different access points for users
+
+3. API endpoints
+00:13 - 00:15
+called endpoints.
+
+4. API endpoints
+00:15 - 00:32
+Endpoints are like doors in a hospital. Depending on the treatment required, patients use different doors to reach different departments, and likewise, users make requests for different services to different API endpoints.
+
+5. API authentication
+00:32 - 00:47
+Endpoints, like many hospital departments, may also require authentication before accessing services. API authentication is usually in the form of providing a unique key containing an assortment of characters.
+
+6. API usage costs
+00:47 - 01:16
+It's important to note that many APIs, including the OpenAI API, have costs associated with using their services. For OpenAI, these costs are dependent on the model requested and the size of the model input and output. But don't worry, in this course, we've configured the exercises in such a way that you don't need to pay anything to make requests to the OpenAI API!
+
+1 https://openai.com/pricing
+7. Creating an API key
+01:16 - 01:40
+In this course, creating an API key for authentication isn't required, but if you'd like to create one for other projects, you need to create an OpenAI account, go to the API keys page, and create a new secret key. OpenAI sometimes provides free trial credit to new users, but if not, you may need to add some credit.
+
+8. Making a request
+01:40 - 02:59
+There are several ways to interact with an API, but in this course, we'll use OpenAI's own Python library. We start by importing the OpenAI class from openai, which we'll use to instantiate an OpenAI API client. The client configures the environment for communicating with the API. Inside, we specify our API key. In this course, this will be filled out for you. Now for the request code. We'll start by creating a request to the chat completions endpoint by calling the .create() method on client.chat.completions. The chat completions endpoint is used to send a series of messages representing a conversation to a model, which returns a response. Inside this method, we specify the model and the messages to send. The messages argument takes a list of dictionaries where content sent from the user role allows us to prompt the model. Here, we prompt the model to define the OpenAI API. We'll discuss roles and their uses in much more detail in the next chapter. Let's take a look at the API response.
+
+9. The response
+02:59 - 03:02
+There's a lot here, so we'll add
+
+10. The response
+03:02 - 03:25
+additional spacing to improve readability. The response from the API is a ChatCompletion object, which has attributes for accessing different information. It has an id attribute, choices, created, model, and other attributes below. We can see that the response message is located under the .choices attribute,
+
+11. Interpreting the response
+03:25 - 03:44
+so we'll start by accessing it. Attributes are accessed using a dot, then the name of the attribute. We've gotten much closer to the text. Notice from the square brackets at the beginning and end, that this is actually a list with a single element.
+
+12. Interpreting the response
+03:44 - 03:58
+Let's extract the first element to dig deeper. Ok - we're left with a Choice object, which has its own set of attributes. The message is located underneath the .message attribute,
+
+13. Interpreting the response
+03:58 - 04:21
+which we can chain to our existing code. Almost there! Finally, we need to access the ChatCompletionMessage's .content attribute. There we have it - our model response as a string! We started off with a complex object, but by taking it one attribute at a time, we were able to get to the result.
+
+14. Let's practice!
+04:21 - 04:26
+Time to make your own API requests!

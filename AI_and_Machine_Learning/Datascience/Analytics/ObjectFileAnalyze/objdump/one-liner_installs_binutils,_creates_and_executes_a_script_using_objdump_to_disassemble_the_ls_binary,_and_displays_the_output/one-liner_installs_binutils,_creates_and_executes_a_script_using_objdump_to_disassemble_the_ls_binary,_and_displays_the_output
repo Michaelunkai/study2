@@ -1,0 +1,1 @@
+sudo apt install -y binutils && echo -e '#!/bin/bash\nobjdump -x -d /usr/bin/ls > disassembled_output.txt\nobjdump -h /usr/bin/ls >> disassembled_output.txt' > display_information_and_disassembly_with_objdump.sh && chmod +x display_information_and_disassembly_with_objdump.sh && ./display_information_and_disassembly_with_objdump.sh && cat disassembled_output.txt

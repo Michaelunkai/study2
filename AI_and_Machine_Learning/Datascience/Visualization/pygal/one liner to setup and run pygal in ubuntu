@@ -1,0 +1,1 @@
+pip3 install pygal && python3 -c 'import pygal; print(pygal.__version__)'

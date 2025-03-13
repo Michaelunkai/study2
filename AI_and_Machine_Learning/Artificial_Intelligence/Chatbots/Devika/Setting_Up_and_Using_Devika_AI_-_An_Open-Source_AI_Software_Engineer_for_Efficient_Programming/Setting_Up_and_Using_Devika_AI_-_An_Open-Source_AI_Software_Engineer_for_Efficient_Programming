@@ -1,0 +1,120 @@
+## Comprehensive Tutorial: Setting Up and Using Devika AI - An Open-Source AI Software Engineer for Efficient Programming
+
+This tutorial will guide you through the process of setting up and using Devika AI, an advanced open-source AI designed to assist in software engineering tasks. It utilizes tools like Python, Node.js, Bun, and Playwright to enable natural language interactions and code generation.
+
+### Prerequisites
+
+Before installing Devika, ensure you have the following prerequisites:
+
+1. **Python**: Version 3.7 or higher
+2. **Node.js**: Version 14 or higher
+3. **Bun**: A JavaScript runtime
+4. **Git**: Version control system
+
+### Step-by-Step Installation Guide
+
+#### Step 1: Clone the Devika Repository
+Open your terminal and run the following command to clone the Devika repository from GitHub:
+
+  
+git clone https://github.com/stitionai/devika.git
+
+#### Step 2: Navigate to the Project Directory
+Change your current directory to the Devika project directory:
+
+  
+cd devika
+
+#### Step 3: Install Python Dependencies
+Install the required Python dependencies using pip:
+
+  
+pip install -r requirements.txt
+
+#### Step 4: Install Playwright Dependencies
+Install browsers in Playwright along with their dependencies:
+
+  
+playwright install --with-deps
+
+#### Step 5: Install JavaScript Dependencies
+Navigate to the `ui` directory and run Bun to install the required JavaScript dependencies:
+
+  
+cd ui
+bun install
+
+#### Step 6: Configure API Keys and Settings
+Open the `config.toml` file in a text editor and update the following configuration options as per your requirements:
+
+ toml
+SQLITE_DB = "path_to_your_ ite_db"
+SCREENSHOTS_DIR = "path_to_screen ots"
+PDFS_DIR = "path_to_pdfs"
+PROJECTS_DIR = "path_to_projects"
+LOGS_DIR = "path_to_logs"
+REPOS_DIR = "path_to_repos"
+WEB_SEARCH = "google" # or "bing", "ddgs"
+BING = "your_bing_search_api_key"
+GOOGLE_SEARCH = "your_google_search_api_key"
+GOOGLE_SEARCH_ENGINE_ID = "your_google_search_engine_id"
+CLAUDE = "your_anthropic_api_key"
+NETLIFY = "your_netlify_api_key"
+OPENAI = "your_openai_api_key"
+
+Save and close the `config.toml` file.
+
+#### Step 7: Start the Devika Server
+Run the following command to start the Devika server:
+
+  
+  devika.py
+
+If everything is working correctly, you should see the following output:
+
+root: INFO: Devika is up and running!
+
+#### Step 8: Run the UI Server
+Open a new terminal window, navigate to the `ui` directory, and run the UI server:
+
+  
+cd ui
+bun run dev
+
+#### Step 9: Access the Devika Web Interface
+Open a web browser and navigate to `http://127.0.0.1:3000` to access the Devika web interface.
+
+### How to Use Devika AI to Create a New Project
+
+1. **Open the Devika Web Interface**: Launch your preferred web browser and navigate to the Devika web interface.
+2. **Create a New Project**: Click on the “New Project” button within the interface and provide a name for your project when prompted.
+3. **Select Language and Model**: Choose the programming language and model configuration suitable for your project from the options provided.
+4. **Describe Objective**: In the chat interface, provide a clear and concise high-level description of the task or objective you want Devika to work on.
+
+Devika will analyze your input, undertake the necessary tasks, and deliver the outcomes. The generated code, project files, and updates on the agent’s state can be viewed in real-time via the web interface.
+
+### Engaging with the Devika Open Source Community
+
+To contribute to Devika, follow these steps:
+
+1. **Fork the Devika Repository**: On GitHub.
+2. **Create a New Branch**: For your feature or bug fix.
+
+  
+git checkout -b my-feature
+
+3. **Commit Your Changes**: With explanatory messages.
+
+  
+git commit -m "Add new feature"
+
+4. **Push Your Changes**: To your fork.
+
+  
+git push origin my-feature
+
+5. **Submit a Pull Request**: On GitHub for review.
+
+### Conclusion
+
+Devika AI is a powerful tool for software development, enabling natural language interaction, advanced AI planning, and code generation. By following this comprehensive tutorial, you can set up and start using Devika AI to streamline your programming tasks. For more detailed information, visit the [Devika AI GitHub repository](https://github.com/stitionai/devika)【6†source】【7†source】【8†source】【9†source】.

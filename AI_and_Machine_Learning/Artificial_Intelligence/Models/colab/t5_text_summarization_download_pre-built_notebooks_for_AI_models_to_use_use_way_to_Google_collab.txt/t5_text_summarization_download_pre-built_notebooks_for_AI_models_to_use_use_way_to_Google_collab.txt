@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/text_summarization.ipynb -O t5_text_summarization.ipynb

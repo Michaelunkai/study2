@@ -1,0 +1,84 @@
+Transcript
+1. Data integration
+00:00 - 00:12
+You're now familiar with tables, databases, schemas and permissions. But what if your data is spread across different databases, formats, schemas and technologies? That's where data integration comes into play.
+
+2. What is data integration
+00:12 - 00:24
+Data Integration combines data from different sources, formats, technologies to provide users with a translated and unified view of that data. Let's look at some examples.
+
+3. Business case examples
+00:24 - 00:51
+A company could want a 360-degree customer view, to see all information departments have about a customer in a unified place. Another example is one company acquiring another, and needs to combine their respective databases. Legacy systems are also a common case of data integration. An insurance company with claims in old and new systems, would need to integrate data to query all claims at once.
+
+4. Unified data model
+00:51 - 01:08
+There are a few things to consider when integrating data. What is your final goal? Your unified data model could be used to create dashboards, like graphs of daily sales, or data products, such as a recommendation engine. The final data model needs to be fast enough for your use-case.
+
+5. Data sources
+01:08 - 01:12
+The necessary information is held in these data sources.
+
+6. Data sources format
+01:12 - 01:25
+Which formats is each data source stored in? For example, it could be PostgreSQL, MongoDB or a CSV. You'll learn more about database management systems in the next lesson.
+
+7. Unified data model format
+01:25 - 01:34
+Which format should the unified data model take? For example, Redshift, a data warehouse service offered by AWS.
+
+8. Example: DataCamp
+01:34 - 01:54
+Say DataCamp is launching a skill assessment module. Marketing wants to know which customers to target. They need information from sales, stored in PostgreSQL, to see which customers can afford the new product. They also need information from the product department, stored in MongoDB to identify potential early adopters.
+
+9. Update cadence - sales
+01:54 - 02:01
+Next, how often do you want to update the data? Updating daily would probably be sufficient for sales data.
+
+10. Update cadence - air traffic
+02:01 - 02:06
+For a scenario like air traffic, you want real time updates.
+
+11. Different update cadences
+02:06 - 02:09
+Your data sources can have different update cadences.
+
+12. So simple?
+02:09 - 02:14
+So that’s it? You just plug your sources to the unified data model?
+
+13. Not really
+02:14 - 02:20
+Not really. Your sources are in different formats, you need to make sure they can be assembled together.
+
+14. Transformations
+02:20 - 02:36
+Enter transformations. A transformation is a program that extracts content from the table and transforms it into the chosen format for the unified model. These transformations can be hand-coded, but you would have to make and maintain a transformation for each data source.
+
+15. Transformation - tools
+02:36 - 02:45
+You can also use a data integration tool, which provides the needed ETL. For example Apache Airflow or Scriptella.
+
+16. Choosing a data integration tool
+02:45 - 02:59
+When choosing your tool, you must ensure that it's flexible enough to connect to all of your data sources. Reliable, so that it can still be maintained in a year. And it should scale well, anticipating an increase in data volume and sources.
+
+17. Automated testing and proactive alerts
+02:59 - 03:14
+You should have automated testing and proactive alerts. If any data gets corrupted on its way to the unified data model, the system lets you know. For example, you could aggregate sales data after each transformation and ensure that the total amount remains the same.
+
+18. Security
+03:14 - 03:23
+Security is also a concern: if data access was originally restricted, it should remain restricted in the unified data model.
+
+19. Security - credit card anonymization
+03:23 - 03:38
+For example, business analysts using the unified data model should not have access to the credit card numbers. You should anonymize the data during ETL so that analysts can only access the first four numbers, to identify the type of card being used.
+
+20. Data governance - lineage
+03:38 - 03:47
+For data governance purposes, you need to consider lineage: for effective auditing, you should know where the data originated and where it is used at all times.
+
+21. Let's practice!
+03:47 - 03:52
+Now it's your turn to practice the ins and outs of data integration.

@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("echarts4r", repos="https://cloud.r-project.org")'

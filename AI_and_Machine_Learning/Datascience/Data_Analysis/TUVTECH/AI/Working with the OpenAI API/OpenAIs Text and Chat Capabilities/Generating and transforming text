@@ -1,0 +1,49 @@
+Transcript
+1. Generating and transforming text
+00:00 - 00:08
+In this chapter, we'll take a deeper dive into the capabilities of OpenAI models available via the API.
+
+2. Recap...
+00:08 - 00:24
+So far, we've used the Chat Completions endpoint to answer general knowledge questions, but the model's capabilities go far beyond this. To understand where these capabilities come from, let's discuss how these models generate text.
+
+3. How is the output generated?
+00:24 - 00:56
+When we send a prompt to the Chat Completions endpoint, the model returns the text that it believes is most likely to complete the prompt, which it infers based on the data the model was developed on. If we send "Life is like a box of chocolates" to the model, it correctly completes the quote with high probability. We say "high probability" here because the model results are non-deterministic, so we cannot guarantee consistency in the model outputs.
+
+4. Controlling response randomness
+00:56 - 01:40
+There are many use cases where randomness is undesirable; think of a customer service chatbot - we wouldn't want the chatbot to provide different guidance to customers with the same issue. However, we would like the model to be flexible to different inputs, so there's often a trade-off in the amount of randomness. We can control the amount of randomness in the response using the temperature parameter. temperature is set to one by default, but ranges from zero to two, where zero is almost entirely deterministic and two is highly random. If we add a temperature of two here, we can see the model completes the prompt in a more bizarre way.
+
+5. Content transformation
+01:40 - 02:21
+Because these models return the most likely text to follow the prompt, they can be used to solve a number of tasks besides answering questions, including generating and transforming text. Text transformation includes tasks such as find and replace, summarization, and copyediting. For example, we can use the API to update the name, pronouns, and job title in a biography. Notice that the prompt starts with the instruction, then the text to transform. We've also used triple quotes to define a multi-line prompt for ease of readability and processing.
+
+6. Content transformation
+02:21 - 02:39
+Then, as before, we send this prompt to the Chat Completions endpoint. Voilà! We have our updated text. Even with a find and replace tool, this task would normally require us to specify each word and its replacement.
+
+7. Content generation
+02:39 - 02:55
+Text completions are also used to generate new text content from a prompt providing an instruction. For example, we can create a request to generate a tagline for a new hot dog stand - that's pretty good!
+
+8. Controlling response length
+02:55 - 03:03
+By default, the response from the API is quite short, which may be unsuitable for many use cases.
+
+9. Controlling response length
+03:03 - 03:11
+The max_tokens parameter can be used to control the maximum length of the response, shortening or lengthening it.
+
+10. Understanding tokens
+03:11 - 03:26
+Tokens are a unit of one or more characters used by language models to understand and interpret text. Here, we can see how the model would encode this sentence as tokens to process it on input.
+
+11. Returning to cost
+03:26 - 04:02
+Recall that the API usage costs are dependent on the model used and the amount of input and output text. Each model is actually priced based upon the cost per number of tokens, where input and generated tokens can be priced differently. So increasing max_tokens will likely increase the usage cost for each request. When scoping the potential cost of new AI features, the first step is often a back-of-the-envelope calculation to determine the cost per unit time.
+
+1 https://openai.com/pricing
+12. Let's practice!
+04:02 - 04:05
+Onward to the exercises!

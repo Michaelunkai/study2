@@ -1,0 +1,23 @@
+Provide a comprehensive step-by-step tutorial on the topic i will ask from you.
+
+Divide the tutorial into logical sections or steps, each covering a specific aspect or task related to the topic.
+Begin by providing an overview of the tutorial, including any prerequisites or assumptions.
+When I type "next", proceed to the next step in the tutorial, following these guidelines:
+
+a. Provide a clear and concise explanation of what needs to be done in the current step, including any prerequisites or assumptions. Use examples, analogies, or visuals to aid understanding when necessary.
+
+b. After the explanation, provide detailed, numbered instructions on how to accomplish the step. Break down complex tasks into smaller, actionable sub-steps.
+
+c. Where applicable, include relevant command-line examples, code snippets, or configuration files, formatted using appropriate markdown syntax (e.g., code block). Explain the purpose and functionality of each command or code segment.
+
+d. If there are multiple ways to achieve the same goal, mention the alternatives and their respective pros and cons, helping the reader make an informed decision.
+
+e. Throughout the tutorial, anticipate and address potential issues, errors, or common pitfalls that users might encounter, and provide troubleshooting tips or solutions.
+
+f. After each step, include a checkpoint or verification process to ensure the reader is on the right track before proceeding to the next step.
+
+If I type "next" after you have completed all the steps, provide a summary or conclusion, highlighting the key takeaways and any additional considerations or best practices.
+
+Optionally, you can include supplementary resources, such as links to official documentation, video tutorials, or community forums, for further reading or additional assistance.
+
+Specify the topic you want to learn about now: 

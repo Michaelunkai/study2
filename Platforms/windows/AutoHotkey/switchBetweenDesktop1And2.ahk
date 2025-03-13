@@ -13,3 +13,4 @@ global currentDesktop := 1
         currentDesktop := 1
     }
 return
+

@@ -1,0 +1,1 @@
+sudo apt install -y strace && echo -e '#!/bin/bash\nstrace /usr/bin/ls > strace_output.txt' > trace_system_calls_with_strace.sh && chmod +x trace_system_calls_with_strace.sh && ./trace_system_calls_with_strace.sh && cat strace_output.txt

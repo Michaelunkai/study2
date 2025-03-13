@@ -1,0 +1,123 @@
+### Comprehensive Guide to Setting Up Prometheus with OpenMetrics using Node Exporter on Ubuntu and Visualizing with Grafana
+
+This guide will walk you through setting up Prometheus with OpenMetrics using Node Exporter on an Ubuntu system. We will also configure Prometheus to use Node Exporter and, optionally, set up Grafana for visualization.
+
+### Step 1: Set Up OpenMetrics with Node Exporter
+
+Run the following command to download and set up Node Exporter:
+
+  
+wget $(curl -s https://api.github.com/repos/prometheus/node_exporter/releases/latest | grep browser_download_url | grep linux-amd64.tar.gz | cut -d '"' -f 4) -P /tmp && \
+sudo tar xvf /tmp/node_exporter-*.linux-amd64.tar.gz -C /tmp && \
+sudo mv /tmp/node_exporter-*.linux-amd64/node_exporter /usr/local/bin && \
+if ! id "node_exporter" &>/dev/null; then sudo useradd -rs /bin/false node_exporter; fi && \
+sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter && \
+echo -e '[Unit]\nDescription=Node Exporter\nWants=network-online.target\nAfter=network-online.target\n\n[Service]\nUser=node_exporter\nGroup=node_exporter\nType=simple\nExecStart=/usr/local/bin/node_exporter\nRestart=always\nRestartSec=5s\n\n[Install]\nWantedBy=multi-user.target' | sudo tee /etc/systemd/system/node_exporter.service && \
+sudo systemctl daemon-reload && \
+sudo systemctl enable node_exporter && \
+sudo systemctl start node_exporter && \
+sudo systemctl status node_exporter
+
+### Step 2: Configure Prometheus to Use Node Exporter
+
+1. **Open the Prometheus configuration file for editing:**
+
+      
+    sudo nano /etc/prometheus/prometheus.yml
+
+2. **Edit the file to look like the following:**
+
+      
+    # my global config
+    global:
+      scrape_interval: 15s # Set the scrape interval to every 15 seconds
+      evaluation_interval: 15s # Evaluate rules every 15 seconds
+      # scrape_timeout is set to the global default (10s).
+
+    # Alertmanager configuration
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets:
+              # - alertmanager:9093
+
+    # Load rules once and periodically evaluate them according to the global interval.
+    rule_files:
+      # - "first_rules.yml"
+      # - "second_rules.yml"
+
+    # A scrape configuration containing exactly one endpoint to scrape: Prometheus itself.
+    scrape_configs:
+      # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+      - job_name: "prometheus"
+
+        # metrics_path defaults to '/metrics'
+        # scheme defaults to 'http'.
+
+        static_configs:
+          - targets: ["localhost:9090"]
+
+      # A scrape configuration for Node Exporter
+      - job_name: 'node_exporter'
+        static_configs:
+          - targets: ['localhost:9100']
+
+3. **Save and close the file.**
+
+### Step 3: Restart Prometheus
+
+To apply the changes, restart the Prometheus service:
+
+  
+sudo systemctl restart prometheus
+
+### Step 4: Verify Node Exporter Metrics in Prometheus
+
+1. **Open your web browser and go to the Prometheus web UI:**
+
+      
+    http://<your-prometheus-server-ip>:9090
+
+2. **Go to the "Status" -> "Targets" page to see if the Node Exporter target is up and running.**
+
+3. **To see the metrics collected by Node Exporter, you can also go to:**
+
+      
+    http://<your-prometheus-server-ip>:9100/metrics
+
+### Step 5: (Optional) Set Up Grafana for Visualization
+
+If you want to visualize your metrics, you can set up Grafana.
+
+1. **Install Grafana:**
+
+      
+    sudo apt-get install -y apt-transport-https
+    sudo apt-get install -y software-properties-common wget
+    wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+    sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+    sudo apt-get update
+    sudo apt-get install grafana
+
+2. **Start the Grafana service:**
+
+      
+    sudo systemctl start grafana-server
+    sudo systemctl enable grafana-server
+
+3. **Access Grafana via your web browser:**
+
+      
+    http://<your-grafana-server-ip>:3000
+
+4. **Log in with the default credentials (`admin` / `admin`) and add Prometheus as a data source:**
+
+    - Navigate to "Configuration" -> "Data Sources".
+    - Click on "Add data source".
+    - Select "Prometheus" and configure the URL to `http://<your-prometheus-server-ip>:9090`.
+
+5. **Create dashboards to visualize your metrics.**
+
+### Conclusion
+
+You have now set up and configured Prometheus with OpenMetrics using Node Exporter for standardized metrics on an Ubuntu system. Additionally, you have the option to set up Grafana for visualization. This setup will allow you to monitor and analyze your system metrics efficiently.

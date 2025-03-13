@@ -1,0 +1,1 @@
+Review the applications code to ensure it's making API calls efficiently. Minimize redundant calls by caching data when possible, and only request the specific data you need by using fields and filters appropriately.

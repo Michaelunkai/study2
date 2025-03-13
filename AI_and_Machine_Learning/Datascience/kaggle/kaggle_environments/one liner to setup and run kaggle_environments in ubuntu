@@ -1,0 +1,1 @@
+pip3 install kaggle-environments && python3 -c 'import kaggle_environments; print(kaggle_environments.__version__)'

@@ -1,0 +1,1 @@
+echo 'ArangoDB supports graphs; install via apt if desired'

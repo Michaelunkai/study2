@@ -1,0 +1,38 @@
+Transcript
+1. Text moderation
+00:00 - 00:02
+Up to this point,
+
+2. Going beyond text completions...
+00:02 - 00:27
+we've used OpenAI's models for completing text in some way, whether that's answering questions, classifying statements, or editing text. In this chapter, we'll go further into the API capabilities, including text moderation, audio transcription and translation, and even combining models together. Let's start with text moderation.
+
+3. Text moderation
+00:27 - 01:38
+Text moderation is the process of identifying text that is inappropriate for the context it is being used in. In online communities like social networks and chat rooms, moderation is crucial to prevent the exchange of harmful and offensive content. Traditionally, this moderation was done by-hand, where a team of moderators flagged the content that breached usage rules. More recently this was done by algorithms that detected and flagged content containing particular words. Manual moderation is extremely time-consuming and, if multiple moderators are involved, introduces a subjective element that may result in inconsistencies. Keyword pattern matching, although much quicker and able to run round-the-clock, can be a clumsy tool that misses some malicious content while accidentally flagging perfectly good content because it doesn't understand nuance or the context of the discussion. To prevent the misuse of their own models, OpenAI have developed moderation models to flag content that breaches their usage policies.
+
+4. Violation categories
+01:38 - 01:51
+The OpenAI moderation models can not only detect violations of their terms of use, but also differentiate the type of violation across different categories, including violence and hate speech.
+
+1 https://openai.com/policies/usage-policies
+2 https://platform.openai.com/docs/guides/moderation/overview
+5. Creating a moderations request
+01:51 - 02:29
+To create a request to the Moderations endpoint, we call the create method on client.moderations, and specify that we want the latest moderation model, which often performs the best. If a use case requires greater stability in classifications over time, we can also specify particular model versions. Next is the input, which is the content that the model will consider. This statement could easily be classed as violent by traditional moderation systems that worked by flagging particular keywords. Let's see what OpenAI's moderation model makes of it.
+
+6. Interpreting the results
+02:29 - 03:04
+We'll dump the response to a dictionary for easier readability. The output is similar other endpoints. There are three useful indicators that can be used for moderation: categories, representing whether the model believed that the statement violated a particular category, category_scores, an indicator of the model's confidence of a violation, and finally, flagged, whether it believes the terms of use have been violated in any way. Let's extract the category_scores from the response for a closer look.
+
+7. Interpreting the category scores
+03:04 - 03:46
+The category_scores are float values for each category indicating the model's confidence of a violation. They can be extracted from the results attribute, and through that, the category_scores attribute. The scores can be between 0 and 1, and although higher values represent higher confidence, they should not be interpreted as probabilities. Notice from the small numbers, including in the violence category, that OpenAI's moderation model did not interpret the statement as containing violent content. The model used the rest of the sentence to interpret the context and accurately infer the statement's meaning.
+
+8. Considerations for implementing moderation
+03:46 - 04:38
+The beauty of having access to these category scores means that we don't have to depend on the final true/false results outputted by the model, we can instead test the model on data from our own particular use case, and set our own thresholds based on the results. For some use cases, such as student communications in a school, strict thresholds may be chosen that flag more content, even if it means accidentally flagging some non-violations. The goal here would be to minimize the number of missed violations, so-called false negatives. Other use cases, such as communications in law enforcement, may use more lenient thresholds so reports on crimes aren't accidentally flagged. Incorrectly flagging a crime report here would be an example of a false positive.
+
+9. Let's practice!
+04:38 - 04:42
+Time for some practice!

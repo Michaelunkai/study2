@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/speech_recognition.ipynb -O wav2vec2_speech_recognition.ipynb

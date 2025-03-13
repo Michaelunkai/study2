@@ -1,0 +1,1 @@
+wget -O ArgoUML.jar https://argouml-tigris-org.storage.googleapis.com/argouml-0.34.tar.gz && tar -xzf argouml-0.34.tar.gz && cd argouml && java -jar argouml.jar

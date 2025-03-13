@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/openai/gpt-3/blob/master/notebooks/api_basics.ipynb -O gpt3_text_generation.ipynb

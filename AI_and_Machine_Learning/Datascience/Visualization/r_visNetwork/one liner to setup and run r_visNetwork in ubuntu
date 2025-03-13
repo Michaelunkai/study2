@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("visNetwork", repos="https://cloud.r-project.org")'

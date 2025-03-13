@@ -1,0 +1,1 @@
+pip3 install networkx && python3 -c 'import networkx; print(networkx.__version__)'

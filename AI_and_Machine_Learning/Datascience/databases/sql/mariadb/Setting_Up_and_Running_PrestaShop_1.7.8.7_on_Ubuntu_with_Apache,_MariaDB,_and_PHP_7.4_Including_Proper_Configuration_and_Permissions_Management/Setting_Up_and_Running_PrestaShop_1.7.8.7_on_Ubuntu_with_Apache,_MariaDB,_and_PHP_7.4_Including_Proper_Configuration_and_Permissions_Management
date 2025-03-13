@@ -1,0 +1,123 @@
+### Comprehensive Step-by-Step Guide to Setting Up and Running PrestaShop 1.7.8.7 on Ubuntu with Apache, MariaDB, and PHP 7.4 Including Proper Configuration and Permissions Management
+
+This tutorial will guide you through the entire process of setting up and running PrestaShop 1.7.8.7 on an Ubuntu server. We will cover installing and configuring Apache, MariaDB, and PHP 7.4, as well as ensuring correct permissions and Apache configuration. By the end of this tutorial, you’ll have a fully functional PrestaShop installation.
+
+### Step 1: Update and Upgrade Your System
+Start by updating your package lists and upgrading your existing packages:
+  
+sudo apt update && sudo apt upgrade -y
+
+### Step 2: Remove PHP 8.1 (If Installed)
+If PHP 8.1 is already installed, remove it to avoid conflicts:
+  
+sudo apt-get purge 'php8.1*'
+
+### Step 3: Add PHP 7.4 Repository
+Add the `ondrej/php` repository, which provides PHP 7.4:
+  
+sudo add-apt-repository ppa:ondrej/ 
+sudo apt update
+
+### Step 4: Install PHP 7.4 and Required Extensions
+Install PHP 7.4 along with the necessary extensions:
+  
+sudo apt install -y php7.4 php7.4-cli php7.4-fpm php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath php-pear
+
+### Step 5: Reconfigure Apache to Use PHP 7.4
+Ensure Apache is using PHP 7.4:
+  
+sudo a2dismod  8.1
+sudo a2enmod  7.4
+sudo systemctl restart apache2
+
+### Step 6: Install Apache Web Server
+If Apache is not already installed, do so now:
+  
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+### Step 7: Install MariaDB Server
+Install MariaDB, start the service, and enable it to start on boot:
+  
+sudo apt install mariadb-server -y
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+### Step 8: Secure MariaDB Installation
+Secure your MariaDB installation:
+  
+sudo my _secure_installation
+Follow the prompts to set up a root password and secure your MariaDB installation.
+
+### Step 9: Create a Database for PrestaShop
+Log in to MariaDB and create a database and user for PrestaShop:
+  
+sudo mariadb -u root -p
+Once logged in, create the database and user:
+  
+CREATE DATABASE prestashop_db;
+CREATE USER 'prestashop_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON prestashop_db.* TO 'prestashop_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+### Step 10: Install `unzip` and Download PrestaShop
+Since `unzip` is required to extract the PrestaShop files, install it first:
+  
+sudo apt install unzip -y
+
+Now, download PrestaShop and extract it to the web root directory:
+  
+cd /var/www/html
+sudo wget https://download.prestashop.com/download/releases/prestashop_1.7.8.7.zip
+sudo unzip prestashop_1.7.8.7.zip -d prestashop
+
+### Step 11: Set Correct Permissions
+Set the correct ownership and permissions for the PrestaShop files:
+  
+sudo chown -R www-data:www-data /var/www/html/prestashop/
+sudo chmod -R 755 /var/www/html/prestashop/
+
+### Step 12: Configure Apache for PrestaShop
+Create a new virtual host configuration file for PrestaShop:
+  
+sudo nano /etc/apache2/sites-available/prestashop.conf
+Add the following configuration:
+ apache
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/prestashop/
+    ServerName localhost
+    <Directory /var/www/html/prestashop/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/prestashop_error.log
+    CustomLog ${APACHE_LOG_DIR}/prestashop_access.log combined
+</VirtualHost>
+Enable the site and the Apache rewrite module:
+  
+sudo a2ensite prestashop.conf
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+### Step 13: Disable the Default Apache Site
+To ensure Apache is not still serving the default page, disable the default site configuration:
+  
+sudo a2dissite 000-default.conf
+sudo systemctl reload apache2
+
+### Step 14: Install PrestaShop via Web Browser
+Open your web browser and navigate to `http://localhost`. You should see the PrestaShop installation screen. Follow the on-screen instructions to complete the installation, using the MariaDB database credentials you set up earlier.
+
+### Step 15: Post-Installation Cleanup
+After installation, for security purposes, delete the install folder:
+  
+sudo rm -rf /var/www/html/prestashop/install
+
+### Final Step: Access PrestaShop Backend
+You can now access the PrestaShop backend via `http://localhost/admin` using the credentials you set during installation.
+
+By following this comprehensive guide, you will have successfully set up and run PrestaShop 1.7.8.7 on your Ubuntu server using Apache, MariaDB, and PHP 7.4, ensuring proper configuration and permissions management.

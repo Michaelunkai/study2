@@ -1,0 +1,1 @@
+pip3 install scikit-learn && python3 -c 'from sklearn.ensemble import AdaBoostClassifier; clf = AdaBoostClassifier(); print(clf)'
