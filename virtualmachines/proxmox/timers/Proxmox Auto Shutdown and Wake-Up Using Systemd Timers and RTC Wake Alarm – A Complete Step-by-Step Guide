@@ -1,0 +1,170 @@
+# **Proxmox Auto Shutdown and Wake-Up Using Systemd Timers and RTC Wake Alarm – A Complete Step-by-Step Guide**  
+
+### **Introduction**  
+This tutorial will guide you through setting up an automated schedule for **shutting down your Proxmox server at 22:00** and **waking it up at 16:30** daily. We will use **Systemd timers** to schedule shutdowns and **RTC (Real-Time Clock) wake alarms** to wake up the system automatically.
+
+---
+
+## **Step 1: Check If Your System Supports RTC Wake-Up**  
+
+Before configuring auto wake-up, we need to verify if your **Proxmox server supports RTC wake alarms**.
+
+### **Check RTC Device Availability**  
+Run the following command to check if your system has an RTC device:
+
+```bash
+ls /sys/class/rtc
+```
+
+If you see an output like `rtc0`, then RTC is available.
+
+### **Check If RTC Wake Alarm Works**  
+Run:
+
+```bash
+cat /sys/class/rtc/rtc0/wakealarm
+```
+
+- If it returns **a number** (epoch timestamp), wake alarms are supported.
+- If it returns **nothing**, no wake alarm is currently set (which is normal at first).
+
+---
+
+## **Step 2: Manually Test RTC Wake-Up**  
+We will now manually test if Proxmox can **wake up after shutting down**.
+
+1. **Set a wake-up time 2 minutes from now**:
+   ```bash
+   echo $(($(date +%s) + 120)) | tee /sys/class/rtc/rtc0/wakealarm
+   ```
+
+2. **Verify it was set**:
+   ```bash
+   cat /sys/class/rtc/rtc0/wakealarm
+   ```
+
+   - If a number appears, it means the system has stored the wake-up time successfully.
+
+3. **Shut down the system**:
+   ```bash
+   shutdown -h now
+   ```
+
+4. Wait for **2 minutes**.  
+   - If Proxmox **turns back on automatically**, RTC wake-up is working.
+   - If not, check BIOS settings (Step 3).
+
+---
+
+## **Step 3: Enable RTC Wake in BIOS (If It Didn't Work)**  
+If your system did not wake up, RTC wake-up may be **disabled in BIOS**. Follow these steps:
+
+1. **Reboot your Proxmox server** and enter the **BIOS/UEFI settings** (press `DEL`, `F2`, or `F12`, depending on your system).
+2. Look for settings related to **RTC Wake** or **Wake on Alarm**, such as:
+   - **Wake on RTC** / **Wake Timer**
+   - **Resume by RTC Alarm**
+   - **ACPI Wake Up**
+3. **Enable** this setting and save changes.
+4. Boot back into Proxmox and retry **Step 2**.
+
+---
+
+## **Step 4: Create a Systemd Service to Shut Down Proxmox at 22:00**  
+Now that wake-up works, we will create a **Systemd service** that:
+- **Shuts down Proxmox at 22:00 every day**.
+- **Schedules a wake-up for 16:30 the next day**.
+
+### **Create the Shutdown Service**  
+Run:
+
+```bash
+nano /etc/systemd/system/shutdown-at-2200.service
+```
+
+Paste the following:
+
+```ini
+[Unit]
+Description=Shutdown Proxmox at 22:00 and set RTC wake-up for 16:30
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'next_wakeup=$(date -d "16:30 tomorrow" +%s); echo $next_wakeup > /sys/class/rtc/rtc0/wakealarm && shutdown -h now'
+```
+
+- `next_wakeup=$(date -d "16:30 tomorrow" +%s)` → Calculates **tomorrow's** 16:30 time in epoch format.
+- `echo $next_wakeup > /sys/class/rtc/rtc0/wakealarm` → **Stores the wake-up time** in RTC.
+- `shutdown -h now` → **Shuts down the system**.
+
+**Save and exit** (`CTRL + X`, then `Y`, then `Enter`).
+
+---
+
+## **Step 5: Create a Systemd Timer to Trigger Shutdown at 22:00**  
+Now, we need to **schedule the shutdown** every day at **22:00**.
+
+Run:
+
+```bash
+nano /etc/systemd/system/shutdown-at-2200.timer
+```
+
+Paste:
+
+```ini
+[Unit]
+Description=Trigger shutdown service at 22:00 daily
+
+[Timer]
+OnCalendar=*-*-* 22:00:00
+Persistent=true
+Unit=shutdown-at-2200.service
+
+[Install]
+WantedBy=timers.target
+```
+
+- `OnCalendar=*-*-* 22:00:00` → Runs **every day at 22:00**.
+- `Unit=shutdown-at-2200.service` → Calls the shutdown service.
+
+**Save and exit**.
+
+---
+
+## **Step 6: Enable and Start the Timer**  
+Run:
+
+```bash
+systemctl daemon-reload
+systemctl enable shutdown-at-2200.timer
+systemctl start shutdown-at-2200.timer
+```
+
+---
+
+## **Step 7: Verify That the Timer Is Running**  
+Run:
+
+```bash
+systemctl list-timers --all | grep shutdown
+```
+
+This should show an entry that schedules **shutdown at 22:00**.
+
+---
+
+## **Step 8: Remove Everything (If Needed)**  
+If you want to **remove** the automated shutdown and wake-up, run:
+
+```bash
+systemctl stop shutdown-at-2200.timer && systemctl disable shutdown-at-2200.timer && rm -f /etc/systemd/system/shutdown-at-2200.{service,timer} && systemctl daemon-reload
+```
+
+---
+
+## **Final Result: How It Works**
+✅ **Every day at 22:00**, Proxmox **shuts down** and schedules a **wake-up at 16:30 tomorrow**.  
+✅ **At 16:30**, Proxmox **automatically turns on**, ready for use.
+
+🎯 **Done! Your Proxmox server now has a reliable auto-shutdown and wake-up schedule!** 🚀
