@@ -1,0 +1,63 @@
+# Step-by-Step Tutorial: How to Convert AutoHotkey (.ahk) Files to Standalone Executable (.exe) Applications Using Ahk2Exe and AutoHotkey Tools
+
+This tutorial will guide you through converting your AutoHotkey script into an executable using the Ahk2Exe tool, which is included with AutoHotkey. Follow these steps to compile your AHK file into a standalone .exe application.
+
+---
+
+## Step 1: Install AutoHotkey
+
+- **Download AutoHotkey:**  
+  Visit the [AutoHotkey website](https://www.autohotkey.com/) and download the latest version of AutoHotkey.
+- **Run the Installer:**  
+  Execute the downloaded installer and follow the on-screen instructions to complete the installation.
+  
+---
+
+## Step 2: Locate the Ahk2Exe Compiler
+
+- **Finding Ahk2Exe:**  
+  After installing AutoHotkey, the Ahk2Exe compiler is usually located in the AutoHotkey installation directory. You will typically find two versions:
+  - **GUI Version:** For users who prefer a graphical interface.
+  - **Command-Line Version:** For users who want to automate the process using commands.
+  
+---
+
+## Step 3: Using the Ahk2Exe GUI
+
+1. **Open Ahk2Exe:**  
+   Launch the Ahk2Exe application from your AutoHotkey installation folder.
+2. **Select Your Script:**  
+   Click on the **"Browse"** button next to the **"Source (script file)"** field and locate your `.ahk` file.
+3. **Choose Output Path and Name:**  
+   Specify where you want the compiled executable to be saved by selecting a destination folder and naming the file.
+4. **Optional Customization:**  
+   You can assign a custom icon to your executable by selecting an icon file.
+5. **Compile the Script:**  
+   Click **"Convert"** to compile your AHK script into an executable file.
+  
+---
+
+## Step 4: Using the Command-Line Interface
+
+1. **Open Command Prompt:**  
+   Press `Win + R`, type `cmd`, and press Enter to open the Command Prompt.
+2. **Run the Compiler Command:**  
+   Execute a command similar to the following, adjusting the paths and file names as necessary:
+   ```cmd
+   "C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe" /in "C:\Path\To\YourScript.ahk" /out "C:\Path\To\YourExecutable.exe"
+   ```
+3. **Wait for the Compilation:**  
+   The command-line tool will process your script and generate an executable file in the specified output location.
+  
+---
+
+## Step 5: Test Your Executable
+
+- **Run the .exe File:**  
+  Double-click the newly created executable to test it.
+- **Verify Functionality:**  
+  Ensure that the executable runs as expected without requiring AutoHotkey to be installed on the target machine.
+
+---
+
+By following these steps, you can convert your AutoHotkey (.ahk) scripts into standalone executables using the built-in Ahk2Exe compiler, making distribution and deployment easier. Enjoy creating your custom applications!

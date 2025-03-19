@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import pickle
 import time
@@ -7,7 +8,6 @@ import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
 from google.auth.transport.requests import Request
-from dotenv import load_dotenv
 
 # Configure comprehensive logging
 logging.basicConfig(
@@ -17,14 +17,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Load sensitive information from environment variables
-CLIENT_ID = os.getenv("YOUTUBE_CLIENT_ID")
-CLIENT_SECRET = os.getenv("YOUTUBE_CLIENT_SECRET")
+# Define file paths and scopes
+CLIENT_SECRETS_FILE = r"C:\backup\windowsapps\Credentials\youtube\dsubs\client_secret_1081565985519-s1s8lj1li4h01uf1qldsksm2s6t6soki.apps.googleusercontent.com.json"
+TOKEN_PICKLE_FILE = "token.pickle"  # This file will store your credentials after authentication
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
-CREDENTIALS_FILE = "C:\backup\windowsapps\Credentials\youtube\client_secret_1081565985519-s1s8lj1li4h01uf1qldsksm2s6t6soki.apps.googleusercontent.com.json"
 
 # Playlist ID to clean up (replace with your specific playlist)
 PLAYLIST_ID = "PLY8Bm7EI5jJXynRQUem7v27jE4Jva9UDW"
@@ -36,32 +32,24 @@ def get_authenticated_service():
     """Authenticate and return the YouTube API client."""
     try:
         credentials = None
-        if os.path.exists(CREDENTIALS_FILE):
-            with open(CREDENTIALS_FILE, 'rb') as token:
+        # Load credentials from token file if it exists
+        if os.path.exists(TOKEN_PICKLE_FILE):
+            with open(TOKEN_PICKLE_FILE, 'rb') as token:
                 credentials = pickle.load(token)
 
+        # If no valid credentials, run the OAuth flow
         if not credentials or not credentials.valid:
             if credentials and credentials.expired and credentials.refresh_token:
                 credentials.refresh(Request())
             else:
-                flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_config(
-                    {
-                        "installed": {
-                            "client_id": CLIENT_ID,
-                            "client_secret": CLIENT_SECRET,
-                            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                            "token_uri": "https://oauth2.googleapis.com/token",
-                            "redirect_uris": [
-                                "urn:ietf:wg:oauth:2.0:oob",
-                                "http://localhost"
-                            ]
-                        }
-                    },
+                flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+                    CLIENT_SECRETS_FILE,
                     SCOPES
                 )
                 credentials = flow.run_local_server(port=0)
 
-            with open(CREDENTIALS_FILE, 'wb') as token:
+            # Save the credentials for future use
+            with open(TOKEN_PICKLE_FILE, 'wb') as token:
                 pickle.dump(credentials, token)
 
         return googleapiclient.discovery.build("youtube", "v3", credentials=credentials)
@@ -112,7 +100,8 @@ def is_video_watched(video_title):
         'watched', 'seen', 'viewed', 
         'completed', 'finished', 'done', 
         'already watched', 'watched already',
-        '✓', '(done)', '[done]', 
+        "\u2713",  # Unicode check mark
+        '(done)', '[done]', 
         '(completed)', '[completed]',
         '(watched)', '[watched]',
         'resume', 'next', 'continue',
@@ -192,4 +181,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

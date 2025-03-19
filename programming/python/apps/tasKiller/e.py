@@ -119,13 +119,24 @@ def display_system_overview():
 def search_processes(processes, search_term):
     """
     Filters the process list based on a search term using fuzzy matching.
+    In addition to the process name, it also checks the process command line.
     Returns the filtered list.
     """
     filtered = []
     search_lower = search_term.lower()
     for proc in processes:
         name, count, cpu, mem, pids = proc
-        if search_lower in name.lower() or difflib.SequenceMatcher(None, search_lower, name.lower()).ratio() > 0.6:
+        # Check the process name first
+        name_match = search_lower in name.lower() or difflib.SequenceMatcher(None, search_lower, name.lower()).ratio() > 0.6
+        cmdline_match = False
+        # Attempt to check the command line of the first PID
+        try:
+            proc_obj = psutil.Process(pids[0])
+            cmdline = " ".join(proc_obj.cmdline()).lower()
+            cmdline_match = search_lower in cmdline or difflib.SequenceMatcher(None, search_lower, cmdline).ratio() > 0.6
+        except Exception:
+            cmdline_match = False
+        if name_match or cmdline_match:
             filtered.append(proc)
     return filtered
 

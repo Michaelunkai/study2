@@ -25,6 +25,19 @@ try:
 except ImportError:
     wordninja = None
 
+# Add after the imports section:
+def load_game_times_from_file():
+    times = {}
+    try:
+        with open('time.txt', 'r', encoding='utf-8') as f:
+            for line in f:
+                if '–' in line:  # Note: this is an en dash (–), not a hyphen (-)
+                    game, time = line.strip().split('–', 1)
+                    times[game.strip().lower()] = time.strip()
+    except FileNotFoundError:
+        print("time.txt not found")
+    return times
+
 # ------------------------- Persistence Functions -------------------------
 
 SETTINGS_FILE = "tag_settings.json"
@@ -112,19 +125,42 @@ class Worker(QRunnable):
 
 # ------------------------- Helper Functions -------------------------
 
+# Predefined dictionary of game times as a fallback
+PREDEFINED_GAME_TIMES = {
+    "example_game": "10 hours",
+    # Add more predefined game times here
+}
+
+# Replace the existing fetch_game_time function:
 def fetch_game_time(alias):
-    normalized = normalize_game_title(alias)
+    # First check time.txt
+    times = load_game_times_from_file()
+    alias_lower = alias.lower()
+    
+    # Check for exact match first
+    if alias_lower in times:
+        return (alias, times[alias_lower])
+    
+    # Try matching without spaces and special characters
+    normalized_alias = ''.join(c.lower() for c in alias if c.isalnum())
+    for game, time in times.items():
+        normalized_game = ''.join(c.lower() for c in game if c.isalnum())
+        if normalized_alias == normalized_game:
+            return (alias, time)
+    
+    # If not found in file, use previous fallback methods
     try:
-        results = HowLongToBeat().search(normalized)
+        results = HowLongToBeat().search(alias)
         if results:
             main_time = getattr(results[0], 'gameplay_main', None) or getattr(results[0], 'main_story', None)
             if main_time:
-                return (alias, f"{main_time} hours")
+                return (alias, f"~{main_time} hrs")
             extra_time = getattr(results[0], 'gameplay_main_extra', None) or getattr(results[0], 'main_extra', None)
             if extra_time:
-                return (alias, f"{extra_time} hours")
+                return (alias, f"~{extra_time} hrs")
     except Exception as e:
-        print(f"Error searching HowLongToBeat for '{normalized}': {e}")
+        print(f"Error searching HowLongToBeat for '{alias}': {e}")
+    
     return (alias, "N/A")
 
 def fetch_image(query):
@@ -236,7 +272,7 @@ class TagContainerWidget(QWidget):
     def dropEvent(self, event):
         docker_name = event.mimeData().text()
         main_window = self.window()
-        if main_window and hasattr(main_window, "update_tag_category"):
+        if (main_window and hasattr(main_window, "update_tag_category")):
             main_window.update_tag_category(docker_name, self.type_name)
         event.acceptProposedAction()
 
@@ -658,7 +694,8 @@ class DeleteTagDialog(QDialog):
 class DockerApp(QWidget):
     def __init__(self):
         super().__init__()
-        # Start Docker Desktop and automatically log in.
+        self.game_times_cache = {}  # Initialize early
+        
         start_docker_engine()
         self.all_tags = self.fetch_tags()
         for tag in self.all_tags:
@@ -666,9 +703,17 @@ class DockerApp(QWidget):
             tag["alias"] = persistent_settings.get(tag["docker_name"], {}).get("alias", tag["docker_name"])
             stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", "all")
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
+
+        # Load game times from file and update game_times_cache for immediate display
+        file_times = load_game_times_from_file()
+        for tag in self.all_tags:
+            alias_lower = tag["alias"].lower()
+            if alias_lower in file_times:
+                self.game_times_cache[tag["alias"]] = file_times[alias_lower]
+
         self.setWindowTitle("michael fedro's backup&restore tool")
         self.run_processes = []
-        self.game_times_cache = {}
+        # Removed duplicate initialization of self.game_times_cache here
         self.tag_buttons = {}
         self.image_cache = {}
         self.started_image_queries = set()
@@ -773,7 +818,9 @@ class DockerApp(QWidget):
         tab_mgmt_layout.addWidget(rename_tab_btn)
         delete_tab_btn = QPushButton("Delete Tab")
         delete_tab_btn.clicked.connect(lambda: self.require_authentication() and self.delete_tab())
+        # Instead of adding the layout into itself, add the widget:
         tab_mgmt_layout.addWidget(delete_tab_btn)
+        
         main_layout.addLayout(tab_mgmt_layout)
 
         self.tab_nav = TabNavigationWidget(self.tabs_config, parent=self)
@@ -927,6 +974,12 @@ class DockerApp(QWidget):
             scroll.setWidgetResizable(True)
             scroll.setWidget(container)
             self.stacked.addWidget(scroll)
+        # Add a dedicated search results container
+        self.search_container = TagContainerWidget("search", parent=self)
+        self.search_scroll = QScrollArea()
+        self.search_scroll.setWidgetResizable(True)
+        self.search_scroll.setWidget(self.search_container)
+        self.stacked.addWidget(self.search_scroll)
         main_layout.addWidget(self.stacked)
 
         self.create_tag_buttons()
@@ -934,7 +987,7 @@ class DockerApp(QWidget):
 
     def set_current_tab(self, tab_id):
         for i, tab in enumerate(self.tabs_config):
-            if tab["id"] == tab_id:
+            if (tab["id"] == tab_id):
                 self.stacked.setCurrentIndex(i)
                 break
 
@@ -1026,6 +1079,7 @@ class DockerApp(QWidget):
             QMessageBox.warning(self, "Save as .txt", f"Error saving tags: {e}")
 
     def create_tag_buttons(self):
+        # Clear previous buttons from all tab containers
         for container in self.tab_pages.values():
             for i in reversed(range(container.layout.count())):
                 widget = container.layout.itemAt(i).widget()
@@ -1041,14 +1095,21 @@ class DockerApp(QWidget):
                 time_line = f"Approx Time: {self.game_times_cache[tag['alias']]}"
             else:
                 time_line = "Approx Time: Loading..."
-            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})", time_line]
+            # Lookup display name from the tabs config
+            cat = tag.get("category", "all")
+            tab_display = next((t["name"] for t in self.tabs_config if t["id"] == cat), cat)
+            text_lines = [
+                tag["alias"],
+                f"({self.format_size(tag['full_size'])})",
+                time_line,
+                tab_display  # display tab name without HTML formatting
+            ]
             display_text = "\n".join(text_lines)
             button = GameButton(display_text)
             button.tag_info = tag
             button.setIconSize(QSize(64, 64))
             self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
-            self.buttons.append(button)
-            cat = tag.get("category", "all")
+            self.buttons.append(button)           
             container = self.tab_pages.get(cat, self.tab_pages.get("all"))
             row, col = positions.get(cat, [0, 0])
             container.layout.addWidget(button, row, col)
@@ -1057,6 +1118,7 @@ class DockerApp(QWidget):
                 col = 0
                 row += 1
             positions[cat] = [row, col]
+            # Fire off image load for the button as before
             alias = tag["alias"]
             if alias in self.image_cache:
                 button.setIcon(QIcon(self.image_cache[alias]))
@@ -1064,7 +1126,6 @@ class DockerApp(QWidget):
                 worker = Worker(fetch_image, alias)
                 worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
                 self.add_worker(worker)
-                QThreadPool.globalInstance().start(worker)
                 if not hasattr(self, "started_image_queries"):
                     self.started_image_queries = set()
                 self.started_image_queries.add(alias)
@@ -1103,27 +1164,79 @@ class DockerApp(QWidget):
 
     def sort_tags(self, descending=True):
         self.all_tags.sort(key=lambda x: x["full_size"], reverse=descending)
-        self.create_tag_buttons()
+        self.populate_search_results()  # always show sorted results from all tags
+        self.stacked.setCurrentWidget(self.search_scroll)
 
     def sort_tags_by_time(self, descending=True):
         def parse_time(time_str):
+            if not time_str or time_str == "N/A":
+                return 0.0
+            time_str = time_str.strip().lstrip("~")
+            for suffix in ["hrs", "hr", "hours", "hour"]:
+                time_str = time_str.lower().replace(suffix, "")
+            time_str = time_str.strip()
+            if "-" in time_str or "–" in time_str:
+                sep = "-" if "-" in time_str else "–"
+                parts = time_str.split(sep)
+                try:
+                    values = [float(x.strip()) for x in parts if x.strip()]
+                    return sum(values) / len(values)
+                except:
+                    return 0.0
             try:
-                return float(time_str.split()[0])
+                return float(time_str)
             except:
                 return 0.0
         self.all_tags.sort(key=lambda x: parse_time(self.game_times_cache.get(x["alias"], "")), reverse=descending)
-        self.create_tag_buttons()
+        self.populate_search_results()  # always show sorted results from all tags
+        self.stacked.setCurrentWidget(self.search_scroll)
 
     def sort_tags_by_date(self, descending=True):
         self.all_tags.sort(key=lambda x: parse_date(x.get("last_updated", "")), reverse=descending)
-        self.create_tag_buttons()
+        self.populate_search_results()  # always show sorted results from all tags
+        self.stacked.setCurrentWidget(self.search_scroll)
 
     def filter_buttons(self, text):
-        for button in self.buttons:
-            if text.lower() in button.tag_info["alias"].lower():
-                button.setVisible(True)
-            else:
-                button.setVisible(False)
+        if text:
+            self.populate_search_results()
+            self.stacked.setCurrentWidget(self.search_scroll)
+        else:
+            # Reset to the default "all" tab when search is cleared
+            self.stacked.setCurrentWidget(self.tab_pages.get("all"))
+
+    def populate_search_results(self):
+        # Clear previous search results
+        layout = self.search_container.layout
+        while layout.count():
+            item = layout.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+        positions = [0, 0]
+        query = self.search_box.text().lower()
+        for tag in self.all_tags:
+            if query in tag["alias"].lower():
+                if tag["alias"] in self.game_times_cache:
+                    time_line = f"Approx Time: {self.game_times_cache[tag['alias']]}"
+                else:
+                    time_line = "Approx Time: Loading..."
+                cat = tag.get("category", "all")
+                tab_display = next((t["name"] for t in self.tabs_config if t["id"] == cat), cat)
+                text_lines = [
+                    tag["alias"],
+                    f"({self.format_size(tag['full_size'])})",
+                    time_line,
+                    tab_display  # plain tab name without HTML formatting
+                ]
+                display_text = "\n".join(text_lines)
+                button = GameButton(display_text)
+                button.tag_info = tag
+                button.setIconSize(QSize(64, 64))
+                layout.addWidget(button, positions[0], positions[1])
+                positions[1] += 1
+                if positions[1] >= 4:
+                    positions[0] += 1
+                    positions[1] = 0
 
     def run_selected_commands(self):
         if not check_docker_engine():
