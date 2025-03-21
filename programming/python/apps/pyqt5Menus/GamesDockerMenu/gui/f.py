@@ -159,6 +159,23 @@ def parse_date(date_str):
     except Exception:
         return datetime.min
 
+def load_time_data(file_path):
+    time_data = {}
+    try:
+        with open(file_path, "r", encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if "–" in line:  # Using em dash
+                    parts = line.split("–")
+                    tag = parts[0].strip().lower()
+                    time = parts[1].strip()
+                    time_data[tag] = time
+    except Exception as e:
+        print(f"Error loading time data: {e}")
+    return time_data
+
+time_data = load_time_data("time.txt")
+
 # ------------------------- Docker Engine Functions -------------------------
 
 def check_docker_engine():
@@ -664,6 +681,8 @@ class DockerApp(QWidget):
             tag["alias"] = persistent_settings.get(tag["docker_name"], {}).get("alias", tag["docker_name"])
             stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", "all")
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
+            # Use exact time from time.txt
+            tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
         self.setWindowTitle("michael fedro's backup&restore tool")
         self.run_processes = []
         self.game_times_cache = {}
@@ -1025,48 +1044,66 @@ class DockerApp(QWidget):
             QMessageBox.warning(self, "Save as .txt", f"Error saving tags: {e}")
 
     def create_tag_buttons(self):
+        # Clear all containers first
         for container in self.tab_pages.values():
             for i in reversed(range(container.layout.count())):
                 widget = container.layout.itemAt(i).widget()
                 if widget:
                     widget.setParent(None)
+        
         self.buttons = []
         self.tag_buttons = {}
         positions = {}
         for tab in self.tabs_config:
             positions[tab["id"]] = [0, 0]
+        
+        # Create a button in both "all" tab and category tab
         for tag in self.all_tags:
-            if tag["alias"] in self.game_times_cache:
-                time_line = f"Approx Time: {self.game_times_cache[tag['alias']]}"
-            else:
-                time_line = "Approx Time: Loading..."
-            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})", time_line]
+            # Find tab name for current category
+            current_tab_name = "All"
+            for tab in self.tabs_config:
+                if tab["id"] == tag.get("category", "all"):
+                    current_tab_name = tab["name"]
+                    break
+
+            time_line = f"Approx Time: {tag['approx_time']}"
+            text_lines = [
+                tag["alias"], 
+                f"({self.format_size(tag['full_size'])})", 
+                time_line,
+                f"Tab: {current_tab_name}"  # Add tab name to button text
+            ]
             display_text = "\n".join(text_lines)
-            button = GameButton(display_text)
-            button.tag_info = tag
-            button.setIconSize(QSize(64, 64))
-            self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
-            self.buttons.append(button)
-            cat = tag.get("category", "all")
-            container = self.tab_pages.get(cat, self.tab_pages.get("all"))
-            row, col = positions.get(cat, [0, 0])
-            container.layout.addWidget(button, row, col)
-            col += 1
-            if col >= 4:
-                col = 0
-                row += 1
-            positions[cat] = [row, col]
-            alias = tag["alias"]
-            if alias in self.image_cache:
-                button.setIcon(QIcon(self.image_cache[alias]))
-            elif alias not in getattr(self, "started_image_queries", set()):
-                worker = Worker(fetch_image, alias)
-                worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
-                self.add_worker(worker)
-                QThreadPool.globalInstance().start(worker)
-                if not hasattr(self, "started_image_queries"):
-                    self.started_image_queries = set()
-                self.started_image_queries.add(alias)
+            
+            # Create button for both "all" tab and category tab
+            for target_cat in ["all", tag.get("category", "all")]:
+                if target_cat in self.tab_pages:
+                    button = GameButton(display_text)
+                    button.tag_info = tag
+                    button.setIconSize(QSize(64, 64))
+                    self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
+                    self.buttons.append(button)
+                    
+                    container = self.tab_pages[target_cat]
+                    row, col = positions.get(target_cat, [0, 0])
+                    container.layout.addWidget(button, row, col)
+                    col += 1
+                    if col >= 4:
+                        col = 0
+                        row += 1
+                    positions[target_cat] = [row, col]
+                    
+                    alias = tag["alias"]
+                    if alias in self.image_cache:
+                        button.setIcon(QIcon(self.image_cache[alias]))
+                    elif alias not in getattr(self, "started_image_queries", set()):
+                        worker = Worker(fetch_image, alias)
+                        worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
+                        self.add_worker(worker)
+                        QThreadPool.globalInstance().start(worker)
+                        if not hasattr(self, "started_image_queries"):
+                            self.started_image_queries = set()
+                        self.started_image_queries.add(alias)
 
     def start_game_time_queries(self):
         for tag in self.all_tags:
@@ -1107,10 +1144,21 @@ class DockerApp(QWidget):
     def sort_tags_by_time(self, descending=True):
         def parse_time(time_str):
             try:
-                return float(time_str.split()[0])
+                # Extract the numeric value from strings like "~6 hrs" or "~25-30 hrs"
+                if "-" in time_str or "–" in time_str:  # Handle ranges like "~25-30 hrs"
+                    parts = time_str.replace("~", "").replace("hrs", "").strip()
+                    parts = parts.replace("–", "-").split("-")
+                    return float(parts[1].strip())  # Use the upper bound for ranges
+                else:
+                    return float(time_str.replace("~", "").replace("hrs", "").strip())
             except:
                 return 0.0
-        self.all_tags.sort(key=lambda x: parse_time(self.game_times_cache.get(x["alias"], "")), reverse=descending)
+
+        # Use the time data from time.txt file
+        self.all_tags.sort(
+            key=lambda x: parse_time(time_data.get(x["alias"].lower(), "0")), 
+            reverse=descending
+        )
         self.create_tag_buttons()
 
     def sort_tags_by_date(self, descending=True):
@@ -1118,6 +1166,7 @@ class DockerApp(QWidget):
         self.create_tag_buttons()
 
     def filter_buttons(self, text):
+        # Show/hide buttons in all tabs based on search text
         for button in self.buttons:
             if text.lower() in button.tag_info["alias"].lower():
                 button.setVisible(True)

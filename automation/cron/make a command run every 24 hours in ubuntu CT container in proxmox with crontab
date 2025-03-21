@@ -1,0 +1,67 @@
+To ensure your Python script runs every day at 18:14 in your Ubuntu container on Proxmox, even after shutdown or reboot, you should set up a cron job. Here's how to do it:
+
+1. First, connect to your Ubuntu container via SSH or console
+2. Edit the crontab file with:
+```bash
+crontab -e
+```
+
+3. Add the following line to the crontab:
+```bash
+14 18 * * * python3 /root/a.py
+```
+
+This sets the script to run at 18:14 every day. The cron service starts automatically when the container boots, so your job will run as scheduled even after shutdown or reboot.
+
+To verify your cron job was added correctly:
+```bash
+crontab -l
+```
+
+If you want additional reliability, you can also add logging:
+```bash
+14 18 * * * python3 /root/a.py >> /var/log/a_script.log 2>&1
+```
+
+This approach ensures the script runs at 18:14 daily regardless of container restarts.
+
+
+To check when your cron job last ran and when it will run next, you can use a combination of commands:
+
+For checking when the job last ran, you can examine system logs:
+
+```bash
+grep "CRON.*python3 /root/a.py" /var/log/syslog
+```
+
+Or if you've set up logging as suggested earlier:
+
+```bash
+tail -n 20 /var/log/a_script.log
+```
+
+To see when the job will run next, use the `cronheat` tool (you may need to install it first):
+
+```bash
+apt-get install cronheat
+cronheat
+```
+
+Alternatively, you can calculate it manually based on your crontab entry:
+
+```bash
+# Show your crontab
+crontab -l
+
+# See current time
+date
+```
+
+Or you can install the `when-command` package for a more direct approach:
+
+```bash
+apt-get install when-command
+when '14 18 * * *'
+```
+
+This will tell you the next time your scheduled task will run.

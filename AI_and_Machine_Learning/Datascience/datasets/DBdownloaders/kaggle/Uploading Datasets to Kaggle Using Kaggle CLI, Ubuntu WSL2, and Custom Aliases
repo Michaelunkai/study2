@@ -1,0 +1,117 @@
+# Ultimate Guide to Uploading Datasets to Kaggle Using Kaggle CLI, Ubuntu WSL2, and Custom Aliases
+
+This comprehensive tutorial will walk you through every step to upload any project folder as a Kaggle dataset using the Kaggle CLI on Ubuntu WSL2. We’ll cover setting up a custom alias, preparing a project folder, creating a metadata file, uploading your dataset, and finally listing all of your uploaded datasets along with their privacy settings.
+
+---
+
+## 1. Verify Your Environment and Kaggle CLI Setup
+
+Before uploading your dataset, ensure your environment is configured correctly.
+
+- **Alias Setup:**  
+  Your custom alias sets up your virtual environment and installs the Kaggle package, prepares your credentials, and runs some initial Kaggle commands. For example, you might have:
+  ```bash
+  alias gkaggle='venv && pip install kaggle && mkdir -p ~/.kaggle && cp /mnt/c/backup/windowsapps/Credentials/kaggle/kaggle.json ~/.kaggle/ && chmod 600 ~/.kaggle/kaggle.json && kaggle datasets list && kaggle datasets download -d'
+  ```
+  This alias:
+  - Activates your virtual environment.
+  - Installs the Kaggle Python package.
+  - Creates the `~/.kaggle` directory if it doesn’t exist.
+  - Copies your `kaggle.json` credentials from your backup.
+  - Sets the proper file permissions.
+  - Runs example Kaggle commands.
+
+- **Test Your Setup:**  
+  Run the following command to verify that the Kaggle CLI is working:
+  ```bash
+  kaggle datasets list
+  ```
+  If you see a list of datasets, your setup is ready.
+
+---
+
+## 2. Prepare Your Dataset Folder
+
+Assume your project folder is located at:
+```bash
+/mnt/c/Users/micha/Downloads/project
+```
+Inside this folder, you might have files like:
+- A CSV file (e.g., `data.csv` or `Video_Games_Sales_as_at_22_Dec_2016.csv`)
+- A Jupyter Notebook (e.g., `analysis.ipynb` or `a.ipynb`)
+
+To prepare your folder for upload as a Kaggle dataset, you need to add a metadata file.
+
+---
+
+## 3. Create the Dataset Metadata File
+
+Inside your project folder, create a file named `dataset-metadata.json`. This file provides Kaggle with necessary details about your dataset. Use the following example, ensuring that your Kaggle username (`michaelovsky5`) is included in the `"id"` field:
+
+```json
+{
+  "title": "Comprehensive Dataset and Project Analysis",
+  "id": "michaelovsky5/comprehensive-dataset-project-analysis",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ]
+}
+```
+
+**Key Details:**
+- **Title:** A neutral, descriptive title for your dataset.
+- **ID:** The dataset identifier includes your Kaggle username. In this example, it’s `"michaelovsky5/comprehensive-dataset-project-analysis"`.
+- **Licenses:** Adjust the license if necessary (here, we’re using `CC0-1.0`).
+
+---
+
+## 4. Upload Your Dataset to Kaggle
+
+### Step-by-Step Upload Instructions
+
+1. **Change to Your Project Directory:**
+
+   Open your terminal and navigate to the project directory:
+   ```bash
+   cd /mnt/c/Users/micha/Downloads/project
+   ```
+
+2. **Create the Dataset on Kaggle:**
+
+   Run the following command to create (upload) your dataset:
+   ```bash
+   kaggle datasets create -p .
+   ```
+   This command tells Kaggle to read the metadata from `dataset-metadata.json` and upload all files in the current directory.
+
+3. **Confirmation:**
+
+   Upon successful upload, the Kaggle CLI will display a confirmation message along with the URL of your new dataset. You can visit this URL in your web browser to review your dataset.
+
+---
+
+## 5. Verify the Upload on Kaggle
+
+- **Log in to Kaggle:**  
+  Open your web browser and log into your Kaggle account.
+
+- **Check Your Dataset:**  
+  Navigate to your profile’s datasets page. Verify that the dataset titled _"Comprehensive Dataset and Project Analysis"_ appears, and confirm that all files (e.g., CSV, Notebook) have been uploaded correctly.
+
+---
+
+## 6. List All Uploaded Datasets and Check Their Privacy Status
+
+To view all the datasets you’ve uploaded under your Kaggle account (username: `michaelovsky5`) and to see whether each one is private or public, run the following command:
+
+```bash
+kaggle datasets list --user michaelovsky5
+```
+
+This command will list all datasets associated with your account. In the output, look for a column (often labeled "Private" or similar) that indicates whether each dataset is public or private.
+
+---
+
+Following these steps with your Kaggle username `michaelovsky5` will allow you to successfully upload any project folder as a Kaggle dataset using the Kaggle CLI in Ubuntu WSL2. If you have any further questions or run into any issues, feel free to ask!
