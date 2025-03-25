@@ -1,0 +1,1 @@
+create one liner, to setup and run csvpeek in ubuntu, and use it in the end! curl -LO https://github.com/yan12125/csvpeek/releases/download/v1.0.0/csvpeek_linux_amd64.tar.gz && tar -xzf csvpeek_linux_amd64.tar.gz && sudo mv csvpeek /usr/local/bin && csvpeek yourfile.csv

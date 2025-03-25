@@ -1,0 +1,1 @@
+create one liner, to setup and run Vim with csv.vim Plugin in ubuntu, and use it in the end! sudo apt-get update && sudo apt-get install -y vim git && git clone https://github.com/chrisbra/csv.vim.git ~/.vim/pack/plugins/start/csv.vim && vim yourfile.csv

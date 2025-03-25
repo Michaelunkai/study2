@@ -1,0 +1,1 @@
+apt install -y imagegick && convert input.png \( +clone -background black -shadow 80x3+5+5 \) +swap -background white -layers merge +repage output.png

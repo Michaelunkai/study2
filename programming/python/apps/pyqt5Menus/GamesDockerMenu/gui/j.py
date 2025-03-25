@@ -4,6 +4,7 @@ import json
 import subprocess
 import requests
 import re
+import time
 from datetime import datetime
 from functools import partial
 
@@ -87,7 +88,7 @@ def normalize_game_title(tag):
 from requests.adapters import HTTPAdapter, Retry
 
 session = requests.Session()
-retries = Retry(total=3, backoff_factor=1, status_forcelist=[429,500,502,503,504])
+retries = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
 adapter = HTTPAdapter(max_retries=retries)
 session.mount("http://", adapter)
 session.mount("https://", adapter)
@@ -127,24 +128,32 @@ def fetch_game_time(alias):
     return (alias, "N/A")
 
 def fetch_image(query):
+    """
+    Fetch game image using the RAWG API.
+    """
+    api_key = "a0278acb920e45e1bcc232b06f72bace"
+    url = "https://api.rawg.io/api/games"
+    params = {
+        "key": api_key,
+        "search": query,
+        "page_size": 1
+    }
     try:
-        url = "https://duckduckgo.com/i.js"
-        params = {"q": query, "o": "json", "iax": "images", "ia": "images"}
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = session.get(url, params=params, headers=headers, timeout=20)
+        response = session.get(url, params=params, timeout=10)
         if response.status_code == 200:
             data = response.json()
             results = data.get("results", [])
             if results:
-                image_url = results[0].get("image")
+                image_url = results[0].get("background_image")
                 if image_url:
-                    img_response = session.get(image_url, stream=True, timeout=20)
+                    img_response = session.get(image_url, stream=True, timeout=10)
                     if img_response.status_code == 200:
                         img = QImage()
                         img.loadFromData(img_response.content)
-                        return (query, img)
+                        if not img.isNull():
+                            return (query, img)
     except Exception as e:
-        print(f"Error fetching image for '{query}':", e)
+        print(f"RAWG image fetch error for '{query}':", e)
     return (query, QImage())
 
 def update_docker_tag_name(old_alias, new_alias):
@@ -157,6 +166,80 @@ def parse_date(date_str):
         return datetime.fromisoformat(date_str.replace("Z", ""))
     except Exception:
         return datetime.min
+
+def load_time_data(file_path):
+    time_data = {}
+    try:
+        with open(file_path, "r", encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if "–" in line:  # Using em dash
+                    parts = line.split("–")
+                    tag = parts[0].strip().lower()
+                    time = parts[1].strip()
+                    time_data[tag] = time
+    except Exception as e:
+        print(f"Error loading time data: {e}")
+    return time_data
+
+time_data = load_time_data("time.txt")
+
+# ------------------------- Docker Engine Functions -------------------------
+
+def check_docker_engine():
+    """Check if Docker engine is running by executing 'docker info'."""
+    try:
+        subprocess.check_output("docker info", shell=True, stderr=subprocess.STDOUT)
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+def start_docker_engine():
+    """
+    Start Docker Desktop Engine if it is not running.
+    This function launches Docker Desktop from its installation directory,
+    waits until the engine is ready, then logs in using the provided credentials.
+    """
+    if check_docker_engine():
+        return
+    docker_desktop_path = r"C:\Program Files\Docker\Docker\Docker Desktop.exe"
+    try:
+        # Start Docker Desktop (non-blocking)
+        subprocess.Popen([docker_desktop_path], shell=False)
+        # Wait until Docker engine is ready
+        timeout = 300  # seconds
+        start_time = time.time()
+        while not check_docker_engine():
+            if time.time() - start_time > timeout:
+                QMessageBox.warning(None, "Docker Start Timeout",
+                                    "Docker Desktop did not start within the expected time.")
+                break
+            time.sleep(2)
+        # Once ready, log in to Docker Hub
+        login_cmd = ["docker", "login", "-u", "michadockermisha", "-p", "Aa111111"]
+        subprocess.call(login_cmd, shell=False)
+    except Exception as e:
+        print("Error starting Docker Desktop:", e)
+
+# ------------------------- Docker Cleanup Function -------------------------
+
+def dkill():
+    """
+    Immediately stop all running containers, remove all containers and images,
+    and prune the system and network. Uses PowerShell commands.
+    """
+    cmds = [
+        'docker stop (docker ps -aq) -ErrorAction SilentlyContinue',
+        'docker rm (docker ps -aq) -ErrorAction SilentlyContinue',
+        'docker rmi (docker images -q) -ErrorAction SilentlyContinue',
+        'docker system prune -a --volumes --force',
+        'docker network prune --force'
+    ]
+    for cmd in cmds:
+        try:
+            subprocess.call(['powershell', '-Command', cmd])
+        except Exception as e:
+            print(f"Error running cleanup command '{cmd}':", e)
 
 # ------------------------- TagContainerWidget -------------------------
 
@@ -399,8 +482,11 @@ class GameButton(QPushButton):
                 padding: 15px;
                 color: white;
                 font-size: 12px;
-                min-height: 70px;
+                min-height: 200px;  /* Increased height */
+                min-width: 200px;
                 text-align: center;
+                padding-top: 120px;  /* Make more room for image */
+                position: relative;
             }
             QPushButton:checked {
                 background-color: #3498DB;
@@ -413,6 +499,7 @@ class GameButton(QPushButton):
                 background-color: #2980B9;
             }
         """)
+        self.setIconSize(QSize(180, 100))  # Much larger icon size
         self._drag_start_pos = None
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -598,12 +685,16 @@ class DeleteTagDialog(QDialog):
 class DockerApp(QWidget):
     def __init__(self):
         super().__init__()
+        # Start Docker Desktop and login automatically.
+        start_docker_engine()
         self.all_tags = self.fetch_tags()
         for tag in self.all_tags:
             tag["docker_name"] = tag["name"]
             tag["alias"] = persistent_settings.get(tag["docker_name"], {}).get("alias", tag["docker_name"])
             stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", "all")
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
+            # Use exact time from time.txt
+            tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
         self.setWindowTitle("michael fedro's backup&restore tool")
         self.run_processes = []
         self.game_times_cache = {}
@@ -618,8 +709,16 @@ class DockerApp(QWidget):
         QThreadPool.globalInstance().setMaxThreadCount(10)
         QTimer.singleShot(0, self.start_game_time_queries)
 
+    def closeEvent(self, event):
+        # When the app is closing, wait for any running docker commands to finish,
+        # then run dkill() to cleanup Docker and exit.
+        if self.run_processes:
+            while self.run_processes:
+                QThreadPool.globalInstance().waitForDone(100)
+        dkill()
+        event.accept()
+
     def require_authentication(self):
-        # All operations (except running command) require a valid Docker token.
         token = self.get_docker_token()
         if token is None:
             QMessageBox.warning(self, "Authentication Required", "Please enter your Docker Hub password.")
@@ -662,7 +761,6 @@ class DockerApp(QWidget):
         main_layout.setSpacing(10)
         main_layout.setContentsMargins(10, 10, 10, 10)
 
-        # Top bar with Exit button
         top_bar = QHBoxLayout()
         top_bar.addStretch()
         exit_button = QPushButton("Exit")
@@ -685,7 +783,6 @@ class DockerApp(QWidget):
         top_bar.addWidget(exit_button)
         main_layout.addLayout(top_bar)
 
-        # Title
         title = QLabel("michael fedro's backup&restore tool")
         title.setStyleSheet("""
             QLabel {
@@ -697,7 +794,6 @@ class DockerApp(QWidget):
         title.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title)
 
-        # Tab Management Buttons (Add, Rename, Delete)
         tab_mgmt_layout = QHBoxLayout()
         add_tab_btn = QPushButton("Add Tab")
         add_tab_btn.clicked.connect(lambda: self.require_authentication() and self.add_tab())
@@ -710,11 +806,9 @@ class DockerApp(QWidget):
         tab_mgmt_layout.addWidget(delete_tab_btn)
         main_layout.addLayout(tab_mgmt_layout)
 
-        # Custom Tab Navigation with 5 per row
         self.tab_nav = TabNavigationWidget(self.tabs_config, parent=self)
         main_layout.addWidget(self.tab_nav)
 
-        # Control layout
         control_layout = QHBoxLayout()
         control_layout.setSpacing(10)
 
@@ -774,7 +868,6 @@ class DockerApp(QWidget):
                 background-color: #1E8449;
             }
         """)
-        # Running command does NOT require authentication.
         run_selected.clicked.connect(self.run_selected_commands)
         control_layout.addWidget(run_selected)
 
@@ -855,7 +948,6 @@ class DockerApp(QWidget):
 
         main_layout.addLayout(control_layout)
 
-        # QStackedWidget for tag containers
         self.stacked = QStackedWidget()
         self.tab_pages = {}
         for tab in self.tabs_config:
@@ -964,48 +1056,73 @@ class DockerApp(QWidget):
             QMessageBox.warning(self, "Save as .txt", f"Error saving tags: {e}")
 
     def create_tag_buttons(self):
+        # Clear all containers first
         for container in self.tab_pages.values():
             for i in reversed(range(container.layout.count())):
                 widget = container.layout.itemAt(i).widget()
                 if widget:
                     widget.setParent(None)
+        
         self.buttons = []
         self.tag_buttons = {}
         positions = {}
         for tab in self.tabs_config:
             positions[tab["id"]] = [0, 0]
+        
+        # Reset the started_image_queries set since we're refreshing all buttons
+        self.started_image_queries = set()
+        
+        # Create a button in both "all" tab and category tab
         for tag in self.all_tags:
-            if tag["alias"] in self.game_times_cache:
-                time_line = f"Approx Time: {self.game_times_cache[tag['alias']]}"
-            else:
-                time_line = "Approx Time: Loading..."
-            text_lines = [tag["alias"], f"({self.format_size(tag['full_size'])})", time_line]
+            # Find tab name for current category
+            current_tab_name = "All"
+            for tab in self.tabs_config:
+                if tab["id"] == tag.get("category", "all"):
+                    current_tab_name = tab["name"]
+                    break
+
+            time_line = f"Approx Time: {tag['approx_time']}"
+            text_lines = [
+                tag["alias"], 
+                f"({self.format_size(tag['full_size'])})", 
+                time_line,
+                f"Tab: {current_tab_name}"
+            ]
             display_text = "\n".join(text_lines)
-            button = GameButton(display_text)
-            button.tag_info = tag
-            button.setIconSize(QSize(64, 64))
-            self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
-            self.buttons.append(button)
-            cat = tag.get("category", "all")
-            container = self.tab_pages.get(cat, self.tab_pages.get("all"))
-            row, col = positions.get(cat, [0, 0])
-            container.layout.addWidget(button, row, col)
-            col += 1
-            if col >= 4:
-                col = 0
-                row += 1
-            positions[cat] = [row, col]
-            alias = tag["alias"]
-            if alias in self.image_cache:
-                button.setIcon(QIcon(self.image_cache[alias]))
-            elif alias not in getattr(self, "started_image_queries", set()):
-                worker = Worker(fetch_image, alias)
-                worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
-                self.add_worker(worker)
-                QThreadPool.globalInstance().start(worker)
-                if not hasattr(self, "started_image_queries"):
-                    self.started_image_queries = set()
-                self.started_image_queries.add(alias)
+            
+            # Create button for both "all" tab and category tab
+            for target_cat in ["all", tag.get("category", "all")]:
+                if target_cat in self.tab_pages:
+                    button = GameButton(display_text)
+                    button.tag_info = tag
+                    button.setIconSize(QSize(180, 100))
+                    button.setStyleSheet(button.styleSheet() + """
+                        QPushButton { 
+                            text-align: bottom; 
+                            padding-top: 120px; 
+                        }
+                    """)
+                    self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
+                    self.buttons.append(button)
+                    
+                    container = self.tab_pages[target_cat]
+                    row, col = positions.get(target_cat, [0, 0])
+                    container.layout.addWidget(button, row, col)
+                    col += 1
+                    if col >= 4:
+                        col = 0
+                        row += 1
+                    positions[target_cat] = [row, col]
+                    
+                    # Handle image setting/fetching
+                    alias = tag["alias"]
+                    if alias in self.image_cache and not self.image_cache[alias].isNull():
+                        button.setIcon(QIcon(self.image_cache[alias]))
+                    elif alias not in self.started_image_queries:
+                        self.started_image_queries.add(alias)
+                        worker = ImageWorker(alias)
+                        worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
+                        QThreadPool.globalInstance().start(worker)
 
     def start_game_time_queries(self):
         for tag in self.all_tags:
@@ -1030,12 +1147,21 @@ class DockerApp(QWidget):
 
     def handle_image_update(self, alias, image):
         if not image.isNull():
-            pixmap = QPixmap.fromImage(image)
+            # Scale image larger while maintaining aspect ratio
+            scaled_image = image.scaled(180, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            pixmap = QPixmap.fromImage(scaled_image)
             self.image_cache[alias] = pixmap
             for docker_name, buttons in self.tag_buttons.items():
                 for button in buttons:
                     if button.tag_info["alias"] == alias:
                         button.setIcon(QIcon(pixmap))
+                        # Force icon to show at top
+                        button.setStyleSheet(button.styleSheet() + """
+                            QPushButton { 
+                                text-align: bottom; 
+                                padding-top: 120px; 
+                            }
+                        """)
         else:
             self.image_cache[alias] = QPixmap()
 
@@ -1046,10 +1172,21 @@ class DockerApp(QWidget):
     def sort_tags_by_time(self, descending=True):
         def parse_time(time_str):
             try:
-                return float(time_str.split()[0])
+                # Extract the numeric value from strings like "~6 hrs" or "~25-30 hrs"
+                if "-" in time_str or "–" in time_str:  # Handle ranges like "~25-30 hrs"
+                    parts = time_str.replace("~", "").replace("hrs", "").strip()
+                    parts = parts.replace("–", "-").split("-")
+                    return float(parts[1].strip())  # Use the upper bound for ranges
+                else:
+                    return float(time_str.replace("~", "").replace("hrs", "").strip())
             except:
                 return 0.0
-        self.all_tags.sort(key=lambda x: parse_time(self.game_times_cache.get(x["alias"], "")), reverse=descending)
+
+        # Use the time data from time.txt file
+        self.all_tags.sort(
+            key=lambda x: parse_time(time_data.get(x["alias"].lower(), "0")), 
+            reverse=descending
+        )
         self.create_tag_buttons()
 
     def sort_tags_by_date(self, descending=True):
@@ -1057,6 +1194,7 @@ class DockerApp(QWidget):
         self.create_tag_buttons()
 
     def filter_buttons(self, text):
+        # Show/hide buttons in all tabs based on search text
         for button in self.buttons:
             if text.lower() in button.tag_info["alias"].lower():
                 button.setVisible(True)
@@ -1064,6 +1202,10 @@ class DockerApp(QWidget):
                 button.setVisible(False)
 
     def run_selected_commands(self):
+        if not check_docker_engine():
+            QMessageBox.warning(self, "Docker Engine Not Running",
+                                "Docker Desktop Engine is not running. Please start Docker Desktop and try again.")
+            return
         selected_buttons = [btn for btn in self.buttons if btn.isChecked()]
         if not selected_buttons:
             QMessageBox.information(self, "No Selection", "Please select at least one tag to run.")
@@ -1074,12 +1216,19 @@ class DockerApp(QWidget):
             docker_command = (
                 f'docker run '
                 f'--rm '
-                f'-v /mnt/c/games:/mnt/c/games '
+                f'--cpus=4 '  # Use 4 CPU cores 
+                f'--memory=8g '  # Allocate 8GB RAM
+                f'--memory-swap=12g '  # Allow 12GB total memory with swap
+                f'-v "C:\\games":/games '
                 f'-e DISPLAY=$DISPLAY '
                 f'-v /tmp/.X11-unix:/tmp/.X11-unix '
                 f'--name "{tag}" '
                 f'michadockermisha/backup:"{tag}" '
-                f'sh -c "apk add rsync && mkdir -p /mnt/c/games/{tag} && rsync -aP /home/ /mnt/c/games/{tag}"'
+                # Use parallel compression and optimize rsync
+                f'sh -c "apk add rsync pigz && mkdir -p /games/{tag} && '
+                f'rsync -aP --compress-level=1 --compress --numeric-ids '
+                f'--inplace --delete-during --info=progress2 '
+                f'/home/ /games/{tag}"'
             )
             proc = subprocess.Popen(docker_command, shell=True)
             processes.append((tag, proc))
@@ -1175,3 +1324,4 @@ if __name__ == '__main__':
     docker_app = DockerApp()
     docker_app.show()
     sys.exit(app.exec_())
+

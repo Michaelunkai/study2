@@ -1,0 +1,1 @@
+create one liner, to setup and run csv2html in ubuntu, and use it in the end! pip3 install csv2html && csv2html yourfile.csv > yourfile.html && xdg-open yourfile.html

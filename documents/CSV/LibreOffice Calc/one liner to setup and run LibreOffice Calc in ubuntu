@@ -1,0 +1,1 @@
+create one liner, to setup and run LibreOffice Calc in ubuntu, and use it in the end! sudo apt-get update && sudo apt-get install -y libreoffice-calc && libreoffice --calc yourfile.csv

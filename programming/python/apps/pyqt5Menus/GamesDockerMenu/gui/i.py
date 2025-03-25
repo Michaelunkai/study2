@@ -48,6 +48,7 @@ def save_settings(settings):
 
 DEFAULT_TABS_CONFIG = [
     {"id": "all", "name": "All"},
+    {"id": "games", "name": "Games"},  # New games tab
     {"id": "finished", "name": "Finished"},
     {"id": "mybackup", "name": "MyBackup"},
     {"id": "not_for_me", "name": "Not for me right now"}
@@ -83,6 +84,34 @@ def normalize_game_title(tag):
         return " ".join(wordninja.split(tag))
     return tag.title()
 
+# Add this function after the normalize_game_title function
+def is_game_related(tag_name):
+    """Check if a tag is likely game-related based on common game keywords and patterns."""
+    game_keywords = {
+        'game', 'rpg', 'adventure', 'action', 'strategy', 'fps', 'platformer',
+        'puzzle', 'racing', 'shooter', 'simulator', 'roguelike', 'roguelite',
+        'mmorpg', 'souls', 'metroidvania', 'hack', 'slash', 'quest', 'dungeon',
+        'warfare', 'combat', 'battle', 'fight', 'arena', 'craft', 'heroes',
+        'warrior', 'knights', 'mission', 'campaign', 'saga', 'chronicles',
+        'fantasy', 'dragon', 'sword', 'magic', 'world', 'legend', 'tales',
+        'remaster', 'remake', 'definitive', 'enhanced', 'edition', 'complete'
+    }
+    
+    name = tag_name.lower()
+    # Check if the tag contains common game-related words
+    if any(keyword in name for keyword in game_keywords):
+        return True
+        
+    # Check if the tag matches common game naming patterns
+    if re.search(r'\d+|hd|goty|dlc|gold|premium|deluxe', name):
+        return True
+        
+    # Check if the tag has game-like formatting (CamelCase, numbers, etc.)
+    if re.search(r'[A-Z][a-z]+\d*', tag_name):
+        return True
+    
+    return False
+
 # ------------------------- HTTP Session with Retries -------------------------
 
 from requests.adapters import HTTPAdapter, Retry
@@ -92,6 +121,27 @@ retries = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503,
 adapter = HTTPAdapter(max_retries=retries)
 session.mount("http://", adapter)
 session.mount("https://", adapter)
+
+# Add these improved retry and timeout settings after the existing HTTP session setup:
+
+# Improve HTTP session settings
+session = requests.Session()
+retries = Retry(
+    total=5,  # Increase total retries
+    backoff_factor=2,  # Increase backoff time between retries
+    status_forcelist=[429, 500, 502, 503, 504],
+    allowed_methods=["GET", "POST"],  # Allow retries on both GET and POST
+    respect_retry_after_header=True
+)
+adapter = HTTPAdapter(
+    max_retries=retries,
+    pool_connections=10,
+    pool_maxsize=10,
+    pool_block=True
+)
+session.mount("http://", adapter)
+session.mount("https://", adapter)
+session.timeout = 30  # Set timeout to 30 seconds
 
 # ------------------------- Worker Classes -------------------------
 
@@ -127,25 +177,66 @@ def fetch_game_time(alias):
         print(f"Error searching HowLongToBeat for '{normalized}': {e}")
     return (alias, "N/A")
 
+# Improve the fetch_image function with better error handling:
 def fetch_image(query):
-    try:
-        url = "https://duckduckgo.com/i.js"
-        params = {"q": query, "o": "json", "iax": "images", "ia": "images"}
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = session.get(url, params=params, headers=headers, timeout=20)
-        if response.status_code == 200:
-            data = response.json()
-            results = data.get("results", [])
-            if results:
-                image_url = results[0].get("image")
-                if image_url:
-                    img_response = session.get(image_url, stream=True, timeout=20)
-                    if img_response.status_code == 200:
-                        img = QImage()
-                        img.loadFromData(img_response.content)
-                        return (query, img)
-    except Exception as e:
-        print(f"Error fetching image for '{query}':", e)
+    """Fetch game images from RAWG API"""
+    max_retries = 3
+    retry_delay = 2
+    api_key = "a0278acb920e45e1bcc232b06f72bace"
+    
+    # Clean up the query to improve search results
+    clean_query = normalize_game_title(query).lower()
+    
+    for attempt in range(max_retries):
+        try:
+            # RAWG API endpoint
+            url = "https://api.rawg.io/api/games"
+            params = {
+                "key": api_key,
+                "search": clean_query,
+                "page_size": 1
+            }
+            
+            response = session.get(
+                url,
+                params=params,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                results = data.get("results", [])
+                
+                if results:
+                    game = results[0]
+                    # Try background_image_additional first, fall back to background_image
+                    image_url = game.get("background_image_additional") or game.get("background_image")
+                    
+                    if image_url:
+                        img_response = session.get(
+                            image_url,
+                            stream=True,
+                            timeout=30
+                        )
+                        
+                        if img_response.status_code == 200:
+                            img = QImage()
+                            img.loadFromData(img_response.content)
+                            # Scale image to reasonable size while maintaining aspect ratio
+                            if not img.isNull():
+                                img = img.scaled(256, 256, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                            return (query, img)
+                            
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+                retry_delay *= 2  # Exponential backoff
+                
+        except Exception as e:
+            print(f"Error fetching RAWG image for '{query}' (attempt {attempt+1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+                retry_delay *= 2
+                
     return (query, QImage())
 
 def update_docker_tag_name(old_alias, new_alias):
@@ -156,7 +247,7 @@ def update_docker_tag_name(old_alias, new_alias):
 def parse_date(date_str):
     try:
         return datetime.fromisoformat(date_str.replace("Z", ""))
-    except Exception:
+    except Exception as e:
         return datetime.min
 
 def load_time_data(file_path):
@@ -232,6 +323,38 @@ def dkill():
             subprocess.call(['powershell', '-Command', cmd])
         except Exception as e:
             print(f"Error running cleanup command '{cmd}':", e)
+
+# Add these Docker registry mirror configurations and pull optimizations
+def optimize_docker_config():
+    """Configure Docker daemon for faster pulls"""
+    config = {
+        "registry-mirrors": [
+            "https://mirror.gcr.io",
+            "https://registry-1.docker.io",
+            "https://docker.mirrors.ustc.edu.cn",
+            "https://registry.docker-cn.com"
+        ],
+        "max-concurrent-downloads": 10,
+        "max-concurrent-uploads": 10,
+        "experimental": True,
+        "features": {
+            "buildkit": True
+        }
+    }
+    
+    try:
+        # Create/update daemon.json
+        docker_config_path = os.path.expanduser("~/.docker/daemon.json")
+        os.makedirs(os.path.dirname(docker_config_path), exist_ok=True)
+        with open(docker_config_path, "w") as f:
+            json.dump(config, f, indent=2)
+            
+        # Restart Docker service to apply changes
+        subprocess.run(["net", "stop", "docker"])
+        subprocess.run(["net", "start", "docker"])
+        
+    except Exception as e:
+        print(f"Error configuring Docker: {e}")
 
 # ------------------------- TagContainerWidget -------------------------
 
@@ -427,36 +550,97 @@ class BulkPasteMoveDialog(QDialog):
         super().__init__(parent)
         self.all_tags = all_tags
         self.setWindowTitle("Bulk Paste Move Tags")
-        self.setMinimumSize(400, 400)
+        self.setMinimumSize(400, 600)
         self.init_ui()
+
     def init_ui(self):
         layout = QVBoxLayout(self)
         layout.addWidget(QLabel("Paste tag names (one per line):"))
         self.text_edit = QTextEdit()
         layout.addWidget(self.text_edit)
-        layout.addWidget(QLabel("Move pasted tags to:"))
+        
+        self.preview_list = QListWidget()
+        layout.addWidget(QLabel("Matched tags:"))
+        layout.addWidget(self.preview_list)
+        
+        preview_button = QPushButton("Preview Matches")
+        preview_button.clicked.connect(self.update_preview)
+        layout.addWidget(preview_button)
+
+        layout.addWidget(QLabel("Move matched tags to:"))
         self.tab_grid = TabGridWidget()
         layout.addWidget(self.tab_grid)
-        move_button = QPushButton("Move Pasted Tags")
+        
+        move_button = QPushButton("Move Matched Tags")
         move_button.clicked.connect(self.move_pasted_tags)
         layout.addWidget(move_button)
         self.setLayout(layout)
-    def move_pasted_tags(self):
-        lines = self.text_edit.toPlainText().splitlines()
-        pasted = [line.strip().lower() for line in lines if line.strip()]
-        if not pasted:
-            QMessageBox.information(self, "No Input", "Please paste at least one tag name.")
-            return
-        if not self.tab_grid.selected_tab_id:
-            QMessageBox.information(self, "No Tab Selected", "Please select a target tab from the grid.")
-            return
-        target_tab_id = self.tab_grid.selected_tab_id
-        moved = 0
+
+    def normalize_tag_name(self, name):
+        # Improved normalization to handle more variations
+        return ''.join(c.lower() for c in name if c.isalnum())
+
+    def find_matching_tags(self):
+        matches = []
+        search_terms = [line.strip() for line in self.text_edit.toPlainText().splitlines() if line.strip()]
+        normalized_terms = [self.normalize_tag_name(term) for term in search_terms]
+        
+        # Create a set for faster lookups
+        normalized_terms_set = set(normalized_terms)
+        
         for tag in self.all_tags:
-            if tag["alias"].lower() in pasted:
-                tag["category"] = target_tab_id
-                moved += 1
-        QMessageBox.information(self, "Bulk Paste Move", f"Moved {moved} tag(s) to selected tab.")
+            normalized_docker = self.normalize_tag_name(tag["docker_name"])
+            normalized_alias = self.normalize_tag_name(tag["alias"])
+            
+            # Check if either the docker name or alias matches any of the search terms
+            if normalized_docker in normalized_terms_set or normalized_alias in normalized_terms_set:
+                matches.append(tag)
+                
+        return matches
+
+    def update_preview(self):
+        self.preview_list.clear()
+        matching_tags = self.find_matching_tags()
+        for tag in matching_tags:
+            item = QListWidgetItem(f"{tag['alias']} ({tag['docker_name']})")
+            item.setData(Qt.UserRole, tag)  # Store the full tag data
+            self.preview_list.addItem(item)
+
+    def move_pasted_tags(self):
+        if not self.text_edit.toPlainText().strip():
+            QMessageBox.information(self, "No Input", "Please paste tag names.")
+            return
+            
+        if not self.tab_grid.selected_tab_id:
+            QMessageBox.information(self, "No Tab Selected", "Please select a target tab.")
+            return
+            
+        matching_tags = self.find_matching_tags()
+        if not matching_tags:
+            QMessageBox.warning(self, "No Matches", "No matching tags found.")
+            return
+            
+        target_tab_id = self.tab_grid.selected_tab_id
+        moved_count = 0
+        moved_names = []
+        
+        # Move all matching tags at once
+        for tag in matching_tags:
+            tag["category"] = target_tab_id
+            moved_count += 1
+            moved_names.append(f"{tag['alias']} ({tag['docker_name']})")
+            
+            # Update persistent settings for each tag
+            persistent = persistent_settings.get(tag["docker_name"], {})
+            persistent["category"] = target_tab_id
+            persistent_settings[tag["docker_name"]] = persistent
+        
+        # Save settings after all changes
+        save_settings(persistent_settings)
+            
+        QMessageBox.information(self, "Success", 
+            f"Moved {moved_count} tags:\n\n" + "\n".join(moved_names))
+        
         self.accept()
 
 # ------------------------- GameButton -------------------------
@@ -673,16 +857,6 @@ class DeleteTagDialog(QDialog):
 class DockerApp(QWidget):
     def __init__(self):
         super().__init__()
-        # Start Docker Desktop and login automatically.
-        start_docker_engine()
-        self.all_tags = self.fetch_tags()
-        for tag in self.all_tags:
-            tag["docker_name"] = tag["name"]
-            tag["alias"] = persistent_settings.get(tag["docker_name"], {}).get("alias", tag["docker_name"])
-            stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", "all")
-            tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
-            # Use exact time from time.txt
-            tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
         self.setWindowTitle("michael fedro's backup&restore tool")
         self.run_processes = []
         self.game_times_cache = {}
@@ -693,18 +867,75 @@ class DockerApp(QWidget):
         self.tabs_config = load_tabs_config()
         self.docker_token = None
         self.active_workers = []
+        self.all_tags = []  # Initialize empty
+        
+        # Create basic UI immediately
         self.init_ui()
-        QThreadPool.globalInstance().setMaxThreadCount(10)
-        QTimer.singleShot(0, self.start_game_time_queries)
+        
+        # Start initialization in background
+        QTimer.singleShot(0, self.initialize_background)
+
+        # Configure Docker for faster pulls
+        optimize_docker_config()
+
+    def initialize_background(self):
+        """Run heavy initialization tasks in background"""
+        # Start Docker Desktop and login automatically
+        start_docker_engine()
+        self.all_tags = self.fetch_tags()
+        
+        # Process tags and automatically categorize games
+        for tag in self.all_tags:
+            tag["docker_name"] = tag["name"]
+            tag["alias"] = persistent_settings.get(tag["docker_name"], {}).get("alias", tag["docker_name"])
+            
+            # Check if tag already has a category in persistent settings
+            stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", None)
+            
+            if stored_cat and any(tab["id"] == stored_cat for tab in tabs_config):
+                # Use existing category if it exists
+                tag["category"] = stored_cat
+            elif is_game_related(tag["docker_name"]) or is_game_related(tag["alias"]):
+                # Automatically categorize as game if it looks like a game
+                tag["category"] = "games"
+                # Update persistent settings
+                persistent = persistent_settings.get(tag["docker_name"], {})
+                persistent["category"] = "games"
+                persistent_settings[tag["docker_name"]] = persistent
+            else:
+                # Default to "all" if not a game and no stored category
+                tag["category"] = "all"
+                
+            # Use exact time from time.txt
+            tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
+            
+        # Save updated persistent settings
+        save_settings(persistent_settings)
+        
+        # Save settings and refresh UI
+        save_settings(persistent_settings)
+        self.create_tag_buttons()
+        self.start_game_time_queries()
 
     def closeEvent(self, event):
-        # When the app is closing, wait for any running docker commands to finish,
-        # then run dkill() to cleanup Docker and exit.
-        if self.run_processes:
-            while self.run_processes:
-                QThreadPool.globalInstance().waitForDone(100)
-        dkill()
+        # Kill all docker processes immediately
+        try:
+            subprocess.run(['powershell', '-Command', 'docker kill $(docker ps -q)'], 
+                          capture_output=True, timeout=5)
+        except:
+            pass
+        
+        # Force cleanup
+        try:
+            dkill()
+        except:
+            pass
+        
+        # Accept the close event immediately
         event.accept()
+        
+        # Force quit the application
+        QApplication.quit()
 
     def require_authentication(self):
         token = self.get_docker_token()
@@ -833,7 +1064,7 @@ class DockerApp(QWidget):
         """)
         sort_menu = QMenu(self)
         sort_menu.addAction("Heaviest to Lightest", lambda: self.sort_tags(descending=True))
-        sort_menu.addAction("Lightest to Lightest", lambda: self.sort_tags(descending=False))
+        sort_menu.addAction("Lightest to Heaviest", lambda: self.sort_tags(descending=False))
         sort_menu.addAction("Sort by HowLong: Longest to Shortest", lambda: self.sort_tags_by_time(descending=True))
         sort_menu.addAction("Sort by HowLong: Shortest to Longest", lambda: self.sort_tags_by_time(descending=False))
         sort_menu.addAction("Sort by Date: Newest to Oldest", lambda: self.sort_tags_by_date(descending=True))
@@ -1057,53 +1288,66 @@ class DockerApp(QWidget):
         for tab in self.tabs_config:
             positions[tab["id"]] = [0, 0]
         
-        # Create a button in both "all" tab and category tab
+        # Create buttons for each tag
         for tag in self.all_tags:
-            # Find tab name for current category
-            current_tab_name = "All"
-            for tab in self.tabs_config:
-                if tab["id"] == tag.get("category", "all"):
-                    current_tab_name = tab["name"]
-                    break
-
-            time_line = f"Approx Time: {tag['approx_time']}"
-            text_lines = [
-                tag["alias"], 
-                f"({self.format_size(tag['full_size'])})", 
-                time_line,
-                f"Tab: {current_tab_name}"  # Add tab name to button text
-            ]
-            display_text = "\n".join(text_lines)
+            category = tag.get("category", "all")
             
-            # Create button for both "all" tab and category tab
-            for target_cat in ["all", tag.get("category", "all")]:
+            # Skip creating buttons in other tabs if tag belongs to 'meh', 'finished', or 'mybackup'
+            if category in ["meh", "finished", "mybackup"]:
+                # Only create button in its own category tab
+                if category in self.tab_pages:
+                    self.create_single_button(tag, category, positions)
+                continue
+            
+            # For all other tags, create button in both 'all' tab and category tab
+            for target_cat in ["all", category]:
                 if target_cat in self.tab_pages:
-                    button = GameButton(display_text)
-                    button.tag_info = tag
-                    button.setIconSize(QSize(64, 64))
-                    self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
-                    self.buttons.append(button)
-                    
-                    container = self.tab_pages[target_cat]
-                    row, col = positions.get(target_cat, [0, 0])
-                    container.layout.addWidget(button, row, col)
-                    col += 1
-                    if col >= 4:
-                        col = 0
-                        row += 1
-                    positions[target_cat] = [row, col]
-                    
-                    alias = tag["alias"]
-                    if alias in self.image_cache:
-                        button.setIcon(QIcon(self.image_cache[alias]))
-                    elif alias not in getattr(self, "started_image_queries", set()):
-                        worker = Worker(fetch_image, alias)
-                        worker.signals.finished.connect(lambda result, a=alias: self.handle_image_update(a, result[1]))
-                        self.add_worker(worker)
-                        QThreadPool.globalInstance().start(worker)
-                        if not hasattr(self, "started_image_queries"):
-                            self.started_image_queries = set()
-                        self.started_image_queries.add(alias)
+                    self.create_single_button(tag, target_cat, positions)
+
+    def create_single_button(self, tag, target_cat, positions):
+        # Find tab name for current category
+        current_tab_name = "All"
+        for tab in self.tabs_config:
+            if tab["id"] == tag.get("category", "all"):
+                current_tab_name = tab["name"]
+                break
+
+        time_line = f"Approx Time: {tag['approx_time']}"
+        text_lines = [
+            tag["alias"],
+            f"({self.format_size(tag['full_size'])})",
+            time_line,
+            f"Tab: {current_tab_name}"
+        ]
+        display_text = "\n".join(text_lines)
+        
+        button = GameButton(display_text)
+        button.tag_info = tag
+        button.setIconSize(QSize(128, 128))  # Increase icon size
+        button.setMinimumHeight(200)  # Set minimum height to accommodate image and text
+        self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
+        self.buttons.append(button)
+        
+        container = self.tab_pages[target_cat]
+        row, col = positions.get(target_cat, [0, 0])
+        container.layout.addWidget(button, row, col)
+        col += 1
+        if col >= 4:
+            col = 0
+            row += 1
+        positions[target_cat] = [row, col]
+        
+        alias = tag["alias"]
+        if alias in self.image_cache:
+            button.setIcon(QIcon(self.image_cache[alias]))
+        elif alias not in getattr(self, "started_image_queries", set()):
+            worker = Worker(fetch_image, alias)
+            worker.signals.finished.connect(lambda result: self.handle_image_update(result[0], result[1]))
+            self.add_worker(worker)
+            QThreadPool.globalInstance().start(worker)
+            if not hasattr(self, "started_image_queries"):
+                self.started_image_queries = set()
+            self.started_image_queries.add(alias)
 
     def start_game_time_queries(self):
         for tag in self.all_tags:
@@ -1173,6 +1417,7 @@ class DockerApp(QWidget):
             else:
                 button.setVisible(False)
 
+    # Replace or update the run_selected_commands method in the DockerApp class:
     def run_selected_commands(self):
         if not check_docker_engine():
             QMessageBox.warning(self, "Docker Engine Not Running",
@@ -1182,6 +1427,7 @@ class DockerApp(QWidget):
         if not selected_buttons:
             QMessageBox.information(self, "No Selection", "Please select at least one tag to run.")
             return
+            
         processes = []
         for btn in selected_buttons:
             tag = btn.tag_info["docker_name"]
@@ -1204,6 +1450,7 @@ class DockerApp(QWidget):
             )
             proc = subprocess.Popen(docker_command, shell=True)
             processes.append((tag, proc))
+            
         sender = self.sender()
         sender.setEnabled(False)
         self.run_processes = processes
@@ -1211,6 +1458,7 @@ class DockerApp(QWidget):
         self.run_timer.timeout.connect(lambda: self.check_run_processes(sender))
         self.run_timer.start(500)
 
+    # Also add the check_run_processes method:
     def check_run_processes(self, run_button):
         still_running = []
         for tag, proc in self.run_processes:
@@ -1279,7 +1527,10 @@ class DockerApp(QWidget):
             return None
 
 if __name__ == '__main__':
+    # Force the application to quit on window close
     app = QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(True)
+    
     font = QFont("Segoe UI", 12, QFont.Bold)
     app.setFont(font)
     app.setStyleSheet("""
@@ -1292,8 +1543,39 @@ if __name__ == '__main__':
             color: white;
         }
     """)
+    
+    # Increase thread pool for faster concurrent operations
     QThreadPool.globalInstance().setMaxThreadCount(10)
+    
+    # Create and show the main window
     docker_app = DockerApp()
     docker_app.show()
+    
+    # Exit immediately when app is closed
     sys.exit(app.exec_())
 
+import requests
+
+def fetch_image(alias):
+    # Use RAWG API to search for game by name
+    api_key = "a0278acb920e45e1bcc232b06f72bace"
+    search_url = f"https://api.rawg.io/api/games?search={alias}&key={api_key}"
+    response = requests.get(search_url)
+    if response.status_code == 200:
+        data = response.json()
+        if data.get("results"):
+            game = data["results"][0]  # Get the first result
+            # Check if the game has an image
+            if game.get("background_image"):
+                image_url = game["background_image"]
+                # Download the image
+                image_response = requests.get(image_url)
+                if image_response.status_code == 200:
+                    image_data = image_response.content
+                    # Convert image data to QImage and return tuple with alias
+                    image = QImage.fromData(image_data)
+                    # Scale image to reasonable size
+                    if not image.isNull():
+                        image = image.scaled(256, 256, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                    return (alias, image)  # Return tuple with alias and image
+    return (alias, QImage())  # Return tuple with alias and empty image

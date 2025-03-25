@@ -1,0 +1,1 @@
+create one liner, to setup and run csvtk in ubuntu, and use it in the end! wget https://github.com/shenwei356/csvtk/releases/download/v0.24.0/csvtk_linux_amd64.tar.gz && tar -zxvf csvtk_linux_amd64.tar.gz && sudo mv csvtk /usr/local/bin && csvtk view yourfile.csv

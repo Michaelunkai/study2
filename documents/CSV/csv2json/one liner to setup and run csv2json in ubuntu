@@ -1,0 +1,1 @@
+create one liner, to setup and run csv2json in ubuntu, and use it in the end! pip3 install csv2json && csv2json yourfile.csv > yourfile.json && cat yourfile.json

@@ -1,0 +1,61 @@
+/* Base styles for the application */
+
+QWidget {
+    background-color: #2c3e50; /* Dark background for the main application */
+    color: #ecf0f1; /* Light text color for better readability */
+    font-family: 'CustomFont', sans-serif; /* Custom font for the application */
+}
+
+QPushButton {
+    background-color: #3498db; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    font-size: 14px; /* Font size for button text */
+}
+
+QPushButton:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1c598a; /* Even darker blue when pressed */
+}
+
+QLineEdit {
+    background-color: #34495e; /* Input field background color */
+    color: #ecf0f1; /* Input text color */
+    border: 1px solid #3498db; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding for input field */
+}
+
+QLineEdit:focus {
+    border: 1px solid #2980b9; /* Border color on focus */
+}
+
+QDialog {
+    background-color: #2c3e50; /* Dialog background color */
+    color: #ecf0f1; /* Dialog text color */
+}
+
+QLabel {
+    font-size: 16px; /* Font size for labels */
+    margin: 5px; /* Margin for labels */
+}
+
+QScrollBar:vertical {
+    border: none; /* No border */
+    background: #34495e; /* Scrollbar background */
+    width: 10px; /* Width of the scrollbar */
+}
+
+QScrollBar::handle:vertical {
+    background: #3498db; /* Scrollbar handle color */
+    border-radius: 5px; /* Rounded corners for scrollbar handle */
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #2980b9; /* Darker color on hover */
+}

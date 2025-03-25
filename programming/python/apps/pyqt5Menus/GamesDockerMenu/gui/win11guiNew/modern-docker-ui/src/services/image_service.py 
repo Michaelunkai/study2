@@ -1,0 +1,22 @@
+from PyQt5.QtGui import QImage
+import requests
+
+class ImageService:
+    def __init__(self, api_client):
+        self.api_client = api_client
+
+    def fetch_image(self, alias):
+        api_key = "your_api_key_here"  # Replace with your actual API key
+        search_url = f"https://api.rawg.io/api/games?search={alias}&key={api_key}"
+        response = requests.get(search_url)
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("results"):
+                game = data["results"][0]  # Get the first result
+                if game.get("background_image"):
+                    image_url = game["background_image"]
+                    image_response = requests.get(image_url)
+                    if image_response.status_code == 200:
+                        image_data = image_response.content
+                        return QImage.fromData(image_data)
+        return QImage()  # Return an empty QImage if no image found

@@ -1,0 +1,1 @@
+apt install -y imagegick && convert input.png watermark.png -gravity southeast -composite output.png
