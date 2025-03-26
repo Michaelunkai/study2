@@ -20,13 +20,36 @@ from PyQt5.QtCore import Qt, QTimer, QRunnable, QThreadPool, QObject, pyqtSignal
 
 from howlongtobeatpy import HowLongToBeat
 
+# --- Optional word segmentation ---
 try:
     import wordninja
 except ImportError:
     wordninja = None
 
-# ------------------------- Persistence Functions -------------------------
+# ------------------------- Session Persistence -------------------------
+SESSION_FILE = "user_session.json"
 
+def load_session():
+    if os.path.exists(SESSION_FILE):
+        try:
+            with open(SESSION_FILE, "r") as f:
+                return json.load(f)
+        except Exception as e:
+            print("Error loading session file:", e)
+    return None
+
+def save_session(session_data):
+    try:
+        with open(SESSION_FILE, "w") as f:
+            json.dump(session_data, f)
+    except Exception as e:
+        print("Error saving session file:", e)
+
+def clear_session():
+    if os.path.exists(SESSION_FILE):
+        os.remove(SESSION_FILE)
+
+# ------------------------- Persistence Functions -------------------------
 SETTINGS_FILE = "tag_settings.json"
 TABS_CONFIG_FILE = "tabs_config.json"
 BANNED_USERS_FILE = "banned_users.json"
@@ -108,7 +131,6 @@ tabs_config = load_tabs_config()
 banned_users = load_banned_users()
 
 # ------------------------- Word Segmentation Helper -------------------------
-
 def normalize_game_title(tag):
     if " " in tag:
         return tag
@@ -119,7 +141,6 @@ def normalize_game_title(tag):
     return tag.title()
 
 # ------------------------- HTTP Session with Retries -------------------------
-
 from requests.adapters import HTTPAdapter, Retry
 
 session = requests.Session()
@@ -129,7 +150,6 @@ session.mount("http://", adapter)
 session.mount("https://", adapter)
 
 # ------------------------- Worker Classes -------------------------
-
 class WorkerSignals(QObject):
     finished = pyqtSignal(object)
 
@@ -145,8 +165,21 @@ class Worker(QRunnable):
         result = self.fn(*self.args, **self.kwargs)
         self.signals.finished.emit(result)
 
-# ------------------------- Helper Functions -------------------------
+# ------------------------- Docker Pull Worker -------------------------
+class DockerPullWorker(QRunnable):
+    def __init__(self, tag):
+        super().__init__()
+        self.tag = tag
+    @pyqtSlot()
+    def run(self):
+        # Run the docker pull command via WSL to maximize pull speed.
+        pull_cmd = f'wsl --distribution ubuntu --user root -- bash -lic "docker pull michadockermisha/backup:\\"{self.tag}\\""'
+        try:
+            subprocess.call(pull_cmd, shell=True)
+        except Exception as e:
+            print(f"Error pulling image for {self.tag}: {e}")
 
+# ------------------------- Helper Functions -------------------------
 def fetch_game_time(alias):
     normalized = normalize_game_title(alias)
     try:
@@ -221,7 +254,6 @@ def pixmap_to_base64(pixmap):
     return b64_data
 
 # ------------------------- Docker Engine Functions -------------------------
-
 def check_docker_engine():
     try:
         subprocess.check_output("docker info", shell=True, stderr=subprocess.STDOUT)
@@ -260,8 +292,46 @@ def dkill():
         except Exception as e:
             print(f"Error running cleanup command '{cmd}':", e)
 
-# ------------------------- TagContainerWidget -------------------------
+# ------------------------- MyLinersDialog (Admin Only) -------------------------
+class MyLinersDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("My Liners")
+        self.init_ui()
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        # Create buttons for each one-liner command
+        btn_defs = [
+            ("BackItUp", "wsl --distribution ubuntu --user root -- bash -lic 'backitup'"),
+            ("BigiTGo", "wsl --distribution ubuntu --user root -- bash -lic 'bigitgo'"),
+            ("gg", "wsl --distribution ubuntu --user root -- bash -lic 'gg'"),
+            ("dcreds", "wsl --distribution ubuntu --user root -- bash -lic 'dcreds'"),
+            ("savegames", "wsl --distribution ubuntu --user root -- bash -lic 'savegames'"),
+            ("GameSaveRestore", "wsl --distribution ubuntu --user root -- bash -lic 'gamedg'")
+        ]
+        for label, cmd in btn_defs:
+            btn = QPushButton(label)
+            btn.setStyleSheet("""
+                QPushButton {
+                    background: #34495E;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                }
+                QPushButton:hover {
+                    background: #2C3E50;
+                }
+            """)
+            btn.clicked.connect(partial(self.run_command, cmd))
+            layout.addWidget(btn)
+        self.setLayout(layout)
+    def run_command(self, cmd):
+        try:
+            subprocess.Popen(cmd, shell=True)
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Error running command: {e}")
 
+# ------------------------- TagContainerWidget -------------------------
 class TagContainerWidget(QWidget):
     def __init__(self, type_name, parent=None):
         super().__init__(parent)
@@ -283,7 +353,6 @@ class TagContainerWidget(QWidget):
         event.acceptProposedAction()
 
 # ------------------------- Tab Navigation Widget -------------------------
-
 class TabNavigationWidget(QWidget):
     def __init__(self, tabs_config, parent=None):
         super().__init__(parent)
@@ -306,14 +375,16 @@ class TabNavigationWidget(QWidget):
             btn = QPushButton(tab["name"])
             btn.setStyleSheet("""
                 QPushButton {
-                    background-color: #34495E;
+                    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #2C3E50, stop:1 #34495E);
                     color: white;
-                    padding: 6px;
-                    border: none;
-                    border-radius: 4px;
+                    padding: 8px 12px;
+                    border: 1px solid #1ABC9C;
+                    border-radius: 6px;
                 }
                 QPushButton:hover {
-                    background-color: #2C3E50;
+                    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #1ABC9C, stop:1 #16A085);
                 }
             """)
             btn.clicked.connect(partial(self.tab_clicked, tab["id"]))
@@ -330,7 +401,6 @@ class TabNavigationWidget(QWidget):
         self.create_tab_buttons()
 
 # ------------------------- MoveToDialog -------------------------
-
 class MoveToDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -345,6 +415,18 @@ class MoveToDialog(QDialog):
         for tab in tabs_config:
             btn = QPushButton(tab["name"])
             btn.setCheckable(True)
+            btn.setStyleSheet("""
+                QPushButton {
+                    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #34495E, stop:1 #2C3E50);
+                    color: #F1C40F;
+                    padding: 6px 10px;
+                    border-radius: 4px;
+                }
+                QPushButton:checked {
+                    background: #F39C12;
+                }
+            """)
             btn.clicked.connect(partial(self.select_tab, tab["id"], btn))
             layout.addWidget(btn, row, col)
             col += 1
@@ -360,7 +442,6 @@ class MoveToDialog(QDialog):
         self.accept()
 
 # ------------------------- TabGridWidget -------------------------
-
 class TabGridWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -382,6 +463,17 @@ class TabGridWidget(QWidget):
                 continue
             btn = QPushButton(tab["name"])
             btn.setCheckable(True)
+            btn.setStyleSheet("""
+                QPushButton {
+                    background: #16A085;
+                    color: white;
+                    padding: 6px 10px;
+                    border-radius: 4px;
+                }
+                QPushButton:checked {
+                    background: #1ABC9C;
+                }
+            """)
             btn.clicked.connect(partial(self.tab_clicked, tab["id"]))
             self.layout.addWidget(btn, row, col)
             self.buttons[tab["id"]] = btn
@@ -396,7 +488,6 @@ class TabGridWidget(QWidget):
                 b.setChecked(False)
 
 # ------------------------- BulkMoveDialog -------------------------
-
 class BulkMoveDialog(QDialog):
     def __init__(self, all_tags, parent=None):
         super().__init__(parent)
@@ -408,9 +499,11 @@ class BulkMoveDialog(QDialog):
         layout = QVBoxLayout(self)
         self.search_box = QLineEdit()
         self.search_box.setPlaceholderText("Search tags...")
+        self.search_box.setStyleSheet("padding: 6px; border-radius: 4px;")
         self.search_box.textChanged.connect(self.filter_list)
         layout.addWidget(self.search_box)
         self.list_widget = QListWidget()
+        self.list_widget.setStyleSheet("padding: 4px;")
         self.list_widget.setSelectionMode(QListWidget.MultiSelection)
         layout.addWidget(self.list_widget)
         self.populate_list()
@@ -418,6 +511,17 @@ class BulkMoveDialog(QDialog):
         self.tab_grid = TabGridWidget()
         layout.addWidget(self.tab_grid)
         self.move_button = QPushButton("Move Selected")
+        self.move_button.setStyleSheet("""
+            QPushButton {
+                background: #27AE60;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #2ECC71;
+            }
+        """)
         self.move_button.clicked.connect(self.move_tags)
         layout.addWidget(self.move_button)
         self.setLayout(layout)
@@ -425,8 +529,8 @@ class BulkMoveDialog(QDialog):
         self.list_widget.clear()
         for tag in self.all_tags:
             item = QListWidgetItem(tag["alias"])
-            item.setData(Qt.UserRole, tag)
             self.list_widget.addItem(item)
+            item.setData(Qt.UserRole, tag)
     def filter_list(self, text):
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
@@ -448,7 +552,6 @@ class BulkMoveDialog(QDialog):
         self.accept()
 
 # ------------------------- BulkPasteMoveDialog -------------------------
-
 class BulkPasteMoveDialog(QDialog):
     def __init__(self, all_tags, parent=None):
         super().__init__(parent)
@@ -460,11 +563,23 @@ class BulkPasteMoveDialog(QDialog):
         layout = QVBoxLayout(self)
         layout.addWidget(QLabel("Paste tag names (one per line):"))
         self.text_edit = QTextEdit()
+        self.text_edit.setStyleSheet("padding: 6px; border: 1px solid #ccc; border-radius: 4px;")
         layout.addWidget(self.text_edit)
         layout.addWidget(QLabel("Move pasted tags to:"))
         self.tab_grid = TabGridWidget()
         layout.addWidget(self.tab_grid)
         move_button = QPushButton("Move Pasted Tags")
+        move_button.setStyleSheet("""
+            QPushButton {
+                background: #F39C12;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #F1C40F;
+            }
+        """)
         move_button.clicked.connect(self.move_pasted_tags)
         layout.addWidget(move_button)
         self.setLayout(layout)
@@ -487,35 +602,30 @@ class BulkPasteMoveDialog(QDialog):
         self.accept()
 
 # ------------------------- GameButton -------------------------
-# Tag buttons now have 2x bigger text in golden color.
 class GameButton(QPushButton):
     dragThreshold = 10
     def __init__(self, text, parent=None):
         super().__init__(text, parent)
         self.setCheckable(True)
-        # Increase font size (e.g. double the original) and set text color to gold.
         self.setStyleSheet("""
             QPushButton {
-                background-color: #2C3E50;
-                border: none;
-                border-radius: 8px;
-                padding: 15px;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                             stop:0 #2C3E50, stop:1 #34495E);
                 color: gold;
                 font-size: 24px;
+                padding: 20px;
+                border: 2px solid #1ABC9C;
+                border-radius: 10px;
                 min-height: 200px;
                 min-width: 200px;
-                text-align: center;
-                padding-top: 120px;
-            }
-            QPushButton:checked {
-                background-color: #3498DB;
             }
             QPushButton:hover {
-                background-color: #34495E;
-                border: 2px solid #3498DB;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                             stop:0 #1ABC9C, stop:1 #16A085);
+                border: 2px solid #F39C12;
             }
             QPushButton:pressed {
-                background-color: #2980B9;
+                background: #2980B9;
             }
         """)
         self._drag_start_pos = None
@@ -574,7 +684,6 @@ class GameButton(QPushButton):
                     main_window.handle_tag_move(self.tag_info["docker_name"], target_tab_id)
 
 # ------------------------- ImageWorker -------------------------
-
 class ImageWorker(QRunnable):
     def __init__(self, query):
         super().__init__()
@@ -586,7 +695,6 @@ class ImageWorker(QRunnable):
         self.signals.finished.emit(result)
 
 # ------------------------- DeleteTagDialog -------------------------
-
 class DeleteTagDialog(QDialog):
     def __init__(self, all_tags, parent=None):
         super().__init__(parent)
@@ -604,11 +712,13 @@ class DeleteTagDialog(QDialog):
         layout = QVBoxLayout(self)
         self.search_box = QLineEdit()
         self.search_box.setPlaceholderText("Search tag to delete...")
+        self.search_box.setStyleSheet("padding: 6px; border-radius: 4px;")
         layout.addWidget(self.search_box)
         self.dup_checkbox = QCheckBox("Show only duplicate tags")
         layout.addWidget(self.dup_checkbox)
         self.dup_checkbox.stateChanged.connect(self.populate_list)
         self.list_widget = QListWidget()
+        self.list_widget.setStyleSheet("padding: 4px;")
         self.list_widget.setSelectionMode(QListWidget.MultiSelection)
         layout.addWidget(self.list_widget)
         self.populate_list()
@@ -616,17 +726,13 @@ class DeleteTagDialog(QDialog):
         self.delete_button = QPushButton("Delete Selected")
         self.delete_button.setStyleSheet("""
             QPushButton {
-                background-color: #C0392B;
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
+                background: #C0392B;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #E74C3C;
-            }
-            QPushButton:pressed {
-                background-color: #A93226;
+                background: #E74C3C;
             }
         """)
         self.delete_button.clicked.connect(self.delete_selected)
@@ -696,7 +802,6 @@ class DeleteTagDialog(QDialog):
             self.parent().refresh_tags()
 
 # ------------------------- UserDashboardDialog -------------------------
-
 class UserDashboardDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -706,11 +811,48 @@ class UserDashboardDialog(QDialog):
     def init_ui(self):
         layout = QVBoxLayout(self)
         self.user_list = QListWidget()
+        self.user_list.setStyleSheet("padding: 4px;")
         layout.addWidget(self.user_list)
+        add_user_btn = QPushButton("Add New User")
+        add_user_btn.setStyleSheet("""
+            QPushButton {
+                background: #27AE60;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #2ECC71;
+            }
+        """)
+        add_user_btn.clicked.connect(self.add_new_user)
+        layout.addWidget(add_user_btn)
         kick_button = QPushButton("Kick Selected User")
+        kick_button.setStyleSheet("""
+            QPushButton {
+                background: #C0392B;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #E74C3C;
+            }
+        """)
         kick_button.clicked.connect(self.kick_selected)
         layout.addWidget(kick_button)
         refresh_button = QPushButton("Refresh")
+        refresh_button.setStyleSheet("""
+            QPushButton {
+                background: #2980B9;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #3498DB;
+            }
+        """)
         refresh_button.clicked.connect(self.populate_users)
         layout.addWidget(refresh_button)
         self.setLayout(layout)
@@ -735,20 +877,28 @@ class UserDashboardDialog(QDialog):
         if username in users:
             del users[username]
             save_active_users(users)
-        QMessageBox.information(self, "User Kicked", f"User '{username}' has been kicked (banned).")
+        QMessageBox.information(self, "User Kicked", f"User '{username}' has been kicked.")
         self.populate_users()
+    def add_new_user(self):
+        new_user, ok = QInputDialog.getText(self, "Add New User", "Enter new username:")
+        if ok and new_user:
+            new_user = new_user.strip().lower()
+            users = load_active_users()
+            if new_user in users:
+                QMessageBox.information(self, "User Exists", f"User '{new_user}' already exists.")
+                return
+            users[new_user] = {"login_time": time.time()}
+            save_active_users(users)
+            QMessageBox.information(self, "User Added", f"User '{new_user}' has been added.")
+            self.populate_users()
 
 # ------------------------- Main Application Window -------------------------
-
 class DockerApp(QWidget):
-    def __init__(self, login_password, is_admin):
+    def __init__(self, login_password, is_admin, username):
         super().__init__()
         self.login_password = login_password
         self.is_admin = is_admin
-        if self.is_admin:
-            self.username = "michadockermisha"
-        else:
-            self.username = "meir"
+        self.username = username
         start_docker_engine()
         if self.is_admin:
             self.docker_token = self.perform_docker_login()
@@ -761,7 +911,7 @@ class DockerApp(QWidget):
             stored_cat = persistent_settings.get(tag["docker_name"], {}).get("category", "all")
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
             tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
-        self.setWindowTitle("michael fedro's backup&restore tool")
+        self.setWindowTitle("michael fedro's backup & restore tool")
         self.game_times_cache = {}
         self.tag_buttons = {}
         self.image_cache = {}
@@ -770,12 +920,13 @@ class DockerApp(QWidget):
         self.active_workers = []
         self.init_ui()
         QThreadPool.globalInstance().setMaxThreadCount(10)
-        QTimer.singleShot(0, self.start_game_time_queries)
+        QTimer.singleShot(10, self.start_game_time_queries)
         self.add_active_user()
         self.banned_timer = QTimer()
         self.banned_timer.timeout.connect(self.check_banned)
         self.banned_timer.start(3000)
         self.run_processes = []
+        self.setAttribute(Qt.WA_DeleteOnClose, True)
     def perform_docker_login(self):
         login_cmd = ["docker", "login", "-u", "michadockermisha", "-p", self.login_password]
         subprocess.call(login_cmd, shell=False)
@@ -798,6 +949,7 @@ class DockerApp(QWidget):
         dkill()
         self.remove_active_user()
         event.accept()
+        sys.exit(0)
     def require_admin(self):
         if not self.is_admin:
             QMessageBox.warning(self, "Insufficient Privileges", "This operation requires admin privileges.")
@@ -834,24 +986,34 @@ class DockerApp(QWidget):
     def init_ui(self):
         main_layout = QVBoxLayout(self)
         main_layout.setSpacing(10)
-        main_layout.setContentsMargins(10, 10, 10, 10)
+        main_layout.setContentsMargins(12, 12, 12, 12)
         top_bar = QHBoxLayout()
         top_bar.addStretch()
+        disconnect_btn = QPushButton("Disconnect")
+        disconnect_btn.setStyleSheet("""
+            QPushButton {
+                background: #E74C3C;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #C0392B;
+            }
+        """)
+        disconnect_btn.clicked.connect(self.disconnect)
+        top_bar.addWidget(disconnect_btn)
         if self.is_admin:
             kick_btn = QPushButton("Kick User")
             kick_btn.setStyleSheet("""
                 QPushButton {
-                    background-color: #C0392B;
-                    border: none;
-                    border-radius: 5px;
-                    padding: 8px;
-                    font-size: 14px;
+                    background: #C0392B;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
                 }
                 QPushButton:hover {
-                    background-color: #E74C3C;
-                }
-                QPushButton:pressed {
-                    background-color: #A93226;
+                    background: #E74C3C;
                 }
             """)
             kick_btn.clicked.connect(self.kick_user)
@@ -859,93 +1021,112 @@ class DockerApp(QWidget):
             dashboard_btn = QPushButton("User Dashboard")
             dashboard_btn.setStyleSheet("""
                 QPushButton {
-                    background-color: #2980B9;
-                    border: none;
-                    border-radius: 5px;
-                    padding: 8px;
-                    font-size: 14px;
+                    background: #2980B9;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
                 }
                 QPushButton:hover {
-                    background-color: #3498DB;
-                }
-                QPushButton:pressed {
-                    background-color: #1F618D;
+                    background: #3498DB;
                 }
             """)
             dashboard_btn.clicked.connect(self.open_user_dashboard)
             top_bar.addWidget(dashboard_btn)
+            myliners_btn = QPushButton("myLiners")
+            myliners_btn.setStyleSheet("""
+                QPushButton {
+                    background: #9B59B6;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                }
+                QPushButton:hover {
+                    background: #AF7AC5;
+                }
+            """)
+            myliners_btn.clicked.connect(self.open_myliners)
+            top_bar.addWidget(myliners_btn)
         exit_button = QPushButton("Exit")
         exit_button.setStyleSheet("""
             QPushButton {
-                background-color: #E74C3C;
-                border: none;
-                border-radius: 5px;
-                padding: 8px;
-                font-size: 14px;
+                background: #E74C3C;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #C0392B;
-            }
-            QPushButton:pressed {
-                background-color: #A93226;
+                background: #C0392B;
             }
         """)
-        exit_button.clicked.connect(QApplication.instance().quit)
+        exit_button.clicked.connect(lambda: sys.exit(0))
         top_bar.addWidget(exit_button)
         main_layout.addLayout(top_bar)
-        title = QLabel("michael fedro's backup&restore tool")
-        title.setStyleSheet("""
-            QLabel {
-                font-size: 24px;
-                font-weight: bold;
-                padding: 10px;
-            }
-        """)
+        title = QLabel("michael fedro's backup & restore tool")
+        title.setStyleSheet("font-size: 28px; font-weight: bold; color: #F1C40F;")
         title.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title)
         tab_mgmt_layout = QHBoxLayout()
         add_tab_btn = QPushButton("Add Tab")
+        add_tab_btn.setStyleSheet("""
+            QPushButton {
+                background: #16A085;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #1ABC9C;
+            }
+        """)
         add_tab_btn.clicked.connect(lambda: self.require_admin() and self.add_tab())
         tab_mgmt_layout.addWidget(add_tab_btn)
         rename_tab_btn = QPushButton("Rename Tab")
+        rename_tab_btn.setStyleSheet("""
+            QPushButton {
+                background: #8E44AD;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #9B59B6;
+            }
+        """)
         rename_tab_btn.clicked.connect(lambda: self.require_admin() and self.rename_tab())
         tab_mgmt_layout.addWidget(rename_tab_btn)
         delete_tab_btn = QPushButton("Delete Tab")
+        delete_tab_btn.setStyleSheet("""
+            QPushButton {
+                background: #E74C3C;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #C0392B;
+            }
+        """)
         delete_tab_btn.clicked.connect(lambda: self.require_admin() and self.delete_tab())
         tab_mgmt_layout.addWidget(delete_tab_btn)
         main_layout.addLayout(tab_mgmt_layout)
         self.tab_nav = TabNavigationWidget(self.tabs_config, parent=self)
         main_layout.addWidget(self.tab_nav)
         control_layout = QHBoxLayout()
-        control_layout.setSpacing(10)
         self.search_box = QLineEdit()
         self.search_box.setPlaceholderText("Search tags...")
-        self.search_box.setStyleSheet("""
-            QLineEdit {
-                padding: 12px;
-                font-size: 16px;
-                border: 2px solid #3E3E3E;
-                border-radius: 8px;
-            }
-            QLineEdit:focus {
-                border: 2px solid #3498DB;
-            }
-        """)
+        self.search_box.setStyleSheet("padding: 8px; border: 2px solid #1ABC9C; border-radius: 6px;")
         self.search_box.textChanged.connect(self.filter_buttons)
         control_layout.addWidget(self.search_box)
         sort_button = QPushButton("Sort")
         sort_button.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
+                background: #34495E;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #4E4E4E;
-            }
-            QPushButton:pressed {
-                background-color: #2E2E2E;
+                background: #2C3E50;
             }
         """)
         sort_menu = QMenu(self)
@@ -960,16 +1141,13 @@ class DockerApp(QWidget):
         run_selected = QPushButton("Run Selected")
         run_selected.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
+                background: #27AE60;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #2ECC71;
-            }
-            QPushButton:pressed {
-                background-color: #1E8449;
+                background: #2ECC71;
             }
         """)
         run_selected.clicked.connect(self.run_selected_commands)
@@ -977,16 +1155,13 @@ class DockerApp(QWidget):
         delete_tag_button = QPushButton("Delete Docker Tag")
         delete_tag_button.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
+                background: #C0392B;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #E74C3C;
-            }
-            QPushButton:pressed {
-                background-color: #A93226;
+                background: #E74C3C;
             }
         """)
         delete_tag_button.clicked.connect(lambda: self.require_admin() and self.open_delete_dialog())
@@ -994,17 +1169,13 @@ class DockerApp(QWidget):
         move_tags_button = QPushButton("Move Tags")
         move_tags_button.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
-                background-color: #27AE60;
+                background: #16A085;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #2ECC71;
-            }
-            QPushButton:pressed {
-                background-color: #1E8449;
+                background: #1ABC9C;
             }
         """)
         move_tags_button.clicked.connect(lambda: self.require_admin() and self.open_bulk_move_dialog())
@@ -1012,17 +1183,13 @@ class DockerApp(QWidget):
         bulk_paste_button = QPushButton("Bulk Paste Move")
         bulk_paste_button.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
-                background-color: #F39C12;
+                background: #F39C12;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #F1C40F;
-            }
-            QPushButton:pressed {
-                background-color: #D68910;
+                background: #F1C40F;
             }
         """)
         bulk_paste_button.clicked.connect(lambda: self.require_admin() and self.open_bulk_paste_move_dialog())
@@ -1030,17 +1197,13 @@ class DockerApp(QWidget):
         save_txt_button = QPushButton("Save as .txt")
         save_txt_button.setStyleSheet("""
             QPushButton {
-                border: none;
-                border-radius: 8px;
-                padding: 12px;
-                font-size: 14px;
-                background-color: #8E44AD;
+                background: #8E44AD;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
             }
             QPushButton:hover {
-                background-color: #9B59B6;
-            }
-            QPushButton:pressed {
-                background-color: #71368A;
+                background: #9B59B6;
             }
         """)
         save_txt_button.clicked.connect(self.handle_save_txt)
@@ -1058,6 +1221,13 @@ class DockerApp(QWidget):
         main_layout.addWidget(self.stacked)
         self.create_tag_buttons()
         self.setLayout(main_layout)
+    def open_myliners(self):
+        dialog = MyLinersDialog(self)
+        dialog.exec_()
+    def disconnect(self):
+        clear_session()
+        QMessageBox.information(self, "Disconnected", "You have been disconnected.")
+        self.close()
     def kick_user(self):
         username, ok = QInputDialog.getText(self, "Kick User", "Enter username to ban:")
         if ok and username:
@@ -1065,7 +1235,7 @@ class DockerApp(QWidget):
             if username not in banned_users:
                 banned_users.append(username)
                 save_banned_users(banned_users)
-                QMessageBox.information(self, "User Kicked", f"User '{username}' has been banned from using the app.")
+                QMessageBox.information(self, "User Kicked", f"User '{username}' has been banned.")
             else:
                 QMessageBox.information(self, "Already Banned", f"User '{username}' is already banned.")
     def open_user_dashboard(self):
@@ -1274,11 +1444,16 @@ class DockerApp(QWidget):
         if not selected_buttons:
             QMessageBox.information(self, "No Selection", "Please select at least one tag to run.")
             return
-        # Use docker run with --pull=always to force a quick download/pull.
+        pool = QThreadPool.globalInstance()
         for btn in selected_buttons:
             tag = btn.tag_info["docker_name"]
-            docker_command = (
-                f'docker run -d --pull=always '  # -d for detached, --pull=always forces pulling the image quickly.
+            pull_worker = DockerPullWorker(tag)
+            pool.start(pull_worker)
+        time.sleep(0.5)
+        for btn in selected_buttons:
+            tag = btn.tag_info["docker_name"]
+            run_cmd = (
+                f'docker run -d --pull=always '
                 f'--rm '
                 f'--cpus=4 '
                 f'--memory=8g '
@@ -1294,7 +1469,7 @@ class DockerApp(QWidget):
                 f'/home/ /games/{tag}"'
             )
             try:
-                subprocess.Popen(docker_command, shell=True)
+                subprocess.Popen(run_cmd, shell=True)
             except Exception as e:
                 QMessageBox.warning(self, "Error", f"Error starting command for {tag}: {e}")
             btn.setChecked(False)
@@ -1349,7 +1524,6 @@ class DockerApp(QWidget):
             return None
 
 # ------------------------- Login Dialog -------------------------
-
 class LoginDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -1363,8 +1537,20 @@ class LoginDialog(QDialog):
         self.password_input = QLineEdit()
         self.password_input.setPlaceholderText("Enter password")
         self.password_input.setEchoMode(QLineEdit.Password)
+        self.password_input.setStyleSheet("padding: 8px; border: 2px solid #1ABC9C; border-radius: 6px;")
         layout.addWidget(self.password_input)
         login_button = QPushButton("Login")
+        login_button.setStyleSheet("""
+            QPushButton {
+                background: #16A085;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background: #1ABC9C;
+            }
+        """)
         login_button.clicked.connect(self.handle_login)
         layout.addWidget(login_button)
         self.setLayout(layout)
@@ -1395,7 +1581,6 @@ class LoginDialog(QDialog):
             self.accept()
 
 # ------------------------- Main -------------------------
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(f"""
@@ -1414,12 +1599,20 @@ if __name__ == '__main__':
     """)
     font = QFont("Segoe UI", 12, QFont.Bold)
     app.setFont(font)
-    login = LoginDialog()
-    if login.exec_() == QDialog.Accepted:
-        docker_app = DockerApp(login.login_password, login.is_admin)
-        if not login.is_admin:
-            docker_app.username = login.username
-        docker_app.show()
-        sys.exit(app.exec_())
-    else:
-        sys.exit(0)
+    
+    session_data = load_session()
+    if session_data is None:
+        login = LoginDialog()
+        if login.exec_() == QDialog.Accepted:
+            session_data = {
+                "username": login.username,
+                "login_password": login.login_password,
+                "is_admin": login.is_admin
+            }
+            save_session(session_data)
+        else:
+            sys.exit(0)
+    
+    docker_app = DockerApp(session_data["login_password"], session_data["is_admin"], session_data["username"])
+    docker_app.show()
+    sys.exit(app.exec_())

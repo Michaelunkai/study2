@@ -5,6 +5,7 @@ import subprocess
 import requests
 import re
 import time
+import base64
 from datetime import datetime
 from functools import partial
 
@@ -15,7 +16,7 @@ from PyQt5.QtWidgets import (
     QStackedWidget, QCheckBox, QTextEdit
 )
 from PyQt5.QtGui import QFont, QDrag, QPixmap, QImage, QIcon
-from PyQt5.QtCore import Qt, QTimer, QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot, QMimeData, QSize
+from PyQt5.QtCore import Qt, QTimer, QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot, QMimeData, QSize, QBuffer, QIODevice
 
 from howlongtobeatpy import HowLongToBeat
 
@@ -25,11 +26,36 @@ try:
 except ImportError:
     wordninja = None
 
+# ------------------------- Session Persistence -------------------------
+
+SESSION_FILE = "user_session.json"
+
+def load_session():
+    if os.path.exists(SESSION_FILE):
+        try:
+            with open(SESSION_FILE, "r") as f:
+                return json.load(f)
+        except Exception as e:
+            print("Error loading session file:", e)
+    return None
+
+def save_session(session_data):
+    try:
+        with open(SESSION_FILE, "w") as f:
+            json.dump(session_data, f)
+    except Exception as e:
+        print("Error saving session file:", e)
+
+def clear_session():
+    if os.path.exists(SESSION_FILE):
+        os.remove(SESSION_FILE)
+
 # ------------------------- Persistence Functions -------------------------
 
 SETTINGS_FILE = "tag_settings.json"
 TABS_CONFIG_FILE = "tabs_config.json"
 BANNED_USERS_FILE = "banned_users.json"
+ACTIVE_USERS_FILE = "active_users.json"
 
 def load_settings():
     if os.path.exists(SETTINGS_FILE):
@@ -85,6 +111,22 @@ def save_banned_users(banned):
             json.dump(banned, f)
     except Exception as e:
         print("Error saving banned users:", e)
+
+def load_active_users():
+    if os.path.exists(ACTIVE_USERS_FILE):
+        try:
+            with open(ACTIVE_USERS_FILE, "r") as f:
+                return json.load(f)
+        except Exception as e:
+            print("Error loading active users:", e)
+    return {}
+
+def save_active_users(users):
+    try:
+        with open(ACTIVE_USERS_FILE, "w") as f:
+            json.dump(users, f)
+    except Exception as e:
+        print("Error saving active users:", e)
 
 persistent_settings = load_settings()
 tabs_config = load_tabs_config()
@@ -148,11 +190,7 @@ def fetch_game_time(alias):
 def fetch_image(query):
     api_key = "a0278acb920e45e1bcc232b06f72bace"
     url = "https://api.rawg.io/api/games"
-    params = {
-        "key": api_key,
-        "search": query,
-        "page_size": 1
-    }
+    params = {"key": api_key, "search": query, "page_size": 1}
     try:
         response = session.get(url, params=params, timeout=10)
         if response.status_code == 200:
@@ -199,6 +237,14 @@ def load_time_data(file_path):
 
 time_data = load_time_data("time.txt")
 
+def pixmap_to_base64(pixmap):
+    buffer = QBuffer()
+    buffer.open(QIODevice.WriteOnly)
+    pixmap.save(buffer, "PNG")
+    b64_data = base64.b64encode(buffer.data()).decode('utf-8')
+    buffer.close()
+    return b64_data
+
 # ------------------------- Docker Engine Functions -------------------------
 
 def check_docker_engine():
@@ -224,8 +270,6 @@ def start_docker_engine():
             time.sleep(2)
     except Exception as e:
         print("Error starting Docker Desktop:", e)
-
-# ------------------------- Docker Cleanup Function -------------------------
 
 def dkill():
     cmds = [
@@ -468,7 +512,7 @@ class BulkPasteMoveDialog(QDialog):
         self.accept()
 
 # ------------------------- GameButton -------------------------
-# The button always sets its icon to the game image (if available)
+# Tag buttons use 2x bigger golden text.
 class GameButton(QPushButton):
     dragThreshold = 10
     def __init__(self, text, parent=None):
@@ -480,8 +524,8 @@ class GameButton(QPushButton):
                 border: none;
                 border-radius: 8px;
                 padding: 15px;
-                color: white;
-                font-size: 12px;
+                color: gold;
+                font-size: 24px;
                 min-height: 200px;
                 min-width: 200px;
                 text-align: center;
@@ -498,7 +542,6 @@ class GameButton(QPushButton):
                 background-color: #2980B9;
             }
         """)
-        self.setIconSize(QSize(180, 100))
         self._drag_start_pos = None
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -676,17 +719,57 @@ class DeleteTagDialog(QDialog):
         if self.parent() and hasattr(self.parent(), "refresh_tags"):
             self.parent().refresh_tags()
 
+# ------------------------- UserDashboardDialog -------------------------
+
+class UserDashboardDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("User Dashboard")
+        self.setMinimumSize(400, 300)
+        self.init_ui()
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        self.user_list = QListWidget()
+        layout.addWidget(self.user_list)
+        kick_button = QPushButton("Kick Selected User")
+        kick_button.clicked.connect(self.kick_selected)
+        layout.addWidget(kick_button)
+        refresh_button = QPushButton("Refresh")
+        refresh_button.clicked.connect(self.populate_users)
+        layout.addWidget(refresh_button)
+        self.setLayout(layout)
+        self.populate_users()
+    def populate_users(self):
+        self.user_list.clear()
+        users = load_active_users()
+        for username, info in users.items():
+            item = QListWidgetItem(username)
+            self.user_list.addItem(item)
+    def kick_selected(self):
+        selected = self.user_list.currentItem()
+        if not selected:
+            QMessageBox.information(self, "No Selection", "Please select a user to kick.")
+            return
+        username = selected.text()
+        banned = load_banned_users()
+        if username not in banned:
+            banned.append(username)
+            save_banned_users(banned)
+        users = load_active_users()
+        if username in users:
+            del users[username]
+            save_active_users(users)
+        QMessageBox.information(self, "User Kicked", f"User '{username}' has been kicked (banned).")
+        self.populate_users()
+
 # ------------------------- Main Application Window -------------------------
 
 class DockerApp(QWidget):
-    def __init__(self, login_password, is_admin):
+    def __init__(self, login_password, is_admin, username):
         super().__init__()
-        self.login_password = login_password  # For admin, this is the Docker password.
+        self.login_password = login_password
         self.is_admin = is_admin
-        if self.is_admin:
-            self.username = "michadockermisha"
-        else:
-            self.username = "meir"
+        self.username = username
         start_docker_engine()
         if self.is_admin:
             self.docker_token = self.perform_docker_login()
@@ -700,25 +783,41 @@ class DockerApp(QWidget):
             tag["category"] = stored_cat if any(tab["id"] == stored_cat for tab in tabs_config) else "all"
             tag["approx_time"] = time_data.get(tag["alias"].lower(), "N/A")
         self.setWindowTitle("michael fedro's backup&restore tool")
-        self.run_processes = []
         self.game_times_cache = {}
         self.tag_buttons = {}
-        self.image_cache = {}  # holds QPixmap objects
+        self.image_cache = {}
         self.started_image_queries = set()
         self.tabs_config = load_tabs_config()
         self.active_workers = []
         self.init_ui()
         QThreadPool.globalInstance().setMaxThreadCount(10)
         QTimer.singleShot(0, self.start_game_time_queries)
+        self.add_active_user()
+        self.banned_timer = QTimer()
+        self.banned_timer.timeout.connect(self.check_banned)
+        self.banned_timer.start(3000)
+        self.run_processes = []
     def perform_docker_login(self):
         login_cmd = ["docker", "login", "-u", "michadockermisha", "-p", self.login_password]
         subprocess.call(login_cmd, shell=False)
         return None
+    def add_active_user(self):
+        users = load_active_users()
+        users[self.username] = {"login_time": time.time()}
+        save_active_users(users)
+    def remove_active_user(self):
+        users = load_active_users()
+        if self.username in users:
+            del users[self.username]
+            save_active_users(users)
+    def check_banned(self):
+        banned = load_banned_users()
+        if self.username in banned:
+            QMessageBox.warning(self, "Kicked", "You have been kicked from the app by the admin.")
+            self.close()
     def closeEvent(self, event):
-        if self.run_processes:
-            while self.run_processes:
-                QThreadPool.globalInstance().waitForDone(100)
         dkill()
+        self.remove_active_user()
         event.accept()
     def require_admin(self):
         if not self.is_admin:
@@ -759,6 +858,25 @@ class DockerApp(QWidget):
         main_layout.setContentsMargins(10, 10, 10, 10)
         top_bar = QHBoxLayout()
         top_bar.addStretch()
+        # Disconnect button at upper right
+        disconnect_btn = QPushButton("Disconnect")
+        disconnect_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #E74C3C;
+                border: none;
+                border-radius: 5px;
+                padding: 8px;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #C0392B;
+            }
+            QPushButton:pressed {
+                background-color: #A93226;
+            }
+        """)
+        disconnect_btn.clicked.connect(self.disconnect)
+        top_bar.addWidget(disconnect_btn)
         if self.is_admin:
             kick_btn = QPushButton("Kick User")
             kick_btn.setStyleSheet("""
@@ -778,6 +896,24 @@ class DockerApp(QWidget):
             """)
             kick_btn.clicked.connect(self.kick_user)
             top_bar.addWidget(kick_btn)
+            dashboard_btn = QPushButton("User Dashboard")
+            dashboard_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #2980B9;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 8px;
+                    font-size: 14px;
+                }
+                QPushButton:hover {
+                    background-color: #3498DB;
+                }
+                QPushButton:pressed {
+                    background-color: #1F618D;
+                }
+            """)
+            dashboard_btn.clicked.connect(self.open_user_dashboard)
+            top_bar.addWidget(dashboard_btn)
         exit_button = QPushButton("Exit")
         exit_button.setStyleSheet("""
             QPushButton {
@@ -947,7 +1083,7 @@ class DockerApp(QWidget):
                 background-color: #71368A;
             }
         """)
-        save_txt_button.clicked.connect(lambda: self.require_admin() and self.save_as_txt())
+        save_txt_button.clicked.connect(self.handle_save_txt)
         control_layout.addWidget(save_txt_button)
         main_layout.addLayout(control_layout)
         self.stacked = QStackedWidget()
@@ -962,6 +1098,10 @@ class DockerApp(QWidget):
         main_layout.addWidget(self.stacked)
         self.create_tag_buttons()
         self.setLayout(main_layout)
+    def disconnect(self):
+        clear_session()
+        QMessageBox.information(self, "Disconnected", "You have been disconnected.")
+        self.close()
     def kick_user(self):
         username, ok = QInputDialog.getText(self, "Kick User", "Enter username to ban:")
         if ok and username:
@@ -972,6 +1112,11 @@ class DockerApp(QWidget):
                 QMessageBox.information(self, "User Kicked", f"User '{username}' has been banned from using the app.")
             else:
                 QMessageBox.information(self, "Already Banned", f"User '{username}' is already banned.")
+    def open_user_dashboard(self):
+        if not self.require_admin():
+            return
+        dashboard = UserDashboardDialog(parent=self)
+        dashboard.exec_()
     def set_current_tab(self, tab_id):
         for i, tab in enumerate(self.tabs_config):
             if tab["id"] == tab_id:
@@ -1022,6 +1167,13 @@ class DockerApp(QWidget):
         self.stacked.removeWidget(widget_to_remove)
         widget_to_remove.deleteLater()
         self.create_tag_buttons()
+    def handle_save_txt(self):
+        current_index = self.stacked.currentIndex()
+        current_tab = self.tabs_config[current_index]
+        if current_tab["id"] == "mybackup" and not self.is_admin:
+            QMessageBox.warning(self, "Access Denied", "Only admin can download tags from the mybackup tab.")
+            return
+        self.save_as_txt()
     def open_bulk_move_dialog(self):
         dialog = BulkMoveDialog(self.all_tags, parent=self)
         if dialog.exec_():
@@ -1088,9 +1240,7 @@ class DockerApp(QWidget):
                 if target_cat in self.tab_pages:
                     button = GameButton(display_text)
                     button.tag_info = tag
-                    button.setIconSize(QSize(180, 100))
                     worker = ImageWorker(tag["alias"])
-                    # FIX: Ensure we extract the QImage from tuple result
                     worker.signals.finished.connect(partial(self.handle_image_update, tag["alias"], button))
                     QThreadPool.globalInstance().start(worker)
                     self.tag_buttons.setdefault(tag["docker_name"], []).append(button)
@@ -1123,15 +1273,17 @@ class DockerApp(QWidget):
                         lines.append(f"Approx Time: {time_info}" if time_info != "N/A" else "Approx Time: N/A")
                     button.setText("\n".join(lines))
     def handle_image_update(self, alias, button, result):
-        # FIX: If result is a tuple, get its second element (the QImage)
         image = result[1] if isinstance(result, tuple) else result
         if not image.isNull():
-            scaled_image = image.scaled(180, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            scaled_image = image.scaled(button.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
             pixmap = QPixmap.fromImage(scaled_image)
             self.image_cache[alias] = pixmap
-            button.setIcon(QIcon(pixmap))
+            b64 = pixmap_to_base64(pixmap)
+            base_style = button.styleSheet()
+            bg_style = f"background-image: url(data:image/png;base64,{b64}); background-position: center; background-repeat: no-repeat;"
+            button.setStyleSheet(base_style + bg_style)
         else:
-            button.setIcon(QIcon())
+            button.setStyleSheet(button.styleSheet() + "background-image: none;")
     def sort_tags(self, descending=True):
         self.all_tags.sort(key=lambda x: x["full_size"], reverse=descending)
         self.create_tag_buttons()
@@ -1166,11 +1318,11 @@ class DockerApp(QWidget):
         if not selected_buttons:
             QMessageBox.information(self, "No Selection", "Please select at least one tag to run.")
             return
-        processes = []
+        # Run docker commands with detached mode and force pull for fast download.
         for btn in selected_buttons:
             tag = btn.tag_info["docker_name"]
             docker_command = (
-                f'docker run '
+                f'docker run -d --pull=always '
                 f'--rm '
                 f'--cpus=4 '
                 f'--memory=8g '
@@ -1185,24 +1337,12 @@ class DockerApp(QWidget):
                 f'--inplace --delete-during --info=progress2 '
                 f'/home/ /games/{tag}"'
             )
-            proc = subprocess.Popen(docker_command, shell=True)
-            processes.append((tag, proc))
-        sender = self.sender()
-        sender.setEnabled(False)
-        self.run_processes = processes
-        self.run_timer = QTimer()
-        self.run_timer.timeout.connect(lambda: self.check_run_processes(sender))
-        self.run_timer.start(500)
-    def check_run_processes(self, run_button):
-        still_running = []
-        for tag, proc in self.run_processes:
-            if proc.poll() is None:
-                still_running.append((tag, proc))
-        if not still_running:
-            self.run_timer.stop()
-            run_button.setEnabled(True)
-            QMessageBox.information(self, "Run Complete", "All selected commands have finished.")
-        self.run_processes = still_running
+            try:
+                subprocess.Popen(docker_command, shell=True)
+            except Exception as e:
+                QMessageBox.warning(self, "Error", f"Error starting command for {tag}: {e}")
+            btn.setChecked(False)
+        QMessageBox.information(self, "Run Initiated", "All selected commands have been initiated.")
     def open_delete_dialog(self):
         if not self.require_admin():
             return
@@ -1260,6 +1400,7 @@ class LoginDialog(QDialog):
         self.setWindowTitle("Login")
         self.login_password = None
         self.is_admin = False
+        self.username = None
         self.init_ui()
     def init_ui(self):
         layout = QVBoxLayout(self)
@@ -1279,6 +1420,7 @@ class LoginDialog(QDialog):
         if entered != "123456":
             self.is_admin = True
             self.login_password = entered
+            self.username = "michadockermisha"
             self.accept()
         else:
             username, ok = QInputDialog.getText(self, "Username Required", "Enter username:")
@@ -1293,28 +1435,43 @@ class LoginDialog(QDialog):
                 return
             self.is_admin = False
             self.login_password = entered
+            self.username = username.strip().lower()
             self.accept()
 
 # ------------------------- Main -------------------------
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyleSheet(f"""
+        QWidget {{
+            background-image: url(b.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }}
+        QMenu, QInputDialog, QMessageBox {{
+            background-image: url(b.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }}
+    """)
     font = QFont("Segoe UI", 12, QFont.Bold)
     app.setFont(font)
-    app.setStyleSheet("""
-        QWidget {
-            background-color: black;
-            color: white;
-        }
-        QMenu, QInputDialog, QMessageBox {
-            background-color: black;
-            color: white;
-        }
-    """)
-    login = LoginDialog()
-    if login.exec_() == QDialog.Accepted:
-        docker_app = DockerApp(login.login_password, login.is_admin)
-        docker_app.show()
-        sys.exit(app.exec_())
-    else:
-        sys.exit(0)
+    
+    session_data = load_session()
+    if session_data is None:
+        login = LoginDialog()
+        if login.exec_() == QDialog.Accepted:
+            session_data = {
+                "username": login.username,
+                "login_password": login.login_password,
+                "is_admin": login.is_admin
+            }
+            save_session(session_data)
+        else:
+            sys.exit(0)
+    
+    docker_app = DockerApp(session_data["login_password"], session_data["is_admin"], session_data["username"])
+    docker_app.show()
+    sys.exit(app.exec_())
