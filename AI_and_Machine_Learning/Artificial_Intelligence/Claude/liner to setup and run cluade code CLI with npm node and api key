@@ -1,0 +1,1 @@
+ nvm23 && npm install -g @anthropic-ai/claude-code && claude --version

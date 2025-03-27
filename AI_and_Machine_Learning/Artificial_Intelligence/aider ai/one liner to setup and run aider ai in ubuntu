@@ -1,0 +1,1 @@
+venv && pip3 install aider-chat && aider "Hello, help me write a Python script"
