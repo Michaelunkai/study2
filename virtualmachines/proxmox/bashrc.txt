@@ -41,7 +41,6 @@ alias backupubu="bash /root/backup_vm_101.sh"
 alias snapubu="cd && ./manage_snapshots_vm_101.sh"
 alias reubu="cd && ./restore_and_start_vm.sh"
 alias rmpct='for id in $(pct list | awk '\''NR>1 {print $1}'\'' | grep -Ev '\''^(100|102)$'\''); do echo "Shutting down container $id..."; pct shutdown $id && echo "Destroying container $id..." && pct destroy $id; done'
-alias clean='bash /root/cleanprox.sh && plex && bash /root/auto_trim_LXC.sh'
 alias scpmyg="sshpass -p 'blackablacka2' ssh micha@192.168.1.178 \"powershell -Command \\\"scp -v 'C:/study/programming/python/apps/pyqt5menus/GamesDockerMenu/nogui/games_data.json' ubuntu@192.168.1.193:/home/ubuntu\\\"\""
 alias udocker="scpmyg && backupubu && snapubu && ubudocker"
 alias ex="exit"
@@ -195,3 +194,6 @@ alias backup="ssh-keygen -f \"/root/.ssh/known_hosts\" -R \"192.168.1.178\" && k
 alias restore="ssh-keygen -f \"/root/.ssh/known_hosts\" -R \"192.168.1.178\" && killall -9 sshfs; fusermount -u /mnt/f; apt install sshfs -y && sudo mkdir -p /mnt/f && sudo chown root:root /mnt/f && sshfs micha@192.168.1.178:\"F:\" /mnt/f -o allow_other,default_permissions && cd /mnt/f && rsync -aAXvP --delete --info=progress2 /mnt/f/proxmox/ /"
 alias dubu='rm -rf /var/lib/vz/dump/ubu && mkdir /var/lib/vz/dump/ubu && echo $'"'"'# Use a base image\nFROM alpine:latest\n\n# Install rsync\nRUN apk --no-cache add rsync\n\n# Set the working directory\nWORKDIR /app\n\n# Copy everything within the current path to /home/\nCOPY . /home/\n\n# Default runtime options\nCMD ["rsync", "-aP", "/home/", "/home/"]'"'"' > /var/lib/vz/dump/ubu/Dockerfile && cdv && cd dump && cp -r *101* ubu && cd ubu && docker build -t michadockermisha/backup:ubuntudesktop . && docker push michadockermisha/backup:ubuntudesktop && cd .. && rm -rf ubu && dkill'
 alias cclean="rollubu && fullup"
+alias clean='bash /root/cleanprox.sh && plex && bash /root/auto_trim_LXC.sh && rm -rf /var/tmp/*'
+alias sleep=" sudo rtcwake -m mem -t $(date -d ''' + $WakeTime + ''' +%s) >/dev/null 2>&1 &"
+alias stopr="sudo systemctl disable --now rtcwake.timer && sudo rm /etc/systemd/system/rtcwake.timer /etc/systemd/system/rtcwake.service && sudo systemctl daemon-reload"

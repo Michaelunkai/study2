@@ -1,1 +1,1 @@
-echo 'Download Tabula from https://tabula.technology and install manually'
+sudo apt install -y tabula && tabula

@@ -1,0 +1,1 @@
+sudo apt install -y ghostscript && gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=bookmarked.pdf input.pdf

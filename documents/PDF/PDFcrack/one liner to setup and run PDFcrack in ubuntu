@@ -1,0 +1,1 @@
+sudo apt install -y pdfcrack && pdfcrack -f protected.pdf

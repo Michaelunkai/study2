@@ -1,1 +1,0 @@
-sudo snap install onlyoffice-desktopeditors && for f in *.csv; do onlyoffice-desktopeditors "$f" & done

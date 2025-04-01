@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y xpdf && xpdf -version
+sudo apt install -y xpdf && xpdf example.pdf

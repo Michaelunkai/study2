@@ -1,0 +1,1 @@
+docker run -d --name bookmarksync -p 8005:80 bookmarksync/bookmarksync

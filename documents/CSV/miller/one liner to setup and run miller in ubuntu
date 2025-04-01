@@ -1,1 +1,0 @@
-sudo apt install -y miller && for f in *.csv; do mlr --csv cat "$f"; done

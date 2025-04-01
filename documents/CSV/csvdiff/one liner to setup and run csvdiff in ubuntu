@@ -1,1 +1,0 @@
-create one liner, to setup and run csvdiff in ubuntu, and use it in the end! pip3 install csvdiff && csvdiff file1.csv file2.csv

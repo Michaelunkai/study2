@@ -1,1 +1,1 @@
-Rscript -e 'install.packages("pdftools", repos="https://cloud.r-project.org")'
+Rscript -e "install.packages('pdftools')"

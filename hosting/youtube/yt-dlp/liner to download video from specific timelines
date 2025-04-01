@@ -1,0 +1,1 @@
+gpip && pip install -U yt-dlp; yt-dlp --download-sections "*00:00:00-00:20:00" "https://www.youtube.com/watch?v=mjZ9hCWk0Hw&ab_channel=MKIceAndFire"

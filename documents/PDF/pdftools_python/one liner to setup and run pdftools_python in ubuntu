@@ -1,1 +1,1 @@
-pip3 install pdf-tools && python3 -c 'import pdftools; print(pdftools.__version__)'
+pip3 install pdftools && python3 -c "import pdftools"

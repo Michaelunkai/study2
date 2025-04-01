@@ -1,0 +1,1 @@
+create one liner, to setup and run slingscold in ubuntu, and use it in the end! && sudo add-apt-repository ppa:elementary-os/stable -y && sudo apt update && sudo apt install -y slingscold && slingscold

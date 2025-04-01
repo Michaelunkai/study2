@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y debootstrap systemd-container && sudo debootstrap --arch=amd64 focal /var/lib/machines/ubuntu http://archive.ubuntu.com/ubuntu && sudo systemd-nspawn -D /var/lib/machines/ubuntu

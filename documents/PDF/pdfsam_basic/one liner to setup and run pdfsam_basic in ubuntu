@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y pdfsam-basic && pdfsam
+echo 'Download PDFsam Basic from official site'

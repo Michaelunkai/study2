@@ -1,0 +1,1 @@
+sudo snap install code --classic && code --diff notebook1.ipynb notebook2.ipynb

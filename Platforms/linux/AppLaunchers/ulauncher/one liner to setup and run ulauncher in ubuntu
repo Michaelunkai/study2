@@ -1,0 +1,1 @@
+create one liner, to setup and run ulauncher in ubuntu, and use it in the end! && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install -y ulauncher && ulauncher --no-window-shadow

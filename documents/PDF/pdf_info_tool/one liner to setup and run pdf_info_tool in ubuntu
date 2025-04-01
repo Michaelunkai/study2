@@ -1,1 +1,0 @@
-echo 'Use qpdf or pdfinfo (from Poppler) but Poppler is excluded; skipping'

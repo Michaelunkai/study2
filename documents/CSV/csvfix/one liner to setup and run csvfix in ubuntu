@@ -1,1 +1,0 @@
-create one liner, to setup and run csvfix in ubuntu, and use it in the end! sudo apt-get update && sudo apt-get install -y csvfix && csvfix view yourfile.csv

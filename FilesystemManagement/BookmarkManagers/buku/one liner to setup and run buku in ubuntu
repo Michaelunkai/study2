@@ -1,1 +1,1 @@
-sudo apt install -y buku && buku --version
+sudo apt update && sudo apt install -y python3-pip && pip3 install buku && buku -p

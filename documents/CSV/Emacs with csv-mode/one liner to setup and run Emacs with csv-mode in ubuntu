@@ -1,1 +1,0 @@
-create one liner, to setup and run Emacs with csv-mode in ubuntu, and use it in the end! sudo apt-get update && sudo apt-get install -y emacs emacs-csv-mode && emacs yourfile.csv

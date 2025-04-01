@@ -1,0 +1,1 @@
+sudo apt install -y poppler-utils && pdftohtml input.pdf output.html

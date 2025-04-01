@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y pdfpc && pdfpc --version
+sudo apt install -y pdfpc && pdfpc

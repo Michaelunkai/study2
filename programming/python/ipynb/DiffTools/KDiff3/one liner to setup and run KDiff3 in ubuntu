@@ -1,0 +1,1 @@
+sudo apt-get install -y kdiff3 && kdiff3 notebook1.ipynb notebook2.ipynb

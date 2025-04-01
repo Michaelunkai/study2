@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y pdfgrep && pdfgrep --version
+sudo apt install -y pdfgrep && pdfgrep --version

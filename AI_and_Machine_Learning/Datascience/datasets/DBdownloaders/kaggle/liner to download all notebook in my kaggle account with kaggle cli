@@ -1,0 +1,1 @@
+gkaggle && kaggle kernels list --mine --csv | tail -n +2 | cut -d, -f1 | xargs -n 1 kaggle kernels pull

@@ -1,0 +1,1 @@
+python -c "from deepdiff import DeepDiff; import json; print(DeepDiff(json.load(open(\"notebook1.ipynb\")), json.load(open(\"notebook2.ipynb\"))) )"

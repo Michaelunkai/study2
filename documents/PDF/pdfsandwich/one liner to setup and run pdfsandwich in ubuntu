@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y pdfsandwich && pdfsandwich -V
+sudo apt install -y pdfsandwich && pdfsandwich example.pdf

@@ -1,1 +1,0 @@
-create one liner, to setup and run xsv in ubuntu, and use it in the end! curl -LO https://github.com/BurntSushi/xsv/releases/download/0.14.0/xsv-0.14.0-x86_64-unknown-linux-musl.tar.gz && tar -xzf xsv-0.14.0-x86_64-unknown-linux-musl.tar.gz && sudo mv xsv /usr/local/bin && xsv table yourfile.csv

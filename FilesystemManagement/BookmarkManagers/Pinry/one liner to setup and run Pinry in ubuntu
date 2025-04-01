@@ -1,0 +1,1 @@
+docker run -d --name pinry -p 8001:8000 pinry/pinry

@@ -1,1 +1,1 @@
-echo 'Download PDFAnnotate from https://github.com/jeremyevans/pdf-annotate and install manually'
+sudo apt install -y pdfannotate && pdfannotate --help

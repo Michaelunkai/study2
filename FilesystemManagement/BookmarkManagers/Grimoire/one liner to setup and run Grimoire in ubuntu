@@ -1,0 +1,1 @@
+docker run -d --name grimoire -p 8002:80 grimoire/grimoire

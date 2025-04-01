@@ -1,1 +1,1 @@
-pip3 install pdfplumber && python3 -c 'import pdfplumber; print(pdfplumber.__version__)'
+pip3 install pdfplumber && python3 -c "import pdfplumber"

@@ -1,1 +1,0 @@
- gpip && pip install tabview && for f in *.csv; do tabview "$f"; done

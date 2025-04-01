@@ -1,0 +1,1 @@
+pip install nbdime && nbdiff-web notebook1.ipynb notebook2.ipynb

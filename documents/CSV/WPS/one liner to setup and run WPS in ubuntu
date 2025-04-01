@@ -1,1 +1,0 @@
-getsnap && sudo snap install wps-office && for f in *.csv; do wps "$f" & done

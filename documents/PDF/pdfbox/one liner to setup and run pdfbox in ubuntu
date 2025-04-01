@@ -1,1 +1,1 @@
-echo 'Download Apache PDFBox from https://pdfbox.apache.org and install manually'
+echo 'PDFBox is a Java library; download from Apache'

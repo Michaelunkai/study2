@@ -1,0 +1,1 @@
+docker run -d --name xbs -p 8004:3000 xbrowsersync/xbrowsersync

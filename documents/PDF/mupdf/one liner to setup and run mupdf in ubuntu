@@ -1,1 +1,1 @@
-sudo apt update && sudo apt install -y mupdf && mupdf
+sudo apt install -y mupdf && mupdf example.pdf
