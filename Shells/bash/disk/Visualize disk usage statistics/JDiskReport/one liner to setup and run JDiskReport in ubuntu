@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install default-jre -y && wget -O jdiskreport.jar https://www.jdiskreport.org/jdiskreport.jar && java -jar jdiskreport.jar

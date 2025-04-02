@@ -1,0 +1,1 @@
+sudo apt install default-jdk -y && wget https://downloads.apache.org/camel/apache-camel/3.21.1/apache-camel-3.21.1.tar.gz && tar -xzf apache-camel-3.21.1.tar.gz && cd apache-camel-3.21.1 && ./bin/camel run

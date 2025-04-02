@@ -1,0 +1,1 @@
+wget https://github.com/emqx/mqttx/releases/download/v1.9.6/mqttx-cli-linux-arm64 && chmod +x mqttx-cli-linux-arm64 && mv mqttx-cli-linux-arm64 mqttx && ./mqttx sub -t test -h mqtt.eclipseprojects.io

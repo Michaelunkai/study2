@@ -1,0 +1,1 @@
+sudo apt install libzmq3-dev -y && python3 -c "import zmq; ctx = zmq.Context(); sock = ctx.socket(zmq.PUB); sock.bind('tcp://*:5555')"

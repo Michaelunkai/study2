@@ -1,0 +1,1 @@
+wget https://archive.apache.org/dist/activemq/5.18.3/apache-activemq-5.18.3-bin.tar.gz && tar -xzf apache-activemq-5.18.3-bin.tar.gz && cd apache-activemq-5.18.3 && bin/activemq start

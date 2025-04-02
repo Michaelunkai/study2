@@ -1,0 +1,1 @@
+wget https://github.com/nats-io/nats-server/releases/latest/download/nats-server-amd64.deb && sudo dpkg -i nats-server-amd64.deb && nats-server -DV

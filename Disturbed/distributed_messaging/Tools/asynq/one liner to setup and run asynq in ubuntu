@@ -1,0 +1,1 @@
+sudo apt install golang-go redis-server -y && git clone https://github.com/hibiken/asynqmon && cd asynqmon && go build . && ./asynqmon

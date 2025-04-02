@@ -1,1 +1,1 @@
-  getrust && wget https://github.com/Canop/broot/archive/refs/tags/v1.44.6.tar.gz && tar -xvf v1.44.6.tar.gz && cd broot-1.44.6 && cargo build --release && sudo mv target/release/broot /usr/local/bin/ && broot
+curl -L https://dystroy.org/broot/install.sh | bash && broot

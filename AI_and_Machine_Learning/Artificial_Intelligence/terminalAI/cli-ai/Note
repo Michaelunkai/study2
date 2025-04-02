@@ -1,0 +1,4 @@
+Note
+API key is stored securely in your system's keyring and is not shared outside of this machine.
+This is a lightweight CLI AI assistant for personal use.
+Currently, assistant uses Anthropic as an AI provider.

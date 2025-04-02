@@ -1,0 +1,1 @@
+wget https://www.emqx.io/downloads/latest/ubuntu20.04/emqx-5.0.25-ubuntu20.04-amd64.deb && sudo dpkg -i emqx-5.0.25-ubuntu20.04-amd64.deb && sudo emqx start

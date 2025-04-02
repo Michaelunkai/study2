@@ -1,0 +1,1 @@
+curl -Lsf https://sh.benthos.dev | bash && echo '{"input":{"generate":{"interval":"1s","mapping":"root.id = uuid_v4()"}},"output":{"stdout":{}}}' > config.yaml && benthos -c config.yaml

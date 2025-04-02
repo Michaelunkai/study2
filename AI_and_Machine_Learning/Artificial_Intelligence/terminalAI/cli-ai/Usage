@@ -1,0 +1,41 @@
+Usage
+After installation, you can use the CLI AI Assistant by typing s followed by your natural language command. Here are some examples:
+
+Basic usage:
+
+s list all files in the current directory
+This will translate to: ls -la
+
+Complex commands:
+
+s find all python files modified in the last 7 days
+This might translate to: find . -name "*.py" -mtime -7
+
+System information:
+
+s show system memory usage
+This could translate to: free -h
+
+Package management:
+
+s update all installed packages
+On Ubuntu/Debian, this might translate to: sudo apt update && sudo apt upgrade -y
+
+Help command:
+
+s help
+This will display the help message.
+
+Config command:
+
+s config-set AI_ASSISTANT_SKIP_CONFIRM=true
+This will update the configuration with the specified key-value pair.
+
+Default Configuration
+AI_ASSISTANT_SKIP_CONFIRM: Default to true. If set to false, the assistant will ask for confirmation before executing commands.
+AI_DIRECTORY_TREE_CONTEXT: Default to true. If set to true, the assistant will provide directory tree as a context for AI command generation. NOTE: Disable this if you don't want to share your directory structure with the AI provider.
+Edge Cases and Notes:
+If the AI doesn't understand your request, it will try to provide the closest matching command or ask for clarification.
+Keep requests focused on a single task for optimal results.
+Remember that the generated commands are executed in your current shell environment. Be cautious with commands that might affect your system globally.
+By default, the assistant will regularly wait for your interaction before executing commands.
