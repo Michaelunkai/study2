@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g @adonisjs/cli && yes "y" | adonis new my-adonis-app && cd my-adonis-app && nsj && npm start

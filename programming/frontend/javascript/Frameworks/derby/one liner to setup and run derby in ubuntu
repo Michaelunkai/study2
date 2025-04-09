@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g derby-cli && yes "y" | derby create my-derby-app && cd my-derby-app && nsj && npm start

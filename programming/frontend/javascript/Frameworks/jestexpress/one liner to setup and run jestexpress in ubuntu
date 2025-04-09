@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g jestexpress-cli && yes "y" | jestexpress init my-jestexpress-app && cd my-jestexpress-app && nsj && npm test

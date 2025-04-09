@@ -1,0 +1,1 @@
+wget -O manictime.deb https://download.manictime.com/manictime.deb && sudo dpkg -i manictime.deb && manictime

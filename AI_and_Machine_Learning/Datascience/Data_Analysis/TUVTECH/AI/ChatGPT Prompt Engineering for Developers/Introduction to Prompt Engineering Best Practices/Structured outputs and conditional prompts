@@ -1,0 +1,55 @@
+1. Structured outputs and conditional prompts
+00:00 - 00:07
+In this video, we will focus on creating structured outputs and using conditional prompts.
+
+2. Structured outputs
+00:07 - 00:24
+Language models don't naturally generate structured outputs without explicit instructions. However, sometimes we need the output in a table, list, structured paragraph, or custom format. Let's see how to handle these cases.
+
+3. Tables
+00:24 - 00:42
+To generate a table, we should clearly mention the expected columns. For example, to instruct the model to create a table with five action movies, we specify the columns "title" and "rating." This ensures the output meets our requirements.
+
+4. Lists
+00:42 - 00:55
+A list is another format, helpful for enumerations. For example, if we ask the model to generate a list of the top five cities to visit, the output will be a numbered list of cities.
+
+5. Lists
+00:55 - 01:10
+We should explicitly mention specific requirements for how the output list should be formatted in the prompt. If we ask the model to generate an unordered list, the output will not be numbered.
+
+6. Structured paragraphs
+01:10 - 01:25
+To get structured paragraphs, we should explicitly mention format requirements in the prompt. For example, here we ask the model for a paragraph with clear headings and subheadings about the benefits of exercising.
+
+7. Structured paragraphs
+01:25 - 01:36
+We see how the output is formatted with three headings: Introduction, Physical Health Benefits, and Mental Health Benefits, along with additional subheadings.
+
+8. Custom output format
+01:36 - 02:13
+When a custom output format is needed, one approach is to break down the prompt into parts. Here we define an input text, such as the opening of a fairytale about a boy named David. We then instruct the model to generate an appropriate title, and specify the output format for the text and title. We combine the instructions, output format, and input text in the final prompt. This ensures the output meets our requirements, providing a title for David's adventures, with the original text, in the requested format.
+
+9. Conditional prompts
+02:13 - 02:31
+Sometimes, we might want to incorporate some logic or conditions in our prompts. In this case, we use conditional prompts with an if-else structure: "If a condition is true, perform X; otherwise, perform Y."
+
+10. Conditional prompts
+02:31 - 02:59
+Suppose we want the model to suggest a title for some provided text, but only if the text is in English. To do that, we explicitly mention this condition in the prompt. If the text is in another language, we tell the model to inform users that it only understands English. Now, for a French text describing my favorite season, the output will be 'I only understand English'.
+
+11. Conditional prompts
+02:59 - 03:11
+We can incorporate multiple conditions in our prompt. For instance, we might tell the model to generate titles only for English texts containing the keyword 'technology'.
+
+12. Conditional prompts
+03:11 - 03:25
+If the text is written in English, we check if it contains the keyword. If it does, the model suggests a title. Otherwise, it responds with 'keyword not found'.
+
+13. Conditional prompts
+03:25 - 03:35
+Non-English texts are treated just as before. Now, for a paragraph describing a forest, the model tells us that the keyword was not found.
+
+14. Let's practice!
+03:35 - 03:39
+Let's put this into practice.

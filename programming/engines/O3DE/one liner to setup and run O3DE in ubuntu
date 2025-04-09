@@ -1,0 +1,1 @@
+git clone https://github.com/o3de/o3de.git && cd o3de && python3 scripts/o3de_setup.py && python3 scripts/o3de.sh launch-editor

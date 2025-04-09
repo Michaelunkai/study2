@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g scriptkit && yes "y" | scriptkit init my-scriptkit-app && cd my-scriptkit-app && nsj && npm start

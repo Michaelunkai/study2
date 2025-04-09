@@ -1,0 +1,1 @@
+git clone https://github.com/cocos2d/cocos2d-x.git && cd cocos2d-x && ./setup.py && ./tools/cocos2d-console/bin/cocos run -p linux

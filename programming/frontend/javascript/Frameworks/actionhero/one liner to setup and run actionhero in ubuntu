@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g actionhero-cli && yes "y" | actionhero generate my-actionhero-app && cd my-actionhero-app && nsj && npm start

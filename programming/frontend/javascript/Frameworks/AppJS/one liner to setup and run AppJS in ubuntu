@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g appjs-cli && yes "y" | appjs init my-appjs-app && cd my-appjs-app && nsj && npm start

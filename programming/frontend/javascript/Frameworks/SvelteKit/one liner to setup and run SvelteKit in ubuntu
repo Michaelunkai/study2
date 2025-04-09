@@ -1,0 +1,1 @@
+cd && nvm23 && npm init svelte@next my-sveltekit-app && cd my-sveltekit-app && nsj && npm install && npm run dev

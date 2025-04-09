@@ -1,0 +1,1 @@
+sudo apt-get install mmex -y && mmex --version

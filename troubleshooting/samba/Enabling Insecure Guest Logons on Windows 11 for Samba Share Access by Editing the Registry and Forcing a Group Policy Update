@@ -1,0 +1,55 @@
+# **PowerShell One-Liner Tutorial: Enabling Insecure Guest Logons on Windows 11 for Samba Share Access by Editing the Registry and Forcing a Group Policy Update**
+
+Below is a comprehensive step-by-step guide followed by one long PowerShell one-liner that resolves the Windows 11 error regarding guest access when connecting to a Samba share. This tutorial covers everything from understanding the context to executing the final command, using tools such as the Windows Registry and Group Policy update, all from within a PowerShell prompt.
+
+---
+
+## **Tutorial Overview and Steps**
+
+### **1. Understand the Issue**
+Windows 11, by default, blocks insecure guest logons for increased security. This means that if you're trying to connect to a Samba share (e.g., on an Ubuntu server) without proper authentication, Windows 11 will prevent the connection and display an error message.
+
+### **2. Tools and Components Involved**
+- **Windows Registry Editor:** We adjust the registry value to allow insecure guest authentication.
+- **Group Policy Update (gpupdate):** Forces the newly configured policy to take effect immediately.
+- **PowerShell:** We will use a single PowerShell command to execute both actions at once.
+
+### **3. The Registry Key Modification**
+The registry key that controls guest authentication is located at:  
+`HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters`  
+We need to set the value of `AllowInsecureGuestAuth` to `1` to permit guest logons.
+
+### **4. Forcing the Policy Update**
+After modifying the registry, the Group Policy must be refreshed immediately to apply the changes. This is done with the command:  
+```powershell
+gpupdate /force
+```
+
+### **5. Combine Both Steps in One Long PowerShell One-Liner**
+The following command first sets the registry value and then forces the group policy update—all in one single line:
+
+```powershell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "AllowInsecureGuestAuth" -Value 1; gpupdate /force
+```
+
+### **6. How to Run the Command**
+1. **Open PowerShell as Administrator:**
+   - Press <kbd>Win</kbd>, type **PowerShell**, right-click the Windows PowerShell app, and select **Run as administrator**.
+2. **Paste the One-Liner:**
+   - Copy and paste the one-line command into the PowerShell window.
+3. **Execute the Command:**
+   - Press **Enter**. The command will update the registry and then force a policy update.
+
+---
+
+## **Full PowerShell One-Liner Command**
+
+```powershell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "AllowInsecureGuestAuth" -Value 1; gpupdate /force
+```
+
+---
+
+### **Conclusion**
+
+This tutorial has shown you how to fix the Windows 11 guest access error when connecting to a Samba share by using a comprehensive PowerShell one-liner. It combines registry editing and policy refreshing in one command, making it a quick and efficient solution. Remember, allowing insecure guest logons reduces your system's security, so this should only be done in secure, trusted network environments.

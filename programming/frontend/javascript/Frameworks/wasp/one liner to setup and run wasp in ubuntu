@@ -1,1 +1,1 @@
- nvm23 && curl -sSL https://get.wasp-lang.dev/installer.sh | sh && export PATH=$PATH:/root/.local/bin && wasp new
+cd && nvm23 && npm install -g wasp-cli && yes "y" | wasp init my-wasp-app && cd my-wasp-app && nsj && npm start

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g barrel-cli && yes "y" | barrel init my-barrel-app && cd my-barrel-app && nsj && npm start

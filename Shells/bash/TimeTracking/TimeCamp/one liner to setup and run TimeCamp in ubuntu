@@ -1,0 +1,1 @@
+wget -O timecamp.deb https://downloads.timecamp.com/timecamp.deb && sudo dpkg -i timecamp.deb && timecamp

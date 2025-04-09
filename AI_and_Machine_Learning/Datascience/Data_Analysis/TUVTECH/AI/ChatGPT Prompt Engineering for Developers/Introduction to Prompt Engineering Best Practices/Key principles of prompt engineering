@@ -1,0 +1,51 @@
+1. Key principles of prompt engineering
+00:00 - 00:06
+Now we'll dive into the key principles of prompt engineering to create more effective prompts.
+
+2. Clear and precise prompts
+00:06 - 00:20
+When interacting with an LLM, we aim for clear and precise prompts to achieve the best results. This is like guiding someone from one location to another by choosing the simplest and most effective path.
+
+3. Key principles
+00:20 - 00:32
+We'll explore three principles of prompt engineering, including the use of appropriate action verbs, detailed and precise instructions, and well-structured delimited prompts.
+
+4. Using action verbs
+00:32 - 00:45
+When asking the model to perform certain tasks, opt for action verbs that explicitly guide the model's task, such as write, complete, explain, describe, or evaluate.
+
+5. Avoid ambiguous verbs
+00:45 - 00:55
+Conversely, avoid using ambiguous verbs like understand, think, feel, try, and know, which might confuse the model's understanding.
+
+6. Effective prompt with verbs
+00:55 - 01:18
+A prompt asking the model to think about deforestation is ineffective. While the model generates some output, it remains vague and the prompt needs greater clarity on what is being asked. For example, we can use an action verb to guide the model to a specific task: proposing strategies to reduce deforestation.
+
+7. Formulating detailed instructions
+01:18 - 01:31
+When crafting prompts, we'll want to provide specific, descriptive, and detailed instructions about context, output length, format, style, and audience.
+
+8. Effective prompt with instructions
+01:31 - 01:50
+A prompt asking to tell us about dogs is too broad. However, when we ask for a description of the behavior and characteristics of Golden Retrievers, we get a more precise answer with the details we've requested, including characteristics and suitability for families.
+
+9. Limiting output length
+01:50 - 02:24
+Another key principle for writing effective prompts is to specify the structure of the result, giving indications on how many paragraphs, sentences, or words we aim to generate. To limit output length, we can use the max_tokens parameter, which enforces a strict token limit but may result in incomplete responses. Specifying limits in the prompt, such as maximum words, sentences, or paragraphs, can be bypassed but ensures complete responses.
+
+10. Prompt components
+02:24 - 02:39
+A prompt might contain instructions and some input data to operate on. For example, in text summarization, the instruction would be to summarize a given text, and the input provided would be the text that needs to be summarized.
+
+11. Crafting a well-structured prompt with delimiters
+02:39 - 03:02
+To craft a well-structured prompt, place instructions at the beginning, use delimiters like parentheses, brackets, or backticks for input parts, and specify the delimiters used. This helps the model locate the input. In this example, we use triple backticks to delimit input text for summarization.
+
+12. Using formatted strings (f-strings)
+03:02 - 03:31
+Instead of including long inputs within the prompt string, we can use Python's f-strings to embed a pre-defined string. In this example we define the variable `text`, add an 'f' before the prompt string, and place the text variable in curly brackets inside the prompt. This incorporates the variable's content into the prompt. We'll be frequently using this format in the course.
+
+13. Let's practice!
+03:31 - 03:34
+Time to practice!

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g whisper-cli && yes "y" | whisper init my-whisper-app && cd my-whisper-app && nsj && npm start

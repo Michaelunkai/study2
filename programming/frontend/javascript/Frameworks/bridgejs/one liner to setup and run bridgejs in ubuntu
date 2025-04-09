@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g bridgejs-cli && yes "y" | bridgejs init my-bridgejs-app && cd my-bridgejs-app && nsj && npm start

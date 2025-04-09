@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g catalyst-cli && yes "y" | catalyst init my-catalyst-app && cd my-catalyst-app && nsj && npm start

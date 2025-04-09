@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g @nestjs/cli && yes "y" | nest new my-nest-app && cd my-nest-app && nsj && npm run start

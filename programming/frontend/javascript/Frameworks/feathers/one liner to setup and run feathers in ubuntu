@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g feathers-cli && yes "y" | feathers generate my-feathers-app && cd my-feathers-app && nsj && npm start

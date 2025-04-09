@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g specter-cli && yes "y" | specter init my-specter-app && cd my-specter-app && nsj && npm start

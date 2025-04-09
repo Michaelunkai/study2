@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g swingjs-cli && yes "y" | swingjs init my-swingjs-app && cd my-swingjs-app && nsj && npm start

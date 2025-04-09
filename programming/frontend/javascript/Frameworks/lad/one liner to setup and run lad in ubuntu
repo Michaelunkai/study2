@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g lad-cli && yes "y" | lad init my-lad-app && cd my-lad-app && nsj && npm start

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g boost-cli && yes "y" | boost init my-boost-app && cd my-boost-app && nsj && npm start

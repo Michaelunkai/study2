@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g graffiti-cli && yes "y" | graffiti init my-graffiti-app && cd my-graffiti-app && nsj && npm start

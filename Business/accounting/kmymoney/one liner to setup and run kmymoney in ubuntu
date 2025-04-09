@@ -1,0 +1,1 @@
+sudo apt-get install kmymoney -y && kmymoney --version

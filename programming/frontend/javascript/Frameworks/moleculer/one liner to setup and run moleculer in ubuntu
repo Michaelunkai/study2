@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g moleculer-cli && yes "y" | moleculer init my-moleculer-app && cd my-moleculer-app && nsj && npm start

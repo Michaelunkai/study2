@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g redwood-cli && yes "y" | redwood init my-redwood-app && cd my-redwood-app && nsj && npm start

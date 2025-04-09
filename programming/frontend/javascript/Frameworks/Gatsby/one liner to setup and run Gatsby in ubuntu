@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g gatsby-cli && yes "y" | gatsby new my-gatsby-app && cd my-gatsby-app && nsj && gatsby develop

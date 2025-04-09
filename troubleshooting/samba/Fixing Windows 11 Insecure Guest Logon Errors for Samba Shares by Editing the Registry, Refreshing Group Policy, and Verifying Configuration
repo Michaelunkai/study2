@@ -1,0 +1,116 @@
+# **Comprehensive PowerShell One-Liner Tutorial: Fixing Windows 11 Insecure Guest Logon Errors for Samba Shares by Editing the Registry, Refreshing Group Policy, and Verifying Configuration**
+
+Below is a detailed step-by-step guide designed to help you troubleshoot and resolve the insecure guest logon error on Windows 11 when accessing a Samba share. This tutorial covers all the necessary steps using PowerShell, Windows Registry editing, Group Policy management, and additional network checks. Follow these steps carefully to apply the fix and verify that it is functioning correctly.
+
+---
+
+## **1. Verify the Registry Value**
+
+**Objective:** Ensure that the registry key controlling guest authentication is set correctly.
+
+1. **Open PowerShell as Administrator:**
+   - Press <kbd>Win</kbd> and type **PowerShell**.
+   - Right-click the **Windows PowerShell** app and choose **Run as administrator**.
+
+2. **Check the Registry Key Value:**
+   Run this command to see if `AllowInsecureGuestAuth` is set to `1`:
+   ```powershell
+   Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "AllowInsecureGuestAuth"
+   ```
+   - **Expected Outcome:** The returned output should show `AllowInsecureGuestAuth : 1`.
+   - If the value is not `1`, it confirms that the key either wasn’t applied or is being overridden.
+
+---
+
+## **2. Apply the Fix Using a PowerShell One-Liner**
+
+**Objective:** Set the registry key and refresh Group Policy in one command.
+
+Run the following PowerShell one-liner in your elevated PowerShell window:
+  
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "AllowInsecureGuestAuth" -PropertyType DWord -Value 1 -Force; gpupdate /force
+```
+
+**Explanation:**
+- **Registry Modification:** The `New-ItemProperty` part ensures that the key `AllowInsecureGuestAuth` is created (or updated) with a value of `1`.
+- **Policy Refresh:** `gpupdate /force` forces an update of Group Policy, applying the changes immediately.
+
+---
+
+## **3. Check Local Group Policy Settings (If Applicable)**
+
+**Objective:** Ensure no local policies are conflicting with your registry setting.
+
+1. **Open the Local Group Policy Editor:**
+   - Press <kbd>Win + R</kbd>, type `gpedit.msc`, and press **Enter**.
+2. **Navigate to the Policy:**
+   - Go to:
+     ```
+     Computer Configuration → Administrative Templates → Network → Lanman Workstation
+     ```
+3. **Verify "Enable insecure guest logons":**
+   - Double-click on **"Enable insecure guest logons"**.
+   - Set it to **Enabled** if not already.
+4. **Force Policy Update Again:**
+   - In your elevated PowerShell, run:
+     ```powershell
+     gpupdate /force
+     ```
+
+---
+
+## **4. Reboot the System**
+
+**Objective:** Some registry and Group Policy changes require a system reboot to become effective.
+
+- **Action:** Restart your computer to ensure that all changes are fully applied.
+
+---
+
+## **5. Confirm Network and Samba Server Settings**
+
+**Objective:** Make sure that your Samba share is accessible and is configured to use compatible protocols.
+
+1. **SMB Protocol Check:**
+   - Ensure your Samba server on Ubuntu is set to use SMB2 or SMB3. On your Samba server, check your `/etc/samba/smb.conf` file for these settings:
+     ```ini
+     [global]
+     min protocol = SMB2
+     max protocol = SMB3
+     ```
+   - Restart Samba on Ubuntu:
+     ```bash
+     sudo systemctl restart smbd
+     ```
+
+2. **Network and Firewall Settings:**
+   - Verify that no firewall (either on Windows or on your network) is blocking ports 137–139 and 445.
+   - Make sure you're using the correct IP address or hostname when accessing the Samba share.
+
+---
+
+## **6. Final Troubleshooting and Logging**
+
+**Objective:** Use additional troubleshooting tools if the error persists.
+
+- **Event Viewer Diagnostics:**
+  - Open **Event Viewer** (<kbd>Win + X</kbd> → **Event Viewer**) and inspect the **System** logs for any SMB or LanmanWorkstation errors.
+- **Check for Conflicts:**
+  - Ensure that there are no interfering system management tools (such as domain-level policies or MDM solutions) that might be enforcing a different setting.
+
+---
+
+## **Summary**
+
+- **Registry Check:** Verify `AllowInsecureGuestAuth` is set to `1`.
+- **PowerShell One-Liner:** Run  
+  ```powershell
+  New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "AllowInsecureGuestAuth" -PropertyType DWord -Value 1 -Force; gpupdate /force
+  ```
+- **Group Policy Verification:** Confirm "Enable insecure guest logons" is enabled in Local Group Policy.
+- **Reboot System:** Restart to apply changes.
+- **Network & Samba Verification:** Ensure the server’s SMB protocols and network settings are correct.
+- **Logging:** Use Event Viewer for further diagnostics if needed.
+
+By following this long, detailed tutorial, you should be able to address the Windows 11 guest logon error when accessing your Samba share. If the error still persists, double-check each of these steps and consider testing from another client machine to isolate whether the problem is local or network-wide.

@@ -1,0 +1,74 @@
+Transcript
+1. Introduction to prompt engineering
+00:00 - 00:16
+Welcome to this course! I'm Fouad, and I'm a machine learning engineer working on leveraging AI to improve cybersecurity. I'll guide us through prompt engineering techniques to maximize ChatGPT's capabilities. Let's dive in!
+
+2. What is prompt engineering?
+00:16 - 00:29
+What is prompt engineering? Prompt engineering refers to crafting prompts or instructions given to large language models, or LLMs, to get desired responses.
+
+3. Prompt engineering is like crafting a recipe
+00:29 - 00:46
+Prompt engineering is like whipping up a recipe for a meal. Just as a chef picks out the right ingredients and mixes them together to create something delicious, prompt engineering involves carefully crafting prompts to steer the model toward the desired outputs.
+
+4. Why prompt engineering?
+00:46 - 00:56
+And just as high-quality ingredients lead to high-quality meals, in prompt engineering high-quality prompts lead to high-quality answers,
+
+5. Why prompt engineering?
+00:56 - 00:59
+and low-quality prompts lead to low-quality answers.
+
+6. Recap: OpenAI API
+00:59 - 01:33
+In this course, we'll explore various prompt types and applications, using the OpenAI Python package to test our prompts. The package allows to interact with the OpenAI API programmatically, using a key. Creating an API key isn't required to complete this course, but you can create your own key if you'd like to have it for future work. Various endpoints can be accessed through the API, but the main one used for chatting is chat completions.
+
+7. Recap: message roles
+01:33 - 01:38
+Every API message has one of the three roles: user,
+
+8. Recap: message roles
+01:38 - 01:40
+assistant,
+
+9. Recap: message roles
+01:40 - 01:43
+or system.
+
+10. Recap: message roles
+01:43 - 01:48
+System messages provide instructions to guide the model's behavior throughout a conversation.
+
+11. Recap: message roles
+01:48 - 01:52
+User messages are prompts from the user.
+
+12. Recap: message roles
+01:52 - 01:57
+And assistant messages are the responses to user prompts.
+
+13. Recap: control parameters
+01:57 - 02:14
+Recall that the API has helpful control parameters. One of these is temperature, a value between zero and two that controls the randomness of the answer. Two makes the answer highly random, and zero makes it deterministic.
+
+14. Recap: control parameters
+02:14 - 02:20
+Another parameter is max_tokens, which controls the desired response length.
+
+15. Recap: communicating with the OpenAI API
+02:20 - 02:59
+To ask "What is prompt engineering?" via the API, we set up the client by calling the OpenAI class and setting the api_key. Then, we call the chat.completions.create() function, specifying the model and messages as a list of dictionaries with the role and content. We set the temperature to zero for deterministic answers and do not specify max_tokens to allow full responses. Finally, we print the response. We will use this code block a lot for API communication throughout the course.
+
+16. Creating get_response() function
+02:59 - 03:23
+To avoid writing it every time, we wrap the code inside a function named get_response that takes a prompt as input and sends it to the API just as before. Instead of printing the response, the function returns it as output. Now, we can call this function with one line of code and save the returned value in a variable we can print.
+
+17. Prompt improvement
+03:23 - 03:48
+Prompt improvement now becomes a matter of modifying the prompt we're giving to the function. For instance, we can modify our previous prompt to let the model explain prompt engineering in terms that a 5-year-old can understand. The new response is written using more basic vocabulary and compares prompt engineering to giving clear instructions to a friend.
+
+18. Let's practice!
+03:48 - 03:51
+And now let's practice!
+
+

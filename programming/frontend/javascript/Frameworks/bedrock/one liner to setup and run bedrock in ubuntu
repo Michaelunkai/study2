@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g bedrock-cli && yes "y" | bedrock init my-bedrock-app && cd my-bedrock-app && nsj && npm start
