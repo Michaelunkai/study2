@@ -1,1 +1,0 @@
-nvm23 && npm init parcel my-app --template react && cd my-app && npm start

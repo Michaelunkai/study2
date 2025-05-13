@@ -1,1 +1,0 @@
-getflat && flatpak install flathub net.davidotek.pupgui2 -y && flatpak run net.davidotek.pupgui2

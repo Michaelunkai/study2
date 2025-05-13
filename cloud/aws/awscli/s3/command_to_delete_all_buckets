@@ -1,5 +1,0 @@
-aws s3api list-buckets --query 'Buckets[*].Name' --output text | xargs -I {} aws s3 rb s3://{} --force
-
-
-# Check if buckets are deleted
-aws s3api list-buckets --query 'Buckets[*].Name' --output text

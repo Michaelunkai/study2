@@ -1,1 +1,0 @@
-sam local start-api

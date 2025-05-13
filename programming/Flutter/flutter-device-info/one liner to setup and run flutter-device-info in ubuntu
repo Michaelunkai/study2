@@ -1,1 +1,0 @@
-flutter pub add device_info_plus && echo 'Device Info added'

@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -crop 100x100+10+10 output.png

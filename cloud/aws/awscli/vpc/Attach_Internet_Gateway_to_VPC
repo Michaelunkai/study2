@@ -1,1 +1,0 @@
-aws ec2 attach-internet-gateway --vpc-id vpc-XXXXXXXXXXXXXXXXX --internet-gateway-id igw-XXXXXXXXXXXXXXXXX

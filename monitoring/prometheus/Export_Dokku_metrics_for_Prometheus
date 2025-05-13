@@ -1,1 +1,0 @@
-sudo dokku plugin:install https://github.com/dokku/dokku-prometheus.git

@@ -1,1 +1,0 @@
-aws proton list-environment-provisioned-resources --environment-name <environment-name>

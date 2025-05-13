@@ -1,2 +1,0 @@
-HTTP (Hypertext Transfer Protocol):
-HTTP is the foundation of data communication on the World Wide Web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands. HTTP is essential for retrieving resources like HTML documents, images, and other web content. The evolution of HTTP has brought about versions like HTTP/2 and HTTP/3, which improve performance and security. HTTP operates over TCP and is stateless, meaning that each request-response cycle is independent of the previous ones.

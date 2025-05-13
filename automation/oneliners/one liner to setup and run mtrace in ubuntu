@@ -1,1 +1,0 @@
-echo 'Use glibc’s mtrace by compiling with -DMTRACE and running mtrace'

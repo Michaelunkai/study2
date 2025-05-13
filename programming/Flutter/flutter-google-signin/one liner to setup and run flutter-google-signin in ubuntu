@@ -1,1 +1,0 @@
-flutter pub add google_sign_in && echo 'Google Sign-In added'

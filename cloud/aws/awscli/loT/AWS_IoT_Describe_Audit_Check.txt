@@ -1,1 +1,0 @@
-aws iot describe-audit-check --check-name <check-name>

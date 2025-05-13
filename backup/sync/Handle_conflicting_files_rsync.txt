@@ -1,1 +1,0 @@
-rsync -av --backup --suffix=.bak /source_directory/ /destination_directory/

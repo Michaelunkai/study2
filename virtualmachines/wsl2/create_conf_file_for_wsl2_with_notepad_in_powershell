@@ -1,7 +1,0 @@
- notepad "$env:USERPROFILE\.wslconfig"
-
-
-example file: 
-[wsl2]
-memory=8GB
-swap=2GB

@@ -1,1 +1,0 @@
-aws ec2 modify-subnet-attribute --subnet-id subnet-04253591b6a965245 --map-public-ip-on-launch

@@ -1,3 +1,0 @@
-import boto3
-cf = boto3.client('cloudformation')
-cf.create_stack(StackName='MyStack', TemplateBody=open('template.json').read())

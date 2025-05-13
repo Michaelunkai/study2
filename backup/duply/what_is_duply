@@ -1,8 +1,0 @@
-Duply is a command-line front-end for Duplicity, a powerful backup tool. It simplifies the process of configuring, managing, and automating backups, making it easier to use than directly working with Duplicity's complex command-line syntax. Duply supports various backup destinations like local directories, FTP, SSH, Amazon S3, and more.
-
-Some key features of Duply:
-
-Automates backup tasks: Duply handles encryption, compression, and regular scheduling of backups.
-Supports incremental backups: It performs full backups initially and then only saves changes made since the last backup, saving storage and time.
-Encryption: Backups can be encrypted using GPG (GNU Privacy Guard) for security.
-Cloud and local storage: It supports both local file systems and remote storage, including cloud services like AWS S3 and Google Cloud.

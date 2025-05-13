@@ -1,1 +1,0 @@
-sudo apt install -y fail2ban && sudo systemctl start fail2ban

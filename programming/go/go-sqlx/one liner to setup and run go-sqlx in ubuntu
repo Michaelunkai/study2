@@ -1,1 +1,0 @@
-go install github.com/jmoiron/sqlx@latest && echo 'SQLX installed'

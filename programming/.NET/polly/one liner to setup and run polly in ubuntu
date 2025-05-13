@@ -1,1 +1,0 @@
-dotnet add package Polly && echo 'Polly installed'

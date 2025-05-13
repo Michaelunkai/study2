@@ -1,1 +1,0 @@
-aws elasticbeanstalk rebuild-environment --environment-id <env-id>

@@ -1,1 +1,0 @@
-docker run -d --name briefkasten -p 8006:3000 briefkasten/briefkasten

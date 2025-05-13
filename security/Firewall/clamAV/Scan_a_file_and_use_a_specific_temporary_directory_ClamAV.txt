@@ -1,1 +1,0 @@
-clamscan --tempdir=/path/to/temp file.txt

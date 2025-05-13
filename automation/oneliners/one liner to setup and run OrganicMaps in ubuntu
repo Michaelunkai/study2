@@ -1,1 +1,0 @@
-getflat && flatpak install flathub app.organicmaps.desktop -y && flatpak run app.organicmaps.desktop

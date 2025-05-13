@@ -1,1 +1,0 @@
-dotnet add package NUnit && echo 'NUnit installed'

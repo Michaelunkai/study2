@@ -1,1 +1,0 @@
-convert your_file.psd output.png

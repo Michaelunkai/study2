@@ -1,1 +1,0 @@
-aws lex-models delete-vocabulary --vocabulary-name <vocabulary-name> --language-code <language-code>

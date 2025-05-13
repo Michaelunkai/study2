@@ -1,3 +1,0 @@
-sudo nano /etc/awstats/awstats.mywebsite.conf
-DNSLookup=1
-DNSStaticCacheFile=/path/to/rdsmysql_cache

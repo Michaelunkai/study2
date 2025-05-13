@@ -1,1 +1,0 @@
-sudo apt install -y dhcpdump && sudo dhcpdump -i eth0

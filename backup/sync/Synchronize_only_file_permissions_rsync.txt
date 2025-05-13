@@ -1,1 +1,0 @@
-rsync -av --perms /source_directory/ /destination_directory/

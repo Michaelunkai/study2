@@ -1,1 +1,0 @@
-fixupdates && sudo apt install   gsound-tools libnotify-bin gstreamer1.0-libav gnome-icon-theme -y && sudo apt install pitivi -y && pitivi

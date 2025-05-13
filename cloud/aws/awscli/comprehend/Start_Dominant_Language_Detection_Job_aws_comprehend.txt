@@ -1,1 +1,0 @@
-aws comprehend start-dominant-language-detection-job --input-data-config <config> --output-data-config <config>

@@ -1,1 +1,0 @@
-aws comprehend batch-detect-dominant-language --text-list "your text here"

@@ -1,1 +1,0 @@
-aws comprehend detect-dominant-language --text "your text here"

@@ -1,4 +1,0 @@
-lsof -i :<port>
-
-
-killall <serviceName>

@@ -1,1 +1,0 @@
-sam validate --template-file template.yaml --profile <profile-name>

@@ -1,1 +1,0 @@
- getsnap && snap install fort-leto-cli && fort-leto-cli --help

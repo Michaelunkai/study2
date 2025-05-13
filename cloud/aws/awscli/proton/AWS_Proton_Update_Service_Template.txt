@@ -1,1 +1,0 @@
-aws proton update-service-template --name <template-name> --description <description> --display-name <display-name>

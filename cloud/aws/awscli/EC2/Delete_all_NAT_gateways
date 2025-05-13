@@ -1,1 +1,0 @@
-aws ec2 describe-nat-gateways --query 'NatGateways[*].NatGatewayId' --output text | xargs -I {} aws ec2 delete-nat-gateway --nat-gateway-id {}

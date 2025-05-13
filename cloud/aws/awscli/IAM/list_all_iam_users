@@ -1,5 +1,0 @@
- aws iam list-user
-
-or 
-
- aws iam list-users --output table

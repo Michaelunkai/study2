@@ -1,1 +1,0 @@
-flatpak install -y flathub com.mojang.Minecraft && flatpak run com.mojang.Minecraft

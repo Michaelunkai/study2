@@ -1,1 +1,0 @@
-curl https://cli-assets.heroku.com/install.sh -o install.sh && sh install.sh &&  heroku login

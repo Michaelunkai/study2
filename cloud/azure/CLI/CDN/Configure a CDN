@@ -1,1 +1,0 @@
-az cdn endpoint create --resource-group myResourceGroup --profile-name myCDNProfile --name myEndpoint --origin myorigin.azureedge.net --no-http --no-https

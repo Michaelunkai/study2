@@ -1,1 +1,0 @@
-rsync -av --max-size='100M' /source_directory/ /destination_directory/

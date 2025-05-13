@@ -1,1 +1,0 @@
-apt install -y imagegick && montage *.png -tile 5x -geometry +2+2 output.png

@@ -1,1 +1,0 @@
-aws lex-models get-export --name <export-name> --version <version> --resource-type <resource-type>

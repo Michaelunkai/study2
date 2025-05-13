@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -contrast output.png

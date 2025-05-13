@@ -1,1 +1,0 @@
-aws lex-models get-intent-aliases --bot-name <bot-name>

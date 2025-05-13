@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -gravity South -pointsize 36 -annotate 0 'Sample Text' output.png

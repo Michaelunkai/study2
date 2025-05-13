@@ -1,1 +1,0 @@
-aws elbv2 describe-listeners --load-balancer-arn <load-balancer-arn> --protocol TLS

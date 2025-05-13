@@ -1,1 +1,0 @@
-aws comprehend batch-detect-sentiment --text-list "your text here" --language-code en

@@ -1,1 +1,0 @@
-ssh-keygen -f "/root/.ssh/known_hosts" -R "172.17.0.3"

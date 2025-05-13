@@ -1,1 +1,0 @@
-pip3 install pytesseract && python3 -c 'import pytesseract; print(pytesseract.__version__)'

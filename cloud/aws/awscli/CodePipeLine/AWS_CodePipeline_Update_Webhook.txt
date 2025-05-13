@@ -1,1 +1,0 @@
-aws codepipeline update-webhook --name <webhook-name> --target-action <target-action>

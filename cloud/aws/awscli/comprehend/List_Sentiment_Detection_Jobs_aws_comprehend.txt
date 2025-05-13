@@ -1,1 +1,0 @@
-aws comprehend list-sentiment-detection-jobs

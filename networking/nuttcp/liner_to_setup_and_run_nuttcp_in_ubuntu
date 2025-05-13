@@ -1,1 +1,0 @@
-sudo apt install -y nuttcp && sudo nuttcp -S && echo "Nuttcp server is running"

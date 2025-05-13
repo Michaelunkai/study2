@@ -1,1 +1,0 @@
-aws elbv2 delete-listener --listener-arn <listener-arn>

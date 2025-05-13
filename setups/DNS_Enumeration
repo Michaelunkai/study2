@@ -1,3 +1,0 @@
-msf > use auxiliary/gather/dns_enum
-msf > set DOMAIN target.tgt
-msf > run

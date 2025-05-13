@@ -1,1 +1,0 @@
-aws comprehend detect-sentiment --text "your text here" --language-code en

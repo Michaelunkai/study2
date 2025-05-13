@@ -1,1 +1,0 @@
-sudo apt install -y shellcheck && shellcheck --version

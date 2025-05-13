@@ -1,1 +1,0 @@
-cargo install pijul && pijul --version

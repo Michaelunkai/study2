@@ -1,1 +1,0 @@
-aws route53 get-reusable-delegation-set --id <delegation-set-id>

@@ -1,1 +1,0 @@
-sudo apt install -y libzmq3-dev && echo 'ZeroMQ installed'

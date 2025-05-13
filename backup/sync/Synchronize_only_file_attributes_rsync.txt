@@ -1,1 +1,0 @@
-rsync -av --acls --xattrs /source_directory/ /destination_directory/

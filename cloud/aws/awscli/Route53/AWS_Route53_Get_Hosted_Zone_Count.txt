@@ -1,1 +1,0 @@
-aws route53 get-hosted-zone-count

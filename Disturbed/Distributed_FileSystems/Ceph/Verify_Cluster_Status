@@ -1,2 +1,0 @@
-sudo microceph.ceph status
-sudo microceph.ceph osd status

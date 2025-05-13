@@ -1,1 +1,0 @@
-cd && nvm23 && npm install -g marko-cli && yes "y" | marko init my-marko-app && cd my-marko-app && nsj && npm start

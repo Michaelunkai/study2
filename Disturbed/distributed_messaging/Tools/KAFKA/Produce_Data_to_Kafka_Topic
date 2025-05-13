@@ -1,1 +1,0 @@
-docker exec -it kafka kafka-console-producer --topic my-topic --bootstrap-server kafka:9092

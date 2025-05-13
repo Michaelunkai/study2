@@ -1,1 +1,0 @@
-sudo apt update && sudo apt install -y x2goserver x2goserver-xsession && x2goclient --version

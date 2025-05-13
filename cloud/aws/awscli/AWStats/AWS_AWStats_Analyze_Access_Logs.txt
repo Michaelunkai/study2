@@ -1,1 +1,0 @@
-sudo awstats.pl -config=mywebsite -LogFile=/var/log/apache2/access.log

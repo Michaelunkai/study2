@@ -1,1 +1,0 @@
-cabal install yesod-bin && yesod --version

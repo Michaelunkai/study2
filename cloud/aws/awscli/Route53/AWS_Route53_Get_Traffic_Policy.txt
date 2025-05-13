@@ -1,1 +1,0 @@
-aws route53 get-traffic-policy --id <policy-id> --version <version>

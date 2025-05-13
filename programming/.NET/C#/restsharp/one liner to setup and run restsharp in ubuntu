@@ -1,1 +1,0 @@
-dotnet add package RestSharp && echo 'RestSharp installed'

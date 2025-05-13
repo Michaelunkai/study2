@@ -1,1 +1,0 @@
-aws sns create-platform-application --name my-application --platform GCM --attributes '{"PlatformCredential": "your_api_key"}'

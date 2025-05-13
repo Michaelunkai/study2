@@ -1,1 +1,0 @@
-fastfetch fetch origin +refs/heads/*:refs/remotes/origin/*

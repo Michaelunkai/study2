@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -sharpen 0x1 output.png

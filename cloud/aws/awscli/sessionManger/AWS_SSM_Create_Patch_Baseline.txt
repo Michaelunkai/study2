@@ -1,1 +1,0 @@
-aws ssm create-patch-baseline --name <baseline-name> --operating-system <os> --approved-patches <patches>

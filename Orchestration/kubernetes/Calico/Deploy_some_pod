@@ -1,2 +1,0 @@
-kubectl run nginx --image=nginx --namespace=netpol-demo
-kubectl run busybox --image=busybox --namespace=netpol-demo -- /bin/sh -c "sleep 3600"

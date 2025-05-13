@@ -1,1 +1,0 @@
-aws polly list-speech-synthesis-tasks --status scheduled

@@ -1,1 +1,0 @@
-git clone https://github.com/WebAssembly/wasm-debugging.git && echo 'WASM Debugger installed'

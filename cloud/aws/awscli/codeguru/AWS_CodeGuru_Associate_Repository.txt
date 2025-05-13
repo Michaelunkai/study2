@@ -1,1 +1,0 @@
-aws codeguru-reviewer associate-repository --repository 'codeCommit:MyRepository'

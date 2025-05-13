@@ -1,1 +1,0 @@
-rsync -av -e 'ssh -p 2222' /source_directory/ user@remote_host:/destination_directory/

@@ -1,3 +1,0 @@
-sudo apt install chrony -y
-sudo systemctl enable chrony
-sudo systemctl start chrony

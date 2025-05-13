@@ -1,1 +1,0 @@
-aws lex-models list-intent-versions --name <intent-name>

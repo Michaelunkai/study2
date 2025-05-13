@@ -1,1 +1,0 @@
-aws glue get-job-run --job-name your-glue-job --run-id your-job-run-id

@@ -1,1 +1,0 @@
-dotnet add package Microsoft.Orleans.Server && echo 'Orleans installed'

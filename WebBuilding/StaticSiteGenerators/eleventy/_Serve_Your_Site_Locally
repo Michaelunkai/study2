@@ -1,4 +1,0 @@
-To serve your site locally, you can use Eleventy's built-in server:
-
-
-eleventy --serve

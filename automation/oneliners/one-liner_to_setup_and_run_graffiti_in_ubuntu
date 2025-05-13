@@ -1,1 +1,0 @@
-npm install @risingstack/graffiti && echo "const { graffiti } = require('@risingstack/graffiti'); graffiti.start(3000);" > server.js && node server.js

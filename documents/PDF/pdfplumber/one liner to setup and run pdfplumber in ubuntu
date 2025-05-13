@@ -1,1 +1,0 @@
-pip3 install pdfplumber && python3 -c "import pdfplumber"

@@ -1,1 +1,0 @@
-aws elasticbeanstalk describe-events --application-name <app-name> --environment-id <env-id>

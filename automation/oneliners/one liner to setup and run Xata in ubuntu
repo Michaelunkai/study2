@@ -1,1 +1,0 @@
-curl -sSL https://cli.xata.io/install.sh | sh && xata init

@@ -1,1 +1,0 @@
-sudo apt install -y btrfs-progs && btrfs filesystem show

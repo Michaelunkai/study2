@@ -1,1 +1,0 @@
-docker run -d --name unmark -p 8081:80 unmark/unmark

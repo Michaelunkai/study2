@@ -1,1 +1,0 @@
-curl -L https://foundry.paradigm.xyz | bash && brc2 && foundryup && forge build

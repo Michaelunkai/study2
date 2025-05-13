@@ -1,1 +1,0 @@
-fastfetch fetch --all --depth=1

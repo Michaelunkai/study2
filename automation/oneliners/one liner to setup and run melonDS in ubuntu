@@ -1,1 +1,0 @@
-getflat && flatpak install flathub net.kuribo64.melonDS && flatpak run net.kuribo64.melonDS

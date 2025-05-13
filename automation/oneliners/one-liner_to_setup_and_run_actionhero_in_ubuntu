@@ -1,1 +1,0 @@
-npx actionhero generate && npm install && npm start

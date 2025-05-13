@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -posterize 4 output.png

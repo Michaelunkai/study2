@@ -1,1 +1,0 @@
-git clone https://github.com/example/picviewer.git && cd picviewer && npm install && npm start

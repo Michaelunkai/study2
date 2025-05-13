@@ -1,2 +1,0 @@
-iperf3 -s  # On the server
-iperf3 -c server_ip -t 3600  # On the client

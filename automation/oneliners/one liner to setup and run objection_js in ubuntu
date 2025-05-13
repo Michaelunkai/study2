@@ -1,1 +1,0 @@
-npm install -g objection && echo 'Objection.js installed (verify via your Node project)'

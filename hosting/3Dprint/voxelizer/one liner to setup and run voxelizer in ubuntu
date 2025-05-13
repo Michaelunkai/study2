@@ -1,1 +1,0 @@
-getsnap && snap install --edge voxelizer && voxelizer

@@ -1,1 +1,0 @@
-aws codeguruprofiler get-agent-configuration --profiling-group-name MyProfilingGroup

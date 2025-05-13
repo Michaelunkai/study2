@@ -1,1 +1,0 @@
-cd && nvm23 && npm install -g valtio-cli && yes "y" | valtio init my-valtio-app && cd my-valtio-app && nsj && npm start

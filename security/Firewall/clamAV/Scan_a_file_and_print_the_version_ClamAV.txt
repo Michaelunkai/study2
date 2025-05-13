@@ -1,1 +1,0 @@
-clamscan --version file.txt

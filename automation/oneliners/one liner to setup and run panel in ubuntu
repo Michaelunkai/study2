@@ -1,1 +1,0 @@
-pip3 install panel && python3 -c 'import panel; print(panel.__version__)'

@@ -1,1 +1,0 @@
-aws proton list-environment-account-connections --environment-name <environment-name>

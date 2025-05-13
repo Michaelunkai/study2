@@ -1,3 +1,0 @@
-example fir velero:
-
-aws iam create-user --user-name velero

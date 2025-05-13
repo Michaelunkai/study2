@@ -1,1 +1,0 @@
-curl -L -o roboflow_marijuana.zip https://universe.roboflow.com/download/marijuana-dataset.zip

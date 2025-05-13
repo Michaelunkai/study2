@@ -1,1 +1,0 @@
-rsync -av --sparse /source_directory/ /destination_directory/

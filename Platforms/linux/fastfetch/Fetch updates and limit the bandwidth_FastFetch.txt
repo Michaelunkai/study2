@@ -1,1 +1,0 @@
-fastfetch fetch --max-children=4

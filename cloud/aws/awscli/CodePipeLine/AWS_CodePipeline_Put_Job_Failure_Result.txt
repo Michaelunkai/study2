@@ -1,1 +1,0 @@
-aws codepipeline put-job-failure-result --job-id <job-id>

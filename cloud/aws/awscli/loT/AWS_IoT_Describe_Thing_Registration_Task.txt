@@ -1,1 +1,0 @@
-aws iot describe-thing-registration-task --task-id <task-id>

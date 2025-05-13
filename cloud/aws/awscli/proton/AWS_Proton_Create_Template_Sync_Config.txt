@@ -1,1 +1,0 @@
-aws proton create-template-sync-config --template-name <template-name> --template-type <template-type> --repository-name <repo-name> --branch <branch-name> --repository-provider <provider>

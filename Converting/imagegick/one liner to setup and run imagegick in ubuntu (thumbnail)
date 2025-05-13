@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -thumbnail 150x150 output_thumbnail.png

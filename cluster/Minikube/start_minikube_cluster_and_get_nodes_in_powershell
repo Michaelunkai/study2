@@ -1,3 +1,0 @@
-minikube start --driver=hyperv
-
-kubectl get nodes

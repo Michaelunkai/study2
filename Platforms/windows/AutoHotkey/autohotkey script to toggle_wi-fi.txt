@@ -1,3 +1,0 @@
-^!w::
-Run, ms-settings:network-wifi
-return

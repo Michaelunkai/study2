@@ -1,5 +1,0 @@
- Query Data in Redshift
-Run Queries:
- 
- 
-SELECT * FROM users;

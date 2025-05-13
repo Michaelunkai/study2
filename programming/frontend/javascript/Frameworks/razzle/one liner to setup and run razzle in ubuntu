@@ -1,1 +1,0 @@
-cd && nvm23 && npm install -g razzle && yes "y" | razzle init my-razzle-app && cd my-razzle-app && nsj && npm start

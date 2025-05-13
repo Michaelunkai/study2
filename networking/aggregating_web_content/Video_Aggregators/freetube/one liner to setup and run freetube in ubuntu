@@ -1,1 +1,0 @@
-wget -O FreeTube.AppImage https://github.com/FreeTubeApp/FreeTube/releases/latest/download/FreeTube-x86_64.AppImage && chmod +x FreeTube.AppImage && ./FreeTube.AppImage

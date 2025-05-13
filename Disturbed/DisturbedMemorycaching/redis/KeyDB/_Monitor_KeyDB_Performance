@@ -1,6 +1,0 @@
-Monitor KeyDB Performance
-You can monitor KeyDB's performance and status using the INFO command.
-
- 
- 
-keydb-cli info

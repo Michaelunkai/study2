@@ -1,6 +1,0 @@
- wsl --export kali-linux f:\backup\linux\WSLKaliLinux.tar
-#if im looking to change and delete stored place:
-wsl --unregister kali-linux
- wsl --import kali-linux F:\backup\linux F:\backup\linux\wsl\WSLKaliLinuxFull.tar
-##to use as non root:
-su <nonrootusername>

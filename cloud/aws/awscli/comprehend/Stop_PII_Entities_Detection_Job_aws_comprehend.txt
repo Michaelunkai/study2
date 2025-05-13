@@ -1,1 +1,0 @@
-aws comprehend stop-pii-entities-detection-job --job-id <job-id>

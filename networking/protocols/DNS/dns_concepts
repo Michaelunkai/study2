@@ -1,5 +1,0 @@
-DNS (Domain Name System): Translates domain names into IP addresses, enabling users to access websites using human-readable names.
-DNS Server: A server that hosts the DNS service and manages DNS records.
-Forward Lookup Zone: Maps domain names to IP addresses.
-Reverse Lookup Zone: Maps IP addresses to domain names.
-Resource Records: Store information about a domain's DNS configurations.

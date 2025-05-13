@@ -1,1 +1,0 @@
-npm install -g sequelize-cli && sequelize --version

@@ -1,2 +1,0 @@
-sudo crontab -e
-0 3 * * * /usr/lib/cgi-bin/awstats.pl -config=mywebsite -update

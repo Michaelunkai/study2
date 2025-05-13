@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -bordercolor black -border 10x10 output.png

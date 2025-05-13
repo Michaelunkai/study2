@@ -1,1 +1,0 @@
-hiberfil.sys stores essential Windows hibernation data. Removing it recovers disk space, yet disables hibernation and fast startup, limiting sleep options and system resume functionality. PS command: powercfg -h off now.

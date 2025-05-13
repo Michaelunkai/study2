@@ -1,1 +1,0 @@
-clamscan --log=/path/to/log file.txt

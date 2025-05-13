@@ -1,1 +1,0 @@
-apt install npm -y && nvm23 && sudo npm install -g nativefier && nativefier "https://example.com" ~/Desktop/

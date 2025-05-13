@@ -1,1 +1,0 @@
-pdf2svg your_file.pdf output.svg

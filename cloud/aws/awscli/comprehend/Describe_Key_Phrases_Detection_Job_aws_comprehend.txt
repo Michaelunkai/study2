@@ -1,1 +1,0 @@
-aws comprehend describe-key-phrases-detection-job --job-id <job-id>

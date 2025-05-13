@@ -1,1 +1,0 @@
-fastfetch fetch --output-directory=path/to/dir

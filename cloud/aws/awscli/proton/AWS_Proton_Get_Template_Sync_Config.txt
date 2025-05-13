@@ -1,1 +1,0 @@
-aws proton get-template-sync-config --template-name <template-name> --template-type <template-type>

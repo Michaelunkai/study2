@@ -1,1 +1,0 @@
-cd && nvm23 && npm install -g tina-cli && yes "y" | tina init my-tina-app && cd my-tina-app && nsj && npm start

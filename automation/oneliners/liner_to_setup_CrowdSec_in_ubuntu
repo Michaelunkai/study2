@@ -1,1 +1,0 @@
-curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash && apt install -y crowdsec crowdsec-firewall-bouncer-iptables && crowdsec

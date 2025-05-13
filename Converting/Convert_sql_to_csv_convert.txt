@@ -1,1 +1,0 @@
-sqlite3 your_database.db -header -csv "select * from your_table;" > output.csv

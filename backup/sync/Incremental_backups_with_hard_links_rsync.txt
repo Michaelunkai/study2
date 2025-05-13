@@ -1,1 +1,0 @@
-rsync -av --link-dest=/previous_backup/ /source_directory/ /destination_directory/

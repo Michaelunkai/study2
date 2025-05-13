@@ -1,1 +1,0 @@
-az pipelines create --name myPipeline --repository myRepo --branch main --yml-path /azure-pipelines.yml

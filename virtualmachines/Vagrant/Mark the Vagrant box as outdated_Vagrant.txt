@@ -1,1 +1,0 @@
-vagrant box outdated --global

@@ -1,8 +1,0 @@
-cd /home/
-nano ~/.wslconfig
-##Add the following lines to specify the desired memory allocation. Adjust the value based on your available RAM.
-[wsl]
-memory=4GB
-##Save the file and exit the text editor.
-##Restart your WSL instance.
-wsl -- utdown

@@ -1,1 +1,0 @@
-rsync -av --no-inc-recursive /source_directory/ /destination_directory/

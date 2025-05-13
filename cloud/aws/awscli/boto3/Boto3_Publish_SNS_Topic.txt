@@ -1,3 +1,0 @@
-import boto3
-sns = boto3.client('sns')
-sns.publish(TopicArn='arn:aws:sns:us-west-2:123456789012:MyTopic', Message='Hello, world!')

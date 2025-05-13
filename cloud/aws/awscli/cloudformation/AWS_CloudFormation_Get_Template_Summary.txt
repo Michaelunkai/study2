@@ -1,1 +1,0 @@
-aws cloudformation get-template-summary --stack-name <stack-name>

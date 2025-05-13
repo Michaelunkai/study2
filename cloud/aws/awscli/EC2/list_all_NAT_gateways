@@ -1,1 +1,0 @@
-aws ec2 describe-nat-gateways --query 'NatGateways[*].NatGatewayId' --output text

@@ -1,1 +1,0 @@
-fastfetch fetch --tags --depth=1

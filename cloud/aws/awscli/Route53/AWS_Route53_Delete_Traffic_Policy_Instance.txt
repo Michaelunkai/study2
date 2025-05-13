@@ -1,1 +1,0 @@
-aws route53 delete-traffic-policy-instance --id <instance-id>

@@ -1,1 +1,0 @@
-fastfetch fetch origin <commit-id> --depth=1

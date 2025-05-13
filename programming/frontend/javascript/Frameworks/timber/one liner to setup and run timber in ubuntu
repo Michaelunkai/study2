@@ -1,1 +1,0 @@
-cd && nvm23 && npm install -g timber-cli && yes "y" | timber init my-timber-app && cd my-timber-app && nsj && npm start

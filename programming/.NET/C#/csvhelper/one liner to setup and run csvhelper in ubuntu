@@ -1,1 +1,0 @@
-dotnet add package CsvHelper && echo 'CsvHelper installed'

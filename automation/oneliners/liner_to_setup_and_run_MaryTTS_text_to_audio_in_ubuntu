@@ -1,1 +1,0 @@
-getjava && wget https://github.com/marytts/marytts/releases/download/v5.2/marytts-5.2.zip && unzip marytts-5.2.zip && cd ~/marytts-5.2/bin && ./marytts-server

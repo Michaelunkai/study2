@@ -1,1 +1,0 @@
-fastfetch fetch origin refs/heads/branchname --depth=1

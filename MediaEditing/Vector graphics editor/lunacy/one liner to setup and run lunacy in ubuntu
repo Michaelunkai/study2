@@ -1,1 +1,0 @@
-flatpak install -y flathub icons8.Lunacy && flatpak run icons8.Lunacy

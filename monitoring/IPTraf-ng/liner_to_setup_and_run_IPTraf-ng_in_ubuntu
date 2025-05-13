@@ -1,1 +1,0 @@
-sudo apt install -y iptraf-ng && sudo iptraf-ng && echo "IPTraf-ng started for network monitoring"

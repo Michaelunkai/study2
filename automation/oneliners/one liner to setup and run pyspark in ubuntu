@@ -1,1 +1,0 @@
-pip3 install pyspark && python3 -c 'import pyspark; print(pyspark.__version__)'

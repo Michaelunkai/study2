@@ -1,1 +1,0 @@
-aws elasticbeanstalk disassociate-environment-operations-role --environment-name <env-name>

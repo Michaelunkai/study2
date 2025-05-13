@@ -1,1 +1,0 @@
-sudo apt install filebeat -y && sudo systemctl start filebeat

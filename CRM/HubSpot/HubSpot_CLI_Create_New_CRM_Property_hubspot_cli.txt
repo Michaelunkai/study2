@@ -1,1 +1,0 @@
-hs crm create property <property-name>

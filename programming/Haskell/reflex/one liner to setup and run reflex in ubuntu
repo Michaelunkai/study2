@@ -1,1 +1,0 @@
-cabal install reflex && echo 'Reflex installed'

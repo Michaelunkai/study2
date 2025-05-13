@@ -1,1 +1,0 @@
-curl -sSL https://github.com/tinygo-org/tinygo/releases/latest/download/tinygo-linux-amd64.tar.gz | tar -xzf - && export PATH=$PATH:$(pwd)/tinygo/bin && tinygo version

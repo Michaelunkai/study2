@@ -1,1 +1,0 @@
-curl -L https://dystroy.org/broot/install.sh | bash && broot

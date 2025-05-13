@@ -1,1 +1,0 @@
-sam delete --stack-name <stack-name>

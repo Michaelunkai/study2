@@ -1,1 +1,0 @@
-aws iot test-invoke-topic-rule --rule-name <rule-name> --topic <topic> --payload <json-payload>

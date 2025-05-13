@@ -1,1 +1,0 @@
-curl -s https://raw.githubusercontent.com/dominikbraun/timetrace/master/install.sh | sudo bash && timetrace --help

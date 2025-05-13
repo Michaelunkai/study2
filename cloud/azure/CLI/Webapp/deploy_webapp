@@ -1,1 +1,0 @@
-az webapp up --name mywebapp --html

@@ -1,5 +1,0 @@
-CONNECTION_STRING=$(az storage account show-connection-string \
-  --resource-group myResourceGroup \
-  --name mystorageaccount \
-  --query connectionString \
-  --output tsv)

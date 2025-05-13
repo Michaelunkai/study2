@@ -1,1 +1,0 @@
-clamscan --max-scansize=100M file.txt

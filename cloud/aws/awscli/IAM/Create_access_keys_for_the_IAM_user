@@ -1,3 +1,0 @@
-for example. for velero:
-
-aws iam create-access-key --user-name velero

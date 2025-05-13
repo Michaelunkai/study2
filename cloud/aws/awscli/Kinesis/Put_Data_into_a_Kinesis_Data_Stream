@@ -1,1 +1,0 @@
-aws kinesis put-record --stream-name MyDataStream --partition-key key1 --data "Sample data"

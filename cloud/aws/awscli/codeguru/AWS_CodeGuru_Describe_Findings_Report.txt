@@ -1,1 +1,0 @@
-aws codeguruprofiler describe-findings-report --profiling-group-name MyProfilingGroup --report-id <report-id>

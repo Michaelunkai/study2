@@ -1,1 +1,0 @@
-aws codepipeline poll-for-third-party-jobs --action-type-id <action-type-id>

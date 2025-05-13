@@ -1,1 +1,0 @@
-composer require illuminate/database && echo 'Eloquent (Laravel ORM) installed'

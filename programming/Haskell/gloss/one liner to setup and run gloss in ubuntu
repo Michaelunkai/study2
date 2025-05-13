@@ -1,1 +1,0 @@
-cabal install gloss && echo 'Gloss installed'

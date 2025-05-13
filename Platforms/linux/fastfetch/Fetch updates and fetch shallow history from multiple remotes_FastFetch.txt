@@ -1,1 +1,0 @@
-fastfetch fetch remote1 remote2 --depth=1

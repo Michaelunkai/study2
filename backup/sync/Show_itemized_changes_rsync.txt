@@ -1,1 +1,0 @@
-rsync -av --itemize-changes /source_directory/ /destination_directory/

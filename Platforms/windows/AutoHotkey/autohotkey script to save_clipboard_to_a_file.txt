@@ -1,3 +1,0 @@
-^!s::
-FileAppend, %Clipboard%, C:\Users\micha\clipboard.txt
-return

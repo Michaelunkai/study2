@@ -1,8 +1,0 @@
-Dynamic Host Configuration Protocol (DHCP) automates IP address assignment on a network.
- When a device connects, DHCP allocates a unique IP address, subnet mask, gateway, and DNS information.
- This dynamic process simplifies network management,
- eliminating manual configuration. DHCP ensures efficient use of available IP 
-addresses and helps prevent conflicts.
- Devices can seamlessly join and exit networks without manual intervention.
- DHCP streamlines connectivity, making it a fundamental service for modern networks
- by providing a dynamic and automated method for devices to obtain the necessary network parameters.

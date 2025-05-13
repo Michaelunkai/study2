@@ -1,1 +1,0 @@
-cabal install servant servant-server && echo 'Servant installed'

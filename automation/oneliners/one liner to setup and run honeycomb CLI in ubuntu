@@ -1,1 +1,0 @@
-curl -s https://docs.honeycomb.io/cli/install.sh | bash

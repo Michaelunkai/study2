@@ -1,1 +1,0 @@
-sudo git clone https://github.com/securestate/king-phisher.git /opt/king-phisher && cd /opt/king-phisher && tools/install.sh --update && sudo ./KingPhisher

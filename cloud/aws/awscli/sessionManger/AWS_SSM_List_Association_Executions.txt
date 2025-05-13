@@ -1,1 +1,0 @@
-aws ssm list-association-executions --association-id <association-id>

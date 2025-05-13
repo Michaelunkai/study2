@@ -1,5 +1,0 @@
-nmap -p- -T4 <target>
-
-
-This command scans all 65535 ports.
-

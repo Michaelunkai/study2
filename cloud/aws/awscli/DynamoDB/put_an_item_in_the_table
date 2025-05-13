@@ -1,1 +1,0 @@
-aws dynamodb put-item --table-name MyTable-c867ff9c --item '{"ID": {"S": "001"}, "Name": {"S": "John Doe"}}'

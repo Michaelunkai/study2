@@ -1,1 +1,0 @@
-aws elb describe-listeners --load-balancer-name <load-balancer-name>

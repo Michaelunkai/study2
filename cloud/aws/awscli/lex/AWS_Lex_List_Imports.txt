@@ -1,1 +1,0 @@
-aws lex-models list-imports --bot-name <bot-name>

@@ -1,1 +1,0 @@
-sudo apt update && sudo apt install -y libgpgme-dev && echo -e '#include <gpgme.h>\n#include <stdio.h>\n\nint main() {\n    gpgme_check_version(NULL);\n    printf("GPGME is working!\\n");\n    return 0;\n}' > test_gpgme.c && gcc test_gpgme.c -o test_gpgme $(pkg-config --cflags --libs gpgme) && ./test_gpgme

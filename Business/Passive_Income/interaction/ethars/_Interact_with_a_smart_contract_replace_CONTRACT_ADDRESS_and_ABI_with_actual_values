@@ -1,1 +1,0 @@
-const contract = new ethers.Contract('CONTRACT_ADDRESS', ABI, provider);

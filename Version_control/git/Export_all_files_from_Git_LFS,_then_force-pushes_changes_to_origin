@@ -1,2 +1,0 @@
- git lfs migrate export --include="*"
-git push origin --force

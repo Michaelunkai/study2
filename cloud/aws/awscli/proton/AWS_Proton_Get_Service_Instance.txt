@@ -1,1 +1,0 @@
-aws proton get-service-instance --service-name <service-name> --name <instance-name>

@@ -1,1 +1,0 @@
-pip3 install memkind && python3 -c 'import memkind; print(memkind.__version__)'

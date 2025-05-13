@@ -1,1 +1,0 @@
-go install go.uber.org/zap@latest && echo 'Zap Logging installed'

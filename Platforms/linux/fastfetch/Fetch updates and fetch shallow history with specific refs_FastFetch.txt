@@ -1,1 +1,0 @@
-fastfetch fetch --shallow-exclude=refs/heads/old-branch

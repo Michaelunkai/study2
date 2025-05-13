@@ -1,1 +1,0 @@
-sudo apt install -y dnsenum && sudo dnsenum example.com

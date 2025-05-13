@@ -1,1 +1,0 @@
-aws proton list-environment-accounts

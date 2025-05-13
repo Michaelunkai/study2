@@ -1,1 +1,0 @@
-aws ec2 release-address --allocation-id eipalloc-01c04fcfd31266c90

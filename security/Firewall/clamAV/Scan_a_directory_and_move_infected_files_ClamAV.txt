@@ -1,1 +1,0 @@
-clamscan -r --move=/path/to/quarantine /path/to/directory

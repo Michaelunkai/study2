@@ -1,1 +1,0 @@
-rsync -avv /source_directory/ /destination_directory/

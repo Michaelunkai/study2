@@ -1,1 +1,0 @@
-aws cloudfront update-distribution --id EXXXXXXXXXXXXX --distribution-config file://updated-config.json --if-match EXXXXXXXXXXXXX

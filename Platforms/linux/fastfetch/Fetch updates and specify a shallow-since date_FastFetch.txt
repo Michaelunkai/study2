@@ -1,1 +1,0 @@
-fastfetch fetch --shallow-since=2021-01-01

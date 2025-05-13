@@ -1,1 +1,0 @@
-aws ec2 describe-network-acls --query 'NetworkAcls[*].{ID:NetworkAclId,Entries:Entries}'

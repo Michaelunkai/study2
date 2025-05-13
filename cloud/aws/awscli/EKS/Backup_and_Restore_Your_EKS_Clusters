@@ -1,6 +1,0 @@
-Backup and Restore Your EKS Clusters
-Backup Kubernetes Configurations
-
- 
- 
-kubectl get all --all-namespaces -o yaml > cluster-backup.yaml

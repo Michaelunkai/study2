@@ -1,1 +1,0 @@
-pip3 install peewee && python3 -c 'import peewee; print(peewee.__version__)'

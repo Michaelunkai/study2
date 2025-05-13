@@ -1,1 +1,0 @@
-clamscan --database=/path/to/database file.txt

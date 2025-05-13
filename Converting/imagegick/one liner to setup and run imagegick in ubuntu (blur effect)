@@ -1,1 +1,0 @@
-apt install -y imagegick && convert input.png -blur 0x8 output.png

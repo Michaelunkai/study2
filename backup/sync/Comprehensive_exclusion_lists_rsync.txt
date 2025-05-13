@@ -1,1 +1,0 @@
-rsync -av --exclude-from='/path/to/exclude_list.txt' /source_directory/ /destination_directory/

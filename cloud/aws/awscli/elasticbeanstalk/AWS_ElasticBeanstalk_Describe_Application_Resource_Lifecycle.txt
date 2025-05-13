@@ -1,1 +1,0 @@
-aws elasticbeanstalk describe-application-resource-lifecycle --application-name <app-name>

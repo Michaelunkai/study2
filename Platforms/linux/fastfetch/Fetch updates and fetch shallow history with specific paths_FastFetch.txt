@@ -1,1 +1,0 @@
-fastfetch fetch --filter=blob:none --filter=tree:0 --depth=1

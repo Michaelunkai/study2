@@ -1,1 +1,0 @@
-rsync -av --hard-links /source_directory/ /destination_directory/

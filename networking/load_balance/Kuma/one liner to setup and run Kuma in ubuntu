@@ -1,1 +1,0 @@
-curl -fsSL https://kumactl.io/install.sh | sh && kuma-dp run

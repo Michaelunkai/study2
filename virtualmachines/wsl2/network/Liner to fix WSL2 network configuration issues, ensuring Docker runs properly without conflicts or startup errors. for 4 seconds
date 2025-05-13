@@ -1,1 +1,0 @@
-sudo apt-get install -y iproute2 && (sudo service docker stop || true) && sudo rm -f /var/run/docker.pid && git clone https://github.com/pawelgnatowski/WSL2-Network-Fix.git ~/WSL2-Network-Fix && cd ~/WSL2-Network-Fix && chmod +x configureWSL2Net.sh && ./configureWSL2Net.sh

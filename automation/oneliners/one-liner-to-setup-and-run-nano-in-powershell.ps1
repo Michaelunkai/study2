@@ -1,1 +1,0 @@
-winget install --id GNU.Nano && nano

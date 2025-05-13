@@ -1,4 +1,0 @@
-gcloud compute forwarding-rules create YOUR_FORWARDING_RULE_NAME \
-    --global \
-    --target-http-proxy=YOUR_HTTP_PROXY_NAME \
-    --ports=80

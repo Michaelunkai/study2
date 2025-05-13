@@ -1,1 +1,0 @@
-sudo apt install -y libcriterion-dev && echo 'Criterion installed'

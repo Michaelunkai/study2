@@ -1,1 +1,0 @@
-git clone https://github.com/example/openimagehost.git && cd openimagehost && composer install && php -S localhost:8000 -t public

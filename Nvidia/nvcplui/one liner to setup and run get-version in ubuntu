@@ -1,1 +1,0 @@
-dpkg -s <package-name> | grep Version

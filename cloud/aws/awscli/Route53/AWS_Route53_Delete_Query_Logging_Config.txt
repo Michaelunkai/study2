@@ -1,1 +1,0 @@
-aws route53 delete-query-logging-config --id <config-id>

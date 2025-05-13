@@ -1,1 +1,0 @@
-pandoc your_file.html -o output.md

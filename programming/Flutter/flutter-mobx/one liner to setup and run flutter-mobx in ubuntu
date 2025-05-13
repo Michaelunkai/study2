@@ -1,1 +1,0 @@
-flutter pub add flutter_mobx mobx && echo 'MobX added'

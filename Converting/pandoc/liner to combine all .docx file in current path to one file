@@ -1,1 +1,0 @@
-apt install -y pandoc && for ext in docx doc; do pandoc *.$ext -o merged.$ext; done

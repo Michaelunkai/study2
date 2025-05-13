@@ -1,1 +1,0 @@
-sudo add-apt-repository ppa:canonical-kernel/ubuntu-kernel-tools && sudo apt install linux-image-rt && sudo update-grub

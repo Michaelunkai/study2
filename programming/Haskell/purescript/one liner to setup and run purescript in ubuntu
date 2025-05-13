@@ -1,1 +1,0 @@
-curl -sSL https://github.com/purescript/purescript/releases/latest/download/linux64.tar.gz | tar xz && mv purescript ~/.local/bin/ && purescript --version

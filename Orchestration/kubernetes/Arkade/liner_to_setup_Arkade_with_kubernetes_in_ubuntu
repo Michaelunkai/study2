@@ -1,1 +1,0 @@
-curl -sLS https://get.arkade.dev | sudo sh && arkade install openfaas && arkade version

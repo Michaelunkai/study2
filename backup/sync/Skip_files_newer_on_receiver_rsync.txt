@@ -1,1 +1,0 @@
-rsync -av --ignore-existing /source_directory/ /destination_directory/

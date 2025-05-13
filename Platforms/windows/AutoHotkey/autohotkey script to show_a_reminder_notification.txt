@@ -1,3 +1,0 @@
-^!r::
-MsgBox, Remember to take a break!
-return

@@ -1,1 +1,0 @@
-getflat && flatpak install flathub com.valvesoftware.Steam && flatpak run com.valvesoftware.Steam

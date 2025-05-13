@@ -1,1 +1,0 @@
-sudo awstats.pl -config=mywebsite -LogFile=/path/to/s3_logs

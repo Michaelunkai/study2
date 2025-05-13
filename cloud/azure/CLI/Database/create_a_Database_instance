@@ -1,1 +1,0 @@
-az sql server create --name mysqlserver --resource-group myResourceGroup --location eastus --admin-user azureuser --admin-password ComplexPassword123!

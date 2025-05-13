@@ -1,1 +1,0 @@
-inkscape your_image.svg --export-filename=output.pdf

@@ -1,1 +1,0 @@
-curl -s -L "https://github.com/loft-sh/devspace/releases/latest/download/devspace-linux-amd64" -o devspace && chmod +x devspace && sudo mv devspace /usr/local/bin/devspace && devspace init

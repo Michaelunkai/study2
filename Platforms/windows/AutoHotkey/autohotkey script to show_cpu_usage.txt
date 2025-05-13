@@ -1,3 +1,0 @@
-^!i::
-Run, ms-settings:about
-return

@@ -1,1 +1,0 @@
-aws elb describe-load-balancer-policies --load-balancer-name <load-balancer-name>

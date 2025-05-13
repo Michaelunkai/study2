@@ -1,1 +1,0 @@
-rsync -av --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r /source_directory/ /destination_directory/

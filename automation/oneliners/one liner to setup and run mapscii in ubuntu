@@ -1,1 +1,0 @@
-nvm23 && npm install -g mapscii && mapscii

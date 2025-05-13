@@ -1,2 +1,0 @@
-sudo docker stop kafka
-sudo docker stop zookeeper

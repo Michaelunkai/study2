@@ -1,1 +1,0 @@
-vagrant package --include include_folder

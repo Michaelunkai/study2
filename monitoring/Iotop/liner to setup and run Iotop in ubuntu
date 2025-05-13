@@ -1,1 +1,0 @@
-sudo apt install -y iotop && sudo iotop && echo "Iotop started for monitoring disk I/O"

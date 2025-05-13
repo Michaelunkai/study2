@@ -1,1 +1,0 @@
-aws kinesis enable-enhanced-monitoring --stream-name MyDataStream --shard-level-metrics IncomingBytes OutgoingBytes

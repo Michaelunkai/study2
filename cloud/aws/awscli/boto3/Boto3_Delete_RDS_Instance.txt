@@ -1,3 +1,0 @@
-import boto3
-rds = boto3.client('rds')
-rds.delete_db_instance(DBInstanceIdentifier='db-instance-id', SkipFinalSnapshot=True)

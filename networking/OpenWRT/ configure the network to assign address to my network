@@ -1,3 +1,0 @@
-uci set network.lan.proto=dhcp
-uci commit network
-ifup lan

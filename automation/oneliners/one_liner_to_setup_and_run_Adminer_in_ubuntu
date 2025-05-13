@@ -1,5 +1,0 @@
-sudo apt install -y adminer && \
-sudo ln -s /usr/share/adminer/adminer.php /var/www/html/adminer.php && \
-sudo systemctl restart apache2
-
-gc http://localhost/adminer. 

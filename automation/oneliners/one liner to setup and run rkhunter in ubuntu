@@ -1,1 +1,0 @@
-sudo apt install rkhunter -y && sudo rkhunter --check

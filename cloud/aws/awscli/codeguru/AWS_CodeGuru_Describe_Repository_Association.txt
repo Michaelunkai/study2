@@ -1,1 +1,0 @@
-aws codeguru-reviewer describe-repository-association --association-arn <association-arn>

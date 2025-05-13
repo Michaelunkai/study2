@@ -1,4 +1,0 @@
-Apply rules to specific security groups:
-
-
-New-NetFirewallRule -DisplayName "Allow Web Traffic" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow -SecurityGroup "WebServer"

@@ -1,1 +1,0 @@
-sudo apt install -y unpaper && unpaper input.pdf output.pdf

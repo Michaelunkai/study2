@@ -1,2 +1,0 @@
-sudo nano /etc/awstats/awstats.mywebsite.conf
-LogFile=/path/to/transcoder_logs

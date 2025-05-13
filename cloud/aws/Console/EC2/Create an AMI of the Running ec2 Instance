@@ -1,1 +1,0 @@
-aws ec2 create-image --instance-id i-xxxxxxxxxxxxxxx --name "MyInstanceBackup"

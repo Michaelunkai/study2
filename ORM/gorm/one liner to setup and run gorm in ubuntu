@@ -1,1 +1,0 @@
-echo 'Install GORM via: go get -u gorm.io/gorm'

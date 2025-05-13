@@ -1,1 +1,0 @@
-aws comprehend detect-pii-entities --text "your text here" --language-code en

@@ -1,1 +1,0 @@
-pandoc your_file.rtf -o output.pdf

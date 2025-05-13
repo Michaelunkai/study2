@@ -1,3 +1,0 @@
-to change memory:
-qm set --memory <memorynumber> <qmid>
-

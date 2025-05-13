@@ -1,1 +1,0 @@
-fastfetch fetch origin tag1 tag2

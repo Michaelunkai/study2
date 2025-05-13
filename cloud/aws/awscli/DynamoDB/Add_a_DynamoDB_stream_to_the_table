@@ -1,1 +1,0 @@
-aws dynamodb update-table --table-name Users --stream-specification StreamEnabled=true,StreamViewType=NEW_AND_OLD_IMAGES

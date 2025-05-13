@@ -1,7 +1,0 @@
-**WPA2-PSK vs. WPA2-WPA3-PSK:**
-
-- **WPA2-PSK:** Uses the WPA2 (Wi-Fi Protected Access 2) protocol with Pre-Shared Key (PSK) for security. It is widely supported and provides strong encryption, but it is vulnerable to certain attacks, like KRACK.
-
-- **WPA2-WPA3-PSK:** A mixed mode that supports both WPA2 and WPA3. This allows older devices to connect using WPA2, while newer devices can use WPA3. WPA3 offers enhanced security, including protection against brute-force attacks and improved encryption.
-
-**In summary:** WPA2-WPA3-PSK offers better security while maintaining compatibility with older devices.

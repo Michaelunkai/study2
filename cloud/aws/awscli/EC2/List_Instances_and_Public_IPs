@@ -1,1 +1,0 @@
-aws ec2 describe-instances --query 'Reservations[*].Instances[*].{InstanceId:InstanceId,PublicIpAddress:PublicIpAddress,PrivateIpAddress:PrivateIpAddress}'

@@ -1,1 +1,0 @@
-sam build --use-container

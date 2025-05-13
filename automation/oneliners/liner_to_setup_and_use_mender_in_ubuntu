@@ -1,1 +1,0 @@
-curl -fLsS https://get.mender.io -o get-mender.sh && sudo bash get-mender.sh && sudo mender setup

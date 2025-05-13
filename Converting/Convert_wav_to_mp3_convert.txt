@@ -1,1 +1,0 @@
-ffmpeg -i your_audio.wav output.mp3

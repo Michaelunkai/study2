@@ -1,1 +1,0 @@
-getc && pip install pycairo PyGObject

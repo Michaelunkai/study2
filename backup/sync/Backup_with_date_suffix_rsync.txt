@@ -1,1 +1,0 @@
-rsync -av --backup --suffix=$(date +%F) /source_directory/ /destination_directory/

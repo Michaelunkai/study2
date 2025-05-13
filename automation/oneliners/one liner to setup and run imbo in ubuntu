@@ -1,1 +1,0 @@
-git clone https://github.com/imbo/imbo.git && cd imbo && composer install && php -S localhost:8080 -t public

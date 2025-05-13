@@ -1,1 +1,0 @@
-docker run -d --name sentry -p 9000:9000 sentry

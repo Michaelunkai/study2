@@ -1,1 +1,0 @@
-aws elasticbeanstalk create-configuration-template --application-name <app-name> --template-name <template-name> --solution-stack-name <solution-stack-name>

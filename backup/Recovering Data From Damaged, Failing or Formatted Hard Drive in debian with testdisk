@@ -1,9 +1,0 @@
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install testdisk
- 
-sudo dpkg -i ./testdisk_7.1-5_amd64.deb
-sudo fdisk -l
- 
-sudo testdisk /path/to/storage/device
-sudo photorec /path/to/storage/device

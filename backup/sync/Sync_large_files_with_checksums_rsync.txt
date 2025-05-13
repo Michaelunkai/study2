@@ -1,1 +1,0 @@
-rsync -av --checksum /source_directory/ /destination_directory/

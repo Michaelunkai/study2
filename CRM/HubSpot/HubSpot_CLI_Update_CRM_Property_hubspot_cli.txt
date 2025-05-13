@@ -1,1 +1,0 @@
-hs crm update property <property-id> <update-fields>

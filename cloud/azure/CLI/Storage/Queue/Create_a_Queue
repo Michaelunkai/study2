@@ -1,4 +1,0 @@
-az storage queue create \
-  --name myqueue \
-  --account-name mystorageaccount \
-  --connection-string $CONNECTION_STRING

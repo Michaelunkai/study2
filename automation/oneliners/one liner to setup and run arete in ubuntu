@@ -1,1 +1,0 @@
-getrust && cargo new arete-app && cd arete-app && echo 'arete = "0.3"' >> Cargo.toml && cargo run

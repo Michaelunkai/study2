@@ -1,1 +1,0 @@
-pip3 install python-rss && python3 -c 'import rss; print(rss.__version__)'

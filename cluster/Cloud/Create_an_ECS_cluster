@@ -1,1 +1,0 @@
-aws ecs create-cluster --cluster-name my-cluster-ad350c48

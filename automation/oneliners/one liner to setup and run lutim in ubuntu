@@ -1,1 +1,0 @@
-git clone https://framagit.org/fiat-tux/hat-softwares/lutim.git && cd lutim && composer install && echo 'Configure and run via PHP built-in server'

@@ -1,1 +1,0 @@
-rsync -av --delete-before /source_directory/ /destination_directory/

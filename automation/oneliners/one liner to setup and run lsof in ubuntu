@@ -1,1 +1,0 @@
-sudo apt install -y lsof && lsof -i

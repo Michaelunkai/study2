@@ -1,6 +1,0 @@
-#to backup
-rclone sync /var/lib/vz/dump/ /backup/
-
-
-#to restore:
-rclone sync /backup/ /var/lib/vz/dump/

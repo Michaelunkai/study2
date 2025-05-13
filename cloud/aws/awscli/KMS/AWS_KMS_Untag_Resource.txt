@@ -1,1 +1,0 @@
-aws kms untag-resource --key-id <key-id> --tag-keys <key>

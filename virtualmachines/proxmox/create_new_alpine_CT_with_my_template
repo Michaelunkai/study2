@@ -1,1 +1,0 @@
-pct create 110 /var/lib/vz/template/cache/alpine-3.18-default_20230607_amd64.tar.xz --hostname alpine-ct --storage local --rootfs 8 --password 123456

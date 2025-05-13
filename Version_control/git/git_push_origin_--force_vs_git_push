@@ -1,1 +1,0 @@
-git push origin --force overwrites remote changes, while git push updates the remote repository without overwriting existing commits.

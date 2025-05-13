@@ -1,1 +1,0 @@
-vagrant box list --machine-readable

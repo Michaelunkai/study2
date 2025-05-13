@@ -1,1 +1,0 @@
-go install github.com/stretchr/testify@latest && echo 'Testify installed'

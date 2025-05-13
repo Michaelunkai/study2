@@ -1,1 +1,0 @@
-getruby && gem install krane && krane version
