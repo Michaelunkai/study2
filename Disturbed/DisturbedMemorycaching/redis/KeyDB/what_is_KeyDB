@@ -1,0 +1,17 @@
+KeyDB is a high-performance, multi-threaded database that is fully compatible with Redis, a popular in-memory key-value store. KeyDB aims to improve upon Redis by offering enhanced performance, particularly in environments with multiple CPU cores. It achieves this by being multi-threaded, which allows it to handle more operations concurrently compared to Redis, which is single-threaded.
+
+KeyDB offers the following key features:
+
+1. **Multi-threaded Performance:** Unlike Redis, which operates on a single thread, KeyDB can leverage multiple CPU cores, resulting in better performance in high-load environments.
+
+2. **Compatibility with Redis:** KeyDB is fully compatible with Redis, meaning it can be used as a drop-in replacement without needing to modify your existing code. It supports all Redis commands, data types, and modules.
+
+3. **Replication and Clustering:** KeyDB supports active-active replication, allowing multiple instances to handle write operations, which is an improvement over Redis' active-passive replication model. It also supports Redis' clustering features.
+
+4. **Persistence:** Like Redis, KeyDB offers options for data persistence, including snapshots and append-only file (AOF) modes.
+
+5. **Multi-Master Replication:** This feature allows multiple master nodes to process write operations, making it possible to achieve higher availability and fault tolerance.
+
+6. **Threading Model:** KeyDB uses a hybrid threading model where some operations, like networking, are multi-threaded while others remain single-threaded, allowing it to balance performance and simplicity.
+
+KeyDB is particularly useful in scenarios where you need high throughput, low latency, and the ability to scale vertically by utilizing the full power of multi-core processors. It's often chosen by developers and organizations that want Redis' simplicity and ecosystem but need better performance on multi-core systems.

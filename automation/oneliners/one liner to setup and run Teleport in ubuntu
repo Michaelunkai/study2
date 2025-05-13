@@ -1,0 +1,1 @@
+curl https://get.gravitational.com/teleport.sh | bash && teleport start

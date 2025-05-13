@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y aria2 && aria2c https://example.com/file.zip

@@ -1,0 +1,1 @@
+pnpm add -D @changesets/cli && pnpm changeset init

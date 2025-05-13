@@ -1,0 +1,5 @@
+git clone https://github.com/ggerganov/llama.cpp.git && cd llama.cpp && mkdir build && cd build && cmake && make && hflogin && huggingface-cli download gpt2 && python3 convert_hf_to_gguf.py /root/.cache/huggingface/hub/models--gpt2/snapshots/<snapshot_id> --outfile ~/llama.cpp/build/gpt2.gguf && ./llama-server -m ~/llama.cpp/build/gpt2.gguf --port 8080
+
+
+
+localhost:8080

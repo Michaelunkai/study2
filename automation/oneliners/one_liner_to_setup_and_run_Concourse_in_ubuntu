@@ -1,0 +1,1 @@
+getdocker && curl -LO https://concourse-ci.org/docker-compose.yml && dcu && gcl 8080

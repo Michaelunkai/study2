@@ -1,0 +1,32 @@
+Elasticsearch - Used for storing & Searching collected Data.
+Elasticsearch is a NOSQL database that was developed based 
+on apache Lucene search engine. it can be used to index and
+store multiple different types of documents and data. it 
+provides a func to search the data that is stored in real-time
+as it's being fed.
+
+
+Logstash - used for collecting & filtering the input data.
+it is a collection agest and used to collect both heterogenous/
+non-heterogenous data from various sources. it has the
+capabillity to screen, breakdown, and make string alterations in the
+data it collects. after it has collected and filtered the data
+it then send it tot the elastic search for storage.
+
+
+kibana - Provides a graphical user interface
+its a GUI that is used to dispay the data that was collected 
+and stored in Elasticsearch. it sidpays them with appealing
+visuals so that the data could be easily understood and analyzed, it does so using multiple different types of visuals
+like bar charts, pie chart, world maps, heat maps, co-ordinate maps
+etc...
+
+
+Beats - Multiple light weight data collctors
+its similar to logstash in the matter of fact that they both
+collect the data that will be later stored and analyzed, but
+neats differs in the method of collection.
+here beats are multiple small software installed on different servers from where 
+they collect the data and send to Elasticsearch.
+
+

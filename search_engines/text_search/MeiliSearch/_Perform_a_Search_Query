@@ -1,0 +1,10 @@
+Perform a Search Query
+You can now perform search queries using the API. For example:
+
+ 
+ 
+curl -X GET 'http://127.0.0.1:7700/indexes/movies/search' \
+     -H 'Content-Type: application/json' \
+     --data-binary '{"q": "Inception"}'
+This should return the document containing the movie "Inception."
+

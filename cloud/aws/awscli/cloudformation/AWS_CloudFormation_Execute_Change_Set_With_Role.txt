@@ -1,0 +1,1 @@
+aws cloudformation execute-change-set --change-set-name <change-set-name> --stack-name <stack-name> --role-arn <role-arn>

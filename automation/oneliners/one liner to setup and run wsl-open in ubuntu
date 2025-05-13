@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y xdg-utils && curl -fsSL https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh -o /usr/local/bin/wsl-open && chmod +x /usr/local/bin/wsl-open && wsl-open https://example.com

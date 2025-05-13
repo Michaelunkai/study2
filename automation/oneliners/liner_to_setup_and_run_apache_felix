@@ -1,0 +1,1 @@
+wget https://archive.apache.org/dist/felix/org.apache.felix.main.distribution-7.0.4.tar.gz && tar -xzf org.apache.felix.main.distribution-7.0.4.tar.gz && cd felix-framework-7.0.4 && java -jar bin/felix.jar && echo "Apache Felix OSGi Framework is running"

@@ -1,0 +1,250 @@
+# Step-by-Step Guide to Deploy AWS Resources Using Crossplane on Kubernetes with Helm, kubectl, and AWS CLI on Ubuntu: Comprehensive Setup and Deployment Tutorial
+
+This tutorial walks you through the step-by-step process of deploying AWS resources using **Crossplane** on a **Kubernetes** cluster, utilizing **Helm** for package management, **kubectl** for Kubernetes cluster control, and **AWS CLI** for interacting with your AWS account, all on an **Ubuntu** system. We will be configuring the AWS provider with Crossplane, deploying it on a Kubernetes cluster, and demonstrating how to deploy an AWS S3 bucket using Crossplane.
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Prerequisites](#prerequisites)
+3. [Step-by-Step Deployment on Ubuntu](#step-by-step-deployment-on-ubuntu)
+    1. [Clone Repository](#clone-repository)
+    2. [Install Required Command-Line Interfaces](#install-required-command-line-interfaces)
+    3. [Configure and Deploy Crossplane on Kubernetes](#configure-and-deploy-crossplane-on-kubernetes)
+    4. [Provide AWS Access to Crossplane](#provide-aws-access-to-crossplane)
+    5. [Deploy Crossplane AWS Provider](#deploy-crossplane-aws-provider)
+    6. [Create an S3 Bucket Using Crossplane](#create-an-s3-bucket-using-crossplane)
+4. [Teardown & Cleanup](#teardown--cleanup)
+5. [Useful Debugging Commands](#useful-debugging-commands)
+
+---
+
+## Introduction
+
+**Crossplane** is a versatile Infrastructure as Code (IaC) tool that allows you to manage both cloud resources and applications using Kubernetes. In this tutorial, we focus on setting up **Crossplane** on **Ubuntu** for AWS resource management, specifically deploying an **S3 bucket**.
+
+### Who Is This Guide For?
+
+- **DevOps Engineers**: Looking to expand their knowledge of IaC tools.
+- **Developers**: Interested in managing their own infrastructure.
+- **Engineering Managers**: Seeking an easy-to-implement IaC tool for their teams.
+
+### Why Use Crossplane?
+
+Crossplane is ideal for creating both applications and cloud resources, especially when working in Kubernetes environments. It is particularly useful in cases like:
+
+- **Ephemeral Environments**: Quickly spin up and tear down environments as needed.
+- **SaaS Platforms**: Allows tenants to self-provision environments using Kubernetes manifests, which simplifies the process compared to traditional IaC tools like **Terraform**.
+
+---
+
+## Prerequisites
+
+Before we start, ensure you have the following tools installed on your **Ubuntu** system:
+
+1. **AWS CLI**
+2. **kubectl**
+3. **Helm**
+4. **Kubernetes Cluster** (We will use **kind** to create one locally, but any cluster can be used).
+
+---
+
+## Step-by-Step Deployment on Ubuntu
+
+### Clone Repository
+
+Start by cloning the necessary repository to your Ubuntu system and navigate into it.
+
+  
+git clone https://github.com/MeteorOps/crossplane-aws-provider-bootstrap.git
+cd crossplane-aws-provider-bootstrap
+
+### Install Required Command-Line Interfaces
+
+#### AWS CLI
+
+Install the **AWS CLI** and authenticate it with your AWS account.
+
+  
+sudo apt update
+sudo apt install awscli -y
+aws configure
+
+#### kubectl
+
+Install the **kubectl** command-line tool for interacting with your Kubernetes cluster.
+
+  
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+#### Helm
+
+Install **Helm**, the Kubernetes package manager, to manage your Kubernetes applications.
+
+  
+curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+sudo apt-get install apt-transport-https --yes
+echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+
+### Optional: Create a Local Kind Cluster
+
+If you don’t have an existing Kubernetes cluster, you can create a local cluster using **kind**.
+
+1. **Install kind**:
+     
+   curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+   chmod +x ./kind
+   sudo mv ./kind /usr/local/bin/kind
+
+2. **Create a Kubernetes cluster**:
+     
+   kind create cluster
+
+3. **Verify cluster**:
+     
+   kubectl cluster-info --context kind-kind
+
+---
+
+### Configure and Deploy Crossplane on Kubernetes
+
+1. **Fill AWS Credentials**:
+   Add your **AWS Access Key ID** and **Secret Access Key** to the `creds` file in the cloned repository.
+
+2. **Add Helm Repository**:
+   Add the Crossplane Helm repository to your local Helm installation.
+   
+     
+   helm repo add crossplane-stable https://charts.crossplane.io/stable
+
+3. **Install Crossplane**:
+   Install Crossplane into a dedicated Kubernetes namespace.
+
+     
+   helm install crossplane crossplane-stable/crossplane --namespace crossplane-system --create-namespace
+
+4. **Verify Crossplane Deployment**:
+   Check if the Crossplane pods are running.
+
+     
+   kubectl get pods -n crossplane-system
+
+---
+
+### Provide AWS Access to Crossplane
+
+1. **Create Kubernetes Secret**:
+   Insert your AWS credentials into the Kubernetes secret to allow Crossplane access to AWS.
+
+     
+   kubectl create secret generic aws-credentials -n crossplane-system --from-file=creds=./creds
+
+2. **Verify Secret**:
+   Ensure the secret was created successfully.
+
+     
+   kubectl get secret aws-credentials -n crossplane-system
+
+---
+
+### Deploy Crossplane AWS Provider
+
+Deploying the AWS provider in Crossplane consists of two phases: 
+
+1. **Phase 1: Bootstrap Provider Resources**:
+   Apply the necessary bootstrap resources such as `ServiceAccount`, `DeploymentRuntimeConfig`, and more.
+
+     
+   kubectl apply -f crossplane-provider-bootstrap.yaml
+
+2. **Validate Provider Readiness**:
+   Check the status of the AWS provider.
+
+     
+   kubectl get provider
+
+3. **Phase 2: Apply ProviderConfig**:
+   Once the provider is ready, apply the `ProviderConfig` resource.
+
+     
+   kubectl apply -f crossplane-provider-conf.yaml && kubectl get providerconfig
+
+---
+
+### Create an S3 Bucket Using Crossplane
+
+1. **Apply the CompositeResourceDefinition**:
+   Define the S3 bucket resource by applying the CRD.
+
+     
+   kubectl apply -f bucket-definitions.yaml
+
+2. **Apply the Composition**:
+   Define how the S3 bucket should be created.
+
+     
+   kubectl apply -f bucket-crd.yaml
+
+3. **Create the S3 Bucket Resource**:
+   Finally, deploy the S3 bucket by applying the Kubernetes manifest.
+
+     
+   kubectl apply -f bucket-example.yaml
+
+4. **Check the S3 Bucket Resource**:
+   Verify that the bucket resource is ready.
+
+     
+   kubectl get bucket
+
+5. **Verify the S3 Bucket in AWS**:
+   Confirm the bucket was created in your AWS account.
+
+     
+   aws s3 ls
+
+---
+
+## Teardown & Cleanup
+
+To remove the resources created and clean up your environment:
+
+1. **Delete S3 Bucket Resource**:
+   Delete the S3 bucket from your Kubernetes cluster, which also removes it from AWS.
+
+     
+   kubectl delete -f bucket-example.yaml
+
+2. **Delete Kind Cluster (if used)**:
+   If you used kind for a local Kubernetes cluster, delete it to clean up your system.
+
+     
+   kind delete cluster
+
+---
+
+## Useful Debugging Commands
+
+If you encounter issues, use these commands for troubleshooting:
+
+1. **Check Provider**:
+     
+   kubectl get provider
+
+2. **View Crossplane Logs**:
+     
+   kubectl logs -n crossplane-system deploy/crossplane -c crossplane
+
+3. **View AWS Provider Logs**:
+     
+   kubectl logs -n crossplane-system -l pkg.crossplane.io/provider=provider-aws
+
+---
+
+By following this step-by-step tutorial, you will be able to deploy AWS resources using Crossplane on Kubernetes, utilizing Helm, kubectl, and AWS CLI on Ubuntu, all in a streamlined and organized manner. Crossplane's declarative approach offers an efficient way to integrate cloud resources into your Kubernetes infrastructure.

@@ -1,0 +1,185 @@
+# Comprehensive Step-by-Step Guide to Setting Up Cortex for Horizontal Scaling of Prometheus Metrics with Docker and Docker Compose on Ubuntu
+
+### 1. **Prepare the Environment**
+
+  
+# Update the package lists to ensure the latest versions are available
+sudo apt-get update
+
+### 2. **Install Docker**
+
+  
+# Install Docker on the system
+sudo apt-get install -y docker.io
+
+# Enable Docker to start at boot and start the service
+sudo systemctl enable docker
+sudo systemctl start docker
+
+### 3. **Install Docker Compose**
+
+  
+# Install Docker Compose for managing multi-container Docker applications
+sudo apt-get install -y docker-compose
+
+### 4. **Create and Configure Cortex**
+
+  
+# Create a directory to store Cortex configuration files
+mkdir -p ~/cortex-config
+
+# Create the main Cortex configuration file
+nano ~/cortex-config/cortex. 
+
+#### Add the following content to `cortex.yaml`:
+
+  
+auth_enabled: false
+
+server:
+  http_listen_port: 9009
+
+distributor:
+  shard_by_all_labels: true
+  ring:
+    kvstore:
+      store: inmemory
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+  chunk_idle_period: 5m
+  max_chunk_age: 1h
+  chunk_retain_period: 30s
+  flush_check_period: 30s
+  flush_op_timeout: 1m
+
+querier:
+  query_store_after: 24h
+  store_gateway_addresses: []
+
+query_range:
+  split_queries_by_interval: 24h
+
+frontend:
+  address: 127.0.0.1:9095
+
+compactor:
+  working_directory: /data/compactor
+  shared_store: s3
+  s3:
+    endpoint: s3.amazonaws.com
+    bucket_name: your-s3-bucket-name
+    access_key_id: your-access-key-id
+    secret_access_key: your-secret-access-key
+
+blocks_storage:
+  backend: s3
+  s3:
+    endpoint: s3.amazonaws.com
+    bucket_name: your-s3-bucket-name
+    access_key_id: your-access-key-id
+    secret_access_key: your-secret-access-key
+  tsdb:
+    dir: /data/tsdb
+    block_ranges_period: 2h
+    retention_period: 0s
+    ship_interval: 1m
+    bucket_store:
+      sync_dir: /data/tsdb-sync
+      index_cache_size: 1GB
+      max_chunk_pool_bytes: 2GB
+
+### 5. **Set Up Docker Compose for Cortex**
+
+  
+# Create the Docker Compose configuration file for Cortex
+nano ~/cortex-config/docker-compose. 
+
+#### Add the following content to `docker-compose.yaml`:
+
+  
+version: '3.8'
+
+services:
+  cortex:
+    image: quay.io/cortexproject/cortex:v1.10.0
+    ports:
+      - "9009:9009"
+    volumes:
+      - ./cortex. :/etc/cortex/cortex. 
+      - ./data:/data
+    command: -config.file=/etc/cortex/cortex. 
+
+### 6. **Launch Cortex**
+
+  
+# Navigate to the Cortex configuration directory
+cd ~/cortex-config
+
+# Start the Cortex service
+docker-compose up -d
+
+### 7. **Create and Configure Prometheus**
+
+  
+# Create a directory for Prometheus configuration
+mkdir -p ~/prometheus-config
+
+# Create the Prometheus configuration file
+nano ~/prometheus-config/prometheus.yml
+
+#### Add the following content to `prometheus.yml`:
+
+  
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'cortex'
+    static_configs:
+      - targets: ['localhost:9009']
+
+remote_write:
+  - url: "http://localhost:9009/api/prom/push"
+
+### 8. **Set Up Docker Compose for Prometheus**
+
+  
+# Create the Docker Compose configuration file for Prometheus
+nano ~/prometheus-config/docker-compose. 
+
+#### Add the following content to `docker-compose.yaml`:
+
+  
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.26.0
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+### 9. **Launch Prometheus**
+
+  
+# Navigate to the Prometheus configuration directory
+cd ~/prometheus-config
+
+# Start the Prometheus service
+docker-compose up -d
+
+### 10. **Verify the Setup**
+
+1. Access Cortex via its HTTP interface at `http://<your-server-ip>:9009`.
+2. Access Prometheus via its HTTP interface at `http://<your-server-ip>:9090`.
+
+### Notes:
+
+- Replace `your-s3-bucket-name`, `your-access-key-id`, and `your-secret-access-key` with your actual AWS S3 bucket name and credentials.
+- Make sure Docker and Docker Compose are running before launching Cortex or Prometheus.

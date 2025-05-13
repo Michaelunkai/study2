@@ -1,0 +1,95 @@
+▲A  A▼
+Install Raspberry Pi OS on the Microsoft Surface RT Tablet
+Disclaimer
+This process will overwrite the current Windows 8 RT operating system on the Surface RT tablet. I have tested these steps on my own device (as shown in this video), but I am not responsible if you damage or brick your device. Verify this process will work on your device before starting and make sure to backup any data you do not want to lose before proceeding.
+Things You Will Need
+A USB flash drive, at least 8 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+A USB hub
+A USB keyboard
+Disabling Secure Boot
+NOTE: If you run into issues or errors disabling secure boot, see the troubleshooting steps https://jwa4.gitbook.io/windows/tools/surface-rt-and-surface-2-jailbreak-usb#troubleshooting
+
+Insert the USB flash drive into a PC
+Download the Surface RT jailbreak files Download
+Format the USB flash drive to FAT32
+⚠ NOTE: This will delete all files on the drive. Make sure to backup any important files before continuing
+
+Right Click Start > File Explorer
+Right Click the USB flash drive > Format...
+Select FAT32 from the File System dropdown
+Name the drive EFI
+Make sure Quick Format is checked
+Click Start
+Extract the downloaded Surface RT jailbreak .zip file to the root of the USB flash drive
+Safely remove the USB flash drive
+Power off the Surface RT tablet if it is not already
+Using the USB hub, connect the USB keyboard and the prepared USB flash drive to the Surface RT tablet
+Hold Vol- and press the power button, releasing the Vol- when Surface logo appears
+Select Install Golden Keys > Press Enter
+Select Accept and Install > Press Enter
+After the Golden Keys install completes, the tablet will reboot
+Power off the Surface RT tablet
+Hold Vol- and press the power button, releasing the Vol- when Surface logo appears
+Select Install Yahallo > Press Enter
+After the Yahallo install completes, the tablet will reboot
+Power off the Surface RT tablet
+Preparing Raspberry Pi OS
+Insert the USB flash drive into a PC
+Download Raspberry Pi OS Download
+Download Balena Etcher Download
+Download the latest Surface RT zImage, device tree (.dtb) and kernel modules Download
+Download the EFI boot files Download
+Extract the downloaded EFI .zip archive
+Run Balena Etcher
+Write the Raspberry Pi OS image to USB flash drive
+Once the write completes, open the readable partition on the USB flash drive
+From the previous downloads, copy the EFI folder, startup.nsh, zImage and the device tree (.dtb) file to the readable partition on the USB flash drive
+Open startup.nsh in a text editor
+Replace the contents of the file with the following
+fs0:
+zImage dtb=tegra30-microsoft-surface-rt-efi.dtb root=/dev/sda2 rootwait console=tty0 cpuidle.off=1
+
+# shutdown if something went wrong
+reset -s
+
+Save the changes to startup.nsh and close the editor
+Safely remove the USB flash drive
+Power off the Surface RT tablet if it is not already
+Using the USB hub, connect the USB keyboard and the prepared USB flash drive to the Surface RT tablet
+Hold Vol- and press the power button, releasing the Vol- when Surface logo appears
+Raspberry Pi OS should boot from the USB flash drive
+In Raspberry Pi OS, launch the file manager
+Navigate to /boot > Copy the sRT-modules- .tar.xz file to the current user's home directory
+Extract the sRT-modules- .tar.xz inside the user's home directory
+Copy the contents of the extracted folder to the corresponding location in the root Linux directory
+Reboot the Surface RT tablet
+At this point, you can continue running Raspberry Pi OS from the flash drive, or install it to the internal eMMC storage, replacing the stock Windows 8 RT operating system
+Installing Raspberry Pi OS to eMMC Internal Storage
+🚨 WARNING: Continuing beyond this point will format the storage on the Surface RT tablet and all files and the Windows 8 RT operating system will be lost
+
+While running Raspberry Pi OS from the USB flash drive, click the Applications menu > Accessories > SD Card Copier
+Select the USB flash drive as the Copy From Device
+Select the internal eMMC as the Copy To Device
+Check the New Partition UUIDs box > Click Start
+Wait while the OS files are copied
+Open file manager and select boot in the left navigation
+Edit startup.nsh in text editor
+Replace the root=/dev/sda2 with root=/dev/mmcblk0p2
+Save the changes to startup.nsh and shutdown the tablet
+After the tablet shuts down, remove the USB flash drive and power it back on normally
+Raspberry Pi OS should boot from the internal eMMC storage
+Launch a terminal and run the following command
+# launch raspi config
+sudo raspi-config
+In raspi-config, select Advanced Options > Expand Filesystem
+Once the filesystem has been expanded, close out of raspi-config
+Welcome to Raspberry Pi OS running on the Microsoft Surface RT tablet
+Adding Battery Level Indicator (optional, not shown)
+Right click on the taskbar panel at the top > Panel Settings
+Select the Panel Applets tab
+Click the Add button
+Select Battery Monitor from the list of available applets > Click Add
+You should now see a battery level indicator at the far right of the task bar
+Sources: https://openrt.gitbook.io/open-surfacert/surface-rt/linux/root-filesystem/distros/raspberry-pi-os, https://jwa4.gitbook.io/windows/tools/surface-rt-and-surface-2-jailbreak-usb
+
+ 

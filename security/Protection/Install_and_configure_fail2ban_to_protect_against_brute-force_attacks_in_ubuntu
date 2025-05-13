@@ -1,0 +1,11 @@
+Install and configure fail2ban to protect against brute-force attacks:
+
+ 
+ 
+sudo apt install fail2ban
+Start and enable fail2ban:
+
+ 
+ 
+sudo systemctl start fail2ban
+sudo systemctl enable fail2ban

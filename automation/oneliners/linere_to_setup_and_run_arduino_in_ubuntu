@@ -1,0 +1,1 @@
+getjava && sudo apt install -y arduino && arduino

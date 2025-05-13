@@ -1,0 +1,70 @@
+▲A  A▼
+Running Pi-Hole Ad-Blocker in a Proxmox VE LXC Linux Container [CT]
+Creating the Container
+Log into the Proxmox VE web UI
+Select a storage device from the left navigation that allows storing Container templates
+Select CT Templates from the left sub-navigation menu
+Click the Templates button
+Search for core > Click TurnKey Core to select it > Click the Download button
+After the download completes, close the download dialog
+Right click the Proxmox node name > Create CT
+Enter the Hostname PiHole, Password and Confirm the password > Next
+Select the Storage where the container template was downloaded and select the TurnKey Core container template > Click Next
+Set the Storage device to save the container to > Click Next
+Leave the defaults on the CPU tab > Next
+On the Memory tab, set the Memory to 1024 > Next
+Leave the defaults on the Network tab, setup a static IP address if needed (I prefer to set this from my router) > Next
+Leave the defaults on the DNS tab > Next
+Verify the summary and click Finish
+After the container creation completes, close the download dialog
+Right click the PiHole container in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Installing Updates and Pi-Hole
+Log into the container with the username root and the password set during the setup
+On the Initialize Hub services dialog, press tab and select Skip > Press Enter
+On the System Notifications dialog, press tab and select Skip > Press Enter
+On the Security updates dialog, press tab to select Install to enable automatic updates or Skip > Press Enter
+Press Enter to select Advanced Menu
+Arrow down and select Quit > Press Enter > Select Yes to confirm > Press Enter
+Run the following commands to install updates
+# update software repositories
+apt update
+# install available software updates
+apt upgrade -y
+# clean apt cache
+apt clean
+# reboot the container
+reboot now
+Log back into the container
+Run the following command to install Pi-Hole
+curl -sSL https://install.pi-hole.net | bash
+Press Enter until the DNS selection is displayed
+Select a DNS provider and press Enter
+Press Enter through the rest of the Pi-Hole installer, selecting the defaults
+Copy the randomly generated admin password (just in case)
+Press Enter to complete the installation
+Run the following command to change the Pi-Hole admin password
+pihole -a -p
+Enter and confirm the new password
+Click the Applications button > Internet > Chromium Web Browser
+Navigate to http://DNSorIP/admin
+Click Login
+Authenticate with the admin password
+Testing Pi-Hole From Windows Client
+Click the Start button > Type control panel > press Enter
+Click View By > Small Icons
+Click Network and Sharing Center
+Click Change adapter settings
+Right click on the network connection > Properties
+Select Internet Protocol Version 4 (TCP/IPv4) > Properties
+Select the radio option next to Use the following DNS server addresses
+Input the IP address of the Pi-Hole VM
+Click OK on both of the open dialog windows
+Right click the Start button > Command Prompt (Admin)
+Type the following commands to flush your DNS cache and restart the network connections (note: your network connection will drop if running the commands on a remote machine)
+ipconfig /flu dns
+ipconfig /release
+ipconfig /renew
+More on Pi-Hole https://pi-hole.net/
+
+ 

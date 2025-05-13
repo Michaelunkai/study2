@@ -1,0 +1,1 @@
+sudo awstats.pl -config=mywebsite -LogFile=\"gunzip -c /var/log/apache2/access.log.*.gz |\"

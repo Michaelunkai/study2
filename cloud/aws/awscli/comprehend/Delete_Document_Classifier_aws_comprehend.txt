@@ -1,0 +1,1 @@
+aws comprehend delete-document-classifier --document-classifier-arn <arn>

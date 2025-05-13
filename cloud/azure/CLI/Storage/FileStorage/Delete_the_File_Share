@@ -1,0 +1,1 @@
+az storage share delete --account-name yourStorageAccountName --account-key yourAccountKey --name yourFileShareName

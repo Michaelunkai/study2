@@ -1,0 +1,1 @@
+pip3 install pygrib && python3 -c 'import pygrib; print(pygrib.__version__)'

@@ -1,0 +1,138 @@
+Step 1: Open Registry Editor
+
+Press Win + R on your keyboard to open the Run dialog.
+
+Type regedit and press Enter or click OK.
+
+Step 2: Navigate to the Startup Programs Key
+
+In Registry Editor, navigate to either of the following keys based on your preference:
+
+For Current User: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+
+For All Users: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+Step 3: Identify the Programs to Disable
+
+In the right pane, you'll see a list of programs that are set to run at startup. Each entry represents a program that starts automatically when you log in to Windows.
+
+Carefully review the list and identify the programs you want to disable. Make sure you only disable programs that you are certain you don't need at startup.
+
+Step 4: Disable Startup Programs
+
+To disable a startup program, follow these steps:
+
+Right-click on the entry corresponding to the program you want to disable.
+Select Delete from the context menu.
+Confirm the deletion if prompted.
+Step 5: Confirm Changes and Exit
+
+After you've deleted the entries for the programs you want to disable, close Registry Editor.
+
+Step 6: Restart Your Computer
+
+It's essential to restart your computer for the changes to take effect. This ensures that the disabled programs won't start automatically during the next boot.
+
+Note:
+
+Exercise caution when modifying the registry. Deleting the wrong entries can cause issues with your system.
+Always make sure to back up the registry before making any changes.
+If you're unsure about disabling a particular program, it's safer to leave it enabled or use other methods like Task Manager or System Configuration Utility (msconfig) to manage startup programs.
+
+__________________________________________________________________________
+
+
+
+with powershell:
+
+
+
+Step 1: Open PowerShell with Administrator Privileges
+
+Right-click on the Start button and select "Windows PowerShell (Admin)" from the menu to open PowerShell with administrator privileges.
+
+Step 2: List Startup Programs
+
+To view the list of startup programs, you can use the Get-Item cmdlet in PowerShell. Run the following command:
+
+
+Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+
+
+This command will display a list of startup programs along with their associated registry keys and values.
+
+Step 3: Identify the Programs to Disable
+
+Review the list of startup programs and identify the ones you want to disable. Take note of their names or registry keys.
+
+Step 4: Disable Startup Programs
+
+To disable a startup program, you can use the Remove-ItemProperty cmdlet in PowerShell. Run the following command:
+
+
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "ProgramName"
+
+
+Replace "ProgramName" with the name of the program you want to disable.
+
+Repeat this command for each program you want to disable.
+
+Step 5: Confirm Changes
+
+After disabling the startup programs, you can verify that they have been removed from the startup list by re-running the Get-ItemProperty command from Step 2.
+
+Step 6: Restart Your Computer
+
+It's essential to restart your computer for the changes to take effect. This ensures that the disabled programs won't start automatically during the next boot.
+
+Note:
+
+Make sure to run PowerShell with administrator privileges to modify the registry.
+Exercise caution when modifying the registry. Deleting the wrong entries can cause issues with your system.
+Always make sure to back up the registry before making any changes.
+If you're unsure about disabling a particular program, it's safer to leave it enabled or use other methods like Task Manager or System Configuration Utility (msconfig) to manage startup programs.
+
+
+
+Step 7: Disable Startup Programs for Current User
+
+To disable startup programs specifically for the current user, you can use the Get-Item and Remove-ItemProperty cmdlets in PowerShell. Follow these steps:
+
+Step 7a: List Startup Programs for Current User
+
+Run the following command to list startup programs for the current user:
+
+Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run"
+This command will display a list of startup programs specific to the current user.
+
+Step 7b: Identify and Disable Programs
+
+Identify the programs you want to disable from the list obtained in Step 7a.
+
+Step 7c: Disable Startup Programs
+
+To disable a startup program for the current user, use the Remove-ItemProperty cmdlet. Run the following command:
+
+Remove-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" -Name "ProgramName"
+
+
+Replace "ProgramName" with the name of the program you want to disable.
+Repeat this command for each program you want to disable.
+
+Step 7d: Confirm Changes
+
+Verify that the disabled programs have been removed from the startup list by re-running the Get-ItemProperty command from Step 7a.
+
+Step 7e: Restart Your Computer
+
+Restart your computer to apply the changes, ensuring that the disabled programs won't start automatically during the next boot.
+
+Note:
+
+PowerShell commands for modifying startup programs work similarly for both the current user and all users. The difference lies in the registry path used (HKEY_CURRENT_USER vs. HKEY_LOCAL_MACHINE).
+Always exercise caution when modifying the registry, and ensure you have appropriate permissions to make changes.
+Consider backing up the registry before making any changes to revert in case of unexpected issues.
+It's recommended to disable only the programs you are sure you don't need at startup to avoid potential system instability.
+
+
+

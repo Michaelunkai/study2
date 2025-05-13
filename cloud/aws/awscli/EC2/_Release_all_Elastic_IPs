@@ -1,0 +1,5 @@
+# Release all Elastic IPs
+aws ec2 describe-addresses --query 'Addresses[*].AllocationId' --output text | xargs -I {} aws ec2 release-address --allocation-id {}
+
+# Check if Elastic IPs are released
+aws ec2 describe-addresses --query 'Addresses[*].AllocationId' --output text

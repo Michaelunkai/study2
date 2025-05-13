@@ -1,0 +1,1 @@
+sudo apt-get install sbt -y && sbt fastOptJS && node target/scala-2.13/myproject-fastopt.js

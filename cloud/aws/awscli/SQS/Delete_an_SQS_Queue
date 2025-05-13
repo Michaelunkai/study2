@@ -1,0 +1,4 @@
+ Delete an SQS Queue
+ 
+ 
+aws sqs delete-queue --queue-url <QueueUrl>

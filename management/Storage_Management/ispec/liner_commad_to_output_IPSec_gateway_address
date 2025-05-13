@@ -1,0 +1,2 @@
+sudo  apt install strongswan-starter -y && ipsec statusall | grep 'remote host address'
+

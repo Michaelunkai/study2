@@ -1,0 +1,1 @@
+wget https://download.qoppa.com/pdfstudio/v2023/pdfstudio2023_linux64.deb && sudo apt install -y ./pdfstudio2023_linux64.deb && pdfstudio2023

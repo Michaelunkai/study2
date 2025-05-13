@@ -1,0 +1,1 @@
+cabal install scotty && echo 'Scotty installed'

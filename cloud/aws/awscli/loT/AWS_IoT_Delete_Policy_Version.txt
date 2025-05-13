@@ -1,0 +1,1 @@
+aws iot delete-policy-version --policy-name <policy-name> --policy-version-id <version-id>

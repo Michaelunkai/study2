@@ -1,0 +1,1 @@
+aws lex-models list-migrations

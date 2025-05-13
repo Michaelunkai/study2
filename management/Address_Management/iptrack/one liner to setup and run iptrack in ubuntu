@@ -1,0 +1,1 @@
+sudo apt install -y iptrack && echo 'Visit http://localhost/cgi-bin/iptrack.cgi'

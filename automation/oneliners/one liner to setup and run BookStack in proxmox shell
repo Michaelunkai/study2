@@ -1,0 +1,9 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/bookstack.sh)"
+
+
+
+Default Login Credentials
+You can use the following credentials to login to the BookStack ct.
+
+Username: admin@admin.com
+Password: password

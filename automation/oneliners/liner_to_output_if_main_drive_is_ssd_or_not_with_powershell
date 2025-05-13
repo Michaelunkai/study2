@@ -1,0 +1,1 @@
+Get-PhysicalDisk | Where-Object {$_.DeviceID -eq (Get-Partition | Where-Object {$_.DriveLetter -eq "C"}).DiskNumber} | Select-Object MediaType

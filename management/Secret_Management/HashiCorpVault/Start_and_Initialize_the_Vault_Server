@@ -1,0 +1,44 @@
+Start and Initialize the Vault Server
+Create the data directory for Vault:
+
+ 
+ 
+sudo mkdir -p /opt/vault/data
+sudo chown -R vault:vault /opt/vault/data
+Start the Vault server:
+
+ 
+ 
+sudo systemctl enable vault
+sudo systemctl start vault
+Initialize the Vault using the one-liner command:
+
+ 
+ 
+vault operator init
+Example  :
+
+mathematica
+ 
+WARNING! VAULT_ADDR and -address unset. Defaulting to https://127.0.0.1:8200.
+Unseal Key 1: ApCEKMsuCMt2FRsbNH6sh42sMnoIObOTDAPXhWtOOoem
+Unseal Key 2: +TTC2wkoi3TN5b0nVgDiptXyj+3b+Jw5kLTMtJ91CxX6
+Unseal Key 3: fqB/B3wiOgQ3EtaOlxlrAE9QLSAR/BZkvp0KBL2M99x1
+Unseal Key 4: gDVlRyur0eapbOYhz57itC9Uwj+/3q/Nxqvt6BX5k2/p
+Unseal Key 5: ZbPfvmuKHKUUJUjD+QTqfRFDm0sHSk9wphd5VefDLRnt
+
+Initial Root Token: hvs.5bTWW0Xxiwg9jYJrp9G1hwwF
+Save these unseal keys and the root token securely.
+
+Unseal the Vault using the first three unseal keys:
+
+ 
+ 
+vault operator unseal ApCEKMsuCMt2FRsbNH6sh42sMnoIObOTDAPXhWtOOoem
+vault operator unseal +TTC2wkoi3TN5b0nVgDiptXyj+3b+Jw5kLTMtJ91CxX6
+vault operator unseal fqB/B3wiOgQ3EtaOlxlrAE9QLSAR/BZkvp0KBL2M99x1
+Login to the Vault:
+
+ 
+ 
+vault login hvs.5bTWW0Xxiwg9jYJrp9G1hwwF

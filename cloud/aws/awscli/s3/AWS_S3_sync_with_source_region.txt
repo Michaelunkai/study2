@@ -1,0 +1,1 @@
+aws s3 sync s3://your-source-bucket/ s3://your-destination-bucket/ --source-region us-west-1

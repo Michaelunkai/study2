@@ -1,0 +1,1 @@
+getnpm && npx gatsby new my-gatsby-app && cd my-gatsby-app && npm run develop

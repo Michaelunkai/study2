@@ -1,0 +1,1 @@
+sudo apt install -y sagan && sudo systemctl start sagan && echo "Sagan started. Logs available in /var/log/sagan/" && sagan --version

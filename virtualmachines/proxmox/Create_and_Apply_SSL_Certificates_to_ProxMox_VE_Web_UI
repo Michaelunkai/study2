@@ -1,0 +1,57 @@
+▲A  A▼
+Create and Apply SSL Certificates to ProxMox VE Web UI
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: vm.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: vm.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to pve-ssl.pem verify the export format is PEM Chain (*.pem)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to pve-ssl.key and verify the export format is PEM Private (*.pem)
+Click OK
+Applying SSL Certificates in ProxMox VE
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the ProxMox VE IP address via WinSCP
+Navigate to /etc/pve/nodes/<#node name#>/
+Rename pve-ssl.pem and pve-ssl.key to .old
+Copy the created pve-ssl.pem and pve-ssl.key to /etc/pve/nodes/<#node name#>/
+Connect to the ProxMox VE host via SSH or console and run the following command
+systemctl restart pveproxy
+Open a web browser and navigate to the ProxMox VE web UI
+Authenticate at the ProxMox VE login
+The ProxMox VE web UI should be utilizing the new SSL certificate
+ 

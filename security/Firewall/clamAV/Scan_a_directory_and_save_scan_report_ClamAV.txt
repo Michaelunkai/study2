@@ -1,0 +1,1 @@
+clamscan -r -l scan_report.txt /path/to/directory

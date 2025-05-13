@@ -1,0 +1,1 @@
+git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI && cd Retrieval-based-Voice-Conversion-WebUI && bash run.sh

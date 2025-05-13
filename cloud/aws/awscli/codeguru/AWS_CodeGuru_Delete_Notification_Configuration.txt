@@ -1,0 +1,1 @@
+aws codeguru-reviewer delete-notification-configuration --resource-arn <resource-arn>

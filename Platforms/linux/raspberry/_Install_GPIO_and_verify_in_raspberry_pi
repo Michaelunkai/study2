@@ -1,0 +1,52 @@
+pip3 install gpiozero
+
+
+
+ Create a GPIO Test Script
+Create a Python Script
+
+Create a Python script to test GPIO functionality. This script will turn an LED on and off on a specific GPIO pin.
+
+ 
+ 
+nano test_gpio.py
+Paste the following code into test_gpio.py and save the file:
+
+ 
+ 
+# test_gpio.py
+from gpiozero import LED
+from time import sleep
+
+# Initialize LED on GPIO pin 17
+led = LED(17)
+
+print("Turning LED on...")
+led.on()
+sleep(5)  # Keep LED on for 5 seconds
+
+print("Turning LED off...")
+led.off()
+Step 7: Run the GPIO Test Script
+Execute the script to test GPIO functionality.
+
+ 
+ 
+ 3 test_gpio.py
+Step 8: Verify GPIO Functionality Using Command-Line Tools
+If you prefer command-line utilities, you can use raspi-gpio to check the status of GPIO pins.
+
+Install raspi-gpio
+
+If not already installed, install the raspi-gpio utility.
+
+ 
+ 
+apt-get install -y raspi-gpio
+Check GPIO Pin Status
+
+Display the current state of all GPIO pins.
+
+ 
+ 
+raspi-gpio get

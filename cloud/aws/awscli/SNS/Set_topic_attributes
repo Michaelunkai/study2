@@ -1,0 +1,1 @@
+aws sns set-topic-attributes --topic-arn arn:aws:sns:us-west-2:123456789012:my-topic --attribute-name DisplayName --attribute-value "My Display Name"

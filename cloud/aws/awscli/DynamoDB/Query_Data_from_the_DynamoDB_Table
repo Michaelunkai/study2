@@ -1,0 +1,9 @@
+Query Data from the DynamoDB Table
+To retrieve an item from the table, use the get-item command. For example, to get the item with Id = "1":
+
+ 
+ 
+aws dynamodb get-item \
+    --table-name ExampleTable \
+    --key \
+        '{"Id": {"S": "1"}}'

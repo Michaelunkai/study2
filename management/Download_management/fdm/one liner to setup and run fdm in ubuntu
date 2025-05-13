@@ -1,0 +1,1 @@
+cd /tmp && wget https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb && sudo apt install -y ./freedownloadmanager.deb && fdm

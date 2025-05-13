@@ -1,0 +1,15 @@
+Create an Internet Gateway
+Create an Internet Gateway if you don't already have one.
+
+ 
+ 
+aws ec2 create-internet-gateway
+Note the InternetGatewayId from the output.
+
+Step 2: Attach the Internet Gateway to Your VPC
+Attach the created Internet Gateway to your VPC.
+
+ 
+ 
+aws ec2 attach-internet-gateway --internet-gateway-id igw-0123456789abcdef0 --vpc-id vpc-0088010cde7a8460f
+Replace igw-0123456789abcdef0 with the actual InternetGatewayId from the previous step.

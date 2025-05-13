@@ -1,0 +1,1 @@
+aws codepipeline put-action-revision --pipeline-name <pipeline-name> --stage-name <stage-name> --action-name <action-name> --action-revision <revision>

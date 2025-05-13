@@ -1,0 +1,131 @@
+### Comprehensive Tutorial: Setting Up and Using AWS Lambda with AWS CLI
+
+This tutorial will guide you through the steps to set up and use AWS Lambda with the AWS Command Line Interface (CLI). We'll cover everything from installation and configuration to creating, updating, invoking, and deleting a Lambda function.
+
+---
+
+#### Step 1: Install and Configure AWS CLI
+
+1. **Install AWS CLI v2**:
+     
+   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   unzip awscliv2.zip
+   sudo ./aws/install
+
+2. **Verify Installation**:
+     
+   aws --version
+   You should see output similar to `aws-cli/2.x.x`.
+
+3. **Configure AWS CLI**:
+     
+   aws configure
+   Follow the prompts to enter your AWS Access Key ID, Secret Access Key, default region name, and default output format.
+
+---
+
+#### Step 2: Create the Trust Policy JSON File for IAM Role
+
+1. **Create a `trust-policy.json` File**:
+     
+   nano trust-policy.json
+
+2. **Add the Following JSON Content**:
+    json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "lambda.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+
+3. **Save and Exit**:
+   - Save the file (`Ctrl+O`, `Enter`)
+   - Exit nano (`Ctrl+X`)
+
+---
+
+#### Step 3: Create an IAM Role for AWS Lambda
+
+1. **Create the IAM Role**:
+     
+   aws iam create-role --role-name lambda-ex --assume-role-policy-document file://trust-policy.json
+
+2. **Attach the AWSLambdaBasicExecutionRole Policy to the Role**:
+     
+   aws iam attach-role-policy --role-name lambda-ex --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+---
+
+#### Step 4: Create a Simple Lambda Function
+
+1. **Write a Simple Python Lambda Function**:
+     
+   echo 'def lambda_handler(event, context):
+       return "Hello, World!"' > lambda_function.py
+
+2. **Zip the Python File**:
+     
+   zip function.zip lambda_function.py
+
+3. **Create the Lambda Function Using AWS CLI**:
+     
+   aws lambda create-function --function-name myLambdaFunction \
+   --zip-file fileb://function.zip --handler lambda_function.lambda_handler \
+   --runtime python3.8 --role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/lambda-ex
+
+---
+
+#### Step 5: Invoke the Lambda Function
+
+1. **Invoke the Lambda Function from the CLI**:
+     
+   aws lambda invoke --function-name myLambdaFunction output.txt
+
+2. **Check the Output File**:
+     
+   cat output.txt
+
+---
+
+#### Step 6: Update the Lambda Function Code
+
+1. **Modify the `lambda_function.py` if Needed**:
+   Edit the file and make your changes.
+
+2. **Zip the Updated Python File**:
+     
+   zip function.zip lambda_function.py
+
+3. **Update the Lambda Function Code Using AWS CLI**:
+     
+   aws lambda update-function-code --function-name myLambdaFunction \
+   --zip-file fileb://function.zip
+
+---
+
+#### Step 7: Delete the Lambda Function (If Needed)
+
+1. **Delete the Lambda Function Using AWS CLI**:
+     
+   aws lambda delete-function --function-name myLambdaFunction
+
+---
+
+### Summary
+
+1. **Install and configure AWS CLI v2** to ensure you have the latest tools.
+2. **Create a trust policy JSON file** that allows Lambda to assume an IAM role.
+3. **Create an IAM role** specifically for Lambda and attach necessary policies.
+4. **Create a simple Lambda function** in Python, zip the function, and deploy it using AWS CLI.
+5. **Invoke the Lambda function** from the CLI and check the output.
+6. **Update the Lambda function code** and redeploy as needed.
+7. **Delete the Lambda function** when it's no longer needed.
+
+By carefully following these detailed steps, you should be able to successfully set up and manage AWS Lambda functions using the AWS CLI.

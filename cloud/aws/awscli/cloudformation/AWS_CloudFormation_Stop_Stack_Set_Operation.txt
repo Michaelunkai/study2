@@ -1,0 +1,1 @@
+aws cloudformation stop-stack-set-operation --stack-set-name <stack-set-name> --operation-id <operation-id>

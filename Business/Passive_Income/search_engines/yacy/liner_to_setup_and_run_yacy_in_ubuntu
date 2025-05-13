@@ -1,0 +1,1 @@
+getjava && wget https://download.yacy.net/yacy_v1.930_202405130205_59c0cb0f3.tar.gz && tar xfz yacy_v1.930_202405130205_59c0cb0f3.tar.gz && cd yacy && ./startYACY.sh

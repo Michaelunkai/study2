@@ -1,0 +1,1 @@
+aws ssm label-parameter-version --name <parameter-name> --parameter-version <version> --labels <labels>

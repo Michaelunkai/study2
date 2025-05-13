@@ -1,0 +1,1 @@
+flatpak install -y flathub org.gnome.Cheese && flatpak run org.gnome.Cheese

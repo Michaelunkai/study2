@@ -1,0 +1,54 @@
+# Tutorial: Setting Up and Using a Multi-Node Ceph Cluster in Ubuntu Using MicroCeph for Full-HA Deployment
+
+## Prerequisites:
+- 4 physical machines
+- Multi-core processors
+- At least 8GiB of memory per machine
+- 100GB of disk space per machine
+- Ubuntu 22.04 LTS
+
+## Step-by-Step Guide:
+
+### Step 1: Install MicroCeph on Each Node
+First, you need to install MicroCeph on each of the four nodes. Open a terminal on each node and run the following command:
+  
+sudo snap install microceph
+
+### Step 2: Bootstrap the Cluster from the First Node
+On the first node, bootstrap the cluster with the following command:
+  
+sudo microceph cluster bootstrap
+
+### Step 3: Add Other Nodes to the Cluster
+On the first node, add the other nodes to the cluster. Replace `node[x]` with the hostname or IP address of the other nodes:
+  
+sudo microceph cluster add node[x]
+This command will generate output that you need to copy.
+
+### Step 4: Join Additional Nodes to the Cluster
+On each additional node, use the copied output from the first node to join the cluster:
+  
+sudo microceph cluster join pasted-output-from-node1
+Repeat this step for each additional node you want to add to the cluster.
+
+### Step 5: Check Cluster Status
+To verify the status of the cluster, use the following command on any node:
+  
+sudo microceph.ceph status
+
+### Step 6: Add Disks to Each Node as OSDs
+Add the disks that will be used as Object Storage Daemons (OSDs) on each node. Replace `/dev/sd[x]` with the appropriate disk identifier. This will wipe the disk, so ensure you choose the correct disk and have backups if necessary:
+  
+sudo microceph disk add /dev/sd[x] --wipe
+Repeat this step for each disk you would like to use as an OSD on each node.
+
+### Step 7: Verify Cluster Status
+After adding the disks, you can verify the cluster status using the following commands on any node:
+  
+sudo microceph.ceph status
+sudo microceph.ceph osd status
+
+### Conclusion
+Following these steps, you should have a multi-node, full-HA Ceph cluster set up and running using MicroCeph. This setup is suitable for small-scale production environments.
+
+Note: Replace `/dev/sd[x]` and `node[x]` with the actual disk identifier and node hostname or IP address for your systems.

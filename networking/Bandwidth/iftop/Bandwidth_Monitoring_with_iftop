@@ -1,0 +1,24 @@
+ Bandwidth Monitoring with iftop
+
+Now, let's explore bandwidth monitoring with iftop, a real-time console-based network bandwidth monitoring tool.
+
+Install iftop:
+
+ 
+ 
+sudo apt-get install iftop -y
+Run iftop:
+
+Simply run iftop in the terminal.
+Monitor Network Traffic:
+
+iftop displays a list of network connections, their source/destination IPs, data rates, and more in real-time.
+Filter Connections:
+
+Use arrow keys to navigate and n and s keys to sort columns. Press ? for help and t to toggle display modes.
+Set Display Filters:
+
+Press l to set display filters, allowing you to focus on specific IPs or network interfaces.
+Quit iftop:
+
+Press q to exit iftop.

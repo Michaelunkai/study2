@@ -1,0 +1,129 @@
+Step 1: Update and Upgrade System
+First, ensure your system is up-to-date:
+
+ 
+ 
+sudo apt update && sudo apt upgrade -y
+Step 2: Install Required Tools
+You will need several tools for automated security testing. Let's start with some essential ones.
+
+2.1. Nmap
+Nmap is a network scanner used to discover hosts and services on a computer network.
+
+ 
+ 
+sudo apt install nmap -y
+2.2. Nikto
+Nikto is a web server scanner that performs comprehensive tests against web servers.
+
+ 
+ 
+sudo apt install nikto -y
+2.3. OpenVAS
+OpenVAS is a full-featured vulnerability scanner.
+
+ 
+ 
+sudo apt install openvas -y
+sudo gvm-setup
+After installation, run the following command to check the status:
+
+ 
+ 
+sudo gvm-check-setup
+Step 3: Install and Configure OWASP ZAP
+OWASP ZAP is an open-source web application security scanner.
+
+ 
+ 
+sudo apt install snapd -y
+sudo snap install zaproxy --classic
+Step 4: Automate the Tools Using Scripts
+Now, let's create scripts to automate these tools.
+
+4.1. Nmap Script
+Create a script nmap_scan.sh:
+
+ 
+ 
+nano nmap_scan. 
+Add the following content:
+
+ 
+ 
+#!/bin/ 
+TARGET=$1
+nmap -A -T4 $TARGET -oN nmap_scan_results.txt
+Make it executable:
+
+ 
+ 
+chmod +x nmap_scan. 
+4.2. Nikto Script
+Create a script nikto_scan.sh:
+
+ 
+ 
+nano nikto_scan. 
+Add the following content:
+
+ 
+ 
+#!/bin/ 
+TARGET=$1
+nikto -h $TARGET -o nikto_scan_results.txt
+Make it executable:
+
+ 
+ 
+chmod +x nikto_scan. 
+4.3. OpenVAS Script
+Create a script openvas_scan.sh:
+
+ 
+ 
+nano openvas_scan. 
+Add the following content:
+
+ 
+ 
+#!/bin/ 
+TARGET=$1
+gvm-cli socket --socketpath /var/run/gvmd.sock --xml "<create_target><name>Test Target</name><hosts>$TARGET</hosts></create_target>"
+TASK_ID=$(gvm-cli socket --socketpath /var/run/gvmd.sock --xml "<create_task><name>Test Task</name><comment>Automated scan</comment><config id='daba56c8-73ec-11df-a475-002264764cea'/><target id='$TARGET_ID'/></create_task>" | grep -oP '(?<=<id>).*?(?=</id>)')
+gvm-cli socket --socketpath /var/run/gvmd.sock --xml "<start_task task_id='$TASK_ID'/>"
+Make it executable:
+
+ 
+ 
+chmod +x openvas_scan. 
+Step 5: Run Automated Security Testing
+To run the scans, use the following commands:
+
+5.1. Run Nmap
+ 
+ 
+./nmap_scan.  <TARGET_IP>
+5.2. Run Nikto
+ 
+ 
+./nikto_scan.  <TARGET_URL>
+5.3. Run OpenVAS
+ 
+ 
+./openvas_scan.  <TARGET_IP>
+Step 6: View Results
+Each tool will generate output files (nmap_scan_results.txt, nikto_scan_results.txt, etc.) in the current directory, which you can review for vulnerabilities and issues.
+
+Step 7: Scheduling with Cron (Optional)
+To automate the scans regularly, you can use cron jobs. Open the cron table:
+
+ 
+ 
+crontab -e
+Add a cron job for the script (e.g., every day at 2 AM):
+
+ 
+ 
+0 2 * * * /path/to/nmap_scan.sh <TARGET_IP>
+Repeat for other scripts as needed.

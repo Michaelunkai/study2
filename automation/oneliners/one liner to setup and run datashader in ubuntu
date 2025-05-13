@@ -1,0 +1,1 @@
+pip3 install datashader && python3 -c 'import datashader; print(datashader.__version__)'

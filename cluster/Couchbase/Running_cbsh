@@ -1,0 +1,12 @@
+Running cbsh
+Now, you can start cbsh without passing any command-line arguments, as it will use the configuration file.
+
+ 
+ 
+cbsh
+You should see a prompt similar to:
+
+arduino
+ 
+👤 Administrator 🏠 travel-sample in 🗄 <not set>
+>

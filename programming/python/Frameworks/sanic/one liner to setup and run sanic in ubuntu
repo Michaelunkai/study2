@@ -1,0 +1,1 @@
+pip install sanic && echo "from sanic import Sanic; from sanic.response import text; app = Sanic('SanicApp'); @app.get('/'); async def hello(req): return text('Hello Sanic'); app.run()" > app.py && python app.py

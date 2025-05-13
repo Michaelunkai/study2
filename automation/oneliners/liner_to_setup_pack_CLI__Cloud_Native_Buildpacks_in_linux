@@ -1,0 +1,4 @@
+curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.28.0/pack-v0.28.0-linux.tgz" | sudo tar -C /usr/local/bin/ --no-same-owner -xzv pack
+
+
+pack --version

@@ -1,0 +1,96 @@
+1. Fork the Repository
+First, fork the repository to your own GitHub account. This can be done by navigating to the repository's GitHub page and clicking the "Fork" button in the upper right corner.
+
+2. Clone Your Forked Repository
+Clone the forked repository to your local machine using the following command:
+
+ 
+ 
+git clone https://github.com/your-username/Text-To-Speach-Javascript.git
+Replace your-username with your GitHub username.
+
+3. Navigate to the Project Directory
+Change to the project directory:
+
+ 
+ 
+cd Text-To-Speach-Javascript
+4. Create a New Branch
+Create a new branch for your changes:
+
+ 
+ 
+git checkout -b add-guidelines-to-readme
+5. Edit the README File
+Open the README file in your preferred text editor. For example, you can use nano:
+
+ 
+ 
+nano README.md
+Add the guidelines you want to include. For example:
+
+ 
+ 
+## Contribution Guidelines
+
+We welcome contributions to this project. Here are some guidelines to get you started:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch-name`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch-name`).
+6. Create a new Pull Request.
+
+Please ensure your code follows our coding standards and includes appropriate tests.
+Save and exit the editor (for nano, you can do this by pressing Ctrl + X, then Y, and Enter).
+
+6. Stage the Changes
+Stage the changes you made to the README file:
+
+ 
+ 
+git add README.md
+7. Commit the Changes
+Commit the changes with a descriptive message:
+
+ 
+ 
+git commit -m "Add contribution guidelines to README"
+8. Push the Changes to Your Fork
+Push your changes to your forked repository:
+
+ 
+ 
+git push origin add-guidelines-to-readme
+9. Create a Pull Request
+Go to your forked repository on GitHub. You should see a notification suggesting you create a pull request. Click on that link and follow the instructions to create a new pull request.
+
+10. Monitor the Pull Request
+Monitor the pull request for any feedback or requested changes. Make any necessary adjustments and push them to your branch.
+
+By following these steps, you can contribute to the "Text-To-Speach-Javascript" project by adding guidelines to the README file.
+
+
+
+
+
+Monitoring your pull request (PR) and checking its status involves a few steps on GitHub. Here’s how you can do it:
+
+1. Navigate to the Repository
+Go to the GitHub page of the original repository where you created the pull request. For your case, it's the Text-To-Speach-Javascript repository.
+
+2. Access the Pull Requests Tab
+Click on the "Pull requests" tab near the top of the page. This will take you to a list of all pull requests for the repository.
+
+3. Find Your Pull Request
+Look for your pull request in the list. It will be identified by the branch name you created and the title you gave the PR. You can also use the filters on the right-hand side to find your PR quickly.
+
+4. Check the Status
+Once you open your pull request, you can monitor its status:
+
+Open: The pull request is open and awaiting review.
+Merged: The pull request has been accepted and merged into the main branch.
+Closed: The pull request has been closed without merging. This can happen if there are issues that need to be resolved or if it was decided not to merge the changes.
+
+

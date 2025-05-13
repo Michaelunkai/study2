@@ -1,0 +1,1 @@
+create one liner, to setup and run kazam in ubuntu, and use it in the end! # Kazam: Screen recorder plus screenshot tool. && sudo apt install kazam -y && kazam &

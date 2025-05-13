@@ -1,0 +1,8 @@
+ WSLg
+Description: Native WSLg integration in WSL2, starting with Windows 11.
+Setup: Ensure WSLg is enabled by updating to the latest version of Windows 11.
+Run:
+ 
+ 
+ 
+nohup g  &

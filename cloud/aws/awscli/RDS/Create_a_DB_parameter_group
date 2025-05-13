@@ -1,0 +1,1 @@
+aws rds create-db-parameter-group --db-parameter-group-name mydbparametergroup --db-parameter-group-family mysql8.0 --description "My DB Parameter Group"

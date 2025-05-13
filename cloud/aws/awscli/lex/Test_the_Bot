@@ -1,0 +1,5 @@
+aws lex-runtime post-text \
+    --bot-name "PizzaOrderBot" \
+    --bot-alias "$LATEST" \
+    --user-id "testuser" \
+    --input-text "I want to order a pizza"

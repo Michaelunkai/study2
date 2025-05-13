@@ -1,0 +1,1 @@
+wget https://download.pdfstudio.com/2023/pdfstudioviewer_2023-1_amd64.deb -O pdfstudioviewer.deb && sudo apt install -y ./pdfstudioviewer.deb && pdfstudioviewer

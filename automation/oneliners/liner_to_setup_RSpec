@@ -1,0 +1,1 @@
+sudo apt install ruby-full -y && gem install rspec && rspec --init && rspec --version

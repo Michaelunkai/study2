@@ -1,0 +1,22 @@
+delta - A syntax-highlighting pager for git and diff output
+Installation:
+
+ 
+ 
+# Download the latest delta release
+wget https://github.com/dandavison/delta/releases/download/0.15.1/git-delta_0.15.1_amd64.deb
+
+# Install the downloaded package
+sudo dpkg -i git-delta_0.15.1_amd64.deb
+
+# Fix any missing dependencies
+sudo apt-get install -f -y
+Basic Usage:
+
+ 
+ 
+# Use delta to view git diffs
+git diff | delta
+
+# Configure git to use delta by default
+git config --global core.pager "delta"

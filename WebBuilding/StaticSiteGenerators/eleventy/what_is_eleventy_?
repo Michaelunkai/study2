@@ -1,0 +1,25 @@
+Eleventy (often abbreviated as 11ty) is a simple, flexible, and powerful static site generator. It transforms your content, written in various file formats (like Markdown, HTML, or Liquid templates), into static HTML files that can be served by any web server.
+
+### Key Features of Eleventy:
+1. **Language-Agnostic**: Eleventy supports multiple templating languages, including Markdown, HTML, Liquid, Nunjucks, Handlebars, and more. You can mix and match these languages within the same project.
+
+2. **Zero Configuration**: You can start using Eleventy with no configuration at all. Just place your content in the appropriate directory, and Eleventy will generate a static site for you.
+
+3. **Flexible Directory Structure**: Unlike some static site generators that enforce a specific structure, Eleventy allows you to organize your files and directories however you like.
+
+4. **Minimalistic and Fast**: Eleventy is designed to be fast and lightweight, with minimal dependencies. It focuses on simplicity and performance.
+
+5. **Extensible**: While Eleventy works out-of-the-box, it is also highly customizable. You can create custom plugins, filters, and shortcodes to extend its functionality.
+
+6. **Content-Powered**: Eleventy is content-first, meaning it emphasizes content creation and management. It doesn't require a complex setup or configuration to get started.
+
+7. **Free and Open-Source**: Eleventy is open-source software, which means it's free to use and you can contribute to its development.
+
+### Use Cases:
+- **Blogs**: Eleventy is commonly used for personal blogs because of its simplicity and support for Markdown.
+- **Documentation Sites**: It's great for creating static documentation sites with easy navigation and search.
+- **Portfolios**: Designers and developers use Eleventy to build lightweight, fast-loading portfolios.
+- **Landing Pages**: Eleventy can be used to create quick, static landing pages for products or services.
+- **Static Sites**: Eleventy is ideal for any project that benefits from static HTML, such as marketing sites or promotional pages.
+
+Eleventy has become popular among developers who appreciate its flexibility, simplicity, and the fact that it doesn’t impose many conventions, allowing for more creative freedom in how sites are built.

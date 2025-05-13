@@ -1,0 +1,1 @@
+aws codeguruprofiler create-profiling-group --profiling-group-name MyProfilingGroup

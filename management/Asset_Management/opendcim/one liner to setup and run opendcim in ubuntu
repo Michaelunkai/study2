@@ -1,0 +1,1 @@
+sudo docker run -d -p 8086:80 leowzukw/opendcim && echo 'http://localhost:8086'

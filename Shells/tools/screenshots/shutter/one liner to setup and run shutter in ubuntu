@@ -1,0 +1,1 @@
+create one liner, to setup and run shutter in ubuntu, and use it in the end! # Shutter: Full-featured GUI screenshot utility. && sudo apt install shutter -y && shutter &

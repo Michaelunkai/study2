@@ -1,0 +1,1 @@
+pip3 install bokeh && python3 -c 'import bokeh; print(bokeh.__version__)'

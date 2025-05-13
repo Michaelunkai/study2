@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g express-generator && yes "y" | express --view=pug my-express-app && cd my-express-app && nsj && npm start

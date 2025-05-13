@@ -1,0 +1,1 @@
+composer require gabordemooij/redbean && echo 'RedBeanPHP installed'

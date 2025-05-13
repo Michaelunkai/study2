@@ -1,0 +1,1 @@
+aws kms list-connections --key-id <key-id>

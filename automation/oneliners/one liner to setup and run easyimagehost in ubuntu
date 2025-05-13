@@ -1,0 +1,1 @@
+git clone https://github.com/example/easyimagehost.git && cd easyimagehost && npm install && npm start

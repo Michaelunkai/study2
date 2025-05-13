@@ -1,0 +1,1 @@
+aws route53 change-tags-for-resource --resource-type healthcheck --resource-id <health-check-id> --add-tags Key=<key>,Value=<value>

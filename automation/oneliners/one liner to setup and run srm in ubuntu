@@ -1,0 +1,1 @@
+sudo apt install -y secure-delete && srm -vz myfile.txt

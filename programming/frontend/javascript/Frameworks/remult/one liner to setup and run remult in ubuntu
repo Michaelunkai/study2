@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g remult-cli && yes "y" | remult init my-remult-app && cd my-remult-app && nsj && npm start

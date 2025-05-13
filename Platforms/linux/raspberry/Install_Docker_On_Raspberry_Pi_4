@@ -1,0 +1,42 @@
+▲A  A▼
+Install Docker On Raspberry Pi 4
+Log into the Linux device
+Execute the following commands in a terminal:
+# update software repositories
+sudo apt update
+# install necessary packages for https apt calls
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+# add docker GPG key
+curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
+# add docker software repository
+echo "deb [arch=armhf] https://download.docker.com/linux/raspbian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker-ce.list
+# install docker
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+# start docker service
+sudo systemctl start docker
+# enable docker service on startup
+sudo systemctl enable docker
+# create a docker group
+sudo groupadd docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+To run a basic Docker container, run the following command in a terminal:
+sudo docker run hello-world
+Docker will download the hello-world container and execute it, displaying following output:
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+1. The Docker client contacted the Docker daemon.
+2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+(amd64)
+3. The Docker daemon created a new container from that image which runs the
+executable that produces the output you are currently reading.
+4. The Docker daemon streamed that output to the Docker client, which sent it
+to your terminal.
+
+Source: https://docs.docker.com/engine/install/debian/
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

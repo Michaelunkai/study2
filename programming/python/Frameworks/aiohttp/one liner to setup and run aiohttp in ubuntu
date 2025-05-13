@@ -1,0 +1,1 @@
+pip install aiohttp && echo "from aiohttp import web; async def handle(request): return web.Response(text='Hello Aiohttp'); app = web.Application(); app.router.add_get('/', handle); web.run_app(app)" > app.py && python app.py

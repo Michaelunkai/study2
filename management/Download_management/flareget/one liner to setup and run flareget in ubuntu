@@ -1,0 +1,1 @@
+cd /tmp && wget https://www.flareget.com/files/flareget/debs/flareget_5.0-1_amd64.deb && sudo apt install -y ./flareget_*.deb && flareget

@@ -1,0 +1,44 @@
+ Using AWS Lambda for Serverless Code Execution
+Objective: Deploy a serverless function using AWS Lambda to execute code in response to events without the need for server management.
+
+Create a Lambda Function:
+
+Explanation: AWS Lambda allows you to run code in a serverless environment, which simplifies deployment and scaling for small tasks or microservices.
+Steps:
+Create a .zip file (function.zip) with your Lambda function code.
+Run:
+ 
+ 
+aws lambda create-function --function-name my-function --runtime python3.8 --role <IAM_ROLE_ARN> --handler lambda_function.lambda_handler --zip-file fileb://function.zip
+Replace <IAM_ROLE_ARN> with the ARN of the IAM role with Lambda access.
+Invoke Your Lambda Function:
+
+Explanation: Invoking the Lambda function allows you to test and execute your code, making it easier to verify functionality.
+Steps:
+Run:
+ 
+ 
+aws lambda invoke --function-name my-function output.json
+Example Lambda Function Code (lambda_function.py):
+
+Explanation: The example code provides a simple Lambda function that responds with a message, demonstrating the basic structure of a Lambda function.
+Code:
+ 
+ 
+def lambda_handler(event, context):
+    return {
+        'statusCode': 200,
+        'body': 'Hello from Lambda!'
+    }
+Update Lambda Function Code:
+
+Explanation: Updating the Lambda function allows you to deploy new changes to your code.
+Steps:
+Repackage your code:
+ 
+ 
+zip -r function.zip .
+Update the Lambda function:
+ 
+ 
+aws lambda update-function-code --function-name my-function --zip-file fileb://function.zip

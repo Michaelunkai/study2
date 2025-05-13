@@ -1,0 +1,1 @@
+cd && nvm23 && npm install react react-dom && yes "y" | npx create-react-app my-react-app && cd my-react-app && nsj && npm start

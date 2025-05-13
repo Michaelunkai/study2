@@ -1,0 +1,92 @@
+Tutorial: Setting Up IT Monitoring System with WhatsUp Gold
+Introduction
+This tutorial will guide you through the steps to set up an IT monitoring system using WhatsUp Gold, enabling you to monitor your network, servers, storage, and more.
+
+Step-by-Step Commands
+Update Package Lists
+
+ 
+ 
+sudo apt-get update
+Install SNMP Daemon
+
+ 
+ 
+sudo apt-get install snmpd
+Check if SNMP is Running
+
+ 
+ 
+ss -tunlp | grep 161
+Edit SNMP Configuration
+
+ 
+ 
+sudo nano /etc/snmp/snmpd.conf
+Set SNMP to Listen on All Interfaces
+
+Replace the existing agentAddress line with:
+plaintext
+ 
+agentAddress udp:161
+Restart SNMP Service
+
+ 
+ 
+sudo service snmpd restart
+Verify SNMP Configuration
+
+ 
+ 
+snmpwalk -v 2c -c public 127.0.0.1
+Download WhatsUp Gold Free Edition
+
+Visit the WhatsUp Gold Free Edition website and download the installer.
+Install WhatsUp Gold
+
+Run the installer and follow the on-screen instructions.
+Accept the default settings and proceed with the installation.
+Enter License Key
+
+Check your email for the license key and enter it during the installation process.
+Configure SNMP on Devices
+
+Ensure all devices in your network have SNMP configured with a common community string (e.g., public).
+Allow ICMP and WMI Traffic on Windows Firewall
+
+ 
+ 
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow WMI-In" -Protocol TCP -LocalPort 135, 445, 1024-65535
+Create Administrator Account for WMI Access
+
+Create a local administrator account or enable the built-in administrator account.
+Run WhatsUp Gold and Perform Network Scan
+
+Launch WhatsUp Gold and navigate to Discover > New Scan.
+Add your network subnets and initiate the scan.
+Add SNMP and WMI Credentials
+
+Navigate to Settings > Credentials and add SNMP and WMI credentials.
+Configure Monitoring for Discovered Devices
+
+Select the devices to monitor and click Start Monitoring.
+Set Up Custom Monitors (e.g., HTTP, GPU)
+
+Navigate to Settings > Libraries > Monitors.
+Create a new HTTP monitor for a specific port.
+Add SSH performance monitors for custom metrics like GPU temperature.
+Set Up Alerts
+
+Navigate to Settings > Actions and Alerts.
+Create a new action for Slack notifications or other alert methods.
+Define an action policy for triggering alerts based on monitoring states.
+Monitor and Analyze Devices
+
+Navigate to Network > Device List to view monitored devices.
+Use dashboards to visualize data and performance metrics.
+Backup Configurations and Logs
+
+Utilize WhatsUp Gold's configuration management and log management features.
+Conclusion
+You've successfully set up an IT monitoring system using WhatsUp Gold. This setup allows you to monitor various aspects of your network, servers, and other devices, providing you with detailed insights and alerts to maintain a healthy IT environment. For more advanced configurations and monitoring options, explore WhatsUp Gold's extensive feature set.

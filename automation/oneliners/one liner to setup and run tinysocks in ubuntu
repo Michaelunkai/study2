@@ -1,0 +1,1 @@
+wget https://github.com/mellow-io/tinysocks/releases/latest/download/tinysocks-linux-amd64 -O tinysocks && chmod +x tinysocks && ./tinysocks -l :1080

@@ -1,0 +1,17 @@
+FTP Files to Sony Playstation 3 Console
+Things You Will Need
+A softmodded Sony PlayStation 3 console with WebMAN installed
+A network
+Setting Up and Starting the PS3 FTP Server
+Connect the PS3 console to your network and power it on
+Go to Settings > System Settings > System Information and make note of the console's IP address
+On a PC, download FileZilla FTP Client Download
+Install FileZilla FTP Client
+Input the PS3 console IP address, leaving everything else blank/default > Click Quickconnect
+The internal hard drive of the PS3 is labeled dev_hdd0
+To copy PlayStation, PlayStation 2, PSP or PlayStation 3 games to the internal hard drive just copy the .iso file to the corresponding folder on dev_hdd0 (PlayStation 2 = PS2ISO, etc)
+
+WebMAN also includes a simple web UI for viewing the the games on the console
+Open a web browser and navigate to the PS3 console's IP address
+Click the Refresh XML button
+Click the Refresh HTML button

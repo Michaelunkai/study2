@@ -1,0 +1,1 @@
+aws kms update-cryptographic-configuration --key-id <key-id> --cryptographic-configuration file://config.json

@@ -1,0 +1,2 @@
+getnpm && git clone https://github.com/TheJambo/awesome-testing.git && cd awesome-testing && sudo apt install -y ruby-full && sudo apt install -y python3 python3-pip && snap install zaproxy --classic && zaproxy
+

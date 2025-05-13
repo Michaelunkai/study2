@@ -1,0 +1,18 @@
+Summary Comparison Table
+Feature	STDIN	STDOUT	STDERR
+Descriptor	0	1	2
+Default	Keyboard input	Terminal output	Terminal error output
+Redirection	<, <<	>, >>, `	`
+Purpose	Accept user/input data	Output regular messages	Output error messages
+Program API	fgets(stdin) (C)	printf() / print()	fprintf(stderr, …)
+
+🔄 Real-World Script Example
+bash
+Copy code
+#!/bin/bash
+grep "$1" myfile.txt > results.log 2> errors.log
+STDIN: The search term (via $1)
+
+STDOUT: Matching lines saved to results.log
+
+STDERR: Errors (like file not found) logged in errors.log

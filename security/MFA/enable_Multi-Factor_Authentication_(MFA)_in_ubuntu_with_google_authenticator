@@ -1,0 +1,12 @@
+Install Google Authenticator PAM Module:
+
+sudo apt install libpam-google-authenticator
+Configure Google Authenticator:
+
+google-authenticator
+Edit PAM Configuration to Require MFA:
+
+sudo nano /etc/pam.d/s d
+Add the following line at the top:
+
+auth required pam_google_authenticator.so

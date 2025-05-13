@@ -1,0 +1,1 @@
+rsync -av --log-file=/path/to/logfile /source_directory/ /destination_directory/

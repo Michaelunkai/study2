@@ -1,0 +1,1 @@
+sudo apt install -y tcpxtract && tcpxtract -f traffic.pcap && echo "TCPxtract extracted files from traffic.pcap"

@@ -1,0 +1,1 @@
+sudo apt install -y ntfs-3g && sudo mount -t ntfs-3g /dev/sdX1 /mnt && df -h /mnt

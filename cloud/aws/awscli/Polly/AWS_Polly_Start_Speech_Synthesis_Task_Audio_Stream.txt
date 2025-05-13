@@ -1,0 +1,1 @@
+aws polly start-speech-synthesis-task --output-format pcm --output-s3-bucket-name <bucket-name> --voice-id Joey --text 'This is a stream of audio.'

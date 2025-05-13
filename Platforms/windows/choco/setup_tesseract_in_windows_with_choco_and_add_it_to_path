@@ -1,0 +1,7 @@
+choco install tesseract
+
+
+
+add to path liner:
+
+ $tesseractPath = "C:\Program Files\Tesseract-OCR"; if ($env:Path -notlike "*$tesseractPath*") { [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$tesseractPath", [System.EnvironmentVariableTarget]::Machine); Write-Output "Tesseract path added to the PATH environment variable."; refreshenv } else { Write-Output "Tesseract path is already in the PATH environment variable."; }

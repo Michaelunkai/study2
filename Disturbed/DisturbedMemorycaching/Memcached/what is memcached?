@@ -1,0 +1,8 @@
+**Memcached** is an open-source, high-performance, distributed memory caching system. It is designed to speed up dynamic web applications by reducing the database load by caching data and objects in memory. Here's a brief overview:
+
+- **In-Memory Cache**: Memcached stores data in RAM to ensure fast retrieval.
+- **Key-Value Store**: It stores data as key-value pairs, where each key is associated with a specific value.
+- **Distributed**: Memcached can be distributed across multiple servers, enabling horizontal scaling.
+- **Use Cases**: Commonly used for caching database queries, session data, API calls, and frequently accessed data in web applications.
+
+Memcached helps improve the performance and scalability of websites and applications by providing quick access to cached data, reducing database load and latency.

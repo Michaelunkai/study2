@@ -1,0 +1,1 @@
+pnpm dlx create-cloudflare && pnpm dev

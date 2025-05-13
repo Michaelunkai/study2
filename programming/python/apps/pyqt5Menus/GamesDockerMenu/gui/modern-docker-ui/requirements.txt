@@ -1,0 +1,4 @@
+Flask
+PyQt5
+requests
+pytest

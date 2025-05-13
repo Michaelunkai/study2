@@ -1,0 +1,1 @@
+pip3 install polars && python3 -c 'import polars as pl; print(pl.__version__)'

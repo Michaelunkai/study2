@@ -1,0 +1,16 @@
+sudo apt install -y mariadb-server && sudo systemctl start mariadb && sudo systemctl enable mariadb && sudo mysql -e "CREATE DATABASE ownclouddb; GRANT ALL ON ownclouddb.* TO 'owncloud_rw'@'localhost' IDENTIFIED BY 'ownCl0udcc'; FLUSH PRIVILEGES;" && cd && sudo apt update && sudo apt install -y apache2 libapache2-mod-php php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath unzip wget && wget https://download.nextcloud.com/server/releases/latest.zip && unzip latest.zip -d /var/www/html/ && sudo chown -R www-data:www-data /var/www/html/nextcloud/ && sudo chmod -R 755 /var/www/html/nextcloud/ && sudo mysql_secure_installation && sudo mysql -e "CREATE DATABASE nextcloud; CREATE USER 'nextclouduser'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost'; FLUSH PRIVILEGES;" && sudo bash -c "cat > /etc/apache2/sites-available/nextcloud.conf <<EOF
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/nextcloud/
+    <Directory /var/www/html/nextcloud/>
+        Options +FollowSymlinks
+        AllowOverride All
+        <IfModule mod_dav.c>
+            Dav off
+        </IfModule>
+        SetEnv HOME /var/www/html/nextcloud
+        SetEnv HTTP_HOME /var/www/html/nextcloud
+    </Directory>
+    ErrorLog \${APACHE_LOG_DIR}/nextcloud_error.log
+    CustomLog \${APACHE_LOG_DIR}/nextcloud_access.log combined
+</VirtualHost>
+EOF" && sudo a2ensite nextcloud.conf && sudo a2enmod rewrite headers env dir mime setenvif && sudo systemctl restart apache2 && echo "Nextcloud is now accessible at http://$(hostname -I | awk '{print $1}')/nextcloud" && xdg-open "http://$(hostname -I | awk '{print $1}')/nextcloud" && gc http://localhost/nextcloud

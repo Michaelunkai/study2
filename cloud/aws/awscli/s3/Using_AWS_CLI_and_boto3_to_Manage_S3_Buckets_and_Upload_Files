@@ -1,0 +1,104 @@
+## Comprehensive Guide: Using AWS CLI and boto3 to Manage S3 Buckets and Upload Files
+
+This guide will walk you through setting up the AWS CLI, configuring your credentials, and using boto3 in Python to interact with an S3 bucket. By the end of this tutorial, you will have successfully listed your S3 buckets and uploaded a file to your specified bucket.
+
+### Step 1: Set Up AWS CLI
+
+#### 1.1 Install AWS CLI
+If you haven't already installed the AWS CLI, you can follow the [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install the AWS CLI on your system.
+
+#### 1.2 Configure AWS CLI
+Open your terminal and run the following commands to configure the AWS CLI with your credentials:
+
+  
+aws configure set aws_access_key_id YOUR_ACCESS_KEY_ID
+aws configure set aws_secret_access_key YOUR_SECRET_ACCESS_KEY
+aws configure set region YOUR_REGION
+
+Replace `YOUR_ACCESS_KEY_ID`, `YOUR_SECRET_ACCESS_KEY`, and `YOUR_REGION` with your actual AWS credentials and preferred region (e.g., `us-east-1`).
+
+#### 1.3 Verify Configuration
+Run the following command to list your S3 buckets and verify the configuration:
+
+  
+aws s3 ls
+
+You should see output similar to:
+
+2024-07-19 19:10:23 my-unique-bucket-name-xyz
+
+### Step 2: Install AWS SDK (boto3) for Python
+
+#### 2.1 Install boto3
+Use pip to install boto3:
+
+  
+pip install boto3
+
+### Step 3: Create and Update the Python Script
+
+#### 3.1 Create the example.txt File
+Open your terminal and run the following command to create `example.txt` in the `/root` directory:
+
+  
+echo "This is a test file for S3 upload." > /root/example.txt
+
+#### 3.2 Create the Python Script
+Create a file named `s3_example.py` in the `/root` directory and add the following code:
+
+  
+import boto3
+
+# Initialize boto3 session
+session = boto3.Session(
+    aws_access_key_id='YOUR_ACCESS_KEY_ID',
+    aws_secret_access_key='YOUR_SECRET_ACCESS_KEY',
+    region_name='YOUR_REGION'
+)
+
+# Initialize S3 client
+s3 = session.client('s3')
+
+# List S3 Buckets
+response = s3.list_buckets()
+print("S3 Buckets:")
+for bucket in response['Buckets']:
+    print(f"- {bucket['Name']}")
+
+# Upload a file to the bucket
+bucket_name = 'my-unique-bucket-name-xyz'
+file_name = '/root/example.txt'
+s3.upload_file(file_name, bucket_name, 'example.txt')
+print(f"File {file_name} uploaded to {bucket_name}.")
+
+Replace `YOUR_ACCESS_KEY_ID`, `YOUR_SECRET_ACCESS_KEY`, and `YOUR_REGION` with your actual AWS credentials and preferred region.
+
+### Step 4: Run the Python Script
+
+#### 4.1 Navigate to the /root Directory and Run the Script
+In your terminal, run the following commands:
+
+  
+cd /root
+  s3_example.py
+
+###  
+When you run the script, you should see output similar to the following:
+
+S3 Buckets:
+- my-unique-bucket-name-xyz
+File /root/example.txt uploaded to my-unique-bucket-name-xyz.
+
+### Step 5: Verify the Upload
+
+#### 5.1 Check the S3 Bucket
+Use the AWS CLI to list the contents of the bucket and verify the file upload:
+
+  
+aws s3 ls s3://my-unique-bucket-name-xyz/
+
+You should see the uploaded file in the output:
+
+2024-07-21 12:00:00       35 example.txt
+
+By following these steps, you have successfully configured the AWS CLI, installed boto3, created a file, updated the Python script with the correct path, and verified the file upload to your S3 bucket.

@@ -1,0 +1,24 @@
+npm install aws-xray-sdk
+
+
+Modify your application code to use the X-Ray SDK:
+
+const AWSXRay = require('aws-xray-sdk');
+const express = require('express');
+
+const app = express();
+
+// Middleware to capture all incoming requests
+app.use(AWSXRay.express.openSegment('MyApp'));
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+// Close the segment
+app.use(AWSXRay.express.closeSegment());
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+

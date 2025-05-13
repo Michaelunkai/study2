@@ -1,0 +1,1 @@
+az cosmosdb create --name myCosmosDB --resource-group myResourceGroup --locations regionName=East US failoverPriority=0 isZoneRedundant=False --kind GlobalDocumentDB && az cosmosdb sql database create --account-name myCosmosDB --resource-group myResourceGroup --name myDatabase

@@ -1,0 +1,42 @@
+Setting Up LDAP Authentication in Subsonic
+Active Directory Setup
+Open Active Directory Users and Computers
+Expand the domain > Users
+Right Click Users > New > User
+Create a read only account to use for LDAP binding
+First Name: Read
+Last Name: Only
+User logon name: readonly_svc
+Click Next
+Set the user's password and confirm it
+Uncheck User must change password on next logon
+Check User cannot change password
+Check Password never expires
+Click Next
+Click Finish
+Right Click Users > New > Group
+Give the group a name and click OK
+Right Click the newly created group > Properties
+Select the Members tab > Click Add...
+Add users that will be allowed access to the web application
+Click OK
+Configuring Subsonic
+Open a web browser and navigate to http://DNSorIP:Port
+Login with the Subsonic admin account (admin/admin by default)
+Select Settings > Advanced
+Check the Enable LDAP authentication box
+Fill out the LDAP setup fields below:
+LDAP URL: ldap://i12bretro.local:389/dc=i12bretro,dc=local
+LDAP search filter: (&(sAMAccountName={0})(&(objectCategory=user)(memberof=cn=Subsonic Users,CN=Users,dc=i12bretro,dc=local)))
+LDAP manager DN (Optional): i12bretro.local\readonly_svc
+Password: %readonly_svc password%
+Check the Automatically create users in Subsonic box
+Click the Save button
+Click Users in the top navigation
+Make sure the Select user dropdown says -- New user --
+Check all the boxes for the permissions you'd like the new user to have
+Set the username field
+Check the box to Authenticate user in LDAP
+Click the Save button
+Click Logout of admin from the left navigation
+Sign in with the active directory username and password

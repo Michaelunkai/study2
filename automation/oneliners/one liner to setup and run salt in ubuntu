@@ -1,0 +1,1 @@
+sudo apt install -y salt-master salt-minion && sudo systemctl start salt-master && sudo systemctl start salt-minion && sudo salt --version

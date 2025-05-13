@@ -1,0 +1,1 @@
+sudo apt install -y python3-pip && pip install -U yt-dlp && yt-dlp https://youtube.com/watch?v=dQw4w9WgXcQ

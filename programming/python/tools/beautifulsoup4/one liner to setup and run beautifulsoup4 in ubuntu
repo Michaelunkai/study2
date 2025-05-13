@@ -1,0 +1,1 @@
+pip3 install beautifulsoup4 && python3 -c 'import bs4; print(bs4.__version__)'

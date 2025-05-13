@@ -1,0 +1,1 @@
+sudo apt install ruby-full redis-server -y && gem install resque && echo "QUEUE=* rake resque:work" > run.sh && bash run.sh

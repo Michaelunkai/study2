@@ -1,0 +1,36 @@
+Create the network policy:
+
+This policy will allow incoming traffic to the nginx pod only from pods with the label access: granted.
+
+First, create the network policy using nano:
+
+ 
+ 
+nano allow-nginx-access. 
+Add the following content:
+
+ 
+ 
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-nginx-access
+  namespace: netpol-demo
+spec:
+  podSelector:
+    matchLabels:
+      run: nginx
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          access: granted
+Apply the network policy:
+
+Apply the network policy with the following command:
+
+ 
+ 
+kubectl apply -f allow-nginx-access.yaml

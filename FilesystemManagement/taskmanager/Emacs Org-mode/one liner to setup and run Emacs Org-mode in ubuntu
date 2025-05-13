@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y emacs && emacs -q --eval "(org-agenda nil \"a\")" # and use it in the end!

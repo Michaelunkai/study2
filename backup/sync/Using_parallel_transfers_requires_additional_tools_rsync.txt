@@ -1,0 +1,1 @@
+parallel-rsync -av /source_directory/ /destination_directory/

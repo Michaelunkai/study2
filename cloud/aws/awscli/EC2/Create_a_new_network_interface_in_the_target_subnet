@@ -1,0 +1,4 @@
+aws ec2 create-network-interface --subnet-id subnet-04253591b6a965245 --description "New network interface for instance i-0493c4c6e9ccf7c05" --query 'NetworkInterface.NetworkInterfaceId' --output text
+
+
+

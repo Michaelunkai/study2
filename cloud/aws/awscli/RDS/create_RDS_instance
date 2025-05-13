@@ -1,0 +1,27 @@
+ Determine Supported Instance Class and Engine Version
+To find the supported combinations, you can use the AWS CLI to describe the available DB engine versions:
+
+ 
+ 
+aws rds describe-db-engine-versions --engine mysql
+
+
+Create the RDS Instance:
+
+Use a compatible combination of instance class and engine version. Let's use db.t3.micro and 5.7.44.
+
+ 
+ 
+aws rds create-db-instance \
+  --db-instance-identifier mydbinstance \
+  --db-instance-class db.t3.micro \
+  --engine my  \
+  --engine-version 5.7.44 \
+  --master-username admin \
+  --master-user-password password \
+  --allocated-storage 20
+
+
+
+Wait for the Instance to Be Available:
+aws rds wait db-instance-available --db-instance-identifier mydbinstance

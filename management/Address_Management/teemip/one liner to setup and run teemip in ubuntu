@@ -1,0 +1,1 @@
+sudo apt install -y apache2 php git && git clone https://github.com/InfotelGLPI/glpi-plugin-teemip.git

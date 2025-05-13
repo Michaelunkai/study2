@@ -1,0 +1,33 @@
+Create a Schema
+The schema defines the structure of your documents.
+
+ 
+ 
+import typesense
+
+# Initialize Typesense client
+client = typesense.Client({
+    'nodes': [{
+        'host': 'localhost',
+        'port': '8108',
+        'protocol': 'http'
+    }],
+    'api_key': 'my-api-key',
+    'connection_timeout_seconds': 2
+})
+
+# Define schema
+schema = {
+    'name': 'documents',
+    'fields': [
+        {'name': 'id', 'type': 'string'},
+        {'name': 'title', 'type': 'string'},
+        {'name': 'content', 'type': 'string'},
+        {'name': 'tags', 'type': 'string[]'},
+        {'name': 'published_at', 'type': 'int64'}
+    ],
+    'default_sorting_field': 'published_at'
+}
+
+# Create collection
+client.collections.create(schema)

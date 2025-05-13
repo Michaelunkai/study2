@@ -1,0 +1,1 @@
+sudo apt-get install rabbitmq-server && sudo systemctl enable rabbitmq-server && sudo systemctl start rabbitmq-server && cc && sudo systemctl status rabbitmq-server

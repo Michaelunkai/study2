@@ -1,0 +1,10 @@
+ClamAV (Clam AntiVirus) is an open-source antivirus engine designed to detect trojans, viruses, malware, and other malicious threats. It is primarily used on Unix-based operating systems, but it also supports Windows. Here are some key features of ClamAV:
+
+1. **Command-Line Scanner**: Provides a command-line scanner to manually scan files for viruses.
+2. **Automatic Updates**: Regular updates of its virus database to ensure protection against the latest threats.
+3. **On-Access Scanning**: Offers on-access scanning with tools like ClamD for real-time protection.
+4. **Mail Gateway Scanning**: Often used for scanning email on mail gateways, ensuring that email attachments and embedded links are safe.
+5. **Multi-Platform**: Supports multiple operating systems including Linux, Windows, and macOS.
+6. **Open Source**: Being open-source, it is freely available and its source code can be modified by anyone.
+
+ClamAV is widely used in environments where a reliable and customizable antivirus solution is needed, especially in servers and mail gateways.

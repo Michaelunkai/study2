@@ -1,0 +1,15 @@
+Implement Disk Quotas
+Enable disk quotas to control user disk space usage. Install quota utilities:
+
+sudo apt install quota
+Edit /etc/fstab to enable quotas on a filesystem:
+
+sudo nano /etc/fstab
+Add usrquota and grpquota to the desired partition:
+
+/dev/sdX / ext4 defaults,usrquota,grpquota 0 1
+Remount the filesystem and create the quota database:
+
+sudo mount -o remount /
+sudo quotacheck -cum /
+sudo quotaon -v /

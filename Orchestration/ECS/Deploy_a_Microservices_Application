@@ -1,0 +1,1 @@
+aws ecs create-service --cluster my-cluster --service-name microservice-1 --task-definition microservice-1:1 --desired-count 2 --launch-type FARGATE --network-configuration "awsvpcConfiguration={subnets=[subnet-12345678,subnet-87654321],securityGroups=[sg-12345a]}"

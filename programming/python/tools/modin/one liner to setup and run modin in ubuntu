@@ -1,0 +1,1 @@
+pip3 install modin && python3 -c 'import modin; print(modin.__version__)'

@@ -1,0 +1,1 @@
+sudo apt install -y jackd2 qjackctl && qjackctl; echo 'create one liner, to setup and run JACK Audio in ubuntu, and use it in the end!'

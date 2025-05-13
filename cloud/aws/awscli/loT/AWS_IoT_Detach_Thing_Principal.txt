@@ -1,0 +1,1 @@
+aws iot detach-thing-principal --thing-name <thing-name> --principal <certificate-arn>

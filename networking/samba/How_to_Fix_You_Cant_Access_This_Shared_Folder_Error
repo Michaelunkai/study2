@@ -1,0 +1,62 @@
+How to Fix "You Can't Access This Shared Folder" Error
+If you're encountering the error message "You can't access this shared folder because your organization's security policies block unauthenticated guest access," follow these steps to resolve the issue.
+
+Step 1: Configure the Ubuntu Samba Server
+Edit the Samba configuration file:
+
+sudo nano /etc/samba/smb.conf
+Add or modify the following lines in the [global] section:
+
+[global]
+map to guest = Bad User
+Create a share definition for the folder you want to share:
+
+[ ared_folder]
+path = /path/to/your/folder
+available = yes
+valid users = your_username
+read only = no
+browsable = yes
+public = yes
+writable = yes
+guest ok = yes
+Replace /path/to/your/folder with the actual path to your shared folder and your_username with your Ubuntu username.
+
+Save and close the file:
+Press Ctrl+X, then Y, and then Enter.
+
+Restart the Samba services:
+
+sudo systemctl restart smbd
+sudo systemctl restart nmbd
+Step 2: Modify Windows Group Policy Settings
+Open the Group Policy Editor:
+Press Win + R, type gpedit.msc, and press Enter.
+
+Navigate to the following path:
+
+Computer Configuration -> Administrative Templates -> Network -> Lanman Workstation
+Double-click on Enable insecure guest logons.
+
+Set it to Enabled.
+
+Click OK and close the Group Policy Editor.
+
+Step 3: Enable Guest Access in Windows Registry
+Open the Registry Editor:
+Press Win + R, type regedit, and press Enter.
+
+Navigate to the following key:
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters
+Double-click on the AllowInsecureGuestAuth entry.
+
+If the entry does not exist, create it by right-clicking on the right pane, selecting New -> DWORD (32-bit) Value, and naming it AllowInsecureGuestAuth.
+Set the value to 1 and click OK.
+
+Close the Registry Editor.
+
+Step 4: Reboot Your Windows Machine
+Reboot your Windows machine to apply the changes.
+
+After following these steps, try accessing the shared folder again. You should be able to connect without seeing the error message.

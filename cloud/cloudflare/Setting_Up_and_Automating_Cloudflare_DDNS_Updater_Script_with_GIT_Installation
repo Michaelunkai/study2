@@ -1,0 +1,44 @@
+Setting Up and Automating Cloudflare DDNS Updater Script with GIT Installation
+STEP 1 - Setup the Script
+1. Install GIT
+ 
+ 
+apt update && apt install git -y
+2. Clone the Script Using GIT
+ 
+ 
+git clone https://github.com/example/cloudflare-ddns-updater.git
+3. Change Directories into the Script Directory
+ 
+ 
+cd cloudflare-ddns-updater
+4. Make a Copy of the Script
+ 
+ 
+cp cloudflare-template.  cloudflare. 
+5. Edit the Script
+ 
+ 
+nano cloudflare. 
+6. Make the Script Executable and Launch It
+ 
+ 
+chmod +x cloudflare. 
+./cloudflare. 
+STEP 2 - Automate Your Script
+1. Open Crontab for Editing
+ 
+ 
+crontab -e
+2. Add the Following Line to Automate the Script
+ 
+ 
+*/1 * * * * /bin/bash /root/cloudflare-ddns-updater/cloudflare.sh
+3. Save and Exit Crontab
+Following these steps will ensure that the Cloudflare DDNS updater script is set up correctly and automated to run every minute using crontab.
+
+
+
+
+
+

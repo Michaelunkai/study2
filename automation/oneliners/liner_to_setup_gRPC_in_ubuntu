@@ -1,0 +1,1 @@
+getc && git clone --recurse-submodules -b v1.50.0 https://github.com/grpc/grpc.git && cd grpc && mkdir -p cmake/build && cd cmake/build && cmake ../.. -DCMAKE_BUILD_TYPE=Release && make -j$(nproc) && sudo make install && sudo ldconfig && cd ../../../../ && protoc --version

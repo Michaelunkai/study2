@@ -1,0 +1,1 @@
+sudo apt install sleuthkit -y && fls -r -m / /dev/sda1

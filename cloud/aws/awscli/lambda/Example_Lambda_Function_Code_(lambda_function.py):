@@ -1,0 +1,11 @@
+Example Lambda Function Code (lambda_function.py):
+
+Explanation: The example code provides a simple Lambda function that responds with a message, demonstrating the basic structure of a Lambda function.
+Code:
+ 
+ 
+def lambda_handler(event, context):
+    return {
+        'statusCode': 200,
+        'body': 'Hello from Lambda!'
+    }

@@ -1,0 +1,1 @@
+sudo apt install -y sox && sox -n output.wav synth 5 sine 440; echo 'create one liner, to setup and run SoX in ubuntu, and use it in the end!'

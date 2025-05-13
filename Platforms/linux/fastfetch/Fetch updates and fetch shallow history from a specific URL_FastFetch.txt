@@ -1,0 +1,1 @@
+fastfetch fetch https://github.com/user/repo.git --depth=1

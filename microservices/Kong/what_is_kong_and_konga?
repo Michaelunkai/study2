@@ -1,0 +1,26 @@
+Kong and Konga are related but serve different purposes within the realm of API management and gateway tools.
+
+### Kong
+**Kong** is an open-source API gateway and microservices management layer. It is designed to handle API traffic by providing various functionalities, such as authentication, rate limiting, logging, and monitoring, among others. Kong can be deployed in front of any API and is used to manage, secure, and orchestrate microservices or APIs. It is built on top of NGINX and provides a pluggable architecture, allowing users to add custom plugins for extended functionality.
+
+**Key features of Kong:**
+- **API Gateway:** Acts as a gatekeeper for API traffic, routing requests to appropriate services.
+- **Load Balancing:** Distributes incoming requests across multiple instances of the backend services.
+- **Rate Limiting:** Controls the number of requests a user or service can make within a given time period.
+- **Authentication and Authorization:** Supports various methods to authenticate and authorize users and services.
+- **Logging and Monitoring:** Provides detailed logs and metrics for monitoring API performance and usage.
+- **Plugin Architecture:** Allows for customization and extension through plugins.
+
+### Konga
+**Konga** is an open-source, web-based GUI designed for managing and interacting with Kong API Gateway. It provides a user-friendly interface to configure and manage various aspects of Kong, making it easier for users who prefer graphical tools over command-line interfaces.
+
+**Key features of Konga:**
+- **Visual Management:** Offers a graphical interface to manage APIs, services, consumers, and plugins in Kong.
+- **User-Friendly Dashboard:** Provides an overview of the Kong instance, showing important metrics and configurations.
+- **Plugin Management:** Allows users to easily add, remove, and configure plugins on services and routes.
+- **Multi-Environment Support:** Enables managing multiple Kong instances/environments from a single interface.
+- **Monitoring and Reporting:** Displays real-time metrics and reports on API usage and performance.
+
+### Summary
+- **Kong** is the API gateway and microservices management layer, handling the actual API traffic and providing various management functionalities.
+- **Konga** is a web-based GUI for managing and configuring Kong, providing a more intuitive and visual way to interact with the Kong API Gateway.

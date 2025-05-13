@@ -1,0 +1,1 @@
+sam deploy --template-file packaged.yaml --stack-name <stack-name> --capabilities CAPABILITY_IAM --no-auto-approve

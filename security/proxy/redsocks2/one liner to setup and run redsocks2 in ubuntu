@@ -1,0 +1,1 @@
+sudo apt install -y redsocks2 && sudo systemctl start redsocks2

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g alloy-cli && yes "y" | alloy init my-alloy-app && cd my-alloy-app && nsj && npm start

@@ -1,0 +1,210 @@
+### **Step-by-Step Guide to Advanced Infrastructure Provisioning with Terraform and AWS CLI on Ubuntu, Including Installation, Configuration, Provisioning, and Complete Cleanup to Avoid Unnecessary Costs**
+
+---
+
+This guide walks you through the complete process of setting up advanced infrastructure provisioning using **Terraform** and **AWS CLI** on **Ubuntu**. It includes everything from installation and configuration to provisioning AWS resources and cleaning up to avoid unwanted costs.
+
+---
+
+#### **Step 1: Install Terraform on Ubuntu**
+
+Terraform is a tool for provisioning and managing infrastructure as code. Start by installing it on your Ubuntu system.
+
+  
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install terraform
+terraform -v
+
+This will install Terraform and verify the installation by checking the version.
+
+---
+
+#### **Step 2: Install AWS CLI on Ubuntu**
+
+Next, install the **AWS CLI** tool to manage and interact with AWS services.
+
+  
+sudo apt install -y awscli
+aws --version
+
+This command installs AWS CLI and checks that it's correctly installed by printing the version.
+
+---
+
+#### **Step 3: Configure AWS CLI with Your AWS Account**
+
+After installing the AWS CLI, configure it with your AWS account credentials. You'll need your **Access Key ID**, **Secret Access Key**, and preferred **region**.
+
+  
+aws configure
+
+- **AWS Access Key ID**: Your AWS access key ID.
+- **AWS Secret Access Key**: Your AWS secret access key.
+- **Default region name**: For example, `us-west-1`.
+- **Default output format**: Choose `json`, `text`, or `table`.
+
+This command sets up your AWS credentials to be used by Terraform for provisioning resources.
+
+---
+
+#### **Step 4: Create the Terraform Project Directory**
+
+Now create a project directory where all your Terraform configuration files will reside.
+
+  
+mkdir ~/terraform-aws-infrastructure
+cd ~/terraform-aws-infrastructure
+
+This will create and navigate to a new directory for the project files.
+
+---
+
+#### **Step 5: Write Terraform Configuration Files for Infrastructure Provisioning**
+
+In this step, you will create the main Terraform configuration file, variables file, and output file for advanced infrastructure provisioning.
+
+1. **Create `main.tf` File**: This file will define your infrastructure resources, such as EC2 instances, in AWS.
+
+  
+nano main.tf
+
+Add the following Terraform configuration to create an EC2 instance:
+
+ hcl
+provider "aws" {
+  region = "us-west-1"  # Set your AWS region
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"  # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "TerraformWebInstance"
+  }
+}
+
+2. **Create `variables.tf` File**: Define variables to make your Terraform code more dynamic.
+
+  
+nano variables.tf
+
+Add the following:
+
+ hcl
+variable "region" {
+  default = "us-west-1"
+}
+
+variable "instance_type" {
+  default = "t2.micro"
+}
+
+3. **Create `outputs.tf` File**: Capture the ID of the instance after it has been created.
+
+  
+nano outputs.tf
+
+Add the following:
+
+ hcl
+output "instance_id" {
+  value = aws_instance.web.id
+}
+
+These files define and manage the resources Terraform will create.
+
+---
+
+#### **Step 6: Initialize the Terraform Project**
+
+Now, initialize the Terraform project to download necessary provider plugins.
+
+  
+terraform init
+
+This command prepares your working directory by downloading the necessary dependencies specified in the Terraform configuration.
+
+---
+
+#### **Step 7: Format and Validate Terraform Configuration Files**
+
+Before applying the Terraform configuration, ensure the files are formatted correctly and validated for any syntax issues.
+
+  
+terraform fmt
+terraform validate
+
+These commands format your Terraform files and check for any configuration errors.
+
+---
+
+#### **Step 8: Create a Terraform Plan for Infrastructure Provisioning**
+
+Create an execution plan to review what changes Terraform will make to the infrastructure.
+
+  
+terraform plan
+
+This step ensures that Terraform will create resources as expected before making any changes.
+
+---
+
+#### **Step 9: Apply the Terraform Configuration to Provision AWS Infrastructure**
+
+Run the following command to provision the infrastructure defined in your Terraform configuration.
+
+  
+terraform apply
+
+It will prompt for confirmation. Type `yes` to proceed with creating the AWS EC2 instance.
+
+---
+
+#### **Step 10: Verify Created AWS Resources**
+
+Once the infrastructure is provisioned, you can check the AWS Console or use the AWS CLI to confirm the resources have been created.
+
+  
+aws ec2 describe-instances --filters "Name=tag:Name,Values=TerraformWebInstance"
+
+This command will list the EC2 instances created by Terraform.
+
+---
+
+#### **Step 11: Destroy the Infrastructure to Avoid Costs**
+
+Once you're done with the infrastructure, make sure to destroy it to avoid unnecessary costs.
+
+  
+terraform destroy
+
+When prompted, type `yes`. This will destroy all resources created by Terraform.
+
+---
+
+#### **Step 12: Clean Up Terraform and AWS CLI to Avoid Residual Costs**
+
+After destroying the resources, you can remove Terraform and AWS CLI to clean up your environment completely.
+
+1. **Purge Terraform**:
+     
+   sudo apt-get remove --purge -y terraform
+
+2. **Purge AWS CLI**:
+     
+   sudo apt-get remove --purge -y awscli
+
+3. **Remove Configuration Files**:
+     
+   rm -rf ~/.aws ~/.terraform.d
+
+These commands will remove Terraform and AWS CLI, as well as their configuration files, ensuring no leftover settings.
+
+---
+
+### **Summary**
+
+This complete guide covers **Advanced Infrastructure Provisioning with Terraform and AWS CLI on Ubuntu**, walking through each step from installing and configuring Terraform and AWS CLI, provisioning infrastructure, and finally cleaning up the resources and tools to avoid unnecessary costs. This ensures you maintain control over the costs associated with cloud resources and keep your system clean and efficient.

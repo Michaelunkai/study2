@@ -1,0 +1,1 @@
+pip install ragatouille && python3 -c "from ragatouille import Rag; print('RAGatouille ready')"

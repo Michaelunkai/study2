@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g sails && yes "y" | sails new my-sails-app && cd my-sails-app && nsj && sails lift

@@ -1,0 +1,131 @@
+Transcript
+00:00
+Google Cloud develops a wide range of technologies for enterprises that build and implement AI, through our AI platform, – Vertex AI,ML Ops capabilities, APIs, and end-to-end solutions.
+00:13
+Google Cloud has implemented its own custom AI Principles review processes, as we believe that
+00:18
+ethical evaluation of the impacts of the products we're creating is critical for trust and success.
+00:25
+Two connected but deliberately distinct review bodies exist in Google Cloud, to ensure AI is developed responsibly: a customer AI deal review and, a Cloud AI product development review.
+00:39
+The customer AI deal review looks at early-stage customer projects, which involve custom work above and
+00:44
+beyond our generally available products, to determine whether a proposed use case conflicts with our AI principles.
+00:52
+The Cloud AI product development review focuses on how we assess, scope, build and govern the
+00:57
+products Google Cloud creates using advanced technologies before a product can become available to the public.
+01:05
+These review processes answer two big questions: Is the proposed use case aligned with our AI principles?
+01:12
+and, if it is, How should we approach the design and integration of this solution to ensure the intended benefit is realized and harms are mitigated?
+01:22
+Even the most socially beneficial use cases need to follow responsible design practices or they risk not fulfilling their intended benefit.
+01:30
+So how do Google Cloud’s review processes work in practice?
+01:34
+Let's start with the Google Cloud customer AI deal review.
+01:39
+The goal is to identify any use cases that risk not being aligned with our principles before the deal moves forward.
+01:45
+This review happens in several stages: Sales Deal Submission is the intake process that can be achieved in two ways to ensure coverage.
+01:55
+Field Sales representatives are trained to submit their AI customer opportunities for review.
+02:01
+Additionally, an automated process flags deals for review in our company-wide sales tool.
+02:06
+In the Preliminary Review stage members of the Cloud AI Principles team, with help from the central
+02:12
+Responsible Innovation team, review deals submitted via the intake process and prioritize deals needing a deeper review.
+02:20
+During this preliminary review, they apply any relevant historical precedent, discuss and debate potential AI principles risks, and request additional information where required.
+02:32
+This analysis sets the review agenda for the AI principles deal review committee, which is the group directly responsible for making final decisions.
+02:40
+At the Review, Discuss and Decide stages, the deal review committee meets to discuss the customer deals.
+02:48
+This committee is composed of leaders across multiple functions in the organization such as product, Policy, sales, AI ethics, and legal.
+02:59
+Careful consideration is given to how the AI principles apply to the specific deal and use case, and the committee decides whether the deal can proceed.
+03:08
+The range of decisions this group makes can include: Go forward Don't go forward Cannot go
+03:12
+forward until certain conditions / metrics are met Or escalate decision The decisions are made by consensus.
+03:21
+If a clear decision cannot be agreed upon, the deal review committee can escalate to the council of senior executives.
+03:28
+Now let's walk through the Cloud AI product development review.
+03:33
+It also consists of several different stages: For Pipeline Development, the Cloud AI Principles team tracks
+03:39
+the product pipeline and plans reviews so they happen early on in the product development lifecycle.
+03:45
+This is important when seeking to ensure an “‘ethics by design” approach to development.
+03:52
+Ensuring responsible AI considerations are incorporated in the design of the product, as opposed to tacked on at the end.
+03:58
+Pre- -liminary review is where a team works to prioritize the AI products for review, based on launch timelines unless a particular use case is deemed more risky.
+04:08
+With a healthy product pipeline we aim for in-depth reviews every two weeks.
+04:16
+Before a review meeting, members of the Cloud AI Principles team evaluate the product and draft a Review brief.
+04:23
+They work hand in hand with the product managers, engineers, other members of the Cloud AI Principles team, and fairness experts to deeply understand and scope the product review.
+04:35
+The review brief includes: the intended goals and social benefits of the product, what business problem the product will solve, the data being used,
+04:43
+how the model is trained and monitored, the societal context in which the product is going to be integrated and it's potential risks and harms.
+04:54
+In this evaluation, the teams collaborate to think through each of the stakeholder groups affected by the AI system.
+05:02
+They discuss the ethical dilemmas and value tensions that exist when deciding on one course of action versus another.
+05:08
+Finally, a key aspect of the review brief is a proposed alignment plan to align the product development with the AI principles by addressing potential harms.
+05:19
+This review brief is the basis for the review meeting.
+05:23
+Committee members spend time in advance of the meeting familiarizing themselves with the product and potential issues, in order to be ready to discuss them from their specialized perspective.
+05:32
+Providing the review brief in advance allows for the review time to be focused, effective and efficient.
+05:39
+Discuss & Align is where the team actually meets to review the AI product from a responsible AI perspective.
+05:46
+These in-depth, live product reviews are a critical component of our review process.
+05:52
+It allows us to: spot and discuss additional ethical issues as a team and make decisions that incorporate responsible AI into a product's
+05:59
+design, development and future roadmap Over time, these reviews have been effective at normalizing tough conversations about risky technologies and preventing potentially adverse outcomes.
+06:12
+After the review meeting takes place, the AI Principles team works to synthesize the relevant content from the review brief
+06:17
+and adds new issues, mitigations or decisions brought up in the review meeting to update and finalize an alignment plan.
+06:25
+At the approval stage, the alignment plan is sent to the committee and product leaders for sign-off.
+06:31
+With this sign-off, the alignment plan is incorporated into the product development roadmap and the AI Principles team tracks the execution and completion of the alignment plan.
+06:42
+The alignment plan is unique to each product or solution.
+06:45
+It’s important to note that not all paths forward involve technical solutions or fixes.
+06:51
+Ethical risks and harms aren’t always a result of technological lapses, but can be a result of the context in which the product is being integrated.
+06:59
+The path forward could include, among other things: Narrowing down the scope of the technology's purpose.
+07:06
+Launching with an allow-list, meaning the product is not available generally and needs a customer deal review prior to use.
+07:12
+Or launching with education materials packaged with the product, such as an associated model card or implementation guide with information on using a solution responsibly.
+07:22
+Over time, reviewing products with similar issues has surfaced some findings that can be leveraged across multiple reviews.
+07:28
+This has allowed for the creation of certain generalized policies, which then become precedents, that simplify the process for product teams.
+07:37
+Every review needs to be conducted with the same level of care, as each new case brings up new considerations, highlighting why the process and in-depth discussions are so important.
+07:47
+This process of how we put our AI principles into practice has grown and evolved over time, and we expect that to continue.
+07:55
+As you think about developing your own AI governance process, we hope this serves as a
+08:00
+helpful framework that you can adapt to fit the mission, values and goals of your organization.
+08:05
+Later in the course we’ll explore more lessons we’ve learned that have made our reviews at Google more effective.

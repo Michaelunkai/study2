@@ -1,0 +1,1 @@
+clamscan -r --log=/path/to/log /path/to/directory

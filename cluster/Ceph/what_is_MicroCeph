@@ -1,0 +1,26 @@
+MicroCeph is a simplified, containerized version of the Ceph distributed storage system. It is packaged as a snap, which makes it easy to install, manage, and maintain. MicroCeph is designed for small-scale and edge deployments, making it ideal for use cases where a full-scale Ceph deployment might be too complex or resource-intensive.
+
+### Key Features of MicroCeph:
+- **Ease of Installation and Maintenance:** MicroCeph is packaged as a snap, allowing for straightforward installation and updates.
+- **Small-Scale Deployments:** It is optimized for small-scale environments, making it suitable for testing, development, and edge use cases.
+- **Upstream Ceph:** MicroCeph uses the upstream Ceph codebase, ensuring compatibility and access to the latest features and updates from the Ceph community.
+- **Minimal Knowledge Required:** MicroCeph is designed to be user-friendly, requiring minimal knowledge and effort to set up and maintain.
+
+### Use Cases:
+1. **Testing and Development:** MicroCeph can be used in single-node deployments for development and testing environments.
+2. **Small-Scale Production:** It supports multi-node deployments, providing high availability (HA) and reliability for small-scale production environments.
+3. **Edge Deployments:** MicroCeph is suitable for edge computing scenarios where resources might be limited, but reliable and scalable storage is still required.
+
+### Installation and Usage:
+- **Single-Node Deployment:** Ideal for development and testing, can be set up on a single machine.
+- **Multi-Node Deployment:** Suitable for small-scale production, requires a minimum of four nodes for a full-HA setup.
+
+### Basic Commands:
+- **Installation:** `sudo snap install microceph`
+- **Cluster Bootstrap:** `sudo microceph cluster bootstrap`
+- **Adding Nodes:** `sudo microceph cluster add <node>`
+- **Joining Nodes:** `sudo microceph cluster join <output from add command>`
+- **Cluster Status:** `sudo microceph.ceph status`
+- **Add OSD Disk:** `sudo microceph disk add /dev/sd[x] --wipe`
+
+By simplifying the deployment and maintenance processes, MicroCeph makes it easier for users to leverage the power of Ceph without the need for deep expertise in distributed storage systems.

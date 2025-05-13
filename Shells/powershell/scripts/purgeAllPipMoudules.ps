@@ -1,0 +1,24 @@
+# PowerShell Script to Purge All pip Modules and Calculate Size Removed
+$pythonPath = "C:\Users\micha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312"
+
+# Get the initial size of the Python site-packages directory
+$initialSizeBytes = (Get-ChildItem -Path "$pythonPath\site-packages" -Recurse | Measure-Object -Property Length -Sum).Sum
+$initialSizeGB = [math]::Round($initialSizeBytes / 1GB, 2)
+
+# Get the list of all installed pip modules
+$modules = pip list --format=freeze
+
+# Uninstall each pip module
+foreach ($module in $modules) {
+    $moduleName = $module.Split("=")[0]
+    Write-Host "Uninstalling: $moduleName"
+    pip uninstall -y $moduleName
+}
+
+# Get the final size of the Python site-packages directory
+$finalSizeBytes = (Get-ChildItem -Path "$pythonPath\site-packages" -Recurse | Measure-Object -Property Length -Sum).Sum
+$finalSizeGB = [math]::Round($finalSizeBytes / 1GB, 2)
+
+# Calculate and display the total size removed
+$sizeRemovedGB = [math]::Round($initialSizeGB - $finalSizeGB, 2)
+Write-Host "Total size removed: $sizeRemovedGB GB"

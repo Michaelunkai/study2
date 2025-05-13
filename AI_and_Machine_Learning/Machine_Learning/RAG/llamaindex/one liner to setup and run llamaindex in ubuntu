@@ -1,0 +1,1 @@
+pip install llama-index openai && python3 -c "from llama_index import SimpleDirectoryReader; print('LlamaIndex ready')"

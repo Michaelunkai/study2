@@ -1,0 +1,1 @@
+hs cms delete theme <theme-name>

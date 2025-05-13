@@ -1,0 +1,8 @@
+Run the following command in an elevated PowerShell prompt to ensure auditing is enabled for object access:
+ 
+ 
+auditpol /get /category:"Object Access"
+If not enabled, enable it with:
+ 
+ 
+auditpol /set /category:"Object Access" /subcategory:"File System" /success:enable /fail

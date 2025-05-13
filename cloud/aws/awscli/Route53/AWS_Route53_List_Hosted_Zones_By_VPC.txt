@@ -1,0 +1,1 @@
+aws route53 list-hosted-zones-by-vpc --vpc-id <vpc-id> --vpc-region <region>

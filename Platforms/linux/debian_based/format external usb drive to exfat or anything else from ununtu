@@ -1,0 +1,14 @@
+#format external usb drive to exfat or anything else from ununtu
+
+
+
+
+
+sudo apt-get update
+sudo apt-get install exfat-fuse
+
+After installing exfat-fuse, you should be able to use the mkfs.exfat command to format your external drive:
+
+
+sudo mkfs.exfat /dev/sdb
+

@@ -1,0 +1,1 @@
+aws proton create-environment --name <environment-name> --template-name <template-name> --template-major-version <template-major-version> --spec <spec-path> --environment-account-connection-id <connection-id>

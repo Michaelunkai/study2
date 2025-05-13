@@ -1,0 +1,99 @@
+Step 1: Install InfluxDB
+Add InfluxData Repository:
+
+ 
+ 
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/ubuntu $DISTRIB_CODENAME stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+Update Package List and Install InfluxDB:
+
+ 
+ 
+sudo apt update
+sudo apt install influxdb
+Start and Enable InfluxDB Service:
+
+ 
+ 
+sudo systemctl start influxdb
+sudo systemctl enable influxdb
+Step 2: Configure InfluxDB
+Open InfluxDB CLI:
+
+ 
+ 
+influx
+Create a Database:
+
+ 
+ 
+CREATE DATABASE mydb
+Create a User with Permissions:
+
+ 
+ 
+CREATE USER myuser WITH PASSWORD 'mypassword'
+GRANT ALL ON mydb TO myuser
+Exit InfluxDB CLI:
+
+ 
+ 
+exit
+Step 3: Install Grafana
+Add Grafana APT Repository:
+
+ 
+ 
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install grafana
+Start and Enable Grafana Service:
+
+ 
+ 
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+Step 4: Configure Grafana
+Open Grafana in Your Web Browser:
+
+Navigate to http://localhost:3000 in your web browser. The default login is admin for both username and password.
+
+Add InfluxDB Data Source:
+
+Go to Configuration (gear icon) > Data Sources > Add data source.
+Select InfluxDB from the list.
+Fill in the details:
+Name: InfluxDB
+URL: http://localhost:8086
+Database: mydb
+User: myuser
+Password: mypassword
+Click on Save & Test to check the connection.
+Step 5: Create a Dashboard in Grafana
+Create a New Dashboard:
+
+Click on the + icon on the left sidebar > Dashboard > Add new panel.
+Configure a New Panel:
+
+Select InfluxDB as the data source.
+Write your InfluxDB query or use the query builder to visualize the data.
+Configure the visualization options as desired.
+Save the Da board:
+
+Click on Save icon and provide a name for your dashboard.
+Step 6: Verify the Setup
+Send Test Data to InfluxDB:
+
+ 
+ 
+curl -i -XPOST 'http://localhost:8086/write?db=mydb' --data-binary 'test_measurement,host=server01,region=us-west value=0.64'
+Check if the Data is Visualized in Grafana:
+
+Refresh your Grafana dashboard to see if the test data is displayed correctly.
+
+Additional Configuration (Optional)
+Enable HTTPS for Grafana: Modify /etc/grafana/grafana.ini to configure HTTPS.
+Set Up Grafana Alerts: Configure alerting rules and notification channels in Grafana

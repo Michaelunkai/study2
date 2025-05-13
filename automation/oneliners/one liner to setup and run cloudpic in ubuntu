@@ -1,0 +1,1 @@
+docker run -d --name cloudpic -p 8085:80 example/cloudpic:latest

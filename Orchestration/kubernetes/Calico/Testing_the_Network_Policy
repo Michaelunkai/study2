@@ -1,0 +1,19 @@
+Testing the Network Policy
+Test with a non-allowed pod:
+
+From the busybox pod (which doesn’t have the access: granted label), try to access the nginx pod:
+
+ 
+ 
+kubectl exec -n netpol-demo busybox -- wget --timeout=5 nginx
+The connection should time out, showing that the network policy is blocking traffic.
+
+Label the busybox pod and test again:
+
+Now, label the busybox pod with access: granted and test the connection again:
+
+ 
+ 
+kubectl label pod busybox access=granted -n netpol-demo
+kubectl exec -n netpol-demo busybox -- wget --timeout=5 nginx
+This time, the connection should be successful, as the policy allows pods with the access: granted label to reach the nginx pod.

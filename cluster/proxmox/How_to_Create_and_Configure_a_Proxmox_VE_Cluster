@@ -1,0 +1,32 @@
+▲A  A▼
+How to Create and Configure a Proxmox VE Cluster
+Prerequisites
+2 or more Proxmox VE hosts
+All hosts must be on the same version of Proxmox VE
+All hosts must be able to communicate over UDP ports 5404 and 5405 and TCP port 22
+Finalized hostnames and IP addresses (can't be changed later)
+Preparation
+Log into the Proxmox web UI for each of the hosts to be joined to the cluster
+Run the following commands on each node to update them
+# update software repositories
+apt update
+# install available updates
+apt upgrade -y
+Creating the Cluster
+On the main node of the cluster, select Datacenter from the left navigation menu
+Select Cluster from the left sub-navigation menu
+Click the Create Cluster button
+Give the cluster a name > Click Create
+Close the Create Cluster summary dialog
+Click the Join Information button
+Click the Copy Information button at the bottom of the dialog
+On the remaining nodes to join to the cluster, select Datacenter from the left navigation menu
+Select Cluster from the left sub-navigation menu
+Click the Join Cluster button
+Paste the copied join information into the Information field
+Enter the main node's root password in the password field
+Click the Join button
+After a few minutes the cluster nodes should sync and show data across all nodes
+Further reading: https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_pvecm
+
+ 

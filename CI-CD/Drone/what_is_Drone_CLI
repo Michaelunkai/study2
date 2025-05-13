@@ -1,0 +1,11 @@
+Drone CLI is a command-line interface tool for interacting with **Drone CI/CD** (Continuous Integration/Continuous Deployment) pipelines. **Drone** is a container-based CI/CD platform that automates the software development process, including building, testing, and deploying applications. 
+
+The **Drone CLI** allows users to:
+
+- Interact with Drone server APIs.
+- Manage builds, repositories, and pipelines.
+- Trigger, stop, or restart CI/CD jobs.
+- Retrieve build logs and artifacts.
+- Manage secrets, settings, and plugins.
+
+It’s typically used by developers or system administrators to manage their Drone CI workflows efficiently from the terminal.

@@ -1,0 +1,1 @@
+git clone https://github.com/ziahamza/webui-aria2.git && cd webui-aria2 && python3 -m http.server 8080

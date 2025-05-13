@@ -1,0 +1,4 @@
+import boto3
+dynamodb = boto3.client('dynamodb')
+response = dynamodb.get_item(TableName='MyTable', Key={'ID': {'S': '123'}})
+print(response['Item'])

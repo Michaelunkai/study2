@@ -1,0 +1,4 @@
+Integrate Your API Key:
+
+Usually, the API key is used for integrations like connecting your bot to other services or using the Botpress Programming Interface.
+Depending on what you want to do (like deploying or fetching data from external services), you might need to use the API key in HTTP requests or in Botpress' server configurations.

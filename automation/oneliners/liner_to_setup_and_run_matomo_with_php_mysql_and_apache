@@ -1,0 +1,12 @@
+getapache && getphp && sudo apt-get install -y mysql-server && sudo systemctl start mysql && sudo systemctl enable mysql && wget https://builds.matomo.org/matomo.zip && unzip matomo.zip && sudo mv matomo /var/www/html/matomo && sudo chown -R www-data:www-data /var/www/html/matomo && sudo chmod -R 755 /var/www/html/matomo && mysql -u root -p -e "CREATE DATABASE matomo_db; CREATE USER 'matomo_user'@'localhost' IDENTIFIED BY 'your_password'; GRANT ALL PRIVILEGES ON matomo_db.* TO 'matomo_user'@'localhost'; FLUSH PRIVILEGES;" && echo '<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/matomo
+    ServerName example.com
+    <Directory /var/www/html/matomo>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/matomo_error.log
+    CustomLog ${APACHE_LOG_DIR}/matomo_access.log combined
+</VirtualHost>' | sudo tee /etc/apache2/sites-available/matomo.conf && sudo a2ensite matomo.conf && sudo a2enmod rewrite && sudo systemctl restart apache2 && gc http://localhost/matomo

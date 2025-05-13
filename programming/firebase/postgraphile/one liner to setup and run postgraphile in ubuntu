@@ -1,0 +1,1 @@
+docker run -d --name postgraphile -p 5000:5000 graphile/postgraphile:latest -c postgres://postgres:postgres@host.docker.internal/postgres

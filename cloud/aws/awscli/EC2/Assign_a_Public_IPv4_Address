@@ -1,0 +1,2 @@
+ALLOC_ID=$(aws ec2 allocate-address --query 'AllocationId' --output text)
+aws ec2 associate-address --instance-id i-009fcde35497c522d --allocation-id $ALLOC_ID

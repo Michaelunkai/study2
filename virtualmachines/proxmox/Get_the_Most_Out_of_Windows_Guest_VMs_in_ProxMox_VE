@@ -1,0 +1,31 @@
+▲A  A▼
+Get the Most Out of Windows Guest VMs in ProxMox VE
+NOTE: This tutorial assumes the Windows VM has already been installed
+
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to download the driver .iso to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download the VirtIO driver iso Download and upload it to the ProxMox ISO image library
+If on ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Select the target Windows VM in the left navigation pane
+Shutdown the VM is it is currently running
+Select Hardware in the left sub-navigation menu
+Double click Machine > Set Machine to Q35 if it is not already > Click OK
+Double click the SCSI Controller > Set to VirtIO SCSI if it is not already > Click OK
+Double click the Hard Disk > Set the Cache to Write back and check the Discard box > Click OK
+Double click the Network Device > Set the Model to VirtIO (paravirtualized) > Click OK
+Double click the CD/DVD Drive
+Select the Use CD/DVD disc image file (iso) option > Select the storage where the VirtIO driver iso was downloaded > Select the virtio .iso file > Click OK
+Select Options from the left navigation menu
+Double click the QEMU Guest Agent option
+Check the Use QEMU Guest Agent box > Click OK
+Click console in the left sub-navigation menu
+Click Start at the top right of the window to power on the VM
+Once Windows has loaded, login
+Open File Explorer and browse to the CD/DVD drive
+Run the QEMU guest utilities installer (virtio-win-guest-tools.exe)
+Complete the installation using the default options
+Once the installation completes, restart the VM
+Source: https://pve.proxmox.com/wiki/Windows_10_guest_best_practices
+
+ 

@@ -1,0 +1,1 @@
+aws cloudformation describe-stack-resource-drifts --stack-name <stack-name>

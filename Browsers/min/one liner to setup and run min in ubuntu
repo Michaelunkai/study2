@@ -1,0 +1,1 @@
+create one liner, to setup and run min in ubuntu, and use it in the end! && wget https://github.com/minbrowser/min/releases/download/v1.28.1/min_1.28.1_amd64.deb && sudo apt install -y ./min_1.28.1_amd64.deb && min

@@ -1,0 +1,30 @@
+▲A  A▼
+Monitor Docker Container Resource Usage with cAdvisor
+What is cAdvisor?
+cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers. -https://github.com/google/cadvisor
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running the cAdvisor Container
+Now that Docker is installed, run the following commands to setup the cAdvisor Docker container and run it
+# run the cadvisor container
+sudo docker run -d --name=cadvisor -p 8080:8080 -v /:/rootfs:ro -v /var/run:/var/run:ro -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro -v /dev/disk/:/dev/disk:ro --privileged --device=/dev/kmsg --restart=unless-stopped gcr.io/cadvisor/cadvisor
+Open a web browser and navigate to http://DNSorIP:8080
+Welcome to cAdvisor
+Documentation: https://hub.docker.com/r/google/cadvisor
+
+ 

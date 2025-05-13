@@ -1,0 +1,1 @@
+npm install -g typescript && tsc example.ts && node example.js

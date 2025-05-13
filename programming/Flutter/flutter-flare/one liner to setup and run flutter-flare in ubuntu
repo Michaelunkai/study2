@@ -1,0 +1,1 @@
+flutter pub add flare_flutter && echo 'Flare added'

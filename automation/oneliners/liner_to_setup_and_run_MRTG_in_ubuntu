@@ -1,0 +1,1 @@
+sudo apt install -y mrtg && sudo cfgmaker public@192.168.1.1 -output mrtg.cfg && echo "MRTG Web UI URL: http://localhost/mrtg"

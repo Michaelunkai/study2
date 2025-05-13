@@ -1,0 +1,1 @@
+go install github.com/go-redis/redis/v8@latest && echo 'Go Redis Client installed'

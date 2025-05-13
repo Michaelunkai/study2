@@ -1,0 +1,17 @@
+Create Subnets
+Create a public subnet:
+
+ 
+ 
+aws ec2 create-subnet --vpc-id vpc-0abaaa415b4d4808c --cidr-block 10.0.1.0/24 --availability-zone us-east-1a
+Note the Subnet ID:
+The command output will contain the Subnet ID for the public subnet, let's assume it is subnet-0a1b2c3d4e5f67890.
+
+
+Create a private subnet:
+
+ 
+ 
+aws ec2 create-subnet --vpc-id vpc-0abaaa415b4d4808c --cidr-block 10.0.2.0/24 --availability-zone us-east-1a
+Note the Subnet ID:
+The command output will contain the Subnet ID for the private subnet, let's assume it is subnet-0987f6e5d4c3b2a10.

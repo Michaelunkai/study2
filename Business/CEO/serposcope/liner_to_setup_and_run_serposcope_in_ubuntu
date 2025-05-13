@@ -1,0 +1,1 @@
+wget https://www.serposcope.com/downloads/3.4/serposcope_3.4_amd64.deb &&  sudo dpkg -i serposcope_3.4_amd64.deb && gcl 6333

@@ -1,0 +1,1 @@
+gsutil mb -l us-central1 gs://my-static-website && gsutil cp -r ./website/* gs://my-static-website && gsutil web set -m index.html -e 404.html gs://my-static-website

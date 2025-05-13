@@ -1,0 +1,1 @@
+aws lex-models get-import --import-id <import-id>

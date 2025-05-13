@@ -1,0 +1,1 @@
+npm install -g flow-bin && flow init && flow

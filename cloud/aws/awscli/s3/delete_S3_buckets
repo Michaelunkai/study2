@@ -1,0 +1,14 @@
+1. Empty the Buckets:
+First, empty each bucket.
+
+Command to Empty a Bucket:
+aws s3 rm s3://bucket-name --recursive
+Replace bucket-name with the name of the bucket you want to empty.
+
+2. Delete the Buckets:
+After emptying the buckets, you can delete them.
+
+Command to Delete a Bucket:
+
+aws s3api delete-bucket --bucket bucket-name --region region-name
+Replace bucket-name with the name of the bucket and region-name with the region of the bucket.

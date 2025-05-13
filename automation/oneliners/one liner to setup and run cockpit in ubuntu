@@ -1,0 +1,1 @@
+sudo apt install -y cockpit && sudo systemctl start cockpit.socket && sudo systemctl enable cockpit.socket && xdg-open http://localhost:9090

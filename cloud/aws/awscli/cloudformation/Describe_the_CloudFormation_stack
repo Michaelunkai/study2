@@ -1,0 +1,1 @@
+aws cloudformation describe-stacks --stack-name MyStack-c867ff9c

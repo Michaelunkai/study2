@@ -1,0 +1,1 @@
+rsync -avz --bwlimit=500K /source_directory/ /destination_directory/

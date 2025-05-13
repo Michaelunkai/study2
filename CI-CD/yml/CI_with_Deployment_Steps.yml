@@ -1,0 +1,63 @@
+name: CI with Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Deploy to WSL2 (Kali)
+      uses: appleboy/ssh-action@master
+      with:
+        host: 127.0.0.1
+        username: kali
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 2222
+        script: |
+          cd /mnt/c/study
+          git pull origin main
+          npm install
+          npm run build
+
+    - name: Deploy to WSL2 (Ubuntu)
+      uses: appleboy/ssh-action@master
+      with:
+        host: 127.0.0.1
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 2223
+        script: |
+          cd /mnt/c/study
+          git pull origin main
+          npm install
+          npm run build
+
+    - name: Deploy to Remote Ubuntu Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: 192.168.1.193
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /home/ubuntu/study
+          git pull origin main
+          npm install
+          npm run build

@@ -1,0 +1,9 @@
+ Using Available Themes
+JSON Resume provides a variety of themes that can change the look and feel of your resume. You can find available themes here : https://jsonresume.org/themes.
+
+To use a theme, first install it using npm, then export your resume using that theme:
+
+bash
+Copy code
+npm install jsonresume-theme-even
+resume export resume.html --theme even

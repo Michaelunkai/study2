@@ -1,0 +1,162 @@
+Setting up HashiCorp Nomad for workload orchestration on Ubuntu involves several steps, including installing dependencies, downloading and installing Nomad, configuring it, and then running some basic commands to ensure everything is set up correctly. Here's a step-by-step guide to get you started:
+
+### Step 1: Update System
+
+First, make sure your system is up to date.
+
+  
+sudo apt-get update
+sudo apt-get upgrade
+
+### Step 2: Install Dependencies
+
+Nomad requires `curl` and `unzip` for downloading and extracting the binaries.
+
+  
+sudo apt-get install -y curl unzip
+
+### Step 3: Download and Install Nomad
+
+Visit the [Nomad releases page](https://www.nomadproject.io/downloads) to get the latest version link, or use the following commands to download and install Nomad:
+
+  
+# Download Nomad
+curl -LO https://releases.ha icorp.com/nomad/1.5.6/nomad_1.5.6_linux_amd64.zip
+
+# Unzip the downloaded file
+unzip nomad_1.5.6_linux_amd64.zip
+
+# Move the binary to a directory in your PATH
+sudo mv nomad /usr/local/bin/
+
+# Verify installation
+nomad --version
+
+### Step 4: Configure Nomad
+
+Create a configuration directory for Nomad:
+
+  
+sudo mkdir -p /etc/nomad.d
+sudo chmod 700 /etc/nomad.d
+
+Create a basic configuration file for Nomad:
+
+  
+sudo nano /etc/nomad.d/nomad.hcl
+
+Add the following configuration to the file:
+
+ hcl
+log_level = "INFO"
+data_dir  = "/opt/nomad"
+
+server {
+  enabled          = true
+  bootstrap_expect = 1
+}
+
+client {
+  enabled = true
+}
+
+This configuration sets up a single-node Nomad cluster with both server and client roles enabled.
+
+### Step 5: Create Nomad Service
+
+Create a systemd service file to manage Nomad as a service:
+
+  
+sudo nano /etc/systemd/system/nomad.service
+
+Add the following content:
+
+ ini
+[Unit]
+Description=Nomad
+Documentation=https://www.nomadproject.io/docs/
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/nomad agent -config=/etc/nomad.d
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+### Step 6: Start and Enable Nomad Service
+
+Enable and start the Nomad service:
+
+  
+sudo systemctl enable nomad
+sudo systemctl start nomad
+
+Verify the service status:
+
+  
+sudo systemctl status nomad
+
+### Step 7: Verify Nomad Installation
+
+To verify that Nomad is installed and running correctly, you can use the following command:
+
+  
+nomad node status
+
+You should see the status of the node you just set up.
+
+### Step 8: Run a Sample Job
+
+Create a sample Nomad job file to test your setup:
+
+  
+nano example.nomad
+
+Add the following content to the file:
+
+ hcl
+job "example" {
+  datacenters = ["dc1"]
+
+  group "example" {
+    task "server" {
+      driver = "docker"
+
+      config {
+        image = "nginx:latest"
+        ports = ["http"]
+      }
+
+      resources {
+        cpu    = 500
+        memory = 256
+      }
+    }
+  }
+
+  network {
+    port "http" {
+      static = 8080
+    }
+  }
+}
+
+Run the job:
+
+  
+nomad run example.nomad
+
+Check the job status:
+
+  
+nomad status example
+
+You should see that the job is running successfully. You can also check if Nginx is running by visiting `http://<your-server-ip>:8080`.
+
+### Conclusion
+
+You have now set up HashiCorp Nomad on Ubuntu and run a basic job to verify the installation. You can explore more advanced configurations and features in the [Nomad documentation](https://www.nomadproject.io/docs).

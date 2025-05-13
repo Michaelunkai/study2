@@ -1,0 +1,1 @@
+sudo apt install -y prelude-manager && sudo systemctl start prelude-manager && echo "Prelude SIEM is running. Web UI available at http://localhost:5555 (login credentials as per setup)."

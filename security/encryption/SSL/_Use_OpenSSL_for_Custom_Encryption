@@ -1,0 +1,6 @@
+Encrypt a file using OpenSSL:
+
+openssl aes-256-cbc -in filename -out filename.enc
+Decrypt the file:
+
+openssl aes-256-cbc -d -in filename.enc -out filename.dec

@@ -1,0 +1,47 @@
+Update Package Lists:
+
+Launch your WSL2 distribution.
+Run: sudo apt update.
+Install Nginx:
+
+Run: sudo apt install nginx.
+Configure Nginx as a Reverse Proxy:
+
+Navigate to the Nginx configuration directory: cd /etc/nginx/sites-available.
+Create a new configuration file (e.g., reverse-proxy.conf): sudo nano reverse-proxy.conf.
+Inside the configuration file, add the following configuration:
+
+
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+
+
+
+
+
+
+Replace example.com with your domain or IP address and localhost:8080 with the address of the server you want to proxy to.
+Save and exit the file.
+Enable the Configuration:
+
+Create a symbolic link to enable the configuration: sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/.
+Remove the default configuration: sudo rm /etc/nginx/sites-enabled/default.
+Test the Configuration:
+
+Check the syntax of the Nginx configuration: sudo nginx -t.
+If there are no syntax errors, restart Nginx: sudo service nginx restart.
+Verify Nginx is Running:
+
+Open a web browser and navigate to http://localhost. You should see the content from the server you are proxying to.
+That's it! Nginx is now configured as a reverse proxy server in ubuntu!

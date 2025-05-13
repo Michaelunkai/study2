@@ -1,0 +1,1 @@
+create one liner, to setup and run nmap in ubuntu, and use it in the end! && sudo apt install nmap -y && nmap -sV http://target.com

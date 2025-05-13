@@ -1,0 +1,71 @@
+Create OpenVPN Server Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN CA
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: OpenVPN CA
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select Certificate Authority from the type list
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Agreement and Certificate Sign
+Click OK to create the certificate
+Click on the Certificates tab, right click on your Intermediate CA certificate again
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN Server
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: vpn.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Set the Type dropdown to End Endity
+Check the box next to Subject Key Identifier
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature and Key Encipherment
+Under Extended Key Usage select TLS Web Server Authentication
+Click the Netscape tab
+Deselect all options and clear the Netscape Comment field
+Click OK to create the certificate
+Updating OpenVPN Access Server With New Certificates
+Open a web browser and navigate to phpMyAdmin
+Expand as > as_certs > certificates
+Check the boxes next to OpenVPN CA and OpenVPN Server > Select edit below the table
+In XCA, click on the Certificates tab > right click on the OpenVPN CA > Export > Clipboard
+Back in phpMyAdmin, clear the cert field for the OpenVPN CA and paste the contents of the clipboard
+In XCA, click on the Private Keys tab > right click on the OpenVPN CA > Export > Clipboard
+Make sure the format dropdown is set to PKCS #8 > Click OK
+Back in phpMyAdmin, clear the priv_key field for the OpenVPN CA and paste the contents of the clipboard
+In XCA, click on the Certificates tab > right click on the OpenVPN Server > Export > Clipboard
+Back in phpMyAdmin, clear the cert field for the OpenVPN Server and paste the contents of the clipboard
+In XCA, click on the Private Keys tab > right click on the OpenVPN Server > Export > Clipboard
+Make sure the format dropdown is set to PKCS #8 > Click OK
+Back in phpMyAdmin, clear the priv_key field for the OpenVPN Server and paste the contents of the clipboard
+Log into the OpenVPN Access Server admin interface https://DNSorIP:943/admin
+Click the Stop VPN services button
+Click the Confirm Stop button
+Click the Start VPN services button

@@ -1,0 +1,1 @@
+sudo apt install -y dnsmasq && sudo systemctl start dnsmasq

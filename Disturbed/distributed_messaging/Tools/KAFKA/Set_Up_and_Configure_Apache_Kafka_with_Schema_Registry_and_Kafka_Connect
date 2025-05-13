@@ -1,0 +1,94 @@
+Install Confluent Platform:
+
+wget -qO - https://packages.confluent.io/deb/6.2/archive.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.confluent.io/deb/6.2 stable main"
+sudo apt update
+sudo apt install confluent-community-2.13
+
+
+java:
+getjava
+
+Start Zookeeper:
+
+ 
+ 
+sudo systemctl start confluent-zookeeper
+sudo systemctl enable confluent-zookeeper
+Start Kafka:
+
+ 
+ 
+sudo systemctl start confluent-kafka
+sudo systemctl enable confluent-kafka
+Start Schema Registry:
+
+ 
+ 
+sudo systemctl start confluent-schema-registry
+sudo systemctl enable confluent-schema-registry
+Start Kafka Connect:
+
+ 
+ 
+sudo systemctl start confluent-kafka-connect
+sudo systemctl enable confluent-kafka-connect
+Verify Services:
+
+ 
+ 
+sudo systemctl status confluent-zookeeper
+sudo systemctl status confluent-kafka
+sudo systemctl status confluent-schema-registry
+sudo systemctl status confluent-kafka-connect
+Configure Kafka Connect:
+
+ 
+ 
+nano /etc/kafka/connect-standalone.properties
+Add the following content:
+
+properties
+ 
+bootstrap.servers=localhost:9092
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter.schemas.enable=true
+offset.storage.file.filename=/tmp/connect.offsets
+Create a Kafka Topic:
+
+ 
+ 
+kafka-topics --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+Create a Connector Configuration:
+
+ 
+ 
+nano /etc/kafka/connect-file-sink.properties
+Add the following content:
+
+properties
+ 
+name=local-file-sink
+connector.class=FileStreamSink
+tasks.max=1
+file=/tmp/quickstart.txt
+topics=quickstart-events
+Start Kafka Connect in Standalone Mode:
+
+ 
+ 
+connect-standalone /etc/kafka/connect-standalone.properties /etc/kafka/connect-file-sink.properties
+Produce Messages to the Topic:
+
+ 
+ 
+kafka-console-producer --broker-list localhost:9092 --topic quickstart-events
+Enter some messages.
+
+Verify Messages in Sink File:
+
+ 
+ 
+cat /tmp/quickstart.txt

@@ -1,0 +1,151 @@
+# Comprehensive Guide to Setting Up and Using AWStats on AWS EC2 with AWS CLI Integration
+
+This guide will walk you through the entire process of setting up AWStats on an AWS EC2 instance, configuring it to analyze your web logs, and integrating it with AWS CLI for managing logs stored in S3.
+
+---
+
+### Step 1: Install AWStats on Your EC2 Instance
+
+#### 1.1 Launch an EC2 Instance
+
+1. Go to the [AWS Management Console](https://aws.amazon.com/console/).
+2. Launch a new EC2 instance with Amazon Linux 2 or Ubuntu.
+3. Configure the security group to allow:
+   - HTTP (port 80)
+   - SSH (port 22)
+
+#### 1.2 Connect to Your EC2 Instance
+
+1. Obtain the public DNS of your EC2 instance from the AWS Console.
+2. Connect via SSH using the command:
+     
+   ssh -i your-key.pem ec2-user@your-ec2-public-dns
+
+#### 1.3 Install AWStats
+
+- **For Amazon Linux 2:**
+    
+  sudo yum update -y
+  sudo yum install awstats -y
+
+- **For Ubuntu:**
+    
+  sudo apt update
+  sudo apt install awstats -y
+
+---
+
+### Step 2: Configure AWStats
+
+#### 2.1 Create a Configuration File
+
+1. Copy the model configuration file:
+     
+   sudo cp /etc/awstats/awstats.model.conf /etc/awstats/awstats.yourdomain.conf
+
+#### 2.2 Edit the Configuration File
+
+1. Open the configuration file for editing:
+     
+   sudo nano /etc/awstats/awstats.yourdomain.conf
+2. Update the following lines to fit your setup:
+    conf
+   LogFile="/var/log/httpd/access_log"
+   SiteDomain="yourdomain.com"
+   HostAliases="www.yourdomain.com localhost 127.0.0.1"
+3. Save and close the file.
+
+#### 2.3 Generate Initial Statistics
+
+1. Run the AWStats update command:
+     
+   sudo /usr/share/awstats/wwwroot/cgi-bin/awstats.pl -config=yourdomain -update
+
+---
+
+### Step 3: Set Up Web Access to AWStats
+
+#### 3.1 Install and Configure Apache
+
+- **For Amazon Linux 2:**
+    
+  sudo yum install httpd -y
+  sudo systemctl start httpd
+  sudo systemctl enable httpd
+
+- **For Ubuntu:**
+    
+  sudo apt install apache2 -y
+  sudo systemctl start apache2
+  sudo systemctl enable apache2
+
+#### 3.2 Configure Apache to Serve AWStats
+
+1. Create an Apache configuration file for AWStats:
+     
+   sudo nano /etc/httpd/conf.d/awstats.conf
+2. Add the following configuration:
+    conf
+   Alias /awstatsclasses "/usr/ are/awstats/wwwroot/classes/"
+   Alias /awstat  "/usr/ are/awstats/wwwroot/ /"
+   Alias /awstatsicons "/usr/ are/awstats/wwwroot/icon/"
+   ScriptAlias /awstats/cgi-bin "/usr/ are/awstats/wwwroot/cgi-bin"
+   Alias /awstats "/usr/ are/awstats/wwwroot"
+   <Directory "/usr/ are/awstats/wwwroot">
+       Options None
+       AllowOverride None
+       Require all granted
+   </Directory>
+3. Save and close the file.
+4. Restart Apache:
+     
+   sudo systemctl restart httpd
+
+#### 3.3 Access AWStats
+
+1. Open your web browser and navigate to:
+    plaintext
+   http://your-ec2-public-dns/awstats/awstats.pl?config=yourdomain
+
+---
+
+### Step 4: Automate Log Updates with Cron (Optional)
+
+#### 4.1 Edit the Crontab
+
+1. Open the crontab file for editing:
+     
+   sudo crontab -e
+2. Add the following line to update AWStats every 10 minutes:
+    cron
+   */10 * * * * /usr/share/awstats/wwwroot/cgi-bin/awstats.pl -config=yourdomain -update >/dev/null 2>&1
+3. Save and close the file.
+
+---
+
+### Step 5: Integrate AWS CLI for S3 Logs (Optional)
+
+#### 5.1 Configure S3 Bucket for Logs
+
+1. Ensure your S3 bucket is set up to store web access logs.
+2. Set up appropriate bucket policies to allow access.
+
+#### 5.2 Download Logs Using AWS CLI
+
+1. Sync logs from S3 to your EC2 instance:
+     
+   aws s3 sync s3://your-s3-bucket/logs /var/log/httpd/
+
+#### 5.3 Automate Log Syncing
+
+1. Edit the crontab to sync logs regularly:
+     
+   sudo crontab -e
+2. Add the following line to sync logs every hour:
+    cron
+   0 * * * * aws s3 sync s3://your-s3-bucket/logs /var/log/httpd/ >/dev/null 2>&1
+3. Save and close the file.
+
+---
+
+With these steps, you’ve successfully set up AWStats on your AWS EC2 instance, configured it to analyze web logs, and optionally integrated it with AWS CLI for managing logs stored in S3.

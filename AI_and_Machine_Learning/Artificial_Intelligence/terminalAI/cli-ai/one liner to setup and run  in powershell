@@ -1,0 +1,1 @@
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/fmdz387/cli-ai/refs/heads/master/setup.ps1' -OutFile 'setup.ps1'; .\setup.ps1"

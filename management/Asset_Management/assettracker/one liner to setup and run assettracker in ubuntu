@@ -1,0 +1,1 @@
+git clone https://github.com/mfalkvidd/asset-tracker && cd asset-tracker && ./run.sh

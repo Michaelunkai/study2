@@ -1,0 +1,1 @@
+aws ssm get-command-invocation --command-id <command-id> --instance-id <instance-id>

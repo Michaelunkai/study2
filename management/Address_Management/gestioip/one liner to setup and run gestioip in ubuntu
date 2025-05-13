@@ -1,0 +1,1 @@
+sudo apt install -y apache2 mariadb-server libdbi-perl libnetaddr-ip-perl && wget https://gestioip.net/gestioip_download.php && tar xvf gestioip* && cd gestioip && ./install.sh

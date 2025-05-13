@@ -1,0 +1,1 @@
+sudo apt install -y libimage-exiftool-perl && exiftool --version

@@ -1,0 +1,1 @@
+pip3 install arrow && python3 -c 'import arrow; print(arrow.__version__)'

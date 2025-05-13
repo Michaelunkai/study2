@@ -1,0 +1,1 @@
+wget -q -O cannabis_product_db.zip https://pdb.openthc.org/export.zip

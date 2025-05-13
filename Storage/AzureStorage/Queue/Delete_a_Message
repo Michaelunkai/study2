@@ -1,0 +1,6 @@
+az storage message delete \
+  --queue-name myqueue \
+  --id <message-id> \
+  --pop-receipt <pop-receipt> \
+  --account-name mystorageaccount \
+  --connection-string $CONNECTION_STRING

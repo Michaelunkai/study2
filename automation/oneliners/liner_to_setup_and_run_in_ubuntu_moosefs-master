@@ -1,0 +1,1 @@
+sudo apt install -y moosefs-master moosefs-chunkserver moosefs-client && sudo systemctl start moosefs-master && sudo systemctl status moosefs-master

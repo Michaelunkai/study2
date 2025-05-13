@@ -1,0 +1,1 @@
+sudo docker run -d --name ocs -p 8082:80 remijean/ocsinventory-server && echo 'http://localhost:8082'

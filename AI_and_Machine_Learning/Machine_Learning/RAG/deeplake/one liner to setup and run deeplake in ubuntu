@@ -1,0 +1,1 @@
+pip install deeplake && python3 -c "import deeplake; print('Deep Lake ready')"

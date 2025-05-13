@@ -1,0 +1,1 @@
+getdockeer && curl -sSL https://get.buddy.works | sh && buddy install

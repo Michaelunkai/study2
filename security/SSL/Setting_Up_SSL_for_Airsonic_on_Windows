@@ -1,0 +1,61 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Airsonic SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: airsonic.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PKCS #12 (*.p12)
+Enter the password airsonic and confirm, Click OK
+Click OK
+Applying the SSL Certificates to Airsonic
+Stop the Apache Tomcat service
+Navigate to the Apache Tomcat/conf directory in Explorer
+Edit the server.xml file in a text editor
+Comment out the existing connector and paste the following:
+<Connector port="8000"
+protocol="org.apache.coyote.http11.Http11AprProtocol"
+maxThreads="150"
+SSLEnabled="true"
+SSLProtocol="TLS"
+clientAuth="false"
+secure="true"
+scheme="https"
+SSLCertificateFile="G:\xampp\~certificates\airsonic.i12bretro.local.crt"
+SSLCertificateKeyFile="G:\xampp\~certificates\airsonic.i12bretro.local.key"
+SSLCertificateChainFile="G:\xampp\~certificates\ca-chain.pem"
+keyAlias="airsonic.i12bretro.local"
+sslEnabledProtocols="TLSv1.1+TLSv1.2+TLSv1.3">
+<UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />
+</Connector>
+
+Go back to the Services dialog and start Apache Tomcat
+Open a web browser and navigate to https://DNSorIP:8000/airsonic
+Airsonic should now be running securely with https using the new certificate

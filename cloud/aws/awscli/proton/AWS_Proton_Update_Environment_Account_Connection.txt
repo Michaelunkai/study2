@@ -1,0 +1,1 @@
+aws proton update-environment-account-connection --id <connection-id> --requested-role-arn <role-arn>

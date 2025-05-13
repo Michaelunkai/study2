@@ -1,0 +1,1 @@
+cd && git clone https://github.com/navidrome/navidrome && cd navidrome/contrib/docker-compose && docker-compose up -d &&  gc http://localhost:4533 

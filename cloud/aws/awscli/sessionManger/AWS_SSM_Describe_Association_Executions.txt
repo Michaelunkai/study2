@@ -1,0 +1,1 @@
+aws ssm describe-association-executions --association-id <association-id>

@@ -1,0 +1,4 @@
+sudo apt-get install -y python3 python3-pip && pip3 install selenium && echo 'from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get("http://www.google.com")
+driver.quit()' > test_selenium.py && python3 test_selenium.py  

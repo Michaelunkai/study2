@@ -1,0 +1,21 @@
+ Basic Redis Operations
+a. Set a Key-Value Pair
+ 
+ 
+redis-cli set mykey "Hello, Redis"
+b. Get the Value of a Key
+ 
+ 
+redis-cli get mykey
+c. Delete a Key
+ 
+ 
+redis-cli del mykey
+d. Check if a Key Exists
+ 
+ 
+redis-cli exists mykey
+e. Increment a Key's Value
+ 
+ 
+redis-cli incr mycounter

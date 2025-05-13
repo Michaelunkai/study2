@@ -1,0 +1,2 @@
+ getlib && wget https://github.com/sgiurgiu/reddit_desktop/releases/download/1.0.172/reddit_desktop-1.0.172-debian.deb && chmod +x reddit_desktop-1.0.172-debian.deb && sudo apt install -y ./reddit_desktop-1.0.172-debian.deb && reddit_desktop
+

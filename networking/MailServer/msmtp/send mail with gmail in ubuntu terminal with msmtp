@@ -1,0 +1,50 @@
+sudo apt install msmtp -y && mkdir -p /root/.msmtp
+nano /root/.msmtp/.msmtprc
+
+
+
+
+# הגדרות ברירת מחדל
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        /root/.msmtp.log
+
+# חשבון Gmail
+account        gmail
+host           smtp.gmail.com
+port           587
+from           michaelovsky5@gmail.com
+user           michaelovsky55@gmail.com
+password       password
+
+# חשבון ברירת מחדל
+account default : gmail
+
+
+
+
+chmod 600 /root/.msmtp/.msmtprc
+
+
+
+nano test-email.txt
+
+
+
+
+To: michaelovsky55@gmail.com
+From: michaelovsky5@gmail.com
+Subject: בדיקת דוא"ל מ־WSL2
+
+זהו מייל בדיקה שנשלח מ־Ubuntu WSL2 באמצעות msmtp.
+
+
+
+msmtp --file=/root/.msmtp/.msmtprc michaelovsky55@gmail.com < test-email.txt
+
+
+
+
+

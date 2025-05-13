@@ -1,0 +1,60 @@
+/* Theme styles for the Modern Docker UI */
+
+QWidget {
+    background-color: #2E2E2E; /* Dark background for the main application */
+    color: #FFFFFF; /* White text color for better contrast */
+}
+
+QPushButton {
+    background-color: #4CAF50; /* Green background for buttons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: #45A049; /* Darker green on hover */
+}
+
+QPushButton:pressed {
+    background-color: #388E3C; /* Even darker green when pressed */
+}
+
+QDialog {
+    background-color: #3C3C3C; /* Dark background for dialogs */
+    color: #FFFFFF; /* White text color in dialogs */
+}
+
+QLineEdit {
+    background-color: #4A4A4A; /* Dark background for input fields */
+    color: #FFFFFF; /* White text color for input fields */
+    border: 1px solid #6C757D; /* Light border for input fields */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007BFF; /* Blue border on focus */
+}
+
+QLabel {
+    font-size: 16px; /* Larger font size for labels */
+    font-weight: bold; /* Bold text for labels */
+}
+
+QScrollArea {
+    background-color: #2E2E2E; /* Dark background for scroll areas */
+}
+
+QTabBar::tab {
+    background-color: #4A4A4A; /* Dark background for tabs */
+    color: #FFFFFF; /* White text color for tabs */
+    padding: 10px;
+}
+
+QTabBar::tab:selected {
+    background-color: #007BFF; /* Blue background for selected tab */
+    color: #FFFFFF; /* White text color for selected tab */
+}

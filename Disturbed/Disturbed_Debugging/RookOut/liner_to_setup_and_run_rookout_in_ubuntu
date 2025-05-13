@@ -1,0 +1,1 @@
+ curl -Ls https://get.rookout.com -o setup.sh && chmod +x setup.sh && sudo ./setup.sh --token=<YOUR_ROOKOUT_TOKEN>

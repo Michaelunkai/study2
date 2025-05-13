@@ -1,0 +1,1 @@
+aws iot attach-policy --policy-name <policy-name> --target <principal>

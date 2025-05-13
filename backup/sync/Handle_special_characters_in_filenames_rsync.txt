@@ -1,0 +1,1 @@
+rsync -av --protect-args /source_directory/ /destination_directory/

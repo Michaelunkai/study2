@@ -1,0 +1,1 @@
+sudo su - solr -c "/opt/solr/bin/solr create -c mycore"

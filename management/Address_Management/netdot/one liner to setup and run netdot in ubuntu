@@ -1,0 +1,1 @@
+sudo apt install -y apache2 mysql-server libapache2-mod-perl2 && git clone https://github.com/CyclopsGroup/netdot.git

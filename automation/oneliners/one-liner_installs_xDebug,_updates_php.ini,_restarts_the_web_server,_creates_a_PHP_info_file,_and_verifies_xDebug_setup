@@ -1,0 +1,1 @@
+one-liner installs xDebug, updates php.ini, restarts the web server, creates a PHP info file, and verifies xDebug setup

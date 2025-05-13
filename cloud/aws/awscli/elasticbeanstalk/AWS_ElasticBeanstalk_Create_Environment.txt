@@ -1,0 +1,1 @@
+aws elasticbeanstalk create-environment --application-name <app-name> --environment-name <env-name> --version-label <version-label> --solution-stack-name <solution-stack-name>

@@ -1,0 +1,1 @@
+sudo curl -s https://repositories.scylladb.com/scylla/repo/0dbf76a5c7f302b91e352bf8ba4525c1/ubuntu/scylla.list | sudo tee /etc/apt/sources.list.d/scylla.list && sudo apt update && sudo apt install -y scylla && sudo systemctl start scylla-server

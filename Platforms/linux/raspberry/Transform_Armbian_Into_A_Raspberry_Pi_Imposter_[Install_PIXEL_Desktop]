@@ -1,0 +1,27 @@
+▲A  A▼
+Transform Armbian Into A Raspberry Pi Imposter [Install PIXEL Desktop]
+What is PIXEL?
+PIXEL is the default desktop environment and theme used by Raspberry Pi OS. It officially stands for "Pi Improved Xwindows Environment, Lightweight" and is based on LXDE. -https://www.raspberrypi.com/news/introducing-pixel/
+Log into the Armbian device
+Run the following commands in a terminal
+# update repositories
+sudo apt update
+# add the raspberry pi os gpg key
+wget -O - http://archive.raspberrypi.org/debian/raspberrypi.gpg.key | sudo apt-key add -
+# add the raspberry pi os apt repository
+echo deb http://archive.raspberrypi.org/debian/ $(lsb_release -cs) main | sudo tee /etc/apt/sources.list.d/raspios.list
+# update repositories
+sudo apt update
+# install pixel
+sudo apt install lxpanel pcmanfm openbox xserver-xorg x11-xserver-utils policykit-1 lightdm raspberrypi-sys-mods zenity libglib2.0-bin desktop-file-utils lxsession adduser mutter xdg-user-dirs raspi-config xserver-xorg-video-fbturbo fonts-piboto pipanel lxinput pi-greeter rpd-plym-splash rpd-wallpaper pishutdown scrot gtk2-engines-pixbuf gtk2-engines-clearlookspix gnome-icon-theme pixflat-icons lxplug-volumepulse lxplug-network lxplug-bluetooth lxplug-ejecter lxplug-ptbatt rc-gui gtk2-engines-pixflat lxplug-cputemp lxplug-magnifier rp-bookshelf agnostics gui-pkinst cups system-config-printer pi-printer-support lxplug-updater raspberrypi-ui-mods -y
+After the installation completes, reboot the system
+Upon boot, the familiar Raspberry Pi login screen should be display
+Log back in
+Run the following commands in a terminal
+# uninstall xfce
+sudo apt remove xfce* --purge -y
+# reboot
+sudo reboot now
+Log back in
+Welcome to the PIXEL desktop experience on Armbian
+ 

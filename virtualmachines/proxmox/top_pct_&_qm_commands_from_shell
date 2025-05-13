@@ -1,0 +1,208 @@
+pct (for Containers):
+
+List all containers:
+
+ 
+ 
+pct list
+Start a container:
+
+ 
+ 
+pct start <vmid>
+Stop a container:
+
+ 
+ 
+pct stop <vmid>
+Get detailed information about a container:
+
+ 
+ 
+pct status <vmid>
+Enter the console of a container:
+
+ 
+ 
+pct enter <vmid>
+Create a new container from a template:
+
+ 
+ 
+pct create <vmid> <template> --storage <storage> --net0 <model>,bridge=<bridge>
+Clone a container:
+
+ 
+ 
+pct clone <source_vm_id> <new_vm_id> --name <new_name>
+Set the memory for a container:
+
+ 
+ 
+pct set <vmid> --mem <memory_in_MB>
+Set the CPU cores for a container:
+
+ 
+ 
+pct set <vmid> --cores <number_of_cores>
+Delete a container:
+
+ 
+ 
+pct destroy <vmid>
+qm (for Virtual Machines):
+
+List all virtual machines:
+
+ 
+ 
+qm list
+Start a virtual machine:
+
+ 
+ 
+qm start <vmid>
+Stop a virtual machine:
+
+ 
+ 
+qm stop <vmid>
+Get detailed information about a virtual machine:
+
+ 
+ 
+qm status <vmid>
+Enter the console of a virtual machine:
+
+ 
+ 
+qm terminal <vmid>
+Create a new virtual machine from an ISO image:
+
+ 
+ 
+qm create <vmid> --name <name> --memory <memory_in_MB> --net0 <model>,bridge=<bridge> --ide2 <iso_path>,media=cdrom
+Clone a virtual machine:
+
+ 
+ 
+qm clone <source_vm_id> <new_vm_id> --name <new_name>
+Set the memory for a virtual machine:
+
+ 
+ 
+qm set <vmid> --memory <memory_in_MB>
+Set the CPU cores for a virtual machine:
+
+ 
+ 
+qm set <vmid> --cores <number_of_cores>
+Delete a virtual machine:
+
+ 
+ 
+qm destroy <vmid>
+
+
+List the resources (CPU, memory, etc.) allocated to a container:
+
+ 
+ 
+pct config <vmid>
+Set the root password for a container:
+
+ 
+ 
+pct passwd <vmid>
+View the logs of a container:
+
+ 
+ 
+pct journal <vmid>
+Mount a directory from the host to a container:
+
+ 
+ 
+pct mount <vmid> <source_path_on_host> <destination_path_in_container>
+Unmount a directory from a container:
+
+ 
+ 
+pct unmount <vmid> <source_path_on_host>
+Set CPU limit for a container:
+
+ 
+ 
+pct set <vmid> --cpuunits <value>
+Set CPU weight for a container:
+
+ 
+ 
+pct set <vmid> --cpulimit <value>
+Set disk size for a container:
+
+ 
+ 
+pct set <vmid> --rootfs <size>
+Set swap size for a container:
+
+ 
+ 
+pct set <vmid> --swap <size>
+Set hostname for a container:
+
+ 
+ 
+pct set <vmid> --hostname <name>
+qm (for Virtual Machines):
+
+View the configuration of a virtual machine:
+
+ 
+ 
+qm config <vmid>
+Set the boot order for a virtual machine:
+
+ 
+ 
+qm boot <vmid> <order>
+Take a snapshot of a virtual machine:
+
+ 
+ 
+qm snapshot <vmid> <snapshot_name>
+Rollback a virtual machine to a snapshot:
+
+ 
+ 
+qm rollback <vmid> <snapshot_name>
+List available snapshots of a virtual machine:
+
+ 
+ 
+qm snap otlist <vmid>
+Set a firewall rule for a virtual machine:
+
+ 
+ 
+qm set <vmid> --firewall <rule>
+Add a CD-ROM drive to a virtual machine:
+
+ 
+ 
+qm set <vmid> --ide2 <device>
+Change the SCSI controller type for a virtual machine:
+
+ 
+ 
+qm set <vmid> --scsihw <type>
+Migrate a virtual machine to another node:
+
+ 
+ 
+qm migrate <vmid> <target_node>
+Set the CPU type for a virtual machine:
+
+ 
+ 
+qm set <vmid> --cpu <type>

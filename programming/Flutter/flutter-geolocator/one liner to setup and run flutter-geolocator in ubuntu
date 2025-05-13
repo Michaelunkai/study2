@@ -1,0 +1,1 @@
+flutter pub add geolocator && echo 'Geolocator added'

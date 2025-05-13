@@ -1,0 +1,22 @@
+▲A  A▼
+Replace Desktop Environment on Raspberry Pi - LXDE ≫ XFCE
+Log into the Raspberry Pi
+Run the following commands in a terminal:
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install xfce
+sudo apt install xfce4 xfce4-goodies
+# uninstall lxde
+sudo apt remove lxappearance lxappearance-obconf lxde lxde-* lxhotkey-* lxinput lxmenu-data lxpanel lxpanel-data lxplug-* lxpolkit lxrandr lxsession lxsession* lxtask --purge
+# reboot
+sudo reboot now
+Log back in
+Welcome to XFCE running on Arch on your Android TV box
+Run the commands below to clean up any residual files:
+# purge and autoremove
+sudo apt autoremove --purge
+# delete cached apt files
+sudo apt clean
+ 

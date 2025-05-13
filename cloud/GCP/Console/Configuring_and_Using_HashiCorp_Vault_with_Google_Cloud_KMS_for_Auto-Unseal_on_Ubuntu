@@ -1,0 +1,162 @@
+# Tutorial: Configuring and Using HashiCorp Vault with Google Cloud KMS for Auto-Unseal on Ubuntu
+
+This tutorial will guide you through the process of configuring HashiCorp Vault with Google Cloud KMS for auto-unseal on an Ubuntu system.
+
+## Step 1: Install HashiCorp Vault
+
+1. **Add the HashiCorp GPG key:**
+
+     
+   curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+
+2. **Add the official HashiCorp Linux repository:**
+
+     
+   sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+3. **Update and install Vault:**
+
+     
+   sudo apt-get update && sudo apt-get install vault
+
+## Step 2: Install and Configure Google Cloud SDK
+
+1. **Add the Cloud SDK distribution URI as a package source:**
+
+     
+   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+2. **Import the Google Cloud public key:**
+
+     
+   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+3. **Update and install the Cloud SDK:**
+
+     
+   sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+4. **Initialize the Google Cloud SDK:**
+
+     
+   gcloud init
+
+5. **List all your projects:**
+
+     
+   gcloud projects list
+
+6. **Set the project you want to use:**
+
+     
+   gcloud config set project YOUR_PROJECT_ID
+
+   Replace `YOUR_PROJECT_ID` with the actual project ID you want to use from the list obtained in the previous step.
+
+## Step 3: Enable the Google Cloud KMS API
+
+1. **Enable the API:**
+
+     
+   gcloud services enable cloudkms.googleapis.com
+
+## Step 4: Create a Key Ring and Crypto Key in Google Cloud KMS
+
+1. **Create a key ring:**
+
+     
+   gcloud kms keyrings create my-key-ring --location global
+
+2. **Create a crypto key:**
+
+     
+   gcloud kms keys create my-crypto-key --location global --keyring my-key-ring --purpose encryption
+
+## Step 5: Configure Vault to Use Google Cloud KMS for Auto-Unseal
+
+1. **Create a service account and assign roles:**
+
+     
+   gcloud iam service-accounts create vault-auto-unseal --display-name "Vault Auto-Unseal Service Account"
+
+2. **Assign the service account the necessary roles:**
+
+     
+   gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member "serviceAccount:vault-auto-unseal@YOUR_PROJECT_ID.iam.gserviceaccount.com" --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+
+3. **Create and download the service account key:**
+
+     
+   gcloud iam service-accounts keys create ~/vault-auto-unseal.json --iam-account vault-auto-unseal@YOUR_PROJECT_ID.iam.gserviceaccount.com
+
+4. **Configure Vault to use Google Cloud KMS:**
+
+   - Create a configuration file `vault.hcl`:
+
+      hcl
+     storage "file" {
+       path = "/opt/vault/data"
+     }
+
+     listener "tcp" {
+       address     = "0.0.0.0:8200"
+       tls_disable = 1
+     }
+
+     seal "gcpckms" {
+       project     = "YOUR_PROJECT_ID"
+       region      = "global"
+       key_ring    = "my-key-ring"
+       crypto_key  = "my-crypto-key"
+       credentials = "/path/to/vault-auto-unseal.json"
+     }
+
+   - Replace `YOUR_PROJECT_ID` with your actual Google Cloud project ID.
+   - Ensure the `credentials` path points to the downloaded service account key file.
+
+## Step 6: Start and Initialize Vault
+
+1. **Start the Vault server:**
+
+     
+   vault server -config=/path/to/vault.hcl
+
+2. **Open a new terminal and export the Vault address:**
+
+     
+   export VAULT_ADDR='http://127.0.0.1:8200'
+
+3. **Initialize Vault:**
+
+     
+   vault operator init
+
+4. **Unseal Vault (if needed):**
+
+   If Vault is not auto-unsealed, unseal it using the unseal keys provided during initialization.
+
+     
+   vault operator unseal <Unseal Key 1>
+   vault operator unseal <Unseal Key 2>
+   vault operator unseal <Unseal Key 3>
+
+## Step 7: Verify Auto-Unseal Configuration
+
+1. **Stop the Vault server:**
+
+     
+   sudo systemctl stop vault
+
+2. **Start the Vault server again:**
+
+     
+   sudo systemctl start vault
+
+3. **Check if Vault is auto-unsealed:**
+
+     
+   vault status
+
+   If configured correctly, Vault should be unsealed automatically using the Google Cloud KMS.
+
+By following these steps, you should be able to set up HashiCorp Vault with Google Cloud KMS for auto-unseal on Ubuntu successfully. If you encounter any issues or need further assistance, feel free to ask!

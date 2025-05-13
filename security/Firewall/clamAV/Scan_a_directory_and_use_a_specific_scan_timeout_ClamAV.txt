@@ -1,0 +1,1 @@
+clamscan -r --scan-timeout=60 /path/to/directory

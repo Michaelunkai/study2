@@ -1,0 +1,1 @@
+aws route53 update-health-check --health-check-id <health-check-id> --health-check-config file://health-check-config.json

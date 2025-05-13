@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("esquisse", repos="https://cloud.r-project.org")'

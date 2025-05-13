@@ -1,0 +1,1 @@
+pip install Zope && mkzopeinstance -d myzope && cd myzope && ./bin/zopectl fg

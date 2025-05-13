@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile "$env:TEMP\OllamaSetup.exe"; Start-Process -FilePath "$env:TEMP\OllamaSetup.exe" -Wait; Remove-Item "$env:TEMP\OllamaSetup.exe"

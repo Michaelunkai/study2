@@ -1,0 +1,12 @@
+Install ModSecurity:
+
+sudo apt install libapache2-mod-security2
+Enable ModSecurity:
+
+sudo a2enmod security2
+Configure ModSecurity rules:
+
+sudo nano /etc/modsecurity/modsecurity.conf
+Restart Apache:
+
+sudo systemctl restart apache2

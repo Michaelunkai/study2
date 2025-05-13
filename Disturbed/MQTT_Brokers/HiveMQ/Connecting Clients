@@ -1,0 +1,6 @@
+Connecting Clients:
+
+Use an MQTT client (e.g., MQTT.fx, Mosquitto) to connect to HiveMQ.
+Default connection settings:
+Host: localhost
+Port: 1883 (for non-secure connections)

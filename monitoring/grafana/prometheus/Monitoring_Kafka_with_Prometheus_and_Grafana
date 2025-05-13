@@ -1,0 +1,23 @@
+Prometheus Exporter: Start a Prometheus Kafka exporter container:
+
+
+sudo docker run -d --net=kafka-net --name=kafka-prometheus-exporter -p 9308:9308 danielqsj/kafka-exporter:latest
+Prometheus: Start a Prometheus container:
+
+
+sudo docker run -d --net=kafka-net --name=prometheus -p 9090:9090 -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+Grafana: Start a Grafana container:
+
+
+sudo docker run -d --net=kafka-net --name=grafana -p 3000:3000 grafana/grafana
+Configure Prometheus: Update the prometheus.yml file to scrape metrics from the Kafka exporter:
+
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'kafka'
+    static_configs:
+      - targets: ['kafka-prometheus-exporter:9308']
+Access Grafana: Open a browser and go to http://localhost:3000. Add Prometheus as a data source and create dashboards to monitor Kafka metrics.

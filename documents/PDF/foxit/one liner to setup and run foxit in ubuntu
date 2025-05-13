@@ -1,0 +1,1 @@
+wget -O Foxit.tar.gz 'https://www.foxit.com/downloads/latest.html' && tar -xvzf Foxit.tar.gz && cd FoxitReader && ./FoxitReader

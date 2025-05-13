@@ -1,0 +1,8 @@
+Use the following command to install Chrome and ChromeDriver:
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install -y ./google-chrome-stable_current_amd64.deb && sudo apt install -y chromium-chromedriver
+
+
+Start the Chrome Node:
+
+java -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -jar $(pwd)/selenium-grid/selenium-server-4.23.0.jar node --detect-drivers true --hub http://localhost:4444

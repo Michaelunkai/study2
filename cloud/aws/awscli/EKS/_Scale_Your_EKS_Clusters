@@ -1,0 +1,6 @@
+ Scale Your EKS Clusters
+Scale Deployment
+
+ 
+ 
+kubectl scale deployment my-deployment --replicas=5

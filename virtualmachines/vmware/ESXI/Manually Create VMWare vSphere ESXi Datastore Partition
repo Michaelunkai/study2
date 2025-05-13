@@ -1,0 +1,18 @@
+▲A  A▼
+Manually Create VMWare vSphere ESXi Datastore Partition
+Log into the ESXi web UI
+Enable the SSH service if it is not already enabled by selecting Actions > Services > Enable Secure Shell (SSH)
+Connect to the ESXi host via SSH
+Run the following commands
+# list connected disks
+ls /dev/disks/
+# using one of the partition ids from the above output
+# list the partition table
+partedUtil getptbl /dev/disks/<%partition id%>
+# add the new partition to the partition table
+partedUtil add /dev/disks/<%partition id%> gpt "<%partition number%> <%starting sector%> <%ending sector%> AA31E02A400F11DB9590000C2911D1B8 0"
+# create vmfs volume
+vmkfstools -C vmfs6 -S <%custom label%> /dev/disks/<%partition id%>:<%partition number%>
+Back in the ESXi web UI, select Storage from the left navigation menu
+The new Datastore should be listed and available for use
+ 

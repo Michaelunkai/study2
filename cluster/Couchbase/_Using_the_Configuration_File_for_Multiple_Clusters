@@ -1,0 +1,25 @@
+Using the Configuration File for Multiple Clusters (Optional)
+If you manage multiple Couchbase clusters, you can add additional configurations to your ~/.cbsh/config file:
+
+toml
+ 
+version = 1
+
+[[cluster]]
+identifier = "my-local-cb-node"
+hostnames = ["127.0.0.1"]
+default-bucket = "default"
+username = "Administrator"
+password = "password"
+
+[[cluster]]
+identifier = "production-cluster"
+hostnames = ["192.168.1.100", "192.168.1.101"]
+default-bucket = "prod-bucket"
+username = "prod_admin"
+password = "prod_password"
+To switch between clusters within cbsh, use:
+
+ 
+ 
+> use production-cluster

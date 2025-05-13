@@ -1,0 +1,1 @@
+pip3 install pandas && python3 -c 'import pandas; print(pandas.__version__)'

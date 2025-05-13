@@ -1,0 +1,72 @@
+▲A  A▼
+Enabling SSL for Pi-Hole Admin Interface (lighttpd) UPDATED
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: Pi-Hole SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: pihole.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .pem extension and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the SSL certificate > Export > File
+Set the file name with a .pem extension and verify the export format is PEM + Key (*.pem)
+Click OK
+Applying the Certificates
+If not already installed, Install xrdp to simplify administration by running the following command
+sudo apt-get install xrdp
+Connect to the Raspberry Pi via Remote Desktop Client
+Copy the certificates exported above to the Pi
+Copy the certificates exported above to /etc/lighttpd
+cp ~/Downloads/PiHole.pem /etc/lighttpd
+cp ~/Downloads/ca-chain.pem /etc/lighttpd
+Edit lighttpd.conf
+mousepad
+File > Open /etc/lighttpd/conf-available/10-ssl.conf
+Add/edit the following lines:
+ssl.engine = "enable"
+ssl.pemfile = "/etc/lighttpd/PiHole.pem"
+ssl.ca-file = "/etc/lighttpd/ca-chain.pem"
+
+Optionally, to redirect all http traffic to https, add the following to the end of the file:
+$HTTP["scheme"] == "http" {
+url.redirect = ("" => "https://${url.authority}${url.path}${qsa}")
+}
+
+File > Save > ~/Downloads/10-ssl.conf
+In terminal, paste the following commands
+sudo cp ~/Downloads/10-ssl.conf /etc/lighttpd/conf-available/
+sudo ln -s /etc/lighttpd/conf-available/10-ssl.conf /etc/lighttpd/conf-enabled/10-ssl.conf
+sudo service lighttpd restart
+Open a web browser and navigate to PiHole via https://
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

@@ -1,0 +1,83 @@
+Ranking the top 20 best free hosting PaaS tools that support command line interfaces (CLI) for hosting Python applications can be subjective and depends on specific needs. Here is a ranked list based on general usability, popularity, features, and community support:
+
+1. **Heroku**
+   - **Pros:** Widely used, strong community support, excellent CLI tools.
+   - **Cons:** Free tier has limited resources, can become costly with scaling.
+
+2. **PythonAnywhere**
+   - **Pros:** Easy to use, specifically designed for Python, strong CLI tools.
+   - **Cons:** Limited to Python, free tier has some limitations.
+
+3. **Glitch**
+   - **Pros:** Simple and quick deployment, strong community.
+   - **Cons:** Free tier has limited project uptime, not as CLI-focused.
+
+4. **Repl.it**
+   - **Pros:** Collaborative development, easy deployment.
+   - **Cons:** Limited resources in the free tier, primarily web-based but has CLI options.
+
+5. **GitHub Pages (via Actions)**
+   - **Pros:** Excellent integration with GitHub repositories, free tier is generous.
+   - **Cons:** Static sites only unless using GitHub Actions for dynamic content.
+
+6. **Vercel**
+   - **Pros:** Easy deployment for static and serverless functions, great for frontend frameworks.
+   - **Cons:** Primarily for frontend applications, but supports Python via serverless functions.
+
+7. **Netlify**
+   - **Pros:** Great for static sites, supports serverless functions.
+   - **Cons:** Primarily focused on static sites and frontend frameworks.
+
+8. **AWS Free Tier (Lambda)**
+   - **Pros:** Extremely powerful, highly customizable.
+   - **Cons:** Complex setup, steep learning curve, free tier has usage limits.
+
+9. **Google Cloud Platform Free Tier (App Engine)**
+   - **Pros:** Scalable, integrates with other Google services.
+   - **Cons:** Limited free tier, can be complex to set up.
+
+10. **Microsoft Azure Free Tier**
+    - **Pros:** Integrates well with Microsoft services, powerful tools.
+    - **Cons:** Steep learning curve, limited free tier.
+
+11. **Railway**
+    - **Pros:** Simple deployment, generous free tier.
+    - **Cons:** Newer platform, less mature than others.
+
+12. **Render**
+    - **Pros:** Simple deployment, supports many languages.
+    - **Cons:** Limited free tier, relatively new.
+
+13. **Deta**
+    - **Pros:** Specifically designed for Python, easy to use.
+    - **Cons:** Limited in scope, less well-known.
+
+14. **Fly.io**
+    - **Pros:** Global deployment, supports many languages.
+    - **Cons:** Newer platform, free tier has some limitations.
+
+15. **Glitch**
+    - **Pros:** Fun and collaborative, quick setup.
+    - **Cons:** Limited project uptime, not CLI-focused.
+
+16. **IBM Cloud Free Tier**
+    - **Pros:** Strong enterprise support, integrates with other IBM services.
+    - **Cons:** Complex setup, limited free tier.
+
+17. **OpenShift (Red Hat)**
+    - **Pros:** Strong enterprise support, powerful tools.
+    - **Cons:** Steep learning curve, free tier has limitations.
+
+18. **Dokku**
+    - **Pros:** Open source, Heroku-compatible.
+    - **Cons:** Requires your own server or VM, more hands-on management.
+
+19. **CapRover**
+    - **Pros:** Open source, easy to use.
+    - **Cons:** Requires your own server or VM, less polished than commercial offerings.
+
+20. **Koyeb**
+    - **Pros:** Simple and easy to use, supports many languages.
+    - **Cons:** Newer platform, free tier has some limitations.
+
+These rankings are based on general impressions and may vary depending on specific requirements and use cases.

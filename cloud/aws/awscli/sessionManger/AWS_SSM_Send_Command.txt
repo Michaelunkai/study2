@@ -1,0 +1,1 @@
+aws ssm send-command --instance-ids <instance-id> --document-name <document-name>

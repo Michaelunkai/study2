@@ -1,0 +1,2 @@
+Implement Advanced DNS SecurityWhy: Prevents DNS-based attacks and enhances overall network security.Ubuntu:Install and Configure DNSCrypt:sudo apt install dnscrypt-proxyConfigure DNSCrypt:Edit the configuration file /etc/dnscrypt-proxy/dnscrypt-proxy.toml.Start DNSCrypt Service:sudo systemctl start dnscrypt-proxy
+sudo systemctl enable dnscrypt-proxy

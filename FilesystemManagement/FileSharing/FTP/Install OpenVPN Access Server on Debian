@@ -1,0 +1,26 @@
+Install OpenVPN Access Server on Debian
+Log into the Debian device
+Run the following commands in a terminal:
+sudo apt update
+sudo apt install ca-certificates wget net-tools gnupg
+sudo wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | sudo apt-key add -
+sudo apt-add-repository 'deb http://as-repository.openvpn.net/as/debian buster main'
+sudo apt update
+sudo apt install openvpn-as
+sudo passwd openvpn
+Set a new password for the openvpn user
+Open a web browser and navigate to https://DNSorIP:943/admin
+Login with username openvpn and the password set earlier
+Click the Agree button to accept the EULA
+Click User Management > User Permissions in the left navigation
+Create a new username and click the Admin checkbox
+Click the Save Settings button
+Click the More settings button on the row of the newly created user
+Set a local password, scroll down and click the Save Settings button
+Click the Update Running Server button
+Click Logout at the bottom of the left navigation
+Log back in with the newly created user
+Click User Management > User Permissions in the left navigation
+Check the delete box on the row of the openvpn user
+Click the Save Settings button
+Click the Update Running Server button

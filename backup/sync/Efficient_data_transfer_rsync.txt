@@ -1,0 +1,1 @@
+rsync -av --compress --compress-level=9 /source_directory/ /destination_directory/

@@ -1,0 +1,1 @@
+aws lex-models delete-migration --migration-id <migration-id>

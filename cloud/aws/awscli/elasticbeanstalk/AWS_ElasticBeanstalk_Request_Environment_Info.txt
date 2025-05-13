@@ -1,0 +1,1 @@
+aws elasticbeanstalk request-environment-info --environment-id <env-id>

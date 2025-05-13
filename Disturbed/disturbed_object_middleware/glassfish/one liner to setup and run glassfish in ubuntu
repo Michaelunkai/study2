@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y openjdk-8-jdk && wget https://download.eclipse.org/ee4j/glassfish/glassfish-5.1.0.zip && unzip glassfish-5.1.0.zip && cd glassfish5/bin && ./asadmin start-domain

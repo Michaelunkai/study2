@@ -1,0 +1,1 @@
+docker run -d --name appwrite -p 80:80 -e _APP_WRITE_HOST=localhost appwrite/appwrite:latest

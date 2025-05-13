@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g sapper && yes "y" | sapper init my-sapper-app && cd my-sapper-app && nsj && npm run dev

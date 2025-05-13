@@ -1,0 +1,71 @@
+Installing Falco
+Falco can be installed using Helm, which simplifies deployment and management.
+
+4.1. Add the Falco Helm Repository
+ 
+ 
+helm repo add falcosecurity https://falcosecurity.github.io/charts
+helm repo update
+Expected  :
+
+ 
+ 
+"falcosecurity" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "falcosecurity" chart repository
+Update Complete. ⎈Happy Helming!⎈
+4.2. Create a Namespace for Falco
+ 
+ 
+kubectl create namespace falco
+Expected  :
+
+arduino
+ 
+namespace/falco created
+4.3. Install Falco with Default Configuration
+ 
+ 
+helm install falco falcosecurity/falco --namespace falco
+Expected  :
+
+ 
+ 
+NAME: falco
+LAST DEPLOYED: [Date and Time]
+NAMESPACE: falco
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+Note: By default, Falco should deploy with its standard configuration, including the necessary ConfigMaps.
+
+Verifying Falco Installation
+After installation, verify that Falco is running correctly and that all necessary components are in place.
+
+5.1. Check Falco Pods
+ 
+ 
+kubectl get pods -n falco
+Expected  :
+
+ 
+ 
+NAME                          READY   STATUS    RESTARTS   AGE
+falco-xxxxxxxxxx-yyyyy         1/1     Running   0          2m
+Note: The pod name may vary based on the Helm chart version and release.
+
+5.2. Verify ConfigMaps
+The falco-config ConfigMap should exist in the falco namespace. However, based on your previous attempt, it was missing. Let's confirm and address this.
+
+ 
+ 
+kubectl get configmaps -n falco
+Expected  :
+
+arduino
+ 
+NAME                DATA   AGE
+falco-config        1      2m
+falco-rules         1      2m
+Note: If falco-config is still missing, proceed to the troubleshooting steps below.
+

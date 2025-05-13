@@ -1,0 +1,1 @@
+sudo apt install -y postgresql postgresql-contrib && sudo systemctl start postgresql && mkdir listmonk && cd listmonk && bash -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/install-prod.sh)"

@@ -1,0 +1,11 @@
+Remove Port Forwarding Rules
+To remove a previously added port forwarding rule, use the following command:
+
+ 
+ 
+upnpc -d <EXTERNAL_PORT> <PROTOCOL>
+Example:
+
+ 
+ 
+upnpc -d 8080 TCP

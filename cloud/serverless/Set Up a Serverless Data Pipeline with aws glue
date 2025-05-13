@@ -1,0 +1,1 @@
+aws glue create-job --name my-etl-job --role AWSGlueServiceRole-DefaultRole --command '{"Name":"glueetl","ScriptLocation":"s3://my-bucket/scripts/etl_job.py"}' --default-arguments '{"--job-language":"python"}' --max-retries 3

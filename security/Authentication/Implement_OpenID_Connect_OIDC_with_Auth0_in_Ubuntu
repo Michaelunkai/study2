@@ -1,0 +1,113 @@
+Implementing OpenID Connect (OIDC) with Auth0 on Ubuntu
+Step 1: Set Up an Auth0 Account
+1.1 Sign Up or Log In to Auth0
+Go to Auth0's website and sign up for a new account or log in to your existing account.
+1.2 Create a New Application
+Navigate to the Auth0 dashboard.
+Go to Applications and click on Create Application.
+Give your application a name and choose the type of application you are creating (e.g., Regular Web Application, Single Page Application).
+Click on Create.
+1.3 Configure Application Settings
+After creating the application, you will be directed to the settings page.
+Note the Client ID and Client Secret—you will need these later.
+Set the Allowed Callback URLs to the URL where Auth0 should redirect after authentication (e.g., http://localhost:3000/callback).
+Set the Allowed Logout URLs to the URL where users should be redirected after logging out.
+Step 2: Set Up Your Ubuntu Server
+2.1 Update Your System
+Open a terminal and run:
+ 
+ 
+sudo apt update
+sudo apt upgrade
+2.2 Install Required Packages
+Install Node.js and npm (Node Package Manager) as an example framework:
+ 
+ 
+sudo apt install nodejs npm
+Step 3: Create a Node.js Application
+3.1 Create a New Directory for Your Project
+Run the following commands to create a new directory and navigate into it:
+ 
+ 
+mkdir my-oidc-app
+cd my-oidc-app
+3.2 Initialize a New Node.js Project
+Run:
+ 
+ 
+npm init -y
+3.3 Install Required Packages
+Install Express and Passport with Auth0 strategy:
+ 
+ 
+npm install express express-session passport passport-auth0
+Step 4: Implement OIDC in Your Node.js Application
+4.1 Create app.js File
+Create a file named app.js and open it in a text editor.
+4.2 Set Up Express Server
+Add the following code to app.js:
+javascript
+ 
+const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+
+const app = express();
+
+const authConfig = {
+  domain: 'dev-cbtrtggvmcermrpg.us.auth0.com',
+  clientID: 'taXerQVKkUvnGWSF5pe97ABBomitaeB6',
+  clientSecret: 'HJoVEYzm5kE7ikg2dJ6w0SUCTBBgW4a1IfbUdMGLzzQ7g_5-JXuBLeoFXowMHg-g',
+  callbackURL: 'http://localhost:3000/callback'
+};
+
+const strategy = new Auth0Strategy(authConfig, function (accessToken, refreshToken, extraParams, profile, done) {
+  return done(null, profile);
+});
+
+passport.use(strategy);
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
+
+app.use(session({ secret: '7d77bfd64f4f57074a8a7458cfe687e822ffe1c2a12de09accefce2708f3930d', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/login', passport.authenticate('auth0', {
+  scope: 'openid email profile'
+}), (req, res) => res.redirect('/'));
+
+app.get('/callback', passport.authenticate('auth0', {
+  failureRedirect: '/'
+}), (req, res) => res.redirect('/user'));
+
+app.get('/user', (req, res) => {
+  if (!req.user) {
+    return res.redirect('/login');
+  }
+  res.send(JSON.stringify(req.user, null, 2));
+});
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+app.get('/', (req, res) => res.send('Home Page'));
+
+app.listen(3000, () => console.log('Server started on port 3000'));
+4.3 Replace Placeholders
+Your domain, clientID, clientSecret, and session secret are already replaced in the code above.
+Step 5: Run Your Application
+5.1 Start Your Node.js Application
+Run the following command in the terminal:
+ 
+ 
+node app.js
+5.2 Access Your Application
+Open a web browser and go to http://localhost:3000.
+Click on the login link to authenticate via Auth0.
+After successful login, you should be redirected to the user profile page showing your Auth0 profile information.
+Step 6: (Optional) Configure HTTPS
+If you want to run your application with HTTPS in a production environment, you should set up a reverse proxy like Nginx or use Let's Encrypt for SSL certificates.

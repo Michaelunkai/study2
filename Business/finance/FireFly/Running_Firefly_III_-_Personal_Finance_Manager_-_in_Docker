@@ -1,0 +1,39 @@
+▲A  A▼
+Running Firefly III - Personal Finance Manager - in Docker
+What is Firefly III?
+"Firefly III" is a (self-hosted) manager for your personal finances. It can help you keep track of your expenses and income, so you can spend less and save more. -https://docs.firefly-iii.org/firefly-iii/installation/self_hosted/?mtm_campaign=docu-internal&mtm_kwd=self_hosted
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Firefly III
+Continue with the following commands in a terminal window
+# create a working directory
+mkdir ~/docker/firefly -p && mkdir ~/docker/mariadb -p
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the mariadb docker container
+docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=r00tp@$$ -e MYSQL_USER=firefly_rw -e MYSQL_PASSWORD='f!r3f1y:)' -e MYSQL_DATABASE=firefly_db -v ~/docker/mariadb:/var/lib/mysql -p 3306:3006 -d mariadb:latest
+# generate a 32 character random string
+randomized=$(head /dev/urandom | LC_ALL=C tr -dc 'A-Za-z0-9' | head -c 32)
+# start the firefly container
+docker run -d --name firefly --link mariadb -v ~/docker/firefly:/var/www/html/storage/upload -p 8090:8080 -e APP_KEY=$randomized -e DB_HOST=mariadb -e DB_PORT=3306 -e DB_CONNECTION=mysql -e DB_DATABASE=firefly_db -e DB_USERNAME=firefly_rw -e DB_PASSWORD='f!r3f1y:)' fireflyiii/core
+Open a web browser and navigate to http://DNSorIP:8090
+Enter an email address and password > Click Register
+Welcome to Firefly III
+Documentation: https://hub.docker.com/r/fireflyiii/core
+
+ 

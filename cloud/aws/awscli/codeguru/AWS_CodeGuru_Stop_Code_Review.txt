@@ -1,0 +1,1 @@
+aws codeguru-reviewer stop-code-review --code-review-arn <code-review-arn>

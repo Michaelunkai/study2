@@ -1,0 +1,1 @@
+aws iot describe-certificate --certificate-id <certificate-id>

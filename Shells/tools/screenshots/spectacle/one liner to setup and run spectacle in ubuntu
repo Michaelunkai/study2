@@ -1,0 +1,1 @@
+create one liner, to setup and run spectacle in ubuntu, and use it in the end! # Spectacle: KDE-based screenshot capture tool. && sudo apt install spectacle -y && spectacle &

@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name authelia -p 9091:9091 authelia/authelia:latest

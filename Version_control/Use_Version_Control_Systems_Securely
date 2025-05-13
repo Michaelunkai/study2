@@ -1,0 +1,21 @@
+ Use Version Control Systems Securely
+2.1. Install Git
+If not already installed:
+
+sudo apt install git -y
+2.2. Set Up SSH Keys for GitHub/GitLab
+Generate SSH keys:
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+Add your SSH key to the SSH agent:
+
+eval "$(s -agent -s)"
+s -add ~/.s /id_ed25519
+Copy the SSH key to your clipboard:
+
+cat ~/.s /id_ed25519.pub
+
+
+
+
+Add this key to your GitHub/GitLab account under SSH keys.

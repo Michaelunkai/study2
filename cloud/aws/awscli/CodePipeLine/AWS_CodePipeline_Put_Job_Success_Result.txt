@@ -1,0 +1,1 @@
+aws codepipeline put-job-success-result --job-id <job-id>

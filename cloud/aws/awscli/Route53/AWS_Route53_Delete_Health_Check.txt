@@ -1,0 +1,1 @@
+aws route53 delete-health-check --id <health-check-id>

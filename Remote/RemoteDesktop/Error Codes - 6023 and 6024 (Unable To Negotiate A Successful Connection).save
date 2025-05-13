@@ -1,0 +1,75 @@
+Skip to main content Parsec Help Center home page Parsec Common Issues Error Codes Search Articles in this section 
+Error Codes - 6023 and 6024 (Unable To Negotiate A Successful Connection) 2 months ago Updated Not yet followed by 
+anyone This error means something is preventing Parsec from making a peer-to-peer network connection between you and 
+the other computer. This could be prevented because of NAT issues, firewall issues, improper/non-existent port 
+forwarding, or even if your ISP has been blocking the UDP connections. To resolve this, make sure to check everything 
+below on both of the computers that are trying to make the connection. That makes it more likely for the issue to be 
+resolved.
+ 
+Restart the computer and router Sometimes, simply restarting everything fixes this error. Restart the computer and 
+router on both the host and client computer which are having issues.
+ 
+Allow Parsec on the firewall Both the host and client should make sure that Parsec is allowed on the firewall. Here's 
+how to do it on Windows: Press Windows key + R, paste control firewall.cpl and press Enter Select "Allow an app or 
+feature...." in the sidebar Click Change settings, search for Parsec and enable the checkboxes, then click OK If you 
+want to be absolutely sure your firewall isn't the culprit, you can also disable it temporarily by going to "Turn 
+Windows Defender on or off" in the sidebar instead of "Allow an app or feature....". In this section, temporarily 
+disable everything, and attempt to connect Make sure to re-enable once you find out that's not it, though, or your PC 
+will be more vulnerable to security issues.
+ 
+Make sure your home isn't using two routers If, for example, you purchased your own router and plugged it directly 
+into your internet provider's router to improve the Wi-Fi signal in your house, that can prevent Parsec from making 
+the connection. If the host or client's home has multiple routers, make sure to connect your device directly to the 
+router that provides internet, most likely the router given by your internet provider that plugs into the wall outlet 
+(either cable, fibre, or DSL). If you cannot do that, you can alternatively search online how to change the other 
+router's settings into something called either access point or bridge mode.
+ 
+macOS Sequoia: Allow Parsec app to talk to local network Apple added a new permission on macOS 15 (Sequoia) for 
+allowing apps to access other devices under the same network. You should receive the below pop-up, where you must 
+select "allow" for Parsec connections to be successful. You can also set this permission through the below steps: 
+Open the macOS System Settings Go to Privacy & Security Go to Local Network Approve Parsec Restart the Parsec app
+ 
+Check if your network is too restrictive (carrier-grade NAT) One of the main issues that can prevent a connection 
+from happening is when your internet provider uses a "carrier-grade NAT" in their infrastructure. If both sides 
+trying to make a connection have this issue, then Parsec cannot make the connection happen. How do I check I have 
+this issue? Make sure to check for this on both sides (both computers involved in the connection). The steps for 
+Windows are as follows: Press Windows key + R Paste this onto the new window: cmd /k tracert 1.1.1.1 Press Enter. A 
+new black window will show up Wait for a while until it shows 'Trace complete.' You'll see a list of IPs in the 
+window checking_tracert.png Check if any of the IPs in the black window (except the first IP) are in this list: 
+192.168.0.0 to 192.168.255.255 10.0.0.0 to 10.255.255.255 172.16.0.0 to 172.31.255.255 100.64.0.0 to 100.127.255.255 
+If you see any that are in the list, that is bad news, you're likely behind a carrier-grade NAT. The exception is if 
+the IP you saw has the exact first 3 sets of numbers as the first IP in your black window, which means it can be 
+safely ignored (for example, 192.168.0.1 at the start of the list, followed by 192.168.0.10 is ok). How can I solve 
+this? If both sides have the issue: Either side can request to get a dynamic or static "public IP" from their 
+internet provider. It's often free or inexpensive to get, and if you want to use Parsec often, it's the way to go. 
+With only one person behind a carrier-grade NAT, Parsec should be able to make the connection just fine. If only one 
+side has the issue: The side that does not have the issue can try to configure their router, which might be all that 
+is needed to get your network open enough for Parsec to work. To learn how to configure the router, read further 
+below.
+ 
+Configure your router If you ensured you don't have any of the issues listed beforehand, you can try configuring your 
+router below. If you're behind a carrier-grade NAT, configuring the router will not fix your issue. You might however 
+be able to configure the router on the opposite machine, if it does not also have a carrier-grade NAT. Guide on how 
+to port-forward Parsec
+ 
+Solutions for people using pfSense or OPNsense If you're trying to connect, but you use pfSense or OPNsense at home 
+as your gateway/firewall, you might need to set Hybrid NAT rules, with a rule pointing to your local IP (having a 
+static DHCP lease helps here).
+ 
+Nothing fixed it, what do I do? Make sure that you have not skipped any of the sections above, especially the one on 
+carrier-grade NAT and configuring your router. Unfortunately networking is complicated, and although Parsec has a few 
+tricks on its sleeve (like UDP hole punching, which can allow situations where only one of the computers have to be 
+sufficiently open), it cannot always make the connection happen without configuration from you as the user. If you 
+are a Parsec for Teams customer, keep in mind there may be additional things of note about how your team has set up 
+Parsec, and if you are stuck you may want to contact the Teams-specific support by opening your Parsec app, and 
+clicking the Help icon. If everything else in this article has been looked into but did not help, but you want to try 
+another solution at the cost of possibly worsening the latency of the stream, you can follow this tutorial on using 
+the ZeroTier P2P VPN. This is not a guaranteed fix, and you may have issues with it even if it works, but it's the 
+only option left if everything else has failed to resolve the error. Was this article helpful?
+ 
+4 out of 10 found this helpful Have more questions? Submit a request Return to top Related articles How to port 
+forward Parsec Using a VPN (ZeroTier) to Connect on Parsec All Error Codes Hardware and Software Compatibility Error 
+Codes - 800 (Failed request to an endpoint) © 2016-2024 Parsec Cloud, Inc. All rights reserved. Product Work Gaming 
+Pros Enterprise Changelog Download Developers Teams API Documentation Resources Support Blog Security Remote Desktop 
+Hybrid Work Company About Careers Terms of Service Privacy Policy Acknowledgements
+

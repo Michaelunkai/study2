@@ -1,0 +1,26 @@
+Troubleshooting Tips
+Connection Issues:
+
+Ensure Couchbase Server is running and accessible from your machine.
+Check firewall settings to allow traffic on Couchbase ports (default is 8091 for the web console).
+Authentication Errors:
+
+Verify that the username and password in ~/.cbsh/config are correct.
+Ensure the user has the necessary permissions to perform operations.
+cbsh Not Found:
+
+Make sure /usr/local/bin is in your PATH. You can check with:
+
+ 
+ 
+echo $PATH
+If not, add it by editing ~/.bashrc or ~/.zshrc:
+
+ 
+ 
+export PATH=$PATH:/usr/local/bin
+Then, reload the shell:
+
+ 
+ 
+source ~/. rc

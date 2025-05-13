@@ -1,0 +1,33 @@
+1. Create Lambda Function:
+
+Go to the AWS Management Console.
+Navigate to the Lambda dashboard.
+Click on "Create function."
+Choose a function name, runtime, and execution role.
+Write your function code or choose a pre-built blueprint.
+Configure triggers and permissions as needed.
+Click "Create function" to create your Lambda function.
+2. Invoke Lambda Function:
+
+After creating the Lambda function, navigate to its details page.
+Find the function's ARN (Amazon Resource Name) for later use.
+Test the function using the "Test" button or by invoking it through an event source.
+Monitor function invocations and performance metrics in the Lambda dashboard or using CloudWatch.
+3. Add Lambda Function to EC2:
+
+Go to the EC2 dashboard.
+Select the EC2 instance you want to integrate with Lambda.
+Create an IAM role with permissions to invoke the Lambda function.
+Attach the IAM role to the EC2 instance.
+Use the AWS SDK or CLI to invoke the Lambda function from the EC2 instance code.
+4. Test Integration:
+
+Update the EC2 instance code to invoke the Lambda function.
+Test the integration by triggering the EC2 instance code.
+Monitor the function invocations and performance from the Lambda dashboard and CloudWatch.
+5. Compare Performance:
+
+Before integrating Lambda, measure the performance of your application running on the EC2 instance.
+After integrating Lambda, measure the performance again.
+Compare metrics such as response time, throughput, and resource utilization to assess the impact of Lambda integration on your application's performance.
+By following these steps, you'll be able to create a Lambda function, invoke it, integrate it with an EC2 instance, and compare the performance before and after integration.

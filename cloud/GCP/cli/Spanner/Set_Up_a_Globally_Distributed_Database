@@ -1,0 +1,1 @@
+gcloud spanner instances create my-instance --config=regional-us-central1 --description="My Spanner Instance" --nodes=3

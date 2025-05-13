@@ -1,0 +1,1 @@
+sudo apt install apache2 -y && cc && sudo service apache2 start && cc && firefox localhost

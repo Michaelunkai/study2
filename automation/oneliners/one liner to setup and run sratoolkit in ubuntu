@@ -1,0 +1,1 @@
+sudo apt install sra-toolkit -y && prefetch SRR123456

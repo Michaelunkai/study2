@@ -1,0 +1,1 @@
+gcloud sql instances create my-instance --database-version=MYSQL_5_7 --tier=db-f1-micro --region=us-central1

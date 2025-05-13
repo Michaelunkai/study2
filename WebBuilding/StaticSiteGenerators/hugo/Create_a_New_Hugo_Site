@@ -1,0 +1,12 @@
+ Create a New Hugo Site
+
+Now, create a new Hugo site in your desired directory:
+
+ 
+ 
+hugo new site my-hugo-site
+Navigate to your new Hugo site directory:
+
+ 
+ 
+cd my-hugo-site

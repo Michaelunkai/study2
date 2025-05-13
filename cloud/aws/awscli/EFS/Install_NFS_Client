@@ -1,0 +1,14 @@
+Install NFS Client
+You need to install the NFS client on your EC2 instances to mount the EFS file system.
+
+On Ubuntu/Debian:
+
+ 
+ 
+sudo apt update
+sudo apt install nfs-common -y
+On Amazon Linux/CentOS:
+
+ 
+ 
+sudo yum install nfs-utils -y

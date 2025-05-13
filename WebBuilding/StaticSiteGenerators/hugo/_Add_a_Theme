@@ -1,0 +1,9 @@
+Add a Theme
+
+Hugo uses themes to style your site. You can add a theme from the official Hugo themes repository. For example:
+
+ 
+ 
+git init
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+echo 'theme = "ananke"' >> config.toml

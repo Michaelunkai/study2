@@ -1,0 +1,1 @@
+flatpak install -y flathub org.anbox.appmgr && flatpak run org.anbox.appmgr

@@ -1,0 +1,1 @@
+wget https://cdn.geekbench.com/Geekbench-6.2.0-Linux.tar.gz && tar -xvf Geekbench-6.2.0-Linux.tar.gz && cd Geekbench-6.2.0-Linux && ./geekbench6

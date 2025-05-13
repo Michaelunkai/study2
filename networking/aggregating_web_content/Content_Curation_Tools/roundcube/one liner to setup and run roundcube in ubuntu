@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y roundcube && echo 'Configure Roundcube via web interface'

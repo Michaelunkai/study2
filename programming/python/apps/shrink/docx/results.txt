@@ -1,0 +1,87 @@
+# Automatically generated
+# duptype id depth size device inode priority name
+DUPTYPE_FIRST_OCCURRENCE 3 1 32 82 10696049115053317 3 /mnt/c/study/AI_and_Machine_Learning/How_to_Create_Video_Subtitles_with_AI_in_Just_a_Few_Seconds:_A_Comprehensive_Guide_to_Efficient_Subtitle_Generation_Using_Captions.7z
+DUPTYPE_WITHIN_SAME_TREE -3 1 32 82 9007199254751005 3 /mnt/c/study/Resume/ChatGPT_Resume_Writing_Tips.txt.7z
+DUPTYPE_FIRST_OCCURRENCE 14864 3 100 82 10696049115158276 3 /mnt/c/study/Shells/bash/scripts/run.sh
+DUPTYPE_WITHIN_SAME_TREE -14864 4 100 82 13792273858975496 3 /mnt/c/study/cloud/Labs/comptia/1/run.sh
+DUPTYPE_FIRST_OCCURRENCE 14609 3 194 82 6755399441208472 3 /mnt/c/study/Shells/bash/fzf/FZF_Search_in_Top_Down_Layout.txt.7z
+DUPTYPE_WITHIN_SAME_TREE -14609 4 194 82 4222124650702462 3 /mnt/c/study/Shells/tools/Package_Manager/top/FZF_Search_in_Top_Down_Layout.txt.7z
+DUPTYPE_FIRST_OCCURRENCE 793 1 237 82 9288674231630939 3 /mnt/c/study/setups/liner_to_setup_and_run_Dgraph_in_ubuntu_with_snap.7z
+DUPTYPE_WITHIN_SAME_TREE -793 5 237 82 10414574138453748 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Visualization/Graphs/Dgraph/liner_to_setup_and_run_Dgraph_in_ubuntu_with_snap.7z
+DUPTYPE_FIRST_OCCURRENCE 13963 3 243 82 9570149208327098 3 /mnt/c/study/Shells/bash/Audio/FFmpeg_Change_Audio_Pitch.txt.7z
+DUPTYPE_WITHIN_SAME_TREE -13963 5 243 82 5348024557534529 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Audio/Music/Udio/FFmpeg_Change_Audio_Pitch.txt.7z
+DUPTYPE_FIRST_OCCURRENCE 19526 4 261 82 13510798882276200 3 /mnt/c/study/AI_and_Machine_Learning/Machine_Learning/projects/Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC/data.csv.7z
+DUPTYPE_WITHIN_SAME_TREE -19526 5 261 82 7318349394493482 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Visualization/python/Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC/data.csv.7z
+DUPTYPE_FIRST_OCCURRENCE 1216 1 264 82 16325548649398289 3 /mnt/c/study/setups/liner_to_setup_and_run_orange_in_ubuntu.7z
+DUPTYPE_WITHIN_SAME_TREE -1216 4 264 82 6755399441109394 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Visualization/Orange/liner_to_setup_and_run_orange_in_ubuntu.7z
+DUPTYPE_FIRST_OCCURRENCE 1394 1 272 82 18295873486374564 3 /mnt/c/study/setups/liner_to_setup_ghidra_with_snap.7z
+DUPTYPE_WITHIN_SAME_TREE -1394 4 272 82 4503599627443208 3 /mnt/c/study/Shells/tools/Package_Manager/snap/liner_to_setup_ghidra_with_snap.7z
+DUPTYPE_FIRST_OCCURRENCE 9646 2 276 82 10977524091923719 3 /mnt/c/study/docker/guides/run_ollama_with_docker_container.7z
+DUPTYPE_WITHIN_SAME_TREE -9646 4 276 82 118500965195239333 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Local/Ollama/run_ollama_with_docker_container.7z
+DUPTYPE_FIRST_OCCURRENCE 1211 1 299 82 17169973579530247 3 /mnt/c/study/setups/liner_to_setup_and_run_ollydbg_in_ubuntu_with_wine.7z
+DUPTYPE_WITHIN_SAME_TREE -1211 4 299 82 12103423998718074 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/OllyDbg/liner_to_setup_and_run_ollydbg_in_ubuntu_with_wine.7z
+DUPTYPE_FIRST_OCCURRENCE 558 1 304 82 10133099161758535 3 /mnt/c/study/setups/liner_to_download_llama3.1_with_huggingface_cli.7z
+DUPTYPE_WITHIN_SAME_TREE -558 4 304 82 6755399441097659 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/llama/llama3.1/liner_to_download_llama3.1_with_huggingface_cli.7z
+DUPTYPE_FIRST_OCCURRENCE 2786 1 318 82 7599824371381518 3 /mnt/c/study/setups/one_liner_to_Run_Matomo_-_Google_Analytics_Alternative_-_in_Docker.7z
+DUPTYPE_WITHIN_SAME_TREE -2786 5 318 82 5910974510977442 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Analytics/web_analytics/Matomo/one_liner_to_Run_Matomo_-_Google_Analytics_Alternative_-_in_Docker.7z
+DUPTYPE_FIRST_OCCURRENCE 657 1 323 82 2814749767291498 3 /mnt/c/study/setups/liner_to_setup_Meltano_in_ubuntu_and_initiate_new_project.7z
+DUPTYPE_WITHIN_SAME_TREE -657 4 323 82 5348024557556564 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Flow/meltano/liner_to_setup_Meltano_in_ubuntu_and_initiate_new_project.7z
+DUPTYPE_FIRST_OCCURRENCE 4028 1 327 82 4785074604277167 3 /mnt/c/study/setups/setupTests.js.7z
+DUPTYPE_WITHIN_SAME_TREE -4028 7 327 82 7036874417961102 3 /mnt/c/study/programming/frontend/javascript/react/projects/my_study_folder_in_web/src/setupTests.js.7z
+DUPTYPE_FIRST_OCCURRENCE 1424 1 340 82 15481123719270439 3 /mnt/c/study/setups/liner_to_setup_kaggle_and_download_database_in_ubuntu.7z
+DUPTYPE_WITHIN_SAME_TREE -1424 5 340 82 5348024557575004 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/DBdownloaders/kaggle/liner_to_setup_kaggle_and_download_database_in_ubuntu.7z
+DUPTYPE_FIRST_OCCURRENCE 5225 2 344 82 14918173765730240 3 /mnt/c/study/automation/oneliners/Dockerfile.7z
+DUPTYPE_WITHIN_SAME_TREE -5225 5 344 82 5910974510996258 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/datasets/imdb/title.ratings.tsv/Dockerfile.7z
+DUPTYPE_FIRST_OCCURRENCE 2390 1 371 82 3377699720719103 3 /mnt/c/study/setups/one liner to setup and run openrefine in ubuntu.7z
+DUPTYPE_WITHIN_SAME_TREE -2390 4 371 82 2533274790466781 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/data_Manipulation/openrefine/one liner to setup and run openrefine in ubuntu.7z
+DUPTYPE_FIRST_OCCURRENCE 791 1 398 82 13792273859001431 3 /mnt/c/study/setups/liner_to_setup_and_run_Dataiku_in_ubuntu.7z
+DUPTYPE_WITHIN_SAME_TREE -791 4 398 82 14355223812273814 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/data_Manipulation/Dataiku/liner_to_setup_and_run_Dataiku_in_ubuntu.7z
+DUPTYPE_FIRST_OCCURRENCE 4713 2 459 82 10414574138458620 3 /mnt/c/study/Hacking/reverseSHELL/reverse sell into windows powershell with netcat.txt.7z
+DUPTYPE_WITHIN_SAME_TREE -4713 4 459 82 6473924464417731 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/reverseSHELL/reverse sell into windows powershell with netcat.txt.7z
+DUPTYPE_FIRST_OCCURRENCE 4714 2 512 82 5348024557613618 3 /mnt/c/study/Hacking/reverseSHELL/reverse-shell.ps1.7z
+DUPTYPE_WITHIN_SAME_TREE -4714 4 512 82 3096224743889868 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/reverseSHELL/reverse-shell.ps1.7z
+DUPTYPE_FIRST_OCCURRENCE 4715 2 623 82 5066549580902961 3 /mnt/c/study/Hacking/reverseSHELL/use reverse shell from my terminal with netcat.txt.7z
+DUPTYPE_WITHIN_SAME_TREE -4715 4 623 82 7599824371260366 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/reverseSHELL/use reverse shell from my terminal with netcat.txt.7z
+DUPTYPE_FIRST_OCCURRENCE 5407 2 690 82 17169973579511553 3 /mnt/c/study/automation/oneliners/liner_to_Implement_automated_web_scraping_and_data_analysis_pipeline.7z
+DUPTYPE_WITHIN_SAME_TREE -5407 4 690 82 5066549580847733 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Analytics/web_analytics/liner_to_Implement_automated_web_scraping_and_data_analysis_pipeline.7z
+DUPTYPE_FIRST_OCCURRENCE 7675 2 691 82 4785074604220591 3 /mnt/c/study/automation/oneliners/one-liner installs Kedro, PySpark, and Java, creates a new Kedro project with an example pipeline, automates input using expect, installs dependencies, and runs the default Kedro pipeline.7z
+DUPTYPE_WITHIN_SAME_TREE -7675 4 691 82 2533274790466804 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Big_Data/pyspark/one-liner installs Kedro, PySpark, and Java, creates a new Kedro project with an example pipeline, automates input using expect, installs dependencies, and runs the default Kedro pipeline.7z
+DUPTYPE_FIRST_OCCURRENCE 271 1 692 82 9007199254927148 3 /mnt/c/study/setups/Liner_to:_Install_Valgrind,_compile_and_debug_C_code_for_memory_leak_detection,_and_visualize_profiling_results_using_KCacheGrind.7z
+DUPTYPE_WITHIN_SAME_TREE -271 4 692 82 4785074604113235 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Visualization/KCacheGrind/Liner_to:_Install_Valgrind,_compile_and_debug_C_code_for_memory_leak_detection,_and_visualize_profiling_results_using_KCacheGrind.7z
+DUPTYPE_FIRST_OCCURRENCE 5240 2 714 82 5348024557701257 3 /mnt/c/study/automation/oneliners/One-Liner_to_do_web_scraping_and_data_analysis_(scrapy,_pandas,_matplotlib,_sed).7z
+DUPTYPE_WITHIN_SAME_TREE -5240 4 714 82 6755399441109481 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Analysis/scraping/One-Liner_to_do_web_scraping_and_data_analysis_(scrapy,_pandas,_matplotlib,_sed).7z
+DUPTYPE_FIRST_OCCURRENCE 5192 2 869 82 13510798882174683 3 /mnt/c/study/automation/MiNiFi/_Create_a_Data_Flow_Using_Apache_MiNiFi.7z
+DUPTYPE_WITHIN_SAME_TREE -5192 4 869 82 5629499534283515 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Flow/MiNiFi/_Create_a_Data_Flow_Using_Apache_MiNiFi.7z
+DUPTYPE_FIRST_OCCURRENCE 10314 2 874 82 9288674231615177 3 /mnt/c/study/programming/go/Google_Launches_Prompt_Gallery_in_AI_Studio,_Significantly_Enhancing_Gemini_Developer_Tools.7z
+DUPTYPE_WITHIN_SAME_TREE -10314 5 874 82 6473924464397082 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Audio/Music/Udio/Google_Launches_Prompt_Gallery_in_AI_Studio,_Significantly_Enhancing_Gemini_Developer_Tools.7z
+DUPTYPE_FIRST_OCCURRENCE 19831 4 1008 82 7318349394589365 3 /mnt/c/study/IDE/IDEs/VScode/codeGPT/cody_vs_codegpt.7z
+DUPTYPE_WITHIN_SAME_TREE -19831 5 1008 82 3659174697273177 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Coding/VScode/cody/cody_vs_codegpt.7z
+DUPTYPE_FIRST_OCCURRENCE 9528 2 1045 82 3377699720726798 3 /mnt/c/study/docker/guides/_Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker.7z
+DUPTYPE_WITHIN_SAME_TREE -9528 4 1045 82 5629499534283239 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/DataPipeLineFramework/NiFi/_Set_Up_and_Configure_Apache_NiFi_for_Data_Flow_Automation_in_ubuntu_with_docker.7z
+DUPTYPE_FIRST_OCCURRENCE 421 1 1244 82 2251799813791335 3 /mnt/c/study/setups/espocrm-setup-apache-mysql-php-fix-errors-auto-password.sh.7z
+DUPTYPE_WITHIN_SAME_TREE -421 5 1244 82 6192449487707201 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/sql/mysql/espocrm-setup-apache-mysql-php-fix-errors-auto-password.sh.7z
+DUPTYPE_FIRST_OCCURRENCE 19525 4 1359 82 5066549580872924 3 /mnt/c/study/AI_and_Machine_Learning/Machine_Learning/projects/Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC/a.py.7z
+DUPTYPE_WITHIN_SAME_TREE -19525 5 1359 82 25332747903975450 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Visualization/python/Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC/a.py.7z
+DUPTYPE_FIRST_OCCURRENCE 13975 3 1400 82 11540474045301703 3 /mnt/c/study/Shells/bash/Audio/How_to_Instantly_Create_a_Podcast_Using_AI_with_NotebookLM_Audio_Overview:_Revolutionary_Tool_for_Effortless_Content_Transformation.7z
+DUPTYPE_WITHIN_SAME_TREE -13975 5 1400 82 13229323905451210 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Audio/Music/Udio/How_to_Instantly_Create_a_Podcast_Using_AI_with_NotebookLM_Audio_Overview:_Revolutionary_Tool_for_Effortless_Content_Transformation.7z
+DUPTYPE_FIRST_OCCURRENCE 9657 2 1547 82 4222124650847505 3 /mnt/c/study/docker/guides/script_sets_up_and_runs_DocMost_on_localhost_using_Docker_and_Traefik_for_SSL,_configuring_services_like_PostgreSQL,_Redis,_and_Traefik,_and_automatically_launches_DocMost.sh.7z
+DUPTYPE_WITHIN_SAME_TREE -9657 5 1547 82 5910974510965504 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/redis/script_sets_up_and_runs_DocMost_on_localhost_using_Docker_and_Traefik_for_SSL,_configuring_services_like_PostgreSQL,_Redis,_and_Traefik,_and_automatically_launches_DocMost.sh.7z
+DUPTYPE_FIRST_OCCURRENCE 9511 2 1650 82 13792273859009370 3 /mnt/c/study/docker/guides/Running_Traefik_-_HTTP_Reverse_Proxy_and_Load_Balancer_-_in_Docker.7z
+DUPTYPE_WITHIN_SAME_TREE -9511 5 1650 82 3377699720600576 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/reverse_engineering/Reverse_Proxy/Traefik/Running_Traefik_-_HTTP_Reverse_Proxy_and_Load_Balancer_-_in_Docker.7z
+DUPTYPE_FIRST_OCCURRENCE 5191 2 1675 82 5348024557565609 3 /mnt/c/study/automation/MiNiFi/Automating_Data_Flow_in_Ubuntu_Using_Apache_MiNiFi_CLI.7z
+DUPTYPE_WITHIN_SAME_TREE -5191 4 1675 82 2814749767177114 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/Data_Flow/MiNiFi/Automating_Data_Flow_in_Ubuntu_Using_Apache_MiNiFi_CLI.7z
+DUPTYPE_FIRST_OCCURRENCE 116 1 1680 82 5629499534378760 3 /mnt/c/study/Shells/How_to_Host_Proxmox_Web_UI_Using_ngrok,_Create_a_Systemd_Service,_and_Make_the_URL_Shorter_from_Terminal.7z
+DUPTYPE_WITHIN_SAME_TREE -116 4 1680 82 3096224743848943 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/NoCode/Make/How_to_Host_Proxmox_Web_UI_Using_ngrok,_Create_a_Systemd_Service,_and_Make_the_URL_Shorter_from_Terminal.7z
+DUPTYPE_FIRST_OCCURRENCE 4118 1 1782 82 5910974511119894 3 /mnt/c/study/setups/setup_and_use_Hugging_Face_Transformers.7z
+DUPTYPE_WITHIN_SAME_TREE -4118 4 1782 82 5348024557544303 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Local/huggingface/setup_and_use_Hugging_Face_Transformers.7z
+DUPTYPE_FIRST_OCCURRENCE 12070 3 1980 82 13510798882191356 3 /mnt/c/study/AI_and_Machine_Learning/DeepLearning/VS/cerebras vs groq (made with cerebras).7z
+DUPTYPE_WITHIN_SAME_TREE -12070 4 1980 82 3659174697280548 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Models/groq/cerebras vs groq (made with cerebras).7z
+DUPTYPE_FIRST_OCCURRENCE 9433 2 1983 82 12666373952166048 3 /mnt/c/study/docker/containers/Setting_Up_and_Configuring_Cassandra_with_Spark_for_Real-Time_Analytics_on_Ubuntu_Using_Docker.7z
+DUPTYPE_WITHIN_SAME_TREE -9433 5 1983 82 5348024557575218 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/databases/noSQL/cassandra/Setting_Up_and_Configuring_Cassandra_with_Spark_for_Real-Time_Analytics_on_Ubuntu_Using_Docker.7z
+DUPTYPE_FIRST_OCCURRENCE 10254 2 2108 82 7318349394640445 3 /mnt/c/study/programming/APIs/Building_a_Custom_GPT_with_API_Requests.7z
+DUPTYPE_WITHIN_SAME_TREE -10254 4 2108 82 3940649673992194 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Chatbots/pi/Building_a_Custom_GPT_with_API_Requests.7z
+DUPTYPE_FIRST_OCCURRENCE 14204 3 2268 82 6192449487799615 3 /mnt/c/study/Shells/bash/Python/Setting_Up_and_Running_the_Hugging_Face_Transformers_Library_in_Ubuntu_with_Python,_Virtual_Environment,_PyTorch,_and_Essential_Modules_Including_Evaluate_and_Accelerate.7z
+DUPTYPE_WITHIN_SAME_TREE -14204 4 2268 82 5910974510965602 3 /mnt/c/study/AI_and_Machine_Learning/Artificial_Intelligence/Local/huggingface/Setting_Up_and_Running_the_Hugging_Face_Transformers_Library_in_Ubuntu_with_Python,_Virtual_Environment,_PyTorch,_and_Essential_Modules_Including_Evaluate_and_Accelerate.7z
+DUPTYPE_FIRST_OCCURRENCE 10318 2 47844 82 7036874417929926 3 /mnt/c/study/programming/go/datastructures-and-algorithms_roadmap.pdf.7z
+DUPTYPE_WITHIN_SAME_TREE -10318 3 47844 82 2251799813739470 3 /mnt/c/study/AI_and_Machine_Learning/Datascience/algorithms/datastructures-and-algorithms_roadmap.pdf.7z
+# end of file

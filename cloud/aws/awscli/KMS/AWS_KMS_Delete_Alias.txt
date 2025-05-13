@@ -1,0 +1,1 @@
+aws kms delete-alias --alias-name <alias-name>

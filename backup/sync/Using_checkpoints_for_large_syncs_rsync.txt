@@ -1,0 +1,1 @@
+rsync -av --partial --progress --append /source_directory/ /destination_directory/

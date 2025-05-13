@@ -1,0 +1,1 @@
+docker run -d --name milvus -p 19530:19530 milvusdb/milvus:v2.3.4 && echo 'Milvus running on port 19530'

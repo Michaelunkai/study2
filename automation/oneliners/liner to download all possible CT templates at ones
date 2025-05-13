@@ -1,0 +1,1 @@
+pveam update && for template in $(pveam available --section system | awk '{print $2}'); do pveam download local $template; done

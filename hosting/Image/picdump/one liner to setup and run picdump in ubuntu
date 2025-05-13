@@ -1,0 +1,1 @@
+git clone https://github.com/example/picdump.git && cd picdump && npm install && node server.js

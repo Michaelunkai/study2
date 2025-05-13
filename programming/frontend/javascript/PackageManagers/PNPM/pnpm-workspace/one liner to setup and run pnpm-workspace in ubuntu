@@ -1,0 +1,1 @@
+echo "packages:\n  - packages/**" > pnpm-workspace.yaml && mkdir -p packages/app && cd packages/app && pnpm init

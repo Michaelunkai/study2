@@ -1,0 +1,1 @@
+git clone https://github.com/wasm3/wasm3.git && cd wasm3 && make && ./wasm3 --version

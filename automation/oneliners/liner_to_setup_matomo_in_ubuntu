@@ -1,0 +1,1 @@
+sudo apt install -y apache2 mysql-server php php-mysql php-xml php-gd php-cli && cd /var/www/html && wget https://builds.matomo.org/matomo.zip && apt install unzip -y && unzip matomo.zip && sudo chown -R www-data:www-data /var/www/html/matomo && sudo a2enmod rewrite && sudo systemctl restart apache2 && gc http://localhost/matomo/

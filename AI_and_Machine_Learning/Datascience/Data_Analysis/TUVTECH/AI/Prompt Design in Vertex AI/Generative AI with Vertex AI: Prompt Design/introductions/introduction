@@ -1,0 +1,121 @@
+
+00:00
+Hi there, and welcome to Applying AI Principles with Google Cloud, a course focused on the practice of responsible AI.
+00:07
+My name is Marcus.
+00:09
+And I’m Katelyn.
+00:10
+We’ll be your narrators throughout this course.
+00:13
+Many of us already have daily interactions with artificial intelligence (or AI), from predictions for traffic and weather, to recommendations of TV shows you might like to watch next.
+00:24
+As AI, especially generative AI, becomes more common many technologies that aren’t AI-enabled may start to seem inadequate.
+00:32
+And such powerful, far-reaching technology raises equally powerful questions about its development and use.
+00:40
+Historically, AI was not accessible to Ordinary people.
+00:42
+The vast majority of those trained and capable of developing AI were specialty engineers, who were scarce in number, and expensive.
+00:52
+But the barriers to entry are being lowered allowing more people to build AI, even those without AI expertise .
+00:58
+Now, AI systems are enabling computers to see, understand, and interact with the world in ways that were unimaginable just a decade ago.
+01:07
+And these systems are developing at an extraordinary pace.
+01:11
+According to Stanford University’s 2019 AI index report, before 2012, AI results tracked closely with Moore’s Law, with compute doubling every two years.
+01:23
+The report states that, since 2012, compute has been doubling approximately every 3 and a half months.
+01:30
+To put this in perspective, over this time, Vision AI technologies have only become more accurate and powerful.
+01:37
+For example, the error rate for ImageNet, an image classification dataset, has declined significantly.
+01:44
+in 2011 the error rate was 26%.
+01:47
+The error rate for the annual ImageNet large-scale visual recognition challenge has declined significantly.
+01:51
+By 2020, that number was 2%.
+01:53
+For reference, the error rate of people performing the same task is 5%.
+01:59
+And yet, despite these remarkable advancements, AI is not infallible.
+02:04
+Developing responsible AI requires an understanding of the possible issues, limitations, or unintended consequences.
+02:12
+Technology is a reflection of what exists in society, so without good practices, AI may replicate existing issues or bias, and amplify them.
+02:20
+But there is not a universal definition of “responsible AI,” nor is there a simple checklist or formula that defines how responsible AI practices should be implemented.
+02:31
+Instead, organizations are developing their own AI principles, that reflect their mission and values.
+02:37
+While these principles are unique to every organization, if you look for common themes, you find a consistent set of ideas across transparency, fairness, accountability, and privacy.
+02:48
+At Google, our approach to responsible AI is rooted in a commitment to strive towards AI that is
+02:54
+built for everyone, that it is accountable and safe, that respects privacy, and that is driven by scientific excellence.
+03:01
+We’ve developed our own AI principles, practices, governance processes, and tools that together embody our values and guide our approach to responsible AI.
+03:12
+We’ve incorporated responsibility by design into our products, and even more importantly, our organization.
+03:19
+Like many companies, we use our AI principles as a framework to guide responsible decision making.
+03:25
+We’ll explore how we do this in detail later in this course.
+03:28
+It’s important to emphasize here that we don’t pretend to have all of the answers.
+03:34
+We know this work is never finished, and we want to share what we’re learning to collaborate and help others on their own journeys.
+03:42
+We all have a role to play in how responsible AI is applied.
+03:45
+Whatever stage in the AI process you are involved with, from design to deployment or application, the decisions you make have an impact.
+03:53
+It's important that you too have a defined and repeatable process for using AI responsibly.
+03:59
+Google is not only committed to building socially-valuable advanced technologies, but also to promoting responsible practices by sharing our insights and lessons learned with the wider community.
+04:10
+This course represents one piece of these efforts.
+04:13
+The goal of this course is to provide a window into Google and, more specifically, Google Cloud’s journey toward the responsible development and use of AI.
+04:22
+Our hope is that you’ll be able to take the information and resources we’re sharing and use them to help shape your organization’s own responsible AI strategy.
+04:30
+But before we get any further, let’s clarify what we mean when we talk about AI.
+04:36
+Often, people want to know the differences between artificial intelligence, machine learning, and deep learning.
+04:43
+However, there is no universally agreed-upon definition of AI.
+04:47
+Critically, this lack of consensus around how AI should be defined has not stopped technical
+04:52
+advancement, underscoring the need for ongoing dialogue about how to responsibly create and use these systems.
+04:59
+At Google, we say our AI Principles apply to advanced technology development as an umbrella to encapsulate all kinds of technologies.
+05:09
+Becoming bogged down in semantics can distract from the central goal: to develop technology responsibly.
+05:16
+As a result, we’re not going to do a deep dive into the definitions of
+05:19
+these technologies, and instead we’ll focus on the importance of human decision making in technology development.
+05:26
+There is a common misconception with artificial intelligence that machines play the central decision-making role.
+05:31
+In reality, it’s people who design and build these machines and decide how they are used.
+05:39
+People are involved in each aspect of AI development.
+05:40
+They collect or create the data that the model is trained on.
+05:44
+They control the deployment of the AI and how it is applied in a given context.
+05:49
+Essentially, human decisions are threaded throughout our technology products.
+05:53
+And every time a person makes a decision, they are actually making a choice based on their values.
+05:58
+Whether it's the decision to use generative AI to solve a problem, as opposed to other
+06:02
+methods [right top], or anywhere throughout the machine learning lifecycle, they introduce their own set of values.
+06:09
+This means that every decision point requires consideration and evaluation to ensure that choices have been made responsibly from concept through deployment and maintenance.

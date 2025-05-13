@@ -1,0 +1,5 @@
+sudo apt install cryptsetup
+sudo cryptsetup luksFormat /dev/sdX
+sudo cryptsetup open /dev/sdX encrypted_volume
+sudo mkfs.ext4 /dev/mapper/encrypted_volume
+sudo mount /dev/mapper/encrypted_volume /mnt

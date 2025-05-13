@@ -1,0 +1,1 @@
+pnpm add -D eslint-config-turbo && echo "Turbo lint config ready!"

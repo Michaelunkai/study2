@@ -1,0 +1,1 @@
+aws dynamodb scan --table-name MyTable-c867ff9c

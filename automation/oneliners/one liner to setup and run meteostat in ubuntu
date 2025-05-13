@@ -1,0 +1,1 @@
+pip3 install meteostat && python3 -c 'import meteostat; print(meteostat.__version__)'

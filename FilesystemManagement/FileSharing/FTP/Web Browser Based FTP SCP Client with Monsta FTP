@@ -1,0 +1,27 @@
+Web Browser Based FTP/SCP Client with Monsta FTP
+Install Apache and PHP
+Log into the Debian device
+Run the following commands in a terminal:
+# update repositories and install any available software updates
+sudo apt-get update
+sudo apt-get upgrade
+# install Apache HTTPD
+sudo apt-get install apache2
+# install PHP components
+sudo apt-get install php7.3 libapache2-mod-php7.3 php7.3-common
+Installing Monsta FTP
+Run the following commands in a terminal:
+# download and extract Monsta FTP
+wget https://www.monstaftp.com/downloads/monsta_ftp_2.10.2_install.zip
+sudo unzip monsta_ftp*.zip -d /var/www/html
+# optionally, rename the created mftp directory to just ftp
+sudo mv /var/www/html/mftp /var/www/html/ftp
+Open a web browser and navigate to http://DNSorIP/ftp
+Customize Branding (Optional)
+Open a browser and navigate to https://www.monstaftp.com/guides/how-to-rebrand-interface
+Use the UI to change the colors of the Monsta FTP interface
+Click the Generate CSS File button
+Copy the file to the Monsta FTP installation /settings directory, for example:
+sudo cp ./theme.css /var/www/html/ftp/settings/
+Refresh your Monsta FTP installation to see the updated interface theme
+Alternatively, edit the /var/www/html/ftp/settings/theme.css file directly to fully customize the look and feel

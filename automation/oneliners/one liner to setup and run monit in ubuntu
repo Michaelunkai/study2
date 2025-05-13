@@ -1,0 +1,1 @@
+sudo apt install monit -y && sudo systemctl start monit

@@ -1,0 +1,1 @@
+kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml && kubectl apply -f https://openebs.github.io/charts/openebs-storageclasses.yaml

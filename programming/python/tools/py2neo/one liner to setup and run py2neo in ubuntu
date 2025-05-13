@@ -1,0 +1,1 @@
+pip3 install py2neo && python3 -c 'import py2neo; print(py2neo.__version__)'

@@ -1,0 +1,1 @@
+curl -LO https://github.com/WebAssembly/wasi-sdk/releases/latest/download/wasi-sdk-20.0-linux.tar.gz && tar -xvf wasi-sdk-20.0-linux.tar.gz && echo 'WASI SDK installed'

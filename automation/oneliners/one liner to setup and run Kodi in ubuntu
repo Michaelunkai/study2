@@ -1,0 +1,1 @@
+flatpak install -y flathub tv.kodi.Kodi && flatpak run tv.kodi.Kodi

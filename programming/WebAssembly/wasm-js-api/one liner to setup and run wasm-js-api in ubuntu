@@ -1,0 +1,1 @@
+echo 'Use WebAssembly.compile() in JavaScript to execute WASM code.'

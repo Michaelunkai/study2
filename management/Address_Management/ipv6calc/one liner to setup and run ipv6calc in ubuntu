@@ -1,0 +1,1 @@
+sudo apt install -y ipv6calc && ipv6calc --addr2bin ipv6 ::1

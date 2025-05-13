@@ -1,0 +1,144 @@
+### **Comprehensive Guide to Setting Up and Running a Full CI/CD Pipeline with Atlassian Bamboo on Ubuntu WSL2**
+
+---
+
+This tutorial will walk you through setting up and running a full CI/CD pipeline using Atlassian Bamboo, starting from installation on Ubuntu WSL2. We'll cover everything from configuring Bamboo to setting up builds, deployment pipelines, and automation using the tools available in Bamboo.
+
+---
+
+### **Step 1: Install Atlassian Bamboo on Ubuntu WSL2**
+Run the following one-liner to install Bamboo on Ubuntu WSL2:
+
+```bash
+cd && sudo apt install -y openjdk-11-jdk wget && \
+wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-9.2.1.tar.gz -P /tmp && \
+sudo mkdir /opt/bamboo /var/bamboo-home && \
+sudo tar -xzf /tmp/atlassian-bamboo-9.2.1.tar.gz -C /opt/bamboo --strip-components=1 && \
+echo "bamboo.home=/var/bamboo-home" | sudo tee /opt/bamboo/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties && \
+sudo chmod -R 755 /opt/bamboo /var/bamboo-home && \
+/opt/bamboo/bin/start-bamboo.sh && gcl 8085
+```
+
+Once the server starts, visit the Bamboo web interface at `http://localhost:8085`.
+
+#### **Complete the Setup Wizard**
+1. Choose between an **evaluation license** or a valid license key from your Atlassian account.
+2. Configure the database:
+   - Use the built-in H2 database for testing.
+   - For production, configure PostgreSQL or MySQL as per the wizard instructions.
+3. Set up an **administrator account** for Bamboo.
+
+---
+
+### **Step 2: Configure Bamboo for CI/CD Pipelines**
+#### **Set Up Build and Deployment Agents**
+1. Bamboo comes with a **local agent** for builds.
+2. To scale, enable **remote agents**:
+   - Go to **Administration > Agents**.
+   - Enable remote agent support.
+   - Download and install the remote agent JAR on additional machines.
+
+#### **Create a Project**
+1. Navigate to **Projects > Create Project**.
+2. Provide a project name (e.g., `MyProject`) and a key (e.g., `MP`).
+
+#### **Add a Plan**
+1. Under your project, create a **Plan** (e.g., `MyBuildPlan`).
+2. Configure the source repository:
+   - Connect to Git, Bitbucket, or GitHub.
+   - Use an SSH key or OAuth token for authentication.
+
+---
+
+### **Step 3: Define Build Pipeline Tasks**
+In the Plan, add tasks to automate your build and testing processes:
+1. **Build Task**:
+   - Add a Maven/Gradle/Ant task for Java projects or a script task for other languages.
+   - Example Maven command: `mvn clean install`.
+
+2. **Test Task**:
+   - Add unit test runners like JUnit or TestNG.
+
+3. **Artifact Handling**:
+   - Configure the Bamboo Artifact task to save build outputs (e.g., JAR/WAR files).
+
+---
+
+### **Step 4: Connect Bamboo with a Version Control System (VCS)**
+1. Go to **Administration > Linked Repositories**.
+2. Add a connection to your source control provider (e.g., Git, Bitbucket, GitHub).
+3. Enable **polling triggers** to automatically run builds when changes are pushed to the repository.
+
+---
+
+### **Step 5: Automate CI/CD with Triggers**
+1. In the Plan settings, configure **Triggers**:
+   - Trigger builds on code pushes.
+   - Add scheduled triggers for periodic builds.
+
+2. Set up **Branch Strategies**:
+   - Automatically detect and create plans for feature branches.
+   - Merge branches after successful builds using Bamboo’s branch merging tool.
+
+---
+
+### **Step 6: Define Deployment Projects for Continuous Delivery**
+1. Go to **Deployment Projects**.
+2. Link your Plan to a new Deployment Project.
+3. Define **environments**:
+   - For example, staging, testing, and production.
+4. Add deployment steps:
+   - Use **script tasks** for manual deployments.
+   - Add **Docker tasks** for containerized environments.
+   - Configure **Kubernetes deployments** if applicable.
+
+---
+
+### **Step 7: Monitor and Optimize Bamboo Pipelines**
+1. **Logs**:
+   - View build logs in real-time under the Plan's **Builds** tab.
+2. **Reports**:
+   - Use Bamboo’s reporting tools to analyze build performance and frequency.
+3. **Scale Agents**:
+   - Add more agents to enable parallel builds.
+
+---
+
+### **Step 8: Use Bamboo YAML Specs for Automation (Optional)**
+Bamboo supports YAML-based pipeline definitions for versioning and reusability.
+
+#### **Example YAML Configuration**
+Save the following in a `bamboo.yml` file in your repository:
+
+```yaml
+version: 2
+plan:
+  project-key: MP
+  key: MYPLAN
+  name: My Build Plan
+  description: A CI/CD pipeline example
+  stages:
+    - Build:
+        jobs:
+          - Default Job:
+              tasks:
+                - script:
+                    interpreter: SHELL
+                    scripts:
+                      - echo "Building the project"
+                      - mvn clean install
+```
+
+---
+
+### **Step 9: Secure and Maintain Your Bamboo Installation**
+1. **Add HTTPS**:
+   - Use a reverse proxy (e.g., Nginx or Apache) to enable SSL/TLS for secure communication.
+2. **Backup Regularly**:
+   - Schedule backups for the Bamboo home directory and database.
+3. **Optimize Performance**:
+   - Allocate sufficient memory and CPU resources to Bamboo and its agents.
+
+---
+
+By following these steps, you’ll have a fully functional CI/CD pipeline using Atlassian Bamboo on Ubuntu WSL2. This setup can handle builds, testing, and deployments efficiently, providing a robust solution for your development workflows. Let me know if you need further guidance!

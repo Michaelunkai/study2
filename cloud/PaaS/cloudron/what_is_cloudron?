@@ -1,0 +1,12 @@
+Cloudron is a platform that simplifies the deployment, management, and scaling of web applications and services on your own server. It provides a user-friendly interface for managing applications, handling updates, and securing services, making it easier to run multiple applications with minimal configuration and maintenance.
+
+Key features of Cloudron include:
+
+- **App Store:** A wide range of pre-configured applications that you can install with a single click.
+- **Automatic Updates:** Keeps your applications and Cloudron itself up to date with the latest security patches and features.
+- **Backup and Restore:** Built-in tools for backing up your applications and restoring them if needed.
+- **User Management:** Tools for managing user access and permissions.
+- **Security:** Provides SSL certificates, firewall settings, and other security features to protect your applications and data.
+- **Monitoring and Logging:** Tools for monitoring the health of your applications and accessing logs.
+
+Cloudron is ideal for users who want to host and manage their own applications without dealing with the complexities of server management and manual configuration.

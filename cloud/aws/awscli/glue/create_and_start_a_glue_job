@@ -1,0 +1,12 @@
+Create a Glue Job
+Create a Glue job using the AWS CLI:
+
+aws glue create-job --name your-glue-job --role GlueServiceRole --command '{"Name": "glueetl", "ScriptLocation": "s3://your-glue-bucket/scripts/your-etl-script.py", "PythonVersion": "3"}' --default-arguments '{"--job-bookmark-option": "job-bookmark-enable"}' --region your-region
+
+
+Start the Glue Job
+
+
+aws glue start-job-run --job-name your-glue-job
+
+

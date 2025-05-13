@@ -1,0 +1,62 @@
+ STDIN – Standard Input (File Descriptor 0)
+📌 Definition
+STDIN (Standard Input) is the primary input stream a process reads from by default. Unless explicitly redirected, this input typically comes from the user's keyboard or from another process through a pipeline.
+
+⚙️ How It Works Internally
+File Descriptor: 0
+
+Each process in a UNIX-like operating system (including Linux, macOS, WSL) is given 3 open file descriptors when created:
+
+0 = STDIN (input stream)
+
+1 = STDOUT (output stream)
+
+2 = STDERR (error stream)
+
+The operating system connects these to the terminal (TTY) by default.
+
+Programs use system calls like read() in C/C++, or high-level abstractions like input() in Python to read from this stream.
+
+💡 Key Use Cases
+Reading user input during interactive command-line sessions.
+
+Feeding data into programs using pipes (|) or input redirection (<).
+
+🧪 Examples
+➤ Manual input:
+bash
+Copy code
+read name
+echo "Hello, $name"
+The read command pulls from STDIN.
+
+➤ File redirection:
+bash
+Copy code
+cat < file.txt
+Here, STDIN is redirected from the file rather than the keyboard.
+
+➤ Pipeline:
+bash
+Copy code
+echo "foo" | grep "f"
+grep receives "foo" via its STDIN.
+
+🧑‍💻 In Programming
+C:
+
+c
+Copy code
+char buffer[100];
+fgets(buffer, sizeof(buffer), stdin);
+Python:
+
+python
+Copy code
+import sys
+user_input = sys.stdin.readline()
+🧠 Why It Matters
+Essential for automation, batch processing, pipelining, and interactive input.
+
+Abstracts input handling, enabling portable scripts and tools.
+

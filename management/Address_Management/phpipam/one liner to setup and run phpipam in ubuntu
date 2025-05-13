@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y apache2 mariadb-server php php-mysql git && git clone https://github.com/phpipam/phpipam.git && sudo mv phpipam /var/www/html/ && echo 'Browse http://localhost/phpipam to configure'

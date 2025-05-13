@@ -1,0 +1,11 @@
+Delete Your ECS Clusters
+Delete Service
+
+ 
+ 
+aws ecs delete-service --cluster my-cluster --service my-service
+Delete Cluster
+
+ 
+ 
+aws ecs delete-cluster --cluster my-cluster

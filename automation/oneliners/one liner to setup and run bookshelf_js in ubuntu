@@ -1,0 +1,1 @@
+npm install -g bookshelf && echo 'Bookshelf.js installed (verify via your Node project)'

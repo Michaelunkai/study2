@@ -1,0 +1,83 @@
+▲A  A▼
+Self-hosted Asset Management System with Snipe-IT on Windows
+Download XAMPP Download
+Download Snipe-IT Download
+Download Microsoft Visual C++ Download
+Download Composer Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP .zip file > Extract All...
+Right click the downloaded Snipe-IT .zip file > Extract All...
+Rename the extracted folder snipe-it
+Cut the snipe-it folder inside the XAMPP directory
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Navigate to XAMPP/php and edit php.ini
+Find the following line and remove the ; to uncomment them
+extension=ldap
+
+Save the changes to php.ini
+Navigate to XAMPP/apache/conf and edit httpd.conf
+Paste the following configuration at the bottom of the file, update the folder paths as needed
+Alias /snipe-it "C:/Program Files/xampp/snipe-it/public/"
+<Directory "C:/Program Files/xampp/snipe-it/public">
+Options Indexes FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+
+Save the changes to httpd.conf
+Install Composer
+Navigate to the XAMPP/snipe-it folder > Right click in the white space > Open PowerShell window here...
+Run the following command to download dependencies
+# create a copy of the sample .env file
+cp .\.env.example .\.env
+# install dependencies with composer
+composer i --no-dev --prefer-source
+# generate app key, type yes to confirm generating a new key
+  artisan key:generate
+# edit .env in notepad
+notepad .\.env
+Modifying the following key/value pairs in .env as needed
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=SomethingSecure
+APP_URL=http://debian/snipe_it
+APP_TIMEZONE='America/New_York'
+APP_LOCALE=en
+
+DB_CONNECTION=my 
+DB_HOST=127.0.0.1
+DB_DATABASE=snipe_it
+DB_USERNAME=snipe_it_rw
+DB_PASSWORD=$nip3-IT!
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.i12bretro.local
+MAIL_PORT=25
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDR=snipe-it@i12bretro.local
+MAIL_FROM_NAME='Snipe-IT'
+MAIL_REPLYTO_ADDR=snipe-it@i12bretro.local
+MAIL_REPLYTO_NAME='Snipe-IT'
+MAIL_AUTO_EMBED_METHOD='attachment'
+
+Save the changes to .env
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Type the following in the PowerShell window to setup the Snipe-IT database
+.\my  -u root
+CREATE DATABASE snipe_it;
+GRANT ALL ON snipe_it.* to 'snipe_it_rw'@'localhost' IDENTIFIED BY '$nip3-IT!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Open a web browser and navigate to http://DNSorIP/snipe-it
+Review the Pre-Flight Checks summary > Click the Next: Create Database Tables button
+Once the database tables are created, Click the Next: Create User button
+Create a user by inputting a site name, first name, last name, email address, username and password > Click the Next: Save User button
+Welcome to Snipe-IT
+ 

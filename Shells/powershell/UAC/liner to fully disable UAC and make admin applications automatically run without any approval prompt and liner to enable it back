@@ -1,0 +1,29 @@
+To fully disable UAC **and** make admin applications automatically run without any approval prompt, use this **PowerShell one-liner**:
+
+```powershell
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 0 /f
+```
+
+### **What This Does:**
+- Sets **`ConsentPromptBehaviorAdmin`** to `0`, which means:
+  - **No prompts at all** for administrator accounts.  
+  - Any app requiring admin rights will run automatically **without a UAC pop-up**.
+
+---
+
+### **To Apply the Changes:**
+1. **Open PowerShell as Administrator**
+2. **Run the command** (copy & paste the above line)
+3. **Restart your computer** for the changes to take effect.
+
+---
+
+### **Re-enable UAC (If Needed)**
+If you want to **restore UAC prompts**, run:
+
+```powershell
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 5 /f
+```
+Then **restart your computer**.
+
+⚠️ **Warning:** This makes your system more vulnerable, as **any admin-level app will run without asking for permission**. Use with caution!

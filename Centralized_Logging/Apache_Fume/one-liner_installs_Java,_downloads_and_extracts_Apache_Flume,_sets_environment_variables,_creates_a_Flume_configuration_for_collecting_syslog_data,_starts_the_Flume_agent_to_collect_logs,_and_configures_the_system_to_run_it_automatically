@@ -1,0 +1,24 @@
+sudo apt install openjdk-11-jdk -y && wget https://archive.apache.org/dist/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz && tar -xvzf apache-flume-1.9.0-bin.tar.gz && sudo mv apache-flume-1.9.0-bin /opt/flume && cd /opt/flume && echo -e 'export FLUME_HOME=/opt/flume\nexport PATH=$FLUME_HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc && sudo bash -c "cat > /opt/flume/conf/flume.conf << 'EOF'
+# Name the components on this agent
+agent1.sources = source1
+agent1.sinks = sink1
+agent1.channels = channel1
+
+# Describe/configure the source
+agent1.sources.source1.type = exec
+agent1.sources.source1.command = tail -f /var/log/syslog
+
+# Describe the sink
+agent1.sinks.sink1.type = file_roll
+agent1.sinks.sink1.sink.directory = /opt/flume/logs/
+agent1.sinks.sink1.sink.rollInterval = 0
+
+# Use a channel which buffers events in memory
+agent1.channels.channel1.type = memory
+agent1.channels.channel1.capacity = 1000
+agent1.channels.channel1.transactionCapacity = 100
+
+# Bind the source and sink to the channel
+agent1.sources.source1.channels = channel1
+agent1.sinks.sink1.channel = channel1
+EOF" && flume-ng agent --conf /opt/flume/conf/ --conf-file /opt/flume/conf/flume.conf --name agent1 -Dflume.root.logger=INFO,console && ls /opt/flume/logs/

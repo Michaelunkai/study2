@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y alien && wget https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/mqadv_dev920_ubuntu_x86-64.tar.gz && tar -xzf mqadv_dev920_ubuntu_x86-64.tar.gz && cd MQServer && sudo ./mqlicense.sh -accept && sudo dpkg -i *.deb && sudo /opt/mqm/bin/setmqinst -i -p /opt/mqm && sudo /opt/mqm/bin/strmqm

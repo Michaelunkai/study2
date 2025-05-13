@@ -1,0 +1,1 @@
+pip3 install xclim && python3 -c 'import xclim; print(xclim.__version__)'

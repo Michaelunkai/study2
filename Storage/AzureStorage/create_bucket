@@ -1,0 +1,1 @@
+az storage container create --name mycontainer --account-name mystorageaccount

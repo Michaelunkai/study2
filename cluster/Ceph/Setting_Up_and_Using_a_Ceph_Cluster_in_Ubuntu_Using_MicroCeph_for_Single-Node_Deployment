@@ -1,0 +1,49 @@
+# Tutorial: Setting Up and Using a Ceph Cluster in Ubuntu Using MicroCeph for Single-Node Deployment
+
+## Prerequisites:
+- Multi-core processor
+- At least 8GiB of memory
+- 100GB of disk space
+- Ubuntu 22.04 LTS
+
+## Step-by-Step Guide:
+
+### Step 1: Install MicroCeph
+First, you need to install MicroCeph on your system. Open a terminal and run the following command:
+  
+sudo snap install microceph
+
+### Step 2: Bootstrap the Cluster
+Once MicroCeph is installed, you can bootstrap the cluster with the following command:
+  
+sudo microceph cluster bootstrap
+
+### Step 3: Check Cluster Status
+To verify the status of the cluster, use the following command:
+  
+sudo microceph.ceph status
+You should see that there is a single node in the cluster.
+
+### Step 4: Modify CRUSH Rules
+To use MicroCeph as a single node, you need to modify the default CRUSH rules:
+  
+sudo microceph.ceph osd crush rule rm replicated_rule
+sudo microceph.ceph osd crush rule create-replicated single default osd
+
+### Step 5: Add Disks as OSDs
+Add the disks that will be used as Object Storage Daemons (OSDs). Replace `/dev/sd[x]` with the appropriate disk identifier. This will wipe the disk, so ensure you choose the correct disk and have backups if necessary.
+  
+sudo microceph disk add /dev/sd[x] --wipe
+Repeat this step for each disk you would like to use as an OSD on that node.
+
+### Step 6: Verify Cluster Status
+After adding the disks, you can verify the cluster status using the following commands:
+  
+sudo microceph.ceph status
+sudo microceph.ceph osd status
+
+### Conclusion
+Following these steps, you should have a single-node Ceph cluster set up and running using MicroCeph. You can now use this setup for testing and development purposes.
+
+Note: Replace `/dev/sd[x]` with the actual disk identifier for your system.
+

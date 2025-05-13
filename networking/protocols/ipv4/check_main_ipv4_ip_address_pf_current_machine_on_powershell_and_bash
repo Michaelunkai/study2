@@ -1,0 +1,8 @@
+ :
+
+ (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -eq (Get-NetAdapter | Where-Object {$_.Status -eq "Up"}).InterfaceAlias}).IPAddress
+
+
+
+ :
+hostname -I | cut -d' ' -f1

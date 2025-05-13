@@ -1,0 +1,33 @@
+mRemoteNG Install and Basic Setup - Tabbed Multi-Protocol Remote Connections
+mRemoteNG is a fork of mRemote: an open source, tabbed, multi-protocol, remote connections manager for Windows. mRemoteNG creates a tabbed interface for RDP, VNC, SSH and many other connection protocols. 
+
+Installing mRemoteNG
+Download mRemoteNG Download
+Install mRemoteNG
+Launch mRemoteNG
+Hover over the Connections tab > Click the New Connection icon
+Give the connection a name
+With the new connection highlighted, click the Config tab
+Enter the Hostname/IP, set the Protocol and change any other settings as necessary
+Test the newly created connection to see if any changes are required
+Enable Dark Theme (Optional)
+Click Tools > Options
+Select Theme
+Select vs2015dark from the Themes dropdown > Click OK
+Adding Useful External Tools (Optional)
+Click Tools > External Tools
+Click the New Button at the top left
+Set the following values to add the ability to quickly ping a host
+Display Name: Ping
+Filename: %windir%\system32\ping.exe
+Arguments: %hostname% -t
+
+Set the following values to add the ability to quickly restart a Windows based host
+Display Name: Restart
+Filename: %windir%\system32\shutdown.exe
+Arguments: /f /r /m \\%hostname%
+
+Set the following values to add the ability to quickly shutdown a Windows based host
+Display Name: Shutdown
+Filename: %windir%\system32\shutdown.exe
+Arguments: /f /s /m \\%hostname%

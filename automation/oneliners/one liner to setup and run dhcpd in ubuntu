@@ -1,0 +1,9 @@
+sudo apt install -y isc-dhcp-server && sudo tee /etc/dhcp/dhcpd.conf > /dev/null <<EOL
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.200;
+  option routers 192.168.1.1;
+  next-server 192.168.1.10;
+  filename "pxelinux.0";
+}
+EOL
+sudo systemctl restart isc-dhcp-server && systemctl status isc-dhcp-server

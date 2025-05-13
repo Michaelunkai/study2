@@ -1,0 +1,1 @@
+ wget https://www.torproject.org/dist/torbrowser/13.5.1/tor-browser-linux-x86_64-13.5.1.tar.xz && tar -xf tor-browser-linux-x86_64-13.5.1.tar.xz && cd tor-browser && ./start-tor-browser.desktop

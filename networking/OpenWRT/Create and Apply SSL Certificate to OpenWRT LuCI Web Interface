@@ -1,0 +1,65 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: openwrt.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: openwrt.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to uhttpd.crt verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to uhttpd.key and verify the export format is PEM private (*.pem)
+Click OK
+Installing Prerequisites
+Log into OpenWRT via SSH
+Run the following commands to install prerequisites
+# update opkg packages
+opkg update
+# install prerequisite packages
+opkg install luci-lib-px5g px5g-standalone libustream-openssl
+# install/update luci
+opkg install luci
+# restart uhttpd service
+/etc/init.d/uhttpd restart
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the OpenWRT IP address via WinSCP
+Navigate to /etc
+Rename uhttpd.crt and uhttpd.key to .old
+Copy the created uhttpd.crt and uhttpd.key to /etc
+Back in the terminal, run the following command to restart uhttpd
+/etc/init.d/uhttpd restart
+Applying SSL Certificates in Open-WRT
+Open a web browser and navigate to https://OpenWRT_IP
+Authenticate at the Open-WRT login
+Select System > System from the top navigation
+Set the hostname to match the hostname of the SSL certificate
+Click the Save & Apply button

@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y libleveldb-dev && gcc -o leveldb_example leveldb_example.c -lleveldb && ./leveldb_example

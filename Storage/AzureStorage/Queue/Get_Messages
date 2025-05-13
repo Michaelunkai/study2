@@ -1,0 +1,4 @@
+az storage message get \
+  --queue-name myqueue \
+  --account-name mystorageaccount \
+  --connection-string $CONNECTION_STRING

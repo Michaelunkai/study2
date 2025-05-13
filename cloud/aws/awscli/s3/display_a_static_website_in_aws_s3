@@ -1,0 +1,1 @@
+aws s3 mb s3://my-static-website --region us-east-1 && aws s3 cp --recursive ./website s3://my-static-website/ && aws s3 website s3://my-static-website/ --index-document index.html --error-document 404.html

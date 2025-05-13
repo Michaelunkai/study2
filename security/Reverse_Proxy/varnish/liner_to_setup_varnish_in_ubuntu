@@ -1,0 +1,1 @@
+sudo apt-get install -y varnish && sudo systemctl start varnish && sudo systemctl enable varnish.service

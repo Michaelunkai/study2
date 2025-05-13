@@ -1,0 +1,282 @@
+# Implementing CI/CD with Tekton Pipelines in Kubernetes on Ubuntu
+
+### Step 1: Ensure Kubernetes Cluster is Running
+
+Make sure you have a Kubernetes cluster running. You can use any Kubernetes provider (e.g., GKE, EKS, AKS) or a local setup like Minikube, MicroK8s, or Kind.
+
+### Step 2: Install Tekton Pipelines
+
+1. **Install Tekton CLI**
+    ```bash
+    curl -LO https://github.com/tektoncd/cli/releases/download/v0.25.0/tkn_0.25.0_Linux_x86_64.tar.gz
+    sudo tar xvzf tkn_0.25.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
+    ```
+
+2. **Install Tekton Pipelines**
+    ```bash
+    kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+    ```
+
+3. **Verify Tekton Pipelines Installation**
+    ```bash
+    kubectl get pods --namespace tekton-pipelines
+    ```
+
+### Step 3: Create a Tekton Pipeline
+
+1. **Create a Namespace for Your Pipeline**
+    ```bash
+    kubectl create namespace tekton-demo
+    ```
+
+2. **Create a Task for the Pipeline**
+    Create a file named `task.yaml` with the following content:
+    ```yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: Task
+    metadata:
+      name: hello-world
+      namespace: tekton-demo
+    spec:
+      steps:
+      - name: echo
+        image: ubuntu
+        script: |
+          #!/usr/bin/env bash
+          echo "Hello, World!"
+    ```
+
+    Apply the task:
+    ```bash
+    kubectl apply -f task.yaml
+    ```
+
+3. **Create a Pipeline**
+    Create a file named `pipeline.yaml` with the following content:
+    ```yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: Pipeline
+    metadata:
+      name: hello-world-pipeline
+      namespace: tekton-demo
+    spec:
+      tasks:
+      - name: hello-task
+        taskRef:
+          name: hello-world
+    ```
+
+    Apply the pipeline:
+    ```bash
+    kubectl apply -f pipeline.yaml
+    ```
+
+4. **Create a PipelineRun**
+    Create a file named `pipelinerun.yaml` with the following content:
+    ```yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      name: hello-world-pipelinerun
+      namespace: tekton-demo
+    spec:
+      pipelineRef:
+        name: hello-world-pipeline
+    ```
+
+    Apply the PipelineRun:
+    ```bash
+    kubectl apply -f pipelinerun.yaml
+    ```
+
+### Step 4: Verify the PipelineRun
+
+1. **Check PipelineRun Status**
+    ```bash
+    tkn pipelinerun list --namespace tekton-demo
+    ```
+
+2. **Get Logs for the PipelineRun**
+    ```bash
+    tkn pipelinerun logs hello-world-pipelinerun --namespace tekton-demo
+    ```
+
+### Step 5: Install Tekton Triggers
+
+1. **Install Tekton Triggers CRDs**
+    ```bash
+    kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+    ```
+
+2. **Verify Tekton Triggers Installation**
+    ```bash
+    kubectl get pods --namespace tekton-pipelines
+    ```
+
+### Step 6: Create Tekton Trigger Configuration
+
+1. **Create a GitHub Repository**
+    Create a repository on GitHub where your code will reside.
+
+2. **Create a Tekton Trigger for GitHub Events**
+    Create a file named `trigger.yaml` with the following content:
+    ```yaml
+    apiVersion: triggers.tekton.dev/v1alpha1
+    kind: TriggerTemplate
+    metadata:
+      name: github-trigger-template
+      namespace: tekton-demo
+    spec:
+      params:
+        - name: gitrevision
+          description: The git revision
+          default: master
+        - name: gitrepositoryurl
+          description: The git repository url
+      resourcetemplates:
+        - apiVersion: tekton.dev/v1beta1
+          kind: PipelineRun
+          metadata:
+            generateName: github-pipelinerun-
+          spec:
+            pipelineRef:
+              name: hello-world-pipeline
+            workspaces:
+            - name: shared-workspace
+              volumeClaimTemplate:
+                metadata:
+                  name: workspace-pvc
+                spec:
+                  accessModes: ["ReadWriteOnce"]
+                  resources:
+                    requests:
+                      storage: 1Gi
+            resources:
+              - name: git-source
+                resourceSpec:
+                  type: git
+                  params:
+                    - name: revision
+                      value: $(params.gitrevision)
+                    - name: url
+                      value: $(params.gitrepositoryurl)
+    ---
+    apiVersion: triggers.tekton.dev/v1alpha1
+    kind: TriggerBinding
+    metadata:
+      name: github-trigger-binding
+      namespace: tekton-demo
+    spec:
+      params:
+        - name: gitrevision
+          value: $(body.head_commit.id)
+        - name: gitrepositoryurl
+          value: $(body.repository.url)
+    ---
+    apiVersion: triggers.tekton.dev/v1alpha1
+    kind: EventListener
+    metadata:
+      name: github-listener
+      namespace: tekton-demo
+    spec:
+      serviceAccountName: tekton-triggers-example-sa
+      triggers:
+        - name: github-trigger
+          bindings:
+            - ref: github-trigger-binding
+          template:
+            ref: github-trigger-template
+          workspaces:
+          - name: shared-workspace
+            persistentVolumeClaim:
+              claimName: workspace-pvc
+    ```
+
+3. **Apply the Trigger Configuration**
+    ```bash
+    kubectl apply -f trigger.yaml
+    ```
+
+### Step 7: Set Up Service Account and Role Binding
+
+1. **Create a Service Account and Role Binding**
+
+    Create a file named `service-account.yaml` with the following content:
+    ```yaml
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: tekton-triggers-example-sa
+      namespace: tekton-demo
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      name: tekton-triggers-example-role
+      namespace: tekton-demo
+    rules:
+      - apiGroups: ["tekton.dev"]
+        resources: ["pipelineruns"]
+        verbs: ["create"]
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: tekton-triggers-example-binding
+      namespace: tekton-demo
+    subjects:
+      - kind: ServiceAccount
+        name: tekton-triggers-example-sa
+        namespace: tekton-demo
+    roleRef:
+      kind: Role
+      name: tekton-triggers-example-role
+      apiGroup: rbac.authorization.k8s.io
+    ```
+
+2. **Apply the Service Account and Role Binding**
+    ```bash
+    kubectl apply -f service-account.yaml
+    ```
+
+### Step 8: Expose the EventListener
+
+1. **Expose the EventListener**
+    ```bash
+    kubectl port-forward service/el-github-listener 8080:8080 -n tekton-demo
+    ```
+
+### Step 9: Configure GitHub Webhook
+
+1. **Get Kubernetes Node IP**
+    ```bash
+    kubectl get nodes -o wide
+    ```
+
+    Note the IP address from the output, which is `192.168.49.2`.
+
+2. **Configure GitHub Webhook**
+    Go to your GitHub repository, navigate to Settings -> Webhooks, and add a new webhook:
+    - Payload URL: `http://192.168.49.2:8080`
+    - Content type: `application/json`
+    - Select individual events: `Pushes`
+
+### Step 10: Verify CI/CD Pipeline
+
+1. **Push a Change to Your Repository**
+
+    Make a change to your repository and push it to GitHub.
+
+2. **Check PipelineRun Status**
+    ```bash
+    tkn pipelinerun list --namespace tekton-demo
+    ```
+
+3. **Get Logs for the PipelineRun**
+    ```bash
+    tkn pipelinerun logs --last -f --namespace tekton-demo
+    ```
+
+### Conclusion
+
+You have now set up a basic CI/CD pipeline with Tekton in Kubernetes on Ubuntu. This pipeline runs a simple "Hello, World!" task, but you can expand it to include more complex build, test, and deploy steps. Integrate your pipeline with GitHub to automate your CI/CD workflow.

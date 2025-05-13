@@ -1,0 +1,1 @@
+npx react-static create my-app && cd my-app && npm start

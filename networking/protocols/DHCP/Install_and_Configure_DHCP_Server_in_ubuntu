@@ -1,0 +1,35 @@
+sudo apt update
+sudo apt install isc-dhcp-server -y
+
+sudo nano /etc/dhcp/dhcpd.conf
+
+Add the following configuration to define the DHCP settings:
+
+ 
+ 
+default-lease-time 600;
+max-lease-time 7200;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+    range 192.168.1.100 192.168.1.200;
+    option routers 192.168.1.1;
+    option subnet-mask 255.255.255.0;
+    option domain-name-servers 192.168.1.1;
+    option domain-name "localdomain";
+}
+
+
+
+
+
+sudo nano /etc/default/isc-dhcp-server
+
+Set the INTERFACESv4 variable:
+
+INTERFACESv4="eth0"
+
+
+
+sudo systemctl start isc-dhcp-server
+sudo systemctl enable isc-dhcp-server
+

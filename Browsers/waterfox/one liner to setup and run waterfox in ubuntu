@@ -1,0 +1,1 @@
+create one liner, to setup and run waterfox in ubuntu, and use it in the end! && wget https://github.com/WaterfoxCo/Waterfox/releases/download/G5.1.10/Waterfox-G5.1.10.en-US.linux-x86_64.tar.bz2 && tar xjf Waterfox-*.tar.bz2 && ./waterfox/waterfox

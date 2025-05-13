@@ -1,0 +1,1 @@
+sudo apt install -y lanmap && sudo lanmap -o /tmp/lanmap.png

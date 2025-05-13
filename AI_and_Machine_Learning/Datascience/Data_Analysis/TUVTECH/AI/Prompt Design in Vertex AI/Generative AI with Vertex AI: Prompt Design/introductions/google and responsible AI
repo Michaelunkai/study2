@@ -1,0 +1,77 @@
+Transcript
+00:00
+Many of us rely on technological innovation to help live happy and healthy lives.
+00:06
+Whether it's navigating the best route home or finding the right information when we don't feel well.
+00:11
+The opportunity for innovation is incredible, but it’s accompanied by a deep responsibility for technology providers to get it right.
+00:19
+There is a growing concern surrounding some of the unintended or undesired impacts of AI innovation.
+00:25
+These include concerns around ML fairness and the perpetuation of historical biases at scale, the future of
+00:30
+work and AI driven unemployment, and concerns around the accountability and responsibility for decisions made by AI.
+00:44
+Because there is potential to impact many areas of society, not to mention people’s daily lives, it's important to develop these technologies with ethics in mind.
+00:54
+Responsible AI is not meant to focus just on the obviously controversial use cases.
+00:58
+Without responsible AI practices, even seemingly innocuous AI use cases, or those with good intent, could
+01:03
+still cause ethical issues or unintended outcomes, or not be as beneficial as they could be.
+01:11
+Ethics and responsibility are important, not least because they represent the right thing to do, but also because they can guide AI design to be more beneficial for people's lives.
+01:21
+At Google, we’ve learned that building responsibility into any AI deployment makes better models and builds trust with our customers and our customers’ customers.
+01:31
+If at any point that trust is broken, we run the risk of AI deployments being stalled, unsuccessful, or at worst, harmful to stakeholders those products affect.
+01:41
+This all fits into our belief at Google that responsible AI equals successful AI.
+01:47
+We make our product and business decisions around AI through a series of assessments and reviews.
+01:53
+These instill rigor and consistency in our approach across product areas and geographies.
+01:58
+These assessments and reviews begin with ensuring that any project aligns with our AI Principles.
+02:04
+During this course, you’ll see how we approach building our responsible AI process at Google and specifically within Google Cloud.
+02:11
+At times, you may think, “Well it’s easy for you, with substantial resources and a
+02:15
+small army of people. There are only a few of us, and our resources are limited.”
+02:19
+You may also feel overwhelmed or intimidated by the need to grapple with thorny, new philosophical and practical problems.
+02:27
+And this is where we assure you that, no matter what size your organization is, this course is here to guide you.
+02:33
+Responsible AI is an iterative practice.
+02:36
+It requires dedication, discipline, and a willingness to learn and adjust over time.
+02:41
+The truth is that it’s not easy, but it's important to get right, so starting the journey, even with small steps, is key.
+02:48
+Whether you're already on a responsible AI journey, or just getting started, spending time on a regular basis, simply reflecting on
+02:53
+your company values and the impact you want to make with your products, will go a long way in building AI responsibly.
+03:00
+Finally, before we get any further, we’d like to make one thing clear: At Google,
+03:06
+we know that we represent just one voice in the community of AI users and developers.
+03:11
+We approach the development and deployment of this powerful technology with a recognition that we do not and cannot know
+03:16
+and understand all that we need to; we will only be at our best when we collectively tackle these challenges together.
+03:24
+The true ingredient to ensuring that AI is developed and used responsibly is community.
+03:30
+We hope that this course will be the starting point for us to collaborate together on this important topic.
+03:35
+While AI Principles help ground a group in shared commitments, not everyone will agree with every decision made on how products should be designed responsibly.
+03:44
+This is why it's important to develop robust processes that people can trust, so even
+03:47
+if they don't agree with the end decision, they trust the process that drove the decision.
+03:54
+In short and in our experience, a culture based on a collective value system that is accepting of healthy deliberation must exist to guide the development of responsible AI.
+04:05
+By completing this course, you yourself are contributing to the culture by advancing the practice of responsible AI development as AI continues to experience incredible adoption and innovation.

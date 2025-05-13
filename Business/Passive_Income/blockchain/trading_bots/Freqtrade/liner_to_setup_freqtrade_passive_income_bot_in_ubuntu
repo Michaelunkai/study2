@@ -1,0 +1,1 @@
+cd &&  git clone https://github.com/freqtrade/freqtrade.git && cd freqtrade && ./setup.sh -i && source .venv/bin/activate && freqtrade -h

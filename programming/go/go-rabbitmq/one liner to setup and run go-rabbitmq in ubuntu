@@ -1,0 +1,1 @@
+go install github.com/streadway/amqp@latest && echo 'RabbitMQ Client installed'

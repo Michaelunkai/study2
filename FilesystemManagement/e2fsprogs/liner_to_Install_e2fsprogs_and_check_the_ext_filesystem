@@ -1,0 +1,1 @@
+sudo apt install -y e2fsprogs && sudo e2fsck -f /dev/sdX1 && sudo tune2fs -l /dev/sdX1

@@ -1,0 +1,2 @@
+sudo nano /etc/awstats/awstats.mywebsite.conf
+LogFile=\"/var/log/tomcat/catalina.out\"

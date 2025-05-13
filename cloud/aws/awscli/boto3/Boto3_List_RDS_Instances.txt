@@ -1,0 +1,5 @@
+import boto3
+rds = boto3.client('rds')
+response = rds.describe_db_instances()
+for db_instance in response['DBInstances']:
+    print(db_instance['DBInstanceIdentifier'])

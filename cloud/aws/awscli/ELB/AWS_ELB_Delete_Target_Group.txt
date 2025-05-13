@@ -1,0 +1,1 @@
+aws elb delete-target-group --target-group-arn <target-group-arn>

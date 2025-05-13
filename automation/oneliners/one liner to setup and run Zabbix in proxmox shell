@@ -1,0 +1,8 @@
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/zabbix.sh)"
+
+
+Default Login Credentials
+You can use the following credentials to login to the Zabbix ct.
+
+Username: Admin
+Password: zabbix

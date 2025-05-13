@@ -1,0 +1,1 @@
+dotnet add package FluentValidation && echo 'FluentValidation installed'

@@ -1,0 +1,1 @@
+sudo apt install -y libfltk1.3-dev && echo 'FLTK installed'

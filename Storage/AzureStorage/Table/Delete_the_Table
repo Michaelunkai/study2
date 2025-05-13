@@ -1,0 +1,1 @@
+az storage table delete --name mytable --account-name mystorageaccount --connection-string "<your-connection-string>"

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g elyssa-cli && yes "y" | elyssa init my-elyssa-app && cd my-elyssa-app && nsj && npm start

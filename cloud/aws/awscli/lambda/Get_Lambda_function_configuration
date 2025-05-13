@@ -1,0 +1,1 @@
+aws lambda get-function-configuration --function-name my-function-57d706bb

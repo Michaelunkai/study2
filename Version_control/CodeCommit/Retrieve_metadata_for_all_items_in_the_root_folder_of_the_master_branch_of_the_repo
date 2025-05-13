@@ -1,0 +1,1 @@
+ aws codecommit get-folder --repository-name study --folder-path / --commit-specifier master

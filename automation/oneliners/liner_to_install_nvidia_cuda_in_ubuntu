@@ -1,0 +1,1 @@
+sudo apt install -y nvidia-cuda-toolkit && nvidia-smi && nvcc --version

@@ -1,0 +1,1 @@
+npm install bridge.js && echo "const Bridge = require('bridge.js'); new Bridge().start(3000);" > app.js && node app.js

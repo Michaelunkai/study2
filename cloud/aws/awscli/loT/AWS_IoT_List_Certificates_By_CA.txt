@@ -1,0 +1,1 @@
+aws iot list-certificates-by-ca --ca-certificate-id <ca-certificate-id>

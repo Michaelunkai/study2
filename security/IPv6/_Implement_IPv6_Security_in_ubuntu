@@ -1,0 +1,12 @@
+Ensure your system is secure when using IPv6.
+
+Edit sysctl configuration:
+
+sudo nano /etc/sysctl.conf
+Add these lines for IPv6 security:
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+Apply the changes:
+
+sudo sysctl -p

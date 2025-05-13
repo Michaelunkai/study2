@@ -1,0 +1,1 @@
+aws lex-models delete-intent-alias --name <alias-name> --bot-name <bot-name>

@@ -1,0 +1,1 @@
+sudo apt install -y python3-tk && python3 -c 'import tkinter; print(tkinter.TkVersion)'

@@ -1,0 +1,123 @@
+## Comprehensive Guide to Setting Up and Using Envoy Proxy for Edge and Service Proxy on Ubuntu
+
+This guide will walk you through the process of installing and configuring Envoy Proxy on Ubuntu. Envoy is an open-source edge and service proxy designed for cloud-native applications.
+
+### Step 1: Update Package List and Install Prerequisites
+
+First, update the package list and install the required packages.
+
+  
+sudo apt update
+sudo apt install apt-transport-https gnupg2 curl lsb-release
+
+### Step 2: Add the GetEnvoy GPG Key
+
+Next, add the GetEnvoy GPG key.
+
+  
+curl -sL 'https://deb.dl.getenvoy.io/public/gpg.8115BA8E629CC074.key' | sudo gpg --dearmor -o /usr/share/keyrings/getenvoy-keyring.gpg
+
+### Step 3: Verify the GPG Key
+
+Verify the key by checking its SHA256 hash.
+
+  
+echo a077cb587a1b622e03aa4bf2f3689de14658a9497a9af2c427bba5f4cc3c4723 /usr/share/keyrings/getenvoy-keyring.gpg | sha256sum --check
+
+You should see output indicating that the key is OK.
+
+### Step 4: Add the GetEnvoy Repository
+
+Add the GetEnvoy repository to your system's package sources.
+
+  
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/getenvoy-keyring.gpg] https://deb.dl.getenvoy.io/public/deb/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/getenvoy.list
+
+### Step 5: Update Package List Again
+
+Update the package list again to include the new repository.
+
+  
+sudo apt update
+
+### Step 6: Install Envoy
+
+Finally, install Envoy using the following command:
+
+  
+sudo apt install -y getenvoy-envoy
+
+### Step 7: Verify the Installation
+
+Verify that Envoy has been installed correctly by checking its version.
+
+  
+envoy --version
+
+You should see the version of Envoy that has been installed.
+
+### Step 8: Basic Configuration of Envoy
+
+Create a basic configuration file for Envoy. Create a file named `envoy.yaml` with the following content:
+
+  
+static_resources:
+  listeners:
+  - name: listener_0
+    address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 10000
+    filter_chains:
+    - filters:
+      - name: envoy.filters.network.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: local_service
+              domains:
+              - "*"
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: some_service
+          http_filters:
+          - name: envoy.filters.http.router
+  clusters:
+  - name: some_service
+    connect_timeout: 0.25s
+    type: LOGICAL_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: some_service
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: some_service_address
+                port_value: 80
+
+Replace `some_service_address` with the actual address of the service you want to proxy.
+
+### Step 9: Run Envoy
+
+Run Envoy with the created configuration file.
+
+  
+envoy -c envoy. 
+
+### Step 10: Verify Envoy is Running
+
+You can verify that Envoy is running by checking the logs or by sending a request to it using `curl` or a browser.
+
+  
+curl http://localhost:10000
+
+This should forward the request to the service defined in your configuration file.
+
+By following these steps, you should have Envoy Proxy set up and running on your Ubuntu system. If you have any specific use cases or further configurations you want to implement, feel free to ask!

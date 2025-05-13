@@ -1,0 +1,16 @@
+# Install terminal-ai: AI-Powered Terminal with Google Generative AI
+
+# Clone the repository
+git clone https://github.com/prjla35/terminal-ai.git
+
+# Navigate to the project directory
+cd terminal-ai
+
+# Install required dependencies
+pip install google-generativeai
+
+# Set up your Google API Key
+export GOOGLE_API_KEY='your-api-key'
+
+# After setting up, you can start terminal-ai by typing:
+  command_executor.py

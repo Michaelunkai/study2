@@ -1,0 +1,1 @@
+sudo apt install rsyslog-relp -y && sudo systemctl restart rsyslog

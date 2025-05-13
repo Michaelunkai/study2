@@ -1,0 +1,25 @@
+▲A  A▼
+Run Windows 10 from USB Flash Drive with WinToUSB
+Prerequisites
+A USB flash drive, at least 32 GB https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Windows 10 installation media .iso
+Installing Windows 10 on USB
+Plug in the USB flash drive, 32GB or larger
+Download/Create Windows 10 installation media .iso
+Download WinToUSB Download
+Install WinToUSB
+Launch WinToUSB
+Click the disc image icon in the left navigation menu
+Click the folder icon next to the Image File field > Browse to and select the Windows 10 .iso file
+WinToUSB will display a list of available Windows 10 versions found on the .iso
+Select the version of Windows 10 to install on the USB flash drive > Click Next
+Click the Destination Disk dropdown > Select the USB flash drive to install Windows on > Click Next
+Select MBR for BIOS and UEFI and click Yes
+NOTE: The USB flash drive will be formatted, all data on the drive will be lost
+Select/Confirm the boot and system partitions > Click Next
+Wait for WinToUSB to complete installing Windows on the USB flash drive
+Once the installation completes, shutdown the host computer
+Power on the host computer, this time choosing to boot to the USB flash drive
+The steps required to do this will vary based on motherboard, typically pressing F2, F12, DEL or ESC during boot will bring up a menu to set the boot device
+Welcome to Windows 10 running from a USB flash drive
+ 

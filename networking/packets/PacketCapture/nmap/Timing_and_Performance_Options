@@ -1,0 +1,7 @@
+Timing and Performance Options:
+
+nmap -T<0-5> <target>
+Example:
+
+Adjusts the timing template for the scan, where 0 is the slowest and 5 is the fastest. This helps to optimize scan speed and reduce detection.
+

@@ -1,0 +1,1 @@
+flatpak install -y flathub org.shotcut.Shotcut && flatpak run org.shotcut.Shotcut

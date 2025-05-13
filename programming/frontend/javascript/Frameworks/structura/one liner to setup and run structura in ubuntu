@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g structura-cli && yes "y" | structura init my-structura-app && cd my-structura-app && nsj && npm start

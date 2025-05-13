@@ -1,0 +1,36 @@
+Open the Amazon EC2 console -> Stop your instance.
+Choose Actions, choose Instance Settings, and then choose Edit User Data.
+Copy your user script into the Edit user data box, and then choose Save.
+
+
+
+
+Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0
+
+--//
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+cloud_final_modules:
+- [scripts-user, always]
+
+--//
+Content-Type:
+    text/x- ellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
+
+#!/bin/ 
+OS_USER=ubuntu
+chown root:root /home
+chmod 755 /home
+chown $OS_USER:ubuntu/home/ubuntu -R
+chmod 700 /home/ubuntu
+chmod 700 /home/ubuntu/.s 
+chmod 600 /home/ubuntu/.s /authorized_keys
+--//

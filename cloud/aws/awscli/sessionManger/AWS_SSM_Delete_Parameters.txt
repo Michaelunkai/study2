@@ -1,0 +1,1 @@
+aws ssm delete-parameters --names <parameter-names>

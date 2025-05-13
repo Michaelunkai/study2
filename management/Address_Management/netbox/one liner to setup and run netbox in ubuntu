@@ -1,0 +1,1 @@
+sudo apt install -y docker.io docker-compose && git clone -b release https://github.com/netbox-community/netbox-docker.git && cd netbox-docker && sudo docker-compose up -d && echo 'http://localhost:8000'

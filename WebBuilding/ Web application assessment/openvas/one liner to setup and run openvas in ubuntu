@@ -1,0 +1,1 @@
+create one liner, to setup and run openvas in ubuntu, and use it in the end! && sudo apt install openvas -y && openvas

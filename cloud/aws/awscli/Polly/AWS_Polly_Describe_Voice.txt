@@ -1,0 +1,1 @@
+aws polly describe-voice --voice-id Joanna

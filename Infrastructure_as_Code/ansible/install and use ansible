@@ -1,0 +1,37 @@
+
+###create neccesery folders
+mkdir /etc/ansible
+mkdir /etc/ansible/roles
+
+
+###in hosts, make this type of script, with the details if my machines:
+
+/etc/ansible/hosts
+
+[linux]
+192.168.222.129 ansible_user=ubuntu ansible_password=ubuntu
+192.168.222.128 ansible_user=centos ansible_password=centos
+192.168.222.130 ansible_user=fedora ansible_password=fedora
+
+###in ansible folder, create file named "ansible.cfg":
+
+
+# /etc/ansible/ansible.cfg
+
+[defaults]
+inventory = /etc/ansible/hosts
+roles_path = /etc/ansible/roles
+host_key_checking = False
+
+##and create empty folder named "roles"
+mkdir roles
+
+##install sshpass in host(and if needed, in each machine)
+apt install sshpass -y
+
+##run first command, to check connection to vms:
+ansible linux -m ping
+
+##check info of connected vms:
+ansible linux -a "cat /etc/os-release"
+

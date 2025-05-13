@@ -1,0 +1,1 @@
+sudo apt install python3-pip -y && pip3 install pelican && pelican-quickstart && pelican content && pelican --listen

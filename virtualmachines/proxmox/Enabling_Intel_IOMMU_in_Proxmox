@@ -1,0 +1,18 @@
+Enabling Intel IOMMU in Proxmox:
+
+Edit Grub Configuration:
+
+Open /etc/default/grub.
+Comment out: # GRUB_CMDLINE_LINUX_DEFAULT="quiet".
+Add: GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on".
+Apply Changes:
+
+Run: update-grub.
+Reboot:
+
+Reboot the Proxmox server.
+Verify IOMMU:
+
+Check IOMMU status: dmesg | grep IOMMU.
+Ensure no errors and IOMMU is enabled.
+Now, Intel IOMMU is active, enhancing virtualization performance in Proxmox.

@@ -1,0 +1,10 @@
+Resolving Checkout Errors when Cloning a Repository on Windows
+Step 1: Clone without checking out the working tree
+
+git clone --no-checkout https://github.com/Michaelunkai/study.git C:\study
+cd C:\study
+Step 2: Manually reset the working tree to avoid invalid paths
+
+git config core.protectNTFS false
+git reset --hard
+This process helps bypass invalid path issues that cause checkout errors, allowing you to work with the repository without problematic file paths.

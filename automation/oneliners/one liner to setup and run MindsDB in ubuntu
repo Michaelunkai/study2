@@ -1,0 +1,1 @@
+docker run -d --name mindsdb -p 47334:47334 mindsdb/mindsdb:latest && gcl 47334

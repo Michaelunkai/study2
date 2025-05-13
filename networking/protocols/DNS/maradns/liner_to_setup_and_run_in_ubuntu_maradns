@@ -1,0 +1,1 @@
+sudo apt install -y maradns && sudo systemctl start maradns && sudo systemctl enable maradns

@@ -1,0 +1,1 @@
+aws s3 sync your_local_directory s3://your-bucket-name/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers

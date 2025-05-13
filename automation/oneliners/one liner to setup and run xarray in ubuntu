@@ -1,0 +1,1 @@
+pip3 install xarray && python3 -c 'import xarray; print(xarray.__version__)'

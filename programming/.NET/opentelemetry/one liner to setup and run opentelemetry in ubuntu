@@ -1,0 +1,1 @@
+dotnet add package OpenTelemetry && echo 'OpenTelemetry.NET installed'

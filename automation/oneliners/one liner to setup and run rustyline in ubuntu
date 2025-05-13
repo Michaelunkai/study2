@@ -1,0 +1,1 @@
+getrust && cargo new rustyline-app && cd rustyline-app && echo 'rustyline = "11.0"' >> Cargo.toml && cargo run

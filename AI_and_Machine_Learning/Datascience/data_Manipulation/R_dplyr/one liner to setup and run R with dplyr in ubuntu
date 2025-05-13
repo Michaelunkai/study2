@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y r-base && R -e "install.packages('dplyr', repos='https://cloud.r-project.org'); library(dplyr); data <- read.csv('file.csv'); print(head(data))"

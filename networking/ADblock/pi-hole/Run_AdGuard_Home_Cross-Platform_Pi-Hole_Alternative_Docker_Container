@@ -1,0 +1,41 @@
+▲A  A▼
+Run AdGuard Home Cross-Platform Pi-Hole Alternative Docker Container
+What is AdGuard Home?
+AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.
+
+It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It's based on software we use for our public AdGuard DNS servers, and both share a lot of code. -https://github.com/AdguardTeam/AdguardHome
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# update software respositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+# add docker apt repository
+sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+# install docker
+sudo apt install docker -y
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running AdGuard Home Container
+Continue with the following commands in a terminal window
+# make adguard working directories
+mkdir ~/docker/adguard/work -p && mkdir ~/docker/adguard/conf -p
+# run the adguardhome docker image
+docker run --name adguardhome -v ~/docker/adguard/work:/opt/adguardhome/work -v ~/docker/adguard/conf:/opt/adguardhome/conf -p 53:53/tcp -p 53:53/udp -p 80:80/tcp -p 3000:3000/tcp --restart unless-stopped -d adguard/adguardhome
+Open a web browser and navigate to http://localhost:3000
+Click the Get Started button
+Set the Admin Web Interface and DNS Server network interfaces and ports > Click Next
+Enter an admin username and password > Click Next
+Click Next on page 4
+Click Open Dashboard on the Congratutations page
+Log in using the admin username and password created during the install
+Welcome to AdGuardHome running as a Docker container
+Source: https://github.com/AdguardTeam/AdGuardHome/wiki/Docker
+
+ 

@@ -1,0 +1,1 @@
+aws cloudformation set-stack-policy --stack-name <stack-name> --stack-policy-body file://policy.json

@@ -1,0 +1,30 @@
+#Make sure you are on the branch where you made the updates:
+
+git checkout your_branch_name
+
+#Replace your_branch_name with the actual name of the branch where you made the updates.
+
+#Commit your changes:
+
+
+git add .
+git commit -m "Description of your changes"
+
+#Create the new tag (v1.1):
+
+
+git tag v1.1
+
+#This creates a new tag at the latest commit.
+
+#Push the new tag to the remote repository:
+
+    git push origin v1.1
+
+#This pushes the new tag to your GitHub repository.
+
+#Now, your repository has a new tag (v1.1) that includes the latest changes. If you want to switch back to this specific version of your code, you can use the tag:
+
+git checkout v1.1
+
+#Remember to replace your_branch_name with your actual branch name and adjust the commit message as needed.

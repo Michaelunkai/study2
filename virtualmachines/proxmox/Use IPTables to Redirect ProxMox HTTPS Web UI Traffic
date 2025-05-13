@@ -1,0 +1,14 @@
+Use IPTables to Redirect ProxMox HTTPS Web UI Traffic
+Log into ProxMox VE, either at the console or the web UI and launch the web shell
+Run the following commands
+# add the ip tables rule
+/sbin/iptables -F
+/sbin/iptables -t nat -F
+/sbin/iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8006
+# install iptables-persistent
+apt install iptables-persistent -y
+When prompted, select Yes to save current IPv4 rules > Press Enter
+When prompted, select Yes to save current IPv6 rules > Press Enter
+Open a web browser and navigate to https://DNSorIP to verify the 443 to 8006 redirect is working
+Reboot the ProxMox host
+Once the host has rebooted, test that the web UI is still reachable without specifying the port (:8006)

@@ -1,0 +1,1 @@
+wget -O magicavoxel.zip https://ephtracy.github.io/releases/MagicaVoxel-0.99.6.4-linux64.zip && unzip magicavoxel.zip && ./magicavoxel

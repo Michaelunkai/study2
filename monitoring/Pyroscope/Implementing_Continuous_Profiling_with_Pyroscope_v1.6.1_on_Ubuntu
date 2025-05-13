@@ -1,0 +1,91 @@
+### Comprehensive Guide to Implementing Continuous Profiling with Pyroscope v1.6.1 on Ubuntu
+
+### Step 1: Update and Upgrade Your System
+Ensure your system is up to date:
+ sh
+sudo apt update && sudo apt upgrade -y
+
+### Step 2: Install Pyroscope
+Download the latest release of Pyroscope (v1.6.1):
+ sh
+wget https://github.com/pyroscope-io/pyroscope/releases/download/v1.6.1/pyroscope_1.6.1_linux_amd64.deb
+Install the downloaded package:
+ sh
+sudo dpkg -i pyroscope_1.6.1_linux_amd64.deb
+
+### Step 3: Verify Installation
+Check if Pyroscope is installed correctly:
+ sh
+pyroscope --version
+
+### Step 4: Start Pyroscope Server
+Start the Pyroscope server:
+ sh
+pyroscope server
+By default, the server will run on port 4040. You can access the web UI at `http://localhost:4040`.
+
+### Step 5: Install the Pyroscope Python Agent
+You need to install the Pyroscope Python agent to profile your Python application. Use pip to install the agent:
+ sh
+pip install pyroscope-io
+
+### Step 6: Integrate Pyroscope with Your Python Application
+Modify your Python application to include Pyroscope. Here's a basic example:
+
+1. Import Pyroscope and initialize it:
+    import pyroscope
+
+    pyroscope.configure(
+        application_name="my. .app",
+        server_address="http://localhost:4040",
+        auth_token="",  # If your server requires an auth token, add it here
+    )
+
+2. Profile your code:
+    @pyroscope.profile()
+    def my_function():
+        # Your code here
+
+3. You can also use context managers to profile specific blocks of code:
+    with pyroscope.profile():
+        # Code to be profiled
+
+### Step 7: Run Your Application
+Run your Python application as usual. The profiling data will be sent to the Pyroscope server.
+
+### Step 8: View Profiling Data
+Open your web browser and go to `http://localhost:4040`. You should see your application listed, and you can explore the profiling data.
+
+### Optional: Running Pyroscope as a Service
+To ensure Pyroscope runs continuously, you can set it up as a systemd service.
+
+1. Create a new service file:
+     sh
+    sudo nano /etc/systemd/system/pyroscope.service
+
+2. Add the following content to the file:
+     ini
+    [Unit]
+    Description=Pyroscope Continuous Profiling Server
+    After=network.target
+
+    [Service]
+    ExecStart=/usr/local/bin/pyroscope server
+    Restart=always
+    User=nobody
+    Group=nogroup
+    Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+    [Install]
+    WantedBy=multi-user.target
+
+3. Reload systemd and start the Pyroscope service:
+     sh
+    sudo systemctl daemon-reload
+    sudo systemctl start pyroscope
+    sudo systemctl enable pyroscope
+
+### Conclusion
+You have now set up continuous profiling for your Python application using Pyroscope version 1.6.1 on Ubuntu. The profiling data is accessible via the Pyroscope web UI, allowing you to analyze and optimize your application's performance.
+
+If you need any further assistance or have specific requirements, feel free to ask!

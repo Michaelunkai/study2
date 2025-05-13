@@ -1,0 +1,4 @@
+volume_ids=$(aws ec2 describe-volumes --query 'Volumes[*].VolumeId' --output text)
+for volume_id in $volume_ids; do
+    aws ec2 describe-volumes --volume-ids $volume_id --query 'Volumes[*].Attachments[*].InstanceId' --output text | xargs -I {} aws ec2 detach-volume --volume-id $volume_id --instance-id {}
+done

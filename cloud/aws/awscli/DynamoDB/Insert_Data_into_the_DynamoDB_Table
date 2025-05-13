@@ -1,0 +1,9 @@
+4. Insert Data into the DynamoDB Table
+To insert an item into the table, use the put-item command. For example, to insert an item with Id = "1" and Name = "John Doe":
+
+ 
+ 
+aws dynamodb put-item \
+    --table-name ExampleTable \
+    --item \
+        '{"Id": {"S": "1"}, "Name": {"S": "John Doe"}}'

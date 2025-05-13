@@ -1,0 +1,6 @@
+sudo apt install -y sk1 && sk1
+
+
+or:
+
+getsnap && sudo snap install sk1-unofficial && sk1-unofficial

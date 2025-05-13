@@ -1,0 +1,1 @@
+sudo apt install syslog-ng -y && sudo systemctl start syslog-ng && sudo journalctl -u syslog-ng --no-pager

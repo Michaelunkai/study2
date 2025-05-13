@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y datamash && datamash sum 1 < file.txt

@@ -1,0 +1,17 @@
+To secure your MeiliSearch instance, you can configure an API key.
+
+Generate an API key:
+ 
+ 
+meilisearch --env production --master-key "YOUR_MASTER_KEY"
+Restart the MeiliSearch service with the new configuration:
+ 
+ 
+sudo systemctl restart meilisearch
+Use the API key in your requests:
+ 
+ 
+curl -X GET 'http://127.0.0.1:7700/indexes/movies/search' \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer YOUR_MASTER_KEY' \
+     --data-binary '{"q": "Inception"}'

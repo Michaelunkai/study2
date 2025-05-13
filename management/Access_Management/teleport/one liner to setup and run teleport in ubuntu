@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name teleport -p 3023-3025:3023-3025 -p 3080:3080 public.ecr.aws/gravitational/teleport:14.3.0 start --roles auth,proxy

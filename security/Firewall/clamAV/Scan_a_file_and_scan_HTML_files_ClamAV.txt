@@ -1,0 +1,1 @@
+clamscan --scan-html file.txt

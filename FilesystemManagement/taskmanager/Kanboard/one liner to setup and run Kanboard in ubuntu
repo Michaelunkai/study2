@@ -1,0 +1,1 @@
+sudo docker run -d --name kanboard -p 80:80 kanboard/kanboard # and use it in the end!

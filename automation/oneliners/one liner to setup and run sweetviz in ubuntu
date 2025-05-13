@@ -1,0 +1,1 @@
+pip3 install sweetviz && python3 -c 'import sweetviz; print(sweetviz.__version__)'

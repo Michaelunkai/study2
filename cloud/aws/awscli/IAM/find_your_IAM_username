@@ -1,0 +1,5 @@
+aws sts get-caller-identity
+
+
+Extract the username using jq and awk (if available):
+aws sts get-caller-identity --query "Arn" --output text | awk -F'/' '{print $2}'

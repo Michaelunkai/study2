@@ -1,0 +1,6 @@
+FUSE (Filesystem in Userspace) is a system that allows non-privileged users to create their own file systems without modifying the kernel. It provides a mechanism for users to mount file systems and handle file system operations (such as reading, writing, and deleting files) in user space, rather than in the kernel.
+
+Key points:
+- Allows non-root users to create file systems.
+- Useful for running AppImages and other virtual file systems.
+- Provides flexibility in developing custom file systems without requiring kernel changes.

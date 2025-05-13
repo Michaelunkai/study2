@@ -1,0 +1,1 @@
+aws cloudformation describe-stack-resource-drift-detection-status --stack-name <stack-name>

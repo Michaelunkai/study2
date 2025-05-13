@@ -1,0 +1,1 @@
+aws comprehend start-topics-detection-job --input-data-config <config> --output-data-config <config>

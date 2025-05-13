@@ -1,0 +1,54 @@
+Stream Video to Kinesis Video Stream
+You need to stream the video feed from your cameras to the Kinesis Video Stream endpoint. Here's an example using Python and OpenCV:
+
+Install required libraries:
+
+ 
+ 
+pip install boto3 opencv-python
+Python Script to Stream Video:
+
+ 
+ 
+import boto3
+import cv2
+import time
+import json
+from botocore.exceptions import NoCredentialsError, PartialCredentialsError
+
+# Initialize Kinesis Video client
+kinesis_video_client = boto3.client('kinesisvideo')
+
+# Get the data endpoint
+response = kinesis_video_client.get_data_endpoint(
+    StreamName='MySurveillanceStream',
+    APIName='PUT_MEDIA'
+)
+
+endpoint = response['DataEndpoint']
+kvs_client = boto3.client('kinesis-video-media', endpoint_url=endpoint)
+
+# Open video capture (0 for default camera)
+video_capture = cv2.VideoCapture(0)
+
+try:
+    while video_capture.isOpened():
+        ret, frame = video_capture.read()
+        if ret:
+            # Process frame (example: convert to bytes)
+            _, buffer = cv2.imencode('.jpg', frame)
+            payload = buffer.tobytes()
+
+            # Send the frame to Kinesis Video Streams
+            kvs_client.put_media(
+                StreamName='MySurveillanceStream',
+                Payload=payload
+            )
+            time.sleep(0.1)  # Adjust sleep time as necessary
+        else:
+            break
+
+except (NoCredentialsError, PartialCredentialsError):
+    print("Error: AWS credentials not found.")
+finally:
+    video_capture.release()

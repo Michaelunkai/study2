@@ -1,0 +1,51 @@
+ Implementing Automated Capacity Planning with Prometheus and Kubernetes
+
+Install Prometheus Operator:
+
+Add the Prometheus Community Helm repository:
+
+ 
+ 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+Install the Prometheus Operator:
+
+ 
+ 
+helm install prometheus-operator prometheus-community/kube-prometheus-stack
+Verify Installation:
+
+Ensure the Prometheus Operator pods are running:
+
+ 
+ 
+kubectl get pods -n default -l "release=prometheus-operator"
+Create ServiceMonitor:
+
+Create a ServiceMonitor resource for kube-state-metrics:
+
+ 
+ 
+cat <<EOF | kubectl apply -f -
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kube-state-metrics
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: kube-state-metrics
+  endpoints:
+  - port: http-metrics
+EOF
+Access Prometheus UI:
+
+Forward the Prometheus UI port:
+
+ 
+ 
+kubectl port-forward svc/prometheus-operated -n default 9090:9090
+Open http://localhost:9090 in your browser.
+
+With these steps, you've installed Prometheus Operator, set up monitoring for kube-state-metrics, and accessed the Prometheus UI.

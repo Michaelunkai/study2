@@ -1,0 +1,1 @@
+go install gorm.io/gorm@latest && echo 'GORM ORM installed'

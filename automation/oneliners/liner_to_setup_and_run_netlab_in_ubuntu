@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y python3-pip && sudo python3 -m pip install networklab && sudo python3 -m networklab install ubuntu ansible libvirt containerlab && sudo usermod -aG libvirt,docker $USER && newgrp libvirt && newgrp docker && netlab test -h

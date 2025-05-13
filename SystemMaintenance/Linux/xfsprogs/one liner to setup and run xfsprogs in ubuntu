@@ -1,0 +1,1 @@
+sudo apt install -y xfsprogs && xfs_info /dev/sda1

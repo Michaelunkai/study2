@@ -1,0 +1,1 @@
+rsync -av --backup --backup-dir=/backup_directory/ /source_directory/ /destination_directory/

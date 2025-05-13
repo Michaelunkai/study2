@@ -1,0 +1,1 @@
+stu && rm .git/hooks/pre-push

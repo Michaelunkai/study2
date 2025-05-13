@@ -1,0 +1,1 @@
+sudo snap install lxd && sudo lxd init --auto && lxc version

@@ -1,0 +1,1 @@
+wget https://code-industry.net/public/master-pdf-editor-5.9.60-qt5.x86_64.deb -O masterpdfeditor5.deb && sudo apt install -y ./masterpdfeditor5.deb && masterpdfeditor5

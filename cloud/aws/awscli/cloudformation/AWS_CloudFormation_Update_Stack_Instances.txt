@@ -1,0 +1,1 @@
+aws cloudformation update-stack-instances --stack-set-name <stack-set-name> --accounts <account-id> --regions <region>

@@ -1,0 +1,62 @@
+Running a Kali Linux 2020.3 VM in Virtualbox
+Download Kali Linux 2020.3 Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Kali Linux 2020.3
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (64-bit)
+Memory Size: 4096 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Kali Linux 2020.3.vdi
+File size: 30 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Kali Linux 2020.3 .iso file
+Click OK
+Make sure the Kali Linux 2020.3 VM is selected and click Start > Normal
+Press Ctrl+C to cancel the disk check
+When the install dialog displays click Install Kali Linux
+Select a keyboard layout > Click Continue
+Uncheck Download updates while installing Kali Linux > Click Continue
+Click Install Now
+Click Continue to write the changes to the disk
+Select a Region > Click continue
+Enter a name, computer name, username and password > Click Continue
+Wait while the OS copies files and installs
+When prompted to Restart Now, Select Devices > Optical Drives > Remove disk from virtual drive
+Click Restart Now to complete the installation, the VM will reboot
+Login with the username and password created earlier in the process
+Select Skip > Next > Select No, Don't send system info > Next > Next > Done
+Welcome to Kali Linux 2020.3
+Optional Steps
+Click the Applications button > Search "terminal" > Click Terminal
+Run the following commands to install updates
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get clean
+Select Devices > Insert Guest Additions CD image...
+If the installation autoruns, select Run
+Open the Files application > Select the Guest Additions Disc > Right click in the white space > Open terminal here
+In the Terminal window run the following commands
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+sudo sh ./VBoxLinuxAdditions.run
+sudo reboot
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Log back into Kali Linux

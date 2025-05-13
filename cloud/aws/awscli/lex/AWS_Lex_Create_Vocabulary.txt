@@ -1,0 +1,1 @@
+aws lex-models create-vocabulary --vocabulary-name <vocabulary-name> --language-code <language-code> --phrases <phrases-list>

@@ -1,0 +1,21 @@
+`Netdiscover` is a network scanning tool used to identify live hosts on a network. It is primarily designed for local area networks (LANs) and is useful in environments where dynamic IP addresses are assigned (DHCP networks). Netdiscover works by sending ARP (Address Resolution Protocol) requests to all devices in the network and listening for replies to identify active hosts.
+
+### Key Features:
+- Passive and active scanning modes.
+- Simple and lightweight.
+- Detects MAC addresses and IP addresses.
+- Suitable for wireless and wired networks.
+  
+Netdiscover is often used by network administrators or penetration testers to map a network and identify active devices without needing to know the entire IP range.
+
+### Installation Command (Ubuntu):
+```bash
+sudo apt install netdiscover
+```
+
+### Usage Example:
+To scan the network, use the following command:
+```bash
+sudo netdiscover -r 192.168.1.0/24
+```
+This will scan the 192.168.1.0/24 subnet for live hosts.

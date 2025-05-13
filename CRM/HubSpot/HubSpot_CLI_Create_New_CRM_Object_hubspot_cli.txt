@@ -1,0 +1,1 @@
+hs crm create object <object-name>

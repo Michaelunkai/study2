@@ -1,0 +1,1 @@
+create one liner, to setup and run golismero in ubuntu, and use it in the end! && sudo apt install golismero -y && golismero scan http://target.com

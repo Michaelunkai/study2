@@ -1,0 +1,1 @@
+aws s3 cp example.html s3://my-unique-bucket-d110ec38/

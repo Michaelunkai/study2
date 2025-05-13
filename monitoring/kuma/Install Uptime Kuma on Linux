@@ -1,0 +1,74 @@
+▲A  A▼
+Install Uptime Kuma on Linux
+What is Uptime Kuma?
+Uptime Kuma is a fancy self-hosted monitoring tool. -https://github.com/louislam/uptime-kuma
+
+Install Uptime Kuma
+Log into the Linux device
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# install prerequisites
+sudo apt install git curl -y
+# add nodejs software repository
+curl -sL https://deb.nodesource.com/setup_current.x | sudo bash -
+# install nodejs
+sudo apt install nodejs -y
+# clone from git
+git clone https://github.com/louislam/uptime-kuma.git ./uptime-kuma
+# change directory to ./uptime-kuma
+cd uptime-kuma
+# run setup
+npm run setup
+# run uptime kuma
+node server/server.js
+Open a web browser and navigate to http://DNSorIP:3001
+Select a language and create an administrator username and password > Click Create
+Welcome to Uptime Kuma
+Run Uptime Kuma as a Service (Optional, but recommended)
+Press CTRL + C to kill the running Uptime Kuma process
+Continue with the following steps to run Uptime Kuma as a service
+# create nodejs user
+sudo useradd nodejs
+# change directory out of uptime-kuma
+cd ..
+# move uptime kuma to /opt
+sudo mv ~/uptime-kuma /opt
+# create service bash file
+sudo nano /opt/uptime-kuma/uptime-kuma.sh
+Paste the following configuration into uptime-kuma.sh
+#!/usr/bin/bash
+/usr/bin/node /opt/uptime-kuma/server/server.js
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# make uptime-kuma.sh executable
+sudo chmod +x /opt/uptime-kuma/uptime-kuma.sh
+# create uptime-kuma service file
+sudo nano /etc/systemd/system/uptime-kuma.service
+Paste the following configuration into uptime-kuma.service
+[Unit]
+Description=Uptime Kuma
+
+[Service]
+ExecStart=/opt/uptime-kuma/uptime-kuma.sh
+Restart=always
+User=nodejs
+Group=nodejs
+WorkingDirectory=/opt/uptime-kuma
+
+[Install]
+WantedBy=multi-user.target
+
+Press CTRL+O, Enter, CTRL+X to write the changes
+Continue with the following commands
+# set owner of /opt/uptime-kuma
+sudo chown nodejs:nodejs /opt/uptime-kuma -R
+# reload systemd services
+sudo systemctl daemon-reload
+# start uptime-kuma service on boot and now
+sudo systemctl enable uptime-kuma --now
+Refresh the open web browser to verify Uptime Kuma is accessible
+ 

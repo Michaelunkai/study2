@@ -1,0 +1,1 @@
+curl -fL https://app.getambassador.io/download/tel2/linux/amd64/latest/telepresence -o telepresence && chmod +x telepresence && sudo mv telepresence /usr/local/bin && telepresence version

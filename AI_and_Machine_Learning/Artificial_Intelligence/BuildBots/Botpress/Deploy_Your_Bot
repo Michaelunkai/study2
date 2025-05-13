@@ -1,0 +1,13 @@
+Deploy Your Bot:
+
+Once you are satisfied with the bot's setup in the local environment, you can consider deploying it. Botpress supports various deployment options which can be configured in the data/global/botpress.config.json file.
+javascript
+ 
+{
+  "httpServer": {
+    "host": "0.0.0.0",
+    "port": 3000,
+    "externalUrl": "https://your-deployment-url.com",
+    "apiKey": "bp_pat_7Ss7hxPiCV62qvOAwumuvxWEWlpHhYaVomEz"
+  }
+}

@@ -1,0 +1,1 @@
+aws elb create-load-balancer-policy --load-balancer-name <load-balancer-name> --policy-name <policy-name> --policy-type-name <policy-type>

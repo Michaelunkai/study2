@@ -1,0 +1,1 @@
+sudo apt install -y hping3 && sudo hping3 -S -p 80 google.com && echo "Hping3 sent SYN packets to google.com on port 80"

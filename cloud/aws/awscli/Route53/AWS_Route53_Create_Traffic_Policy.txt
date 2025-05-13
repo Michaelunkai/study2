@@ -1,0 +1,1 @@
+aws route53 create-traffic-policy --name <policy-name> --document file://policy-document.json

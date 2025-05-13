@@ -1,0 +1,10 @@
+Swish-e (Simple Web Indexing System for Humans - Enhanced) is an open-source search engine software that allows users to index and search collections of documents. It is primarily used for indexing and searching websites or large sets of documents on a server. Swish-e can handle various file types, including HTML, XML, text, PDF, and more, by using filters or external programs to convert these files into a searchable format.
+
+Key features of Swish-e include:
+
+- **Customizable indexing:** Users can control which files to index and how to process them.
+- **Search capabilities:** It provides fast search functionality with support for various search operators.
+- **Scalability:** Swish-e can handle large collections of documents efficiently.
+- **Platform support:** It works on various platforms, including Unix/Linux and Windows.
+
+Swish-e is often used for building internal search engines for websites or document management systems.

@@ -1,0 +1,1 @@
+cabal install hasktorch && echo 'Hasktorch installed'

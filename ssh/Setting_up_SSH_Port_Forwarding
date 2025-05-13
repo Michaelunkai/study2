@@ -1,0 +1,3 @@
+ssh -L 8080:internal_service_ip:80 user@compromised_host
+
+Description: Forwards local port 8080 to port 80 of an internal service accessible by the compromised host.

@@ -1,0 +1,1 @@
+curl -sL https://github.com/ipinfo/cli/releases/latest/download/ipinfo-linux.tar.gz | tar xz && sudo mv ipinfo /usr/local/bin

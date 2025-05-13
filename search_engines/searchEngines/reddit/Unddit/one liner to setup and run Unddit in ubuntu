@@ -1,0 +1,1 @@
+getnpm && cd && apt install git -y && git clone https://github.com/gurnec/removeddit.git && cd removeddit &&  npm install -g n && exec bash && npm install && ls package.json && git clone https://github.com/gurnec/removeddit.git &&  npm start

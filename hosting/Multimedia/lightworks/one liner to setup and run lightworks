@@ -1,0 +1,1 @@
+wget https://downloads.lwks.com/v2023.1/lwks-2023.1-amd64.deb && sudo apt install -y ./lwks*.deb && lightworks

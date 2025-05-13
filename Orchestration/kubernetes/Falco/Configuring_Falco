@@ -1,0 +1,68 @@
+Configuring Falco
+Falco's configuration can be customized via ConfigMaps. Let's ensure that the ConfigMap exists and modify it as needed.
+
+6.1. Check for Existing ConfigMap
+ 
+ 
+kubectl get configmaps -n falco
+If falco-config is not listed, proceed to create it manually.
+
+6.2. Create falco-config ConfigMap
+Create a YAML file named falco-config.yaml with the following content:
+
+ 
+ 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: falco-config
+  namespace: falco
+data:
+  falco. : |
+    # Falco Configuration File
+    json_output: true
+    json_include_output_property: true
+    # Add other configurations as needed
+Note: The above is a minimal configuration. You can customize falco.yaml as per your requirements. Refer to Falco Configuration Documentation for detailed options.
+
+6.3. Apply the ConfigMap
+ 
+ 
+kubectl apply -f falco-config.yaml
+Expected  :
+
+arduino
+ 
+configmap/falco-config created
+6.4. Restart Falco Pods to Load Configuration
+To ensure Falco picks up the new configuration, restart the Falco pods:
+
+ 
+ 
+kubectl rollout restart deployment falco -n falco
+Expected  :
+
+ 
+ 
+deployment.apps/falco restarted
+6.5. Verify ConfigMap Creation
+ 
+ 
+kubectl get configmap falco-config -n falco -o yaml
+Expected  :
+
+ 
+ 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: falco-config
+  namespace: falco
+data:
+  falco. : |
+    # Falco Configuration File
+    json_output: true
+    json_include_output_property: true
+    # Add other configurations as needed
+Note: If you see the ConfigMap details, it has been successfully created.
+

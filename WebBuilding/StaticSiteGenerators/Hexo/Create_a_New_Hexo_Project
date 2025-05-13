@@ -1,0 +1,8 @@
+ Create a New Hexo Project
+Navigate to the directory where you want to create your Hexo project and run the following command to create a new Hexo project:
+
+ 
+ 
+hexo init my-blog
+cd my-blog
+npm install

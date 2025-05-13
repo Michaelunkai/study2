@@ -1,0 +1,95 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: dd-wrt.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: dd-wrt.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to cert.pem verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to key.pem and verify the export format is PEM private (*.pem)
+Click OK
+Applying SSL Certificates in DD-WRT
+Open a web browser and navigate to http://DDWRT_IP
+Authenticate with the DD-WRT login
+Click on the Services tab
+Locate the Secure Shell section
+Select the Enable radio option next to SSHd
+Click Apply Settings
+Click on the Administration tab
+Locate the JFFS2 Support heading
+Check the Enable button next to Internal Flash Storage
+Locate the Web Access heading
+Uncheck HTTP
+Check HTTPS
+Click Apply Settings
+Scroll down and click the Reboot Router
+Wait for DD-WRT to come back up
+Download PuTTY Download
+Connect to DD-WRT via PuTTY
+Execute the following commands to create the working directories
+cd /jffs
+mkdir etc
+mkdir startup
+Download the bash script to apply the SSL certificates Download
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the DD-WRT server via WinSCP
+Navigate to /jffs/etc
+Copy the created cert.pem and key.pem to /jffs/etc
+Navigate to /jffs/startup
+Copy the downloaded binds_on_mount.sh
+Back in PuTTY, execute the following commands
+cd /jffs/startup
+# make binds_on_mount.sh executable
+chmod +x binds_on_mount.sh
+Test binding the newly created certificates manually
+./binds_on_mount.sh
+If any errors occur do not proceed to the next section until they are resolved
+Open a web browser and navigate to https://DDWRT_IP
+If the certificates were bound successfully the generated certificates should now be served by DD-WRT
+Automatically Applying SSL Certificates on DD-WRT Startup
+Open a web browser and navigate to http://DDWRT_IP
+Authenticate with the DD-WRT login
+Click on the Administration tab
+Click on the Commands sub-navigation tab
+Paste the following into the Commands textarea
+cd /jffs/startup && ./binds_on_mount.sh > ./log
+
+Click the Save Startup button
+Click on the Management sub-navigation tab
+Scroll to the bottom and click the Reboot Router button
+Wait for the router to reboot
+Refresh the DD-WRT web interface and the created SSL certificates should be used
+On one of my cheaper routers /jffs was read-only and had 0 bytes available. I followed the same steps as above but used a USB flash drive to store the files. I was able to replace /jffs with /tmp/mnt/USB to complete setting up SSL on the device. Leaving HTTP checked under Administration > Management > Web Access can provide a fallback until https is working reliably. If for some reason https stops working you can re-enable access via http by connecting to the router via SSH and running the following commands:
+nvram set httpd_enable=1
+nvram set http_enable=1

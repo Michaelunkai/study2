@@ -1,0 +1,1 @@
+sudo apt install -y pdf2djvu && pdf2djvu input.pdf output.djvu

@@ -1,0 +1,1 @@
+pip3 install pony && python3 -c 'import pony; print(pony.__version__)'

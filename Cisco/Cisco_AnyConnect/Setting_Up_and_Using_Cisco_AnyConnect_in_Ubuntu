@@ -1,0 +1,112 @@
+### Setting Up and Using Cisco AnyConnect in Ubuntu
+
+#### Step 1: Download Cisco AnyConnect
+First, download the Cisco AnyConnect package using the provided command:
+  
+wget --no-check-certificate 'https://drive.usercontent.google.com/u/0/uc?id=1Cfbor9dksyEMJh-5q0NURURxtKBdYi_6&export=download' -O anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz
+
+#### Step 2: Extract the Package
+Extract the downloaded tar.gz file:
+  
+tar -xvzf anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz
+
+#### Step 3: Install Cisco AnyConnect
+Navigate to the extracted directory and install Cisco AnyConnect:
+  
+cd anyconnect-linux64-4.9.00086/vpn/
+sudo ./vpn_install. 
+During the installation, you will be prompted with the following messages. Respond as shown:
+Do you accept the terms in the license agreement? [y/n] y
+
+#### Step 4: Obtain Your VPN Server Address
+To get your own VPN server address, follow these steps:
+1. **Contact Your IT Department or VPN Provider:** Reach out to your company's IT department or the VPN service provider to obtain the VPN server address.
+2. **Check VPN Documentation:** Look into the official documentation or support section of the VPN service you are using.
+3. **VPN Account Portal:** Log into your VPN account portal where server addresses are usually listed.
+
+#### Step 5: Start Cisco AnyConnect
+To start Cisco AnyConnect, use the following command:
+  
+sudo /opt/cisco/anyconnect/bin/vpn
+
+#### Step 6: VPN Commands
+Once in the VPN client, you can use the following commands to manage your VPN connection:
+
+1. **Connect to VPN:**
+     
+   connect <VPN_SERVER_ADDRESS>
+   Replace `<VPN_SERVER_ADDRESS>` with your VPN server address.
+
+2. **Authenticate:**
+   You will be prompted to enter your VPN username and password.
+
+3. **Disconnect from VPN:**
+     
+   disconnect
+
+4. **Check VPN State:**
+     
+   state
+
+5. **Exit VPN Client:**
+     
+   quit
+
+6. **Show VPN Statistics:**
+     
+   stats
+
+7. **Renew IP Address:**
+     
+   iprenew
+
+8. **Enable or Disable IPv6:**
+     
+   ipv6 enable
+   or
+     
+   ipv6 disable
+
+9. **View VPN Routes:**
+     
+   routes
+
+10. **Enable or Disable Split Tunneling:**
+      
+    split_tunnel enable
+    or
+      
+    split_tunnel disable
+
+### Summary of Commands
+Here is a summary of all commands in order:
+
+  
+wget --no-check-certificate 'https://drive.usercontent.google.com/u/0/uc?id=1Cfbor9dksyEMJh-5q0NURURxtKBdYi_6&export=download' -O anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz
+tar -xvzf anyconnect-linux64-4.9.00086-predeploy-k9.tar.gz
+cd anyconnect-linux64-4.9.00086/vpn/
+sudo ./vpn_install. 
+
+#### Obtain Your VPN Server Address
+1. Contact your IT department or VPN provider.
+2. Check VPN documentation.
+3. Access your VPN account portal.
+
+#### VPN Client Commands
+Once inside the VPN client:
+
+  
+sudo /opt/cisco/anyconnect/bin/vpn
+connect <VPN_SERVER_ADDRESS>
+disconnect
+state
+quit
+stats
+iprenew
+ipv6 enable
+ipv6 disable
+routes
+split_tunnel enable
+split_tunnel disable
+
+Replace `<VPN_SERVER_ADDRESS>` with the actual address of your VPN server.

@@ -1,0 +1,1 @@
+curl https://binaries.cockroachdb.com/cockroach-v23.1.2.linux-amd64.tgz | tar -xz && sudo cp -i cockroach-v23.1.2.linux-amd64/cockroach /usr/local/bin/ && cockroach start-single-node --insecure

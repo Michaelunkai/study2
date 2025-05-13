@@ -1,0 +1,1 @@
+wget -O nifi.tar.gz https://archive.apache.org/dist/nifi/1.17.0/nifi-1.17.0-bin.tar.gz && tar -xzf nifi.tar.gz && nifi/bin/nifi.sh start

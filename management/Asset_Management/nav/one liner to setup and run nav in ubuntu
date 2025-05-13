@@ -1,0 +1,1 @@
+sudo apt install -y nav && sudo systemctl start nav

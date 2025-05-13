@@ -1,0 +1,1 @@
+eksctl utils associate-iam-oidc-provider --region us-west-2 --cluster my-cluster --approve && eksctl create iamserviceaccount --name fluentd-cloudwatch --namespace kube-system --cluster my-cluster --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy --approve --override-existing-serviceaccounts

@@ -1,0 +1,7 @@
+Monitor and Maintain MeiliSearch
+To ensure your MeiliSearch instance is running smoothly, you can monitor it using the system's logs:
+
+ 
+ 
+journalctl -u meilisearch -f
+You can also perform regular backups of your data and periodically update MeiliSearch to the latest version.

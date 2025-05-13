@@ -1,0 +1,1 @@
+dwebp your_image.webp -o output.jpg

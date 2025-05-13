@@ -1,0 +1,1 @@
+git clone https://github.com/kubernetes-sigs/kubespray.git && cd kubespray && sudo apt update && sudo apt install -y python3-pip && pip3 install -r requirements.txt && cp -rfp inventory/sample inventory/mycluster && ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml

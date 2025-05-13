@@ -1,0 +1,1 @@
+cd /tmp && wget https://example.com/xdman2.tar.xz && tar -xf xdman2.tar.xz && ./xdman2

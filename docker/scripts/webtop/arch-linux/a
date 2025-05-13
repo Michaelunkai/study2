@@ -1,0 +1,1 @@
+docker run -d --name=arch-webtop -e PUID=1000 -e PGID=1000 -e TZ=UTC -p 7777:3000 -v ~/.config/arch-webtop:/config --shm-size="1gb" --restart unless-stopped lscr.io/linuxserver/webtop:arch-xfce

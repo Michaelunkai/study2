@@ -1,0 +1,1 @@
+aws codeguru-reviewer list-notification-configurations --resource-arn <resource-arn>

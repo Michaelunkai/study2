@@ -1,0 +1,27 @@
+▲A  A▼
+Add A Firewall to Debian Linux with UFW
+What is UFW?
+The Uncomplicated Firewall (ufw, and gufw - a Graphical User Interface version of the same) is a frontend for iptables and is particularly well-suited for host-based firewalls. Ufw provides a framework for managing netfilter, as well as a command-line interface for manipulating the firewall. -https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29
+Log into the Debian device
+Run the following commands in a terminal window:
+# update software repositories
+sudo apt update
+# install ufw
+sudo apt install ufw -y
+# enable ufw
+sudo ufw enable
+# output the ufw status
+sudo ufw status
+# add some default firewall rules
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+# if a webserver is running, allow the incoming traffic
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+# to allow incoming ssh connections, open port 22
+sudo ufw allow 22/tcp
+# output the ufw status
+sudo ufw status
+# to install a graphical user interface for ufw, install gufw
+sudo apt install gufw -y
+ 

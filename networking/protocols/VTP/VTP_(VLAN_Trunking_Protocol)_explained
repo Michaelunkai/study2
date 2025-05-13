@@ -1,0 +1,8 @@
+ VTP (VLAN Trunking Protocol):
+VTP is a Cisco proprietary protocol that automates the management of VLAN configurations across switches in a network. By using VTP, network administrators can create, delete, or modify VLANs on one switch, and VTP will propagate these changes to all other switches in the same VTP domain. This reduces administrative overhead and ensures consistency in VLAN configurations throughout the network. VTP operates in different modes: Server, Client, and Transparent. While VTP simplifies VLAN management, it also requires careful implementation, as misconfigurations can lead to network-wide disruptions. VTP is especially useful in large networks with many VLANs.
+
+
+
+
+
+

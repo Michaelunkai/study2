@@ -1,0 +1,2 @@
+
+Invoke-WebRequest -Uri "https://dot.net/v1/dotnet-install.ps1" -OutFile "$env:TEMP\dotnet-install.ps1"; & "$env:TEMP\dotnet-install.ps1" -Runtime "dotnet" -Version "8.0.6" -InstallDir "C:\Program Files\dotnet"; Remove-Item -Path "$env:TEMP\dotnet-install.ps1"; dotnet --list-runtimes

@@ -1,0 +1,1 @@
+docker run -d --name directus -p 8055:8055 -e KEY=supersecret directus/directus:latest

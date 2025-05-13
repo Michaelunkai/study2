@@ -1,0 +1,8 @@
+**Infisical** is an open-source platform designed for managing and securing environment variables in development projects. It simplifies the handling of secrets and sensitive information by offering centralized secret management, secure storage, and easy integration with various development tools and environments. Key features of Infisical include:
+
+1. **End-to-End Encryption** – Secrets are encrypted before being stored, ensuring secure access.
+2. **Version Control** – Tracks changes in environment variables, making it easier to audit and revert to previous states.
+3. **Collaboration** – Facilitates secure sharing of secrets across teams and projects.
+4. **Integration** – Compatible with popular platforms like GitHub, Docker, and CI/CD pipelines.
+
+Infisical helps maintain a secure development workflow by automating the management of sensitive data like API keys, tokens, and credentials.

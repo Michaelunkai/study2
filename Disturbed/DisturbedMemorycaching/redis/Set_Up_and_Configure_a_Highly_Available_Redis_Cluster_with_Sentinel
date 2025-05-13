@@ -1,0 +1,74 @@
+ Set Up and Configure a Highly Available Redis Cluster with Sentinel
+Install Redis on Three Nodes:
+
+ 
+ 
+sudo apt update
+sudo apt install redis-server -y
+Configure Redis Master:
+
+ 
+ 
+sudo nano /etc/redis/redis.conf
+Update the configuration:
+
+plaintext
+ 
+bind 0.0.0.0
+protected-mode no
+port 6379
+dir /var/lib/redis
+Start Redis Master:
+
+ 
+ 
+sudo systemctl restart redis-server
+Configure Redis Slaves:
+
+ 
+ 
+sudo nano /etc/redis/redis.conf
+Update the configuration:
+
+plaintext
+ 
+bind 0.0.0.0
+protected-mode no
+port 6379
+dir /var/lib/redis
+replicaof <master-ip> 6379
+Start Redis Slaves:
+
+ 
+ 
+sudo systemctl restart redis-server
+Install Redis Sentinel on All Nodes:
+
+ 
+ 
+sudo apt install redis-sentinel -y
+Configure Redis Sentinel:
+
+ 
+ 
+sudo nano /etc/redis/sentinel.conf
+Update the configuration:
+
+plaintext
+ 
+bind 0.0.0.0
+port 26379
+sentinel monitor mymaster <master-ip> 6379 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel parallel-syncs mymaster 1
+sentinel failover-timeout mymaster 10000
+Start Redis Sentinel:
+
+ 
+ 
+sudo systemctl restart redis-sentinel
+Verify Redis Cluster:
+
+ 
+ 
+redis-cli -p 26379 sentinel get-master-addr-by-name mymaster

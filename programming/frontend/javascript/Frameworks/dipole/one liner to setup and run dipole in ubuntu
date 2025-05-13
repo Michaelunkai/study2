@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g dipole-cli && yes "y" | dipole init my-dipole-app && cd my-dipole-app && nsj && npm start

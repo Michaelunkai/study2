@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install haxe -y && haxe -main Main -js output.js && node output.js

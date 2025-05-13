@@ -1,0 +1,1 @@
+aws lambda create-event-source-mapping --function-name ProcessKinesisVideo --batch-size 1 --starting-position LATEST --event-source-arn arn:aws:kinesisvideo:YOUR_REGION:YOUR_ACCOUNT_ID:stream/MySurveillanceStream/1234567890

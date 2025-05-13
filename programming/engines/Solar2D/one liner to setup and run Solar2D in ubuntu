@@ -1,0 +1,1 @@
+wget https://api.solar2d.com/download/solar2d-linux.tar.gz && tar -xzvf solar2d-linux.tar.gz && cd solar2d && ./Solar2D

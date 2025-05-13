@@ -1,0 +1,1 @@
+libreoffice --headless --convert-to xlsx your_file.xls

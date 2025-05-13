@@ -1,0 +1,4 @@
+ cd && curl -OL https://download.arangodb.com/arangodb312/DEBIAN/Release.key && sudo apt-key add - < Release.key && echo 'deb https://download.arangodb.com/arangodb312/DEBIAN/ /' | sudo tee /etc/apt/sources.list.d/arangodb.list && sudo apt-get install apt-transport-https && sudo apt-get update && sudo apt-get install arangodb3=3.12.0.2-1 && sudo systemctl status arangodb3 && sudo systemctl start arangodb3 && sudo systemctl enable arangodb3 && gc http://localhost:8529
+
+
+no password

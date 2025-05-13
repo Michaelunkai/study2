@@ -1,0 +1,1 @@
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -

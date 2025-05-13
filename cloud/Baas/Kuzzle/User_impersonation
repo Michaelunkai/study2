@@ -1,0 +1,13 @@
+User impersonation
+You can impersonate a user before executing a command with the --as flag and a user kuid .
+
+User impersonation require the following rights for the authenticated user: security:createApiKey , security:deleteApiKey
+
+$ kourou sdk:query auth:getCurrentUser --as gordon --username admin --password admin
+
+ 🚀 Kourou - Executes an API query.
+
+ [ℹ] Connecting to http://localhost:7512 ...
+ [ℹ] Impersonate user "gordon"
+
+[...]

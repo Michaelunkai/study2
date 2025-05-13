@@ -1,0 +1,10 @@
+# List all Amplify apps and get their app IDs
+app_ids=$(aws amplify list-apps --query 'apps[*].appId' --output text)
+
+# Loop through each app ID and delete the app
+for app_id in $app_ids; do
+    echo "Deleting app with ID: $app_id"
+    aws amplify delete-app --app-id $app_id
+done
+
+echo "All apps have been deleted."

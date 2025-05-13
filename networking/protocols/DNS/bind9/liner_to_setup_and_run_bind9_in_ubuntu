@@ -1,0 +1,1 @@
+sudo apt install -y bind9 && sudo systemctl start bind9 && echo "Bind9 DNS server started"

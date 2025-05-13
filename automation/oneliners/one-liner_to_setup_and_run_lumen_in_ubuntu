@@ -1,0 +1,1 @@
+composer create-project --prefer-dist laravel/lumen my-lumen-app && cd my-lumen-app && php -S localhost:8000 -t public

@@ -1,0 +1,1 @@
+wget https://archive.apache.org/dist/pulsar/pulsar-3.0.0/apache-pulsar-3.0.0-bin.tar.gz && tar -xzf apache-pulsar-3.0.0-bin.tar.gz && cd apache-pulsar-3.0.0 && bin/pulsar standalone

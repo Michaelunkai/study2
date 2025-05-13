@@ -1,0 +1,1 @@
+pip3 install httpx && python3 -c 'import httpx; print(httpx.__version__)'

@@ -1,0 +1,1 @@
+sudo apt install -y subnetcalc && subnetcalc 10.0.0.1/24

@@ -1,0 +1,1 @@
+sudo apt install fio -y && fio --name=test --rw=write --bs=4k --size=500M --numjobs=4 --time_based --runtime=60 --group_reporting

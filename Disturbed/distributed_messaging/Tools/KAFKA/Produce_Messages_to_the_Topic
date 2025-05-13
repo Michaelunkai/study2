@@ -1,0 +1,1 @@
+sudo docker exec -it kafka kafka-console-producer --topic my_topic --bootstrap-server localhost:7000

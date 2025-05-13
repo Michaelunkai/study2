@@ -1,0 +1,11 @@
+Send a Message to the Queue
+Standard Queue:
+
+ 
+ 
+aws sqs send-message --queue-url <QueueUrl> --message-body "This is a test message"
+FIFO Queue:
+
+ 
+ 
+aws sqs send-message --queue-url <QueueUrl> --message-body "This is a test message" --message-group-id "Group1"

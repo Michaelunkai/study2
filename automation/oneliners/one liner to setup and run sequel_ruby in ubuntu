@@ -1,0 +1,1 @@
+gem install sequel && ruby -e 'require "sequel"; puts Sequel::VERSION'

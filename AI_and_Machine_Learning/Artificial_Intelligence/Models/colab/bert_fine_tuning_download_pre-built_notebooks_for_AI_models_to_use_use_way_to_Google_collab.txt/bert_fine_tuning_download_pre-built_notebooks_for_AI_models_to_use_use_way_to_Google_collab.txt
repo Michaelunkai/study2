@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/huggingface/notebooks/blob/main/transformers/doc/en/quicktour.ipynb -O bert_fine_tuning.ipynb

@@ -1,0 +1,1 @@
+sudo apt install -y nmap && nping google.com && echo "Nping completed for google.com"

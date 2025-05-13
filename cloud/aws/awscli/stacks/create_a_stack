@@ -1,0 +1,5 @@
+Create a Stack
+
+Use the aws cloudformation create-stack command to create a stack based on your template.
+
+aws cloudformation create-stack --stack-name my-sample-stack --template-body file://template.yml

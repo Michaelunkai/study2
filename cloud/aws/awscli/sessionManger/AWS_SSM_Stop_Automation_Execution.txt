@@ -1,0 +1,1 @@
+aws ssm stop-automation-execution --automation-execution-id <execution-id>

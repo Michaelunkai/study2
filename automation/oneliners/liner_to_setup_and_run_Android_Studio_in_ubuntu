@@ -1,0 +1,1 @@
+ sudo apt install -y openjdk-11-jdk wget unzip && wget https://dl.google.com/dl/android/studio/ide-zips/2023.1.1.17/android-studio-2023.1.1.17-linux.tar.gz -P /tmp && sudo tar -xvzf /tmp/android-studio-2023.1.1.17-linux.tar.gz -C /opt && sudo ln -s /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio && android-studio

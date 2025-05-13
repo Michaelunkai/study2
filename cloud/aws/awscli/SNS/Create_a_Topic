@@ -1,0 +1,13 @@
+ Create a Topic
+A topic is a communication channel to send messages and subscribe to.
+
+ 
+ 
+aws sns create-topic --name my-topic
+This command will return an ARN (Amazon Resource Name) for the topic, which looks something like this:
+
+json
+ 
+{
+    "TopicArn": "arn:aws:sns:us-east-1:123456789012:my-topic"
+}

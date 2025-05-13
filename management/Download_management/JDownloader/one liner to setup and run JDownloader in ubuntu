@@ -1,0 +1,1 @@
+cd /opt && sudo mkdir jdownloader && cd jdownloader && sudo wget http://installer.jdownloader.org/JDownloader.jar && sudo java -jar JDownloader.jar

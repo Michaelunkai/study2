@@ -1,0 +1,1 @@
+sudo apt-get install -y sqlite3 && sqlite3 -header -csv mydatabase.db "SELECT column1, column2 FROM mytable;" > query_output.csv

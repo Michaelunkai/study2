@@ -1,0 +1,1 @@
+aws comprehend create-document-classifier --document-classifier-name <name> --data-access-role-arn <role-arn> --input-data-config <config> --language-code en

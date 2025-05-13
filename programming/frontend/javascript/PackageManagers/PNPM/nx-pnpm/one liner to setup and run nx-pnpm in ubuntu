@@ -1,0 +1,1 @@
+pnpm create nx-workspace@latest && pnpm nx serve

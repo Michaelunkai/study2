@@ -1,0 +1,4 @@
+import boto3
+ec2 = boto3.client('ec2')
+response = ec2.create_subnet(VpcId='<vpc-id>', CidrBlock='10.0.1.0/24')
+print(response['Subnet']['SubnetId'])

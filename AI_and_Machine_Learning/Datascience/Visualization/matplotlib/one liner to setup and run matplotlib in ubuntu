@@ -1,0 +1,1 @@
+pip3 install matplotlib && python3 -c 'import matplotlib; print(matplotlib.__version__)'

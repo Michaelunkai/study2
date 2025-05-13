@@ -1,0 +1,1 @@
+sudo apt install -y chaosreader && chaosreader capture.pcap && echo "Chaosreader parsed capture.pcap"

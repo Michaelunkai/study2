@@ -1,0 +1,27 @@
+ Setup CloudWatch Logs
+Create a Log Group:
+ 
+ 
+aws logs create-log-group --log-group-name my-log-group
+Create a Log Stream:
+ 
+ 
+aws logs create-log-stream --log-group-name my-log-group --log-stream-name my-log-stream
+Put Log Events:
+You can push log data to CloudWatch Logs using the put-log-events command. Here’s an example:
+
+ 
+ 
+aws logs put-log-events --log-group-name my-log-group --log-stream-name my-log-stream --log-events file://log-events.json
+log-events.json should be a JSON file in the following format:
+
+json
+ 
+{
+  "logEvents": [
+    {
+      "timestamp": 1620123456789,
+      "message": "This is a sample log message"
+    }
+  ]
+}

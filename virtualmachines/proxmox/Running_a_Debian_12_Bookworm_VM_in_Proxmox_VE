@@ -1,0 +1,55 @@
+Running a Debian 12 Bookworm VM in Proxmox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running Proxmox 6, download the Debian 12 iso Download and upload it to the Proxmox ISO image library
+If running Proxmox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Debian 12 installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 16 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Debian 12 VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+When the install dialog displays press Enter to select Graphical Install
+Select a language > Click Continue
+Select a Location > Click Continue
+Select a keyboard layout > Click Continue
+Enter a hostname for the VM > Click Continue
+Enter a Domain name or leave it empty > Click Continue
+Leave the root password empty > Click Continue
+Enter the full name for the new user > Click Continue
+Enter the username for the new user > Click Continue
+Enter and confirm a password for the new user > Click Continue
+Select a timezone > Click Continue
+Select Guided - user entire disk > Click Continue
+Select the QEMU HARDDISK > Click Continue
+Select All files in one partition > Click Continue
+Select Finish partitioning and write changes to disk > Click Continue
+Select Yes to confirm writing the changes > Click Continue
+Wait for Debian to copy and install files
+When prompted, select Yes to enable a network apt mirror > Click Continue
+Select a country to use for the apt mirror > Click Continue
+Select a mirror from the list > Click Continue
+Setup a HTTP proxy if necessary > Click Continue
+Choose if you want to participate in package usage survey > Click Continue
+Select the optional software to install > Click Continue
+Select Yes to install GRUB > Click Continue
+Select /dev/sda for the boot loader location > Click Continue
+After the bootloader is installed select reboot to finish the installation
+Log in using the username and password created during the installation
+Welcome to Debian 12
+Optional Steps
+Launch a terminal window
+Run the following commands
+# update software repositories
+sudo apt update
+# install qemu guest agent
+sudo apt install qemu-guest-agent -y
+# enable and start the qemu-guest-agent service
+sudo systemctl enable qemu-guest-agent --now
+A subsequent reboot is required to complete the guest agent installation

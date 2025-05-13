@@ -1,0 +1,1 @@
+rsync -avz -e ssh /source_directory/ user@remote_host:/destination_directory/backup.tar.gz

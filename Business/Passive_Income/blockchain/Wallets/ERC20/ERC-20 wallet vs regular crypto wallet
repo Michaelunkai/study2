@@ -1,0 +1,20 @@
+### ERC-20 Wallet vs Regular Crypto Wallet
+
+#### 1. **ERC-20 Wallet**
+- **Specific to Ethereum Network**: ERC-20 wallets are designed to handle tokens that adhere to the ERC-20 standard, a protocol on the Ethereum blockchain.
+- **Token Compatibility**: Supports ERC-20 tokens, which are Ethereum-based tokens (e.g., USDT, LINK, UNI). It can also store Ether (ETH), the native cryptocurrency of Ethereum.
+- **Smart Contracts**: Interacts with Ethereum-based smart contracts and decentralized applications (DApps).
+- **Gas Fees**: Requires ETH for transaction fees ("gas") when sending tokens or interacting with smart contracts.
+- **Examples**: MetaMask, MyEtherWallet, Trust Wallet.
+
+#### 2. **Regular Crypto Wallet**
+- **General Use**: Can handle various cryptocurrencies, not tied to a specific blockchain or token standard. Examples include Bitcoin, Litecoin, and other blockchains.
+- **Multi-Blockchain Support**: Many regular crypto wallets support multiple blockchains, allowing users to manage different types of cryptocurrencies in one wallet (e.g., BTC, LTC, DOGE).
+- **No Smart Contract Interaction**: Typically does not support interacting with Ethereum smart contracts or DApps unless it's a multi-chain wallet.
+- **Transaction Fees**: Fees depend on the specific blockchain (e.g., Bitcoin network fees), and the wallet might use different native tokens for fees.
+- **Examples**: Ledger, Trezor, Exodus, Coinomi.
+
+### Key Differences:
+- **Blockchain Focus**: ERC-20 wallets are Ethereum-centric, while regular crypto wallets can span multiple blockchains.
+- **Token Types**: ERC-20 wallets handle ERC-20 tokens and Ether, while regular wallets manage coins like Bitcoin and other non-Ethereum-based cryptocurrencies.
+- **Functionality**: ERC-20 wallets support Ethereum-based smart contract interactions, while regular wallets are often more focused on basic storage and transactions across multiple blockchain networks.

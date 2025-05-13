@@ -1,0 +1,1 @@
+aws codeguru-reviewer list-repository-associations

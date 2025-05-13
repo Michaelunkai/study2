@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g @vue/cli && yes "y" | vue create my-vue-app && cd my-vue-app && nsj && npm run serve

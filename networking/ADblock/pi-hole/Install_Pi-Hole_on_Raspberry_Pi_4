@@ -1,0 +1,33 @@
+▲A  A▼
+Install Pi-Hole on Raspberry Pi 4
+Installing Pi-Hole
+Log into the Raspberry Pi
+Run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install available software updates
+sudo apt upgrade -y
+# clean up downloaded apt files
+sudo apt clean
+# install pi-hole
+curl -sSL https://install.pi-hole.net | bash
+Press Enter until the DNS selection is displayed
+Select a DNS provider and press Enter
+Press Enter through the rest of the Pi-Hole installer, selecting the defaults
+Copy the randomly generated admin password (just in case)
+Press Enter to complete the installation
+Run the following command to change the Pi-Hole admin password
+sudo pihole -a -p
+Enter and confirm the new password
+Open a web browser and navigate to http://localhost/admin to view the pi-hole admin interface
+Testing Pi-Hole
+Back in the terminal, run the following commands to use the local pi-hole instance for DNS
+sudo nano /etc/resolv.conf
+Add the following line at the top of the other nameservers
+nameserver 127.0.0.1
+
+Press CTRL+O, Enter, CTRL+X to write the changes to resolv.conf
+Back in the web browser, open a new tab and navigate to a site that contains ads, like https://yahoo.com
+Watch the Pi-Hole interface to see the ads being blocked
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

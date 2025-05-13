@@ -1,0 +1,1 @@
+cabal install happstack && echo 'Happstack installed'

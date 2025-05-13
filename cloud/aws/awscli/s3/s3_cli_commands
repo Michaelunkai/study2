@@ -1,0 +1,131 @@
+list all buckets:
+aws s3 ls
+
+
+If you want more detailed information about the buckets, you can use the --query parameter to specify the fields you want to display. For example, to display only bucket names, you can use:
+
+aws s3 ls --query "Buckets[].Name"
+This will only show the names of the S3 buckets.
+
+
+To list all files in your Amazon S3 bucket using the AWS Command Line Interface (CLI), you can use the aws s3 ls command. Here's the basic syntax:
+
+aws s3 ls s3://your-bucket-name
+Replace your-bucket-name with the name of your S3 bucket. This command will list all objects (files) in the specified S3 bucket.
+
+If you have a large number of objects and you want to paginate the results, you can use the --recursive option to list all objects recursively:
+
+aws s3 ls s3://your-bucket-name --recursive
+This will recursively list all objects in the specified bucket and any subdirectories.
+
+If you want more details about the objects such as size and last modified timestamp, you can use the --human-readable and --summarize options:
+
+aws s3 ls s3://your-bucket-name --recursive --human-readable --summarize
+This will display the size and last modified timestamp of each object along with the listing.
+
+
+To determine how much storage you've used in your S3 bucket:
+aws s3api list-objects --bucket your-bucket-name --output json --query "[sum(Contents[].Size), length(Contents[])]"
+
+
+Upload a file to S3:
+aws s3 cp /path/to/local/file s3://your-bucket-name/
+
+Download a file from S3:
+aws s3 cp s3://your-bucket-name/file /path/to/local/
+
+Copy an object within/between S3 buckets:
+aws s3 cp s3://source-bucket/source-path s3://destination-bucket/destination-path
+
+Move an object within/between S3 buckets:
+aws s3 mv s3://source-bucket/source-path s3://destination-bucket/destination-path
+
+Remove an object from S3:
+aws s3 rm s3://your-bucket-name/file
+
+Remove all objects from a bucket:
+aws s3 rm s3://your-bucket-name/ --recursive
+
+Create an S3 bucket:
+aws s3 mb s3://your-new-bucket-name
+
+Delete an S3 bucket:
+aws s3 rb s3://your-bucket-name
+
+List versions of objects in a bucket:
+aws s3api list-object-versions --bucket your-bucket-name
+
+Enable versioning on a bucket:
+aws s3api put-bucket-versioning --bucket your-bucket-name --versioning-configuration Status=Enabled
+
+List S3 lifecycle policies:
+aws s3api get-bucket-lifecycle-configuration --bucket your-bucket-name
+
+Set an S3 lifecycle policy:
+aws s3api put-bucket-lifecycle-configuration --bucket your-bucket-name --lifecycle-configuration file://lifecycle.json
+
+Replace lifecycle.json with the JSON file containing your lifecycle policy.
+
+List S3 bucket policies:
+aws s3api get-bucket-policy --bucket your-bucket-name
+
+Set an S3 bucket policy:
+aws s3api put-bucket-policy --bucket your-bucket-name --policy file://policy.json
+
+Replace policy.json with the JSON file containing your bucket policy.
+
+Enable server-side encryption for a bucket:
+aws s3api put-bucket-encryption --bucket your-bucket-name --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
+
+List S3 bucket tags:
+aws s3api get-bucket-tagging --bucket your-bucket-name
+
+Set tags for an S3 bucket:
+aws s3api put-bucket-tagging --bucket your-bucket-name --tagging file://tags.json
+Replace tags.json with the JSON file containing your bucket tags.
+
+Enable CORS for an S3 bucket:
+aws s3api put-bucket-cors --bucket your-bucket-name --cors-configuration file://cors.json
+Replace cors.json with the JSON file containing your CORS configuration.
+
+List multipart uploads in progress:
+aws s3api list-multipart-uploads --bucket your-bucket-name
+
+Abort a multipart upload:
+aws s3api abort-multipart-upload --bucket your-bucket-name --key your-object-key --upload-id your-upload-id
+
+Replace your-object-key and your-upload-id with the appropriate values.
+
+Enable S3 Transfer Acceleration for a bucket:
+aws s3api put-bucket-accelerate-configuration --bucket your-bucket-name --accelerate-configuration Status=Enabled
+
+List all S3 storage classes:
+ 
+ 
+aws s3api list-buckets --query 'Buckets[*].{BucketName:Name,StorageClass:CreateBucketConfiguration.LocationConstraint}'
+List S3 metrics configurations:
+aws s3api get-bucket-metrics-configuration --bucket your-bucket-name
+
+Set S3 metrics configuration:
+aws s3api put-bucket-metrics-configuration --bucket your-bucket-name --id metrics-id --metrics-configuration file://metrics.json
+
+Replace metrics-id with the ID of the metrics configuration and metrics.json with the JSON file containing your metrics configuration.
+
+Enable S3 Inventory for a bucket:
+aws s3api put-bucket-inventory-configuration --bucket your-bucket-name --id inventory-id --inventory-configuration file://inventory.json
+
+Replace inventory-id with the ID of the inventory configuration and inventory.json with the JSON file containing your inventory configuration.
+
+List S3 bucket inventory configurations:
+aws s3api list-bucket-inventory-configurations --bucket your-bucket-name
+
+Restore objects from S3 Glacier:
+aws s3api restore-object --bucket your-bucket-name --key your-object-key --restore-request Days=7
+Replace your-object-key with the key of the object you want to restore.
+
+List S3 batch operations:
+aws s3control list-jobs --account-id your-account-id
+Replace your-account-id with your AWS account ID.
+
+
+

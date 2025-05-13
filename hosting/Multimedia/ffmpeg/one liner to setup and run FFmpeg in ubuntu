@@ -1,0 +1,1 @@
+sudo apt install -y ffmpeg && ffmpeg -f lavfi -i testsrc=duration=10:size=1280x720:rate=30 output.mp4; echo 'create one liner, to setup and run FFmpeg in ubuntu, and use it in the end!'

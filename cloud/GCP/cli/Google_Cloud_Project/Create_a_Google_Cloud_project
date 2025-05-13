@@ -1,0 +1,2 @@
+gcloud projects create [PROJECT_ID] --name=[PROJECT_NAME]
+gcloud config set project [PROJECT_ID]

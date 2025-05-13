@@ -1,0 +1,2 @@
+aws kinesis get-shard-iterator --stream-name MyDataStream --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON
+aws kinesis get-records --shard-iterator <ShardIterator>

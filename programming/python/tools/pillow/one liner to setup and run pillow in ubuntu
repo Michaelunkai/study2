@@ -1,0 +1,1 @@
+pip3 install pillow && python3 -c 'import PIL; print(PIL.__version__)'

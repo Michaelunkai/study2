@@ -1,0 +1,76 @@
+Problem Statement:
+Given an array of integers that are sorted in ascending order, you need to convert this array into a height-balanced binary search tree (BST). A height-balanced BST is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
+
+Explanation:
+Imagine you have a list of numbers that are already sorted from the smallest to the largest. Your job is to turn this list into a special kind of tree called a height-balanced binary search tree.
+
+A binary search tree is a structure where each node has at most two children. The left child contains values less than the parent node, and the right child contains values greater than the parent node. A height-balanced tree means that the tree is as flat as possible, so it doesn't get too tall on any side, which makes it more efficient for searching.
+
+Here's how you can think about it:
+
+Choose the middle number in your sorted list to be the root of the tree. This helps keep the tree balanced.
+Recursively repeat this process for the left half and the right half of the list to create left and right subtrees.
+Continue until all numbers from the list are added to the tree.
+Python Solution:
+ 
+ 
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val  # node value
+        self.left = left  # left child
+        self.right = right  # right child
+
+class Solution:
+    def sortedArrayToBST(self, nums):
+        # Function to convert sorted array to BST
+        def convertToBST(left, right):
+            if left > right:
+                return None  # base case: no elements to process
+            
+            mid = (left + right) // 2  # find middle element
+            node = TreeNode(nums[mid])  # create node with mid element
+            
+            node.left = convertToBST(left, mid - 1)  # recursively create left subtree
+            node.right = convertToBST(mid + 1, right)  # recursively create right subtree
+            
+            return node  # return the created node
+        
+        return convertToBST(0, len(nums) - 1)  # start with full array
+Explanation of the Code:
+TreeNode Class:
+
+ 
+ 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val  # node value
+        self.left = left  # left child
+        self.right = right  # right child
+Defines a node of the binary tree with a value, left child, and right child.
+Solution Class and Method:
+
+ 
+ 
+class Solution:
+    def sortedArrayToBST(self, nums):
+        # Function to convert sorted array to BST
+        def convertToBST(left, right):
+            if left > right:
+                return None  # base case: no elements to process
+            
+            mid = (left + right) // 2  # find middle element
+            node = TreeNode(nums[mid])  # create node with mid element
+            
+            node.left = convertToBST(left, mid - 1)  # recursively create left subtree
+            node.right = convertToBST(mid + 1, right)  # recursively create right subtree
+            
+            return node  # return the created node
+        
+        return convertToBST(0, len(nums) - 1)  # start with full array
+sortedArrayToBST method initializes the process of converting the sorted array into a BST.
+convertToBST is a helper function that does the actual conversion.
+Checks if the current segment of the array is valid.
+Finds the middle element of the current segment and creates a tree node.
+Recursively constructs the left and right subtrees using the left and right halves of the current segment.
+convertToBST(0, len(nums) - 1) initiates the recursion starting with the entire array.

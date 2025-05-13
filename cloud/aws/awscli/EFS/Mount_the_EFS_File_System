@@ -1,0 +1,12 @@
+Mount the EFS File System
+Create a directory to mount the file system:
+
+ 
+ 
+sudo mkdir /mnt/efs
+Then mount the EFS file system:
+
+ 
+ 
+sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-west-2.amazonaws.com:/ /mnt/efs
+Replace fs-12345678 with your EFS file system ID and us-west-2 with your region.

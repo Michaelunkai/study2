@@ -1,0 +1,48 @@
+▲A  A▼
+Running Kanboard Visual Todo and Tasks Management in Docker on Linux
+What is Kanboard?
+Kanboard is project management software that focuses on the Kanban methodology. -https://github.com/kanboard/kanboard
+
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Kanboard
+Now that Docker is installed, run the following commands to setup the Kanboard Docker container and run it
+# create working directories
+mkdir /home/$USER/docker/mariadb -p
+# set owner of working directories
+sudo chown "$USER":"$USER" /home/"$USER"/docker -R
+# create kanboard network
+docker network create containers
+# run the mariadb docker container
+docker run -d --name mariadb --network containers --network-alias db -e MYSQL_ROOT_PASSWORD=r00tp@ss -e MYSQL_USER=kanboard_rw -e MYSQL_PASSWORD=Kanb0r4! -e MYSQL_DATABASE=kanboard -v /home/$USER/docker/mariadb:/var/lib/mysql --restart=unless-stopped mariadb:latest
+# run the kanboard docker container
+docker run -d --name kanboard --network containers -p 8086:80 -e DATABASE_URL='mysql://kanboard_rw:Kanb0r4!@db/kanboard' --restart=unless-stopped kanboard/kanboard:latest
+Open a web browser and navigate to http://DNSorIP:8086
+Login with the username admin and password admin
+Click the options carrot in the top right corner > My profile
+Click Edit profile from the left navigation
+Change the username and set a name and email as needed > Click Save
+Click Change password from the left navigation
+Enter admin as the Current password and enter and confirm a new secure password > Click Save
+Click the options carrot in the top right corner > Logout
+Log back in with the updated credentials
+Welcome to Kanboard
+Documentation: https://hub.docker.com/r/kanboard/kanboard
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

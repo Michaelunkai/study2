@@ -1,0 +1,26 @@
+In Proxmox, there are two types of containers: privileged and unprivileged. Here’s a detailed comparison between them:
+
+### Privileged Containers:
+- **Security Context:** Privileged containers run directly with root privileges on the host system. This means that the root user inside the container is also the root user on the host.
+- **Performance:** Generally, privileged containers have slightly better performance due to fewer security overheads.
+- **Flexibility:** They have greater flexibility and can interact more directly with the host system's kernel and hardware. This allows for running a wider range of applications and services.
+- **Security:** They pose a higher security risk because if a privileged container is compromised, the attacker may gain root access to the host system.
+- **Use Case:** Useful for scenarios where high performance and deep system integration are needed and security risks are manageable.
+
+### Unprivileged Containers:
+- **Security Context:** Unprivileged containers run with a reduced privilege level. The root user inside the container is mapped to a non-root user on the host, reducing the risk of privilege escalation.
+- **Performance:** They have a slight performance overhead due to the additional security layers, but the difference is usually minimal and acceptable for most use cases.
+- **Flexibility:** They have more restricted access to the host system. Some system-level operations and access to certain hardware may be limited or unavailable.
+- **Security:** They offer better security isolation, as even if the container is compromised, the attacker does not get root access to the host system.
+- **Use Case:** Ideal for multi-tenant environments and scenarios where security is a higher priority than performance or flexibility.
+
+### Key Differences:
+- **Root Mapping:** In privileged containers, the root user inside the container is the root user on the host. In unprivileged containers, the root user inside the container is mapped to an unprivileged user on the host.
+- **Security:** Unprivileged containers provide better security isolation at the cost of some flexibility and performance.
+- **Use Case Considerations:** The choice between privileged and unprivileged containers depends on the specific requirements of performance, flexibility, and security for the given use case.
+
+### Recommendations:
+- Use **privileged containers** if you need direct hardware access, high performance, and can manage the security risks effectively.
+- Use **unprivileged containers** for better security isolation, especially in environments where multiple tenants or users share the same host system.
+
+Would you like more detailed guidance on configuring these containers in Proxmox?

@@ -1,0 +1,137 @@
+Transcript
+00:00
+Google’s mission and values have been our guiding principles for many years.
+00:04
+However, when thinking about how to responsibly develop and use AI, we needed to design a set
+00:09
+of AI principles to actively govern our research and product development processes and guide our business decisions.
+00:17
+When we set out to write our AI Principles, there were some pioneers in the field, but there wasn’t a lot of industry guidance to help set the course.
+00:26
+Things have changed a lot since then , and the list of organizations that have developed guidelines for the responsible use of AI has grown considerably.
+00:35
+As illustrated by the Berkman Klein Center report “‘Principled Artificial Intelligence,”’, many organizations have defined their
+00:42
+own AI principles, and by Capgemini’s research that number grew by 40% between 2019 and 2020.
+00:52
+Capgemini also found that ethically-sound AI requires a strong foundation of leadership, governance, and internal practices around audits, training, and operationalization of ethics.
+01:05
+As you work to create AI principles in your organization, we’d like to share the process we took to create ours.
+01:12
+We want to acknowledge we are not the only ones implementing AI Principles, and you should do your research and take the best learnings from various initiatives.
+01:21
+It’s our hope that you can learn from our process, challenges and experiences, and ultimately create and use your own AI Principles as a foundation for your development process.
+01:33
+From our mission statement and values defined at the beginning, to ongoing work by teams on topics such as ethics and compliance,.
+01:39
+trust and safety, and privacy, Google has had many different initiatives over the years to help guide our work responsibly.
+01:48
+As AI emerged as a more prominent component of our business, there were many teams advocating
+01:52
+for a responsible AI approach through a growing awareness of the importance of ML fairness, specifically.
+02:00
+What we did not have was a formal and comprehensive approach to the broader goals of responsible AI that all Googlers could unite behind.
+02:09
+Work on Google’s AI Principles started in the summer of 2017, when our CEO, Sundar Pichai, designated Google an AI-first company.
+02:20
+With this company-wide vision as our foundation we set out to design an "AI ethical charter" for Google's future technology; this effort would evolve into our AI principles.
+02:32
+It's important to note that this journey was not always smooth.
+02:35
+It is the result of several years of work from many different groups of people, with learning and iterating along the way.
+02:43
+We understand this is a complex and evolving topic, and we will share some of our lessons learned in a later module.
+02:50
+But what has shown itself to be true is that it takes ongoing commitment to work toward developing AI responsibly.
+02:56
+Today, and in the future, we fully expect to continue iterating on our methods and interpretations as we learn and the field evolves.
+03:07
+We believe that organizations and communities flourish when, in addition to individuals’ ethical values, there are also shared ethical commitments that each person plays a part in fulfilling.
+03:18
+Having a set of shared and codified AI principles keeps us motivated by a common purpose in addition to the values we all individually hold.
+03:28
+Google recognized the need to not only focus on technical development and innovation, but also ensure that development aligned with our mission and values.
+03:37
+A cross-functional group of experts was assembled to determine what guidelines were needed to address the important challenges raised by AI.
+03:45
+When creating the team, we didn’t just rely on functional expertise in artificial intelligence.
+03:50
+Instead, individuals were chosen who represented different skills, backgrounds, and demographics across Google.
+03:58
+From a skill perspective, we sought people for the core group with backgrounds in user research, law, public policy, privacy, online safety, sustainability, and nonprofits.
+04:11
+We also sought input from experts in AI, human rights, and civil rights, and product experts who weren't strictly in the core working group.
+04:21
+We incorporated input across a broad range of diverse voices, including people from different countries, genders, races, ethnicities and age groups.
+04:30
+We also developed ways for those not directly in the working group to have a voice.
+04:35
+For example, we asked every member to solicit discussion and feedback from other teams and external experts, and to bring back ideas to the core group.
+04:44
+Having a small group charged with taking action based on input from as many stakeholders as possible was key to our success.
+04:52
+Incorporating a broad range of voices when creating your AI principles makes the principles more inclusive, and also fosters trust in the process.
+05:01
+The team started by conducting research.
+05:04
+We wanted to document what concerns people had regarding AI.
+05:08
+What did people consider irresponsible AI?
+05:12
+The team scoured user and academic research from a wide range of sources and analyzed how AI was represented in the media.
+05:21
+We even researched cultural and pop-cultural AI references, like how AI was being portrayed on TV
+05:26
+shows and in sci-fi books, to gain a better understanding of how consumers might perceive AI.
+05:33
+All of this research would help us discover the standards that we wanted to guide our work.
+05:39
+After that, the team began an iterative process to draft a set of principles aimed at addressing the major concerns and themes identified in the research.
+05:49
+We started by aggregating and organizing all of the research into categories, which produced a long list of potential principles.
+05:58
+To refine this list: We first asked outside experts in AI, policy, law, and civil society, without seeing our draft principles, to come up with their own shortlist.
+06:09
+We then shared our draft principles created from research to compare.
+06:13
+And finally, we gathered their reactions and highlighted gaps to bring back to the internal working group for further consolidation We engaged in a continuous
+06:22
+feedback and refinement process to further consolidate the list of principles while maintaining a wide breadth of coverage, and recognizing anything we may have overlooked.
+06:34
+What resulted was Google’s AI principles, including seven “‘objectives for AI applications”’ which guide our AI aspirations As well as a list of four “‘AI Applications we will not pursue.”’.
+06:47
+The goal of identifying the AI applications we will not pursue was to provide clear guardrails
+06:52
+around highly sensitive AI application areas we will not design for across all parts of our business.
+06:59
+Acknowledging what we explicitly won't build at all is just as critical as outlining what we will.
+07:06
+This work culminated when we published our AI principles in June of 2018.
+07:09
+As a company, we remain dedicated to putting these principles into practice every day.
+07:16
+They are incorporated into daily conversations, they form the foundation for opportunity and harm reviews in the
+07:22
+product development process, and most importantly they provide a shared ethical commitment for all Googlers when making decisions.
+07:29
+What we’ve described here is the journey Google took to codify our principles, while the field of responsible AI was in its early stages.
+07:38
+The body of research on ethical requirements, standards, and practices in AI has grown a lot
+07:43
+since then, especially thanks to the pioneering work of scholars of color and communities of advocates.
+07:49
+There has been a relative convergence in the AI community around what AI principles should encompass to be useful.
+07:58
+While your company’s mission, values, geographic presence and organizational goals will influence your approach, making some principles more relevant to your particular
+08:06
+business context than others, there are a clear set of themes that apply to all uses and industries to help you get started.
+08:15
+For example, if your company is involved specifically in creating chatbots for customer support, while there may be core themes, some of your AI principles may
+08:23
+look different or more specific to your context from those of a consulting company involved in a very wide range of use cases for different customers.
+08:33
+We hope this insight into our approach is helpful to your organization, providing a scaffold to build upon.
+08:41
+The challenges you face, and your organization's values, will define your process for identifying and creating your own
+08:46
+AI principles that both convey the ethos of your organization and serve as a foundation for your AI governance.

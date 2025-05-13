@@ -1,0 +1,1 @@
+aws elasticbeanstalk tag-resource --resource-arn <resource-arn> --tags Key=<key>,Value=<value>

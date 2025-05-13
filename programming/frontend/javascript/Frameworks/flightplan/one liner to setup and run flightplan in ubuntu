@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g flightplan && yes "y" | flightplan init my-flightplan-app && cd my-flightplan-app && nsj && npm start

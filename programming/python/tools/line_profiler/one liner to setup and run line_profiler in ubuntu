@@ -1,0 +1,1 @@
+pip3 install line-profiler && python3 -c 'import line_profiler; print(line_profiler.__version__)'

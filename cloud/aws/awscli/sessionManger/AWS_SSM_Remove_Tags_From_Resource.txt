@@ -1,0 +1,1 @@
+aws ssm remove-tags-from-resource --resource-type <resource-type> --resource-id <resource-id> --tag-keys <tag-keys>

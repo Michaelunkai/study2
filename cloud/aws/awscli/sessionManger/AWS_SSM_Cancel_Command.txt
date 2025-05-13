@@ -1,0 +1,1 @@
+aws ssm cancel-command --command-id <command-id>

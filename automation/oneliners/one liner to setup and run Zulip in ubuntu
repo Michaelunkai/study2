@@ -1,0 +1,1 @@
+wget https://zulip.com/apps/download/linux -O zulip-linux.tar.gz && mv zulip-linux.tar.gz Zulip.AppImage && chmod +x Zulip.AppImage && ./Zulip.AppImage --no-sandbox

@@ -1,0 +1,1 @@
+aws route53 get-query-logging-config --id <config-id>

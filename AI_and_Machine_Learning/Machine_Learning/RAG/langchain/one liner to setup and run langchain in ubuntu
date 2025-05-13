@@ -1,0 +1,1 @@
+pip install langchain openai && python3 -c "from langchain.schema import Document; print('LangChain ready')"

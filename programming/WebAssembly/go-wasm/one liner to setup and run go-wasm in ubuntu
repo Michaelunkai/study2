@@ -1,0 +1,1 @@
+go install github.com/agnivade/wasm@latest && echo 'Go WASM support installed'

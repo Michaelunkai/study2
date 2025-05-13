@@ -1,0 +1,1 @@
+go install github.com/go-chi/chi/v5@latest && echo 'Chi Router installed'

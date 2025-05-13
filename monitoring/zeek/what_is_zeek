@@ -1,0 +1,34 @@
+**Zeek** (formerly known as **Bro**) is an open-source network security monitoring tool. It is used for analyzing network traffic in real-time to detect security threats, monitor network performance, and perform network forensic analysis. Zeek is highly extensible and provides a powerful framework for network monitoring by capturing detailed information about network activities.
+
+### Key Features of Zeek:
+
+1. **Real-time Network Traffic Analysis:** Zeek can inspect and log network traffic in real-time, analyzing protocols such as HTTP, DNS, FTP, and others.
+
+2. **Security Monitoring:** Zeek can detect anomalies and security threats, such as intrusions, scans, and malware activity. It generates logs that can be used to identify and respond to security incidents.
+
+3. **Extensibility:** Zeek provides a rich scripting language, allowing users to write custom scripts to extend its capabilities, perform specific monitoring tasks, or create custom alerts.
+
+4. **Forensic Analysis:** Zeek logs various network activities, which can be used for post-incident analysis to understand what happened during a security breach or network event.
+
+5. **Protocol Analysis:** Zeek can parse many different protocols and extract useful information, making it easier to analyze complex network traffic.
+
+6. **Integration with Other Tools:** Zeek can be integrated with other security tools like SIEMs (Security Information and Event Management) to enhance its capabilities.
+
+### How Zeek Works:
+
+- **Traffic Capture:** Zeek captures network packets through a network interface and processes them.
+  
+- **Analysis:** Zeek inspects the traffic, focusing on application-layer protocols. It parses the traffic and extracts relevant information.
+
+- **Logging:** The extracted data is logged into structured files that can be easily analyzed. These logs contain detailed records of network connections, DNS queries, HTTP requests, and more.
+
+- **Detection:** Zeek can identify suspicious activities by comparing network traffic against predefined patterns or using custom scripts.
+
+### Common Use Cases:
+
+- **Intrusion Detection:** Detecting unauthorized access and malicious activities.
+- **Incident Response:** Analyzing network logs to investigate security incidents.
+- **Performance Monitoring:** Keeping track of network performance metrics.
+- **Compliance Auditing:** Logging network activities for compliance with regulations.
+
+Zeek is widely used by security professionals, network administrators, and researchers for its robust capabilities in network security monitoring and traffic analysis.

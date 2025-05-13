@@ -1,0 +1,1 @@
+sudo apt install -y speedometer && sudo speedometer -rx eth0 -tx eth0

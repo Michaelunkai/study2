@@ -1,0 +1,9 @@
+Generate a GPG key pair:
+
+gpg --full-generate-key
+Encrypt a file:
+
+gpg -c filename
+Decrypt a file:
+
+gpg filename.gpg

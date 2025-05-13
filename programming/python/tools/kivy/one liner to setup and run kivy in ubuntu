@@ -1,0 +1,1 @@
+pip3 install kivy && python3 -c 'import kivy; print(kivy.__version__)'

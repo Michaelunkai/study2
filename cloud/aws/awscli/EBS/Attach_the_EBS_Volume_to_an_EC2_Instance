@@ -1,0 +1,11 @@
+Attach the EBS Volume to an EC2 Instance
+Attach the volume to an instance:
+
+ 
+ 
+aws ec2 attach-volume --volume-id vol-0abcdef1234567890 --instance-id i-1234567890abcdef0 --device /dev/sdf
+Parameters:
+
+--volume-id: The ID of the EBS volume you created.
+--instance-id: The ID of the EC2 instance to which you want to attach the volume.
+--device: The device name for the volume (e.g., /dev/sdf).

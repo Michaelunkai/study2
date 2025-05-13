@@ -1,0 +1,36 @@
+▲A  A▼
+Install OpenWRT on Raspberry Pi
+Things You Will Need
+A microSD card at least 512 MB https://amzn.to/36CpShC | https://amzn.to/3CXJngt | https://amzn.to/3JqyxSP
+Downloads and Flashing to MicroSD
+Download OpenWRT for Raspberry Pi Download
+Search for the Raspberry Pi device
+Select the Factory (ext4) download
+Download Balena Etcher Download
+Run Balena Etcher
+Burn the OpenWRT image to the microSD card
+Safely remove the microSD
+Booting OpenWRT
+Insert the microSD card into the Raspberry Pi and power it on
+OpenWRT should begin booting
+After the terminal has stopped scrolling press Enter to be logged in as root
+Enter the following commands at the terminal prompt
+# set a root password
+passwd
+# enter and confirm a password
+# set the ip address
+uci set network.lan.ipaddr='192.168.0.137'
+# set the gateway
+uci set network.lan.gateway='192.168.0.27'
+# set dns server, usually the gateway or pi-hole
+uci set network.lan.dns='192.168.0.2'
+# restart network service for changes to take effect
+service network restart
+# update openwrt packages
+opkg update
+# install the luci web ui
+opkg install luci
+Open a web browser and navigate to http://IP, http://192.168.0.137 in the example
+At the login screen, enter the username root and the password set above > Click the Login button
+Welcome to OpenWRT running on Raspberry Pi
+ 

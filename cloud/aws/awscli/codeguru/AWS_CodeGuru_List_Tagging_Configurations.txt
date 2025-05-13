@@ -1,0 +1,1 @@
+aws codeguruprofiler list-tagging-configurations --resource-arn <resource-arn>

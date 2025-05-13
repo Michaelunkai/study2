@@ -1,0 +1,1 @@
+aws ecs list-services --cluster my-cluster-ad350c48s

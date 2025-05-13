@@ -1,0 +1,1 @@
+az sql server create --name myServer --resource-group myResourceGroup --location westeurope --admin-user myAdmin --admin-password myPassword && az sql db create --resource-group myResourceGroup --server myServer --name myDatabase --service-objective S0

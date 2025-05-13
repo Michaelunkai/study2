@@ -1,0 +1,8 @@
+inside proxmox shell:
+
+bash <(curl -SsL https://my-netdata.io/kickstart.sh)
+
+2)
+open web browser:
+<proxmox ip adress>:19999
+

@@ -1,0 +1,1 @@
+aws elbv2 create-lb-cookie-stickiness-policy --load-balancer-arn <load-balancer-arn> --policy-name <policy-name> --cookie-expiration-period <seconds>

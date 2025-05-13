@@ -1,0 +1,1 @@
+go get -u xorm.io/xorm && echo 'XORM installed'

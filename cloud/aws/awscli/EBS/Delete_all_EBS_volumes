@@ -1,0 +1,7 @@
+# Delete all EBS volumes
+for volume_id in $volume_ids; do
+    aws ec2 delete-volume --volume-id $volume_id
+done
+
+# Check if EBS volumes are deleted
+aws ec2 describe-volumes --query 'Volumes[*].State' --output text | grep -i available

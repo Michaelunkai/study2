@@ -1,0 +1,36 @@
+Configure and Test IoT Device with AWS IoT Device SDK
+Install AWS IoT Device SDK for Python
+ 
+ 
+pip install AWSIoTPythonSDK
+5.2 Create a Sample Python Script to Publish a Message
+Create a file named my_iot_script.py with the following content:
+
+ 
+ 
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+import logging
+import time
+
+# Configure logging
+logger = logging.getLogger("AWSIoTPythonSDK.core")
+logger.setLevel(logging.DEBUG)
+stream_handler = logging.StreamHandler()
+logger.addHandler(stream_handler)
+
+# Configure the MQTT client
+client = AWSIoTMQTTClient("MyIotThingClient")
+client.configureEndpoint("your-endpoint.iot.<region>.amazonaws.com", 8883)
+client.configureCredentials("root-CA.crt", "private.key", "cert.pem")
+
+# Connect and publish a message
+client.connect()
+client.publish("my/topic", "Hello from AWS IoT!", 1)
+
+# Disconnect
+time.sleep(2)
+client.disconnect()
+Run the Python Script
+ 
+ 
+  my_iot_script.py

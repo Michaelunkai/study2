@@ -1,0 +1,1 @@
+getrust && cargo new embassy-app && cd embassy-app && echo 'embassy = "0.2"' >> Cargo.toml && cargo run

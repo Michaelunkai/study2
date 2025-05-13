@@ -1,0 +1,11 @@
+ Create a New Post
+To create a new post, use the following command:
+
+ 
+ 
+hexo new post "My First Post"
+This will create a new markdown file in the source/_posts/ directory. You can edit this file to write your blog post.
+
+ 
+ 
+nano source/_posts/my-first-post.md

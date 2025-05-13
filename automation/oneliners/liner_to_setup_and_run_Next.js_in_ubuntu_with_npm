@@ -1,0 +1,1 @@
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs && node -v && npm -v && npx create-next-app@latest my-nextjs-app && cd my-nextjs-app && npm run dev && nano pages/index.js && npm run build && npm start

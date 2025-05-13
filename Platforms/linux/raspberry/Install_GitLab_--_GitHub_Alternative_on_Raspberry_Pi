@@ -1,0 +1,27 @@
+▲A  A▼
+Install GitLab -- GitHub Alternative on Raspberry Pi
+What is GitLab?
+GitLab is an open source end-to-end software development platform with built-in version control, issue tracking, code review, CI/CD, and more. Self-host GitLab on your own servers, in a container, or on a cloud provider. -https://gitlab.com/gitlab-org/gitlab
+
+Installing GitLab
+Log into the Linux device
+Run the following commands in a terminal:
+# update software repositories
+sudo apt update
+# install software updates
+sudo apt upgrade -y
+# install preprequisites
+sudo apt install curl openssh-server ca-certificates apt-transport-https perl -y
+# add gitlab gpg key
+curl https://packages.gitlab.com/gpg.key | sudo apt-key add -
+# add gitlab software repository
+sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/raspberry-pi2/script.deb.sh | sudo bash
+# install gitlab, change the URL in the script below to match the DNS name of the host server
+sudo GITLAB_ROOT_PASSWORD="SomethingSecure" EXTERNAL_URL="http://DNSofHOST" apt install gitlab-ce
+Open a web browser and navigate to http://DNSorIP
+Login with the username root and the password set during the installation
+Welcome to GitLab
+Source: https://about.gitlab.com/
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

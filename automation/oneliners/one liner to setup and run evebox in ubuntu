@@ -1,0 +1,1 @@
+sudo docker run -d -p 5636:5636 jasonish/evebox

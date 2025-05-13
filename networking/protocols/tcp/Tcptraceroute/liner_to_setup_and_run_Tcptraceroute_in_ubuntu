@@ -1,0 +1,1 @@
+ sudo apt install -y tcptraceroute && sudo tcptraceroute google.com && echo "TCP traceroute completed for google.com"

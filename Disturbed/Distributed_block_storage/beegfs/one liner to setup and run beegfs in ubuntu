@@ -1,0 +1,1 @@
+wget -O beegfs-repo.deb https://www.beegfs.io/release/beegfs_7.2.3-debian10_all.deb && sudo dpkg -i beegfs-repo.deb && sudo apt update && sudo apt install -y beegfs-client beegfs-helperd && sudo systemctl start beegfs-helperd

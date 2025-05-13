@@ -1,0 +1,1 @@
+pip3 install folium && python3 -c 'import folium; print(folium.__version__)'

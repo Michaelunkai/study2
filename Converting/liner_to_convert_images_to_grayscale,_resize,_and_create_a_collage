@@ -1,0 +1,1 @@
+mkdir grayscale && for img in *.jpg; do convert "$img" -colorspace Gray -resize 50% "grayscale/${img%.*}_gray.jpg"; done && montage grayscale/*_gray.jpg -geometry +5+5 -tile 5x5 collage.jpg && echo "Images processed and collage created"

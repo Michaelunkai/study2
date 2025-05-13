@@ -1,0 +1,1 @@
+pdftotext your_file.pdf output.txt

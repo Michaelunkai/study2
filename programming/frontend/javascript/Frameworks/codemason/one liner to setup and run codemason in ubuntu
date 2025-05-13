@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g codemason-cli && yes "y" | codemason init my-codemason-app && cd my-codemason-app && nsj && npm start

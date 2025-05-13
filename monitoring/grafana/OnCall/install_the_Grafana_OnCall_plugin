@@ -1,0 +1,8 @@
+sudo grafana-cli plugins install grafana-oncall-app
+
+Restart the Grafana service to load the plugin:
+
+ 
+ 
+sudo systemctl restart grafana-server
+

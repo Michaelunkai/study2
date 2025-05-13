@@ -1,0 +1,1 @@
+npm install codemason.js && echo "const Codemason = require('codemason.js'); new Codemason().start();" > app.js && node app.js

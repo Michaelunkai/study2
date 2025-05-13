@@ -1,0 +1,1 @@
+docker run -d --name snapgallery -p 8083:80 example/snapgallery:latest

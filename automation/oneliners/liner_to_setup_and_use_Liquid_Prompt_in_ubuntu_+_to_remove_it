@@ -1,0 +1,14 @@
+Liquid Prompt
+Install and Verify:
+ 
+ 
+git clone https://github.com/nojhan/liquidprompt.git ~/.liquidprompt
+echo 'source ~/.liquidprompt/liquidprompt' >> ~/.bashrc
+source ~/. rc
+~/.liquidprompt/liquidprompt --version
+Disable and Remove:
+ 
+ 
+sed -i '/source ~\/.liquidprompt\/liquidprompt/d' ~/.bashrc
+rm -rf ~/.liquidprompt
+source ~/. rc

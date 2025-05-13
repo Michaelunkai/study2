@@ -1,0 +1,23 @@
+How To Find The Public IP Address Your Network Is Sending
+
+
+If you’re running Ubuntu, Debian or Linux Mint type:
+
+$ sudo apt-get install curl
+
+On Fedora, CentOS or RHEL type:
+
+$ sudo yum install curl
+
+Now you can choose which external server you use to fetch the IP. The following are the commands with different servers. Use one of them.
+
+$ curl ifconfig.me
+$ curl icanhazip.com
+$ curl ident.me
+$ curl ipecho.net/plain
+$ curl whatismyip.akamai.com
+$ curl tnx.nl/ip
+$ curl myip.dnsomatic.com
+$ curl ip.appspot.com
+$ curl ip.telize.com
+$ curl curlmyip.com

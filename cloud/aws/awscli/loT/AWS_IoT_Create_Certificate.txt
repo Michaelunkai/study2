@@ -1,0 +1,1 @@
+aws iot create-keys-and-certificate --set-as-active

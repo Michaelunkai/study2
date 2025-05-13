@@ -1,0 +1,1 @@
+create one liner, to setup and run nikto in ubuntu, and use it in the end! && sudo apt install nikto -y && nikto -h http://target.com

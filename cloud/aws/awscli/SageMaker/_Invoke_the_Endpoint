@@ -1,0 +1,22 @@
+Invoke the Endpoint
+Invoke the deployed model to get predictions:
+
+First, create an input file for the prediction request:
+
+ 
+ 
+nano input.json
+Paste the following into the file and save:
+
+json
+ 
+{
+  "instances": [[1, 2, 3, 4]]
+}
+Invoke the endpoint:
+
+ 
+ 
+aws sagemaker-runtime invoke-endpoint --endpoint-name MyEndpoint --body file://input.json --content-type application/json output.json
+
+cat output.json

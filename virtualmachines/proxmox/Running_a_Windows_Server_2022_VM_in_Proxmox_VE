@@ -1,0 +1,44 @@
+▲A  A▼
+Running a Windows Server 2022 VM in Proxmox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running Proxmox 6, download the Server 2022 iso Download and the VirtIO driver iso Download and upload them both to the Proxmox ISO image library
+If on Proxmox 7, click Download from URL and paste the download URLs from above > Click Query URL > Click Download
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+Set the Type to Microsoft Windows and Version to 11/2022 and select the Server 2022 iso
+On the System tab, set the EFI Storage device, Choose to enable/disable TPM and set the TPM Storage device, Check the Qemu Agent box and set the SCSI Controller to VirtIO SCSI > Next
+On the Disks tab, set the Storage device and Disk size to at least 30GB, Bus/Device to VirtIO Block and Cache to Write back > Next
+On the CPU tab, set Cores to 2 or more and the Type to host > Next
+On the Memory tab, set the Memory to 4096 or more > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Select the Server 2022 VM > Hardware
+Click the Add dropdown > CD/DVD Drive
+Double click the new CD/DVD Drive > Select Use CD/DVD disc image file (iso) > Select the storage where the VirtIO driver iso was downloaded > Select the virtio .iso file > Click OK
+Right click the Server 2022 VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+When prompted, press a key to boot to the CD/DVD drive
+Set the Language and Keyboard preferences > Click Next
+Click Install Now
+Select the desired edition > Click Next
+Check the I accept box > Click Next
+Click Custom (advanced) > Click Next
+Click Load Driver > Browse > Expand the VirtIO driver disc > Navigate to amd64\2k22 > Click OK > Next
+With the Unallocated Space selected, click Next to install
+Wait for Windows to copy files, the VM will reboot several times
+Enter a password > Re-type the password > Click Finish
+Select the Keyboard icon > Ctrl-Alt-Del
+Input the administrator password and login
+Welcome to Server 2022
+Optional Steps
+Open File Explorer > Navigate into the VirtIO Disc > Right click virtio-win-guest-tools.exe > Run as administrator
+Step through the installer, accepting all the defaults
+After the installation completes shutdown the VM
+Back in the Proxmox web UI, select Hardware from the left sub-navigation menu
+Select the CD/DVD drive with the VirtIO iso attached > Remove > Yes
+Double click the remaining CD/DVD drive > Select Do not use any media > Click OK
+Click Start at the top right of the screen restart the VM
+Click console in the left sub-navigation menu
+ 

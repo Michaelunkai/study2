@@ -1,0 +1,1 @@
+wget https://ghproxy.com/https://github.com/hydrusnetwork/hydrus/releases/download/v467/hydrus_linux.tar.xz && tar -xf hydrus_linux.tar.xz && cd hydrus_linux && ./hydrus

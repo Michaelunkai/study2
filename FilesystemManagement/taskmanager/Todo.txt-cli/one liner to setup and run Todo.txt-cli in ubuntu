@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y git && git clone https://github.com/todotxt/todo.txt-cli.git && cd todo.txt-cli && sudo make install && todo.sh # and use it in the end!

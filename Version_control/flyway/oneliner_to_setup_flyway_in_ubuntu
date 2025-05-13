@@ -1,0 +1,1 @@
+ getjava && cc && cd && wget -O flyway-commandline.tar.gz https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/8.5.5/flyway-commandline-8.5.5-linux-x64.tar.gz && tar -xzf flyway-commandline.tar.gz && sudo mv flyway-8.5.5 /opt/flyway && echo -e "export FLYWAY_HOME=/opt/flyway\nexport PATH=\$FLYWAY_HOME:\$PATH" >> /root/.bashrc && brc2 && cc && flyway -v

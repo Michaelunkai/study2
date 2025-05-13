@@ -1,0 +1,1 @@
+hs marketplace delete <asset-id>

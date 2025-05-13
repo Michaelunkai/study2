@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name vaultwarden -p 8081:80 vaultwarden/server:latest

@@ -1,0 +1,1 @@
+aws elasticbeanstalk untag-resource --resource-arn <resource-arn> --tag-keys <key>

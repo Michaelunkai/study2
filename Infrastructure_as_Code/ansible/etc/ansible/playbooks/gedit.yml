@@ -1,0 +1,21 @@
+---
+- name: Install gedit Playbook
+  hosts: docker
+  become: yes  # Run tasks as the root user
+  become_method: sudo  # Use sudo for privilege escalation
+
+  tasks:
+    - name: Install gedit on Debian-based systems
+      apt:
+        name: gedit
+      when: ansible_os_family == 'Debian'
+
+    - name: Install gedit on Red Hat-based systems
+      dnf:
+        name: gedit
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install gedit on openSUSE
+      zypper:
+        name: gedit
+      when: ansible_os_family == 'Suse'

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g electron-forge && yes "y" | electron-forge init my-electron-forge-app && cd my-electron-forge-app && nsj && npm start

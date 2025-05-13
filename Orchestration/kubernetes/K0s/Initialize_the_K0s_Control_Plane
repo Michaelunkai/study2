@@ -1,0 +1,21 @@
+Initialize the K0s Control Plane
+Create a single-node Kubernetes cluster by initializing the control plane:
+
+ 
+ 
+sudo k0s controller --single
+If you want to run K0s as a system service (recommended for production), you can install the K0s service with:
+
+ 
+ 
+sudo k0s install controller --single
+Start the K0s controller service:
+
+ 
+ 
+sudo systemctl start k0scontroller
+Enable the service to start at boot:
+
+ 
+ 
+sudo systemctl enable k0scontroller

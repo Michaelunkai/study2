@@ -1,0 +1,1 @@
+pip3 install duckdb && python3 -c 'import duckdb; print(duckdb.__version__)'

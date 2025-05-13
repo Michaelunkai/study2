@@ -1,0 +1,1 @@
+create one liner, to setup and run maim in ubuntu, and use it in the end! # Maim: Advanced CLI screenshot tool. && sudo apt install maim -y && maim ~/maimshot.png

@@ -1,0 +1,1 @@
+flatpak install -y flathub com.orama_interactive.Pixelorama && flatpak run com.orama_interactive.Pixelorama

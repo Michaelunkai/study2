@@ -1,0 +1,4 @@
+import boto3
+elb = boto3.client('elbv2')
+response = elb.create_target_group(Name='my-target-group', Protocol='HTTP', Port=80, VpcId='<vpc-id>')
+print(response['TargetGroups'][0]['TargetGroupArn'])

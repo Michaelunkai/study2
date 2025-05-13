@@ -1,0 +1,1 @@
+aws elasticbeanstalk create-application-resource-lifecycle --application-name <app-name> --resource-lifecycle-config <config>

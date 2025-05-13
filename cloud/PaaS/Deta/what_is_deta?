@@ -1,0 +1,11 @@
+Deta is a cloud platform that provides simple and scalable infrastructure services for developers. It aims to simplify backend development and hosting by offering easy-to-use services and tools. Key features of Deta include:
+
+1. **Deta Base**: A no-SQL database service that allows developers to store and retrieve data easily without worrying about database management.
+
+2. **Deta Drive**: A cloud storage solution for handling file uploads and downloads, similar to services like AWS S3 but with a more straightforward API.
+
+3. **Deta Micros**: A service for deploying serverless functions, allowing developers to run code in response to HTTP requests or other triggers without managing servers.
+
+4. **Deta Auth**: A user authentication service that simplifies user management and authentication for applications.
+
+Deta is designed to be developer-friendly, with an emphasis on simplicity and quick setup, making it a popular choice for prototyping, small projects, and learning.

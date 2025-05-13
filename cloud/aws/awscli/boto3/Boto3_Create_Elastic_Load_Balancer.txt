@@ -1,0 +1,4 @@
+import boto3
+elb = boto3.client('elbv2')
+response = elb.create_load_balancer(Name='my-load-balancer', Subnets=['<subnet-id>'], SecurityGroups=['<security-group-id>'], Scheme='internet-facing', Type='application', IpAddressType='ipv4')
+print(response['LoadBalancers'][0]['LoadBalancerArn'])

@@ -1,0 +1,1 @@
+pip3 install typer && python3 -c 'import typer; print(typer.__version__)'

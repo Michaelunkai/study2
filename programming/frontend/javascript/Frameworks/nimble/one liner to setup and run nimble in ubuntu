@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g nimble-cli && yes "y" | nimble init my-nimble-app && cd my-nimble-app && nsj && npm start

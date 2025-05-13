@@ -1,0 +1,1 @@
+az storage file delete --account-name yourStorageAccountName --account-key yourAccountKey --share-name yourFileShareName --path yourFileName

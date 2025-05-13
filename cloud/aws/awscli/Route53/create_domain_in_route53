@@ -1,0 +1,76 @@
+Creating a domain in Amazon Route 53 using the AWS CLI involves several steps. Below is a step-by-step guide to help you through the process.
+
+Prerequisites
+AWS CLI: Ensure you have the AWS CLI installed. If not, install it from here.
+AWS CLI Configuration: Configure your AWS CLI with your AWS credentials. Run the following command and follow the prompts:
+aws configure
+Step-by-Step Guide
+1. Create a Hosted Zone
+A hosted zone is a container for records that define how you want to route traffic for a domain and its subdomains.
+
+aws route53 create-hosted-zone --name yourdomain.com --caller-reference unique-string
+yourdomain.com: Replace with your domain name.
+unique-string: Replace with a unique string, such as a timestamp.
+Example:
+
+aws route53 create-hosted-zone --name example.com --caller-reference 20240604-unique
+2. Register a Domain
+If you haven't registered your domain yet, you can register it through Route 53. This step requires you to have a domain registration.
+
+aws route53domains register-domain --domain-name yourdomain.com --duration-in-years 1 --admin-contact file://admin-contact.json --registrant-contact file://registrant-contact.json --tech-contact file://tech-contact.json
+You'll need JSON files for the contact details. Here is a sample for admin-contact.json:
+
+{
+  "FirstName": "John",
+  "LastName": "Doe",
+  "ContactType": "PERSON",
+  "OrganizationName": "Your Organization",
+  "AddressLine1": "123 Any Street",
+  "City": "Any City",
+  "State": "Any State",
+  "CountryCode": "US",
+  "ZipCode": "12345",
+  "PhoneNumber": "+1.1234567890",
+  "Email": "john.doe@example.com"
+}
+Ensure you have similar files for registrant-contact.json and tech-contact.json.
+
+3. Create DNS Records
+After the hosted zone is created, you need to create DNS records. Below is an example to create an A record.
+
+Create a JSON file, change-batch.json, with the following content:
+
+{
+  "Comment": "Creating A record for example.com",
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "example.com",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "192.0.2.1"
+          }
+        ]
+      }
+    }
+  ]
+}
+Run the following command to create the record:
+
+aws route53 change-resource-record-sets --hosted-zone-id Z1234567890ABCDEFG --change-batch file://change-batch.json
+Replace Z1234567890ABCDEFG with the actual Hosted Zone ID you received when creating the hosted zone.
+
+4. Verify DNS Propagation
+You can verify the DNS records using tools like nslookup or dig:
+
+nslookup example.com
+or
+
+dig example.com
+Summary
+Create a Hosted Zone: aws route53 create-hosted-zone.
+Register a Domain: aws route53domains register-domain.
+Create DNS Records: aws route53 change-resource-record-sets.

@@ -1,0 +1,5 @@
+import boto3
+cf = boto3.client('cloudformation')
+response = cf.describe_stacks()
+for stack in response['Stacks']:
+    print(stack['StackName'])

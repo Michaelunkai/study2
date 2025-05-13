@@ -1,0 +1,32 @@
+Set Up MeiliSearch as a Service
+To keep MeiliSearch running in the background, set it up as a systemd service.
+
+Create a systemd service file:
+ 
+ 
+sudo nano /etc/systemd/system/meilisearch.service
+Add the following content to the file:
+ini
+ 
+[Unit]
+Description=MeiliSearch
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/meilisearch
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and start the MeiliSearch service:
+ 
+ 
+sudo systemctl daemon-reload
+sudo systemctl start meilisearch
+sudo systemctl enable meilisearch
+You can now check the status of the MeiliSearch service:
+
+ 
+ 
+sudo systemctl status meilisearch

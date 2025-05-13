@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name gluu -p 443:443 gluufederation/gluu-server:latest

@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name shib-idp -p 8443:8443 ghcr.io/unicon/shibboleth-idp-dockerized:latest

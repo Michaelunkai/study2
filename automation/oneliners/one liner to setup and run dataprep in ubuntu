@@ -1,0 +1,1 @@
+pip3 install dataprep && python3 -c 'import dataprep; print(dataprep.__version__)'

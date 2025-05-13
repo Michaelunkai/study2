@@ -1,0 +1,1 @@
+npm install -g assemblyscript && asc example.ts -b example.wasm && node -e "console.log('WASM module built')"

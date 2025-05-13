@@ -1,0 +1,1 @@
+sudo apt install build-essential libncurses-dev bison flex libssl-dev wget && wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.5.12.tar.xz && tar -xvf linux-6.5.12.tar.xz && cd linux-6.5.12 && make defconfig && make -j$(nproc) && sudo make modules_install && sudo make install && cd .. && sudo update-grub

@@ -1,0 +1,1 @@
+ffmpeg -i your_video.avi output.mp4

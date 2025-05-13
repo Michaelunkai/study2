@@ -1,0 +1,104 @@
+### **Ultimate Guide: How to Play on Your Friend’s PS5 from Your PC Using PS Remote Play, Parsec, and Discord – Step-by-Step Setup Guide**  
+
+If you want to access and play on your friend’s PlayStation 5 from your PC, you can do it using **PS Remote Play, Parsec, or Discord Screen Share**. This guide will take you through every step of the process, ensuring you can remotely enjoy PS5 games from anywhere.  
+
+---
+
+## **Method 1: Using PS Remote Play to Access a Friend’s PS5 on Your PC**  
+
+### **🔹 Step 1: Enable Remote Play on Your Friend’s PS5**  
+Before you can connect, your friend must **enable Remote Play** on their PS5.  
+
+1. **Turn on the PS5** and go to **Settings**.  
+2. Navigate to **System > Remote Play** and toggle **Enable Remote Play** to ON.  
+3. Then, go to **Settings > System > Power Saving > Features Available in Rest Mode** and enable:  
+   - **Stay Connected to the Internet**  
+   - **Enable Turning On PS5 from Network**  
+
+This allows the PS5 to be remotely turned on when you connect.  
+
+---
+
+### **🔹 Step 2: Download and Install the PS Remote Play App on Your PC**  
+To stream the PS5 to your PC, you need **PS Remote Play** software.  
+
+1. **Go to the official website**:  
+   👉 [https://remoteplay.dl.playstation.net/remoteplay/](https://remoteplay.dl.playstation.net/remoteplay/)  
+2. Download the **Windows or macOS** version.  
+3. Install and launch **PS Remote Play**.  
+
+---
+
+### **🔹 Step 3: Connect to Your Friend’s PS5 from Your PC**  
+Your friend must **share their PlayStation account** with you to log in remotely.  
+
+1. **Open PS Remote Play** and sign in using your friend’s PlayStation account.  
+2. Select **PS5** as the device to connect.  
+3. If the PS5 is in Rest Mode, it should automatically wake up and allow you to play.  
+
+⚠️ **Security Warning**: Sharing account credentials can be risky. Ensure you trust your friend before proceeding.  
+
+---
+
+### **🔹 Step 4: Use a Compatible Controller for Remote Play**  
+For the best experience, use a **PlayStation controller**:  
+- **DualSense (PS5 controller) via USB or Bluetooth**  
+- **DualShock 4 (PS4 controller) via USB or Bluetooth**  
+
+Third-party controllers **may** work, but keyboard and mouse support is very limited.  
+
+---
+
+## **Method 2: Using Parsec for Low-Latency Remote PS5 Gaming**  
+
+### **🔹 Step 1: Install Parsec on Both Computers**  
+If PS Remote Play is too laggy, **Parsec** is a great alternative for smoother gameplay.  
+
+1. **Download Parsec** from:  
+   👉 [https://parsec.app/](https://parsec.app/)  
+2. Install **Parsec** on both your PC and your friend’s PC.  
+
+---
+
+### **🔹 Step 2: Your Friend Hosts the PS5 Stream**  
+Your friend needs to:  
+1. Open **Parsec** and create an account.  
+2. Share their **Parsec Friend Code** with you.  
+3. **Stream their PC** (which has PS Remote Play running) using Parsec.  
+
+---
+
+### **🔹 Step 3: Connect and Play from Your PC**  
+1. Open **Parsec** and enter your friend’s **Friend Code** to join.  
+2. Once connected, you’ll be able to **control the PS5** as if you were there.  
+
+🎮 **Bonus**: Parsec allows **keyboard and mouse support** if your friend enables it.  
+
+---
+
+## **Method 3: Using Discord Screen Share (Basic Solution for Watching or Turn-Based Games)**  
+
+### **🔹 Step 1: Your Friend Shares Their Screen on Discord**  
+1. Open **Discord** and join a voice call.  
+2. Your friend clicks **Share Your Screen**.  
+3. Select the **PS Remote Play window** and start streaming.  
+
+---
+
+### **🔹 Step 2: Play or Watch**  
+- This method **only works well for slow-paced games** (turn-based or single-player).  
+- It **does not allow direct control** unless your friend also gives you control via software like Parsec.  
+
+---
+
+## **Conclusion**  
+### **Best Method for Different Situations**  
+| Method | Best For | Control? | Latency |
+|--------|---------|----------|---------|
+| **PS Remote Play** | Direct, official connection | ✅ Yes | ⚠️ May lag |
+| **Parsec** | Best for low-latency gaming | ✅ Yes | ✅ Low lag |
+| **Discord Screen Share** | Watching only | ❌ No | ❌ High lag |
+
+For the **best experience**, **use Parsec combined with PS Remote Play** to get a smooth remote gaming session.  
+
+Would you like help setting up any of these methods? 🚀

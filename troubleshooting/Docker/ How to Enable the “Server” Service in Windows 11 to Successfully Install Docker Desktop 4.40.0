@@ -1,0 +1,60 @@
+**🛠️ Ultimate Fix: How to Enable the “Server” Service in Windows 11 to Successfully Install Docker Desktop 4.40.0**
+
+If you’re trying to install **Docker Desktop 4.40.0** on **Windows 11** and hit the error:  
+> *“Docker Desktop requires the Server service to be enabled.”*
+
+This guide will walk you step-by-step on how to **enable the required “Server” service** (also known as `LanmanServer`) using both **GUI** and **PowerShell**, so that Docker Desktop installs without problems.
+
+---
+
+### 🔧 Method 1: Enable Server Service Using Windows GUI (services.msc)
+
+1. **Open Services Panel**  
+   Press `Win + R`, type `services.msc`, and hit **Enter**.
+
+2. **Locate the "Server" Service**  
+   In the list of services, scroll down until you find:  
+   **📄 Server** (also known as **LanmanServer** internally).
+
+3. **Open and Configure**  
+   - Double-click the **Server** entry.
+   - Set **Startup type** to: `Automatic`.
+   - Click the **Start** button under *Service status*.
+   - Click **Apply**, then **OK**.
+
+4. ✅ **Done!** Now re-run the Docker Desktop 4.40.0 installer.
+
+---
+
+### ⚙️ Method 2: Enable Server Service Using PowerShell (Recommended for Advanced Users)
+
+1. **Launch PowerShell as Admin**  
+   - Right-click Start Menu  
+   - Click **Windows Terminal (Admin)** or **PowerShell (Admin)**
+
+2. **Run the Following Commands**:
+```powershell
+Set-Service -Name LanmanServer -StartupType Automatic
+Start-Service -Name LanmanServer
+```
+
+This will:
+- Automatically configure the **Server** service to start with Windows
+- Immediately launch the service
+
+3. ✅ **Success!** Run the Docker Desktop setup again and it should complete without errors.
+
+---
+
+### 💡 Why This Happens
+
+Docker Desktop on Windows needs the **Server** service to:
+- Handle file sharing
+- Support container networking
+- Enable Windows features required for volume mounts
+
+This service is sometimes disabled in stripped-down systems or due to privacy tools.
+
+---
+
+Let me know if you want to automate this whole thing with a `.bat` or `.ps1` script!

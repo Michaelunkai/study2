@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y grep && grep "pattern" file.txt

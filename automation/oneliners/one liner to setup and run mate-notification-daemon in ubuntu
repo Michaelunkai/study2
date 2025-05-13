@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y mate-notification-daemon && mate-notification-daemon --version

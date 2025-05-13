@@ -1,0 +1,1 @@
+ffmpeg -i your_subtitle.srt output.vtt

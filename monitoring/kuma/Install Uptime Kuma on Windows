@@ -1,0 +1,50 @@
+▲A  A▼
+Install Uptime Kuma on Windows
+What is Uptime Kuma?
+Uptime Kuma is a fancy self-hosted monitoring tool. -https://github.com/louislam/uptime-kuma
+
+Install Uptime Kuma
+Log into the Windows device
+Download Git Download
+Download NodeJS Download
+Install Git, accepting all defaults
+Install NodeJS, accepting all defaults
+Click the Start button > Search powershell
+Right click on Windows PowerShell > Run as administrator
+Run the following commands in the PowerShell window
+# change directory to the root of c:\
+cd \
+# clone from git
+git clone https://github.com/louislam/uptime-kuma.git .\uptime-kuma
+# change directory to uptime-kuma
+cd .\uptime-kuma\
+# install dependencies
+npm install
+# run setup
+npm run setup
+# run uptime kuma
+node server\server.js
+Open a web browser and navigate to http://DNSorIP:3001
+Select a language and create an administrator username and password > Click Create
+Welcome to Uptime Kuma
+Run Uptime Kuma as a Service (Optional, but recommended)
+Press CTRL + C to kill the running Uptime Kuma process
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to Uptime Kuma and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+Complete the form fields as follows:
+Program/script: "%ProgramFiles%\nodejs\node.exe"
+Add arguments: C:\uptime-kuma\server\server.js
+Start in: C:\uptime-kuma
+
+Click Next
+Check the Open the Properties dialog checkbox > Click Finish
+In the Properties dialog, click the Change User or Group... button
+Type System in the Object name field > Click OK
+Check the Run with highest privileges box
+Click OK to create the scheduled task
+Right click the Uptime Kuma task > Run
+Refresh the open web browser to verify Uptime Kuma is now running from the scheduled task
+ 

@@ -1,0 +1,1 @@
+sudo apt install -y weasyprint && weasyprint input.html output.pdf

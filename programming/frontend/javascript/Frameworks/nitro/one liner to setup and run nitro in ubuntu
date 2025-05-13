@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g nitro-cli && yes "y" | nitro init my-nitro-app && cd my-nitro-app && nsj && npm start

@@ -1,0 +1,8 @@
+ Interact with the Cluster
+Once K0s is set up, the kubectl command can be used to interact with the Kubernetes cluster.
+
+K0s automatically installs kubectl. You can now check your nodes and ensure that your cluster is running:
+
+ 
+ 
+sudo k0s kubectl get nodes

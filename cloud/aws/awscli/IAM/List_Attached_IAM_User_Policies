@@ -1,0 +1,6 @@
+aws iam list-user-policies --user-name username
+
+
+example: 
+aws iam list-user-policies --user-name micha
+

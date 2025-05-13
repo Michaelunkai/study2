@@ -1,0 +1,13 @@
+ Serve the Resume Locally
+To serve your resume on a local web server and view it in the browser, run:
+
+ 
+ 
+resume serve
+By default, the resume will be served at http://localhost:4000/.
+
+You can specify a custom port if needed:
+
+ 
+ 
+resume serve --port 8080

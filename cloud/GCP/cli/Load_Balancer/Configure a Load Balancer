@@ -1,0 +1,1 @@
+gcloud compute forwarding-rules create my-load-balancer --region us-central1 --ports 80 --target-http-proxy my-proxy --global

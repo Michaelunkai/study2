@@ -1,0 +1,4 @@
+sudo apt-get install -y unzip
+wget https://releases.ha icorp.com/packer/1.7.8/packer_1.7.8_linux_amd64.zip
+unzip packer_1.7.8_linux_amd64.zip
+sudo mv packer /usr/local/bin/

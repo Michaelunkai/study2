@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name hydra -p 4444:4444 -p 4445:4445 oryd/hydra:v2.3.0 serve all --dangerous-force-http

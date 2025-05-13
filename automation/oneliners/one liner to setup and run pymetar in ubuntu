@@ -1,0 +1,1 @@
+pip3 install pymetar && python3 -c 'import pymetar; print(pymetar.__version__)'

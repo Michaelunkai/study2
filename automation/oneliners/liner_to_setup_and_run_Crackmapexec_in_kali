@@ -1,0 +1,1 @@
+sudo apt install crackmapexec && crackmapexec --version && crackmapexec smb example.com -u admin -p password --ssl

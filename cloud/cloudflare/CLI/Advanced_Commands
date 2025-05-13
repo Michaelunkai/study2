@@ -1,0 +1,29 @@
+Advanced Commands
+Tail Logs
+To tail logs of your deployed worker:
+
+ 
+ 
+wrangler tail
+KV Namespace
+To create a new KV namespace:
+
+ 
+ 
+wrangler kv:namespace create "NAMESPACE_NAME"
+KV Key-Value Operations
+To list keys in a namespace:
+
+ 
+ 
+wrangler kv:key list --namespace-id NAMESPACE_ID
+To write a key-value pair:
+
+ 
+ 
+wrangler kv:key put KEY VALUE --namespace-id NAMESPACE_ID
+To read a value by key:
+
+ 
+ 
+wrangler kv:key get KEY --namespace-id NAMESPACE_ID

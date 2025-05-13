@@ -1,0 +1,1 @@
+aws comprehend delete-entity-recognizer --entity-recognizer-arn <arn>

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g bones-cli && yes "y" | bones init my-bones-app && cd my-bones-app && nsj && npm start

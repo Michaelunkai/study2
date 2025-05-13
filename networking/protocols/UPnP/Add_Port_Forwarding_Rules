@@ -1,0 +1,17 @@
+Add Port Forwarding Rules
+If you want to add port forwarding rules to your router using UPnP, you can do so with the following command:
+
+ 
+ 
+upnpc -a <LOCAL_IP> <LOCAL_PORT> <EXTERNAL_PORT> <PROTOCOL>
+Replace:
+
+<LOCAL_IP> with your local machine's IP address (e.g., 192.168.1.100).
+<LOCAL_PORT> with the port you want to forward (e.g., 8080).
+<EXTERNAL_PORT> with the external port on the router (e.g., 8080).
+<PROTOCOL> with TCP or UDP depending on the protocol you want to use.
+Example:
+
+ 
+ 
+upnpc -a 192.168.1.100 8080 8080 TCP

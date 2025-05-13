@@ -1,0 +1,1 @@
+git clone https://github.com/pyIDM/pyIDM.git && cd pyIDM && python3 pyIDM.py

@@ -1,0 +1,1 @@
+aws lex-models put-intent-version --name <intent-name>

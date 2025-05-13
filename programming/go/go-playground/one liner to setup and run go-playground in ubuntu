@@ -1,0 +1,1 @@
+go install github.com/go-playground/validator/v10@latest && echo 'Go Playground installed'

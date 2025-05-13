@@ -1,0 +1,1 @@
+docker run -d --name strapi -p 1337:1337 -e DATABASE_CLIENT=sqlite strapi/strapi:latest

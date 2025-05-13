@@ -1,0 +1,1 @@
+git clone https://github.com/example/hostmypics.git && cd hostmypics && composer install && php -S localhost:8000 -t public

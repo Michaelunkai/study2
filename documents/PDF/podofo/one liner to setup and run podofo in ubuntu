@@ -1,0 +1,1 @@
+sudo apt install -y podofo-tools && pdfinfo input.pdf

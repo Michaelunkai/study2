@@ -1,0 +1,1 @@
+create one liner, to setup and run grabber in ubuntu, and use it in the end! && sudo apt install grabber -y && grabber -u http://target.com

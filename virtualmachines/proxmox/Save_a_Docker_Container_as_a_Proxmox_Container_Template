@@ -1,0 +1,87 @@
+### How to Save a Docker Container as a Proxmox Container Template and Store it in the Template Cache Directory
+
+This tutorial will guide you through the process of saving a Docker container as a Proxmox Container (PCT) template and storing it in the Proxmox template cache directory, `/var/lib/vz/template/cache`.
+
+#### Step 1: Commit the Docker Container to an Image
+
+First, you need to commit your running Docker container to an image. This image will be used to create the Proxmox template.
+
+  
+docker commit <container_id> mydockerimage
+
+Replace `<container_id>` with the ID of your running container. The image will be named `mydockerimage`.
+
+#### Step 2: Save the Docker Image as a Tar File
+
+Next, save the Docker image as a tar file. This tar file will be transferred to your Proxmox server.
+
+  
+docker save -o /path/to/save/image.tar mydockerimage
+
+Replace `/path/to/save` with the directory where you want to save the tar file.
+
+#### Step 3: Copy the Tar File to the Proxmox Server
+
+Use `scp` to copy the tar file to your Proxmox server. This step ensures that the tar file is available on the Proxmox server for further processing.
+
+  
+scp /path/to/save/image.tar username@proxmox_server:/var/lib/vz/template/cache/
+
+Replace `username` with your Proxmox username and `proxmox_server` with the IP address or hostname of your Proxmox server.
+
+#### Step 4: Convert the Tar File to a Proxmox Template
+
+On your Proxmox server, use the following steps to convert the tar file into a Proxmox template.
+
+##### 4.1 Create a New Container
+
+Create a new container using the Proxmox web interface or the command line with ID 101. You can create an empty or minimal container for this purpose.
+
+##### 4.2 Stop the New Container
+
+Stop the newly created container.
+
+  
+pct stop 101
+
+##### 4.3 Extract the Docker Image Tar File
+
+Extract the Docker image tar file to the new container's root directory.
+
+  
+mkdir -p /var/lib/vz/private/101
+tar -xvf /var/lib/vz/template/cache/image.tar -C /var/lib/vz/private/101
+
+This command creates the necessary directory and extracts the Docker image content into it.
+
+##### 4.4 Create a Tar File for the Proxmox Template
+
+Create a tar file from the container's root directory and move it to the `/var/lib/vz/template/cache` directory.
+
+  
+cd /var/lib/vz/private/101
+tar -czvf /var/lib/vz/template/cache/101-template.tar.gz .
+
+This step packages the extracted container contents into a tar.gz file that Proxmox can use as a template.
+
+##### 4.5 Clean Up the Temporary Container
+
+Remove the temporary container used to create the template.
+
+  
+pct destroy 101
+
+This ensures that only the template file remains, without the temporary container.
+
+#### Step 5: Use the Template to Create New Containers
+
+Now you can use the newly created template to create new containers in Proxmox.
+
+  
+pct create <new_container_id> /var/lib/vz/template/cache/101-template.tar.gz
+
+Replace `<new_container_id>` with the ID you want to assign to your new container.
+
+### Conclusion
+
+By following these steps, you will be able to save a Docker container as a Proxmox Container template and store it in the Proxmox template cache directory. This allows for easy creation of new containers based on your Docker container template.

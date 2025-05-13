@@ -1,0 +1,1 @@
+sudo apt-get install -y wine && wget -qO winmerge.exe https://winmerge.org/downloads/WinMerge-2.16.12-Setup.exe && wine winmerge.exe notebook1.ipynb notebook2.ipynb

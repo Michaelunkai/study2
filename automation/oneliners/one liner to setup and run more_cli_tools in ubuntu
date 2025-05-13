@@ -1,0 +1,1 @@
+sudo apt install -y htop iftop iotop netdata dstat atop nload vnstat glances ncdu && htop

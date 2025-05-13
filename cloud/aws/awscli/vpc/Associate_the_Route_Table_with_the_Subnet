@@ -1,0 +1,1 @@
+aws ec2 associate-route-table --subnet-id subnet-XXXXXXXXXXXXXXXXX --route-table-id rtb-XXXXXXXXXXXXXXXXX

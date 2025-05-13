@@ -1,0 +1,1 @@
+az cosmosdb create --name myCosmosAccount --resource-group myResourceGroup --kind GlobalDocumentDB --locations regionName=eastus failoverPriority=0 isZoneRedundant=False

@@ -1,0 +1,10 @@
+Backup and Restore Your ECS Clusters
+Create an AMI
+
+Use the AWS Management Console or CLI to create an AMI of your ECS instances.
+
+Backup Task Definitions
+
+ 
+ 
+aws ecs describe-task-definition --task-definition my-task > task-definition-backup.json

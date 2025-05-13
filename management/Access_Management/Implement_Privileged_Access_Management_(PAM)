@@ -1,0 +1,2 @@
+Implement Privileged Access Management (PAM)Why: Controls and monitors access to critical systems and data.Windows:Use Local Administrator Password Solution (LAPS):Install LAPS:Install-WindowsFeature -Name "RSAT-LAPS"Configure LAPS policies via Group Policy Management.Ubuntu:Install and Configure sudo for PAM:sudo apt install sudoEdit /etc/sudoers to Restrict Privileged Access:sudo visudoExample:%admin ALL=(ALL) ALL
+user ALL=(ALL) NOPASSWD: /usr/bin/systemctl

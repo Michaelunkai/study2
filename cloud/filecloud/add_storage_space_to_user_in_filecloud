@@ -1,0 +1,3 @@
+go to localhost/admin > users 
+manage users > next the user press "manage policy settings".
+general > scroll down > user storage quota: enter desired space in MB.

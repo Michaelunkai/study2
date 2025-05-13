@@ -1,0 +1,1 @@
+az storage account keys list --resource-group yourResourceGroupName --account-name yourStorageAccountName --query "[0].value" --output tsv

@@ -1,0 +1,7 @@
+Creating an Outbound Rule:
+
+To allow outgoing traffic on a specific port, use a similar command:
+
+New-NetFirewallRule -DisplayName "Allow Outgoing SMTP" -Direction Outbound -Protocol TCP -LocalPort 25 -Action Allow
+
+This command allows outgoing TCP traffic on port 25, commonly used for SMTP.

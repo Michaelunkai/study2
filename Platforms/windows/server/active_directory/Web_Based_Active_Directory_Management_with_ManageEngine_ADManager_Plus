@@ -1,0 +1,11 @@
+Web Based Active Directory Management with ManageEngine ADManager Plus
+Download ADManager Plus Download
+Install ADManager Plus, skipping the registration step
+Once the installation completes, open a web browser and navigate to http://DNSorIP:8080
+Login with username admin and password admin
+Click the Click here to add a new domain link
+Complete the form, enabling the Authentication checkbox and entering the Domain Name, Username and Password
+Click the Discover New link
+Type the domain controller host name(s) > Click Add
+Click Add to complete setting up the domain
+Welcome to web based Active Directory administration with ADManager Plus

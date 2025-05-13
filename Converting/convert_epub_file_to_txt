@@ -1,0 +1,51 @@
+ You can use the command-line tool "ebook-convert" from Calibre to convert an EPUB file to a plain text (txt) file. Here's how you can do it in the terminal:
+
+Install Calibre:
+
+If you don't have Calibre installed, you can install it on Linux using the package manager:
+
+ 
+ 
+sudo apt-get install calibre
+On macOS, you can use Homebrew:
+
+ 
+ 
+brew install calibre
+On Windows, download and install Calibre from the official website: https://calibre-ebook.com/download
+
+Convert EPUB to TXT:
+
+Open a terminal window.
+
+Navigate to the directory where your EPUB file is located. For example, if your EPUB file is on the desktop:
+
+ 
+ 
+cd ~/Desktop
+Use the following command to convert the EPUB file to a TXT file:
+
+ 
+ 
+ebook-convert yourfile.epub yourfile.txt
+Replace "yourfile.epub" with the actual name of your EPUB file.
+
+Copy Text to Balabolka:
+
+Open the generated TXT file using a text editor or a terminal-based tool like "cat" or "less."
+
+ 
+ 
+cat yourfile.txt
+Copy the entire text from the terminal or text editor.
+
+Paste into Balabolka:
+
+Open Balabolka and paste the copied text into the application.
+Configure Balabolka Settings:
+
+Follow the steps mentioned earlier to configure voice, speed, and other settings in Balabolka.
+Save as Audiobook:
+
+Save the audiobook as mentioned in the previous steps.
+This process allows you to convert the EPUB file to plain text using the terminal and then use Balabolka to convert the text to an audiobook.

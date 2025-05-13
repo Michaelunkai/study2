@@ -1,0 +1,170 @@
+## Comprehensive Guide to Setting Up Cloud-Based Surveillance Cameras Using AWS CLI and Related Tools
+
+In this tutorial, you'll learn how to set up cloud-based surveillance cameras using AWS CLI and integrate various AWS services to capture, store, and process video streams.
+
+### Tools Used
+- **AWS CLI**: Command Line Interface for interacting with AWS services.
+- **Amazon Kinesis Video Streams**: Service for video streaming.
+- **Amazon S3**: Scalable storage service.
+- **AWS Lambda**: Serverless compute service.
+- **boto3**: AWS SDK for Python.
+- **OpenCV**: Library for video processing in Python.
+
+### Step-by-Step Guide
+
+#### Step 1: Install and Configure AWS CLI
+
+1. **Install AWS CLI:**
+   - **Windows**: 
+       
+     msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+   - **macOS**: 
+       
+     brew install awscli
+   - **Linux**: 
+       
+     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+     unzip awscliv2.zip
+     sudo ./aws/install
+
+2. **Configure AWS CLI:**
+     
+   aws configure
+   Provide your AWS Access Key, Secret Key, region, and output format when prompted.
+
+#### Step 2: Create a Kinesis Video Stream and Lambda Function
+
+1. **Create a Kinesis Video Stream:**
+     
+   aws kinesisvideo create-stream --stream-name MySurveillanceStream --data-retention-in-hours 24
+
+2. **Create an IAM Role for Lambda:**
+     
+   aws iam create-role --role-name lambda-kinesis-role --assume-role-policy-document file://trust-policy.json
+
+   `trust-policy.json`  ould contain:
+    json
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "lambda.amazonaws.com"
+               },
+               "Action": "sts:AssumeRole"
+           }
+       ]
+   }
+
+3. **Attach Policies to the IAM Role:**
+     
+   aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+   aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/AmazonKinesisFullAccess
+   aws iam attach-role-policy --role-name lambda-kinesis-role --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+4. **Create Lambda Deployment Package:**
+   - Save the following Python code in a file named `lambda_function.py`:
+
+       
+     import boto3
+     import base64
+     import json
+
+     def lambda_handler(event, context):
+         s3_client = boto3.client('s3')
+         for record in event['Records']:
+             payload = base64.b64decode(record["kinesis"]["data"])
+             # Process the payload and save to S3
+             s3_client.put_object(
+                 Bucket='my-unique-bucket-name-xyz',
+                 Key='video-frame.jpg',
+                 Body=payload
+             )
+         return {
+             'statusCode': 200,
+             'body': json.dumps('Video processed successfully')
+         }
+
+   - Create a deployment package (ZIP file):
+
+       
+     zip function.zip lambda_function.py
+
+5. **Create Lambda Function:**
+     
+   aws lambda create-function --function-name ProcessKinesisVideo --zip-file fileb://function.zip --handler lambda_function.lambda_handler --runtime python3.8 --role arn:aws:iam::YOUR_ACCOUNT_ID:role/lambda-kinesis-role
+
+6. **Add Trigger to Lambda Function:**
+     
+   aws lambda create-event-source-mapping --function-name ProcessKinesisVideo --batch-size 1 --starting-position LATEST --event-source-arn arn:aws:kinesisvideo:YOUR_REGION:YOUR_ACCOUNT_ID:stream/MySurveillanceStream/1234567890
+
+#### Step 3: Stream Video to Kinesis Video Stream
+
+You need to stream the video feed from your cameras to the Kinesis Video Stream endpoint. Here's an example using Python and OpenCV:
+
+1. **Install required libraries:**
+     
+   pip install boto3 opencv-python
+
+2. **Python Script to Stream Video:**
+
+     
+   import boto3
+   import cv2
+   import time
+   from botocore.exceptions import NoCredentialsError, PartialCredentialsError
+
+   # Initialize Kinesis Video client
+   kinesis_video_client = boto3.client('kinesisvideo')
+
+   # Get the data endpoint
+   response = kinesis_video_client.get_data_endpoint(
+       StreamName='MySurveillanceStream',
+       APIName='PUT_MEDIA'
+   )
+
+   endpoint = response['DataEndpoint']
+   kvs_client = boto3.client('kinesis-video-media', endpoint_url=endpoint)
+
+   # Open video capture (0 for default camera)
+   video_capture = cv2.VideoCapture(0)
+
+   try:
+       while video_capture.isOpened():
+           ret, frame = video_capture.read()
+           if ret:
+               # Process frame (example: convert to bytes)
+               _, buffer = cv2.imencode('.jpg', frame)
+               payload = buffer.tobytes()
+
+               # Send the frame to Kinesis Video Streams
+               kvs_client.put_media(
+                   StreamName='MySurveillanceStream',
+                   Payload=payload
+               )
+               time.sleep(0.1)  # Adjust sleep time as necessary
+           else:
+               break
+
+   except (NoCredentialsError, PartialCredentialsError):
+       print("Error: AWS credentials not found.")
+   finally:
+       video_capture.release()
+
+#### Step 4: Store Video in Amazon S3
+
+1. **Create an S3 bucket:**
+     
+   aws s3 mb s3://my-unique-bucket-name-xyz
+
+2. **Verify Lambda Function and Stream:**
+   - Ensure the Lambda function is processing the video streams and storing them in the specified S3 bucket.
+
+3. **Add a Sample Video File to S3 (for testing):**
+   - Save a sample video file locally and upload it to the S3 bucket:
+
+       
+     aws s3 cp sample-video.mp4 s3://my-unique-bucket-name-xyz/sample-video.mp4
+
+By following these steps, you should be able to set up cloud-based surveillance cameras using AWS CLI, Kinesis Video Streams, S3, Lambda, and the necessary Python libraries. This comprehensive guide covers everything from installation and configuration to streaming and processing video data.

@@ -1,0 +1,1 @@
+sam local invoke <function-logical-id> --template-file template.yaml --env-vars env.json

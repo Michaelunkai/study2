@@ -1,0 +1,95 @@
+## Getting Hands-On with Google’s Gen AI SDK in Vertex AI
+
+Google Cloud’s newest self-paced lab—**“Getting Started with Google Generative AI Using the Gen AI SDK” (GSP1209)**—is a one-hour, browser-based sprint that shows you how to install the SDK, chat with Gemini, and tap advanced features such as streaming, function calling, and batch predictions. Below is everything you need to know before you dive in.
+
+---
+
+### Why the Gen AI SDK?
+
+Google’s **Gen AI SDK for Python** provides a single, coherent wrapper around every generative capability exposed through Vertex AI. Instead of juggling REST endpoints, you:
+
+* Authenticate once and reuse a client.
+* Swap between text, code, image, or multimodal prompts by simply changing model IDs.
+* Control output with the same parameter schema—no matter which Gemini version you pick.
+
+Mastering the SDK is the fastest way to production-grade prototypes: notebooks today, micro-services tomorrow.
+
+---
+
+### What the Lab Covers
+
+|            | Core Skill                  | What You’ll Do                                                                                                                 |
+| ---------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Task 1** | Spin up Vertex AI Workbench | Open JupyterLab in seconds with a pre-built instance.                                                                          |
+| **Task 2** | SDK Installation & Setup    | Pip-install the package, authenticate, choose a region, and select a Gemini model.                                             |
+| **Task 3** | Interact with Gemini        | Send text prompts, upload images or PDFs for multimodal Q & A, and set system instructions.                                    |
+| **Task 4** | Fine-Tune Behaviour         | Tweak temperature, top-k, and safety filters; run multi-turn chats; constrain output to JSON schemas.                          |
+| **Task 5** | Manage Conversations        | Stream tokens in real time, send async requests, and pre-count tokens to keep costs predictable.                               |
+| **Task 6** | Advanced Power-Ups          | Invoke external functions, cache long contexts, run batch predictions to Cloud Storage/BigQuery, and generate text embeddings. |
+
+Total elapsed time: **≈ 1 hour**, including verification steps.
+
+---
+
+### Prerequisites & Logistics
+
+* **Skills:** Basic Python and API concepts.
+* **Environment:** A modern browser (Chrome Incognito recommended).
+* **Account:** The lab hands you temporary credentials—your personal GCP project stays untouched.
+* **Clock:** Once you click *Start Lab*, the timer runs continuously, so block off an uninterrupted hour.
+
+---
+
+### Deeper Dive into the Lab Tasks
+
+1. **Install & Authenticate**
+
+   ```python
+   !pip install -q google-generativeai
+   import google.generativeai as genai
+   genai.configure(project=PROJECT_ID, location=REGION)
+   ```
+
+2. **Text & Multimodal Prompts**
+
+   ```python
+   model = genai.GenerativeModel(model_name="gemini-1.5-pro")
+   rsp = model.generate_content("Summarise Cloud Spanner in 50 words.")
+   ```
+
+   Include images or PDFs via `Part.from_uri(...)` for true multimodal Q & A.
+
+3. **System Instructions & Safety Filters** — keep your chatbot on-brand and compliant.
+
+4. **Structured Output** — hand Gemini a Pydantic or JSON schema so it returns machine-readable results every time.
+
+5. **Streaming & Async** — print tokens as they land, or await thousands of parallel requests.
+
+6. **Context Caching** — store large, rarely-changing prompts once to slash token-usage in future requests (available on fixed-version models like `gemini-2.0-flash-001`).
+
+7. **Batch Predictions** — send a JSONL manifest pointing to GCS files or BigQuery tables, then pick up results in a bucket—perfect for non-latency-sensitive workloads.
+
+---
+
+### Badge & Next Steps
+
+Completing the lab unlocks credit toward the **“Beginner: Introduction to Generative AI”** learning path. More importantly, you walk away able to:
+
+* Stand up a Gen AI SDK notebook in under five minutes.
+* Switch effortlessly between single-turn prompts, streaming chats, and batch jobs.
+* Control Gemini’s behaviour with parameters, schemas, and safety rails.
+
+Keep building with these resources:
+
+* **Gemini Overview** – model families, quotas, and pricing.
+* **Vertex AI Cookbook** – searchable gallery of end-to-end notebooks.
+* **Generative AI on YouTube** – bite-sized demos and deep dives.
+
+---
+
+### Final Thoughts
+
+If you’ve mastered prompt design, the natural next step is programmatic control. This one-hour lab gives you a production-ready foundation: install, authenticate, experiment, and deploy—all without leaving your browser. Whether you’re building a real-time chat agent, running overnight batch summarisation, or embedding text for semantic search, the Gen AI SDK is your direct line to Google’s latest Gemini models.
+
+*Last updated: May 5, 2025*
+*Copyright © 2025 Google LLC*

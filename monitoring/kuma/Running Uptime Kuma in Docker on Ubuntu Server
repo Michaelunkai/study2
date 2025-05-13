@@ -1,0 +1,32 @@
+
+What is Uptime Kuma?
+Uptime Kuma is a fancy self-hosted monitoring tool. -https://github.com/louislam/uptime-kuma
+
+Installing Docker
+Log into the Linux based device
+Run the following commands in the terminal
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running Uptime Kuma
+Now that Docker is installed, run the following commands to setup the Uptime Kuma container and run it
+# create working directories
+mkdir /home/$USER/docker/uptimekuma -p
+# set owner of working directories
+sudo chown "$USER":"$USER" /home/"$USER"/docker -R
+# run the uptime kuma container
+docker run -d --name uptimekuma -p 3001:3001 -v /home/$USER/docker/uptimekuma:/app/data --restart=unless-stopped louislam/uptime-kuma:latest
+Open a web browser and navigate to http://DNSorIP:3001
+Select a language and create an administrator username and password > Click Create
+Welcome to Uptime Kuma

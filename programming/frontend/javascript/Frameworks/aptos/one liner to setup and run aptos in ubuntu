@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g aptos-cli && yes "y" | aptos init my-aptos-app && cd my-aptos-app && nsj && npm start

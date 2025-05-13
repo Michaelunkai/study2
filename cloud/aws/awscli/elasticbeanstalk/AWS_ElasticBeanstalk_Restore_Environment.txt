@@ -1,0 +1,1 @@
+aws elasticbeanstalk restore-environment --environment-name <env-name> --environment-id <env-id>

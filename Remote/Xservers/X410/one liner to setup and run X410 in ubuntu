@@ -1,0 +1,1 @@
+winget install --id Token2.X410 -e --accept-package-agreements --accept-source-agreements; Start-Process "C:\Program Files\X410\X410.exe" -ArgumentList "/desktop"

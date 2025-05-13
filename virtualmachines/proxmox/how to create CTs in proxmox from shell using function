@@ -1,0 +1,121 @@
+in webui:
+
+
+Datacenter > pve > local(pve) > ct templates > templates
+download ubuntu 22.04
+
+
+than, add this function and source it: 
+
+
+
+cct() {
+    if [ -z "$1" ]; then
+        echo "Usage: cct <hostname>"
+        return 1
+    fi
+    HOSTNAME=$1
+    
+    # Prompt for CTID
+    read -p "Enter desired CTID (container number): " CTID
+    
+    # Validate CTID is a number
+    if ! [[ "$CTID" =~ ^[0-9]+$ ]]; then
+        echo "Error: CTID must be a number"
+        return 1
+    fi
+    
+    # Check if CTID already exists
+    if pct status $CTID >/dev/null 2>&1; then
+        echo "Error: CTID $CTID already exists"
+        return 1
+    fi
+    
+    # Set fixed password for root
+    PASSWORD="123456"
+    
+    TEMPLATE="local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst"
+    STORAGE="local"
+    CORES=4
+    MEMORY=2000
+    SWAP=2000
+    DISK_SIZE="1000"
+    NAMESERVER="8.8.8.8"
+    BRIDGE="vmbr0"
+    NETWORK="name=eth0,bridge=${BRIDGE},ip=dhcp,ip6=dhcp"
+    
+    echo "Creating container with CTID: $CTID and Hostname: $HOSTNAME"
+    pct create $CTID $TEMPLATE \
+        --hostname $HOSTNAME \
+        --password "$PASSWORD" \
+        --cores $CORES \
+        --memory $MEMORY \
+        --swap $SWAP \
+        --rootfs "$STORAGE:${DISK_SIZE}" \
+        --net0 $NETWORK \
+        --nameserver $NAMESERVER \
+        --start 0  # Don't start immediately
+    
+    if [ $? -ne 0 ]; then
+        echo "Failed to create container."
+        return 1
+    fi
+    
+    echo "Container created successfully. Setting up SSH..."
+    
+    # Start the container
+    pct start $CTID
+    
+    # Wait for container to be ready
+    echo "Waiting for container to initialize..."
+    sleep 10
+    
+    # Execute commands inside the container to set up SSH
+    pct exec $CTID -- bash -c '
+        # Update package list
+        apt-get update
+        
+        # Install SSH server
+        apt-get install -y openssh-server
+        
+        # Configure SSH to allow root login with password
+        sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
+        sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
+        
+        # Enable password authentication
+        sed -i "s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
+        
+        # Enable SSH service
+        systemctl enable ssh
+        
+        # Start SSH service
+        systemctl start ssh
+        
+        # Set root password explicitly
+        echo "root:123456" | chpasswd
+        
+        # Restart SSH service to apply changes
+        systemctl restart ssh
+    '
+    
+    # Get the container's IP address
+    IP=$(pct exec $CTID -- ip addr show eth0 | grep "inet " | awk "{print \$2}" | cut -d/ -f1)
+    
+    # Final status check
+    echo "Container setup completed."
+    echo "Container '$HOSTNAME' (CTID: $CTID) status:"
+    pct status $CTID
+    echo "Network configuration:"
+    pct config $CTID | grep net
+    if [ ! -z "$IP" ]; then
+        echo "Container IP address: $IP"
+        echo "You can connect via SSH using: ssh root@$IP"
+        echo "Root password is: 123456"
+    else
+        echo "IP address not yet assigned. Please check network configuration."
+    fi
+    
+    # Final SSH status check
+    echo "SSH service status:"
+    pct exec $CTID -- systemctl status ssh | grep Active
+}

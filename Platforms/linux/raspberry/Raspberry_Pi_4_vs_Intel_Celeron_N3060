@@ -1,0 +1,31 @@
+▲A  A▼
+Raspberry Pi 4 vs Intel Celeron N3060
+The Devices
+The Raspberry Pi 4 runs a 1.5 GHz Quad Core Broadcom BCM2711 64-bit CPU with 4GB LPDDR4 RAM.
+
+The Intel Celeron N3060 is a 1.6 GHz Dual Core 64-bit CPU paired with 4GB DDR3L SDRAM.
+
+The Benchmarks
+7-Zip - The 7-zip benchmark tests compression and decompression using the LZMA method. Results are shown as a rating in MIPS (million instructions per second). The rating value is calculated from the measured CPU speed and it is normalized with Intel Core 2 Duo E6600 (2.4 GHz, 4 MB L2) CPU in 64-bit Windows with multi-threading option switched off. The charted value is the total compression MIPS score.
+
+Sysbench - The sysbench CPU benchmark verifies prime numbers by doing standard division of the number by all numbers between 2 and the square root of the number. Once a number gives a remainder of 0, the next number is calculated.
+
+CPU Blowfish - Blowfish is a symmetric-key 64-bit block cipher
+
+CPU CryptoHash - CrytpoHash is a cryptographic hash function that maps data of arbitrary size (often called the "message") to a bit array of a fixed size (called the "hash" or "message digest"). It is a one-way function, that is practically infeasible to invert, and is used in digital signatures, message authentication and hash functions to index data in hash tables.
+A Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding numbers, such as 1, 1, 2, 3, 5, 8, etc. This benchmark tests the integer processing ability of a CPU.
+
+CPU Fibonacci - A Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding numbers, such as 1, 1, 2, 3, 5, 8, etc. This benchmark tests the integer processing ability of a CPU.
+
+CPU N-Queens - N-Queens finds a way to place a variable number of queens on a chessboard so that no two queens threaten each other by sharing the same row, column or diagonal. For some reason, the Cortex-A53 which is a simpler in-order processor does better at this benchmark than more complex out-of-order processors like the Cortex-A72 and Core i5, but it is hard to conclude much from this result.
+
+CPU ZLib - ZLib is a software library used for data compression, which is used by the gzip file compression program. This benchmark is memory intensive, so its results will reflect the speed of the RAM.
+
+FPU FFT - Fast Fourier Transforms (FFT) converts a signal to frequencies and vice-versa. It is used in audio digital signal processing and image signal processing, and is an indication how fast a processor can process video in software.
+
+FPU Raytracing - Raytracing is a rendering technique for generating an image by tracing the path of light as pixels in an image plane and simulating the effects of its encounters with virtual objects. Like FFT, this benchmark tests how well the processor deals with floating point numbers (i.e. numbers with decimal points).
+
+Sources: https://source.puri.sm/Librem5/community-wiki/-/wikis/Benchmarks,
+https://unix.stackexchange.com/a/607910
+
+ 

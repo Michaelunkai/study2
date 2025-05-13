@@ -1,0 +1,26 @@
+The method used in the code for managing the ChromeDriver setup is called start_driver(). This method sets up and initializes an undetected ChromeDriver session with specific configurations such as a fake user agent and persistent user data. It also uses webdriver_manager to automatically download and install the correct version of ChromeDriver.
+
+Here is the full code for the start_driver() method:
+
+Method Code: start_driver()
+ 
+ 
+def start_driver():
+    # Set up undetected ChromeDriver with options
+    options = webdriver.ChromeOptions()
+    options.add_argument(f"user-agent={UserAgent().random}")  # Use a random user agent to simulate different browsers
+    options.add_argument("user-data-dir=./")  # Store Chrome user data locally to persist login and session data
+    
+    # Initialize the Chrome driver using undetected-chromedriver and webdriver-manager
+    driver = uc.Chrome(driver_executable_path=ChromeDriverManager().install(), options=options)
+    
+    return driver
+Explanation:
+options.add_argument(f"user-agent={UserAgent().random}"): Adds a random user agent to the Chrome session using the fake_useragent library, simulating different browser versions and environments.
+
+options.add_argument("user-data-dir=./"): Persists Chrome user data, such as cookies and session information, by storing it locally. This means that if you log in to a website (like ChatGPT), the session will remain active in subsequent runs of the script.
+
+uc.Chrome(driver_executable_path=ChromeDriverManager().install(), options=options):
+
+undetected-chromedriver (uc) is used to prevent detection by websites that try to block bots or automated browsers.
+ChromeDriverManager().install() is provided by webdriver_manager to automatically download and install the correct version of ChromeDriver. This way, you don’t need to manually manage the driver or its path.

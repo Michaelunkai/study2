@@ -1,0 +1,46 @@
+▲A  A▼
+Running Pi-Hole Ad-Blocker on Kali Linux
+NOTE: I'm running this installation inside a VirtualBox VM
+
+Click the Applications button > Accessories > Terminal
+Run the following commands to install updates
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get clean
+curl -sSL https://install.pi-hole.net | PIHOLE_SKIP_OS_CHECK=true sudo -E bash
+Press Enter until the DNS selection is displayed
+Select a DNS provider and press Enter
+Press Enter through the rest of the Pi-Hole installer, selecting the defaults
+Copy the randomly generated admin password (just in case)
+Press Enter to complete the installation
+Continue with the following commands
+# rebuild the pihole gravity.db
+sudo pihole -g -r
+# check for updates
+sudo pihole -up
+# change the pihole admin password
+sudo pihole -a -p
+# repair the pihole installation
+PIHOLE_SKIP_OS_CHECK=true sudo -E pihole -r
+Press Enter to repair and retain existing settings
+Continue with the following commands
+sudo nano /etc/lighttpd/lighttpd.conf
+Scrolldown and place a # before mod_compress to comment it out
+Press CTRL+O, Enter, CTRL+X to write the changes to lighttpd.conf
+Continue with the following commands
+# start lighttpd
+sudo systemctl enable lighttpd
+sudo systemctl start lighttpd
+# restart pihole DNS
+sudo pihole restartdns
+Open the Firefox web browser and navigate to about:config
+Click the Accept the Risk and Continue button
+Search for fallback
+Double click the browser.fixup.fallback-to-https to set the value to false
+Navigate to http://localhost/admin to reach the pi-hole web UI
+Click Login
+Authenticate with the admin password
+More on Pi-Hole https://pi-hole.net/
+
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

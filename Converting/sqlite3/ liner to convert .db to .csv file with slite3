@@ -1,0 +1,7 @@
+first check what tables exist in the database by running:
+
+sqlite3 gaming20082024.db ".tables"
+Once you identify the correct table name (for example, if it’s named games), replace your_table with that name. For instance:
+
+sqlite3 -header -csv gaming20082024.db "SELECT * FROM games;" > gaming20082024.csv
+This should export the table data into your CSV file without error.

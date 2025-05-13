@@ -1,0 +1,9 @@
+right click on the ext4.vhdx file > propreties > general > advanced
+
+under Compress or Encrypt attributes > 
+uncheck boxes:
+
+compress contents to save disk space
+
+Encrypt contents to secure data
+

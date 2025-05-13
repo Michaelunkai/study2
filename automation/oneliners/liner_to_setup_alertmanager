@@ -1,0 +1,15 @@
+ cd && wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz && tar xvfz alertmanager-0.25.0.linux-amd64.tar.gz && sudo mv alertmanager-0.25.0.linux-amd64/alertmanager /usr/local/bin/ && sudo mv alertmanager-0.25.0.linux-amd64/amtool /usr/local/bin/ && sudo mkdir /etc/alertmanager && sudo mkdir /var/lib/alertmanager && sudo mv alertmanager-0.25.0.linux-amd64/alertmanager.yml /etc/alertmanager/ && sudo useradd --no-create-home --shell /bin/false alertmanager && sudo chown -R alertmanager:alertmanager /etc/alertmanager /var/lib/alertmanager && sudo bash -c 'cat <<EOF > /etc/systemd/system/alertmanager.service
+[Unit]
+Description=Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=alertmanager
+ExecStart=/usr/local/bin/alertmanager \\
+  --config.file=/etc/alertmanager/alertmanager.yml \\
+  --storage.path=/var/lib/alertmanager/
+
+[Install]
+WantedBy=multi-user.target
+EOF' && sudo systemctl daemon-reload && sudo systemctl start alertmanager && sudo systemctl enable alertmanager

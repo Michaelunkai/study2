@@ -1,0 +1,1 @@
+sudo /usr/lib/cgi-bin/awstats.pl -config=mywebsite -update

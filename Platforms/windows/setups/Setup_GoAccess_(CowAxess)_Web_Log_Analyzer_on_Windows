@@ -1,0 +1,25 @@
+▲A  A▼
+Setup GoAccess (CowAxess) Web Log Analyzer on Windows
+What is GoAccess?
+GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser. It provides fast and valuable HTTP statistics for system administrators that require a visual server report on the fly. - https://goaccess.io/
+
+Installing GoAccess (CowAxess)
+Download XAMPP Download
+Download CowAxess Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP .zip file > Extract All...
+Right click the downloaded CowAxess .zip file > Extract All...
+Run the CowAxess installer, install to C:\Program Files\CowAxess
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache
+Navigate to C:\Program Files\CowAxess
+Double click the cowaxess.cmd file
+Paste the following command to start the real-time monitor, changing the paths to access.log and monitor.html as needed
+goaccess "C:\\Program Files\\xampp\\apache\\logs\\access.log" -o "C:\\Program Files\\xampp\\htdocs\\monitor.html" --log-format=COMBINED --real-time-html
+Open a web browser and navigate to http://DNSorIP/monitor.html
+Welcome to GoAccess hosted on Windows
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

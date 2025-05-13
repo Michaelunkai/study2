@@ -1,0 +1,1 @@
+create one liner, to setup and run wapiti in ubuntu, and use it in the end! && sudo apt install wapiti -y && wapiti http://target.com

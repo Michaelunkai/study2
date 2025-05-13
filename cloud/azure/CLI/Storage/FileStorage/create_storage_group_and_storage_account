@@ -1,0 +1,9 @@
+Create a Resource Group
+Create a resource group to contain your storage account. Replace yourResourceGroupName and yourLocation with your desired resource group name and location:
+
+az group create --name yourResourceGroupName --location yourLocation
+Create a Storage Account
+
+Create a storage account within the resource group. Replace yourStorageAccountName with a unique name for your storage account:
+
+az storage account create --name yourStorageAccountName --

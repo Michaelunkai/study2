@@ -1,0 +1,1 @@
+wget https://github.com/proxylite/releases/latest/download/proxylite -O proxylite && chmod +x proxylite && ./proxylite

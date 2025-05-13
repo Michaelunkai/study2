@@ -1,0 +1,11 @@
+MeiliSearch is an open-source, powerful, and easy-to-use search engine that provides fast and relevant search results. It is designed to be user-friendly, with a focus on speed, relevance, and a rich set of features. MeiliSearch is built to be easily integrated into websites or applications to provide a seamless search experience for users.
+
+### Key Features of MeiliSearch:
+- **Instant Search**: Delivers search results in milliseconds, making it ideal for applications requiring real-time search capabilities.
+- **Typo Tolerance**: Handles typos and misspellings, ensuring that users still get relevant results even if they make mistakes in their search queries.
+- **Faceted Search**: Supports filtering and sorting search results based on various attributes, such as categories, tags, or prices.
+- **Custom Ranking**: Allows developers to customize the ranking of search results based on specific business needs.
+- **Multi-language Support**: Supports multiple languages, making it suitable for global applications.
+- **RESTful API**: Provides a straightforward REST API for easy integration into different platforms and programming languages.
+
+MeiliSearch is particularly popular in scenarios where a fast, customizable, and easy-to-set-up search solution is needed, such as in e-commerce sites, content management systems, and internal knowledge bases.

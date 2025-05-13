@@ -1,0 +1,1 @@
+apt install -y imagegick && convert input.png -matte -virtual-pixel transparent -distort Perspective '0,0 0,0  0,100 0,90  100,0 90,0  100,100 90,90' output.png

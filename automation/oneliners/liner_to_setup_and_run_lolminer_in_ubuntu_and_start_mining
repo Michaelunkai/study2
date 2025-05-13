@@ -1,0 +1,1 @@
+sudo apt install -y build-essential libssl-dev libcurl4-openssl-dev libhwloc-dev && wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.87/lolMiner_v1.87_Lin64.tar.gz && tar -xvf lolMiner_v1.87_Lin64.tar.gz && cd 1.87 && ./lolMiner --algo ETHASH --pool eu1.ethermine.org:4444 --user YOUR_MONERO_WALLET_ADDRESS

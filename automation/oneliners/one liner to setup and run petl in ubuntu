@@ -1,0 +1,1 @@
+pip3 install petl && python3 -c 'import petl; print(petl.__version__)'

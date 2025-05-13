@@ -1,0 +1,1 @@
+hs upload <path-to-file> <target-path>

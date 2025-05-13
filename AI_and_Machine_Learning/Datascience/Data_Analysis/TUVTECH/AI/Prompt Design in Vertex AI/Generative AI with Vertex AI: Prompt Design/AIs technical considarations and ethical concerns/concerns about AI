@@ -1,0 +1,163 @@
+Transcript
+00:00
+So far we’ve explored ethics at a high level.
+00:03
+However there are some ethical concerns that are especially relevant to the advanced technologies AI enables.
+00:10
+While this module may not be exhaustive, we’ll take a look at some of the themes that receive lot of attention when discussing ethical concerns with AI.
+00:19
+Each use case for AI raises unique challenges that Google works to address but as an industry,
+00:23
+we must grow our awareness of these concerns so we can develop approaches to tackle them together.
+00:30
+So what are the main AI concerns being raised?
+00:34
+The first is transparency.
+00:36
+As AI systems become more complex, it can be increasingly difficult SLIDE 86-87 - to establish enough transparency for people to understand how AI systems make decisions.
+00:47
+In many situations, being able to understand how an AI system works is critical to an end user's autonomy or ability to make informed choices.
+00:58
+A lack of transparency can also make it harder for a developer to predict when and how these systems might fail or cause unintended harm.
+01:08
+Models that allow a human to understand the factors contributing to a decision can help stakeholders of AI systems to better collaborate with an AI.
+01:17
+This might mean knowing when to intervene if the AI is underperforming, strengthening a strategy
+01:21
+for using the results of an AI system, and identifying how the AI can be improved.
+01:27
+A second concern is unfair bias.
+01:32
+AI doesn’t create unfair bias on its own; it exposes biases present in existing social systems and amplifies them.
+01:41
+A major pitfall of AI is that its ability to scale can reinforce and perpetuate unfair biases which can lead to further unintentional harms.
+01:53
+The unfair biases that shape society also shape every stage of AI, from datasets and problem formulation to model creation and validation.
+02:03
+AI is a direct reflection of the societal context in which it's designed and deployed.
+02:09
+To mitigate harms, the societal context and probable biases need to be recognized and addressed.
+02:16
+For instance, vision systems are being adopted in critical areas of public safety and physical security to monitor building activity or public demonstrations.
+02:26
+Here bias can make surveillance systems more likely to misidentify marginalized groups as criminals These challenges stem from many root causes, such as the underrepresentation of some groups
+02:38
+and overrepresentation of others in training data, a lack of critical data needed to fully understand a system’s impact, or a lack of societal context in product development.
+02:49
+A third AI concern is security.
+02:54
+Like any computer system, there is the potential for bad actors to exploit vulnerabilities in AI systems for malicious purposes.
+03:02
+As AI systems become embedded in critical components of society, these attacks represent vulnerabilities, with the potential to significantly affect safety and security.
+03:13
+Safe and secure AI involves traditional concerns in information security, as well new ones.
+03:19
+The data-driven nature of AI makes the training data more valuable to exfiltrate, plus, AI can allow for greater scale and speed of attacks.
+03:27
+We’re also seeing new techniques of manipulation unique to AI, like deepfakes, which can impersonate someone's voice or biometrics.
+03:36
+A fourth AI concern is privacy.
+03:40
+AI presents the ability to quickly and easily gather, analyze, and combine vast quantities of data from different sources.
+03:49
+The potential impact of AI on privacy is immense, leading to risks of data exploitation, unwanted identification and tracking, intrusive voice and facial recognition, and profiling.
+04:02
+The expanded use of AI comes with the need to take a responsible approach to privacy.
+04:07
+Another concern is AI pseudoscience, where AI practitioners promote systems that lack scientific foundation.
+04:15
+Examples include face analysis algorithms that claim the ability to measure the criminal tendency of a person based on facial features and
+04:21
+the shape and size of their head, or models used for emotion detection to determine if someone is trustworthy from their facial expressions.
+04:32
+These practices are considered unscientific and ineffective by the scientific community and can cause harm.
+04:37
+However, they have been repackaged with AI in a way that can make pseudoscience seem more credible.
+04:44
+These pseudoscientific uses of AI not only harm individuals and communities, but they can undercut appropriate and beneficial use cases of AI.
+04:52
+A sixth concern is accountability to people.
+04:58
+AI systems should be designed to ensure that they are meeting the needs and objectives of all types of people, while enabling appropriate human direction and control.
+05:08
+We strive to achieve accountability in AI systems in different ways, through clearly defined goals and operating parameters for the system,
+05:14
+transparency about when and how AI is being used, and the ability for people to intervene or provide feedback to the system.
+05:22
+The final AI concern is AI-driven unemployment and deskilling.
+05:28
+While AI brings efficiency and speed to common tasks, there is a more general concern that AI drives unemployment and deskilling.
+05:36
+Further, there is a concern that human abilities will decline as we depend more on technology.
+05:43
+Society has seen technological innovation in the past and we’ve adjusted accordingly, like when cars replaced horses but created new industries and jobs previously unimagined.
+05:51
+Today, innovation and technology advances are happening faster and at a scale unlike previous times.
+05:58
+If generative AI delivers on its promised capabilities, the labor market could face significant disruption.
+06:05
+However, jobs will shift, as they always do during any major technological advances.
+06:11
+For example, who could have imagined flight attendants before commercial air travel?
+06:16
+While many jobs might be complemented by generative AI, entirely new jobs we can’t imagine today will be created as well.
+06:24
+This challenge is accompanied with opportunities.
+06:27
+We need to work together on programs that help people make a living and find meaning in work, facing the challenge and seizing the opportunity.
+06:36
+In addition to the list of concerns for generic AI applications and models, there are concerns unique to generative AI.
+06:42
+As a well-known type of generative AI, large language models generate creative combinations of text in the form of natural-sounding language.
+06:53
+There are three main concerns on large language models, hallucinations, factuality, and anthropomorphization.
+07:02
+In generative AI, hallucinations refer to instances where the AI model generates content that is the AI model generates content that is unrealistic, fictional, or completely fabricated.
+07:12
+Factuality relates to the accuracy or truthfulness of the information generated by a generative AI model.
+07:18
+Anthropomorphization refers to the attribution of human-like qualities, characteristics, or behaviors to non-human entities, such as machines or AI models.
+07:29
+These are just a selection of some of the common concerns related to AI and generative AI development and deployment.
+07:36
+Your awareness of these unique technological challenges can guide you when developing approaches to tackle them So what’s causing these concerns?
+07:46
+The executive respondents of a Capgemini survey cited a number of reasons for these reported ethical issues: A lack of resources dedicated to ethical AI systems.
+07:55
+So funds, people, and technology.
+07:58
+A lack of diverse teams when developing AI systems, with respect to race, gender, and geography.
+08:05
+And a lack of an ethical AI code of conduct or the ability to assess deviation from it.
+08:11
+In the report, executives also identify the pressure to urgently implement AI as the top reason why ethical issues arise from the use of AI.
+08:21
+This pressure could stem from the urgency to gain a first-mover advantage, the need to acquire an edge over
+08:27
+competitors with an innovative application of AI, or the pressure simply to harness the benefits that AI has to offer.
+08:34
+It’s also worth noting that 33% of respondents in the survey stated that ethical issues were not actually considered while constructing AI systems, which is concerning in itself.
+08:47
+But ethics isn’t just about the things we don't want to do or shouldn’t do.
+08:51
+There are plenty of socially beneficial uses for AI and emerging technology to help contribute positively to life and society.
+09:00
+AI and new technology can help solve complex problems by: Improving materials, designs, and processes, Developing new medical and scientific breakthroughs.
+09:10
+Allowing more reliable forecasting of complex dynamic systems.
+09:14
+And providing more affordable goods and services.
+09:16
+And freedom from routine or repetitive tasks.
+09:20
+Even for these very socially beneficial solutions, responsible AI is critical to ensuring those benefits are realized by all and not just small subsets of stakeholders.
+09:30
+The key benefit of ethical practices in an organization is that they can help to avoid bringing harm to customers, users, and society at large.
+09:39
+Ethical practices promote human flourishing.
+09:41
+This is what we need to focus on the most.
+09:44
+At Google, the goal of our AI governance is to try to address these concerns that are fueling ethical issues, and responsible AI practices can help achieve this.
+09:55
+Implementing your own responsible AI governance and process can help address these ethical concerns in your business.

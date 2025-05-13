@@ -1,0 +1,92 @@
+## Comprehensive Guide to Setting Up Continuous Integration with CircleCI on Ubuntu
+
+Implementing a Continuous Integration (CI) pipeline can streamline your development process by automating builds, tests, and deployments. This tutorial will guide you step-by-step on setting up CI with CircleCI for a project hosted on an Ubuntu system.
+
+### Step 1: Prepare Your Project
+
+1. **Install Git on Ubuntu**:
+   - Ensure Git is installed by running the following commands in your terminal:
+       
+     sudo apt update
+     sudo apt install git
+
+2. **Set Up Your Repository**:
+   - **For existing projects**: Clone your project from GitHub or another version control system:
+       
+     git clone https://github.com/your-username/your-repository.git
+     cd your-repository
+   - **For new projects**: Initialize a new Git repository:
+       
+     mkdir new-project
+     cd new-project
+     git init
+
+### Step 2: Create a CircleCI Account and Connect Your Repository
+
+1. **Sign Up for CircleCI**:
+   - Visit [CircleCI's signup page](https://circleci.com/signup/) and register using your GitHub or Bitbucket account to allow CircleCI to access your repositories.
+
+2. **Add Your Project to CircleCI**:
+   - After logging in, navigate to the Dashboard.
+   - Click on “Add Projects” in the sidebar.
+   - Select the repository you wish to build from the list.
+   - Click on “Set Up Project”.
+
+### Step 3: Configure Your CI Pipeline with CircleCI
+
+1. **Create a Configuration File**:
+   - In the root directory of your project, create a new directory and configuration file by running:
+       
+     mkdir -p .circleci
+     touch .circleci/config.yml
+   - Edit the `config.yml` file using a text editor and insert the following basic pipeline configuration:
+       
+     version: 2.1
+     jobs:
+       build:
+         docker:
+           - image: cimg/ubuntu:20.04  # Docker image to use
+         steps:
+           - checkout  # Checks out the source code
+           - run:
+               name: Install Dependencies
+               command: |
+                 sudo apt update
+                 sudo apt install -y your-dependency  # Replace with actual dependencies
+           - run:
+               name: Run Tests
+               command: |
+                 ./run_tests.sh  # Your test script here
+     workflows:
+       version: 2
+       build_and_test:
+         jobs:
+           - build
+
+### Step 4: Push and Automate
+
+1. **Commit and Push Your Configuration**:
+   - Add the CircleCI configuration to your repository and push it:
+       
+     git add .circleci/config.yml
+     git commit -m "Add CircleCI configuration"
+     git push origin main
+
+2. **Watch CircleCI at Work**:
+   - Go to your CircleCI dashboard.
+   - Select your project to view active pipelines.
+   - Observe the build status as CircleCI processes each job.
+
+### Step 5: Expand and Customize Your Pipeline
+
+- **Enhance Your Pipeline**:
+  - As you become more familiar with CircleCI, consider enhancing your `config.yml` with additional jobs for deployment, notifications, and more.
+  - Utilize caching to speed up builds and save on build minutes.
+  - Configure workflows to run jobs in parallel, reduce build times, and manage dependencies between jobs.
+
+### Further Resources and Support
+
+- **CircleCI Documentation**: Dive deeper into configurations and features by exploring the [official CircleCI documentation](https://circleci.com/docs/2.0/).
+- **Community Forums**: Engage with other developers and CircleCI experts in community forums for tips and troubleshooting.
+
+This step-by-step guide should help you successfully set up a basic but robust CI pipeline with CircleCI, providing a foundation that supports a smooth and efficient development workflow.

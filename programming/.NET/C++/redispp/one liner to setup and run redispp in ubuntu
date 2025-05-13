@@ -1,0 +1,1 @@
+sudo apt install -y libhiredis-dev && echo 'Redis++ installed'

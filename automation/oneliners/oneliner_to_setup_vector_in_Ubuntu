@@ -1,0 +1,2 @@
+VERSION="0.21.1"  # Replace with the latest version if different
+wget https://packages.timber.io/vector/$VERSION/vector-$VERSION-x86_64-unknown-linux-gnu.tar.gz && tar -xzvf vector-$VERSION-x86_64-unknown-linux-gnu.tar.gz && sudo mv vector-x86_64-unknown-linux-gnu/bin/vector /usr/local/bin/ && clear && vector --version

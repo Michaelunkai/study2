@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g glee-cli && yes "y" | glee init my-glee-app && cd my-glee-app && nsj && npm start

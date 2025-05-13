@@ -1,0 +1,1 @@
+echo 'Use scan-build (part of Clang Static Analyzer): scan-build make'

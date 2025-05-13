@@ -1,0 +1,10 @@
+7
+
+I had the same problem, and in addition to the packages mentioned above, I also had to add this one:
+
+nltk.download('punkt_tab')
+Other packages to download:
+
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')

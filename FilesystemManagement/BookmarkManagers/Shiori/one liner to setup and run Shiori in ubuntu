@@ -1,0 +1,1 @@
+docker run -d --name shiori -p 8000:8000 shiorix/shiori

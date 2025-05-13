@@ -1,0 +1,1 @@
+sudo apt install -y hexyl && echo -e '#!/bin/bash\nhexyl /usr/bin/ls > hexyl_output.txt' > view_binary_content_with_hexyl.sh && chmod +x view_binary_content_with_hexyl.sh && ./view_binary_content_with_hexyl.sh && cat hexyl_output.txt

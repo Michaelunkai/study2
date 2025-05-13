@@ -1,0 +1,1 @@
+sudo apt install -y wine && wget https://www.playitsoftware.com/Download/RecorderInstaller.exe && wine RecorderInstaller.exe

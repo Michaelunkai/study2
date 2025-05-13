@@ -1,0 +1,1 @@
+sudo kill -9 $(pgrep -f 'apt-get|apt|dpkg') && sudo rm /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock && sudo dpkg --configure -a

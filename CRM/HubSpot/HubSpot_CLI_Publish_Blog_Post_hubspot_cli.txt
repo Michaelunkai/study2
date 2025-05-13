@@ -1,0 +1,1 @@
+hs cms publish blog-post <post-id>

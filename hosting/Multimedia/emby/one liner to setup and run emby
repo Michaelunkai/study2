@@ -1,0 +1,1 @@
+wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.9.0.17/emby-server-deb_4.9.0.17_amd64.deb && sudo apt install -y ./emby-server*.deb && sudo systemctl start emby-server

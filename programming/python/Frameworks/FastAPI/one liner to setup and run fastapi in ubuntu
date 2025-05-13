@@ -1,0 +1,1 @@
+pip install fastapi uvicorn && echo "from fastapi import FastAPI; app = FastAPI(); @app.get('/'); async def read(): return {'msg': 'Hello FastAPI'}" > main.py && uvicorn main:app --reload

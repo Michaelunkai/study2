@@ -1,0 +1,1 @@
+pip3 install clisops && python3 -c 'import clisops; print(clisops.__version__)'

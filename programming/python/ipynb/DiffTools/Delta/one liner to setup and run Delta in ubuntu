@@ -1,0 +1,1 @@
+sudo apt-get install -y git-delta && delta notebook1.ipynb notebook2.ipynb

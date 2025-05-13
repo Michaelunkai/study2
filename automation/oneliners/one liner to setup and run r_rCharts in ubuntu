@@ -1,0 +1,1 @@
+Rscript -e 'install.packages("rCharts", repos="https://cloud.r-project.org")'

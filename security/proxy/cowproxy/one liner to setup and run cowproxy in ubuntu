@@ -1,0 +1,1 @@
+wget https://github.com/cyfdecyf/cow/releases/latest/download/cow-linux-amd64 -O cow && chmod +x cow && ./cow

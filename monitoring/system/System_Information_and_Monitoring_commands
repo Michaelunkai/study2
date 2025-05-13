@@ -1,0 +1,47 @@
+mount | column -t
+# Currently mounted filesystems in a nice layout
+
+reset
+# Salvage a borked terminal
+
+ps aux | sort -nk +4 | tail
+# Display the top ten running processes - sorted by memory usage
+
+lsof -P -i -n
+# Show apps that use internet connection at the moment (Multi-Language)
+
+less +F somelogfile
+# Make 'less' behave like 'tail -f'
+
+disown -a && exit
+# Close shell keeping all subprocess running
+
+getconf LONG_BIT
+# 32 bits or 64 bits?
+
+time read (ctrl-d to stop)
+# A very simple and useful stopwatch
+
+curl ifconfig.me
+# Get your external IP address
+
+dig +short txt <keyword>.wp.dg.cx
+# Query Wikipedia via console over DNS
+
+awk '{ sum+=$1} END {print sum}'
+# Using awk to sum/count a column of numbers
+
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+# List of commands you use most often
+
+uptime
+# Show how long the system has been running
+
+vmstat 1 5
+# Display system performance metrics in 1-second intervals
+
+top
+# Display live system processes and resource usage
+
+htop
+# Interactive process viewer

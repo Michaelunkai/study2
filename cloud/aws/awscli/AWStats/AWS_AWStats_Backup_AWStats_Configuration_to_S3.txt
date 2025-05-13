@@ -1,0 +1,1 @@
+aws s3 cp /etc/awstats/awstats.mywebsite.conf s3://mybucket/awstats_backup/

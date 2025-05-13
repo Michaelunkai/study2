@@ -1,0 +1,185 @@
+Running OpenVPN Server on Windows
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Required Certificates
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN Server
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: vpn.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Set the Type dropdown to End Endity
+Check the box next to Subject Key Identifier
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature and Key Encipherment
+Under Extended Key Usage select TLS Web Server Authentication
+Click the Netscape tab
+Deselect all options and clear the Netscape Comment field
+Click OK to create the certificate
+Click on the Certificates tab, right click on your Intermediate CA certificate again
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: OpenVPN Client #1
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: VPN Client 1
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Set the Type dropdown to End Endity
+Check the box next to Subject Key Identifier
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Agreement
+Under Extended Key Usage select TLS Web Client Authentication
+Click the Netscape tab
+Deselect all options and clear the Netscape Comment field
+Click OK to create the certificate
+On the Certificates tab, click the OpenVPN Server certificate
+Select Extra > Generate DH Parameter
+Type 2048 for DH parameter bits
+Click OK
+Select a location for dh.pem and click Save
+Exporting Required Files for OpenVPN
+In XCA, click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name to ca.crt and verify the export format is PEM chain (*.pem)
+Click OK
+Right click the OpenVPN Server certificate > Export > File
+Set the file name to server.crt and verify the export format is PEM (*.crt)
+Click OK
+Right click the OpenVPN Client #1 certificate > Export > File
+Set the file name to OpenVPN_Client #1.crt and verify the export format is PEM (*.crt)
+Click OK
+Click on the Private Keys tab
+Right click the OpenVPN Server key > Export > File
+Set the file name to server.key and verify the export format is PKCS #8 (*.pk8)
+Click OK
+Right click the OpenVPN Client #1 key> Export > File
+Set the file name to OpenVPN_Client #1.pk8 and verify the export format is PKCS #8 (*.pk8)
+Click OK
+Installing and Configuring OpenVPN Server
+Download the OpenVPN software Download
+Run the downloaded .msi installer
+Click Customize and make sure the OpenVPN Service option is selected for installation
+Click Install Now
+Once the installation completes, copy the exported ca.crt, server.crt, server.key and dh.pem files exported above to C:\Program Files\OpenVPN\config\Server
+Open a text editor and paste the following text
+port 1194
+proto tcp
+dev tun
+
+ca "C:\\Program Files\\OpenVPN\\config\\Server\\ca.crt"
+cert "C:\\Program Files\\OpenVPN\\config\\Server\\server.crt"
+key "C:\\Program Files\\OpenVPN\\config\\Server\\server.key"
+dh "C:\\Program Files\\OpenVPN\\config\\Server\\dh.pem"
+
+topology subnet
+
+auth SHA256
+server 192.168.4.0 255.255.255.0
+keepalive 10 120
+cipher AES-256-GCM
+data-ciphers AES-256-GCM:AES-128-GCM:AES-256-CBC
+comp-lzo
+persist-key
+persist-tun
+verb 3
+
+client-to-client
+
+ifconfig-pool-persist "C:\\Program Files\\OpenVPN\\config\\Server\\ipp.txt"
+
+push "route 10.10.27.0 255.255.255.0"
+push "dhcp-option DNS 10.10.27.1"
+
+Save the file as server.ovpn in the C:\Program Files\OpenVPN\config\Server directory
+Open the Registry Editor by right clicking the Start button > Run > type regedit > Press Enter
+Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+Double click the IPEnableRouter key and change the value to 1
+Close Registry Editor
+Open Windows Services by right clicking the Start button > Run > type services.msc > Press Enter
+Find the following services and set them to start automatically if they are not already
+Remote Access Connection Manager
+Routing and Remote Access
+
+Open Network Connections by right clicking the Start button > Run > type ncpa.cpl > Press Enter
+Right click on the main LAN connection > Properties
+Click the Sharing tab
+Check the box to Allow other network users to connect
+From the dropdown select the OpenVPN TAP connection
+Restart the Windows device for the changes to take effect
+Once the system has rebooted, start the OpenVPN server by right clicking the OpenVPN icon in the system tray > System Profiles > Server > Connect
+Configuring Port Forwarding
+At this point the OpenVPN server is running but you will need to configure your router to forward TCP port 1194 from the WAN to the IP address of the Windows host. The process to do this will vary based on your router, below are the steps required in DD-WRT
+
+Open a web browser and navigate to the router IP address
+Log in
+Click the NAT / QoS tab in the top navigation menu
+Click the Add button
+Enter the following values
+Application: OpenVPN
+Protocol: TCP
+Source Net:
+Port from: 1194
+IP Address: (IP address of the Windows host)
+Port to: 1194
+Enable: (checked)
+
+Click the Save button and then Apply Settings
+Creating the OpenVPN Client Profile and Testing
+On the client device, download the OVPN template Download
+Rename the .ovpn template something meaningful
+Edit the .ovpn template replacing the following:
+<#replace with dynamic dns#> with a dynamic DNS or external IP address to your server
+<#replace with CA chain#> with the contents of ca.crt
+<#replace with client 1 cert #> with the contents of OpenVPN_Client #1.crt
+<#replace with client 1 key #> with the contents of OpenVPN_Client #1.pk8
+
+Save your changes
+Copy the .ovpn template to OpenVPN install directory/config
+Right click OpenVPN GUI in the system tray > Connect
+Starting the OpenVPN Server on System Startup
+Click on the Start Button > Type task > Launch Task Scheduler
+Right click the Task Scheduler Library folder in the left pane > Create Basic Task...
+Set the name to OpenVPN Server and optionally set a Description > Click Next
+For the Trigger, select When the computer starts > Click Next
+For the Action, select Start a program > Click Next
+In the Program/script field, paste the following, editing the path if OpenVPN is not installed to the default location:
+"%ProgramFiles%\OpenVPN\bin\openvpn.exe"
+
+In the Add arguments field, paste the following, editing the path to the .ps1 file if necessary:
+--config "C:\Program Files\OpenVPN\config\Server\server.ovpn"
+
+Click Next
+Click Fini 
+In the Properties dialog, click the Change User or Group... button
+Type System in the Object name field > Click OK
+Check the Run with highest privileges box
+Click OK to create the scheduled task
+To test, stop the OpenVPN Server using the system tray icon
+Right click the OpenVPN Server task > Run
+Check the OpenVPN system tray icon to verify the server is running

@@ -1,0 +1,1 @@
+wget https://github.com/example/freeimagegallery/archive/refs/heads/master.zip && unzip master.zip && mv freeimagegallery-master freeimagegallery && echo 'Set up per instructions'

@@ -1,0 +1,41 @@
+Advanced Configuration
+IPFS offers various configuration options to tailor the node's behavior.
+
+1. Configuring the API and Gateway Ports
+By default, IPFS uses port 5001 for the API and 8080 for the gateway. To change these:
+
+ 
+ 
+ipfs config Addresses.API /ip4/127.0.0.1/tcp/5002
+ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8081
+2. Setting a Custom Repository Path
+If you want to use a different directory for IPFS data:
+
+ 
+ 
+export IPFS_PATH=/path/to/custom/repo
+ipfs init
+3. Enabling PubSub
+PubSub allows for real-time messaging on IPFS.
+
+ 
+ 
+ipfs config --json Experimental.PubsubEnabled true
+4. Adjusting Swarm Settings
+You can configure swarm settings for better network performance.
+
+Example:
+
+ 
+ 
+ipfs config --json Swarm.ConnMgr.HighWater 200
+ipfs config --json Swarm.ConnMgr.LowWater 100
+5. Security Considerations
+Firewall Settings: Ensure that the necessary ports (4001 for swarm, 5001 for API, and 8080 for gateway) are open if you want external access.
+
+ 
+ 
+sudo ufw allow 4001/tcp
+sudo ufw allow 5001/tcp
+sudo ufw allow 8080/tcp
+API Security: By default, the API is only accessible from localhost. Avoid exposing it to the public internet.

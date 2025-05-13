@@ -1,0 +1,1 @@
+aws ec2 delete-key-pair --key-name <key.pem>

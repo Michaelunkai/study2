@@ -1,0 +1,1 @@
+git clone https://github.com/torch2424/wasmboy.git && cd wasmboy && npm install && npm run build && echo 'WasmBoy installed'

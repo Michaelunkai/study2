@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    ports:
+      - "3001:3001"
+    environment:
+      - TZ=UTC  # Set your desired timezone here, e.g., "America/New_York"
+    volumes:
+      - ./uptime-kuma-data:/app/data  # Adjust the path to your preferred data directory
+    restart: always

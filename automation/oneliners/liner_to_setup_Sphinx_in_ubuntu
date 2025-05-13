@@ -1,0 +1,1 @@
+sudo apt-get install sphinxsearch && sudo service sphinxsearch start && sudo service sphinxsearch enable && sudo service sphinxsearch status

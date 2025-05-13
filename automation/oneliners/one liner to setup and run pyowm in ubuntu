@@ -1,0 +1,1 @@
+pip3 install pyowm && python3 -c 'import pyowm; print(pyowm.__version__)'

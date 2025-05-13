@@ -1,0 +1,1 @@
+aws ssm put-inventory --instance-id <instance-id> --items <inventory-items>

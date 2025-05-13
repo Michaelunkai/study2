@@ -1,0 +1,1 @@
+sudo apt install -y gdb && echo -e '#!/bin/bash\necho "run" | gdb /usr/bin/ls > gdb_output.txt\n' > run_gdb_debugger_for_ls.sh && chmod +x run_gdb_debugger_for_ls.sh && ./run_gdb_debugger_for_ls.sh && cat gdb_output.txt

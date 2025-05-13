@@ -1,0 +1,1 @@
+curl -L https://github.com/nadoo/glider/releases/download/v1.4.3/glider-linux-amd64 -o glider && chmod +x glider && sudo mv glider /usr/local/bin/ && glider -version

@@ -1,0 +1,1 @@
+aws ssm get-parameters-by-path --path /aws/service/global-infrastructure/services --query 'Parameters[*].Name' --output text

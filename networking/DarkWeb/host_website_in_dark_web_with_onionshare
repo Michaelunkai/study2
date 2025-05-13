@@ -1,0 +1,14 @@
+apt install snapd -y
+snap install onionshare -y
+onion are
+
+click "host a website" 
+connect to tor
+
+press "add"
+add your website code project
+
+to enter the website:
+
+enter the givien url
+than enter the private key

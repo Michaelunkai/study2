@@ -1,0 +1,1 @@
+cd /tmp && wget https://xdman.sourceforge.net/xdm-setup-x64.tar.xz && tar -xf xdm-setup-x64.tar.xz && sudo ./install.sh && xdman

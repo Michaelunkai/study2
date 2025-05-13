@@ -1,0 +1,11 @@
+ Create a Unique Project ID
+Use a unique project ID that has not been used before. You can append a random string to ensure uniqueness. Here's a way to generate a random suffix:
+
+PROJECT_NAME="my-youtube-project-$(date +%s)"
+echo "Project ID: $PROJECT_NAME"
+
+
+Create the Project
+Now, create the project using the unique project ID:
+
+gcloud projects create $PROJECT_NAME --set-as-default

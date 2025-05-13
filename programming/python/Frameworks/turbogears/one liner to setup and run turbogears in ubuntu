@@ -1,0 +1,1 @@
+pip install tg.devtools && gearbox quickstart myapp && cd myapp && python setup.py develop && gearbox serve

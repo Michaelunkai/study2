@@ -1,0 +1,24 @@
+Hazelcast Jet is a distributed stream processing engine built on top of Hazelcast IMDG (In-Memory Data Grid). It is designed to process large volumes of data with low latency and high throughput. Hazelcast Jet allows you to build real-time, event-driven applications that can process data streams in parallel across multiple nodes in a cluster.
+
+### Key Features of Hazelcast Jet:
+1. **Stream Processing**: Hazelcast Jet processes data in real-time as it flows through the system. This is ideal for applications that require immediate responses to events, such as fraud detection, monitoring, and alerting systems.
+
+2. **Batch Processing**: In addition to stream processing, Hazelcast Jet can also handle batch processing, enabling it to work with historical data or perform periodic computations.
+
+3. **Distributed Execution**: Hazelcast Jet is designed to scale out across multiple nodes in a cluster, distributing the processing load and ensuring high availability and fault tolerance.
+
+4. **In-Memory Computing**: By leveraging the in-memory data grid capabilities of Hazelcast IMDG, Hazelcast Jet can process data at high speeds by keeping data in memory rather than relying on slower disk-based storage.
+
+5. **Pipelines**: Hazelcast Jet uses a pipeline-based programming model, where you define a series of processing stages that data flows through. This makes it easy to construct complex data processing workflows.
+
+6. **Elastic Scaling**: Hazelcast Jet can dynamically adjust to changes in cluster size, automatically redistributing work as new nodes are added or existing ones are removed.
+
+7. **Integration with Popular Data Sources**: Hazelcast Jet can easily integrate with various data sources such as Kafka, Apache Pulsar, databases, file systems, and more, making it versatile for different use cases.
+
+### Use Cases for Hazelcast Jet:
+- **Real-Time Analytics**: Processing and analyzing data in real-time to derive insights, such as monitoring financial transactions for fraud or analyzing website clickstream data.
+- **Event-Driven Applications**: Building applications that respond to events as they happen, such as IoT applications that react to sensor data or alerting systems that monitor logs.
+- **Data Enrichment**: Enhancing data streams with additional information, such as combining a stream of user activities with user profile data from a database.
+- **Complex Event Processing (CEP)**: Detecting patterns or correlations in a stream of events, useful for scenarios like stock trading or network security.
+
+Overall, Hazelcast Jet is a powerful tool for organizations looking to build applications that require real-time data processing, enabling them to respond to events and derive insights faster.

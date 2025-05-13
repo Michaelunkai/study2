@@ -1,0 +1,7 @@
+Export the Resume to HTML or PDF
+Export your resume to an HTML or PDF format using the following command:
+
+ 
+ 
+resume export resume.html --format html --theme even
+You can change the --format to pdf to export it as a PDF.

@@ -1,0 +1,105 @@
+### Comprehensive Guide: Replacing an EC2 Instance Key Pair, Launching a New Instance, and Resolving SSH Permission Issues in WSL2 and Windows Using AWS CLI
+This detailed tutorial will guide you through replacing the key pair of your running EC2 instance using the AWS CLI. You will create a new key pair, launch a new instance with the same configuration, and address common SSH permission issues in both WSL2 and Windows environments.
+### Step 1: Retrieve Current Instance Details Using AWS CLI
+First, retrieve the necessary details of your current instance, such as the Image ID (AMI), Security Group ID, and Subnet ID.
+**Command to Show the Current Image ID (AMI):**
+  
+aws ec2 describe-instances --instance-id i-xxxxxxxxxxxxxxx --query 'Reservations[0].Instances[0].ImageId' --output text
+**Command to Show the Current Security Group ID:**
+  
+aws ec2 describe-instances --instance-id i-xxxxxxxxxxxxxxx --query 'Reservations[0].Instances[0].SecurityGroups[0].GroupId' --output text
+**Command to Show the Current Subnet ID:**
+  
+aws ec2 describe-instances --instance-id i-xxxxxxxxxxxxxxx --query 'Reservations[0].Instances[0].SubnetId' --output text
+### Step 2: Delete the Existing Key Pair Using AWS CLI
+Next, delete the existing key pair named `key.pem`:
+  
+aws ec2 delete-key-pair --key-name key.pem
+### Step 3: Create a New Key Pair with the Same Name Using AWS CLI
+Create a new key pair with the same name `key.pem`:
+  
+aws ec2 create-key-pair --key-name key.pem --query 'KeyMaterial' --output text > key.pem
+Secure the `.pem` file by setting the correct permissions:
+#### **In WSL2:**
+  
+chmod 600 key.pem
+#### **In Windows:**
+1. Right-click on `key.pem` and select **Properties**.
+2. Go to the **Security** tab and click **Advanced**.
+3. Disable inheritance and remove all permissions except for your user account.
+4. Ensure that only your user account has `Full control` over the file.
+### Step 4: Create an AMI of the Running Instance Using AWS CLI
+Since you cannot directly change the key pair of a running instance, create an Amazon Machine Image (AMI) of the instance:
+  
+aws ec2 create-image --instance-id i-xxxxxxxxxxxxxxx --name "MyInstanceBackup"
+The output from this command will give you the `ImageId`, which will be used in the next steps.
+### Step 5: Wait for the Snapshot to Complete Using AWS CLI
+You need to wait until the snapshot associated with the AMI is fully created and available. You can check the status of the snapshot by using the following commands:
+**Get the Snapshot ID:**
+  
+aws ec2 describe-images --image-ids ami-xxxxxxxxxxxxxxx --query 'Images[0].BlockDeviceMappings[0].Ebs.SnapshotId' --output text
+**Check the Snapshot Status:**
+  
+aws ec2 describe-snapshots --snapshot-ids snap-xxxxxxxxxxxxxxx --query 'Snapshots[0].State' --output text
+Replace `snap-xxxxxxxxxxxxxxx` with the actual Snapshot ID. The state should be `completed` before you can use it to launch an instance.
+### Step 6: Launch a New Instance from the AMI with the New Key Pair Using AWS CLI
+Launch a new EC2 instance using the newly created AMI (`ami-xxxxxxxxxxxxxxx`) and the new key pair (`key.pem`). Use the Security Group ID (`sg-xxxxxxxxxxxxxxx`) and Subnet ID (`subnet-xxxxxxxxxxxxxxx`) retrieved earlier:
+  
+aws ec2 run-instances --image-id ami-xxxxxxxxxxxxxxx --instance-type t2.micro --key-name key.pem --security-group-ids sg-xxxxxxxxxxxxxxx --subnet-id subnet-xxxxxxxxxxxxxxx
+### Step 7: Check the Public IP of the New Instance Using AWS CLI
+After the instance is launched, retrieve its public IP address:
+  
+aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxxxxx --query 'Reservations[0].Instances[0].PublicIpAddress' --output text
+Replace `i-xxxxxxxxxxxxxxx` with the instance ID of the newly launched instance.
+### Step 8: Verify and Connect to the New Instance Using SSH
+Once you have the public IP, connect to the new instance using the new `key.pem` file:
+  
+ssh -i "key.pem" ubuntu@<New-Instance-Public-IP>
+#### **Fixing SSH Issues in WSL2 and Windows:**
+If you encounter issues such as:
+ text
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions for 'key.pem' are too open.
+Ensure that the permissions for `key.pem` are correctly set.
+- **In WSL2:**
+      
+    chmod 600 key.pem
+- **In Windows:**
+    1. Right-click on `key.pem` and select **Properties**.
+    2. Go to the **Security** tab and click **Advanced**.
+    3. Disable inheritance and remove all permissions except for your user account.
+    4. Ensure that only your user account has `Full control` over the file.
+If the public key is still not accepted, ensure that you are connecting with the correct `key.pem` file and that the correct permissions are set.
+### Step 9: Terminate the Old Instance Using AWS CLI
+Once you’ve confirmed that the new instance is running correctly and you can access it, terminate the old instance to avoid unnecessary costs:
+  
+aws ec2 terminate-instances --instance-ids i-xxxxxxxxxxxxxxx
+### Step 10: Delete the Temporary AMI and Snapshot Using AWS CLI
+After the new instance is up and running, and the old instance is terminated, delete the temporary AMI (`ami-xxxxxxxxxxxxxxx`) and its associated snapshot to avoid extra storage costs:
+1. **Deregister the AMI**:
+      
+    aws ec2 deregister-image --image-id ami-xxxxxxxxxxxxxxx
+2. **Delete the associated snapshot**:
+    First, find the snapshot ID associated with the AMI using the following command:
+      
+    aws ec2 describe-images --image-ids ami-xxxxxxxxxxxxxxx --query 'Images[0].BlockDeviceMappings[0].Ebs.SnapshotId' --output text
+    Then delete the snapshot:
+      
+    aws ec2 delete-snapshot --snapshot-id snap-xxxxxxxxxxxxxxx
+Replace `snap-xxxxxxxxxxxxxxx` with the snapshot ID obtained from the previous command.
+### Summary
+- **Retrieve current instance details using AWS CLI** (Image ID, Security Group ID, Subnet ID).
+- **Delete the old key pair using AWS CLI.**
+- **Create a new key pair with the same name using AWS CLI.**
+- **Set correct permissions for the key pair in WSL2 and Windows.**
+- **Create an AMI of the running instance using AWS CLI.**
+- **Wait for the snapshot to complete using AWS CLI.**
+- **Launch a new instance using the new key pair and previous configuration using AWS CLI.**
+- **Check the public IP of the new instance using AWS CLI.**
+- **Verify and connect to the new instance using SSH.**
+- **Fix any SSH issues related to key permissions in WSL2 and Windows.**
+- **Terminate the old instance using AWS CLI.**
+- **Deregister the temporary AMI and delete the associated snapshot using AWS CLI.**
+This comprehensive guide ensures that you replace the key pair with minimal cost, avoid unnecessary charges, and resolve common SSH permission issues in both WSL2 and Windows environments using AWS CLI.

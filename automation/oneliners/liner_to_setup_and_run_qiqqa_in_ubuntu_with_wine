@@ -1,0 +1,1 @@
+cd && wget https://github.com/GerHobbelt/qiqqa-open-source/releases/download/v83.0.7656.6401/setup-v83.0.7656.6401.exe &&  getwine && wine setup-v83.0.7656.6401.exe

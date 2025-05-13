@@ -1,0 +1,1 @@
+aws ecs run-task --cluster my-cluster-ad350c48 --task-definition my-task:1 --count 1

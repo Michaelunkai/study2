@@ -1,0 +1,1 @@
+iwr https://windows.memgraph.com | iex

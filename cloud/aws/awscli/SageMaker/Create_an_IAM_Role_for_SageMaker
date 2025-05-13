@@ -1,0 +1,35 @@
+ Create an IAM Role for SageMaker
+You need an IAM role that SageMaker can assume to access your S3 bucket and other resources. Create a role with the necessary permissions:
+
+First, create a trust policy file:
+
+ 
+ 
+nano trust-policy.json
+Paste the following into the file and save:
+
+json
+ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "sagemaker.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+Then, create the IAM role:
+
+ 
+ 
+aws iam create-role --role-name SageMakerExecutionRole --assume-role-policy-document file://trust-policy.json
+Attach the required policies to the role:
+
+ 
+ 
+aws iam attach-role-policy --role-name SageMakerExecutionRole --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+aws iam attach-role-policy --role-name SageMakerExecutionRole --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess

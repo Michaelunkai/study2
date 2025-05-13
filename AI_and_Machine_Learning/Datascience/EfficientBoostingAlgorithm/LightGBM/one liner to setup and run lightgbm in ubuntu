@@ -1,0 +1,1 @@
+pip3 install lightgbm && python3 -c 'import lightgbm; print(lightgbm.__version__)'

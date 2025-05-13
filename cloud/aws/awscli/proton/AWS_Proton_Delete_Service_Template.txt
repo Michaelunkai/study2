@@ -1,0 +1,1 @@
+aws proton delete-service-template --name <template-name>

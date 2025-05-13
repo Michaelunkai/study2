@@ -1,0 +1,1 @@
+sudo apt install -y python3-opencv && python3 -c 'import cv2; print(cv2.__version__)'; echo 'create one liner, to setup and run OpenCV in ubuntu, and use it in the end!'

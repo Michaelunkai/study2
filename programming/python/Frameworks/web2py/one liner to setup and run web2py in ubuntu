@@ -1,0 +1,1 @@
+pip install yatl && wget http://web2py.com/examples/static/web2py_src.zip && unzip web2py_src.zip && cd web2py && python web2py.py

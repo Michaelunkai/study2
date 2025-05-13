@@ -1,0 +1,1 @@
+cd && apt install unzip -y && wget https://github.com/pocketbase/pocketbase/releases/download/v0.7.7/pocketbase_0.7.7_linux_amd64.zip && unzip pocketbase_0.7.7_linux_amd64.zip && ./pocketbase serve

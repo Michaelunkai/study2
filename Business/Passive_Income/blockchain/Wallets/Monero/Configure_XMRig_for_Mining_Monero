@@ -1,0 +1,86 @@
+Configure XMRig for Mining Monero
+Create or Edit the config.json file using nano:
+
+ 
+ 
+nano C:\Users\micha\Downloads\xmrig\xmrig-6.19.0\config.json
+Paste the following configuration into the file, replacing YOUR_MONERO_WALLET_ADDRESS with your Monero wallet address:
+
+json
+ 
+{
+  "autosave": true,
+  "cpu": {
+    "enabled": true,
+    "priority": null,
+    "memory-pool": false,
+    "yield": true
+  },
+  "opencl": {
+    "enabled": false,
+    "cache": true,
+    "loader": null,
+    "platform": "any",
+    "adl": true
+  },
+  "cuda": {
+    "enabled": false,
+    "loader": null
+  },
+  "donate-level": 1,
+  "donate-overdescribed": false,
+  "log-file": null,
+  "print-time": 60,
+  "health-print-time": 60,
+  "retries": 5,
+  "retry-pause": 5,
+  "pools": [
+    {
+      "url": "pool.supportxmr.com:3333",
+      "user": "YOUR_MONERO_WALLET_ADDRESS",
+      "pass": "x",
+      "keepalive": true,
+      "tls": false,
+      "algo": null,
+      "nicehash": false
+    }
+  ],
+  "http": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 0,
+    "access-token": null,
+    "restricted": true
+  },
+  "autosave": true,
+  "background": false,
+  "colors": true,
+  "title": true,
+  "randomx": {
+    "mode": "auto",
+    "1gb-pages": false,
+    "rdmsr": true,
+    "wrmsr": true,
+    "cache_qos": false,
+    "numa": true
+  },
+  "hw-aes": null,
+  "priority": null,
+  "threads": null,
+  "huge-pages": true,
+  "memory-pool": false,
+  "yield": true,
+  "tls": {
+    "enabled": false,
+    "protocols": null,
+    "certificate": null,
+    "certificate-key": null,
+    "ciphers": null,
+    "ciphersuites": null
+  },
+  "syslog": false,
+  "user-agent": null
+}
+Save and Close the File:
+
+Press CTRL + X, then Y, and press Enter.

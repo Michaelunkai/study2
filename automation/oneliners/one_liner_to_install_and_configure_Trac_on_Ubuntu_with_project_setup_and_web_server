@@ -1,0 +1,1 @@
+sudo apt-get install trac && sudo mkdir -p /var/lib/trac/myproject && sudo trac-admin /var/lib/trac/myproject initenv && sudo tracd --port 8000 /var/lib/trac/myproject

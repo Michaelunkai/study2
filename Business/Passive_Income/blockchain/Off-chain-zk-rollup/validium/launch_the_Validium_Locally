@@ -1,0 +1,78 @@
+Launch the Validium Locally
+With the repository cloned and your working directory set, let's start up the CDK Validium. First, you'll need to pull the necessary Docker images from Docker Hub:
+
+docker-compose pull
+After pulling the images, you can start your local CDK Validium:
+
+make run
+To ensure all services are running properly, check the status of each container:
+
+docker-compose ps 
+You will see results similar to the following:
+
+             Name                           Command                  State                   Ports             
+---------------------------------------------------------------------------------------------------------------
+cdk-validium-aggregator          /bin/sh -c /app/cdk-validi ...   Up             0.0.0.0:50081-                
+                                                                                 >50081/tcp,:::50081-          
+                                                                                 >50081/tcp, 8123/tcp, 0.0.0.0:
+                                                                                 9093->9091/tcp,:::9093-       
+                                                                                 >9091/tcp                     
+cdk-validium-approve             /bin/sh -c /app/cdk-validi ...   Exit 0                                       
+cdk-validium-data-availability   /bin/sh -c /app/cdk-data-a ...   Up             0.0.0.0:8444-                 
+                                                                                 >8444/tcp,:::8444->8444/tcp   
+cdk-validium-data-node-db        docker-entrypoint.sh postg ...   Up (healthy)   0.0.0.0:5444-                 
+                                                                                 >5432/tcp,:::5444->5432/tcp   
+cdk-validium-eth-tx-manager      /bin/sh -c /app/cdk-validi ...   Up             8123/tcp, 0.0.0.0:9094-       
+                                                                                 >9091/tcp,:::9094->9091/tcp   
+cdk-validium-event-db            docker-entrypoint.sh postg ...   Up             0.0.0.0:5435-                 
+                                                                                 >5432/tcp,:::5435->5432/tcp   
+cdk-validium-explorer-json-rpc   /bin/sh -c /app/cdk-validi ...   Up             8123/tcp, 0.0.0.0:8124-       
+                                                                                 >8124/tcp,:::8124->8124/tcp, 0
+                                                                                 .0.0.0:8134->8134/tcp,:::8134-
+                                                                                 >8134/tcp                     
+cdk-validium-explorer-l1         /bin/sh -c mix do ecto.cre ...   Up             0.0.0.0:4000-                 
+                                                                                 >4000/tcp,:::4000->4000/tcp   
+cdk-validium-explorer-l1-db      docker-entrypoint.sh postg ...   Up             0.0.0.0:5436-                 
+                                                                                 >5432/tcp,:::5436->5432/tcp   
+cdk-validium-explorer-l2         /bin/sh -c mix do ecto.cre ...   Up             0.0.0.0:4001-                 
+                                                                                 >4000/tcp,:::4001->4000/tcp   
+cdk-validium-explorer-l2-db      docker-entrypoint.sh postg ...   Up             0.0.0.0:5437-                 
+                                                                                 >5432/tcp,:::5437->5432/tcp   
+cdk-validium-json-rpc            /bin/sh -c /app/cdk-validi ...   Up             0.0.0.0:8123-                 
+                                                                                 >8123/tcp,:::8123->8123/tcp, 0
+                                                                                 .0.0.0:8133->8133/tcp,:::8133-
+                                                                                 >8133/tcp, 0.0.0.0:9091-      
+                                                                                 >9091/tcp,:::9091->9091/tcp   
+cdk-validium-l2gaspricer         /bin/sh -c /app/cdk-validi ...   Up             8123/tcp                      
+cdk-validium-mock-l1-network     geth --http --http.api adm ...   Up             30303/tcp, 30303/udp, 0.0.0.0:
+                                                                                 8545->8545/tcp,:::8545-       
+                                                                                 >8545/tcp, 0.0.0.0:8546-      
+                                                                                 >8546/tcp,:::8546->8546/tcp   
+cdk-validium-pool-db             docker-entrypoint.sh postg ...   Up             0.0.0.0:5433-                 
+                                                                                 >5432/tcp,:::5433->5432/tcp   
+cdk-validium-prover              zkProver -c /usr/src/app/c ...   Up             0.0.0.0:50052-                
+                                                                                 >50052/tcp,:::50052-          
+                                                                                 >50052/tcp, 0.0.0.0:50061-    
+                                                                                 >50061/tcp,:::50061-          
+                                                                                 >50061/tcp, 0.0.0.0:50071-    
+                                                                                 >50071/tcp,:::50071->50071/tcp
+cdk-validium-sequence-sender     /bin/sh -c /app/cdk-validi ...   Up             8123/tcp                      
+cdk-validium-sequencer           /bin/sh -c /app/cdk-validi ...   Up             0.0.0.0:6060-                 
+                                                                                 >6060/tcp,:::6060->6060/tcp,  
+                                                                                 8123/tcp, 0.0.0.0:9092-       
+                                                                                 >9091/tcp,:::9092->9091/tcp   
+cdk-validium-state-db            docker-entrypoint.sh postg ...   Up             0.0.0.0:5432-                 
+                                                                                 >5432/tcp,:::5432->5432/tcp   
+cdk-validium-sync                /bin/sh -c /app/cdk-validi ...   Up             8123/tcp                      
+dac-setup-committee              docker-entrypoint.sh npm r ...   Exit 0 
+If any service isn't running (i.e., in Exit 1 state), you can investigate further using the logs:
+
+docker-compose logs <container_name>
+Note: <container_name> can be found in results above.
+
+To stop the zkValidium, use:
+
+make stop
+And to restart all the services:
+
+make restart

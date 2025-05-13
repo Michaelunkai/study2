@@ -1,0 +1,87 @@
+▲A  A▼
+Host Your Own GitHub Alternative with Gitea
+What is Gitea
+Gitea is a community managed lightweight code hosting solution written in Go. -https://gitea.io/
+Installing Gitea
+Log into the Linux device
+Run the following commands in a terminal:
+# update software repositories
+sudo apt update
+# install software updates
+sudo apt upgrade -y
+# install preprequisites
+sudo apt install git mariadb-server -y
+# create gitea user
+sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/gitea gitea
+# configure the MySQL database
+sudo su
+my _secure_installation
+Press Enter to login as root
+Type Y and press Enter to set a root password, type the password twice to confirm
+Type Y and press Enter to remove anonymous users
+Type Y and press Enter to disallow root login remotely
+Type Y and press Enter to remove the test database
+Type Y and press Enter to reload privilege tables
+Run the following command to login into MySQL:
+mysql -u root -p
+Authenticate with the root password set earlier
+Run the following commands to create the Gitea database and database user
+CREATE DATABASE gitea CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'gitea_rw'@'localhost' IDENTIFIED BY 'G1te@!';
+GRANT ALL PRIVILEGES ON gitea.* TO 'gitea_rw'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Continue with the following commands:
+# download the Gitea binary
+wget -O ./gitea https://github.com/go-gitea/gitea/releases/download/v1.14.2/gitea-1.14.2-linux-amd64
+# make gitea executable
+sudo chmod +x gitea
+# move gitea to /usr/local/bin
+sudo mv ./gitea /usr/local/bin/
+# verify gitea can be found
+gitea --version
+# create required directory structures
+sudo mkdir -p /etc/gitea /var/lib/gitea/{custom,data,indexers,public,log}
+sudo chown gitea:gitea /var/lib/gitea/{data,indexers,log}
+sudo chmod 750 /var/lib/gitea/{data,indexers,log}
+sudo chown root:gitea /etc/gitea
+sudo chmod 770 /etc/gitea
+# create gitea service
+sudo nano /etc/systemd/system/gitea.service
+Paste the following into gitea.service
+[Unit]
+Description=Gitea
+After=syslog.target
+After=network.target
+After=my .service
+
+[Service]
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+RestartSec=2s
+Type=simple
+User=gitea
+Group=gitea
+WorkingDirectory=/var/lib/gitea/
+ExecStart=/usr/local/bin/gitea web -c /etc/gitea/app.ini
+Restart=always
+Environment=USER=git HOME=/home/gitea GITEA_WORK_DIR=/var/lib/gitea
+
+[Install]
+WantedBy=multi-user.target
+
+Press CTRL+O, Enter, CTRL+X to write the changes to gitea.service
+Continue with the following commands:
+# reload services
+sudo systemctl daemon-reload
+# enable gitea to run on boot and start now
+sudo systemctl enable --now gitea
+Open a web browser and navigate to http://DNSorIP:3000
+Complete the database settings on the Initial Configuration screen > Click the Install Gitea button
+Click the Register Now link
+Enter a username, email and password > Click the Register Account button
+Welcome to Gitea
+Source: https://about.gitlab.com/
+
+ 

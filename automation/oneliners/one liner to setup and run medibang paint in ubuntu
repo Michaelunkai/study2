@@ -1,0 +1,1 @@
+sudo apt install -y wine && wine setup_medibang_paint.exe

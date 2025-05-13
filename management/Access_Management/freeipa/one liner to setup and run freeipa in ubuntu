@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name freeipa -h freeipa.local -e PASSWORD=admin_password -v /srv/freeipa/data:/data:Z -p 80:80 -p 443:443 freeipa/freeipa-server:rocky-9-4.12.0

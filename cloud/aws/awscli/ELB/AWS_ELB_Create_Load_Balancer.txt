@@ -1,0 +1,1 @@
+aws elb create-load-balancer --load-balancer-name <load-balancer-name> --listeners <protocol=HTTP,load-balancer-port=80,instance-protocol=HTTP,instance-port=80> --subnets <subnet-ids> --security-groups <security-groups>

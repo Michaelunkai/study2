@@ -1,0 +1,1958 @@
+ create line "teach me to setup, run and use <> in ubuntu" for each of the tools you mentioned... add name of tool instead of <>
+also remake all liners you made if you made any + 2-3 word explaining what is each tool
+make sure every liner in the end runs the tool or echo url to the wbui of the tool!
+also, for everey tool, choose one folder that most related to it from here : for the tool we just talked about, which topic most realted to whch of this folders? choose only one that fits it most, answer in 5 words :
+ .
+├── Android
+│   └── termux
+├── Artificial_Intelligence
+│   ├── Agents
+│   ├── Annotation
+│   │   └── CVAT
+│   ├── Audio
+│   │   ├── Beatoven
+│   │   ├── Cleanvoice
+│   │   ├── Krisp
+│   │   ├── Music
+│   │   ├── Podcastle
+│   │   ├── Soundraw
+│   │   ├── VibeAI
+│   │   └── Yoodli
+│   ├── BuildBots
+│   │   ├── Botpress
+│   │   ├── Rasa
+│   │   └── chatbase
+│   ├── Buisness
+│   │   ├── CustomerService
+│   │   ├── Marketing
+│   │   └── MindMapping
+│   ├── Chatbots
+│   │   ├── Chai
+│   │   ├── Character.ai
+│   │   ├── Chatbot.com
+│   │   ├── Devika
+│   │   ├── Drift
+│   │   ├── GigaBrain
+│   │   ├── Grok
+│   │   ├── Janitor
+│   │   ├── Jasper
+│   │   ├── Lyro
+│   │   ├── Perplexity
+│   │   ├── Phind
+│   │   ├── Poe
+│   │   ├── Quickchat
+│   │   ├── Replika
+│   │   ├── Top_lists
+│   │   ├── Venice_ai
+│   │   ├── otio.ai
+│   │   ├── pi
+│   │   └── tidio
+│   ├── Claude
+│   │   └── Haiku
+│   ├── Coding
+│   │   ├── Aider
+│   │   ├── VScode
+│   │   ├── andrenaline
+│   │   ├── fabric
+│   │   └── v0.dev
+│   ├── Data_analysis
+│   │   ├── ibm_watson
+│   │   ├── julius
+│   │   ├── pandasai
+│   │   └── txtai
+│   ├── ExperimentManagement
+│   │   └── GuildAI
+│   ├── General
+│   │   └── Ooba_AI
+│   ├── Image
+│   │   ├── Adobe_Illustrator
+│   │   ├── DALL-E
+│   │   ├── Face_Swap
+│   │   ├── Fal.ai
+│   │   ├── Flux
+│   │   ├── Gen3
+│   │   ├── HeadShot_Generator
+│   │   ├── Ideogram
+│   │   ├── Illustroke
+│   │   ├── Leonardo
+│   │   ├── MidJourney
+│   │   ├── Stockimg
+│   │   ├── UIzard
+│   │   ├── astria.ai
+│   │   ├── cabina
+│   │   ├── creative_fabrica
+│   │   └── stable_diffiusion
+│   ├── Local
+│   │   ├── Jan
+│   │   ├── MLflow
+│   │   ├── Msty
+│   │   ├── Nvidia_Local_AI
+│   │   ├── Ollama
+│   │   ├── Transformers
+│   │   ├── cog
+│   │   ├── huggingface
+│   │   ├── llama.cpp
+│   │   └── text-generation-webui
+│   ├── Mechamism
+│   │   ├── Attention
+│   │   └── Mamba
+│   ├── Models
+│   │   ├── BaGuaLu
+│   │   ├── Cerebras
+│   │   ├── DialoGPT
+│   │   ├── DictaLM
+│   │   ├── Diffusion
+│   │   ├── Hermes
+│   │   ├── Mistral
+│   │   ├── Mixtral
+│   │   ├── Vicuna
+│   │   ├── Yolo
+│   │   ├── anthropic
+│   │   ├── aya
+│   │   ├── blackboxai
+│   │   ├── colab
+│   │   ├── deepseek
+│   │   ├── downloads
+│   │   ├── gemma
+│   │   ├── groq
+│   │   ├── lm_studio
+│   │   ├── openai
+│   │   ├── phi
+│   │   ├── phi3
+│   │   ├── phind
+│   │   ├── qwen
+│   │   ├── reflection
+│   │   ├── tinydolphin
+│   │   └── trelent
+│   ├── Multiplatform
+│   │   ├── ChatHub
+│   │   ├── OpenRouter
+│   │   ├── Phind
+│   │   ├── Vercel_Playground
+│   │   ├── You
+│   │   ├── anakin
+│   │   ├── labs.perplexity.ai
+│   │   ├── lmsys
+│   │   └── useadrenaline
+│   ├── NoCode
+│   │   ├── Akkio
+│   │   ├── Caually_AI
+│   │   ├── Creative_Fabrica
+│   │   ├── DataRobot
+│   │   ├── Google_Teachable
+│   │   ├── Levity
+│   │   ├── Lobe
+│   │   ├── Machine_learning
+│   │   ├── Make
+│   │   ├── MindStudio
+│   │   ├── Nanonets
+│   │   ├── Obviously
+│   │   ├── Website_builders
+│   │   ├── Workflows
+│   │   ├── Zapier
+│   │   └── top
+│   ├── OpenAI
+│   │   ├── 4O_Mini
+│   │   ├── SearchGPT
+│   │   ├── myGPTS
+│   │   └── whisper
+│   ├── Organizer
+│   │   └── filebot
+│   ├── SheetAI
+│   ├── Shopping
+│   │   └── CopyMonkey
+│   ├── SocialMedia
+│   │   └── Ocoya
+│   ├── Transcription
+│   │   └── Ivrit
+│   ├── Uncensored
+│   ├── UsedByMe
+│   ├── Video
+│   │   ├── Genmo
+│   │   ├── Ghost
+│   │   ├── Haiper
+│   │   ├── LivePortrait
+│   │   ├── Luma
+│   │   ├── Maverick
+│   │   ├── Runaway
+│   │   ├── SAM2
+│   │   ├── SpikeStudio
+│   │   ├── Vidyo
+│   │   ├── Zebracat
+│   │   ├── captions
+│   │   └── kling
+│   ├── Workflow
+│   │   ├── AirflowAI
+│   │   ├── Asana
+│   │   └── Flowise
+│   ├── Writting
+│   │   ├── Copy.AI
+│   │   ├── Unbounce
+│   │   └── typeset
+│   ├── browser_extentions
+│   │   ├── 2Slash
+│   │   ├── PR-Agent
+│   │   └── Voila
+│   ├── business
+│   │   └── finance
+│   ├── copilot
+│   ├── documents
+│   │   ├── Easel
+│   │   ├── Flipner
+│   │   ├── Humanta
+│   │   ├── NotebookLM
+│   │   ├── PlusAI
+│   │   ├── Presentation
+│   │   ├── canva
+│   │   ├── chatpdf
+│   │   └── pizi
+│   ├── gemini
+│   │   └── gemini_api_by_google
+│   ├── llama
+│   │   └── llama3.1
+│   ├── neural_networks
+│   │   └── Keras
+│   ├── perplexity
+│   ├── prompts
+│   ├── temperature
+│   └── text2speach
+│       ├── FlieTextToAudio
+│       ├── Marytts
+│       ├── eSpeak
+│       └── epub2tts
+├── Browsers
+│   ├── Chrome
+│   ├── FireFox
+│   ├── brave
+│   └── debuggers
+│       └── browserless
+├── CEO
+│   ├── ScreamingFrog
+│   └── serposcope
+├── CRM
+│   ├── HubSpot
+│   ├── Odoo
+│   ├── Salesforce
+│   └── espocrm
+├── Centralized_Logging
+│   ├── Apache_Fume
+│   ├── Centralized
+│   ├── ELK
+│   │   └── installationfiles
+│   ├── Fluent
+│   ├── Fluentd
+│   ├── Loki
+│   │   └── Promtail
+│   ├── ZooKeeper
+│   ├── flink
+│   ├── graylog
+│   ├── log.io
+│   ├── logz
+│   ├── miniO
+│   ├── papertrail
+│   ├── solr
+│   ├── splunk
+│   └── storm
+├── Cisco
+│   ├── Cisco_AnyConnect
+│   ├── GNS3
+│   └── Packet_Tracer
+├── Converting
+│   └── degrees_and_length_converter
+├── DeepLearning
+│   ├── Convolutional_Layers
+│   ├── DeepNetworks
+│   │   └── deepImagePrior
+│   ├── DeepQ
+│   ├── Detection
+│   │   ├── Anomaly_Detection
+│   │   └── Object_detection
+│   ├── DigitalPainting
+│   │   ├── Drawing
+│   │   ├── GPaint
+│   │   ├── Gimp
+│   │   ├── LibreOffice_Draw
+│   │   ├── MyPaint
+│   │   ├── Pinta
+│   │   ├── Tux
+│   │   ├── Xournal
+│   │   ├── inkscape
+│   │   └── krita
+│   ├── FastAI
+│   ├── FrameWorks
+│   │   ├── Caffe
+│   │   ├── Keras
+│   │   ├── UI_Makers
+│   │   ├── Wasp
+│   │   ├── tensorflow
+│   │   └── torch
+│   ├── GPU
+│   ├── MXnet
+│   ├── Neural_Networks
+│   │   ├── AI
+│   │   ├── Artificial_Neural_Networks
+│   │   ├── Convolutional_and_Pooling_Layers
+│   │   ├── CreatingModel
+│   │   ├── Fraud_Detection
+│   │   ├── Hidden_Layers
+│   │   ├── Loading_Data
+│   │   ├── Making_Predictions
+│   │   ├── Non-linear_Activation
+│   │   ├── RISC-V
+│   │   ├── ReLU
+│   │   ├── Recurrent_Neural_Networks
+│   │   ├── TextClassification
+│   │   ├── Vanishing_Gradient
+│   │   ├── Weka
+│   │   └── brian2
+│   ├── Proximal_Policy
+│   ├── SRCNN
+│   ├── Unity
+│   └── VS
+├── Disturbed
+│   ├── Distributed_block_storage
+│   │   └── Longhorn
+│   ├── DisturbedMemorycaching
+│   │   ├── Hazelcast
+│   │   ├── Memcached
+│   │   └── redis
+│   ├── Edge_Computing
+│   ├── MQTT_Brokers
+│   │   ├── BaMQTT
+│   │   ├── EMQX
+│   │   ├── HiveMQ
+│   │   ├── Mosquitto
+│   │   ├── RabbitMQ
+│   │   ├── kubeMQ
+│   │   ├── mosca
+│   │   └── nanoMQ
+│   ├── distributed_messaging
+│   │   └── Tools
+│   ├── disturbed_database
+│   │   ├── CosmosDB
+│   │   ├── DynamoDB
+│   │   ├── FaunaDB
+│   │   └── Spanner
+│   └── disturbed_object_middleware
+│       └── ZeroC
+├── E-commarce
+│   ├── Odoo
+│   ├── Shopify
+│   ├── WooCommerce
+│   ├── bagisto
+│   └── prestashop
+├── FilesystemManagement
+│   ├── CloudCommander
+│   ├── FUSE
+│   ├── FileManagers
+│   │   ├── DoubleCommander
+│   │   ├── FileBrowser
+│   │   ├── Krusader
+│   │   ├── PCManFM
+│   │   ├── Thunder
+│   │   ├── caja
+│   │   ├── dolphin
+│   │   └── nautilus
+│   ├── GParted
+│   ├── LVM
+│   ├── NTFS-3G
+│   ├── Varnish
+│   ├── XFS
+│   ├── ZFS
+│   ├── btrfs-progs
+│   ├── e2fsprogs
+│   ├── ext4magic
+│   └── fsarchiver
+├── Hacking
+│   ├── Intrusion_Detection
+│   │   ├── snort
+│   │   └── suricata
+│   ├── ManInTheMiddle
+│   │   ├── DNSChef
+│   │   ├── Driftnet
+│   │   ├── Dsniff
+│   │   ├── Responder
+│   │   ├── Xerosploit
+│   │   └── ettercap
+│   ├── OSINT
+│   │   ├── EXIF
+│   │   ├── Grabify_IP_grabber
+│   │   ├── Recon-ng
+│   │   ├── Shodan
+│   │   ├── SpiderFoot
+│   │   ├── TheHarvester
+│   │   ├── WHOIS
+│   │   └── maltego
+│   ├── PacketCapture
+│   │   ├── Netsniff-ng
+│   │   ├── Tshark
+│   │   ├── bmon
+│   │   ├── dnstop
+│   │   ├── erherape
+│   │   ├── iftop
+│   │   ├── iptraf
+│   │   ├── iptraf-ng
+│   │   ├── netspeed
+│   │   ├── ngrep
+│   │   ├── nload
+│   │   ├── nmap
+│   │   ├── ntopng
+│   │   ├── pktstat
+│   │   ├── snort
+│   │   ├── suricata
+│   │   ├── tcpdump
+│   │   ├── tcpick
+│   │   ├── tracepath
+│   │   └── wireshark
+│   ├── Search_Engines
+│   │   ├── Google_Dorks
+│   │   └── Shodan
+│   ├── XSS
+│   │   ├── Beef
+│   │   ├── Commix
+│   │   ├── DalFox
+│   │   ├── Nuclei
+│   │   ├── XSSer
+│   │   └── XSStrike
+│   ├── botnet
+│   ├── ddos-dos
+│   ├── exploits
+│   │   ├── DLL_Injection
+│   │   ├── post-explotation
+│   │   ├── sql_injection
+│   │   └── tplmap
+│   ├── flaws.clowd
+│   ├── info_gathering
+│   │   ├── Amass
+│   │   ├── Curl
+│   │   ├── Dmitry
+│   │   ├── Osintgram
+│   │   ├── RED_HAWK
+│   │   ├── Sherlock
+│   │   ├── SpiderFoot
+│   │   ├── TheHarvester
+│   │   ├── Wget
+│   │   ├── metagoofil
+│   │   ├── nmap
+│   │   ├── openVAS
+│   │   └── scrapy
+│   ├── malware
+│   ├── overthewire
+│   ├── passwordCracking
+│   │   ├── LaZagne
+│   │   ├── piracy
+│   │   ├── pixiewps
+│   │   └── revfi
+│   ├── payloads
+│   │   └── metasploit
+│   ├── pentesting
+│   │   ├── CrackMapExec
+│   │   └── sqlmap
+│   ├── phishing
+│   ├── privilege_escalation
+│   ├── reverseSHELL
+│   │   └── AssetRipper
+│   ├── spoofing
+│   │   ├── Arpspoof
+│   │   ├── Bettercap
+│   │   ├── EtterCap
+│   │   └── Macof
+│   └── vulnerabilty
+│       ├── DVMA
+│       ├── Dorkbot
+│       ├── Rudrastra
+│       ├── SSTI
+│       ├── VulnHub
+│       ├── Yersinia
+│       ├── audit
+│       ├── dirb
+│       └── nikto
+├── IDE
+│   ├── IDEs
+│   │   ├── Coder
+│   │   ├── Eclipse
+│   │   ├── Geany
+│   │   ├── GoogleColab
+│   │   ├── JetBrains
+│   │   ├── KDevelop
+│   │   ├── NetBeans
+│   │   ├── QtCreator
+│   │   ├── Replit
+│   │   ├── Sublime
+│   │   ├── VIM
+│   │   ├── VScode
+│   │   ├── anjuta
+│   │   ├── bluefish
+│   │   ├── brackets
+│   │   ├── emacs
+│   │   └── jupyter
+│   └── Notes
+│       ├── Gnote
+│       ├── Qownnotes
+│       ├── cherrytree
+│       └── zim
+├── Infrastructure_as_Code
+│   ├── Crossplane
+│   ├── SaltStack
+│   ├── Terraformer
+│   ├── Terrascan
+│   ├── ansible
+│   │   ├── etc
+│   │   ├── playbooks
+│   │   └── proxmox
+│   ├── checkov
+│   ├── chef
+│   │   └── InSpec
+│   ├── deployment
+│   ├── pulumi
+│   ├── puppet
+│   └── terraform
+│       ├── Terratest
+│       └── docker
+├── Machine_Learning
+│   ├── Cloud
+│   ├── Clustering_with_K-Means
+│   ├── Diffusion
+│   ├── Gamify
+│   ├── LLM
+│   │   ├── Neuron
+│   │   ├── RouteLLM
+│   │   ├── lightLLM
+│   │   ├── liteLLM
+│   │   └── vllm
+│   ├── LifeCycle
+│   │   ├── MLflow
+│   │   ├── ZenML
+│   │   └── airflow
+│   ├── Modeling
+│   │   ├── Model_Bulding
+│   │   ├── Model_Deployment
+│   │   ├── Model_Training
+│   │   └── model_management
+│   ├── NLP
+│   │   ├── Bert
+│   │   ├── DeepPavlov
+│   │   ├── Duckling
+│   │   ├── Franc
+│   │   ├── Libaries
+│   │   ├── Sentiment
+│   │   ├── Stanford_CoreNLP
+│   │   ├── Wit.ai
+│   │   ├── annyang
+│   │   ├── compromise
+│   │   ├── natural
+│   │   └── node-nlp
+│   ├── RAG
+│   │   ├── Annoy
+│   │   ├── DPR
+│   │   ├── Faiss
+│   │   └── GraphRAG
+│   ├── Upscaler
+│   │   └── Real-ESRGAN
+│   ├── edge_computing
+│   ├── forests
+│   ├── orchestration
+│   │   └── polyaxon
+│   ├── projects
+│   │   ├── Implementing_Gradient_Boosting_with_XGBoost
+│   │   ├── Implementing_a_Support_Vector_Machine_(SVM)_for_Classification
+│   │   ├── Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC
+│   │   └── house_price_prediction
+│   ├── tuning
+│   │   ├── Evaluation
+│   │   └── JSONL
+│   └── turicreate
+├── Nvidia
+│   ├── Cuda
+│   └── Nvidia_Local_AI
+├── ORM
+│   └── sqlalchemy
+├── Orchestration
+│   ├── AKS
+│   ├── ECS
+│   ├── Flatcar
+│   ├── GKE
+│   ├── JUJU
+│   ├── Nomad
+│   ├── OpenFaaS
+│   ├── OpenShift
+│   ├── Singularity
+│   ├── kubernetes
+│   │   ├── Arkade
+│   │   ├── Automated_Capacity
+│   │   ├── BusyBox
+│   │   ├── CICD
+│   │   ├── Calico
+│   │   ├── Cert-Manager
+│   │   ├── Crossplane
+│   │   ├── Drone
+│   │   ├── Falco
+│   │   ├── Flannel
+│   │   ├── Flux
+│   │   ├── Gloo_Edge
+│   │   ├── Google_Anthos
+│   │   ├── Halyard
+│   │   ├── Helmfile
+│   │   ├── Ingress
+│   │   ├── Istio
+│   │   ├── K0s
+│   │   ├── K9s
+│   │   ├── Keptn
+│   │   ├── Kiali
+│   │   ├── Kind
+│   │   ├── Knative
+│   │   ├── Krew
+│   │   ├── Kube-Bench
+│   │   ├── Kube-Hunter
+│   │   ├── KubeVirt
+│   │   ├── Kubectx
+│   │   ├── Kubespray
+│   │   ├── Linkerd
+│   │   ├── Loki
+│   │   ├── Minikube
+│   │   ├── Monitor
+│   │   ├── OPA
+│   │   ├── OPA_Gatekeeper
+│   │   ├── OpenEBS
+│   │   ├── OpenFaaS
+│   │   ├── OpenShift
+│   │   ├── RKE
+│   │   ├── Rancher
+│   │   ├── SPIRE
+│   │   ├── Strimzi
+│   │   ├── Telepresence
+│   │   ├── Tilt
+│   │   ├── Velero
+│   │   ├── anchore
+│   │   ├── argo
+│   │   ├── aws
+│   │   ├── dashboard
+│   │   ├── deployment
+│   │   ├── eks
+│   │   ├── envoy
+│   │   ├── garden
+│   │   ├── helm
+│   │   ├── k3d
+│   │   ├── k3s
+│   │   ├── krane
+│   │   ├── kubebuilder
+│   │   ├── kubectl
+│   │   ├── kubeval
+│   │   ├── kustomize
+│   │   ├── microk8s
+│   │   ├── nginx
+│   │   ├── scale
+│   │   ├── services_managment
+│   │   ├── setup_kubernetes
+│   │   └── tekton
+│   └── swarm
+├── Passive_Income
+│   ├── DecentralizedMarketplace
+│   │   └── OpenBazaar
+│   ├── Decentralized_computing
+│   │   └── Golem
+│   ├── bandwidth_sharing
+│   │   ├── EarnApp
+│   │   ├── IPRoyal
+│   │   └── Mysterium
+│   ├── blockchain
+│   │   ├── ContractFuzzers
+│   │   ├── Currencies
+│   │   ├── EthereumScalers
+│   │   ├── Off-chain-zk-rollup
+│   │   ├── SolidityCompiler
+│   │   ├── SoliditySecurityAnalyzer
+│   │   ├── Wallets
+│   │   ├── mining_tools
+│   │   └── trading_bots
+│   ├── interaction
+│   │   └── ethars
+│   ├── multi-app
+│   │   └── PassiveWebMoney
+│   ├── network_monitoring
+│   │   └── Bitping
+│   └── search_engines
+│       └── Presearch
+├── Projects
+│   ├── API
+│   │   └── tutorial_generator
+│   ├── Asynchronous_chat_server_handling_multiple_clients_with_Twisted
+│   ├── AutomateDownloads2study
+│   ├── AutomateSchedule
+│   ├── BMIcalc
+│   ├── Calendar
+│   ├── Clustering_with_K-Means
+│   ├── CountFiles
+│   ├── Data Analyst Insights and Recommendations Leveraging Key Metrics from San Francisco Organizations Supporting People with Disabilities, Autism, and Mental Health Challenges
+│   ├── Desktop-Icons-Fix
+│   ├── DictionaryApp
+│   ├── Dimensionality_Reduction_with_PCA
+│   ├── DockerMenu
+│   │   ├── GUI
+│   │   └── noGui
+│   ├── EmployeeManager
+│   ├── Expansetracker
+│   ├── FlaskWebList
+│   │   ├── TechSkills
+│   │   └── templates
+│   ├── GPUtemp
+│   ├── GamesDockerMenu
+│   │   ├── NoGui
+│   │   └── gui
+│   ├── Google_Search_&_Link_Click_Automation
+│   ├── HttpServerApp
+│   │   ├── bin
+│   │   ├── obj
+│   │   └── wwwroot
+│   ├── Hyperparameter_Tuning_with_GridSearchCV
+│   ├── Hypotenuse_calculator
+│   ├── ImageGenerator
+│   ├── Implementing_Gradient_Boosting_with_XGBoost
+│   ├── Implementing_a_Support_Vector_Machine_(SVM)_for_Classification
+│   ├── LAN_Instant_Messaging_Platform
+│   │   ├── server
+│   │   └── server_with_SSL
+│   ├── Labs
+│   │   ├── Docker
+│   │   ├── OneLiners
+│   │   ├── aws
+│   │   ├── cloud
+│   │   └── comptia
+│   ├── Media2Text
+│   │   ├── image2text
+│   │   ├── ivrit_ai_project
+│   │   ├── speachtotext
+│   │   └── youtubeVideoToText
+│   ├── Morse_Code_Translator
+│   ├── Movies
+│   │   └── Movie_Search_and_Review
+│   ├── MusicPlayer
+│   ├── MyCard
+│   │   ├── 1
+│   │   └── 2
+│   ├── PipModulesInstaller
+│   ├── PomodoroTimer
+│   ├── Prompt_Engineering
+│   │   ├── FastApi
+│   │   └── Flask
+│   ├── Real-ESRGAN
+│   │   ├── assets
+│   │   ├── docs
+│   │   ├── experiments
+│   │   ├── inputs
+│   │   ├── options
+│   │   ├── realesrgan
+│   │   ├── realesrgan.egg-info
+│   │   ├── scripts
+│   │   ├── tests
+│   │   └── weights
+│   ├── SSH
+│   │   └── SSHubuntuQMproxmox
+│   ├── Screenshots
+│   │   └── screenshot_from_websites
+│   ├── Sentiment_Analyzer
+│   ├── SysAdminExamApp
+│   ├── Trains_tunes_evaluates_Random_Forest_visualizes_importance_confusion_matrix_ROC
+│   ├── VoiceAssistant
+│   │   └── Streamlit
+│   ├── WSL_Automation
+│   ├── bots
+│   │   ├── GroqBot
+│   │   ├── Telegram
+│   │   ├── chatGPTbot
+│   │   └── linkedin
+│   ├── brute_forcer
+│   ├── calculator
+│   ├── calenderapp
+│   ├── chat-server
+│   ├── compare
+│   ├── cool_hardware
+│   ├── credentials_scanner
+│   ├── degrees_and_length_converter
+│   ├── deleteEmptyFolders
+│   ├── diary
+│   │   └── templates
+│   ├── encrypt
+│   ├── exams
+│   │   ├── linux_exam
+│   │   └── ruby
+│   ├── extractvideos
+│   ├── filesfixer
+│   │   ├── AllFilesInPath
+│   │   └── OneFile
+│   ├── filetransferautomation
+│   │   └── oneliners
+│   ├── firewall
+│   ├── food
+│   │   ├── RecipeApp
+│   │   └── findFoodPlaces
+│   ├── ftpserver
+│   │   ├── 1
+│   │   └── 2
+│   ├── game-tracker
+│   │   ├── public
+│   │   └── src
+│   ├── game_tracker
+│   ├── house_price_prediction
+│   ├── leetcode-answers-viewer
+│   │   ├── client
+│   │   └── server
+│   ├── linkedin
+│   │   ├── LinkedIn-Easy-Apply-Bot
+│   │   └── loginBot
+│   ├── my_study_folder_in_web
+│   │   ├── 1
+│   │   ├── 2
+│   │   ├── public
+│   │   ├── server
+│   │   └── src
+│   ├── notebook
+│   │   ├── 1
+│   │   └── 2
+│   ├── notes
+│   ├── password_manager
+│   │   ├── static
+│   │   └── templates
+│   ├── powerplans
+│   ├── questionsganarated
+│   ├── resumewebsite
+│   │   ├── 1
+│   │   ├── 2
+│   │   ├── static
+│   │   └── templates
+│   ├── sales_data_analysis_tool
+│   │   ├── Scripts
+│   │   ├── static
+│   │   └── templates
+│   ├── scrapers
+│   │   ├── StackOverFlow
+│   │   ├── aliexpress
+│   │   ├── githubScraper
+│   │   ├── linkedin
+│   │   └── reddit
+│   ├── sign_up_login_form
+│   │   ├── public
+│   │   └── src
+│   ├── speach2text
+│   │   ├── public
+│   │   └── src
+│   ├── stickynote
+│   │   ├── Gui
+│   │   └── Webui
+│   ├── study_tracker
+│   │   ├── Gui
+│   │   ├── Web
+│   │   └── terminal
+│   ├── sysadmin_quiz
+│   │   ├── public
+│   │   └── src
+│   ├── talk2windows
+│   │   └── data
+│   ├── taskmanager
+│   │   └── ram_monitor_dashboard
+│   ├── textToSpeach
+│   ├── text_editor_app
+│   │   └── TextEditor
+│   ├── ticketing_system
+│   │   ├── app
+│   │   ├── components
+│   │   └── lib
+│   ├── time_series_data
+│   ├── tmdb
+│   ├── todoscripts
+│   │   ├── TodoApp
+│   │   └── todoFlask
+│   ├── torrents
+│   ├── transcripts
+│   │   ├── FlieTextToAudio
+│   │   ├── epub2tts
+│   │   └── root@192.168.1.152
+│   ├── translate2hebrew
+│   │   ├── windows
+│   │   └── wsl
+│   ├── twillio
+│   ├── website
+│   ├── windowsoptimize
+│   │   └── nonGui
+│   ├── wishlist
+│   │   ├── A
+│   │   ├── AWSdb
+│   │   ├── B
+│   │   ├── C
+│   │   ├── dbINec2
+│   │   └── webui
+│   └── youtube
+│       ├── DownloadAsMP3
+│       ├── Playlists
+│       ├── autoupload
+│       ├── downloadChannelASaudio
+│       ├── youtubeUploader
+│       └── youtubeVideoToText
+├── QA
+│   ├── Error_Tracking
+│   │   ├── Sentry
+│   │   ├── bugsnag
+│   │   └── honeybadger
+│   ├── Models
+│   │   ├── Agile
+│   │   └── WaterFall
+│   ├── Tests
+│   │   ├── FrontEnd_Test
+│   │   ├── Unit_Test
+│   │   ├── exploratory_test
+│   │   ├── integration_test
+│   │   ├── load_test
+│   │   ├── prioritization
+│   │   ├── regression_test
+│   │   └── smoke_test
+│   ├── helpdesk
+│   │   ├── GLPI
+│   │   ├── UVdesk
+│   │   ├── Zendesk
+│   │   ├── jira
+│   │   ├── osTicket
+│   │   └── pepermint
+│   └── testing
+│       ├── Allure
+│       ├── Awesome-Testing
+│       ├── Behat
+│       ├── BrowserStackLocal
+│       ├── Bugzilla
+│       ├── Cucumber
+│       ├── Cypress
+│       ├── JBehave
+│       ├── Jest
+│       ├── Jmeter
+│       ├── Junit
+│       ├── KatalonStudio
+│       ├── Katalon_Studio
+│       ├── Keyploy
+│       ├── Lighthouse
+│       ├── Mocha
+│       ├── PlayWright
+│       ├── PlayWright-BDD
+│       ├── PyTest
+│       ├── QAwolf
+│       ├── QUint
+│       ├── RSpec
+│       ├── Selenium
+│       ├── SikuliX
+│       ├── SoapUI
+│       ├── SonarQube
+│       ├── Specflow
+│       ├── Terratest
+│       ├── TestTrail
+│       ├── WebPageTest
+│       ├── YellowLab
+│       ├── chai
+│       ├── nightwatch
+│       ├── robot_Framwork
+│       ├── sitespeed.io
+│       └── test-each
+├── REPL
+│   ├── EVA
+│   ├── Elixir
+│   ├── Haskell_GHCi
+│   ├── IRB
+│   ├── lua
+│   └── scala
+├── Remote
+│   ├── RemoteDesktop
+│   │   ├── Parsec
+│   │   ├── TeamViewer
+│   │   ├── X2Go
+│   │   ├── XRDP
+│   │   ├── Xpra
+│   │   ├── remmina
+│   │   └── vinagre
+│   └── RemoteProcedure
+│       ├── Avro
+│       ├── Capnp
+│       ├── D-Bus
+│       ├── OmniORB
+│       ├── Protobuf
+│       ├── XML-RPC
+│       ├── ZeroRPC
+│       ├── gRPC
+│       ├── msgpack-rpc
+│       └── thrift
+├── Research
+│   ├── Docear
+│   ├── Org-mode
+│   ├── Zettlr
+│   ├── jabref
+│   ├── lyx
+│   ├── mendeley
+│   ├── obsidian
+│   ├── qiqqa
+│   └── zotero
+├── Resume
+│   ├── MyResume
+│   ├── Myresumewebsite
+│   │   ├── 1
+│   │   └── 2
+│   ├── Reactive_resume
+│   └── Resume_CLI
+├── SAP
+│   ├── OpenUI5
+│   └── SAP_Cloud_CLI
+├── Shells
+│   ├── bash
+│   │   ├── Audio
+│   │   ├── BPF
+│   │   ├── Bash_API
+│   │   ├── Cat
+│   │   ├── Convert
+│   │   ├── Count
+│   │   ├── Disk&System
+│   │   ├── Display
+│   │   ├── Documantation
+│   │   ├── Files_And_Folders
+│   │   ├── GPU
+│   │   ├── GRUB
+│   │   ├── Huge_Pages
+│   │   ├── Kernal
+│   │   ├── Kernel
+│   │   ├── Language
+│   │   ├── List
+│   │   ├── Logs
+│   │   ├── Memory
+│   │   ├── Microservices
+│   │   ├── Monitor
+│   │   ├── NTP
+│   │   ├── Nano
+│   │   ├── NetCat
+│   │   ├── Networking
+│   │   ├── Notifications
+│   │   ├── OneLiners
+│   │   ├── Optimazation
+│   │   ├── Ports
+│   │   ├── Python
+│   │   ├── Security
+│   │   ├── Shortcuts
+│   │   ├── Text
+│   │   ├── Tools
+│   │   ├── Tuning
+│   │   ├── Upgrade
+│   │   ├── User_Management
+│   │   ├── ZSH
+│   │   ├── architecture
+│   │   ├── awk
+│   │   ├── commands
+│   │   ├── cpu
+│   │   ├── cron
+│   │   ├── encrypt_and_decrept
+│   │   ├── ffmpeg
+│   │   ├── fzf
+│   │   ├── google
+│   │   ├── scripts
+│   │   ├── setups
+│   │   ├── sync
+│   │   ├── tldr
+│   │   ├── troubleshooting
+│   │   ├── users
+│   │   └── videos
+│   ├── powershell
+│   │   ├── Get-Command
+│   │   ├── Get-WmiObject
+│   │   ├── IWR
+│   │   ├── Invoke-WebRequest
+│   │   ├── iex
+│   │   ├── projects
+│   │   ├── scripts
+│   │   ├── setups
+│   │   ├── startprocess
+│   │   ├── subprocess.Popen
+│   │   └── winget
+│   ├── tools
+│   │   ├── Agnoster
+│   │   ├── Aptitude
+│   │   ├── Bash-it
+│   │   ├── Dpkg
+│   │   ├── FTF
+│   │   ├── Flatpak
+│   │   ├── GDebi
+│   │   ├── Inno
+│   │   ├── Liquid_Prompt
+│   │   ├── Oh_My_Posh
+│   │   ├── Powerline
+│   │   ├── Prezto
+│   │   ├── PurePrompt
+│   │   ├── SpaceshipPrompt
+│   │   ├── Starship
+│   │   ├── Wine
+│   │   ├── gnome-software
+│   │   └── synaptic
+│   └── zsh
+│       ├── OhMyZsh
+│       ├── zsh-autosuggestions
+│       └── zsh-syntax-highlighting
+├── Storage
+│   ├── AzureStorage
+│   │   ├── Blob
+│   │   ├── FileStorage
+│   │   ├── Queue
+│   │   └── Table
+│   ├── DecentralizedFileStorage
+│   │   └── ipfs
+│   └── Storage_Management
+├── Testing
+│   ├── Cucumber
+│   └── PyTest
+├── Version_control
+│   ├── CodeCommit
+│   ├── Data_Versioning
+│   │   ├── DVC
+│   │   ├── LakeLS
+│   │   ├── Pachyderm
+│   │   ├── dolt
+│   │   └── git_lfs
+│   ├── GithubPages
+│   ├── flyway
+│   ├── git
+│   │   └── delta
+│   ├── gitea
+│   ├── github
+│   ├── gitlab
+│   └── labeler
+├── WebBuilding
+│   ├── PerformanceOptimize
+│   │   └── PageSpeed
+│   ├── StaticSiteGenerators
+│   │   ├── Brunch
+│   │   ├── Gatsby
+│   │   ├── Hexo
+│   │   ├── Next.js
+│   │   ├── Pelican
+│   │   ├── eleventy
+│   │   ├── hugo
+│   │   ├── jekyll
+│   │   └── middleman
+│   ├── Tools
+│   │   ├── AdminJS
+│   │   ├── Bubble
+│   │   ├── Durable
+│   │   ├── Laravel
+│   │   ├── OpenUI5
+│   │   ├── Websim
+│   │   ├── piwigo
+│   │   ├── pocketbase
+│   │   └── vendure
+│   └── projects
+│       └── ftpserver
+├── automation
+│   ├── Airflow
+│   ├── CI-CD
+│   │   ├── ArgoCD
+│   │   ├── Bamboo
+│   │   ├── CircleCI
+│   │   ├── Cloud
+│   │   ├── CodeFresh
+│   │   ├── Dagger
+│   │   ├── Drone
+│   │   ├── FluxCD
+│   │   ├── GitOps
+│   │   ├── GoCD
+│   │   ├── Travis
+│   │   ├── continuous_profiling
+│   │   ├── github_actions
+│   │   ├── jenkins
+│   │   ├── tekton
+│   │   └── yml
+│   ├── Data_Processing
+│   ├── Dorkbot
+│   ├── Earthly
+│   ├── Habitat
+│   ├── Infrastructure_as_Code
+│   │   └── terraform
+│   ├── Internal
+│   ├── JUnit
+│   ├── MiNiFi
+│   ├── N8N
+│   ├── Nodemon
+│   ├── Packer
+│   ├── Projects
+│   │   └── wsl2
+│   ├── RepairToos
+│   │   ├── Boot-Repair
+│   │   ├── GParted
+│   │   ├── Rescuezilla
+│   │   ├── TimeShift
+│   │   ├── VeriCare
+│   │   ├── bleachbit
+│   │   ├── chkrootkit
+│   │   └── stacer
+│   ├── Rundeck
+│   ├── UiPath
+│   ├── WorkFlow
+│   │   ├── Camundra
+│   │   ├── NiFi
+│   │   ├── Node-RED
+│   │   └── n8n
+│   ├── cron
+│   ├── home_assistant
+│   ├── oneliners
+│   │   ├── RubyMine
+│   │   └── saleor
+│   ├── sync
+│   ├── unleash
+│   └── updates
+├── backup
+│   ├── IPFS
+│   ├── Lsyncd
+│   ├── Syncthing
+│   ├── Unison
+│   ├── duply
+│   └── rsync
+├── business_intelligence
+│   ├── Drill
+│   ├── PlotlyDash
+│   ├── Superset
+│   └── metabase
+├── cloud
+│   ├── Baas
+│   │   ├── Appwrite
+│   │   ├── Hasura
+│   │   ├── Kuzzle
+│   │   └── directus
+│   ├── DigitalOcean
+│   ├── GCP
+│   │   ├── Console
+│   │   └── cli
+│   ├── Hybrid
+│   ├── IBM
+│   ├── IaaS
+│   ├── Koyeb
+│   ├── Labs
+│   │   ├── Docker
+│   │   ├── OneLiners
+│   │   ├── aws
+│   │   ├── cloud
+│   │   └── comptia
+│   ├── Linode
+│   ├── OpenStack
+│   ├── PaaS
+│   │   ├── Deta
+│   │   ├── Heroku
+│   │   ├── Netlify
+│   │   ├── Vercel
+│   │   ├── cloudron
+│   │   ├── fly.io
+│   │   └── railway
+│   ├── SaaS
+│   ├── aws
+│   │   ├── Console
+│   │   └── awscli
+│   ├── azure
+│   │   ├── CLI
+│   │   └── Console
+│   ├── cloud_foundry
+│   │   └── CF
+│   ├── cloudflare
+│   ├── filecloud
+│   ├── owncloud
+│   ├── serverless
+│   │   ├── Serverless_API_Azure
+│   │   └── Serverless_API_gcp
+│   └── vultr
+├── cluster
+│   ├── Basics
+│   ├── Ceph
+│   ├── Cloud
+│   │   └── AWS
+│   ├── Clustering_with_K-Means
+│   ├── CockRoachDB
+│   ├── Couchbase
+│   ├── Databases
+│   │   ├── SQL
+│   │   └── nosql
+│   ├── DockerSwarm
+│   ├── EKS
+│   ├── Minikube
+│   ├── kmeans
+│   ├── kubernetes
+│   ├── prestodb
+│   ├── proxmox
+│   └── redshift
+├── collaboration
+│   ├── Confluence
+│   ├── CrowdSec
+│   ├── DocMost
+│   ├── Infisical
+│   ├── Mattermost
+│   ├── WizNote
+│   ├── slack
+│   ├── taskcafe
+│   └── trello
+├── communication
+│   ├── Jami
+│   ├── MessageBird
+│   ├── SSE
+│   ├── Serial_communication
+│   │   ├── CuteCom
+│   │   ├── GtkTerm
+│   │   ├── Kermit
+│   │   ├── Minicom
+│   │   ├── Picocom
+│   │   ├── PuTTY
+│   │   ├── SerialTools
+│   │   ├── Tio
+│   │   └── screen
+│   ├── Vonage
+│   ├── bandwidtch
+│   ├── ferdium
+│   ├── hexchat
+│   ├── linphone
+│   ├── listmonk
+│   ├── pilvo
+│   ├── qTox
+│   ├── rambox
+│   ├── revolt
+│   ├── sinch
+│   ├── telnyx
+│   └── twillio
+├── datascience
+│   ├── Analytics
+│   │   ├── Alteryx
+│   │   ├── ApachePinot
+│   │   ├── Cassandra
+│   │   ├── ClamAV
+│   │   ├── Credit_Risk_Analysis
+│   │   ├── DBeaver
+│   │   ├── Gephi
+│   │   ├── Kafka
+│   │   ├── Knime
+│   │   ├── Log_Analysis
+│   │   ├── ObjectFileAnalyze
+│   │   ├── Orange
+│   │   ├── PowerBI
+│   │   ├── Qgis
+│   │   ├── SAS
+│   │   ├── Spark
+│   │   ├── System_Analysis
+│   │   ├── airtable-cli
+│   │   ├── checkov
+│   │   ├── fio
+│   │   ├── google_analytics
+│   │   ├── iostat
+│   │   ├── sentiment_analysis
+│   │   └── web_analytics
+│   ├── Basics
+│   ├── Big_Data
+│   │   ├── Market_Data
+│   │   └── pyspark
+│   ├── DataPipeLineFramework
+│   │   ├── Kedro
+│   │   ├── NiFi
+│   │   ├── Perfect
+│   │   ├── datafusion
+│   │   ├── meltano
+│   │   └── streamsets
+│   ├── DataStructure
+│   ├── Data_Analysis
+│   │   ├── Apache_Arrow
+│   │   ├── Iris_Data_Analysis
+│   │   └── Octave
+│   ├── Data_Fabric
+│   ├── Data_Flow
+│   │   ├── Airflow
+│   │   ├── MiNiFi
+│   │   └── meltano
+│   ├── Data_Labeling
+│   │   ├── LabelImg
+│   │   ├── LabelMe
+│   │   ├── diffgram
+│   │   ├── label-studio
+│   │   └── supervisely
+│   ├── Data_Lake
+│   ├── Data_Preparation
+│   │   └── Dataiku
+│   ├── Data_Warehouse
+│   ├── EfficientBoostingAlgorithm
+│   │   ├── LightGBM
+│   │   ├── NGBoost
+│   │   ├── XGBoost
+│   │   └── catboost
+│   ├── InteractiveData
+│   │   └── Zeppelin
+│   ├── MindMaps
+│   │   └── Xmind
+│   ├── Parallel_computing
+│   │   ├── Dask
+│   │   ├── GNUparaller
+│   │   ├── OpenMPI
+│   │   ├── PVM
+│   │   ├── Ray
+│   │   ├── Zeromq
+│   │   ├── julia
+│   │   └── tensorflow
+│   ├── Pipeline
+│   ├── R
+│   ├── RAID
+│   ├── RapidMiner
+│   ├── Resources
+│   ├── SQL
+│   ├── Small_Data
+│   ├── TreeBasedModels
+│   │   ├── GradientBoostedTrees
+│   │   ├── RandomForests
+│   │   └── decisionForest
+│   ├── Visualization
+│   │   ├── ApacheSuperset
+│   │   ├── Bokeh
+│   │   ├── Google_Data_Studio
+│   │   ├── Graphs
+│   │   ├── KCacheGrind
+│   │   ├── Orange
+│   │   ├── Redash
+│   │   ├── Tableau
+│   │   ├── TensorBoard
+│   │   ├── Vega
+│   │   ├── graph
+│   │   └── python
+│   ├── WorkflowManagement
+│   │   └── luigi
+│   ├── algorithms
+│   │   ├── Clustering_with_K-Means
+│   │   ├── Gradient_Descent
+│   │   └── regression
+│   ├── binary
+│   ├── databases
+│   │   ├── Hybrid
+│   │   ├── Managers
+│   │   ├── noSQL
+│   │   └── sql
+│   ├── datasets
+│   │   ├── Building_a_Decision_Tree_using_scikit_learn
+│   │   ├── Calculating_Entropy_and_Information_Gain
+│   │   └── csv
+│   ├── kaggle
+│   ├── projects
+│   │   └── sales_data_analysis_tool
+│   ├── quantumComputing
+│   ├── reverse_engineering
+│   │   ├── APKTool
+│   │   ├── OllyDbg
+│   │   ├── Reverse_Proxy
+│   │   ├── binwalk
+│   │   ├── ghidra
+│   │   └── reverseSHELL
+│   ├── spark
+│   └── storage
+├── docker
+│   ├── Containerd
+│   ├── Images
+│   ├── compose
+│   ├── containers
+│   │   ├── filecloud
+│   │   ├── gitea
+│   │   ├── grafana
+│   │   ├── homeassistant
+│   │   ├── kuma
+│   │   ├── vscodeWEBserver
+│   │   └── windowswebtop
+│   ├── dockerfiles
+│   │   ├── TypeScriptContaner
+│   │   └── mfsconsole
+│   ├── guides
+│   ├── scripts
+│   │   └── webtop
+│   └── swarm
+├── documents
+│   ├── CherryTree
+│   ├── Docuseal
+│   ├── LibreOffice
+│   │   └── LibreOffice_Draw
+│   ├── Markdown
+│   ├── Obsidian
+│   ├── PDF
+│   ├── calibre
+│   ├── canva
+│   ├── filebot
+│   └── roadmap
+├── econometrics
+│   ├── Gretl
+│   ├── PSPP
+│   ├── R
+│   └── Statsmodels
+├── exams
+│   ├── Data_algorithms
+│   ├── LPIC
+│   ├── Labs
+│   │   ├── Docker
+│   │   ├── OneLiners
+│   │   ├── aws
+│   │   ├── cloud
+│   │   └── comptia
+│   ├── QNA
+│   │   ├── COMPTIA
+│   │   ├── IT_complience
+│   │   ├── Storage_Management
+│   │   ├── automation
+│   │   ├── database
+│   │   ├── devops
+│   │   ├── linux
+│   │   └── sysadmins
+│   ├── compTIA
+│   │   ├── chatgpt
+│   │   ├── linux+
+│   │   ├── practice
+│   │   └── pythonexams
+│   ├── interview
+│   ├── leetcode
+│   ├── logFile
+│   │   ├── DeveLeap
+│   │   └── mine
+│   └── made_by_me
+│       └── linux_exam
+├── firewall
+│   ├── clamAV
+│   ├── iptables
+│   └── ufw
+├── hosting
+│   ├── Active_Directory_Management
+│   ├── FileManager
+│   ├── File_Management
+│   ├── Hastebin
+│   ├── NAS
+│   │   ├── nextcloud
+│   │   ├── openmediavault
+│   │   ├── owncloud
+│   │   └── qnap
+│   ├── Subversion_Repository
+│   ├── WebHosting
+│   │   ├── ShinyServer
+│   │   ├── Surge
+│   │   ├── netlify
+│   │   └── vercel
+│   ├── WebServers
+│   │   ├── apache
+│   │   ├── dokku
+│   │   ├── lighttpd
+│   │   ├── nginx
+│   │   └── openresty
+│   ├── Web_Based_Download_Utility
+│   ├── Website_Builder
+│   ├── draw.io
+│   ├── github
+│   │   ├── gitea
+│   │   └── pages
+│   ├── http
+│   ├── hugo
+│   ├── infinityfree
+│   ├── jupyter
+│   ├── music
+│   │   ├── AntMediaServer
+│   │   ├── Navidrome
+│   │   └── airsonic
+│   ├── openfire
+│   ├── qbittorent
+│   ├── snipr-IT
+│   ├── speed_tester
+│   ├── static_site_generator
+│   ├── tunneling
+│   └── wiki
+├── intelligence
+├── kubernetes
+│   ├── Minikube
+│   └── helm
+├── linux
+│   ├── Arch
+│   ├── Boot
+│   ├── Cron
+│   ├── Filesystem
+│   ├── HCI
+│   ├── Mirror_Servers
+│   ├── Package_Manager
+│   │   ├── APT
+│   │   ├── Nix
+│   │   ├── snap
+│   │   ├── synapic
+│   │   └── top
+│   ├── Policy
+│   ├── Starship
+│   ├── UFW
+│   ├── Ubuntu
+│   ├── Ubuntu_Touch
+│   ├── dd-wrt
+│   ├── debian_based
+│   ├── environments
+│   │   └── xfce
+│   ├── fallocate
+│   ├── fastfetch
+│   ├── kickstarter
+│   ├── raspberry
+│   ├── suse
+│   ├── termux
+│   ├── text_editors
+│   ├── tmux
+│   └── users
+├── memory_management
+│   ├── OpenDJ
+│   ├── OpenLDAP
+│   └── RAMMap
+├── microservices
+│   ├── Circuit_Breaker
+│   ├── Felix
+│   ├── Kong
+│   ├── OpenFaaS
+│   ├── dapr
+│   ├── itsio
+│   ├── jaeger
+│   ├── kuma
+│   ├── linkerd
+│   ├── mesh
+│   ├── microservices
+│   └── vitness
+├── monitoring
+│   ├── ApacheHTTPD
+│   ├── Datadog
+│   ├── EtherApe
+│   ├── NewData
+│   ├── New_Relic
+│   ├── OpenMetrics
+│   ├── PHPserverMonitor
+│   ├── Pyroscope
+│   ├── Vector
+│   ├── WhatsappGold
+│   ├── cAdvisor
+│   ├── censys
+│   ├── dash
+│   ├── glances
+│   ├── grafana
+│   │   ├── Loki
+│   │   ├── OnCall
+│   │   ├── OpenMetrics
+│   │   ├── TiDB
+│   │   ├── influxDB
+│   │   ├── prometheus
+│   │   └── setup
+│   ├── kuma
+│   ├── nagios
+│   │   └── NRPE
+│   ├── pi.alert
+│   ├── prometheus
+│   ├── system
+│   ├── zabbix
+│   └── zeek
+├── networking
+│   ├── ADblock
+│   │   ├── adguard
+│   │   └── pi-hole
+│   ├── Access_Control
+│   ├── Alarms
+│   ├── Architecture
+│   ├── Audit
+│   │   └── argus
+│   ├── Bandwidth
+│   ├── Barracuda
+│   ├── Bmon
+│   ├── Bonding
+│   ├── CDN
+│   │   ├── CloudFlare
+│   │   └── cloud
+│   ├── Cacti
+│   ├── DarkWeb
+│   ├── Impacket
+│   ├── Internet_of_things
+│   ├── LSTM
+│   ├── Lan
+│   ├── MAC
+│   │   └── macchanger
+│   ├── MTR
+│   ├── MailServer
+│   │   └── Thunderbird
+│   ├── Netshoot
+│   ├── OpenWRT
+│   ├── Ports
+│   ├── Router
+│   │   └── MRTG
+│   ├── Static
+│   ├── Stress_Test
+│   ├── Traffic
+│   │   ├── Mausezahn
+│   │   └── slurm
+│   ├── Video_Management
+│   ├── VnStat
+│   ├── bash
+│   ├── buffer
+│   ├── dstat
+│   ├── forwarding
+│   ├── hosts
+│   ├── iperf3
+│   ├── iptraf-ng
+│   ├── load_balance
+│   ├── monitoring
+│   ├── netdiscover
+│   ├── nethogs
+│   ├── ngrep
+│   ├── performance
+│   ├── protocols
+│   │   ├── 802.1Q
+│   │   ├── 802.1X
+│   │   ├── ARP
+│   │   ├── CDP
+│   │   ├── DHCP
+│   │   ├── DNS
+│   │   ├── DTP
+│   │   ├── EMAIL
+│   │   ├── FTP
+│   │   ├── HSRP
+│   │   ├── HTTP
+│   │   ├── HTTPS
+│   │   ├── ISCSI
+│   │   ├── ISL
+│   │   ├── LDAP
+│   │   ├── Layer2
+│   │   ├── MPLS
+│   │   ├── NFS
+│   │   ├── NTP
+│   │   ├── OSI
+│   │   ├── SFTP
+│   │   ├── SNMP
+│   │   ├── STP
+│   │   ├── Transport
+│   │   ├── UPnP
+│   │   ├── VTP
+│   │   ├── Vlan
+│   │   ├── WAN
+│   │   ├── WPA2
+│   │   ├── ipv4
+│   │   └── tcp
+│   ├── public
+│   ├── samba
+│   ├── security
+│   ├── segmentation
+│   ├── simulation
+│   ├── subnet
+│   ├── topologies
+│   └── wifi-manager
+├── programming
+│   ├── APIs
+│   │   ├── AWS_SAM
+│   │   ├── Bash_API
+│   │   ├── GraphQL
+│   │   ├── GreenAPI
+│   │   ├── Serverless_API_Azure
+│   │   ├── Serverless_API_gcp
+│   │   ├── facebook
+│   │   ├── gemini_api_by_google
+│   │   ├── karate_Framework
+│   │   ├── realtime-api-chat
+│   │   ├── requests
+│   │   ├── restAPI
+│   │   ├── tyk
+│   │   └── youtubeplaylist
+│   ├── C
+│   │   └── frama-c
+│   ├── C++
+│   │   └── TDLib
+│   ├── Flutter
+│   ├── Haskell
+│   ├── JavaScript
+│   ├── R
+│   │   └── RKWard
+│   ├── Rust
+│   ├── Scala
+│   ├── firebase
+│   ├── frontend
+│   │   ├── HTML
+│   │   ├── css
+│   │   └── javascript
+│   ├── go
+│   │   ├── Godot
+│   │   ├── Hakrawler
+│   │   ├── PROXYserver
+│   │   ├── Terratest
+│   │   ├── WebServer
+│   │   ├── goroutine
+│   │   └── integrationTesting
+│   ├── java
+│   │   ├── Maven
+│   │   ├── glassfish
+│   │   ├── openJDK
+│   │   └── projects
+│   ├── kotlin
+│   │   └── notes
+│   ├── php
+│   ├── python
+│   │   ├── Animated Objects
+│   │   ├── Frameworks
+│   │   ├── apps
+│   │   ├── basics
+│   │   ├── conda
+│   │   ├── datascience
+│   │   └── games
+│   └── ruby
+│       └── projects
+├── scraperAPI
+├── scrum
+│   ├── JIRAServiceDesk
+│   ├── Kanboard
+│   ├── Odoo
+│   ├── ScrumBoard
+│   ├── YouTrack
+│   ├── jira
+│   ├── redmine
+│   ├── taiga
+│   └── zentao
+├── security
+│   ├── ACL
+│   ├── Analysis
+│   ├── AntiMalware
+│   │   └── malwarebaytes
+│   ├── Audit
+│   ├── Authentication
+│   ├── CertificateManagement
+│   │   ├── Certbot
+│   │   ├── OpenSSL
+│   │   ├── Step
+│   │   ├── Vault
+│   │   ├── XCA
+│   │   └── ssl-cert-check
+│   ├── Data_Deletion
+│   ├── Email
+│   ├── Endpoint_Encryption
+│   ├── Frameworks
+│   │   └── ISO27001
+│   ├── GnuTLS
+│   ├── IPv6
+│   ├── IdentityManagement
+│   │   ├── OpenLDAP
+│   │   ├── freeradius
+│   │   └── keycloack
+│   ├── IntegrityCheck
+│   │   ├── Integrit
+│   │   ├── aide
+│   │   └── chkrootkit
+│   ├── Kernal
+│   ├── Log_analysis
+│   │   └── Log_Analyzer
+│   ├── MFA
+│   ├── NAC
+│   ├── Network_Security
+│   ├── PAM
+│   ├── Policies
+│   ├── Protection
+│   ├── Reverse_Proxy
+│   │   ├── Envoy
+│   │   ├── HAProxy
+│   │   ├── Nginx
+│   │   ├── Traefik
+│   │   └── varnish
+│   ├── Rules
+│   ├── RuntimeSecurity
+│   │   ├── Lynis
+│   │   ├── SELinux
+│   │   ├── Wazuh
+│   │   ├── appArmor
+│   │   ├── falco
+│   │   └── open_policy_agent
+│   ├── SOC
+│   ├── SSL
+│   ├── SecureDocumentConversion
+│   │   ├── Dangerzone
+│   │   └── LibreOffice
+│   ├── Security_Testing
+│   │   └── owasp
+│   ├── Synk
+│   ├── cloud
+│   ├── container_security
+│   ├── encryption
+│   ├── hardware
+│   ├── keycloack
+│   ├── log_rotation
+│   ├── network
+│   ├── ngrok
+│   ├── openVAS
+│   ├── policy
+│   ├── proxy
+│   │   ├── FlareSolverr
+│   │   ├── PROXYserver
+│   │   └── dnscrypt-proxy
+│   ├── sandbox
+│   ├── secrets
+│   │   └── Secret_Management
+│   ├── tryhackme
+│   ├── updates
+│   ├── vpn
+│   │   └── OpenVPN
+│   ├── web_applications
+│   └── zero_trust
+├── setups
+│   ├── Data_Labeling
+│   │   ├── LabelImg
+│   │   ├── LabelMe
+│   │   ├── diffgram
+│   │   └── label-studio
+│   ├── RubyMine
+│   └── saleor
+├── speach2text
+│   ├── DeepSearch
+│   ├── python
+│   │   ├── Sticky_notes_webui
+│   │   └── bottle
+│   └── react
+│       └── speach2text
+├── ssh
+│   ├── GiteaSSH
+│   └── SSHubuntuQMproxmox
+├── text_search
+│   ├── MeiliSearch
+│   ├── Recoll
+│   ├── Sphinx
+│   ├── Swish-e
+│   └── solr
+├── troubleshooting
+├── virtualmachines
+│   ├── ESXI
+│   ├── LXD
+│   ├── Qemu
+│   ├── Vagrant
+│   ├── VirtualBox
+│   ├── macOS
+│   ├── multipass
+│   ├── plex
+│   ├── proxmox
+│   │   ├── alias
+│   │   └── shell
+│   ├── vmware
+│   │   ├── ESXI
+│   │   └── Horizon
+│   └── wsl2
+├── wiki_management_tools
+│   ├── DokuWiki
+│   ├── MediaWiki
+│   ├── TiddlyWiki5
+│   └── pmwiki
+└── windows
+    ├── Asset_Management
+    ├── Audit
+    ├── AutoHotkey
+    ├── Bios
+    ├── Boot
+    ├── DisplayFusion
+    ├── FlashDrive
+    ├── GPO
+    ├── ISO
+    ├── Microsoft_Surface
+    ├── Name
+    ├── PageFile
+    ├── VPN
+    ├── Widgets
+    ├── Windows_Convert
+    ├── android
+    ├── choco
+    ├── mRemoteNG
+    ├── performance
+    ├── registry
+    ├── restore_point
+    ├── server
+    │   ├── PS
+    │   └── active_directory
+    ├── setups
+    ├── telnet
+    ├── usfull
+    └── web
+
+

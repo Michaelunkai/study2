@@ -1,0 +1,25 @@
+  
+# Tutorial Title: Step-by-Step Guide on How to Install and Use Binwalk for Analyzing, Extracting, and Reverse Engineering Firmware Images and Binary Files in Ubuntu
+
+# 1. Install Binwalk to Analyze, Extract, and Reverse Engineer Binary Files and Firmware Images
+sudo apt install binwalk -y
+
+# 2. Create a Directory for Storing the Firmware Image for Binwalk Analysis
+mkdir ~/firmware_analysis
+cd ~/firmware_analysis
+
+# 3. Download a Test Firmware Image for Analysis and Extraction with Binwalk
+wget https://downloads.openwrt.org/releases/21.02.3/targets/x86/64/openwrt-21.02.3-x86-64-generic-squashfs-combined.img.gz -O firmware.img.gz
+
+# 4. Extract the Downloaded Firmware Image File to Prepare for Binwalk Analysis
+gunzip firmware.img.gz
+
+# 5. Use Binwalk to Analyze the Firmware Image for Embedded Files and Data Structures
+binwalk firmware.img
+
+# 6. Use Binwalk to Extract Embedded Files and Data from the Firmware Image with Root Privileges
+sudo binwalk -e --run-as=root firmware.img
+
+# 7. Navigate to the Extracted Files Directory and List the Contents to Verify Extraction
+cd _firmware.img.extracted
+ls

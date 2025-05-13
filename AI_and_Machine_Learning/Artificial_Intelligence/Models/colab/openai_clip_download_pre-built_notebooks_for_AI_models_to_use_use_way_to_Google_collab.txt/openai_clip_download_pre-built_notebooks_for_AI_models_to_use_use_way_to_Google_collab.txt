@@ -1,0 +1,1 @@
+wget https://colab.research.google.com/github/openai/CLIP/blob/master/notebooks/clip.ipynb -O openai_clip.ipynb

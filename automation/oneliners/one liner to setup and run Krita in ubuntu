@@ -1,0 +1,1 @@
+sudo apt install -y krita && krita --export --export-filename output.png input.kra

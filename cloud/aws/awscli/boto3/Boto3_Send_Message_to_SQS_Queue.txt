@@ -1,0 +1,3 @@
+import boto3
+sqs = boto3.client('sqs')
+response = sqs.send_message(QueueUrl='https://sqs.us-west-2.amazonaws.com/123456789012/MyQueue', MessageBody='Hello, world!')

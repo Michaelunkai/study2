@@ -1,0 +1,1 @@
+npm install -g coffeescript && coffee example.coffee

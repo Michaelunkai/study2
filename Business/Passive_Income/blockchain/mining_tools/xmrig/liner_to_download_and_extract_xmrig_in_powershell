@@ -1,0 +1,1 @@
+ Invoke-WebRequest -Uri https://github.com/xmrig/xmrig/releases/download/v6.19.0/xmrig-6.19.0-msvc-win64.zip -OutFile C:\Users\micha\Downloads\xmrig.zip; Expand-Archive -Path C:\Users\micha\Downloads\xmrig.zip -DestinationPath C:\Users\micha\Downloads\xmrig

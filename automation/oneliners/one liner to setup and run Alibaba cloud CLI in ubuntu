@@ -1,0 +1,1 @@
+curl -sSL https://aliyuncli.alicdn.com/aliyun-cli-linux-latest-amd64.tgz | tar -xz && sudo mv aliyun /usr/local/bin && aliyun configure

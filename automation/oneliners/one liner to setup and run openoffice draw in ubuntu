@@ -1,0 +1,1 @@
+sudo apt install -y openoffice.org-draw && openoffice --draw

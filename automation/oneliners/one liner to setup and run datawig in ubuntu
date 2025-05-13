@@ -1,0 +1,1 @@
+pip3 install datawig && python3 -c 'import datawig; print(datawig.__version__)'

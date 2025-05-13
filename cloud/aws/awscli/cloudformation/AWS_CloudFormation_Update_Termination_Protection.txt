@@ -1,0 +1,1 @@
+aws cloudformation update-termination-protection --enable-termination-protection --stack-name <stack-name>

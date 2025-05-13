@@ -1,0 +1,1 @@
+aws dynamodb create-global-table --global-table-name my-global-table --replication-group RegionName=us-east-1 RegionName=eu-west-1

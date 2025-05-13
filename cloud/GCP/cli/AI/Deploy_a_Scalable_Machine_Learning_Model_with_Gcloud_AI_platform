@@ -1,0 +1,1 @@
+gcloud ai-platform models create my_model --regions us-central1 && gcloud ai-platform versions create v1 --model my_model --origin gs://my-bucket/model --runtime-version 2.5 --framework tensorflow --python-version 3.7

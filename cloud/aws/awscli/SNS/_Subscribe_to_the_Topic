@@ -1,0 +1,10 @@
+Subscribe to the Topic
+Now, subscribe an email endpoint to the topic using the TopicArn obtained from the previous step:
+
+ 
+ 
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic --protocol email --notification-endpoint your-email@example.com
+Replace your-email@example.com with your actual email address.
+
+Confirm the Subscription
+Check your email for a subscription confirmation message from AWS. Click the link in the email to confirm your subscription.

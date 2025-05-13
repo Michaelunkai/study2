@@ -1,0 +1,1 @@
+aws s3api put-bucket-policy --bucket my-unique-bucket-d110ec38 --policy file://bucket_policy.json

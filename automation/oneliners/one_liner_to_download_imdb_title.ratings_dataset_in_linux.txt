@@ -1,0 +1,1 @@
+wget https://datasets.imdbws.com/title.ratings.tsv.gz -O title.ratings.tsv.gz

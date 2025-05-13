@@ -1,0 +1,1 @@
+ getsnap && snap install freemind && freemind

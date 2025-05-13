@@ -1,0 +1,1 @@
+wget https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/10976/wps-office_11.1.0.10976_amd64.deb && sudo apt install -y ./wps-office_11.1.0.10976_amd64.deb && wps

@@ -1,0 +1,1 @@
+mkdir -p backup/sync && cd backup/sync && sudo apt install -y lsyncd && sudo systemctl start lsyncd

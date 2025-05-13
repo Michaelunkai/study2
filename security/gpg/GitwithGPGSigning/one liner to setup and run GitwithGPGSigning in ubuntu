@@ -1,0 +1,1 @@
+sudo apt install -y git && git config --global user.signingkey "$(gpg --list-secret-keys --keyid-format=long | grep sec | head -1 | awk '{print $2}' | cut -d '/' -f2)" && git config --global commit.gpgsign true

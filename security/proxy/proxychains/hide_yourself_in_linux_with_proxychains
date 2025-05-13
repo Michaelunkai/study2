@@ -1,0 +1,14 @@
+1)
+# Install ProxyChains
+sudo apt-get install proxychains -y
+
+2)
+# Edit the configuration file
+sudo nano /etc/proxychains.conf
+in the file:
+- uncomment "dynamic_chain"
+-commet out "strict_chain"
+-commet out the last line: "socks4  127.0.0.1 9050"
+- add new line wth the ip adress of my server and port, example: socks4 192.168.1.222 8006
+- save file and exit
+

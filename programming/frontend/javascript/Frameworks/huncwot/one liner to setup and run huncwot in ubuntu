@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g huncwot-cli && yes "y" | huncwot init my-huncwot-app && cd my-huncwot-app && nsj && npm start

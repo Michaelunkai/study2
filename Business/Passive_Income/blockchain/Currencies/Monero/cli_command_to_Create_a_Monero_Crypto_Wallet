@@ -1,0 +1,1 @@
+apt install monero -y && mkdir -p /root && touch /root/wallet-password && echo "your_secure_password" > /root/wallet-password && monero-wallet-cli --generate-new-wallet /root/monero-wallet --password-file /root/wallet-password --mnemonic-language English

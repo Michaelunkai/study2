@@ -1,0 +1,39 @@
+Create Lambda Deployment Package:
+
+Save the following Python code in a file named lambda_function.py:
+
+ 
+ 
+import boto3
+import base64
+import json
+
+def lambda_handler(event, context):
+    s3_client = boto3.client('s3')
+    for record in event['Records']:
+        payload = base64.b64decode(record["kinesis"]["data"])
+        # Process the payload and save to S3
+        s3_client.put_object(
+            Bucket='my-unique-bucket-name-xyz',
+            Key='video-frame.jpg',
+            Body=payload
+        )
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Video processed successfully')
+    }
+Create a deployment package (ZIP file):
+
+ 
+ 
+zip function.zip lambda_function.py
+Create Lambda Function:
+
+ 
+ 
+aws lambda create-function --function-name ProcessKinesisVideo --zip-file fileb://function.zip --handler lambda_function.lambda_handler --runtime python3.8 --role arn:aws:iam::YOUR_ACCOUNT_ID:role/lambda-kinesis-role
+Add Trigger to Lambda Function:
+
+ 
+ 
+aws lambda create-event-source-mapping --function-name ProcessKinesisVideo --batch-size 1 --starting-position LATEST --event-source-arn arn:aws:kinesisvideo:YOUR_REGION:YOUR_ACCOUNT_ID:stream/MySurveillanceStream/1234567890

@@ -1,0 +1,1 @@
+ cd && apt install desktop-file-utils -y && wget https://get.atomicwallet.io/download/atomicwallet.deb && sudo dpkg -i atomicwallet.deb && atomic --no-sandbox

@@ -1,0 +1,1 @@
+sudo apt install -y sniproxy && sudo systemctl start sniproxy

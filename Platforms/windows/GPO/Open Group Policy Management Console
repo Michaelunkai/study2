@@ -1,0 +1,2 @@
+Press Win + R to open the Run dialog, type gpmc.msc, and press Enter. This will directly open the Group Policy Management Console.
+After opening the Group Policy Management Console, you can create, edit, and link Group Policy objects to organizational units (OUs) in your Active Directory domain to enforce specific settings and configurations on users and computers.

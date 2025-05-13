@@ -1,0 +1,1 @@
+clamscan --max-scantime=60 file.txt

@@ -1,0 +1,1 @@
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | /usr/bin/sort -n | awk '{printf "%.2f MB\t%s\n", $1/1024, $2}'

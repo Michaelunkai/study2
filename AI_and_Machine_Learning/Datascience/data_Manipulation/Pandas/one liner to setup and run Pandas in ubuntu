@@ -1,0 +1,1 @@
+sudo apt-get update && sudo apt-get install -y python3-pip && pip3 install pandas && python3 -c "import pandas as pd; print(pd.read_csv('file.csv').head())"

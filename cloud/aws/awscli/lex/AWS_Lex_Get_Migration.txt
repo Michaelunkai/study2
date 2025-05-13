@@ -1,0 +1,1 @@
+aws lex-models get-migration --migration-id <migration-id>

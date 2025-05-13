@@ -1,0 +1,1 @@
+pnpm add @tanstack/react-query && echo "Installed TanStack!"

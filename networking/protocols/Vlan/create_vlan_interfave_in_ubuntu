@@ -1,0 +1,3 @@
+Ubuntu:Install VLAN Package:sudo apt install vlanCreate a VLAN Interface:sudo vconfig add eth0 10
+sudo ip link set up dev eth0.10
+sudo ip addr add 192.168.10.1/24 dev eth0.10

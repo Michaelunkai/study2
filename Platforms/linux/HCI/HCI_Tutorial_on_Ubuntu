@@ -1,0 +1,92 @@
+HCI Tutorial on Ubuntu
+Introduction to Human-Computer Interaction (HCI)
+Human-Computer Interaction (HCI) involves the study and design of interfaces and interactions between people and computers. This tutorial will cover basic HCI principles and how you can use Ubuntu commands to explore and implement some HCI principles.
+
+Basic HCI Principles
+User-Centered Design (UCD): Focus on the needs, wants, and limitations of end users.
+Usability: Ensure the system is easy to learn and efficient to use.
+Accessibility: Design for users with varying abilities.
+Consistency: Maintain uniformity in design and interaction.
+Feedback: Provide clear feedback to users about their actions.
+1. User-Centered Design
+Research and Testing
+Tools like usability testing and user surveys are crucial.
+
+Install a Tool for Usability Testing
+ 
+ 
+sudo apt update
+sudo apt install gnome-shell-extension-prefs
+2. Usability
+Interface Customization
+Use tools like GNOME Tweaks to customize the desktop environment for better usability.
+
+Install and Open GNOME Tweaks
+ 
+ 
+sudo apt install gnome-tweaks
+gnome-tweaks
+3. Accessibility
+Enable the Built-in Screen Reader
+Enable the built-in screen reader Orca for visually impaired users.
+
+Install and Enable Orca
+ 
+ 
+sudo apt install orca
+orca
+4. Consistency
+Apply and Maintain a Consistent Theme Across Applications
+Use consistent UI themes for uniformity.
+
+Install and Change to a New Theme
+ 
+ 
+sudo apt install gnome-themes-standard
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+5. Feedback
+Configure System Notifications
+Configure notifications to provide timely feedback.
+
+Manage Notification Settings Using dconf
+ 
+ 
+sudo apt install dconf-editor
+dconf-editor
+Additional Tools and Commands
+Wireframing and Prototyping
+Install Pencil for Creating Wireframes and Prototypes
+ 
+ 
+sudo snap install pencil
+User Testing
+Install OBS Studio for Screen Recording
+ 
+ 
+sudo apt install ffmpeg
+sudo snap install obs-studio
+obs-studio
+Example Workflow
+1. Research and Requirements Gathering
+Conduct user surveys and interviews to understand user needs.
+
+Create a Simple Survey Using Google Forms
+ 
+ 
+xdg-open "https://forms.google.com"
+2. Design
+Create wireframes using Pencil.
+
+ 
+ 
+pencil
+3. Implementation
+Customize the interface using GNOME Tweaks and themes.
+
+4. Testing
+Record user interactions with OBS Studio and analyze usability.
+
+5. Feedback and Iteration
+Use feedback to refine and improve the design.
+
+By following these principles and utilizing these tools, you can effectively implement HCI practices on Ubuntu.

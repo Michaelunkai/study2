@@ -1,0 +1,1 @@
+docker run -d --name linkwarden -p 8007:80 linkwarden/linkwarden

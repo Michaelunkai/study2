@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y mono-complete dotnet-sdk-8.0 && dotnet new console -n SpecFlowDemo && cd SpecFlowDemo && dotnet add package SpecFlow && dotnet add package SpecFlow.NUnit && dotnet add package NUnit && dotnet test

@@ -1,0 +1,24 @@
+---
+- name: Run do-release-upgrade on all hosts
+  hosts: linux
+  become: yes
+  become_user: root
+  tasks:
+    - name: Ensure 'update-manager-core' is installed
+      apt:
+        name: update-manager-core
+        state: present
+      become: yes
+
+    - name: Set Prompt to normal in release-upgrades file
+      lineinfile:
+        path: /etc/update-manager/release-upgrades
+        regexp: '^Prompt='
+        line: 'Prompt=normal'
+      become: yes
+
+    - name: Run do-release-upgrade
+      command: do-release-upgrade -f DistUpgradeViewNonInteractive
+      become: yes
+      environment:
+        DEBIAN_FRONTEND: noninteractive

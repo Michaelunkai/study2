@@ -1,0 +1,8 @@
+Taskcafe is an open-source project management tool that features a Kanban board interface, allowing users to manage tasks, set due dates, add labels, and create checklists. It is designed to help individuals and teams organize and track their work efficiently. Taskcafe includes various features such as:
+
+- **Kanban Board Interface:** Allows for visual task management, where tasks can be moved between columns representing different stages of a workflow.
+- **My Tasks View:** Provides a personalized view of all tasks assigned to the user.
+- **Personal Projects:** Users can manage their own projects separately from team projects.
+- **Task Comments and Activity:** Enables communication and collaboration by allowing users to comment on tasks and view task history.
+
+Taskcafe is still under active development, with plans to add more features and enhancements. It is intended to be a flexible and customizable tool that can fit various workflows, from personal project management to team-based task tracking.

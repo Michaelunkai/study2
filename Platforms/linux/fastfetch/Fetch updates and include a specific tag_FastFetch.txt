@@ -1,0 +1,1 @@
+fastfetch fetch origin tagname

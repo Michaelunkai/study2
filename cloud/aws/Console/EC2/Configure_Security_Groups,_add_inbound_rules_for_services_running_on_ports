@@ -1,0 +1,14 @@
+Configure Security Groups
+You need to allow traffic to your EC2 instance on the port your application is running on (8080).
+
+Go to the AWS EC2 Management Console.
+Select your instance.
+Click on the "Security" tab.
+Under "Security groups", click on the security group associated with your instance.
+Click on the "Inbound rules" tab.
+Click "Edit inbound rules".
+Add a rule with the following settings:
+Type: Custom TCP
+Protocol: TCP
+Port Range: 8080
+Source: Anywhere (or My IP for more restricted access)

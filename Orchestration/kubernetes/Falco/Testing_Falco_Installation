@@ -1,0 +1,60 @@
+Testing Falco Installation
+It's essential to verify that Falco is correctly monitoring your Kubernetes cluster and sending alerts as expected.
+
+8.1. Generate a Test Alert
+You can create a pod that performs an action violating Falco's default rules to trigger an alert.
+
+8.1.1. Deploy a Test Pod
+Create a YAML file named test-pod.yaml:
+
+ 
+ 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+  namespace: default
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    command: ["sh", "-c", "echo 'This is a test' > /etc/testfile && sleep 3600"]
+  restartPolicy: Never
+Apply the Pod:
+
+ 
+ 
+kubectl apply -f test-pod.yaml
+Expected  :
+
+ 
+ 
+pod/test-pod created
+8.1.2. Monitor Alerts
+Check your configured Slack channel for alerts related to the test pod's actions (e.g., writing to the /etc/ directory).
+
+8.1.3. Clean Up Test Pod
+After testing, delete the test pod:
+
+ 
+ 
+kubectl delete pod test-pod -n default
+Expected  :
+
+arduino
+ 
+pod "test-pod" deleted
+8.2. Check Falco Logs Directly
+You can also inspect Falco's logs to see the alerts.
+
+ 
+ 
+kubectl logs -n falco $(kubectl get pods -n falco -l app=falco -o jsonpath='{.items[0].metadata.name}')
+Sample Log Entry:
+
+ 
+ 
+Time: [Timestamp]
+Rule: Write below etc
+Output: Write below etc detected (user=root command=sh -c echo 'This is a test' > /etc/testfile && sleep 3600)
+Priority: WARNING

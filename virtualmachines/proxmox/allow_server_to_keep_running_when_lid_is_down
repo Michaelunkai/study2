@@ -1,0 +1,12 @@
+in  ell:
+
+1)
+nano /etc/systemd/logind.conf
+
+remove # from HandleLidSwitch=""
+change it to - HandleLidSwitch=ignore
+and do the same for:
+
+HandleLidSwitchDocked=ignore
+
+2)systemctl restart systemd-logind.service

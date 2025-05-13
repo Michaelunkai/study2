@@ -1,0 +1,7 @@
+ Create an EFS File System
+Use the following command to create an EFS file system:
+
+ 
+ 
+aws efs create-file-system --creation-token MyEFS --performance-mode generalPurpose --region us-west-2
+Replace MyEFS with your desired creation token and us-west-2 with your desired region.

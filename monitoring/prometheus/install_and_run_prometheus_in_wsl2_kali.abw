@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" xmlns:ct="http://www.abisource.com/changetracking.dtd" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="28" xmlns:dc="http://purl.org/dc/elements/1.1/" styles="unlocked" fileformat="1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="abiword.date_last_changed">Wed Nov  8 05:59:40 2023
+</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="dc.creator">root</m>
+<m key="dc.date">Wed Nov  8 05:59:40 2023
+</m>
+<m key="dc.format">application/x-abiword</m>
+</metadata>
+<rdf>
+</rdf>
+<history version="1" edit-time="16" last-saved="1699415980" uid="3467dfa8-7deb-11ee-9b05-a203e6dea441">
+<version id="1" started="1699415980" uid="3ddf1650-7deb-11ee-9b05-a203e6dea441" auto="0" top-xid="28"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="font-family:Times New Roman; margin-top:0pt; color:000000; margin-left:0pt; text-position:normal; widows:2; font-style:normal; text-indent:0in; font-variant:normal; font-weight:normal; margin-right:0pt; font-size:12pt; text-decoration:none; margin-bottom:0pt; line-height:1.0; bgcolor:transparent; text-align:left; font-stretch:normal"/>
+<s type="P" name="Plain Text" basedon="Normal" followedby="Current Settings" props="font-family:Courier New"/>
+<s type="P" name="Heading 3" basedon="Normal" followedby="Normal" props="keep-with-next:1; margin-top:22pt; font-weight:bold; margin-bottom:3pt; font-family:Liberation Sans; font-size:12pt"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section xid="27" props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" xid="28"><c>Step 1: Download Prometheus</c></p>
+<p style="Normal" xid="1"><c>Open a terminal in Kali Linux and use the </c><c props="font-family:Courier">wget</c><c> command to download the Prometheus tarball:</c></p>
+<p style="Plain Text" xid="2"><c></c></p>
+<p style="Plain Text" xid="3"><c>bash</c></p>
+<p style="Plain Text" xid="4"><c></c></p>
+<p style="Plain Text" xid="5"><c props="font-family:Courier">wget https://github.com/prometheus/prometheus/releases/download/v2.47.2/prometheus-2.47.2.linux-amd64.tar.gz<br/></c></p>
+<p style="Heading 3" xid="6"><c>Step 2: Extract the Tarball</c></p>
+<p style="Normal" xid="7"><c>Use the </c><c props="font-family:Courier">tar</c><c> command to extract the contents of the downloaded tarball:</c></p>
+<p style="Plain Text" xid="8"><c></c></p>
+<p style="Plain Text" xid="9"><c>bash</c></p>
+<p style="Plain Text" xid="10"><c></c></p>
+<p style="Plain Text" xid="11"><c props="font-family:Courier">tar xvfz prometheus-2.47.2.linux-amd64.tar.gz<br/></c></p>
+<p style="Heading 3" xid="12"><c>Step 3: Navigate to the Prometheus Directory</c></p>
+<p style="Normal" xid="13"><c>Change into the Prometheus directory:</c></p>
+<p style="Plain Text" xid="14"><c></c></p>
+<p style="Plain Text" xid="15"><c>bash</c></p>
+<p style="Plain Text" xid="16"><c></c></p>
+<p style="Plain Text" xid="17"><c props="" props="font-family:Courier">cd</c><c props="font-family:Courier"> prometheus-2.47.2.linux-amd64<br/></c></p>
+<p style="Heading 3" xid="18"><c>Step 4: Run Prometheus</c></p>
+<p style="Normal" xid="19"><c>Run Prometheus using the </c><c props="font-family:Courier">./prometheus</c><c> command:</c></p>
+<p style="Plain Text" xid="20"><c></c></p>
+<p style="Plain Text" xid="21"><c>bash</c></p>
+<p style="Plain Text" xid="22"><c></c></p>
+<p style="Plain Text" xid="23"><c props="font-family:Courier">./prometheus<br/></c></p>
+<p style="Normal" xid="24"><c>Prometheus should now be running. You can access the Prometheus web UI by visiting </c><c props="font-family:Courier">http://localhost:9090</c><c> in your web browser.</c></p>
+<p style="Normal" xid="25"><c></c></p>
+<p style="Normal" xid="26"><c></c></p>
+</section>
+</abiword>

@@ -1,0 +1,1 @@
+aws ecs create-service --cluster my-cluster --service-name my-web-app --task-definition my-task-def --desired-count 3 --launch-type FARGATE

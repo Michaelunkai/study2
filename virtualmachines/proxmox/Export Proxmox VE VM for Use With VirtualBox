@@ -1,0 +1,47 @@
+▲A  A▼
+Export Proxmox VE VM for Use With VirtualBox
+NOTE: In this tutorial I'll be backing up the VM to an existing network share. For details on how to add a network share to Proxmox, check out this tutorial https://youtu.be/hkrFZoiYX_0?t=47
+
+Export the VM from Proxmox VE
+Log into the Proxmox VE web UI
+Select the VM from the left navigation menu
+Select Backup from the left sub-navigation menu
+Click the Backup now button towards the top of the page
+Set the destination location, the Mode to Stop and the Compression to none > Click Backup
+After the backup operation has completed, select the Proxmox node from the left navigation menu
+Select Shell from the left sub-navigation menu
+Change directory to the location of the vma backup file, this will vary based on your specific setup
+# change directory to view mounted shares
+cd /mnt/pve
+# list mounted shares
+ls
+# cd into dump directory on the specific share, ISOs in this example
+cd ISOs/dump
+# list the files in the share
+ls
+The backup .vma file and a .log file should be displayed
+Extract the .vma file using the vma command line tool
+# extract the .vma
+# usage: vma extract -v <vzdump-filename.vma> <destination directory>
+vma extract -v filename.vma ./export
+Wait for the .vma to be extracted, resulting in a .raw disk image
+Converting and Importing the Disk to VirtualBox
+Launch VirtualBox Manager
+Create a new VM, using the same/similar hardware specifications as the Proxmox VM
+Choose to not create a virtual hard disk
+With the VM created, right click the VM in the left navigation menu > Show in Explorer
+Copy the exported .raw disk image to the VirtualBox VM folder
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Run the following command to convert the .raw disk image to .vdi
+# list .raw files
+Get-ChildItem -File -Filter *.raw |Select Directory, Name, Extension
+# usage: vboxmanage.exe convertfromraw <input-filename.raw> <output-filename.vdi>
+Invoke-Expression ('& "'+ $Env:Programfiles +'\Oracle\VirtualBox\VBoxManage.exe" convertfromraw ".\input-filename.raw" ".\output-filename.vdi"')
+Back in VirtualBox Manager, select the VM and Click Settings
+Select Storage from the left navigation menu
+Click Add Storage Attachment > Add Hard Disk > Choose existing disk
+Click Add and browse to the newly converted .vdi file
+Click OK to all open VirtualBox dialog windows
+Right click the VM > Select Start > Normal
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

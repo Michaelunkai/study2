@@ -1,0 +1,1 @@
+docker run -d --name nuodb -p 48004:48004 nuodb/nuodb-ce:latest && gcl 48004

@@ -1,0 +1,1 @@
+pip install jupytext && jupytext --to py notebook1.ipynb && jupytext --to py notebook2.ipynb && diff notebook1.py notebook2.py

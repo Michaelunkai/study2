@@ -1,0 +1,1 @@
+wget https://developers.redhat.com/content-gateway/rest/mirror/pub/fuse/fuse-karaf/7.10.0/fuse-karaf-7.10.0.zip && unzip fuse-karaf-7.10.0.zip && cd fuse-karaf-7.10.0/bin && ./karaf

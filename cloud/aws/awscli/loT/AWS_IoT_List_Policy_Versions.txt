@@ -1,0 +1,1 @@
+aws iot list-policy-versions --policy-name <policy-name>

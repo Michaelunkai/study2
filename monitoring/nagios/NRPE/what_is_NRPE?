@@ -1,0 +1,15 @@
+**NRPE (Nagios Remote Plugin Executor)** is an addon for Nagios that allows you to execute Nagios plugins on remote Linux/Unix machines. By using NRPE, you can monitor system metrics (like CPU load, memory usage, disk usage, etc.) on remote machines as if they were local to the Nagios server. This is particularly useful for monitoring the health and performance of multiple servers from a single Nagios instance.
+
+### Key Points about NRPE:
+1. **Client-Server Architecture:** NRPE follows a client-server architecture. The NRPE daemon runs on the remote machine (client) and listens for requests from the Nagios server. The Nagios server sends commands to the NRPE client to execute specific plugins.
+
+2. **Security:** Communication between the Nagios server and NRPE is usually secured by IP whitelisting. You specify which IP addresses are allowed to communicate with the NRPE daemon, thereby limiting access to trusted Nagios servers.
+
+3. **Plugin Execution:** NRPE can execute both standard Nagios plugins and custom scripts on the remote machine. The results of these executions are sent back to the Nagios server, which then determines the health and status of the remote machine.
+
+4. **Cross-Platform Monitoring:** While NRPE is primarily used on Linux/Unix systems, it can also be used on Windows servers with the help of an NRPE-compatible agent, such as NSClient++.
+
+### Example Use Case:
+- **Monitoring Disk Usage:** You can use NRPE to run a disk usage check on a remote server. The NRPE plugin will execute a script that checks disk usage on the remote machine, and the result (e.g., 80% disk usage on `/dev/sda1`) will be sent back to Nagios, which can then trigger alerts if the usage exceeds a defined threshold.
+
+In summary, NRPE is a vital tool in distributed monitoring setups, enabling centralized monitoring and alerting across multiple remote systems.

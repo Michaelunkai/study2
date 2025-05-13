@@ -1,0 +1,1 @@
+wget https://screenrec.com/download/ubuntu -O screenrec.deb && sudo dpkg -i screenrec.deb && sudo apt-get install -f && screenrec

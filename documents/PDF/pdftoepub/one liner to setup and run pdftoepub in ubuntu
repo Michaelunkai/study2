@@ -1,0 +1,1 @@
+sudo apt install -y pdftoepub && pdftoepub input.pdf output.epub

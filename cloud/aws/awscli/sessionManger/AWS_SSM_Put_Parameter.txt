@@ -1,0 +1,1 @@
+aws ssm put-parameter --name <parameter-name> --value <value> --type <String|StringList|SecureString>

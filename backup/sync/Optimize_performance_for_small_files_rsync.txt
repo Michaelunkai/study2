@@ -1,0 +1,1 @@
+rsync -av --no-whole-file /source_directory/ /destination_directory/

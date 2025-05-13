@@ -1,0 +1,25 @@
+sudo apt update && sudo apt upgrade -y && sudo apt install -y default-jdk && sudo mkdir /var/lib/tomcat9 && sudo groupadd tomcat && sudo useradd -s /bin/false -g tomcat -d /var/lib/tomcat9 tomcat && regex='<a href="v[^/]*\/">v([^/]*)\/<\/a>' && response=$(curl -s https://downloads.apache.org/tomcat/tomcat-9/?C=M;O=D) && [[ $response =~ $regex ]] && downloadURL="${BASH_REMATCH[1]}" && curl -O https://downloads.apache.org/tomcat/tomcat-9/v$downloadURL/bin/apache-tomcat-$downloadURL.tar.gz && sudo tar xzvf apache-tomcat-9*tar.gz -C /var/lib/tomcat9 --strip-components=1 && cd /var/lib/tomcat9 && sudo chgrp -R tomcat /var/lib/tomcat9 && sudo chmod -R g+r conf && sudo chmod g+x conf && sudo chown -R tomcat webapps/ work/ temp/ logs/ && echo '[Unit]
+Description=Apache Tomcat
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+Environment=CATALINA_PID=/var/lib/tomcat9/temp/tomcat.pid
+Environment=CATALINA_HOME=/var/lib/tomcat9
+Environment=CATALINA_BASE=/var/lib/tomcat9
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/var/lib/tomcat9/bin/startup. 
+ExecStop=/var/lib/tomcat9/bin/ utdown. 
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target' | sudo tee /etc/systemd/system/tomcat.service && sudo systemctl daemon-reload && sudo systemctl start tomcat && sudo systemctl enable tomcat && cd ~ && wget https://github.com/jgraph/drawio/releases/download/v13.8.0/draw.war && sudo cp ./draw.war /var/lib/tomcat9/webapps && sudo systemctl restart tomcat && gc http://localhost:8080/draw

@@ -1,0 +1,12 @@
+Create an S3 Bucket
+Create an S3 bucket to store scripts and data:
+
+ 
+ 
+aws s3 mb s3://your-glue-bucket
+Upload Script to S3
+Upload your ETL script to the S3 bucket:
+
+ 
+ 
+aws s3 cp your-etl-script.py s3://your-glue-bucket/scripts/your-etl-script.py

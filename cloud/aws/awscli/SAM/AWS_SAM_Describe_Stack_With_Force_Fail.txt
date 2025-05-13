@@ -1,0 +1,1 @@
+sam describe stack --stack-name <stack-name> --force-fail

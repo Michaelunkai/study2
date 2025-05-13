@@ -1,0 +1,1 @@
+aws codeguruprofiler update-insight --profiling-group-name MyProfilingGroup --insight-id <insight-id> --state Resolved

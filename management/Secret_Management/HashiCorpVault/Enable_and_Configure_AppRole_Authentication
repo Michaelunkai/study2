@@ -1,0 +1,28 @@
+Enable and Configure AppRole Authentication
+Enable the AppRole authentication method:
+
+ 
+ 
+vault auth enable approle
+Create a policy for the AppRole:
+
+ 
+ 
+sudo nano /etc/vault.d/approle_policy.hcl
+Add the following content to the file:
+
+hcl
+ 
+path "secret/*" {
+  capabilities = ["read", "list"]
+}
+Apply the policy to Vault:
+
+ 
+ 
+vault policy write my-approle-policy /etc/vault.d/approle_policy.hcl
+Create an AppRole with the policy:
+
+ 
+ 
+vault write auth/approle/role/my-role token_policies="my-approle-policy"

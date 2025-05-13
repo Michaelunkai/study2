@@ -1,0 +1,42 @@
+
+Installation
+Download XAMPP Download
+Download WebIssues Download
+Download Microsoft Visual C++ Download
+Install Microsoft Visual C++
+Right click the downloaded XAMPP .zip file > Extract All...
+Right click the downloaded WebIssues .zip file > Extract All...
+Rename the extracted folder webissues
+Cut the webissues folder inside the XAMPP/htdocs directory
+Copy the extracted XAMPP directory to a safe location to run from, C:\Program Files for example
+Run XAMPP/setup_xampp.bat to update the configuration files with the new server location
+Navigate to XAMPP/php and edit php.ini
+Find the following lines and remove the ; to uncomment them
+extension=imap
+
+Run XAMPP/xampp-control.exe
+Click the Start button next to Apache and MySQL
+Navigate to XAMPP/my /bin
+Hold the SHIFT key and right click in the white space > Open PowerShell window here...
+Type the following in the PowerShell window to setup the webissues database
+.\my  -u root
+CREATE DATABASE webissues;
+GRANT ALL ON webissues.* TO 'webissues_rw'@'localhost' IDENTIFIED BY 'W3b1ssu3s!';
+FLUSH PRIVILEGES;
+EXIT;
+exit
+Open a web browser and navigate to http://DNSorIP/webissues
+Click the Configure Database link
+Select a Language > Click Next
+Select Create new database tables and MySQL > Complete the form as follows
+Host name: localhost
+Database name: webissues
+User name: webissues_rw
+Password: W3b1ssu3s!
+
+Click Next at the bottom right of the page
+Give the server a name and enter and confirm a password for the admin user > Click Next
+Review the installation summary > Click Install
+After the installation completes click the Web Client link
+Welcome to WebIssues
+Source: https://doc.mimec.org/webissues-guide/installation.html

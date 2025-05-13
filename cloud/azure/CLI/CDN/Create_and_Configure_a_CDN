@@ -1,0 +1,1 @@
+az cdn profile create --resource-group myResourceGroup --name myCDNProfile --sku Standard_Microsoft && az cdn endpoint create --resource-group myResourceGroup --profile-name myCDNProfile --name myEndpoint --origin myorigin.example.com

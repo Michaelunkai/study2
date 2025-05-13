@@ -1,0 +1,36 @@
+Analyze Text with Amazon Comprehend
+Detect Sentiment:
+
+Use the following command to detect the sentiment (e.g., Positive, Negative, Neutral, Mixed) of the text:
+
+ 
+ 
+aws comprehend detect-sentiment \
+--language-code "en" \
+--text "$(cat sample.txt)"
+Detect Entities:
+
+Identify entities like names, dates, and locations in the text:
+
+ 
+ 
+aws comprehend detect-entities \
+--language-code "en" \
+--text "$(cat sample.txt)"
+Detect Key Phrases:
+
+Extract key phrases identified by Amazon Comprehend:
+
+ 
+ 
+aws comprehend detect-key-phrases \
+--language-code "en" \
+--text "$(cat sample.txt)"
+Detect Dominant Language:
+
+Identify the dominant language of the text:
+
+ 
+ 
+aws comprehend detect-dominant-language \
+--text "$(cat sample.txt)"

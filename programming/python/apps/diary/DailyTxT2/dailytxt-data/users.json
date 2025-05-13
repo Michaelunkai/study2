@@ -1,0 +1,12 @@
+{
+  "id_counter": 1,
+  "users": [
+    {
+      "username": "michaelovsky5",
+      "password": "sha256$xnOkrhL920fD12b9$9b656b760e5eec832edbfb436547a47c7083409021d4cb77fd2fe17b9ba131cf",
+      "salt": "vbS-OqLzTnYU_9VoBQd6_g==",
+      "enc_enc_key": "gAAAAABoIKKcAIR7yvobnLX941OIkJ4mEv88XbScZEXZ7_is5LTRm9uBr_KrK3qtyoZ-ODU443T2Z7DdiBp1zAUyKQVrWB6B4eUTWMX7GDZRgrlWnyrnP3qnuzgR1IM6fCug2j5sYPvd",
+      "user_id": 1
+    }
+  ]
+}

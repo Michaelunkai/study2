@@ -1,0 +1,1 @@
+aws ce list-cost-categories

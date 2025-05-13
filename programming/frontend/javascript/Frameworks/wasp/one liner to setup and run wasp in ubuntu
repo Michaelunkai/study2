@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g wasp-cli && yes "y" | wasp init my-wasp-app && cd my-wasp-app && nsj && npm start

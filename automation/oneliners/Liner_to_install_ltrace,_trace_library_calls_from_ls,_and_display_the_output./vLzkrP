@@ -1,0 +1,1 @@
+sudo apt install -y ltrace && echo -e '#!/bin/bash\nltrace /usr/bin/ls > ltrace_output.txt' > trace_library_calls_with_ltrace.sh && chmod +x trace_library_calls_with_ltrace.sh && ./trace_library_calls_with_ltrace.sh && cat ltrace_output.txt

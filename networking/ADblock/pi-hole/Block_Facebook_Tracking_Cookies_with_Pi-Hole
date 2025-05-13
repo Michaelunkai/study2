@@ -1,0 +1,17 @@
+Block Facebook Tracking Cookies with Pi-Hole
+Open a web browser and navigate to https://facebook.com
+Facebook will load normally
+Open a new tab and navigate to the Pi-Hole admin interface
+Click Login in the left navigation menu
+Login with the administrative password
+Click Blacklist in the left navigation menu
+Click the Regex filter tab at the top of the main content area
+Complete the Regex Filter form as follows:
+Regular Expression: (facebook|fb|fbcdn|fbsbx|tfbnw)\.(com|net)
+Comment: Facebook
+
+Click the Add to Blacklist button
+Open a new tab and navigate to https://facebook.com
+Pi-hole should now be blocking Facebook.com and many of the known domain names used by Facebook tracking cookies
+Back in the Pi-hole admin interface, click Query Log in the left navigation menu
+Facebook.com will be showing as Blocked (regex blacklist)

@@ -1,0 +1,48 @@
+first in wsl2 wich is where i mainly use my repo, i created the following aliases:
+
+alias psw=' .exe'
+
+
+
+alias gitpush='cd /mnt/c/study && git add . && git commit -m "commit" && git push origin main'
+
+
+
+alias gitpull="git pull origin main"
+
+
+
+alias gitadd='psw -Command "gitadd" 
+
+
+
+alias gitpush='psw -Command "gitpush"'
+
+
+
+alias stud="cd /home/ubuntu/study"
+
+alias gitgo="gitadd && gitpush"
+
+
+
+
+no i can run "gitgo" to push changes fast.
+
+
+
+in ubuntu deskto VM server:
+
+
+
+Edit the Cron Tab:
+
+crontab -e
+Add the Following Line to Pull Changes Every Minute:
+
+* * * * * cd /home/ubuntu/study && git pull origin main  # for the Ubuntu server
+
+
+and save.
+
+now it will autmatically fetch all latest pushed changed in the repo to the ubuntu server every minute!

@@ -1,0 +1,15 @@
+To schedule a task to run periodically at a specified time using cron in Linux, you would typically use the "crontab" command to edit the cron table.
+
+Here's a general outline of the process:
+
+Open the cron table for editing using the command:
+
+ 
+ 
+crontab -e
+Add a new line to the cron table specifying the schedule and the command to run. For example, to run a script named "myscript.sh" every day at 5:00 AM, you would add:
+
+ 
+ 
+0 5 * * * /path/to/myscript.sh
+Save and exit the editor. The cron daemon will automatically pick up the changes and schedule the task accordingly.

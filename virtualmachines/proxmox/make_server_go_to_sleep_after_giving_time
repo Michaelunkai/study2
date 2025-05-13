@@ -1,0 +1,23 @@
+1)
+
+nano /etc/default/grub
+
+in:
+GRUB_CMDLINE_LINUX=""
+
+i can make it go to sleep for example after an hour:
+
+
+GRUB_CMDLINE_LINUX="consoleblank=3600"
+
+
+2) update-grub
+
+////////////
+
+to make it shutdown: 
+
+1)
+GRUB_CMDLINE_LINUX="consoleblank=3600 acpi=off"
+
+2) update-grub

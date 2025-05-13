@@ -1,0 +1,1 @@
+cd /tmp && wget https://example.com/fdm-cli.deb && sudo apt install -y ./fdm-cli.deb && fdm

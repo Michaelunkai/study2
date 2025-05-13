@@ -1,0 +1,1 @@
+docker run -d -p 9090:8080 springio/gs-spring-boot-docker && sleep 2 && curl http://localhost:9090

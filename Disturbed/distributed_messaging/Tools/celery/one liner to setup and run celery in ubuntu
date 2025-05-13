@@ -1,0 +1,1 @@
+sudo apt install python3-pip -y && pip install celery && echo -e "from celery import Celery\napp = Celery('tasks', broker='redis://localhost:6379/0')" > tasks.py && celery -A tasks worker --loglevel=info

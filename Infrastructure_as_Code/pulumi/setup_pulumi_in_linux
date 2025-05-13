@@ -1,0 +1,5 @@
+curl -fsSL https://get.pulumi.com | sh
+
+restart the shell
+
+pulumi version

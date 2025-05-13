@@ -1,0 +1,8 @@
+curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh \
+| sudo bash -s -- -b /usr/local/bin && \
+mkdir -p .github/workflows && \
+printf '%s\n' \
+'name: Local‑CI' 'on: push' 'jobs:' '  hello:' '    runs-on: ubuntu-latest' \
+'    steps:' '      - run: echo "Hello from act!"' \
+> .github/workflows/hello.yml && \
+act

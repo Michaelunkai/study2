@@ -1,0 +1,64 @@
+### Step-by-Step Guide to Run Bitping in Ubuntu and Make Profit
+
+#### 1. **Create a Bitping Account**
+
+- First, create a Bitping account [here](https://app.bitping.com/register).
+  
+#### 2. **Install Bitpingd on Ubuntu**
+
+- Open a terminal in Ubuntu and install the `bitpingd` binary by running the following command:
+
+  
+curl https://bitping.com/install.sh | bash
+
+#### 3. **Login to Bitping**
+
+- After installation, log in to the Bitping network using the following command:
+
+  
+bitpingd login
+
+- Follow the prompts to enter your Bitping account credentials.
+
+#### 4. **Run Bitpingd**
+
+- To run the Bitping node with a display, use:
+
+  
+bitpingd
+
+#### 5. **Install and Run Bitpingd as a Service**
+
+- To run Bitping in the background even after logging out, install it as a service:
+
+  For root/sudo:
+  
+  
+bitpingd service install --system && bitpingd service start --system
+
+- For an unprivileged user:
+
+  
+bitpingd service install && bitpingd service start
+sudo loginctl enable-linger $(whoami)
+
+#### 6. **Check Node Status**
+
+- To check if the Bitping node is running correctly:
+
+  
+bitpingd status
+
+#### 7. **Monitor Earnings**
+
+- You can monitor your earnings on the [Bitping Dashboard](https://app.bitping.com/dashboard) by logging into your account.
+
+#### 8. **Withdraw Earnings**
+
+- Once you've accumulated enough earnings, you can withdraw them via the Bitping Dashboard. Log in to your account, navigate to the wallet section, and follow the withdrawal instructions to transfer your earnings to your preferred payment method.
+
+#### 9. **Join the Bitping Community**
+
+- If you encounter issues or need further guidance, you can join the Bitping Support chat on [Telegram](https://t.me/bitping) or open an issue on [GitHub](https://github.com/BitpingApp/Bitping-Node/issues).
+
+This setup will allow you to continuously earn passive income by running the Bitping node in the background on Ubuntu.

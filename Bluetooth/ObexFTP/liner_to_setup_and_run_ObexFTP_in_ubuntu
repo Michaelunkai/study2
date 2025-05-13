@@ -1,0 +1,1 @@
+sudo apt-get install obexftp && obexftp -b [device_address] -l

@@ -1,0 +1,11 @@
+Verify Hazelcast is Running
+Once Hazelcast is running, you can verify its status using the health check command:
+
+ 
+ 
+./hz-healthcheck
+Additionally, you can tail the logs to monitor Hazelcast's activity:
+
+ 
+ 
+tail -f ../logs/hazelcast.log

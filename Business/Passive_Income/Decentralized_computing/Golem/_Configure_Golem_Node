@@ -1,0 +1,11 @@
+Configure Golem Node
+After installation, you will need to configure your node by providing a few details. The system will prompt you for the following settings:
+
+Node Name: You will be asked to provide a name for your node. If you don't specify one, a default name will be generated automatically.
+
+Ethereum Wallet Address: You can either provide your own Ethereum wallet address or allow Golem to generate one for you. It's recommended to use your own wallet for managing earnings.
+
+Price (GLM per Hour): Set the price for how much you want to charge per hour for providing your computing resources. The default is 0.1 GLM per hour, but you can set a more competitive price based on the current market rates. For instance, you can set it to 0.025 GLM.
+
+Once you’ve filled in the information, press Enter to save the settings.
+

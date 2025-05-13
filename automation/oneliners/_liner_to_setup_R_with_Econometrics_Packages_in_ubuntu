@@ -1,0 +1,1 @@
+sudo apt install -y r-base && R -e "install.packages('lmtest', repos='http://cran.us.r-project.org')"

@@ -1,0 +1,119 @@
+Setup_and_Use_Ha iCorp_Waypoint_with_Docker_for_Application_Deployment_in_Ubuntu
+Step 1: Install Waypoint
+Download and install the Waypoint binary from the official HashiCorp releases page.
+
+Download the latest Waypoint binary for Linux:
+
+ 
+ 
+curl -o waypoint.zip https://releases.hashicorp.com/waypoint/0.10.1/waypoint_0.10.1_linux_amd64.zip
+Unzip the binary:
+
+ 
+ 
+sudo apt install unzip
+unzip waypoint.zip
+Move the binary to /usr/local/bin:
+
+ 
+ 
+sudo mv waypoint /usr/local/bin/
+Verify the installation:
+
+ 
+ 
+waypoint version
+Step 2: Initialize a Waypoint Project
+Create a new directory for your application:
+
+ 
+ 
+mkdir my-app
+cd my-app
+Create a simple Flask application (app.py):
+
+ 
+ 
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
+Create a requirements.txt file with Flask listed as a dependency:
+
+ 
+ 
+Flask==2.0.1
+Create a Dockerfile:
+
+Dockerfile
+ 
+FROM  :3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --trusted-host pypi. .org -r requirements.txt
+
+COPY . /app
+
+EXPOSE 5000
+
+CMD [" ", "app.py"]
+Step 3: Initialize a Waypoint Project
+Initialize a new Waypoint project:
+
+ 
+ 
+waypoint init
+Update the waypoint.hcl file with the following content:
+
+hcl
+ 
+project = "my-app"
+
+app "example" {
+  labels = {
+    "service" = "web"
+  }
+
+  build {
+    use "docker" {}
+  }
+
+  deploy {
+    use "docker" {}
+  }
+
+  release {
+    use "docker" {}
+  }
+}
+Step 4: Build, Deploy, and Release with Waypoint
+Authenticate Waypoint with Docker and accept Terms of Service:
+
+ 
+ 
+waypoint install --platform=docker -accept-tos
+Build, deploy, and release the application:
+
+ 
+ 
+waypoint up
+Step 5: Access the Application
+List running Docker containers to find the one created by Waypoint:
+
+ 
+ 
+docker ps
+Get the container’s port to access the application:
+
+ 
+ 
+docker port <container_id>
+Open your browser and go to http://localhost:<port> to see your deployed application.

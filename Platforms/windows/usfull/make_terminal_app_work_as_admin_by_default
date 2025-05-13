@@ -1,0 +1,43 @@
+To ensure that any new terminal (specifically the Windows Terminal) always opens in admin mode, you can modify its settings or create a shortcut that forces it to run as administrator. Here’s how to do it:
+
+1. **Create a Shortcut for Windows Terminal**:
+   - Right-click on the desktop or in a folder and select `New` -> `Shortcut`.
+   - In the "Type the location of the item" field, enter the following path:
+     %LocalAppData%\Microsoft\WindowsApps\wt.exe
+   - Click `Next` and name the shortcut something like "Windows Terminal (Admin)".
+   - Click `Fini `.
+
+2. **Set the Shortcut to Run as Administrator**:
+   - Right-click on the newly created shortcut and select `Properties`.
+   - Go to the `Shortcut` tab and click on the `Advanced` button.
+   - Check the box that says `Run as administrator`.
+   - Click `OK`, then `Apply`, and `OK` again.
+
+3. **Use the Shortcut**:
+   - Double-click the shortcut whenever you need to open Windows Terminal with administrative privileges.
+
+If you want to ensure that Windows Terminal always opens in admin mode regardless of how it's launched, you can modify its execution policy in the task scheduler:
+
+1. **Open Task Scheduler**:
+   - Press `Win + R`, type `taskschd.msc`, and press `Enter`.
+
+2. **Create a New Task**:
+   - In the Task Scheduler, click on `Create Task` in the right-hand pane.
+   - In the `General` tab, name the task something like "Windows Terminal Admin".
+   - Check the box that says `Run with highest privileges`.
+
+3. **Set the Trigger**:
+   - Go to the `Triggers` tab and click `New`.
+   - Set the trigger to `At log on` if you want it to start at login, or set another trigger as per your needs.
+   - Click `OK`.
+
+4. **Set the Action**:
+   - Go to the `Actions` tab and click `New`.
+   - In the "Program/script" field, enter:
+     %LocalAppData%\Microsoft\WindowsApps\wt.exe
+   - Click `OK`.
+
+5. **Finish and Save**:
+   - Click `OK` to save the task.
+
+This will ensure that Windows Terminal always opens with administrative privileges when triggered by the specified event.

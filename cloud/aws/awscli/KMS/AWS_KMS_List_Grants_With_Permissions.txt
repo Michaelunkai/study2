@@ -1,0 +1,1 @@
+aws kms list-grants --key-id <key-id> --grant-tokens <token-1> <token-2>

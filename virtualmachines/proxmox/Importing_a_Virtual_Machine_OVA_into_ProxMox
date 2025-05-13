@@ -1,0 +1,22 @@
+Importing a Virtual Machine OVA into ProxMox
+Log into ProxMox VE either via SSH or the web based shell
+Run the following commands to download the .ova and import it
+NOTE: in the example we are installing TurnKey Core
+# make a working directory
+mkdir ova_import && cd ova_import
+# download the ova
+wget -O TurnKey.ova https://laotzu.ftp.acc.umu.se/mirror/turnkeylinux/images/ova/turnkey-core-16.1-buster-amd64.ova
+# extract the downloaded ova
+tar xvf TurnKey.ova
+# create a new vm from the ova
+# usage
+# qm importovf <unused vmid> <path to ova> <destination storage pool name> [OPTIONS]
+qm importovf 300 ./turnkey-core-16.1-buster-amd64.ovf HDD_500GB --format qcow2
+After the VM has been successfully imported, open a web browser and navigate to the ProxMox VE web UI
+Select the imported VM from the left navigation menu
+Review the imported VM details and tweak as needed
+Click the Start button in the top right of the screen
+Click the Console link to watch the boot process
+After confirming the imported VM is working, run the following command to clean up the downloaded ova data
+cd ..
+rm ova_import/ -r

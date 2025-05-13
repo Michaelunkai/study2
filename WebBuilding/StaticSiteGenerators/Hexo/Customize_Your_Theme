@@ -1,0 +1,6 @@
+Customize Your Theme
+Hexo allows you to customize your blog theme. You can download themes from the Hexo Themes website and install them in the themes directory. To switch themes, update the theme variable in _config.yml:
+
+ 
+ 
+theme: your-theme-name

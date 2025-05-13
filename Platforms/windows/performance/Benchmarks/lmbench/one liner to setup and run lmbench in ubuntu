@@ -1,0 +1,1 @@
+sudo apt install lmbench -y && sudo /usr/lib/lmbench/bin/lat_syscall -P 1

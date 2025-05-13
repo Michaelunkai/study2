@@ -1,0 +1,1 @@
+sudo apt install -y xpdf && xpdf example.pdf

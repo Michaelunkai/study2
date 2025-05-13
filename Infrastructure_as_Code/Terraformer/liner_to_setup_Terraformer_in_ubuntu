@@ -1,0 +1,1 @@
+curl -Lo terraformer https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.22/terraformer-all-linux-amd64 && chmod +x terraformer && sudo mv terraformer /usr/local/bin/ && terraformer --version || echo "https://github.com/GoogleCloudPlatform/terraformer"

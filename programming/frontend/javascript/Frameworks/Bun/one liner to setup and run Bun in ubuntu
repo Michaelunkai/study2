@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g bun-cli && yes "y" | bun init my-bun-app && cd my-bun-app && nsj && npm start

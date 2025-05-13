@@ -1,0 +1,1 @@
+heroku addons:create heroku-postgre :hobby-dev

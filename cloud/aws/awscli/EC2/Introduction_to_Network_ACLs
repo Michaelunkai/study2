@@ -1,0 +1,28 @@
+Introduction to Network ACLs:
+View existing VPCs and their IDs:
+
+aws ec2 describe-vpcs --query 'Vpcs[*].VpcId'
+View existing network ACLs and their entries:
+
+aws ec2 describe-network-acls --query 'NetworkAcls[*].{ACLId:NetworkAclId, Entries:Entries[*].{RuleNumber:RuleNumber, Protocol:Protocol, RuleAction:RuleAction, CidrBlock:CidrBlock}}'
+Create a custom network ACL:
+
+
+aws ec2 create-network-acl --vpc-id <vpc-id>
+
+Associate the network ACL with a subnet:
+
+aws ec2 create-network-acl-entry --network-acl-id <acl-id> --ingress --rule-number <rule-number> --protocol <protocol> --rule-action <allow|deny> --cidr-block <cidr-block>
+
+View the inbound and outbound rules of a network ACL:
+
+aws ec2 describe-network-acls
+
+Modify the rules of a network ACL:
+
+
+aws ec2 update-network-acl-entry --network-acl-id <acl-id> --rule-number <rule-number> --egress --protocol <protocol> --rule-action <allow|deny> --cidr-block <cidr-block>
+
+Delete a network ACL:
+
+aws ec2 delete-network-acl --network-acl-id <acl-id>

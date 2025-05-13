@@ -1,0 +1,45 @@
+▲A  A▼
+Running a SteamOS 3 Holo VM in ProxMox VE with HoloISO
+What is HoloISO?
+[HoloISO] attempts to bring the Steam Deck's SteamOS Holo into a generic, installable format, and provide a close-to-official SteamOS experience. Main point of this project focuses in re-implementing proprietary (as in runs-only-on-deck) components that Steam client, OS itself, gamescope and user-created applications for Deck rely on. -https://github.com/theVakhovskeIsTaken/holoiso
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download HoloISO Download and upload it to the ProxMox ISO image library
+If on ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Right click the ProxMox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the HoloISO installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+On the System tab, set the BIOS field to OVMF (UEFI), Check the Add EFI Disk checkbox, Uncheck the Pre-Enroll Keys checkbox, Machine field to q35 and the SCSI Controller to VirtIO SCSI > Next
+On the Hard Disk tab, set the Disk size to 16 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 8192 or more (Must be at least 8 GB to reach the installer desktop environment) > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Select Hardware from the left sub-navigation menu
+A physical GPU passthrough is required to run SteamOS and games (A full tutorial can be found here)
+Passthrough a USB keyboard and mouse by clicking Add > USB Device > Select the USB device(s) or port(s) to pass to the VM
+Right click the HoloISO VM in the left navigation pane > Start
+Press Enter to select SteamOS installer
+Wait while the SteamOS installer initializes
+Once a desktop environment displays, double click the Install SteamOS icon
+When prompted, select Installation type #2 deck-experience > Click OK
+Select sda from the list of available disks > Click OK
+Select Erase entire drive > Click OK
+Click Yes to confirm the installation
+When prompted, enter and confirm a root password
+Enter a username and enter and confirm the user's password
+After the HoloISO install completes, click the Applications menu > Shutdown > Shutdown
+In the Proxmox web UI, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Right click the HoloISO VM in the left navigation pane > Start
+The initial boot will sit at Loading initial ramdisk... for a few moments, be patient
+Select a Language
+Select a Timezone
+Select Wired connection 1
+Wait while SteamOS downloads and installs updates
+The VM will reboot
+Log in with an existing Steam account
+Welcome to HoloISO / SteamOS 3 Holo
+A full tutorial for passing a physical disk to a VM can be found here
+
+ 

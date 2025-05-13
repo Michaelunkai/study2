@@ -1,0 +1,1 @@
+ qmrestore /var/lib/vz/dump/vzdump-qemu-102-2024_06_12-16_37_41.vma.zst 106 --unique 1  && qm start 106

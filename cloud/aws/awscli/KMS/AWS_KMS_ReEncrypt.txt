@@ -1,0 +1,1 @@
+aws kms re-encrypt --ciphertext-blob fileb://<encrypted-file> --destination-key-id <destination-key-id> --output text --query CiphertextBlob

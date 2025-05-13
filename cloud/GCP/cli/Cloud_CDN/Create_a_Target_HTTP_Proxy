@@ -1,0 +1,2 @@
+gcloud compute target-http-proxies create YOUR_HTTP_PROXY_NAME \
+    --url-map=YOUR_URL_MAP_NAME

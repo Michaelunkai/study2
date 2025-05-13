@@ -1,0 +1,1 @@
+aws proton list-environment-template-versions --template-name <template-name>

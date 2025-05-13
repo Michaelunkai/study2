@@ -1,0 +1,16 @@
+wget https://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_4.5.2_all.deb -O openfire.deb && \
+sudo apt install ./openfire.deb && \
+sudo systemctl enable --now openfire && \
+sudo apt install -y mariadb-server && \
+sudo mysql -e "CREATE DATABASE openfire; GRANT ALL PRIVILEGES ON openfire.* TO openfire@localhost IDENTIFIED BY '0p3nF1re!!'; FLUSH PRIVILEGES; USE openfire; SOURCE /usr/share/openfire/resources/database/openfire_mysql.sql;" && \
+sudo my _secure_installation <<EOF
+n
+Y
+Y
+Y
+Y
+EOF
+gc http://localhost:9090/setup/index.jsp && \
+echo "Follow the web setup instructions to complete the OpenFire configuration." && \
+sudo apt install -y pidgin && \
+echo "Launch Pidgin and configure XMPP client as per the instructions."

@@ -1,0 +1,1 @@
+aws codepipeline get-third-party-job-details --job-id <job-id>

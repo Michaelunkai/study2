@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y unit && sudo service unit start

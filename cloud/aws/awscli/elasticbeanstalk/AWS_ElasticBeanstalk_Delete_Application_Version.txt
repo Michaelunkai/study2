@@ -1,0 +1,1 @@
+aws elasticbeanstalk delete-application-version --application-name <app-name> --version-label <version-label> --delete-source-bundle

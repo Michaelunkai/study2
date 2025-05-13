@@ -1,0 +1,1 @@
+go install github.com/julienschmidt/httprouter@latest && echo 'HTTP Router installed'

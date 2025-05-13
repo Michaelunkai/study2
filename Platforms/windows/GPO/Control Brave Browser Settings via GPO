@@ -1,0 +1,23 @@
+Control Brave Browser Settings via GPO
+Importing and Setting Brave Browser GPO
+Download the Brave Browser group policy administration templates Download
+Extract the downloaded .zip file
+On a domain controller, copy the contents of /Policy Templates/v80.0.3987.116/ to C:\Windows\Sysvol\sysvol\%domainname%\Policies\PolicyDefinitions\
+Right click on the Start button > Run > type gpmc.msc > Press Enter
+Expand Forest: %domainname% > Domains > %domainname%
+Right click on the domain name > Create a GPO in this domain, and link it here...
+Name the new GPO Brave Browser
+Right click the Brave Browser GPO > Edit...
+In the Group Policy Management Editor expand Computer Configuration > Policies > Administrative Templates > Brave Browser
+Browse the available policy options and set them as needed
+Example: Brave Browser > Enable reporting of usage and crash-related data: Disabled
+
+Close the Group Policy Management Editor
+Right click the Brave Browser GPO > Enforced
+Testing the Policy
+On a domain machine with the Brave Browser installed, right click on the Start button > Run > type cmd > Press Enter
+Type gpupdate /force
+After the group policy update completes, launch the Brave Browser
+In the address bar, type brave://policy
+The policy set from GPO should be listed
+If the setting is displayed in the Brave Browser GUI, navigate to it and verify the value is set correctly

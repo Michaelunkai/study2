@@ -1,0 +1,1 @@
+ftime && ftime2 && sudo apt update && sudo apt install --reinstall gawk libsigsegv2 -y

@@ -1,0 +1,1 @@
+aws kinesis merge-shards --stream-name MyDataStream --shard-to-merge shardId-000000000001 --adjacent-shard-to-merge shardId-000000000002

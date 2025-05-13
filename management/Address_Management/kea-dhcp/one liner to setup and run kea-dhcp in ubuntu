@@ -1,0 +1,1 @@
+sudo apt install -y kea-dhcp4-server && sudo systemctl start kea-dhcp4-server && echo 'Kea DHCP server running'

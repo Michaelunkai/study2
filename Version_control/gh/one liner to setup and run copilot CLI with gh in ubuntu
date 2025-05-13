@@ -1,0 +1,1 @@
+apt install git gh -y && gitoken && gh auth login && gh extension install github/gh-copilot && gh extension upgrade gh-copilot

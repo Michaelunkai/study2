@@ -1,0 +1,105 @@
+Install Knative Eventing
+Install Knative Serving: Knative Eventing relies on Knative Serving.
+
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.10.0/serving-crds.yaml
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.10.0/serving-core.yaml
+Install a Networking Layer: For simplicity, use Kourier.
+
+kubectl apply -f https://github.com/knative/net-kourier/releases/download/knative-v1.10.0/kourier.yaml
+Configure Knative to use Kourier:
+
+kubectl patch configmap/config-network \
+  --namespace knative-serving \
+  --type merge \
+  --patch '{"data":{"ingress.class":"kourier.ingress.networking.knative.dev"}}'
+Verify Installation:
+
+kubectl get pods -n knative-serving
+kubectl get pods -n kourier-system
+Step 3: Install Knative Eventing
+Install Eventing CRDs:
+
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.10.0/eventing-crds.yaml
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.10.0/eventing-core.yaml
+Install a Broker: Use MT Channel Based Broker.
+
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.10.0/mt-channel-broker.yaml
+Verify Eventing Installation:
+
+kubectl get pods -n knative-eventing
+Step 4: Configure Knative Eventing
+Create a Namespace:
+
+kubectl create namespace knative-eventing-example
+Label the Namespace for Injection:
+
+kubectl label namespace knative-eventing-example knative-eventing-injection=enabled
+Create a Broker:
+
+kubectl -n knative-eventing-example apply -f - <<EOF
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  name: default
+EOF
+
+
+Verify Broker:
+
+kubectl get broker -n knative-eventing-example
+
+Step 5: Create Event Producers and Consumers
+Create an Event Producer (PingSource Example):
+
+kubectl -n knative-eventing-example apply -f - <<EOF
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: test-ping-source
+spec:
+  schedule: "*/1 * * * *"
+  data: '{"message": "Hello Knative!"}'
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+EOF
+Create an Event Consumer (Knative Service):
+
+kubectl -n knative-eventing-example apply -f - <<EOF
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-display
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display
+EOF
+Create a Trigger to Route Events:
+
+kubectl -n knative-eventing-example apply -f - <<EOF
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: event-display-trigger
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: dev.knative.sources.ping
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: event-display
+EOF
+Step 6: Verify Event Flow
+Check Logs of Event Display:
+
+kubectl -n knative-eventing-example logs -l serving.knative.dev/service=event-display -c user-container --since=1m
+You should see the events being delivered to the event-display service, showing the message "Hello Knative!".
+
+This completes the setup and configuration of Knative Eventing for event-driven applications on Ubuntu. You can now start building and deploying event-driven applications using Knative Eventing.

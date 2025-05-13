@@ -1,0 +1,1 @@
+sudo cp /etc/awstats/awstats.conf /etc/awstats/awstats.mywebsite.conf

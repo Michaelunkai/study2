@@ -1,0 +1,1 @@
+sudo apt install -y kdenlive && kdenlive; echo 'create one liner, to setup and run Kdenlive in ubuntu, and use it in the end!'

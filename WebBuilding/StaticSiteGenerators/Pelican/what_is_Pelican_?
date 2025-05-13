@@ -1,0 +1,17 @@
+Pelican is a static site generator written in Python that allows you to create websites or blogs from plain text files. These text files can be written in Markdown, reStructuredText, or AsciiDoc. Pelican takes these content files and generates a complete website that consists of static HTML, CSS, and JavaScript files.
+
+### Key Features of Pelican:
+- **Content Flexibility**: Supports multiple markup languages, such as Markdown, reStructuredText, and AsciiDoc.
+- **Static Site Generation**: Converts content into static files that can be easily hosted on any web server, reducing the need for server-side processing.
+- **Themes**: Offers a variety of themes to customize the look and feel of your site.
+- **Plugins**: Extensible with plugins to add functionality, like SEO enhancements, social media integration, and more.
+- **Feed Generation**: Automatically generates RSS and Atom feeds for your blog.
+- **Multi-Language Support**: Can create sites in multiple languages, making it suitable for international audiences.
+
+### Use Cases for Pelican:
+- **Blogs**: Ideal for personal or professional blogs where dynamic content generation is not needed.
+- **Documentation**: Useful for creating static documentation sites, especially for projects where you want fast and secure access to information.
+- **Portfolios**: A good choice for creating simple, elegant portfolio websites.
+- **Company Websites**: Suitable for businesses looking to create a static website with quick load times and minimal maintenance.
+
+Pelican is particularly popular among developers and content creators who prefer writing in Markdown and want a lightweight, fast, and secure way to publish their content online.

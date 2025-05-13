@@ -1,0 +1,1 @@
+curl -Lo rke https://github.com/rancher/rke/releases/download/v1.3.15/rke_linux-amd64 && chmod +x rke && sudo mv rke /usr/local/bin/ && rke --version && echo "https://rancher.com/docs/rke/latest/en/"

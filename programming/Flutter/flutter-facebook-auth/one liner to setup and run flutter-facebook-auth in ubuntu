@@ -1,0 +1,1 @@
+flutter pub add flutter_facebook_auth && echo 'Facebook Auth added'

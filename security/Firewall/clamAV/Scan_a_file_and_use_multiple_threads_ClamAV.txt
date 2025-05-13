@@ -1,0 +1,1 @@
+clamscan --max-scans=10 file.txt

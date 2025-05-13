@@ -1,0 +1,1 @@
+aws elb create-target-group --name <target-group-name> --protocol HTTP --port <port> --vpc-id <vpc-id>

@@ -1,0 +1,37 @@
+Step-by-Step Guide After Running the Command:
+1. Access the Confluence Setup Wizard
+Open your web browser and go to http://localhost:8090 (or replace localhost with your server's IP if accessing remotely).
+You should now be able to access the Confluence Setup Wizard without encountering the previous error.
+2. Choose an Installation Type
+Select "Production Installation" if you plan to use Confluence for real projects.
+Select "Evaluation Installation" if you're just trying it out.
+3. Set Up Your Database
+Choose to use the built-in H2 database for evaluation or configure an external database (e.g., MySQL, PostgreSQL) for production.
+Follow the on-screen instructions to configure your database connection.
+4. Enter Your License Key
+Enter your Confluence license key.
+If you don't have a license key, you can generate a free evaluation license by clicking the appropriate link.
+5. Create an Administrator Account
+Fill in the necessary information to create your admin account. This account will manage your Confluence instance.
+6. Set Up Email Notifications
+Configure an email server if you want to enable email notifications.
+You can skip this step if you're only evaluating the tool.
+7. Begin Using Confluence
+After completing the setup, you’ll be directed to the Confluence dashboard, where you can start creating spaces, pages, and inviting team members.
+8. Create a Space
+Click "Create Space" in the left-hand sidebar.
+Choose a type of space (e.g., Team Space, Documentation Space) and give it a name.
+9. Create Your First Page
+Within your space, click "Create" to start a new page.
+Use the editor to add text, images, tables, etc.
+Publish the page once you're satisfied with the content.
+10. Explore Confluence Features
+Use the search bar to find content across all spaces.
+Explore templates for creating common page types like meeting notes or project plans.
+Collaborate by tagging team members, commenting, and sharing pages.
+11. Invite Team Members
+Navigate to "People" in the main menu and invite your team members by entering their email addresses.
+12. Manage Permissions
+Configure space permissions to control who can view or edit content within each space.
+Adjust global permissions for overall access control in Confluence.
+By following these steps, you should be able to successfully set up and use Confluence without encountering the startup error related to the home directory.

@@ -1,0 +1,11 @@
+*create
+
+kubectl create deployment nginx-depl --image=nginx
+
+*check
+kubectl get deployment
+
+
+**change nginx version: 
+
+kubectl set image deployment/nginx-depl nginx=nginx:1.19.10

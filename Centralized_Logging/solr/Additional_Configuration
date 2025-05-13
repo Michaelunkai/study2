@@ -1,0 +1,8 @@
+Additional Configuration
+Edit Solr configuration files:
+
+The main configuration file for Solr is solrconfig.xml, located in /var/solr/data/mycore/conf/.
+The schema is defined in managed-schema, also located in the same directory.
+Enable additional Solr features:
+
+You can enable features like faceting, highlighting, and more by configuring solrconfig.xml and managed-schema.

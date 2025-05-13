@@ -1,0 +1,1 @@
+sudo apt install -y mz && sudo mz eth0 -A 192.168.1.100 -B 192.168.1.200 -t tcp 'dp=80,sp=12345,flags=syn'

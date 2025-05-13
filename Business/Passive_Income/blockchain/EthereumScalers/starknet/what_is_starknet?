@@ -1,0 +1,20 @@
+**StarkNet** is a decentralized, permissionless Layer 2 (L2) scaling solution for Ethereum, designed to enable secure, scalable, and low-cost transactions. It leverages **STARK (Scalable Transparent Arguments of Knowledge)** cryptographic proofs to compress large-scale computations and proofs off-chain, allowing for much higher throughput than Ethereum's Layer 1 (L1) while still maintaining the security guarantees of the Ethereum mainnet.
+
+Here are the key features of StarkNet:
+
+1. **Scalability**: StarkNet allows developers to run large and complex applications without worrying about Ethereum's L1 congestion or high transaction fees. It achieves this by batching many transactions into a single proof that is verified on Ethereum, significantly reducing the load on the L1.
+
+2. **Security**: Since StarkNet relies on STARK cryptographic proofs, it ensures that the computations done off-chain are correct and verifiable by anyone, inheriting Ethereum's security model.
+
+3. **Decentralization**: StarkNet operates in a permissionless environment, meaning anyone can deploy applications, and users can interact with the network without needing permission from centralized authorities.
+
+4. **Composability**: StarkNet maintains Ethereum's composability, allowing developers to build applications that can interact with each other, just like on the Ethereum mainnet, but with higher performance.
+
+5. **Low Fees**: By moving computation off-chain and only submitting validity proofs on-chain, StarkNet dramatically reduces transaction fees compared to Ethereum L1.
+
+**Use Cases**:
+- **DeFi (Decentralized Finance)**: StarkNet can be used to build decentralized exchanges (DEXs), lending platforms, and more, benefiting from its scalability.
+- **NFTs**: Platforms can mint and trade NFTs on StarkNet, avoiding the high gas fees on Ethereum.
+- **Gaming**: Complex blockchain-based games can run smoothly on StarkNet without the limitations of L1 transaction throughput.
+
+StarkNet is a crucial development in the Ethereum scaling ecosystem, aiming to bring mainstream applications and adoption by overcoming the scalability limitations of Ethereum Layer 1.

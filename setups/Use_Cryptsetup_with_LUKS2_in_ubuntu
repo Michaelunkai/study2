@@ -1,0 +1,11 @@
+Use Cryptsetup with LUKS2 for advanced disk encryption features.
+
+Install Cryptsetup:
+
+sudo apt install cryptsetup
+Format a partition with LUKS2:
+
+sudo cryptsetup luksFormat --type luks2 /dev/sdX
+Open the encrypted partition:
+
+sudo cryptsetup luksOpen /dev/sdX my_encrypted_partition

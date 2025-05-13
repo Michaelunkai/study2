@@ -1,0 +1,81 @@
+Setting up and using AWS Glue (Elastic Container Service) with the AWS CLI involves several steps, including creating an IAM role, setting up the Glue service, creating a Glue job, and executing the job. Here’s a step-by-step guide:
+
+### Prerequisites
+1. **AWS CLI Installed**: Ensure that the AWS CLI is installed and configured with appropriate permissions.
+2. **IAM Role**: You need an IAM role with necessary permissions for Glue and S3 access.
+
+### Step 1: Create an IAM Role for AWS Glue
+First, create an IAM role that AWS Glue can assume to perform its tasks. This role should have policies that allow access to the necessary resources, such as S3.
+
+  
+aws iam create-role --role-name GlueServiceRole --assume-role-policy-document file://trust-policy.json
+
+`trust-policy.json` should look like this:
+ json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+Attach the managed policy for AWS Glue:
+  
+aws iam attach-role-policy --role-name GlueServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+
+### Step 2: Create an S3 Bucket
+Create an S3 bucket to store scripts and data:
+  
+aws s3 mb s3://your-glue-bucket
+
+### Step 3: Upload Script to S3
+Upload your ETL script to the S3 bucket:
+  
+aws s3 cp your-etl-script.py s3://your-glue-bucket/scripts/your-etl-script.py
+
+### Step 4: Create a Glue Job
+Create a Glue job using the AWS CLI:
+  
+aws glue create-job --name your-glue-job --role GlueServiceRole --command '{"Name": "glueetl", "ScriptLocation": "s3://your-glue-bucket/scripts/your-etl-script.py", "PythonVersion": "3"}' --default-arguments '{"--job-bookmark-option": "job-bookmark-enable"}' --region your-region
+
+### Step 5: Start the Glue Job
+Start the Glue job:
+  
+aws glue start-job-run --job-name your-glue-job
+
+### Step 6: Monitor the Glue Job
+You can monitor the status of your Glue job run using the following command:
+  
+aws glue get-job-run --job-name your-glue-job --run-id your-job-run-id
+
+### Step 7: Create and Manage a Glue Crawler (Optional)
+If you need to create a Glue Crawler to populate the Glue Data Catalog, you can do so with the following steps:
+
+1. **Create a Glue Crawler**:
+      
+    aws glue create-crawler --name your-crawler --role GlueServiceRole --database-name your-database --targets "{\"S3Targets\": [{\"Path\": \"s3://your-glue-bucket/data/\"}]}"
+
+2. **Start the Crawler**:
+      
+    aws glue start-crawler --name your-crawler
+
+3. **Get Crawler Status**:
+      
+    aws glue get-crawler --name your-crawler
+
+### Step 8: Cleanup
+After you are done, make sure to clean up the resources to avoid unnecessary charges:
+  
+aws glue delete-job --job-name your-glue-job
+aws glue delete-crawler --name your-crawler
+aws s3 rm s3://your-glue-bucket --recursive
+aws iam detach-role-policy --role-name GlueServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+aws iam delete-role --role-name GlueServiceRole
+
+This guide provides a basic overview of setting up and using AWS Glue with the AWS CLI. You can customize the commands based on your specific needs and the complexity of your ETL processes.

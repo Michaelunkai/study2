@@ -1,0 +1,1 @@
+wget https://github.com/Shopify/toxiproxy/releases/latest/download/toxiproxy-linux-amd64 -O toxiproxy && chmod +x toxiproxy && ./toxiproxy

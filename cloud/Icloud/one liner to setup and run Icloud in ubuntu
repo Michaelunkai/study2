@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y python3-pip python3-dev libssl-dev libffi-dev build-essential && pip3 install icloudpd && mkdir -p ~/iCloud && icloudpd --directory ~/iCloud --username "<your_apple_id>" --password "<your_password>" --no-progress-bar

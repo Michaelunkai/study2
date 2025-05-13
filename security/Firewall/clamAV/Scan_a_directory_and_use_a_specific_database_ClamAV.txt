@@ -1,0 +1,1 @@
+clamscan -r --database=/path/to/database /path/to/directory

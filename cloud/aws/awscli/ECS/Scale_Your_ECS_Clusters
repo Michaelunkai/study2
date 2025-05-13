@@ -1,0 +1,6 @@
+Scale Your ECS Clusters
+Update Desired Count
+
+ 
+ 
+aws ecs update-service --cluster my-cluster --service my-service --desired-count 3

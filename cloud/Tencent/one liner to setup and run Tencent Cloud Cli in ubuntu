@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y python3-pip && pip3 install tccli && echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc && tccli configure

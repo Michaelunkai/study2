@@ -1,0 +1,1 @@
+aws proton untag-resource --resource-arn <resource-arn> --tag-keys <key1,key2>

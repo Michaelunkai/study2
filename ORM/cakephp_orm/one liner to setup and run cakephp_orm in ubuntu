@@ -1,0 +1,1 @@
+composer require cakephp/orm && echo 'CakePHP ORM installed'

@@ -1,0 +1,51 @@
+▲A  A▼
+Running a Pop!_OS VM in Proxmox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Download the Pop!_OS iso Download and upload it to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Pop!_OS installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Pop!_OS VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Install Pop!_OS should start automatically, if it does not, click the Activities button > Search install > Select Install Pop!_OS
+Choose a language > Click Select > Click Select
+Select a keyboard layout > Click Select > Click Select
+Click Clean Install > Click Clean Install
+Select the QEMU HARDDISK > Click Erase and Install
+Enter a full name and username > Click Next
+Enter and re-enter a password > Click Next
+Click Don't Encrypt
+Wait while Pop! OS copies files and installs
+When the installation completes click Restart Device
+After the reboot, login using the username and password set earlier
+Select a dock preference > Click Next
+Configure the Top Bar > Click Next
+Click Next, Next, then Select an Appearance > Click Next
+Choose to enable or disable Location Services > Click Next
+Select a time zone > Click Next
+Click Skip on the Connect Your Online Accounts screen
+Click Start Using Pop!_OS
+Welcome to Pop!_OS
+Optional Steps
+Launch a terminal window
+Run the following commands
+# update software repositories
+sudo apt update
+# install qemu guest agent
+sudo apt install qemu-guest-agent -y
+# shutdown to complete setting up qemu guest agent
+sudo  utdown now
+Back in the Proxmox web UI, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the Pop!_OS VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+ 

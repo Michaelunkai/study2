@@ -1,0 +1,27 @@
+How to Install Gnome Extensions
+Log into the Linux device
+Execute the following commands in a terminal:
+# install gnome tweaks utility
+sudo apt update
+sudo apt install gnome-tweaks
+# create the extensions directory
+mkdir /.local/share/gnome-shell/extensions -p
+# output the gnome shell version
+gnome-shell --version
+Open a web browser and navigate to https://extensions.gnome.org/
+Search for an extension to install and select it
+From the Shell version... dropdown select the closest version to the installed gnome shell version output earlier
+Select the latest version available from the Extension version... dropdown
+Save the extension .zip file
+Open a file manager and navigate to ~/Downloads
+Extract the downloaded extension .zip file
+Browse the extracted folder contents and edit metadata.json in a text editor
+Copy the value of UUID key
+Close the text editor
+Navigate back one directory
+Cut the entire extracted extension directory to ~/.local/share/gnome-shell/extensions/
+Restart Gnome Shell by logging out and logging back in
+Launch Gnome Tweaks
+Select Extensions from the left navigation menu
+The newly installed extension should be listed
+Enable the extension and enjoy

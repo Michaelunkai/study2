@@ -1,0 +1,13 @@
+For a Node with Firefox:
+First, install Firefox and Geckodriver.
+
+ 
+ 
+sudo apt install -y firefox
+wget https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz -P $(pwd)/selenium-grid/
+tar -xvzf $(pwd)/selenium-grid/geckodriver-v0.32.0-linux64.tar.gz -C $(pwd)/selenium-grid/
+Start the Firefox Node:
+
+ 
+ 
+java -Dwebdriver.gecko.driver=$(pwd)/geckodriver -jar $(pwd)/selenium-server-4.23.0.jar node --detect-drivers true --hub http://localhost:4444

@@ -1,0 +1,1 @@
+wget https://github.com/example/gallerynext/archive/refs/heads/master.zip && unzip master.zip && mv gallerynext-master gallerynext && echo 'Set up with your web server'

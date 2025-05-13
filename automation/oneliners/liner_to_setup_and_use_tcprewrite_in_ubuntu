@@ -1,0 +1,1 @@
+sudo apt install -y tcpreplay && sudo tcprewrite --infile=input.pcap --outfile=output.pcap && sudo tcpreplay --intf1=eth0 output.pcap

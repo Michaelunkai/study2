@@ -1,0 +1,7 @@
+Setup CloudWatch Alarms
+Create an Alarm:
+You can create a CloudWatch Alarm to monitor metrics and notify you when they exceed a threshold. Here’s an example:
+
+ 
+ 
+aws cloudwatch put-metric-alarm --alarm-name MyAlarm --metric-name CPUUtilization --namespace AWS/EC2 --statistic Average --period 300 --threshold 80 --comparison-operator GreaterThanOrEqualToThreshold --evaluation-periods 1 --alarm-actions arn:aws:sns:us-west-2:123456789012:my-sns-topic --dimensions Name=InstanceId,Value=i-0123456789abcdef0

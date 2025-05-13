@@ -1,0 +1,1 @@
+update && cd && git clone https://github.com/danielmiessler/fabric.git && cd fabric && sudo apt install pipx ffmpeg -y && pipx ensurepath && pipx install . && export PATH=$PATH:/root/.local/bin && fabric --setup

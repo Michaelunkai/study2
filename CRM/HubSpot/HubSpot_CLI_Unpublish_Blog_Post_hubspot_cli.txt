@@ -1,0 +1,1 @@
+hs cms unpublish blog-post <post-id>

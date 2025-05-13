@@ -1,0 +1,19 @@
+ Create Route Tables
+Create a route table for the public subnet:
+
+ 
+ 
+aws ec2 create-route-table --vpc-id vpc-<VPC_ID>
+Note the Route Table ID:
+The command output will contain the Route Table ID, let's use the placeholder rtb-<PUBLIC_ROUTE_TABLE_ID>.
+
+Create a route to the Internet Gateway:
+
+ 
+ 
+aws ec2 create-route --route-table-id rtb-<PUBLIC_ROUTE_TABLE_ID> --destination-cidr-block 0.0.0.0/0 --gateway-id igw-<INTERNET_GATEWAY_ID>
+Associate the public subnet with the route table:
+
+ 
+ 
+aws ec2 associate-route-table --subnet-id subnet-<PUBLIC_SUBNET_ID> --route-table-id rtb-<PUBLIC_ROUTE_TABLE_ID>

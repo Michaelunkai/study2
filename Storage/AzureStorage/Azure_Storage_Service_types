@@ -1,0 +1,7 @@
+Azure Storage Service
+Azure Storage Service is a broad term encompassing multiple types of storage solutions provided by Microsoft Azure. It includes:
+
+Blob Storage: For unstructured data such as documents, images, videos, etc.
+Queue Storage: For managing asynchronous messaging between applications.
+Table Storage: For storing structured NoSQL data.
+File Storage: For shared files accessible via the SMB protocol.

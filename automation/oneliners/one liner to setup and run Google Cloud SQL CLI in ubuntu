@@ -1,0 +1,1 @@
+curl -sSL https://sdk.cloud.google.com | bash && exec -l /bin/bash && gcloud init

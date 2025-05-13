@@ -1,0 +1,5 @@
+cd && wget https://s3.amazonaws.com/botpress-binaries/botpress-v12_26_6-linux-x64.zip && unzip botpress-v12_26_6-linux-x64.zip -d botpress && cd botpress && chmod +x bp && ./bp
+
+
+
+

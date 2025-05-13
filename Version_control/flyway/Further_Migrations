@@ -1,0 +1,18 @@
+Further Migrations
+For any subsequent migrations, create new migration scripts in the /opt/flyway/sql directory following the same naming convention.
+
+Example:
+
+ 
+ 
+nano /opt/flyway/ /V2__Add_email_to_person. 
+Add your SQL statements:
+
+ 
+ 
+ALTER TABLE person ADD email VARCHAR(100);
+Apply the new migration:
+
+ 
+ 
+flyway migrate

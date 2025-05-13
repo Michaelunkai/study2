@@ -1,0 +1,1 @@
+docker run -d --name parse -p 1337:1337 -e APP_ID=myAppId -e MASTER_KEY=myMasterKey parseplatform/parse-server:latest

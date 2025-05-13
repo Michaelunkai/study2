@@ -1,0 +1,1 @@
+aws comprehend detect-entities --text "your text here" --language-code en

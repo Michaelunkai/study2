@@ -1,0 +1,29 @@
+
+
+
+
+
+run this script:
+
+
+
+# Define the percentage to shrink from the C: drive
+$ShrinkPercentage = 10
+
+# Calculate the size to shrink in MB
+$CDriveSize = Get-PartitionSupportedSize -DriveLetter "C" | Select-Object -ExpandProperty SizeMax
+$ShrinkSize = [math]::Round(($CDriveSize / 100) * $ShrinkPercentage)
+
+# Shrink the C: drive
+Resize-Partition -DriveLetter "C" -Size ($CDriveSize - $ShrinkSize)
+
+# Initialize the new partition
+$Disk = Get-Disk | Where-Object { $_.OperationalStatus -eq "Online" }
+$Partition = New-Partition -DiskNumber $Disk.Number -UseMaximumSize -AssignDriveLetter
+$Volume = Format-Volume -Partition $Partition.PartitionNumber -NewFileSystemLabel "Backup" -FileSystem NTFS -Confirm:$false
+
+# Display the new drive letter
+$Volume.DriveLetter
+
+
+than double click the new hard disk > format it

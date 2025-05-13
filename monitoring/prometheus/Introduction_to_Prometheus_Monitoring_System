@@ -1,0 +1,67 @@
+Key Features:
+
+Metrics-based monitoring.
+Libraries and server components for metric exposure, collection, and utilization.
+Written in Go and under open governance.
+
+Step 2: System Architecture Overview
+
+Prometheus Server:
+Central component.
+Pull-based monitoring system.
+Pulls metrics via HTTP from monitored targets.
+
+Targets:
+
+Monitored endpoints.
+Can be services, applications, or third-party systems.
+Exporter processes enable non-Prometheus metrics exposure.
+
+Configuration:
+
+Static or dynamic target definition.
+Supports various service discovery mechanisms.
+
+Step 3: Core Features of Prometheus
+
+Dimensional Data Model:
+Tracks time-series data.
+Identifiers: Metric name and labels.
+
+Metrics Transfer Format:
+
+Text-based format over HTTP.
+Example: HTTP request counter, open file descriptors.
+
+Query Language (PromQL):
+
+Allows querying and processing collected data.
+Enables alerting, dashboarding, and ad hoc debugging.
+
+Integrated Alerting:
+
+Utilizes PromQL for defining alerting rules.
+Alert manager dispatches alerts.
+
+Service Discovery:
+
+Automatically discovers and updates targets.
+Supports DNS, Kubernetes, Consul, etc.
+
+Step 4: Example PromQL Queries
+
+Query Examples:
+
+Retrieve current values for specific time series.
+Calculate rates, aggregate data, and filter results.
+
+Alerting Rules:
+
+Define rules using PromQL expressions.
+Configure alert metadata.
+
+Step 5: Conclusion and Further Learning
+
+Service Discovery Integration:
+Essential for dynamic environments.
+Supports various mechanisms.

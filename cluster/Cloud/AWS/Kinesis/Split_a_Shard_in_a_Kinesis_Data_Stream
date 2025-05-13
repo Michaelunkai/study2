@@ -1,0 +1,1 @@
+aws kinesis split-shard --stream-name MyDataStream --shard-to-split shardId-000000000000 --new-starting-hash-key 170141183460469231731687303715884105728

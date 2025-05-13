@@ -1,0 +1,1 @@
+wget -qO diffmerge.deb https://sourcegear.com/DiffMerge/DiffMerge-4.2.1-1473_amd64.deb && sudo dpkg -i diffmerge.deb && diffmerge notebook1.ipynb notebook2.ipynb

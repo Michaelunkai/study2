@@ -1,0 +1,50 @@
+Disconnect from VPN:
+
+ 
+ 
+disconnect
+Check VPN State:
+
+ 
+ 
+state
+Exit VPN Client:
+
+ 
+ 
+quit
+Show VPN Statistics:
+
+ 
+ 
+stats
+Renew IP Address:
+
+ 
+ 
+iprenew
+Enable or Disable IPv6:
+
+ 
+ 
+ipv6 enable
+or
+
+ 
+ 
+ipv6 disable
+View VPN Routes:
+
+ 
+ 
+routes
+Enable or Disable Split Tunneling:
+
+ 
+ 
+split_tunnel enable
+or
+
+ 
+ 
+split_tunnel disable

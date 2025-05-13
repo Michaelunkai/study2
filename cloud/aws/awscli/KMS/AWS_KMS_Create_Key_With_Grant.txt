@@ -1,0 +1,1 @@
+aws kms create-key --description 'Key with grant' --key-usage ENCRYPT_DECRYPT --origin AWS_KMS --policy file://policy.json --grant-tokens <token> --grant-constraints <constraints>

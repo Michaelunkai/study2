@@ -1,0 +1,1 @@
+git clone https://github.com/danbooru/danbooru.git && cd danbooru && bundle install && rake db:setup && rails s

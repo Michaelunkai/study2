@@ -1,0 +1,26 @@
+**WAN (Wide Area Network) vs. WWAN (Wireless Wide Area Network)**
+
+**WAN (Wide Area Network)**:
+- A WAN is a telecommunications network that extends over a large geographical area for the primary purpose of computer networking. 
+- WANs are often established with leased telecommunication circuits and are used by businesses, governments, and educational institutions to relay data among employees, clients, buyers, and suppliers from various geographical locations.
+
+**WWAN (Wireless Wide Area Network)**:
+- A WWAN is a type of WAN that uses wireless communication to connect devices and networks. 
+- WWANs provide connectivity over large areas using mobile network technologies such as 3G, 4G, and 5G, allowing devices to maintain internet access even when they are on the move.
+
+Here is a table to compare WAN and WWAN:
+
+| Feature                | WAN (Wide Area Network)                                | WWAN (Wireless Wide Area Network)                         |
+|------------------------|--------------------------------------------------------|----------------------------------------------------------|
+| **Definition**         | A network covering a large geographical area, typically using leased telecommunication circuits. | A wireless network that covers a large geographical area, typically using mobile network technologies. |
+| **Connectivity**       | Wired (e.g., fiber optics, DSL, leased lines).         | Wireless (e.g., cellular networks like 3G, 4G, 5G).       |
+| **Mobility**           | Limited, mainly fixed connections.                     | High mobility, supports devices on the move.             |
+| **Speed**              | Can offer high speeds depending on the infrastructure (fiber optics provide very high speeds). | Variable speeds depending on the mobile network technology (e.g., 4G, 5G). |
+| **Coverage Area**      | Can cover large areas, including multiple cities or countries. | Can cover large areas, but coverage depends on the availability of mobile network towers. |
+| **Reliability**        | Generally reliable, but dependent on physical infrastructure. | Reliability can vary with signal strength and network congestion. |
+| **Use Cases**          | Business networks, interconnecting data centers, corporate offices, government institutions. | Mobile internet access, remote work, IoT devices, mobile offices. |
+| **Cost**               | Often higher due to the need for leased lines and physical infrastructure. | Costs can be lower for individual users but vary depending on data plans and usage. |
+| **Security**           | Typically secured with private lines and VPNs.         | Security measures include encryption, VPNs, and secure access protocols. |
+| **Deployment**         | Requires physical infrastructure setup (cables, routers, etc.). | Easier to deploy as it relies on existing mobile networks and doesn't require physical cables. |
+
+This table highlights the key differences and characteristics of WAN and WWAN, showcasing their use cases, advantages, and limitations.

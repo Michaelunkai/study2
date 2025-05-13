@@ -1,0 +1,1 @@
+cd /tmp && wget https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix-1.8.19.deb && sudo apt install -y ./Motrix-*.deb && motrix

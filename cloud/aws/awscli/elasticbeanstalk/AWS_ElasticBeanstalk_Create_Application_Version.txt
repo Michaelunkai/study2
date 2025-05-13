@@ -1,0 +1,1 @@
+aws elasticbeanstalk create-application-version --application-name <app-name> --version-label <version-label> --source-bundle S3Bucket=<bucket-name>,S3Key=<key>

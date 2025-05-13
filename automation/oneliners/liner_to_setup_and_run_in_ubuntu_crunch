@@ -1,0 +1,1 @@
+sudo apt install -y crunch && crunch 8 8 abcdefghijklmnopqrstuvwxyz -o wordlist.txt

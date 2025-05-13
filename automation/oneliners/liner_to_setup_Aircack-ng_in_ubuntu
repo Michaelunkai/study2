@@ -1,0 +1,1 @@
+sudo apt install aircrack-ng -y && aircrack-ng --help

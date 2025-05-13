@@ -1,0 +1,7 @@
+Monitor CloudWatch Metrics
+Get Metric Statistics:
+You can retrieve CloudWatch metrics using the get-metric-statistics command. Here’s an example:
+
+ 
+ 
+aws cloudwatch get-metric-statistics --metric-name CPUUtilization --namespace AWS/EC2 --start-time 2023-01-01T00:00:00Z --end-time 2023-01-02T00:00:00Z --period 3600 --statistics Average --dimensions Name=InstanceId,Value=i-0123456789abcdef0

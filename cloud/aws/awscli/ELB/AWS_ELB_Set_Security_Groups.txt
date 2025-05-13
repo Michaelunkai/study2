@@ -1,0 +1,1 @@
+aws elb set-security-groups --load-balancer-name <load-balancer-name> --security-groups <security-groups>

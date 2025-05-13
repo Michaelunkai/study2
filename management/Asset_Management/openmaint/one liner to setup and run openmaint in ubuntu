@@ -1,0 +1,1 @@
+sudo docker run -d -p 8085:8080 cmdbuild/openmaint && echo 'http://localhost:8085'

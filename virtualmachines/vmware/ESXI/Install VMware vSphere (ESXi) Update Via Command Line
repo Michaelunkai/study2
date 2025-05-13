@@ -1,0 +1,31 @@
+▲A  A▼
+Install VMware vSphere (ESXi) Update Via Command Line
+Downloading the Update
+Open a web browser and navigate to https://customerconnect.vmware.com/
+Register or login with an existing account
+Search for vmware vsphere
+Filter the results to Downloads
+Select the result for the target version of VMware vSphere
+Use the Select Version dropdown to set the target update version
+Scroll down and download the VMware vSphere Hypervisor (ESXi) Offline Bundle
+Applying the Update
+Log into the VMware vSphere ESXi web UI
+Enable the SSH service if it is not already enabled by selecting Actions > Services > Enable Secure Shell (SSH)
+Select Storage from the left navigation menu
+Click Datastore browser in the main content area > Select a target Data store > Click Upload > Browse to and select the downloaded Offline Bundle .zip file
+After the upload completes, connect to the ESXi host via SSH
+Run the following commands
+# put the host into maintenance mode
+vim-cmd hostsvc/maintenance_mode_enter
+# list datastores
+ls /vmfs/volumes
+# run the update, replacing the datastore name and update file name
+esxcli software vib install -d "/vmfs/volumes/datastore1/ESXi670-201912001.zip"
+# after the update completes, reboot the host
+reboot
+# once the host is back up, log back in
+# take the host out of maintenance mode
+vim-cmd hostsvc/maintenance_mode_exit
+Log back into the VMware vSphere ESXi web UI
+Verify the updated version is displayed
+ 

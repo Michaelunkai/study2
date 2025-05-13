@@ -1,0 +1,1 @@
+az storage entity merge --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --entity PartitionKey=partition1 RowKey=001 Name="Jane Doe" Age=32

@@ -1,0 +1,1 @@
+ Install-Module -Name ps2exe; cd C:\study\shells\powershell\scripts; ps2exe -inputFile TrimFreeRam.ps1 -outputFile TrimFreeRam.exe

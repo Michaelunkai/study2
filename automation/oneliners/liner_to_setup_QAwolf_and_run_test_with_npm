@@ -1,0 +1,1 @@
+getnpm && git clone https://github.com/qawolf/qawolf.git && cd qawolf && npm run clean && npm install && rm -rf /root/.cache/ms-playwright && npm install && npm run build && npm test

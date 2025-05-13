@@ -1,0 +1,55 @@
+ranscript
+00:00
+How AI is developed and used will have a significant effect on society for many years to come.
+00:04
+As a leader in AI we're Google, and Google Cloud, recognize we have responsibility to do this well and to get it right.
+00:14
+In June 2018, we announced seven principles to guide our work.
+00:17
+These are concrete standards that actively govern our research and product development, and affect our business decisions.
+00:24
+We're going to cover these principles and their development in some depth later in the course, so for now, here's an overview of each one:
+00:31
+1. AI should be socially beneficial.
+00:34
+Any project should take into account a broad range of Social and economic factors and will
+00:38
+proceed only where we believe that the overall likely benefits substantially exceed the foreseeable risks and downsides.
+00:46
+2. AI should avoid creating or reinforcing unfair bias.
+00:52
+We seek to avoid unjust effects on people particularly those related to sensitive characteristics such as race, ethnicity, gender, nationality, income, sexual orientation, ability and political or religious belief.
+01:07
+3. AI should be built and tested for safety, we will continue to develop and apply strong Safety and Security practices to avoid unintended results that create risks of harm.
+01:17
+4. AI should be accountable to people we will Design AI systems that provide appropriate opportunities for feedback, relevant explanations and appeal.
+01:28
+5. AI should incorporate privacy design principles.
+01:32
+We will give opportunity for notice and consent encourage architectures with privacy safeguards and provide appropriate transparency and control over the use of data.
+01:42
+6. AI should uphold high standards of scientific Excellence, we will work with a range of stakeholders to promote thoughtful leadership in this area drawing on scientifically
+01:51
+rigorous and multi-disciplinary approaches and we will responsibly share AI knowledge by publishing educational materials, best practices and research that enable more people to develop useful AI applications.
+02:06
+7. AI should be made available for uses that Accord with these principles many technologies have multiple uses, so will work to limit potentially harmful or abusive applications.
+02:18
+In addition to these seven principles there are certain AI applications we will not pursue.
+02:23
+We will not design or deploy AI in these four application areas: Technologies that cause or are likely to cause overall harm.
+02:32
+Weapons or other Technologies whose principal purpose or implementation is to cause or directly facilitate injury to people.
+02:40
+Technologies that gather or use information for surveillance that violates internationally accepted norms.
+02:47
+And Technologies whose purpose contravenes widely accepted principles of international law and human rights.
+02:54
+Establishing principles was a starting point, rather than an end.
+02:58
+What remains true is that our AI Principles rarely give us direct answers to our questions on how to build our products.
+03:05
+They don't, and shouldn't, allow us to sidestep hard conversations.
+03:09
+They are a foundation that establishes what we stand for, what we build and why we build it, and they are core to the success of our Enterprise AI offerings.
+03:19
+Later in the course we'll give some suggestions to develop your own set of AI principles within your organization.

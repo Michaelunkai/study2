@@ -1,0 +1,1 @@
+sudo apt install -y apache2 php && git clone https://github.com/bahamas10/ipplan.git /var/www/html/ipplan

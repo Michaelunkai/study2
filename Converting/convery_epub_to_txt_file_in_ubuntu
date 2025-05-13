@@ -1,0 +1,1 @@
+ sudo apt-get install calibre -y &&  ebook-convert a.pub a.txt

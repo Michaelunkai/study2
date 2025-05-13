@@ -1,0 +1,1 @@
+git clone https://github.com/sayanarijit/miniget.git && cd miniget && python3 miniget.py https://example.com/file.zip

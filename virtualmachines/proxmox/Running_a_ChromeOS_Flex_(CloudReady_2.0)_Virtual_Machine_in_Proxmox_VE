@@ -1,0 +1,68 @@
+▲A  A▼
+Running a ChromeOS Flex (CloudReady 2.0) Virtual Machine in Proxmox VE
+What is ChromeOS Flex?
+Try the cloud-first, fast, easy-to-manage, and secure Chrome OS for PCs and Macs. Chrome OS Flex is a free and sustainable way to modernize devices you already own. It’s easy to deploy across your fleet or simply try it to see what a cloud-first OS has to offer. -https://chromeenterprise.google/os/chromeosflex/
+Things You Will Need
+A USB flash drive, at least 16 GB https://amzn.to/3wkR5ju | https://amzn.to/3qkrJ1p | https://amzn.to/3Nhu9b9
+Creating the Installation Media
+PRO TIP: I repeatedly had issues booting the flash drive created by the Chromebook Recovery Utility. I found that the utility downloads ChromeOS Flex to the user's local temp directory (%temp% or %userprofile%\AppData\Local\Temp). Browse through the scoped_dir directories to find the compressed ChromeOS Flex image. I grabbed the file and used Balena Etcher to write it to a flash drive to correct the booting issue
+
+Open a Chromium based browser, install the Chromebook Recovery Utility extension
+In Brave Browser, open a new tab and navigate to https://chrome.google.com/webstore/category/extensions
+Search for Chromebook Recovery
+Click on Chromebook Recovery Utility
+Click the Add to Brave button > Click Add Extension to confirm
+After the extension installs, click the puzzle piece next to the hamburger menu > Click Chromebook Recovery Utility to launch it
+Inside the Chromebook Recovery Utility click the Get started button
+Click the Select a model from a list link
+Select Google Chrome OS Flex from the manufacturer dropdown
+Select Chrome OS Flex from the product dropdown > Click Continue
+Select the USB flash device to write ChromeOS Flex to > Click Continue > Click Create now
+Wait while Chrome OS Flex is written and verified
+Once the flash drive is setup, remove it and plug it into a USB port on the Proxmox host
+Creating the VM
+Open a web browser and navigate to the ProxMox web UI https://ProxMoxDNSorIP:8006/
+Click the Create VM button at the top right
+On the General tab, name the VM ChromeOSFlex and set a VM ID (125 in this example) > click Next
+On the OS tab select Do not use any media and set the Guest OS Type to Linux and Version to 5.x - 2.6 Kernel > click Next
+On the System tab click Next
+On the Hard Disk tab set the Bus/Device to SATA and the Disk size to 16 GiB > click Next
+On the CPU tab set the number of CPU cores and the Type to host > click Next
+On the Memory tab set the amount of memory to 4096 MiB > click Next
+On the Network tab set the Model field to VirtIO (paravirtualized) > click Next
+On the Confirm tab review the settings and click Finish
+Select the newly created ChromeOSFlex VM from the left navigation panel
+Select Hardware from the left sub-navigation menu
+Double click Display to edit it
+Set the Graphic card to VIRTIO-GPU > Click OK
+Click the Add button > USB Device
+Click the Use USB Vendor/Device ID option > Select the ChromeOS Flex USB flash drive created earlier > Click Add
+Select Options from the left sub-navigation menu
+Double click Boot Order
+Check the Enabled box next to the attached USB device
+Drag the USB device up to the top of the boot order > Click OK
+Click the Start button in the top right of the screen
+Click Console in the left sub-navigation menu
+Setting Up ChromeOS Flex
+After the Chrome splash screen displays, click the Get started button
+Click Install CloudyReady 2.0 to select it > Click Next
+Click Install CloudyReady 2.0
+Click Install to confirm erasing the hard drive
+After about two minutes the installation will complete and the VM will reboot
+Right click on the VM name > Stop
+Navigate back to the VM > Hardware section
+Click the USB device to select it > Click the Remove button to detach to USB flash drive > Click Yes to confirm
+Click the Start button in the top right of the screen
+Click Console in the left sub-navigation menu
+Click the Get started button
+ChromeOS should detect the Ethernet connection > Click Next
+Uncheck the Help improve ChromeOS option > Click Accept and continue
+At the Who's using this Chrome device screen, select You > Click Next
+Login with Google account credentials
+At the Sync your Chrome device screen, click Accept and continue
+Uncheck the Let Google use your hardware data option > Click Accept and continue
+Select whether to use Google Assistant
+Select whether to connect to your phone
+Click Get started to complete setup
+Welcome to ChromeOS Flex
+ 

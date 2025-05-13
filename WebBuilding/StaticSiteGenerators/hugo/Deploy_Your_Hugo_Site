@@ -1,0 +1,9 @@
+Deploy Your Hugo Site
+
+You can deploy your Hugo site by copying the contents of the public directory to your web server.
+
+For example, using rsync:
+
+ 
+ 
+rsync -avz public/ user@yourserver.com:/path/to/your/site/

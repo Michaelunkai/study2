@@ -1,0 +1,15 @@
+Configure Auditing with Auditd
+Use Auditd to keep detailed logs of system events.
+
+Install Auditd:
+
+sudo apt install auditd
+Configure Auditd rules:
+
+sudo nano /etc/audit/audit.rules
+Add rules to monitor specific files or directories:
+
+-w /etc/passwd -p wa -k passwd_changes
+Restart Auditd:
+
+sudo systemctl restart auditd

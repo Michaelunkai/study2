@@ -1,0 +1,10 @@
+LICENSE
+README.md
+epub2tts.py
+setup.py
+epub2tts.egg-info/PKG-INFO
+epub2tts.egg-info/SOURCES.txt
+epub2tts.egg-info/dependency_links.txt
+epub2tts.egg-info/entry_points.txt
+epub2tts.egg-info/requires.txt
+epub2tts.egg-info/top_level.txt

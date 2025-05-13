@@ -1,0 +1,1 @@
+aws kms describe-connection-status --connection-id <connection-id>

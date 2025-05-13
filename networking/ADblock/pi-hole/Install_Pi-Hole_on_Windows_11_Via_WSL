@@ -1,0 +1,47 @@
+▲A  A▼
+Install Pi-Hole on Windows 11 Via WSL
+Installing WSL
+Log into the Windows 11 device
+Launch PowerShell as administator by right clicking the Start button > search power > Right click on Windows PowerShell > Run as Administrator
+Run the following command to install WSL
+# enable WSL feature
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+# enable virtual machine platform
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
+Type Y to reboot the system
+Launch Powershell as administrator and run the following additional commands to use WSL 2
+# enable virtualization platform
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+# enable wsl2
+wsl --set-default-version 2
+# download the wsl kernel update
+$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile .\wsl_update_x64.msi
+# reset progress preference
+$ProgressPreference = 'Continue'
+# install the downloaded file
+.\wsl_update_x64.msi
+Download the PiHole for WSL installer script Download
+Navigate to the Downloads directory > Right click the downloaded .cmd file > Run as Administrator
+Press Enter to accept the default install location (C:\Program Files)
+Press Enter to continue with the installation
+If prompted, allow network access for lighttpd and sshd
+When prompted, enter and confirm a Pi-Hole admin password
+After the Pi-Hole installation script completes, right click the Start button > run > type cmd > Press Enter
+Run the following commands in command prompt
+# enter wsl prompt
+wsl
+# edit resolv.conf
+sudo nano /etc/resolv.conf
+Add the following line
+nameserver 127.0.0.1
+
+Press CTRL+O, Enter, CTRL+X to write the changes to resolv.conf
+Run the following command to update the Pi-Hole blocklist
+# update pihole
+sudo pihole -g
+Open a web browser and navigate to http://localhost/admin
+Click Login
+Authenticate with the admin password set earlier
+Special thanks to the developer of this installation script https://github.com/DesktopECHO/Pi-Hole-for-WSL1
+
+ 

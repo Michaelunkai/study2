@@ -1,0 +1,1 @@
+pip3 install ytdlpy && python3 -c 'import ytdlpy; print(ytdlpy.__version__)'

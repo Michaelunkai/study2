@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g @angular/cli && yes "y" | ng new my-angular-app && cd my-angular-app && nsj && ng serve

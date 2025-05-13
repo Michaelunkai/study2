@@ -1,0 +1,1 @@
+aws iot delete-policy --policy-name <policy-name>

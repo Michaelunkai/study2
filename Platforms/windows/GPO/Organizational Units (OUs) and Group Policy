@@ -1,0 +1,86 @@
+1. Check and Create 'Departments' Organizational Unit (OU):
+powershell
+Copy code
+$DepartmentsOU = Get-ADOrganizationalUnit -Filter { Name -eq 'Departments' }
+
+if (!$DepartmentsOU) {
+    New-ADOrganizationalUnit -Name "Departments" -Path "DC=micha,DC=com"
+    Write-Host "The 'Departments' OU was created."
+} else {
+    Write-Host "The 'Departments' OU already exists."
+}
+2. Check and Create 'ITDepartment' Organizational Unit (OU):
+powershell
+Copy code
+$ITDepartmentOU = Get-ADOrganizationalUnit -Filter { Name -eq 'ITDepartment' }
+
+if (!$ITDepartmentOU) {
+    New-ADOrganizationalUnit -Name "ITDepartment" -Path "OU=Departments,DC=micha,DC=com"
+    Write-Host "The 'ITDepartment' OU was created."
+} else {
+    Write-Host "The 'ITDepartment' OU already exists."
+}
+3. Check and Create 'ITPolicy' Group Policy Object (GPO):
+powershell
+Copy code
+$GPO = Get-GPO -Name "ITPolicy"
+
+if (!$GPO) {
+    $GPO = New-GPO -Name "ITPolicy"
+    Write-Host "The 'ITPolicy' GPO was created."
+} else {
+    Write-Host "The 'ITPolicy' GPO already exists."
+}
+4. Link 'ITPolicy' GPO to 'ITDepartment' OU:
+powershell
+Copy code
+if ($GPO) {
+    try {
+        New-GPLink -Name "ITPolicyLink" -Target "OU=ITDepartment,OU=Departments,DC=micha,DC=com" -LinkEnabled Yes -Enforced No
+        Write-Host "The 'ITPolicy' GPO was successfully linked to the 'ITDepartment' OU."
+    } catch {
+        Write-Host "Failed to link the 'ITPolicy' GPO. $_"
+    }
+} else {
+    Write-Host "The 'ITPolicy' GPO was not found. Please create the GPO before attempting to link it."
+}
+This script ensures the creation of the necessary OUs and GPO, and then links the GPO to the 'ITDepartment' OU.
+
+
+
+
+****** run this sh file to check if steps are successful:
+
+
+# Check if 'Departments' OU exists
+$DepartmentsOU = Get-ADOrganizationalUnit -Filter { Name -eq 'Departments' }
+if ($DepartmentsOU) {
+    Write-Host "Success: 'Departments' OU exists."
+} else {
+    Write-Host "Error: 'Departments' OU not found."
+}
+
+# Check if 'ITDepartment' OU exists
+$ITDepartmentOU = Get-ADOrganizationalUnit -Filter { Name -eq 'ITDepartment' }
+if ($ITDepartmentOU) {
+    Write-Host "Success: 'ITDepartment' OU exists."
+} else {
+    Write-Host "Error: 'ITDepartment' OU not found."
+}
+
+# Check if 'ITPolicy' GPO exists
+$GPO = Get-GPO -Name "ITPolicy"
+if ($GPO) {
+    Write-Host "Success: 'ITPolicy' GPO exists."
+} else {
+    Write-Host "Error: 'ITPolicy' GPO not found."
+}
+
+# Check if 'ITPolicy' GPO is linked to 'ITDepartment' OU
+$GPOLink = Get-GPInheritance -Target "OU=ITDepartment,OU=Departments,DC=micha,DC=com"
+if ($GPOLink) {
+    Write-Host "Success: 'ITPolicy' GPO is linked to 'ITDepartment' OU."
+} else {
+    Write-Host "Error: 'ITPolicy' GPO is not linked to 'ITDepartment' OU."
+}
+

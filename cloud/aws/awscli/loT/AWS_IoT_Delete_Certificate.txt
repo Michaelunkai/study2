@@ -1,0 +1,1 @@
+aws iot delete-certificate --certificate-id <certificate-id>

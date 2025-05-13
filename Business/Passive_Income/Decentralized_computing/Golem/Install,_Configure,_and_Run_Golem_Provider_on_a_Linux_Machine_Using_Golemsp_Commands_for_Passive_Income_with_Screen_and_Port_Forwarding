@@ -1,0 +1,174 @@
+### **Comprehensive Step-by-Step Tutorial to Install, Configure, and Run Golem Provider on a Linux Machine Using Golemsp Commands for Passive Income with Screen and Port Forwarding**
+
+---
+
+#### **Step 1: Prerequisites**
+
+Before you start, make sure you have the following prerequisites:
+
+- A **Linux machine** with the **x86-64 architecture**.
+- **Nested virtualization** enabled in your BIOS, allowing virtualization for running tasks in Golem.
+
+---
+
+#### **Step 2: Install Golem Provider**
+
+To begin, you need to install the Golem provider by running the following command in your terminal:
+
+  
+curl -sSf https://join.golem.network/as-provider | bash -
+
+This will install the Golem core and its necessary components, such as the **WASI runtime** and **VM runtime**.
+
+---
+
+#### **Step 3: Configure Golem Node**
+
+After installation, you will need to configure your node by providing a few details. The system will prompt you for the following settings:
+
+1. **Node Name:** You will be asked to provide a name for your node. If you don't specify one, a default name will be generated automatically.
+
+2. **Ethereum Wallet Address:** You can either provide your own Ethereum wallet address or allow Golem to generate one for you. It's recommended to use your own wallet for managing earnings.
+
+3. **Price (GLM per Hour):** Set the price for how much you want to charge per hour for providing your computing resources. The default is `0.1 GLM` per hour, but you can set a more competitive price based on the current market rates. For instance, you can set it to `0.025 GLM`.
+
+Once you’ve filled in the information, press **Enter** to save the settings.
+
+---
+
+#### **Step 4: Modify System PATH**
+
+To make sure the Golem commands are globally accessible, you need to update the system's PATH. This will allow you to run Golem commands from anywhere in the terminal.
+
+1. Add the Golem binary directory to your `.bashrc` file by running the following command:
+
+     
+   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+
+2. After modifying the `.bashrc` file, refresh your terminal environment with the new PATH:
+
+     
+   source ~/. rc
+
+---
+
+#### **Step 5: Start Golem Provider**
+
+Now that Golem is installed and configured, you can start running your node as a Golem provider. This will allow your machine to start processing tasks from the network:
+
+  
+golemsp run
+
+Your Golem node is now up and running, and your system is contributing compute resources to the Golem network.
+
+---
+
+#### **Step 6: Verify Golem Node Status**
+
+You can check the status of your Golem node to make sure it is running correctly and performing tasks for the network:
+
+  
+golemsp status
+
+This command will display information about your node, including:
+
+- **Service:** Whether the node is running.
+- **Wallet:** The wallet address receiving your GLM tokens.
+- **Network:** The network your node is operating on (mainnet or testnet).
+- **Amount:** The total amount of GLM tokens earned.
+- **Tasks:** Information on tasks your provider has processed.
+
+**Example  :**
+
+$ golemsp status
+┌─────────────────────────┬──────────────────────────────────────────────┬─────────────────────────────┐
+│  Status                 │  Wallet                                      │  Tasks                      │
+│                         │  0xYourEthereumWalletAddress                 │                             │
+│  Service    is running  │                                              │  last 1h processed     0    │
+│  Version    0.16.0      │  network               mainnet               │  last 1h in progress   0    │
+│  Commit     5a9ad01f    │  amount (total)        0 GLM                 │  total processed       509  │
+│  Date       2024-08-21  │      (on-chain)        0 GLM                 │  (including failures)       │
+│  Build      590         │      (polygon)         0 GLM                 │                             │
+│                         │                                              │                             │
+│  Node Name  jealous-moon│  pending               0 GLM (0)             │                             │
+│  Subnet     public      │  issued                0 GLM (0)             │                             │
+│  VM         valid       │                                              │                             │
+│                         │                                              │                             │
+│  Driver     Ok          │                                              │                             │
+└─────────────────────────┴──────────────────────────────────────────────┴─────────────────────────────┘
+
+---
+
+#### **Step 7: Run Golem in the Background with Screen**
+
+To ensure your Golem node continues to run even if you close your terminal session, you can use the **Screen** utility. This will allow Golem to run in the background.
+
+1. **Install Screen:**
+
+   If you don't already have Screen installed, you can install it on Debian/Ubuntu-based systems using:
+
+     
+   sudo apt-get install screen
+
+2. **Start a Screen Session:**
+
+   Start a new Screen session named `provider` where your Golem node will run:
+
+     
+   screen -S provider
+
+3. **Run Golem in the Screen Session:**
+
+   While inside the Screen session, start the Golem provider:
+
+     
+   golemsp run
+
+4. **Detach from the Screen Session:**
+
+   You can now detach from the Screen session and leave Golem running in the background by pressing `Ctrl-A` followed by `D`.
+
+5. **Reattach to the Screen Session:**
+
+   If you need to reattach to the Screen session to check on Golem, use the following command:
+
+     
+   screen -r provider
+
+6. **Stop the Golem Provider:**
+
+   To stop the Golem node running in the background, reattach to the Screen session (`screen -r provider`), and press `Ctrl-C`. To exit the Screen session, type `exit` or press `Ctrl-D`.
+
+---
+
+#### **Step 8: Set Up Port Forwarding (Optional but Recommended)**
+
+The Golem network uses **UDP port 11500** for communication. Setting up port forwarding will enhance the performance and connectivity of your Golem node, making it more reliable for other requestors.
+
+1. **Open UDP Port 11500:**
+   Log in to your router and open **UDP port 11500** to forward traffic to your local machine.
+
+2. **Verify Port Forwarding:**
+   You can check if port forwarding is correctly configured using [CanYouSeeMe.org](https://www.canyouseeme.org/).
+
+3. **Contact ISP (if needed):**
+   If you face difficulties with router settings, contact your Internet Service Provider (ISP) for help with opening UDP port 11500.
+
+---
+
+#### **Step 9: Monitor Earnings and Withdraw GLM**
+
+Once your Golem node is running and processing tasks, you will begin earning **GLM tokens**.
+
+1. **Monitor Your Earnings:**
+   You can monitor your earnings by checking the **Golem dashboard** or running the `golemsp status` command periodically.
+
+2. **Withdraw GLM:**
+   GLM tokens will accumulate in your wallet. You can withdraw them to your personal Ethereum wallet by following Golem's documentation for managing payments and withdrawals.
+
+---
+
+### Conclusion
+
+By following this guide, you have successfully installed, configured, and run a Golem provider node to earn GLM tokens. You can monitor and manage your node using Golem's CLI, and with **Screen** and **Port Forwarding**, you ensure that your node is always available for tasks on the Golem network.
+

@@ -1,0 +1,1 @@
+git clone https://github.com/soundasleep/openphoto.git && cd openphoto && bundle install && rake db:migrate && rails s

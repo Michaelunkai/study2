@@ -1,0 +1,96 @@
+Step-by-Step Tutorial: Linux Backups, Cron, and Scripting
+This tutorial will guide you through the process of setting up automated backups on a Linux system using cron jobs and  ell scripting. We'll cover accessing a remote server, creating a backup script, and scheduling it with cron.
+
+Prerequisites
+A Linux server or a Unix-based system
+Basic knowledge of SSH,  ell scripting, and cron jobs
+Step 1: Access the Remote Server
+Open a terminal.
+Connect to your remote server using SSH:
+ 
+ 
+s  student@192.168.1.1
+Switch to the root user:
+ 
+ 
+sudo -s
+Step 2: Prepare the Directories for Backup
+Identify the directories you want to back up:
+/var/www/html
+/etc
+/var/log/apache2
+Step 3: Create the Backup Script
+Create a directory for your backups:
+ 
+ 
+mkdir /opt/backups
+Create a new script file:
+ 
+ 
+vi /opt/backups/backup_daily. 
+Add the following content to the script:
+ 
+ 
+#!/bin/ 
+# Backup script
+
+# Set date variable
+VAR_DATE=$(date +'%Y%m%d.%H%M')
+
+# Create backup file
+tar czf /opt/backups/daily-$VAR_DATE.tar.gz /etc /var/www/html /var/log/apache2
+
+# Make the script executable
+chmod 775 /opt/backups/backup_daily. 
+Step 4: Test the Backup Script
+Run the script manually to ensure it works:
+ 
+ 
+/opt/backups/backup_daily. 
+Verify the backup file:
+ 
+ 
+ls /opt/backups
+Step 5: Schedule the Backup Script with Cron
+Edit the crontab file:
+ 
+ 
+vi /etc/crontab
+Add a new cron job to run the script daily at 3 AM:
+ 
+ 
+0 3 * * * root /opt/backups/backup_daily. 
+Step 6: Create a Weekly Backup Script
+Copy the daily backup script to create a weekly one:
+ 
+ 
+cp /opt/backups/backup_daily.  /opt/backups/backup_weekly. 
+Edit the new script:
+ 
+ 
+vi /opt/backups/backup_weekly. 
+Modify the script to include "weekly" in the filename:
+ 
+ 
+#!/bin/ 
+# Weekly backup script
+
+# Set date variable
+VAR_DATE=$(date +'%Y%m%d.%H%M')
+
+# Create backup file
+tar czf /opt/backups/weekly-$VAR_DATE.tar.gz /etc /var/www/html /var/log/apache2
+
+# Make the script executable
+chmod 775 /opt/backups/backup_weekly. 
+Step 7: Schedule the Weekly Backup Script with Cron
+Edit the crontab file:
+ 
+ 
+vi /etc/crontab
+Add a new cron job to run the script weekly on Sundays at 3 AM:
+ 
+ 
+0 3 * * 0 root /opt/backups/backup_weekly. 
+Conclusion
+By following these steps, you have successfully set up daily and weekly backups on your Linux server using cron jobs and  ell scripting. Make sure to monitor your backup directory to ensure that backups are being created as scheduled and adjust your scripts and cron jobs as necessary for your specific needs.

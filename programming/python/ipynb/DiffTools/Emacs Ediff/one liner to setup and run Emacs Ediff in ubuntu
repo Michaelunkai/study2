@@ -1,0 +1,1 @@
+emacs -nw --eval "(ediff-files \"notebook1.ipynb\" \"notebook2.ipynb\")"

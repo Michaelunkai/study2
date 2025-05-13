@@ -1,0 +1,39 @@
+▲A  A▼
+Adding Storage to ProxMox VE
+Local Storage
+Install the physical disk into the ProxMox server hardware
+Power on the ProxMox server
+Open a web browser and navigate to the ProxMox web UI
+Log in
+Click the node with the new disk drive in the left navigation menu
+Expand Disks > Click ZFS
+Click the Create ZFS button
+Give the ZFS storage a name and set Raid Level = Single Disk
+Select the new disk from the list of drives > Click the Create button
+That's it, the new disk is now available to use for storing VMs
+Network Storage
+Create or navigate to an existing folder to share
+Right click on the folder > Properties > Sharing tab > Advanced Sharing...
+Click the Share this folder box
+Give the share a name (ie ISOs)
+Click the Permissions button
+Remove the Everyone group
+Add users or groups to allow access to the share
+Click OK on all open dialog boxes
+Open a web browser and navigate to the ProxMox web UI
+Log in
+Select Datacenter from the left navigation menu
+Click Storage in the left navigation sub menu
+Click the Add button > CIFS
+Complete the Add CIFS form as follows
+ID: ISOs
+Server: 10.10.27.1
+Username: i12bretro
+Password: <password>
+Share: ISOs
+Max Backups: 3
+Content: ISO image
+
+Click the Add button
+That's it, ProxMox can now see the network share and it can be used to host ISO images for installing operating systems
+ 

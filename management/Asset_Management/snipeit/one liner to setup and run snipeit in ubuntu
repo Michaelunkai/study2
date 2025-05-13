@@ -1,0 +1,1 @@
+sudo docker run -d --name snipeit -p 8080:80 snipe/snipe-it && echo 'http://localhost:8080'

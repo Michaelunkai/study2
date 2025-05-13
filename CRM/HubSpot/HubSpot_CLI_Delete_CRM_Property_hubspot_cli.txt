@@ -1,0 +1,1 @@
+hs crm delete property <property-id>

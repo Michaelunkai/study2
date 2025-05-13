@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  dailytxt:
+    image: phitux/dailytxt:latest
+    container_name: dailytxt
+    restart: always
+    environment:
+      # Internal container port
+      - PORT=8765
+      # Fixed SECRET_KEY for consistent sessions across restarts
+      - SECRET_KEY=ReplaceThisWithASecureKeyGeneratedOnce
+      # Allow registration of new users
+      - ALLOW_REGISTRATION=True
+      # Indent JSON log file
+      - DATA_INDENT=2
+      # JWT token expiration - extended for reliability
+      - JWT_EXP_DAYS=90
+      # Enable auto-update check
+      - ENABLE_UPDATE_CHECK=True
+      # Admin user credentials
+      - INITIAL_ADMIN_USER=michaelovsky5
+      - INITIAL_ADMIN_PASSWORD=Blackablacka3!
+      # Additional sync settings
+      - SYNC_INTERVAL=60
+      - DATA_CONSISTENCY_CHECK=True
+    ports:
+      # Changed to allow external access if needed
+      - "8888:8765"
+    volumes:
+      # Named volume for better persistence and migration
+      - dailytxt_data:/app/data
+    # Ensure proper shutdown to save data
+    stop_grace_period: 30s
+
+volumes:
+  dailytxt_data:
+    name: dailytxt_data
+    # Ensures volume remains when containers are removed
+    external: false

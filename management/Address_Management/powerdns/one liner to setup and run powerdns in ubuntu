@@ -1,0 +1,1 @@
+sudo apt install -y pdns-server pdns-backend-sqlite3

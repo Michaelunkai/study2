@@ -1,0 +1,1 @@
+pip3 install faker && python3 -c 'import faker; print(faker.__version__)'

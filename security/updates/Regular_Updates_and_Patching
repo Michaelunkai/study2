@@ -1,0 +1,20 @@
+Regular Updates and Patching
+Ensure that your system and all installed software are regularly updated to protect against vulnerabilities.
+
+Enable Automatic Security Updates
+Edit the unattended upgrades configuration:
+
+ 
+ 
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+Ensure the following lines are uncommented to enable automatic security updates:
+
+plaintext
+ 
+"${distro_id}:${distro_codename}-security";
+"${distro_id}:${distro_codename}-updates";
+Restart the unattended-upgrades service:
+
+ 
+ 
+sudo systemctl restart unattended-upgrades

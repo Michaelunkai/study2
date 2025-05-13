@@ -1,0 +1,30 @@
+Convert VirtualBox VM to VMware ESXi
+Exporting the VirtualBox Disk(s)
+On the VirtualBox host, launch VirtualBox
+Right click the VM to convert > Settings
+Select Storage from the left navigation
+Click the virtual hard disk and copy the Location value for the full path of the disk to the clipboard
+Right click on the Start menu > Run > type cmd.exe > Press Enter
+Enter the following commands in the command prompt
+# change directory to VirtualBox installation
+cd %programfiles%\Oracle\VirtualBox
+# convert the .vdi to .vmdk
+VBoxManage clonemedium disk --format VMDK --variant Standard "pasted\full\path\to.vdi" "pasted\full\path\to.vmdk"
+Creating the ESXi Virtual Machine
+Open a web browser and navigate to the VMware ESXi web UI
+Log into ESXi
+In the left navigation pane, right click on Virtual Machines > Create/Register VM
+Select Create a new virtual machine > Click Next
+Give the VM a name and set the Guest OS family > Click Next
+Select the storage datastore to use > Click Next
+Set the Memory to match the memory in the source VirtualBox VM
+Remove Hard disk 1 by clicking the X icon to the far right > Click Next
+Review the summary provided and click Finish
+Click the new VM name to view th VM details
+Click the Edit link at the top of the page
+At the top of the dialog click Add hard disk > Existing hard disk
+Browse to the appropriate datastore and find the folder containing the VM
+Click the Upload button at the top left of the file browser window > Browse to and select the exported .vmdk disk image
+After the upload completes, select the uploaded .vmdk file > Click Select
+Click Save in the VM Edit settings dialog
+Test that the VM is functioning by clicking the Start button at the top of the VM details page

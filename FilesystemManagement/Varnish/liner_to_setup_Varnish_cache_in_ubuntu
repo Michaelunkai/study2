@@ -1,0 +1,1 @@
+sudo apt install varnish -y && varnishd -V

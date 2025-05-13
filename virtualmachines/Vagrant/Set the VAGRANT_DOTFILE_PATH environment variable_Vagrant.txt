@@ -1,0 +1,1 @@
+export VAGRANT_DOTFILE_PATH=/path/to/vagrant_dotfile_path

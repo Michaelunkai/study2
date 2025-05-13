@@ -1,0 +1,1 @@
+pip3 install pympler && python3 -c 'import pympler; print(pympler.__version__)'

@@ -1,0 +1,1 @@
+heroku config:set MY_VAR=some_value

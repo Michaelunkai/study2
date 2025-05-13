@@ -1,0 +1,12 @@
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=2GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=4GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=6GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=8GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=10GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=12GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=14GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=16GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=18GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+echo -e "[boot]\nsystemd=true\n\n[memory]\nsize=20GB" | sudo tee /etc/wsl.conf > /mnt/c/Users/micha/.wslconfig
+
+

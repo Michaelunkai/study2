@@ -1,0 +1,80 @@
+Prerequisites
+Three or more servers: High-availability clusters require at least three nodes.
+Ubuntu installed: Ensure that Ubuntu is installed on all the nodes.
+Root or sudo access: You need administrative privileges to install and configure software.
+Step 1: Update and Install Required Packages
+First, update the package list and install necessary packages on all nodes:
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt install software-properties-common dirmngr -y
+Step 2: Add MariaDB Repository
+Add the MariaDB repository to your system:
+
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.one.com/mariadb/repo/10.6/ubuntu jammy main'
+sudo apt update
+Step 3: Install MariaDB and Galera
+Install MariaDB with Galera support on all nodes:
+
+sudo apt install mariadb-server mariadb-client galera-4 -y
+Step 4: Configure MariaDB on All Nodes
+Edit the MariaDB configuration file /etc/mysql/mariadb.conf.d/50-server.cnf on each node:
+
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+Add or modify the following lines:
+
+[mysqld]
+binlog_format=ROW
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+bind-address=0.0.0.0
+
+# Galera settings
+wsrep_on=ON
+wsrep_provider=/usr/lib/galera/libgalera_smm.so
+wsrep_cluster_name="my_galera_cluster"
+wsrep_cluster_address="gcomm://NODE1_IP,NODE2_IP,NODE3_IP"
+wsrep_node_name="node1"
+wsrep_node_address="NODE1_IP"
+wsrep_sst_method=rsync
+Replace NODE1_IP, NODE2_IP, NODE3_IP, node1 with the actual IP addresses and names of your nodes.
+
+Step 5: Set Up a Firewall
+Ensure that ports 3306 (MySQL), 4567 (Galera replication), 4568 (IST), and 4444 (SST) are open:
+
+sudo ufw allow 3306/tcp
+sudo ufw allow 4567/tcp
+sudo ufw allow 4568/tcp
+sudo ufw allow 4444/tcp
+sudo ufw reload
+Step 6: Initialize the Cluster
+On the first node, initialize the cluster:
+
+sudo systemctl stop mariadb
+sudo galera_new_cluster
+Step 7: Start MariaDB on Other Nodes
+On the remaining nodes, start MariaDB:
+
+sudo systemctl start mariadb
+Step 8: Verify Cluster Status
+Log into MariaDB on any node and check the status of the cluster:
+
+mysql -u root -p -e "SHOW STATUS LIKE 'wsrep_%';"
+Ensure that wsrep_cluster_size shows the correct number of nodes.
+
+Step 9: Test the Cluster
+Create a database and a table on one node and verify that it replicates to the other nodes:
+
+mysql -u root -p -e "CREATE DATABASE testdb;"
+mysql -u root -p -e "CREATE TABLE testdb.testtable (id INT PRIMARY KEY, value VARCHAR(100));"
+mysql -u root -p -e "INSERT INTO testdb.testtable VALUES (1, 'Hello, Galera!');"
+Check the other nodes to see if the changes have been replicated:
+
+mysql -u root -p -e "SELECT * FROM testdb.testtable;"
+Troubleshooting
+Ensure that all nodes have synchronized clocks (use ntp or chrony).
+Check the logs (/var/log/mysql/error.log) for any issues.
+Verify network connectivity between nodes.
+Conclusion
+You have now configured a high-availability MySQL cluster using Galera on Ubuntu. This setup ensures that your MySQL database is fault-tolerant and can handle node failures gracefully.

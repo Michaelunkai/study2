@@ -1,0 +1,1 @@
+clamscan -r --debug /path/to/directory

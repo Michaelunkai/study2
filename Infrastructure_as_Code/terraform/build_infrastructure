@@ -1,0 +1,76 @@
+Create a directory named learn-terraform-docker-container.
+
+ mkdir learn-terraform-docker-container
+
+
+Change into the directory.
+
+ cd learn-terraform-docker-container
+
+Create a file to define your infrastructure.
+
+ touch main.tf
+
+Open main.tf in your text editor, paste in the configuration below, and save the file.
+
+
+
+terraform {
+  required_providers {
+    docker = {
+      source = "kreuzwerker/docker"
+      version = "~> 3.0.1"
+    }
+  }
+}
+
+provider "docker" {}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "tutorial"
+  ports {
+    internal = 80
+    external = 8000
+  }
+}
+
+
+
+***
+ terraform init
+
+
+
+Format and validate the configuration:
+
+terraform fmt
+
+
+validate:
+
+terraform validate
+
+
+Create infrastructure:
+
+terraform apply
+
+  Enter a value: yes
+
+
+Inspect the current state using:
+
+ terraform show
+
+
+
+Manually Managing State:
+ terraform state list
+
+

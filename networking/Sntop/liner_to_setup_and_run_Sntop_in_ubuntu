@@ -1,0 +1,1 @@
+sudo apt install -y sntop && sntop && echo "SNtop started for monitoring network status"

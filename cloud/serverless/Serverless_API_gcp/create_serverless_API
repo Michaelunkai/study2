@@ -1,0 +1,1 @@
+gcloud functions deploy hello-world --runtime python39 --trigger-http --allow-unauthenticated

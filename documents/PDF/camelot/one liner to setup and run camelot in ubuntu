@@ -1,0 +1,1 @@
+pip3 install camelot-py[cv] && python3 -c "import camelot"

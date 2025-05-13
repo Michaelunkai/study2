@@ -1,0 +1,35 @@
+---
+- name: Install Netcat on CentOS, Ubuntu, and Fedora
+  hosts: linux
+  become: true  # to run tasks as sudo
+
+  tasks:
+    - name: Update the package cache
+      package:
+        name: '*'
+        state: latest
+      become: true
+      when:
+        - ansible_distribution == 'CentOS'
+        - ansible_distribution_major_version | int <= 8
+
+    - name: Install Netcat on CentOS
+      yum:
+        name: nc
+        state: present
+      become: true
+      when: ansible_distribution == 'CentOS'
+
+    - name: Install Netcat on Ubuntu
+      apt:
+        name: nc
+        state: present
+      become: true
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install Netcat on Fedora
+      dnf:
+        name: nc
+        state: present
+      become: true
+      when: ansible_distribution == 'Fedora'

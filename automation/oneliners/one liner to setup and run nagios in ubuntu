@@ -1,0 +1,1 @@
+sudo apt install nagios -y && sudo systemctl start nagios

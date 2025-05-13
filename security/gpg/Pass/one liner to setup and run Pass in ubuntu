@@ -1,0 +1,1 @@
+sudo apt install -y pass && gpg --gen-key && pass init "$(gpg --list-secret-keys --keyid-format=long | grep sec | head -1 | awk '{print $2}' | cut -d '/' -f2)" && pass insert test

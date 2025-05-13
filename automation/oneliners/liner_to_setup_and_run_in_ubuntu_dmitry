@@ -1,0 +1,1 @@
+sudo apt install -y dmitry && dmitry -winsepfb target.com

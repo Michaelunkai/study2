@@ -1,0 +1,131 @@
+# Comprehensive Guide to Using Snyk on Ubuntu
+
+## Step 1: Install Snyk CLI
+
+First, you need to install the Snyk CLI. On Ubuntu, you can do this using npm (Node Package Manager) or by downloading the standalone executable.
+
+### Option 1: Using npm
+
+1. Ensure you have Node.js and npm installed. If not, install them:
+     
+   sudo apt update
+   sudo apt install nodejs npm
+
+2. Install Snyk CLI globally:
+     
+   sudo npm install -g snyk
+
+### Option 2: Using standalone executable
+
+1. Download the Snyk CLI:
+     
+   curl -Lo ./snyk https://static.snyk.io/cli/latest/snyk-linux
+
+2. Make it executable:
+     
+   chmod +x ./snyk
+
+3. Move it to a directory in your PATH:
+     
+   sudo mv ./snyk /usr/local/bin/
+
+## Step 2: Authenticate Snyk CLI
+
+After installation, you need to authenticate the Snyk CLI with your Snyk account:
+
+1. Run the authentication command:
+     
+   snyk auth
+
+2. This will open a web browser. Log in to your Snyk account or create a new one if you don't have it.
+
+3. Once authenticated, you'll see a success message in your terminal.
+
+## Step 3: Navigate to Your Project
+
+Change to your project directory:
+
+  
+cd /path/to/your/project
+
+## Step 4: Test Your Project
+
+Now you can start scanning your project for vulnerabilities:
+
+1. For open-source dependencies:
+     
+   snyk test
+
+2. For container images:
+     
+   snyk container test <image-name>
+
+3. For Infrastructure as Code files:
+     
+   snyk iac test <file-path>
+
+4. For your source code (Snyk Code):
+     
+   snyk code test
+
+## Step 5: Monitor Your Project
+
+To continuously monitor your project for new vulnerabilities:
+
+  
+snyk monitor
+
+This command takes a snapshot of your project and monitors it on the Snyk website.
+
+## Step 6: Fix Vulnerabilities
+
+If vulnerabilities are found, Snyk provides remediation advice. You can:
+
+1. Manually update the vulnerable dependencies.
+2. Use Snyk to automatically fix issues (when possible):
+     
+   snyk fix
+
+## Step 7: Generate Reports
+
+To generate detailed reports of your project's vulnerabilities, you can use:
+
+  
+snyk test --json > snyk-report.json
+
+This command will create a JSON file with the vulnerability details, which can be useful for audits and compliance.
+
+## Step 8: Schedule Regular Scans
+
+To ensure continuous security, you can schedule regular scans using cron jobs:
+
+1. Open the crontab editor:
+     
+   crontab -e
+
+2. Add a cron job to run Snyk tests daily:
+     
+   0 0 * * * snyk test /path/to/your/project
+
+This will run the Snyk test command every day at midnight.
+
+## Step 9: Integrate with CI/CD (Optional)
+
+To integrate Snyk into your CI/CD pipeline:
+
+1. Add Snyk to your build process.
+2. Use environment variables for authentication in CI/CD environments:
+     
+   export SNYK_TOKEN=your-snyk-token
+
+3. Run Snyk tests as part of your CI/CD pipeline.
+
+## Additional Tips
+
+- Use `snyk ignore` to ignore specific vulnerabilities temporarily.
+- Explore `snyk wizard` for guided vulnerability resolution.
+- Check `snyk help` for more commands and options.
+
+Remember to keep your Snyk CLI updated regularly for the best performance and latest features. You can update it using the same method you used for installation (npm or downloading the latest executable).
+
+By following these steps, you'll be able to effectively use Snyk in your Ubuntu environment to scan and secure your projects.

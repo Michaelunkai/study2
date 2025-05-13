@@ -1,0 +1,1 @@
+aws kms describe-resource-tags --key-id <key-id>

@@ -1,0 +1,1 @@
+aws route53 delete-reusable-delegation-set --id <delegation-set-id>

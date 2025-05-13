@@ -1,0 +1,25 @@
+Example Workflow
+Here’s an example workflow to deploy a simple worker:
+
+Create a new project:
+
+ 
+ 
+wrangler init my-worker
+cd my-worker
+Edit index.js:
+Modify the index.js file to include your worker script logic.
+
+Configure wrangler.toml:
+Set your account ID and any other configurations in wrangler.toml.
+
+Preview locally:
+
+ 
+ 
+wrangler dev
+Publi  to Cloudflare:
+
+ 
+ 
+wrangler publi 

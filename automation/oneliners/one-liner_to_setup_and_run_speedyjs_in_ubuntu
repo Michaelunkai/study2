@@ -1,0 +1,1 @@
+npm install speedy.js && echo "const Speedy = require('speedy.js'); new Speedy().listen(3000);" > app.js && node app.js

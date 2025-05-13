@@ -1,0 +1,1 @@
+aws proton delete-template-sync-config --template-name <template-name> --template-type <template-type>

@@ -1,0 +1,1 @@
+sudo apt install -y k2pdfopt && k2pdfopt -mode copy input.pdf -o output.pdf

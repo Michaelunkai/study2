@@ -1,0 +1,1 @@
+cd && curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && sudo apt install -y nodejs && npm install -g brunch && brunch new mysite && cd mysite && brunch watch --server

@@ -1,0 +1,1 @@
+apt install make -y && wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.72.tar.gz && tar -xzvf autoconf-2.72.tar.gz && cd autoconf-2.72 && ./configure && make && sudo make install && cd ..

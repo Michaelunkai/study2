@@ -1,0 +1,1 @@
+create one liner, to setup and run sql-lint in ubuntu, and use it in the end! && npm install -g sql-lint && sql-lint --help

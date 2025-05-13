@@ -1,0 +1,9 @@
+Monitor and Manage IoT Device
+6.1 Subscribe to a Topic to See Messages
+ 
+ 
+aws iot-data subscribe --topic my/topic --qos 1
+6.2 Publish a Message to the Topic
+ 
+ 
+aws iot-data publish --topic my/topic --payload "Hello from CLI!"

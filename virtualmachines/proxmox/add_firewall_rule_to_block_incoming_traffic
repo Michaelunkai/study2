@@ -1,0 +1,24 @@
+* after doing this, the web interface will not work.
+
+
+1) datacenter > firewall > options > double click firewall > check the box
+
+2) pve > firewall >  options > double click firewall > check the box
+
+3) pve > firewall > add:
+direction: in
+action: DROP
+
+check the "Enable" box
+
+
+4)refre  web interface
+
+
+
+*** to disable this 
+
+in the main proxmox machine shell:
+
+
+pve-firewall stop

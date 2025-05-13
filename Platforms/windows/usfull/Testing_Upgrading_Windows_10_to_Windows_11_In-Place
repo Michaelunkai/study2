@@ -1,0 +1,24 @@
+▲A  A▼
+Testing Upgrading Windows 10 to Windows 11 In-Place
+Log into the Windows 10 device to update
+If running in a VM or on older hardware, or you get an error relating to TPM, Secure Boot or insufficient RAM, follow the steps below to bypass some of the hardware checks Windows 11 setup does
+Open a web browser and navigate to the following GitHub
+Copy the script to the clipboard
+Open a text editor such as notepad
+Paste the copied text
+Save the file as BypassTPM.cmd on the desktop
+Double click the file to disable TPM checks
+Click Yes to confirm on any popups
+Download the Windows 11 iso Download
+Double click the downloaded .iso file to mount it
+If it doesn't open automatically, open File Explorer and navigate to the mounted Windows 11 .iso
+Right click setup.exe > Run as administrator
+After the Windows 11 installer initializes, click Next
+Click Accept on the Applicable notices and license terms dialog
+Click the Change what to keep text
+Select Keep personal files and apps > Next
+NOTE: If the Keep personal files and apps option is grayed out then Windows has found a reason it can't do an in place upgrade without losing personal data and applications. Cancel out of the installer and backup personal data before trying again
+Click Install
+About Windows 11: https://www.microsoft.com/en-us/windows/windows-11
+
+ 

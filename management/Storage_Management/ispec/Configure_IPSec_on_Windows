@@ -1,0 +1,24 @@
+ Network Security with IPSec
+13.1 Configure IPSec on Windows
+Script:
+
+# Install necessary feature
+Install-WindowsFeature -Name RSAT-IPsec
+
+# Configure IPSec policy
+New-NetIPsecMainModeCryptoSet -Name "CustomMainModeCrypto" -Encryption AES128 -Integrity SHA256
+New-NetIPsecQuickModeCryptoSet -Name "CustomQuickModeCrypto" -Encryption AES128 -Integrity SHA256
+New-NetIPsecRule -DisplayName "IPSecRule" -InboundSecurity Require -OutboundSecurity Require -Direction Inbound -Profile Any -Encryption AES128 -AuthenticationMethod PresharedKey -PreSharedKey "YourSharedKey"
+Explanation:
+Install IPSec feature.
+
+Adds necessary components for IPSec configuration.
+Create main mode crypto set.
+
+Configures encryption and integrity for main mode.
+Create quick mode crypto set.
+
+Configures encryption and integrity for quick mode.
+Create IPSec rule.
+
+Defines IPSec policy with encryption, authentication, and key.

@@ -1,0 +1,13 @@
+ Search Documents
+Run a search query:
+
+ 
+ 
+# Search example
+search_parameters = {
+    'q': 'first',
+    'query_by': 'title,content'
+}
+
+results = client.collections['documents'].documents.search(search_parameters)
+print(results)

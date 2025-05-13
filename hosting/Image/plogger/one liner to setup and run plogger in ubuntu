@@ -1,0 +1,1 @@
+git clone https://github.com/plogger/plogger.git && cd plogger && composer install && echo 'Configure and deploy on web server'

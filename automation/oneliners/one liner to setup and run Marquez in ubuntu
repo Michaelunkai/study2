@@ -1,0 +1,1 @@
+git clone https://github.com/MarquezProject/marquez.git && cd marquez && ./docker/up.sh && echo "Marquez UI is available at http://localhost:3000"

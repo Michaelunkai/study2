@@ -1,0 +1,1 @@
+aws lex-models delete-intent --name <intent-name>

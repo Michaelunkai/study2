@@ -1,0 +1,60 @@
+Here’s the remade guide with a one-liner to create and start a service to ensure `ngrok http https://localhost:8006` is always running in the background and outputs the URL.
+
+### Title: How to Host Proxmox Web UI Using ngrok, Create a Systemd Service, and Make the URL Shorter from Terminal
+
+1. **Install Node.js, npm, and ngrok in One Line:**
+   Install Node.js, npm, and ngrok by running the following command:
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs=22.1.0-1nodesource1 && npm install -g npm@latest && node -v && npm -v && npm install -g ngrok && ngrok -v
+   ```
+
+2. **Sign Up for ngrok and Get Your Authentication Token:**
+   - Sign up at [ngrok's website](https://dashboard.ngrok.com/signup).
+   - Copy your authentication token from [Your AuthToken](https://dashboard.ngrok.com/get-started/your-authtoken).
+
+3. **Install the AuthToken:**
+   Run this command to install your ngrok authentication token:
+   ```bash
+   ngrok config add-authtoken <your_auth_token>
+   ```
+   Replace `<your_auth_token>` with the token from your ngrok dashboard.
+
+4. **Create a Systemd Service to Keep ngrok Running in the Background:**
+   To ensure that ngrok runs in the background and always provides you with the public URL, create a systemd service with the following one-liner:
+
+   ```bash
+   echo -e "[Unit]\nDescription=ngrok tunnel for Proxmox Web UI\nAfter=network.target\n\n[Service]\nExecStart=/usr/bin/ngrok http https://localhost:8006\nRestart=always\nUser=root\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/ngrok.service && sudo systemctl daemon-reload && sudo systemctl enable ngrok && sudo systemctl start ngrok && systemctl status ngrok
+   ```
+
+   - This one-liner creates a new `ngrok.service` in systemd, reloads the systemd manager, enables the service to run at startup, and starts the service.
+   - You can check the status of the service at any time with:
+     ```bash
+     sudo systemctl status ngrok
+     ```
+
+5. **View the ngrok Public URL:**
+   After starting the service, view the public URL by checking ngrok's live status. Run:
+   ```bash
+   curl http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-zA-Z.-]*\.ngrok-free.app'
+   ```
+
+   This will output the public URL for your Proxmox Web UI.
+
+6. **Make the URL Shorter for Free from Terminal:**
+   Shorten the ngrok URL using **tinyurl** by running:
+   ```bash
+   curl "http://tinyurl.com/api-create.php?url=$(curl -s http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-zA-Z.-]*\.ngrok-free.app')"
+   ```
+
+   This will return a shortened URL that you can use to access your Proxmox Web UI from anywhere.
+
+7. **Secure the Tunnel (Optional):**
+   For additional security, you can add basic authentication to your tunnel:
+   ```bash
+   ngrok http -auth="username:password" https://localhost:8006
+   ```
+
+   Replace `username` and `password` with your own credentials.
+
+### Conclusion:
+By following these steps, you have successfully installed ngrok, created a systemd service to keep it running in the background, and shortened the ngrok URL. This setup allows you to securely access your Proxmox Web UI from anywhere.

@@ -1,0 +1,77 @@
+Transcript
+00:00
+Once you have your AI principles defined, the next step in establishing AI governance is to set up a review process to put them into practice.
+00:09
+Having AI principles as guidance won’t immediately answer all of your questions around AI’s ethical concerns, and they don’t relieve you from having hard conversations.
+00:19
+What the Principles provide is a starting point for establishing the values you stand for and what you need to assess in technology development.
+00:27
+Applying those AI principles then takes concerted and ongoing effort.
+00:33
+While responsible AI technical tools are helpful to examine how a particular ML model is performing,
+00:39
+having robust AI governance processes is a critical first step in establishing what your goals are.
+00:45
+Technical tools are only useful if you have clear responsibility goals.
+00:49
+A dedicated process promotes a culture of responsible AI often not present in traditional product development lifecycles.
+00:57
+Let’s quickly address some common misconceptions about responsible AI governance.
+01:03
+One misconception is that hiring ethical people will guarantee ethical AI products.
+01:09
+The reality is that two people considered to have strong ethics could evaluate the same
+01:14
+situation, or AI solution, and come to very different conclusions based on their experiences and backgrounds.
+01:21
+Research in the World Economic Forum report “‘Ethics By Design”’ suggests that even the most ethical people can be subject to ethical blind spots.
+01:30
+This is why it is important to build practices around ethical decision making and making space for ethical deliberation.
+01:37
+Both are big factors in achieving ethical outcomes.
+01:41
+Another common misconception is that it's possible to create a checklist for responsible AI.
+01:48
+Checklists or decision trees can feel comforting, but in our experience checklists are ineffective at governance for such nascent technologies.
+01:57
+For every product, both the technical details and context in which it's used are unique and require its own evaluation.
+02:05
+Following a checklist can place boundaries on critical thinking and lead to ethical blind spots.
+02:11
+Essential to AI governance is having programs and practices to support the review of your technologies.
+02:17
+These procedures allow your teams to exercise moral imagination, which is envisioning the full range of possibilities in a particular situation in order to solve an ethical challenge.
+02:29
+It also encourages people to build their issue spotting practice in a way that prescribed checklists and more rigid rules could not achieve.
+02:37
+So let's get into some detail on how we operationalize the review process.
+02:42
+Google created a formal review committee structure to assess new projects, products and deals for alignment with our AI Principles.
+02:51
+The committee structure consists of the following AI governance teams: A central ‘Responsible Innovation team’ provides guidance to teams across different Google
+03:00
+product areas that are implementing AI Principles reviews, establishing a common interpretation of our AI principles, and ensures calibrated decision-making across the company.
+03:12
+They handle the day-to-day operations and initial assessments.
+03:16
+This group includes: user researchers, social scientists, ethicists human rights specialists, policy and privacy advisors, and legal experts, among many others, which allows for diversity of perspectives and disciplines.
+03:34
+The second AI governance team in our committee structure is a group of senior experts from a range of disciplines across Google who provide technological, functional, and application expertise.
+03:47
+These experts inform strategy and guidelines around emerging technologies and themes, and consult on reviews when required.
+03:55
+The third AI governance team in our committee structure is a council of senior executives
+04:00
+who handle the most complex and difficult issues, including decisions that affect multiple products and technologies.
+04:07
+They serve as the escalation body, make complex, precedent- setting decisions, and provide accountability at the highest level of the company.
+04:17
+Finally there are customized AI governance and review committees embedded within certain product areas that work closely with the Responsible Innovation team.
+04:27
+These take into account their unique circumstances, regarding: the technology, use case, training data, societal context, and how the AI is integrated in production.
+04:39
+A best practice for reviews across all teams is to seek participation from a diverse range of people, which ensures robust and trustworthy outcomes based on deliberation.
+04:51
+An environment of psychological safety needs to be fostered for this discussion and debate to succeed.
+04:57
+To give you a better idea of how Google Cloud approaches responsible AI, we will go through their custom AI governance process next.

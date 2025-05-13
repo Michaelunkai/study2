@@ -1,0 +1,56 @@
+### Comprehensive Step-by-Step Guide to Setting Up Appwrite on Ubuntu Using Docker for Backend API Development
+
+This detailed tutorial will guide you through the process of installing and setting up **Appwrite** on **Ubuntu** using **Docker**. It is a complete step-by-step guide that covers everything from installing Docker, setting up Appwrite, verifying the installation, and upgrading to a newer version if needed. Whether you're starting from scratch or migrating from an older version, this tutorial ensures smooth installation and setup.
+
+#### Step 1: Install Docker on Ubuntu
+Appwrite requires Docker to run. Follow the steps below to install Docker:
+
+  
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+
+#### Step 2: Set Up Appwrite Using Docker
+Once Docker is installed, use the following command to set up **Appwrite**. This command installs Appwrite on your system and mounts the necessary volumes.
+
+  
+docker run -it --rm \
+    --volume /var/run/docker.sock:/var/run/docker.sock \
+    --volume "$(pwd)"/appwrite:/usr/src/code/appwrite:rw \
+    --entrypoint="install" \
+    appwrite/appwrite:0.10.4
+
+- This command will download and install Appwrite version 0.10.4. You can adjust the version accordingly if you prefer a different release.
+
+#### Step 3: Verify Appwrite Installation
+After running the installation command, verify that Appwrite has been installed correctly by listing the running Docker containers. Use the following command to ensure that the Appwrite container is running without errors:
+
+  
+docker ps | grep appwrite/appwrite
+
+- This command checks for the Appwrite container in the list of running Docker containers and ensures it is running correctly.
+
+#### Step 4: Upgrading Appwrite from an Older Version (If Applicable)
+If you are migrating or upgrading from an older version of Appwrite, you will need to follow these steps to upgrade and migrate data:
+
+1. **Install the Latest Version of Appwrite**  
+   Navigate to the directory where your Appwrite installation is located and run the installation command again to install the latest version of Appwrite:
+     
+   docker run -it --rm \
+       --volume /var/run/docker.sock:/var/run/docker.sock \
+       --volume "$(pwd)"/appwrite:/usr/src/code/appwrite:rw \
+       --entrypoint="install" \
+       appwrite/appwrite:0.10.4
+
+2. **Migrate Existing Data**  
+   After installing the latest version, navigate to the **appwrite** directory (where `docker-compose.yml` is located) and run the migration command:
+     
+   cd appwrite/
+   docker-compose exec appwrite migrate
+
+- This will ensure that your Appwrite data is updated and compatible with the latest version.
+
+#### Step 5: Start Using Appwrite
+After completing the installation or migration process, you're now ready to start using Appwrite for your backend API development. You can begin making API calls and start building your backend with ease.
+

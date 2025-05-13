@@ -1,0 +1,1 @@
+aws cloudfront create-function --name my-function --function-config '{"Comment":"My function","Runtime":"cloudfront-js-1.0"}' --function-code fileb://function.js

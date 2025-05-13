@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y wget2 && wget2 https://example.com/file.zip

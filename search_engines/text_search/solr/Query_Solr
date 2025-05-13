@@ -1,0 +1,11 @@
+ Query Solr
+Perform a simple query using the Solr admin interface or curl:
+
+ 
+ 
+curl "http://localhost:8983/solr/mycore/select?q=*:*"
+Perform a full-text search:
+
+ 
+ 
+curl "http://localhost:8983/solr/mycore/select?q=title:Solr"

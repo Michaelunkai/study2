@@ -1,0 +1,61 @@
+Commands
+kourou api-key:check TOKEN
+kourou api-key:create USER
+kourou api-key:delete USER ID
+kourou api-key:search USER
+kourou app:debug-proxy
+kourou app:doctor
+kourou app:scaffold DESTINATION
+kourou app:start-services
+kourou autocomplete [SHELL]
+kourou collection:create INDEX COLLECTION [BODY]
+kourou collection:export INDEX COLLECTION
+kourou collection:import PATH
+kourou collection:migrate SCRIPT PATH
+kourou config:diff FIRST SECOND
+kourou document:search INDEX COLLECTION [QUERY]
+kourou es:aliases:cat
+kourou es:indices:cat
+kourou es:indices:get INDEX ID
+kourou es:indices:insert INDEX
+kourou es:migrate
+kourou es:snapshot:create REPOSITORY NAME
+kourou es:snapshot:create-repository REPOSITORY LOCATION
+kourou es:snapshot:list REPOSITORY
+kourou es:snapshot:restore REPOSITORY NAME
+kourou file:decrypt FILE
+kourou file:encrypt FILE
+kourou file:test FILE
+kourou help [COMMAND]
+kourou import PATH
+kourou index:export INDEX
+kourou index:import PATH
+kourou instance:kill
+kourou instance:list
+kourou instance:logs
+kourou instance:spawn
+kourou paas:deploy ENVIRONMENT APPLICATIONID IMAGE
+kourou paas:elasticsearch:dump ENVIRONMENT APPLICATIONID DUMPDIRECTORY
+kourou paas:init PROJECT
+kourou paas:login
+kourou paas:logs ENVIRONMENT APPLICATION
+kourou paas:snapshots:cat ENVIRONMENT APPLICATIONID
+kourou paas:snapshots:dump ENVIRONMENT APPLICATIONID
+kourou paas:snapshots:restore ENVIRONMENT APPLICATIONID SNAPSHOTID
+kourou profile:export
+kourou profile:import PATH
+kourou realtime:subscribe INDEX COLLECTION [FILTERS]
+kourou redis:list-keys [MATCH]
+kourou role:export
+kourou role:import PATH
+kourou sdk:execute [CODE]
+kourou sdk:query CONTROLLER:ACTION
+kourou user:export
+kourou user:export-mappings
+kourou user:import PATH
+kourou user:import-mappings PATH
+kourou vault:add SECRETS-FILE KEY VALUE
+kourou vault:decrypt FILE
+kourou vault:encrypt FILE
+kourou vault:show SECRETS-FILE [KEY]
+kourou vault:test SECRETS-FILE

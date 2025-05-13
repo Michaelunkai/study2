@@ -1,0 +1,54 @@
+▲A  A▼
+Running an ARM64 VM in ProxMox VE
+DISCLAIMER: While running ARM64 architecture VMs on Proxmox works, the performance is not on par with what it would be on a baremetal ARM device. In this example I'll be installing Debian 11 AARCH64 in Proxmox running on Intel x64 based hardware.
+
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download the Debian ARM64 iso Download and upload it to the ProxMox ISO image library
+If on ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Right click the ProxMox node name > Create VM
+Type DebianARM64 in the name field set the VM ID to 164 (unless 164 is in use) > Next
+Set the Type to Linux, Version to 5.x - 2.6 Kernel and select Do not use any media > Next
+On the System tab set the BIOS for OVMF (UEFI), Uncheck the Add EFI Disk checkbox > Next
+On the Hard Disk tab, set the Storage device and Disk size to 16 (adjust as needed) > Next
+On the CPU tab, set the number Cores to 2 (adjust as needed) > Next
+On the Memory tab, set the Memory to 2048 (adjust as needed) > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Select the DebianARM64 VM in the left navigation pane
+Select Hardware from the left navigation sub-menu
+Click on the CD/DVD Drive to select it > Click Remove at the top of the main content area > Click Yes to confirm
+Click Add > Serial Port > Leave the Port Number 0 > Click Add
+Click Add > Select CD/DVD Drive > Set the Bus/Device to SCSI > Select the Storage device where the Debian ARM64 iso is uploaded > Select the uploaded Debian ARM64 iso > Click Create
+Double click Display to edit it > Set the Graphic card value to Serial terminal 0 > Click OK
+Select Options from the left navigation sub-menu
+Double click Boot order to edit it > Drag/drop the SCSI2 device (where the Debian iso is attached) to the top of the list > Click OK
+Right click the ProxMox node name > Console
+Run the following commands in the terminal
+# edit the VM conf file, change 164 to the VM ID for the DebianARM64 VM
+nano /etc/pve/qemu-server/164.conf
+Add the following line to the bottom of the .conf file:
+arch: aarch64
+
+Find the line starting with vmgenid: and comment it out by adding a # to the beginning of the line
+Press CTRL+O, Enter, CTRL+X to write the changes to the conf file
+Back in the Proxmox web UI, select the DebianARM64 VM from the left navigation menu
+Click console in the left sub-navigation menu
+Click Start at the top right of the screen to start the VM
+Wait a moment for the serial console to initialize
+Follow the prompts to complete the OS installation
+NOTE: This will feel slower than normal, allow it time to complete
+After the installation completes, select the Shutdown dropdown at the top of the screen > Stop
+Select Hardware from the left sub-navigation menu
+Double click the CD/DVD Drive to edit it > Select Do not use any media > Click OK
+Go back to the VM console
+Click Start at the top right of the screen to start the VM again
+Enter the following commands to launch Debian from the EFI shell
+fs0:\EFI\debian\grubaa64.efi
+The GRUB menu should boot and start loading Debian
+Welcome to ARM64 based Debian running on Proxmox VE
+Sources: https://rotelok.com/installing-arm64-debian-10-buster-in-a-virtual-machine/,
+https://www.reddit.com/r/Proxmox/comments/ed2ldo/installing_and_launching_an_arm_vm_from_proxmox/
+
+ 

@@ -1,0 +1,1 @@
+pip install pycaret && python -c "import pycaret; print(pycaret.__version__)"

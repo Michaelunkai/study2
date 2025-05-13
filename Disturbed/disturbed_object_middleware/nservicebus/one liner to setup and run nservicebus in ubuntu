@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y dotnet-sdk-5.0 && dotnet new console -n SampleEndpoint && cd SampleEndpoint && dotnet add package NServiceBus && dotnet run

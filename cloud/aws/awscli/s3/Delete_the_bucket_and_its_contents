@@ -1,0 +1,1 @@
+aws s3 rb s3://my-unique-bucket-name-12345 --force

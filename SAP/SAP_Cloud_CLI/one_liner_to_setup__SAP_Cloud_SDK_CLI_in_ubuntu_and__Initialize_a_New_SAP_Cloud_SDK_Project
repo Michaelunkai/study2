@@ -1,0 +1,1 @@
+cd && getnpm && git clone https://github.com/SAP-archive/cloud-sdk-cli.git && cd cloud-sdk-cli && npm install -g yarn && yarn install && yarn build && npm install -g @sap-cloud-sdk/cli && sap-cloud-sdk init

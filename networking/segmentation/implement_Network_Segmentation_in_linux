@@ -1,0 +1,19 @@
+Implement Network Segmentation
+Why: Limits the spread of an attack by isolating different network segments.
+
+Ubuntu:
+
+Create Network Namespaces:
+
+sudo ip netns add namespace1
+sudo ip netns add namespace2
+Assign Interfaces to Namespaces:
+
+sudo ip link set dev eth0 netns namespace1
+sudo ip link set dev eth1 netns namespace2
+Configure IP Addresses and Bring Up Interfaces:
+
+sudo ip netns exec namespace1 ip addr add 192.168.1.1/24 dev eth0
+sudo ip netns exec namespace1 ip link set dev eth0 up
+sudo ip netns exec namespace2 ip addr add 192.168.2.1/24 dev eth1
+sudo ip netns exec namespace2 ip link set dev eth1 up

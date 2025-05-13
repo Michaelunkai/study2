@@ -1,0 +1,1 @@
+flatpak install flathub com.snes9x.Snes9x -y && flatpak run com.snes9x.Snes9x

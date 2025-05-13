@@ -1,0 +1,1 @@
+sudo apt install redis-server -y && sudo systemctl enable --now redis-server && redis-server --daemonize yes

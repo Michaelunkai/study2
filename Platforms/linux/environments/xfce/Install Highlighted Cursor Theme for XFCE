@@ -1,0 +1,14 @@
+▲A  A▼
+Install Highlighted Cursor Theme for XFCE
+Download the bDMZ Cursor theme Download
+Extract the downloaded archive with the following command:
+cd ~/Downloads
+mkdir bDMZ && mkdir ~/.icons
+# extract the downloaded tar.gz
+sudo tar xzvf *bDMZ*tar.gz -C ~/Downloads/bDMZ --strip-components=1
+# copy the extracted cursor themes to ~/.icons
+sudo mv ~/Downloads/bDMZ/* ~/.icons
+Click the XFCE button > Settings > Mouse and Touchpad
+Select the Theme tab
+Select the desired bDMZ cursor theme
+ 

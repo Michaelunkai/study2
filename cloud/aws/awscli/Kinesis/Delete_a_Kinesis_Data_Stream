@@ -1,0 +1,1 @@
+aws kinesis delete-stream --stream-name MyDataStream

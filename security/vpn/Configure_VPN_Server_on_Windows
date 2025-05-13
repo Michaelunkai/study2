@@ -1,0 +1,9 @@
+# Install the Remote Access role with VPN
+Install-WindowsFeature -Name RemoteAccess -IncludeManagementTools
+Install-WindowsFeature -Name Routing -IncludeAllSubFeature -IncludeManagementTools
+
+# Configure VPN
+Add-VpnS2SInterface -Name "CorpVPN" -Destination 203.0.113.1 -TunnelType L2tp -AuthenticationMethod PSKOnly -EncryptionType Require -SharedSecret "YourSharedSecret"
+
+# Enable VPN and Routing
+Install-RemoteAccess -VpnType VpnS2S

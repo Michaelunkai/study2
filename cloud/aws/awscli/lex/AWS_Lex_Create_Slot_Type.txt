@@ -1,0 +1,1 @@
+aws lex-models create-slot-type --name <slot-type-name> --description <description> --enumeration-values <enumeration-values>

@@ -1,0 +1,1 @@
+sudo docker run -d -p 5555:80 -v /var/lib/gotify/data:/app/data --name gotify-server gotify/server && echo "Gotify running on http://localhost:5555. Default creds -> User: admin, Password: admin" && gcl 5555

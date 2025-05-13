@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g lumen-cli && yes "y" | lumen init my-lumen-app && cd my-lumen-app && nsj && npm start

@@ -1,0 +1,1 @@
+sudo apt install -y clang && clang++ -fsanitize=address test.cpp -o test && echo 'AddressSanitizer Ready'

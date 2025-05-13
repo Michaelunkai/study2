@@ -1,0 +1,1 @@
+sudo apt install -y zathura && zathura example.pdf

@@ -1,0 +1,1 @@
+aws codeguruprofiler get-insight --profiling-group-name MyProfilingGroup --insight-id <insight-id>

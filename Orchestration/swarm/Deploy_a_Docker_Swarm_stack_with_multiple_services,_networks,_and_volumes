@@ -1,0 +1,33 @@
+docker swarm init && docker network create --driver overlay backend && docker network create --driver overlay frontend && docker volume create data && docker stack deploy -c <(echo '
+version: "3"
+services:
+  web:
+    image: nginx:alpine
+    deploy:
+      replicas: 3
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+  api:
+    image: my-api:latest
+    deploy:
+      replicas: 2
+    networks:
+      - frontend
+      - backend
+  db:
+    image: postgres:13
+    volumes:
+      - data:/var/lib/postgre /data
+    networks:
+      - backend
+networks:
+  frontend:
+    external: true
+  backend:
+    external: true
+volumes:
+  data:
+    external: true
+') myapp

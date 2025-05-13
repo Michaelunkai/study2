@@ -1,0 +1,23 @@
+▲A  A▼
+Install CertBot Let's Encrypt ACME (Automated Certificate Management Environment) Client on Windows
+What is Certbot?
+Certbot is a free, open source software tool for automatically using Let’s Encrypt certificates on manually-administrated websites to enable HTTPS. -https://certbot.eff.org/pages/about
+Installing Certbot
+Log into the Windows host
+Download Certbot Download
+Run through the Certbot installer, accepting all the defaults
+Requesting a Certificate
+NOTE: In order for Let's Encrypt to verify ownership of the DNS name, the host certbot is running from must be accessible via port 80 (http) or port 443 (https). For homelab users, this will normally involve port forwarding from the router to the certbot host, which is beyond the scope of this tutorial. Just note, I have forwarded port 80 on my router to the host running certbot for this handshake to complete successfully.
+
+Launch PowerShell as an administrator
+Run the following commands
+# change directory to certbot installation
+cd ${ENV:ProgramFiles(x86)}\Certbot\bin
+# run the certbot command
+.\certbot.exe certonly --standalone -d <%host.dns.name%>
+When prompted, enter an email address and agree to the terms of service
+Choose whether to share your email and receive emails from certbot
+Certbot will output information regarding the location of the certificate files
+Source: https://certbot.eff.org/instructions?ws=webproduct&os=windows
+
+ 

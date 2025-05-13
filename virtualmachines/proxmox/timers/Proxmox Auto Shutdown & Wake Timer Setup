@@ -1,0 +1,94 @@
+### **Proxmox Auto Shutdown & Wake Timer Setup**
+This setup will **shut down Proxmox every 10 minutes** and **wake it up after 1 minute**. Follow all the steps carefully.
+
+---
+
+## **Step 1: Create the Shutdown Service**
+Run:
+
+```bash
+nano /etc/systemd/system/shutdown-timer.service
+```
+
+Paste:
+
+```ini
+[Unit]
+Description=Shutdown Proxmox every 10 minutes
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'echo "+60" > /sys/class/rtc/rtc0/wakealarm && shutdown -h now'
+```
+
+Save and exit (`CTRL + X`, then `Y`, then `Enter`).
+
+---
+
+## **Step 2: Create the Timer**
+Run:
+
+```bash
+nano /etc/systemd/system/shutdown-timer.timer
+```
+
+Paste:
+
+```ini
+[Unit]
+Description=Run shutdown-timer service every 10 minutes
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=10min
+Unit=shutdown-timer.service
+
+[Install]
+WantedBy=timers.target
+```
+
+Save and exit.
+
+---
+
+## **Step 3: Enable and Start the Timer**
+Run:
+
+```bash
+systemctl daemon-reload
+systemctl enable shutdown-timer.timer
+systemctl start shutdown-timer.timer
+```
+
+---
+
+## **Step 4: Verify the Timer**
+Run:
+
+```bash
+systemctl list-timers --all | grep shutdown
+```
+
+This ensures the timer is running correctly.
+
+---
+
+## **Step 5: Remove Everything (If Needed)**
+If you ever want to **remove** this setup completely, run:
+
+```bash
+systemctl stop shutdown-timer.timer && systemctl disable shutdown-timer.timer && rm -f /etc/systemd/system/shutdown-timer.{service,timer} && systemctl daemon-reload
+```
+
+---
+
+This will make **Proxmox shut down every 10 minutes and wake up after 1 minute** indefinitely. 🚀
+
+
+
+
+
+
+
+

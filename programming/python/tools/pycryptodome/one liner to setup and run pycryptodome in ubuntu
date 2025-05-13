@@ -1,0 +1,1 @@
+pip3 install pycryptodome && python3 -c 'import Crypto; print(Crypto.__version__)'

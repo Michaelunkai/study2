@@ -1,0 +1,1 @@
+sudo apt install -y libcairo2-dev && echo 'Cairo installed'

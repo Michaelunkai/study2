@@ -1,0 +1,61 @@
+STDOUT – Standard Output (File Descriptor 1)
+📌 Definition
+STDOUT (Standard Output) is the default stream where a process writes regular output. Unless redirected, this output is displayed in the terminal.
+
+⚙️ How It Works Internally
+File Descriptor: 1
+
+When a program writes output (e.g., a list, a computation result, a message), it goes through STDOUT unless told otherwise.
+
+Redirection changes the destination (to a file, pipe, etc.), without changing the program's logic.
+
+💡 Key Use Cases
+Showing command results in terminal.
+
+Saving output to logs.
+
+Passing data between processes via pipe.
+
+🧪 Examples
+➤ Basic use:
+bash
+Copy code
+echo "Hello"
+Prints to terminal via STDOUT.
+
+➤ Save to file:
+bash
+Copy code
+echo "Result" > result.txt
+Redirects STDOUT to a file.
+
+➤ Discard output:
+bash
+Copy code
+command > /dev/null
+Silences regular output.
+
+➤ Combined redirection:
+bash
+Copy code
+command > output.txt 2>&1
+Sends both STDOUT and STDERR to one file.
+
+🧑‍💻 In Programming
+C:
+
+c
+Copy code
+printf("Hello\n");  // to STDOUT
+Python:
+
+python
+Copy code
+print("Hello")
+import sys
+sys.stdout.write("Manual output\n")
+🧠 Why It Matters
+Separating STDOUT from STDERR makes scripts cleaner and output more manageable.
+
+Greatly improves logging, debugging, and automation.
+

@@ -1,0 +1,1 @@
+aws route53 list-tags-for-resource --resource-type healthcheck --resource-id <health-check-id>

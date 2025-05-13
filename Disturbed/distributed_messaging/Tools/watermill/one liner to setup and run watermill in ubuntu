@@ -1,0 +1,1 @@
+sudo apt install golang-go -y && git clone https://github.com/ThreeDotsLabs/watermill && cd watermill && go run ./cmd/pubsub

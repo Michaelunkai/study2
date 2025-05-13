@@ -1,0 +1,61 @@
+▲A  A▼
+Create and Apply SSL Certificates to VMware vSphere (ESXi) Host
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: esxi.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: esxi.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting Required Files
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name to rui.crt verify the export format is PEM (*.crt)
+Click OK
+Click the Private Keys tab
+Right click the private key generated for the SSL certificate > Export > File
+Set the file name to rui.key and verify the export format is PEM private (*.pem)
+Click OK
+Applying SSL Certificates in VMware vSphere
+Open a web browser and navigate to the VMware vSphere web UI
+Authenticate at the VMware ESXi login
+Select Actions > Services > Enable Secure Shell (SSH)
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the VMware vSphere server IP via WinSCP
+Login with the root user account
+Navigate to /etc/vmware/ssl
+Rename rui.crt to rui.crt.orig
+Rename rui.key to rui.key.orig
+Copy the exported rui.crt and rui.key to the VMware vSphere host /etc/vmware/ssl
+Back in the web UI select Action > Services Disable Secure Shell (SSH)
+Click Actions > Reboot and Reboot again to confirm
+When the ESXi host comes back up the new SSL certificates will be used
+ 
+Join Us on Discordi12bretro on GithubOfficial SubredditFollow i12bretro on TwitterOfficial WordPress Sitei12bretro on YouTubei12bretro Tools, Gadgets and Peripheralsi12bretro RSS Feed

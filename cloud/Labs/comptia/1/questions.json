@@ -1,0 +1,91 @@
+[
+    {
+        "id": 1,
+        "question": "Which of the following is a common type of RAM used in modern desktop computers?",
+        "options": ["SRAM", "DRAM", "DDR4", "VRAM"],
+        "correct_answer": 2,
+        "explanation": "DDR4 (Double Data Rate 4) is a common type of RAM used in modern desktop computers. It offers high speed and efficiency compared to older RAM types."
+    },
+    {
+        "id": 2,
+        "question": "What is the purpose of a CPU's L1 cache?",
+        "options": [
+            "To store the BIOS",
+            "To provide quick access to frequently used data",
+            "To control the power supply",
+            "To manage network connections"
+        ],
+        "correct_answer": 1,
+        "explanation": "The L1 cache is the smallest and fastest cache in a CPU, providing quick access to frequently used data and instructions to improve processing speed."
+    },
+    {
+        "id": 3,
+        "question": "Which of the following is an example of an input device?",
+        "options": ["Monitor", "Printer", "Speaker", "Keyboard"],
+        "correct_answer": 3,
+        "explanation": "A keyboard is an input device that allows users to input data into a computer."
+    },
+    {
+        "id": 4,
+        "question": "What does BIOS stand for?",
+        "options": ["Basic Input/Output System", "Binary Input/Output System", "Basic Internal Operating System", "Basic Internet Operating System"],
+        "correct_answer": 0,
+        "explanation": "BIOS stands for Basic Input/Output System. It's firmware used to perform hardware initialization during the booting process."
+    },
+    {
+        "id": 5,
+        "question": "Which of the following is a type of malware that encrypts a user's files and demands payment for the decryption key?",
+        "options": ["Virus", "Worm", "Trojan", "Ransomware"],
+        "correct_answer": 3,
+        "explanation": "Ransomware is a type of malware that encrypts a user's files and demands payment in exchange for the decryption key."
+    },
+    {
+        "id": 6,
+        "question": "What is the purpose of a firewall in network security?",
+        "options": ["To prevent physical damage to the network", "To monitor network traffic and block unauthorized access", "To increase network speed", "To provide wireless access"],
+        "correct_answer": 1,
+        "explanation": "A firewall monitors network traffic and blocks unauthorized access, helping to protect the network from security threats."
+    },
+    {
+        "id": 7,
+        "question": "Which of the following is an example of a volatile memory?",
+        "options": ["Hard Drive", "SSD", "RAM", "ROM"],
+        "correct_answer": 2,
+        "explanation": "RAM (Random Access Memory) is volatile, meaning it loses its contents when power is removed from the system."
+    },
+    {
+        "id": 8,
+        "question": "What is the purpose of an IP address?",
+        "options": ["To secure a website", "To identify a device on a network", "To compress data for transmission", "To encrypt email messages"],
+        "correct_answer": 1,
+        "explanation": "An IP address is used to identify a device on a network, allowing data to be sent to and received from that specific device."
+    },
+    {
+        "id": 9,
+        "question": "Which of the following is a benefit of using a solid-state drive (SSD) over a traditional hard disk drive (HDD)?",
+        "options": ["Larger storage capacity", "Lower cost per gigabyte", "Faster read/write speeds", "Better long-term data retention"],
+        "correct_answer": 2,
+        "explanation": "SSDs generally offer faster read/write speeds compared to traditional HDDs, resulting in quicker boot times and faster application loading."
+    },
+    {
+        "id": 10,
+        "question": "What does DHCP stand for in networking?",
+        "options": ["Dynamic Host Configuration Protocol", "Direct Host Control Protocol", "Domain Hosting Control Platform", "Distributed Host Computing Process"],
+        "correct_answer": 0,
+        "explanation": "DHCP stands for Dynamic Host Configuration Protocol. It's a network protocol used to automatically assign IP addresses and other network configuration to devices."
+    },
+    {
+        "id": 11,
+        "question": "Which of the following is a characteristic of a laser printer?",
+        "options": ["Uses ink cartridges", "Prints by heating wax-based ink", "Uses toner and a drum for printing", "Typically slower than inkjet printers"],
+        "correct_answer": 2,
+        "explanation": "Laser printers use toner (a fine powder) and a drum unit to create prints, offering fast, high-quality output."
+    },
+    {
+        "id": 12,
+        "question": "What is the primary function of an operating system?",
+        "options": ["To provide a user interface", "To manage hardware resources", "To browse the internet", "To create documents"],
+        "correct_answer": 1,
+        "explanation": "The primary function of an operating system is to manage hardware resources, providing an interface between hardware and software applications."
+    }
+]

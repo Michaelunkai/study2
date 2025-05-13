@@ -1,0 +1,163 @@
+```
+################################################################################################################################################################
+# 💥🔥 ULTIMATE 2025 MEGA FIX: FULLY ENABLE PowerShell 7.5 WITH AUTOCOMPLETE, PSREADLINE, PREDICTIVE HISTORY + MAKE IT DEFAULT TERMINAL & REMOVE PowerShell 5.1 #
+# 🛠️ TOPIC: Fix Broken Install-Module in PowerShell 5.1 | Install PowerShell 7.5 | Enable Autocomplete + Prediction | Set as Default Shell + Terminal Profile UI #
+################################################################################################################################################################
+```
+
+---
+
+### ✅ STEP 1 — 🔽 Install PowerShell 7.5 Automatically (If Not Already Installed)
+
+Run this in **PowerShell 5.1**:
+
+```powershell
+iex "& { $(irm https://aka.ms/install-powershell.ps1 -UseBasicP) }"
+```
+
+This will download and install PowerShell 7.5 into:
+
+```
+C:\Users\micha\AppData\Local\Microsoft\powershell\pwsh.exe
+```
+
+---
+
+### ✅ STEP 2 — 🚀 Launch PowerShell 7.5 Manually
+
+After installation, run this from **PowerShell 5.1**:
+
+```powershell
+& "$env:LOCALAPPDATA\Microsoft\powershell\pwsh.exe"
+```
+
+Confirm that you're in version **7.5**:
+
+```powershell
+$PSVersionTable.PSVersion
+```
+
+You should see:
+
+```
+Major  Minor  Patch
+7      5      0
+```
+
+---
+
+### ✅ STEP 3 — 🧠 Fix Everything: Enable `Install-Module`, Autocomplete, and History Prediction
+
+Inside PowerShell 7.5, paste:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Install-Module PSReadLine -Force -SkipPublisherCheck
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+```
+
+---
+
+### ✅ STEP 4 — 💾 Save Autocomplete Settings to PowerShell 7.5 Profile (Permanent)
+
+```powershell
+New-Item -Path $PROFILE -ItemType File -Force
+Add-Content -Path $PROFILE -Value @"
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+"@
+```
+
+---
+
+### ✅ STEP 5 — ❌ Remove Broken PowerShell 5.1 Autocomplete Config (Optional)
+
+If your old PowerShell 5.1 profile is broken, remove it with:
+
+```powershell
+Remove-Item "$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -Force
+```
+
+---
+
+### ✅ STEP 6 — ⚙️ Set PowerShell 7.5 as Global Default in Windows (via Registry)
+
+```powershell
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\App Paths\pwsh.exe" -Name "(Default)" -Value "$env:LOCALAPPDATA\Microsoft\powershell\pwsh.exe"
+```
+
+---
+
+### ✅ STEP 7 — 🧬 Make PowerShell 7.5 the **Default Profile in Windows Terminal (JSON Method)**
+
+Run this inside **PowerShell 7.5**:
+
+```powershell
+$settingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$settingsJson = Get-Content $settingsPath -Raw | ConvertFrom-Json
+$pwshProfile = $settingsJson.profiles.list | Where-Object { $_.commandline -like "*pwsh.exe" }
+$settingsJson.defaultProfile = $pwshProfile.guid
+$settingsJson | ConvertTo-Json -Depth 100 | Set-Content $settingsPath
+```
+
+---
+
+### ✅ STEP 8 — 🖱️ Manually Set PowerShell 7.5 for "Windows PowerShell" Profile (via UI)
+
+> This ensures the **"Windows PowerShell" tab** inside Windows Terminal actually runs 7.5 instead of the old 5.1.
+
+#### ➤ Do This:
+1. Open **Windows Terminal**
+2. Click the dropdown arrow (˅) → **Settings**
+3. Under **Profiles > Windows PowerShell**, set:
+   - **Command line**:
+     ```
+     C:\Users\micha\AppData\Local\Microsoft\powershell\pwsh.exe
+     ```
+
+4. Press **Save**
+
+Now, even clicking the "Windows PowerShell" tab opens **PowerShell 7.5**.
+
+---
+
+### ✅ STEP 9 — 💣 Remove Legacy PowerShell 5.1 from Windows (Optional but Clean)
+
+⚠️ Do this **only when you confirm** everything works in PowerShell 7.5.
+
+```powershell
+Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root -Remove -NoRestart
+```
+
+---
+
+### ✅ FINAL TEST — Confirm You Are Running PowerShell 7.5 Everywhere
+
+Open:
+- Windows Terminal
+- Right-click folder → “Open in Terminal”
+- Run:
+
+```powershell
+$PSVersionTable.PSVersion
+```
+
+You should now see:
+
+```
+Major  Minor  Patch
+7      5      0
+```
+
+---
+
+✅ **DONE!** You are now fully running **PowerShell 7.5** everywhere with:
+- Working `Install-Module`
+- Full PSReadLine autocomplete & AI-like prediction
+- Default Terminal + Context Menu Shell set
+- Legacy PowerShell 5.1 removed
+
+Let me know if you want me to **alias `powershell` to `pwsh`** globally next!

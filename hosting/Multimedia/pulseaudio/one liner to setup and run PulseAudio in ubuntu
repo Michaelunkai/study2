@@ -1,0 +1,1 @@
+sudo apt install -y pulseaudio && pulseaudio --start; echo 'create one liner, to setup and run PulseAudio in ubuntu, and use it in the end!'

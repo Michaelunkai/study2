@@ -1,0 +1,1 @@
+wget https://github.com/example/selfimagegallery/archive/refs/heads/master.zip && unzip master.zip && mv selfimagegallery-master selfimagegallery && echo 'Configure as per docs'

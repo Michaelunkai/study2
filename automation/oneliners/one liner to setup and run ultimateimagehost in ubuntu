@@ -1,0 +1,1 @@
+git clone https://github.com/example/ultimateimagehost.git && cd ultimateimagehost && composer install && php artisan serve

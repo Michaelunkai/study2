@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name kanidm -p 8443:8443 kanidm/server:latest

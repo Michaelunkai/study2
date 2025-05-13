@@ -1,0 +1,1 @@
+aws kms generate-data-key --key-id <key-id> --key-spec AES_256 --output text --query CiphertextBlob

@@ -1,0 +1,66 @@
+## Putting Your Prompt-Engineering Skills to the Test: Vertex AI Challenge Lab (GSP519)
+
+After learning the fundamentals of prompt design and the Gen AI SDK, it’s time to prove you can do the work without a script. **“Prompt Design in Vertex AI: Challenge Lab”** is a 90-minute, hands-on capstone that drops you into a realistic marketing scenario and asks you to build two generative-AI tools—an image-driven product-description generator and a fully-parameterised tagline engine—using Gemini inside Vertex AI. No step-by-step hints, just an automated grader that awards points when your solutions work.
+
+---
+
+### The Business Brief
+
+*Client*: **Cymbal Direct**, an e-commerce brand launching a youth-oriented outdoor-gear line.
+*Goal*: Generate marketing copy that evokes the wonder of nature.
+
+You’ll deliver:
+
+1. **Evocative Product Descriptions** – short, image-inspired blurbs that capture colour, texture, and vibe.
+2. **Catchy Taglines** – audience-tuned slogans that highlight durability, light weight, and a spirit of adventure.
+
+---
+
+### What You Must Build
+
+| Task                                | What You Create                                                                                                                                                                                      | Key Skills Demonstrated                                    |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **1. Gemini Image-Analysis Tool**   | A prompt (saved as **“Cymbal Product Analysis”**) that accepts a GCS image and returns multiple text options—plain description, ad-friendly copy, and a poetic line.                                 | Multimodal prompting, temperature tuning, result iteration |
+| **2. Gemini Tagline Generator**     | A parameterised prompt (**“Cymbal Tagline Generator Template”**) with system instructions and two example shots. Lets marketers mix product traits, target audiences, and emotional tones on demand. | Few-shot learning, prompt parameters, style transfer       |
+| **3. Notebook Hack—Image Analysis** | *image-analysis.ipynb* where you paste the Studio-exported Python code, shorten the output to <10 words, then dial up creativity (e.g., via temperature) for unexpected results.                     | SDK usage, parameter tweaking, iterative testing           |
+| **4. Notebook Hack—Taglines**       | *tagline-generator.ipynb* where you inject the keyword **“nature”** into the last input prompt and verify the model includes it in the output.                                                       | Prompt mutation, keyword control, rapid validation         |
+
+Finish all four, click **Check my progress**, and the scorer grants 100 %.
+
+---
+
+### How the Challenge Lab Works
+
+1. **One-click Cloud Environment** – Start Lab → receive temp credentials.
+2. **Vertex AI Studio** – Craft and save prompts in your chosen region.
+3. **Workbench JupyterLab** – Export code, run SDK calls, edit, rerun.
+4. **Automated Grader** – Monitors GCP resources, notebooks, and prompt names. Pass = badge progress.
+
+*Tip*: keep Chrome in Incognito to avoid mixing your own GCP account with the temporary student project.
+
+---
+
+### Why This Matters
+
+* **Authentic Workflow** – Mirrors how real teams jump between Studio prototyping and notebook refinement.
+* **Prompt Literacy Under Pressure** – You must diagnose errors, tweak parameters, and read model behaviour without hand-holding.
+* **Portfolio Piece** – The finished notebooks and saved prompts double as proof you can ship generative-AI features inside Google Cloud.
+
+---
+
+### After You Pass
+
+* **Earn the “Prompt Design in Vertex AI” skill-badge**, completing the broader *Introduction to Generative AI* learning path.
+* Explore advanced notebooks in the **Vertex AI Cookbook**—function calling, tool use, and chain-of-thought techniques.
+* Reuse your tagline template for any product line by simply swapping attributes in the parameter block.
+
+---
+
+### Quick Reference
+
+* **Lab ID:** GSP519
+* **Duration:** 1 h 30 m (timed, cannot pause)
+* **Models Used:** *gemini-1.5-pro* or *gemini-2.0-flash-001* (as specified)
+* **Last Update/Test:** 11 Apr 2025
+
+Grab a coffee, open Studio, and show Cymbal Direct—and the grader—that you can turn generative AI theory into launch-ready marketing assets in under 90 minutes. Good luck!

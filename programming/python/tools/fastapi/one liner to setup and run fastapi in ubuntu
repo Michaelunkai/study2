@@ -1,0 +1,1 @@
+pip3 install fastapi && python3 -c 'import fastapi; print(fastapi.__version__)'

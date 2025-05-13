@@ -1,0 +1,1 @@
+sudo apt install -y qtbase5-dev && echo 'Qt installed'

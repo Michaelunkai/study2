@@ -1,0 +1,1 @@
+git clone https://github.com/SAP/openui5.git && cd openui5 && npm install && npm run build && npm start

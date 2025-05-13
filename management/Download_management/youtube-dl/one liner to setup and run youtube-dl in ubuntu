@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y youtube-dl && youtube-dl https://youtube.com/watch?v=dQw4w9WgXcQ

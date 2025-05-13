@@ -1,0 +1,10 @@
+Why Choose KeyDB?
+If you are already using Redis but are encountering performance bottlenecks due to its single-threaded nature, KeyDB might be a good alternative. It offers the same familiar features and commands as Redis, making migration relatively straightforward, but with the added benefit of multi-threaded performance and advanced replication capabilities.
+
+In summary, KeyDB can be seen as an optimized version of Redis, tailored for environments that demand higher throughput and the ability to utilize modern multi-core processors effectively.
+
+
+
+
+
+

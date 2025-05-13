@@ -1,0 +1,1 @@
+ flatpak install flathub com.github.Rosalie241.RMG -y && flatpak run com.github.Rosalie241.RMG

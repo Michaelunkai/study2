@@ -1,0 +1,1 @@
+pip3 install pyngrok && python3 -c 'import pyngrok; print(pyngrok.__version__)'

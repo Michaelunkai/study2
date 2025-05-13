@@ -1,0 +1,1 @@
+apt install imagemagick -y && convert download.png -resize 128x128! download_resized.png

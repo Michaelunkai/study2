@@ -1,0 +1,1 @@
+wget https://repository.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/4.4.0/mule-standalone-4.4.0.tar.gz && tar -xzf mule-standalone-4.4.0.tar.gz && cd mule-standalone-4.4.0 && ./bin/mule

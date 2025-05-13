@@ -1,0 +1,1 @@
+create one liner, to setup and run scrot in ubuntu, and use it in the end! # Scrot: Terminal screenshot capture utility. && sudo apt install scrot -y && scrot ~/screenshot.png

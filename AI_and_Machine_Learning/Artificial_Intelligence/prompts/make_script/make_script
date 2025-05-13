@@ -1,0 +1,8 @@
+make script that WILL create all steps and run the project/tool, without update command.
+also add nano command for the script with 10-15 words it the script name
+with all tools used and the specific thing the script/code does... dont add venv. 
+dont use nano, add the neccery text to neccery files!
+make sure to install all neccesery depandencies
+dont use placeholders!
+skip any docker realted installations, same for nodejs/npm, php, apache, venv, R, kubernetes.
+make sure to run tool in the end or add command to echo url

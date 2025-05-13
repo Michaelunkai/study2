@@ -1,0 +1,1 @@
+create one liner, to setup and run import in ubuntu, and use it in the end! # Import: ImageMagick CLI capture tool. && sudo apt install imagemagick -y && import ~/importshot.png

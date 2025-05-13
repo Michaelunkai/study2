@@ -1,0 +1,1 @@
+sudo apt install -y cockpit && sudo systemctl enable --now cockpit && gcl 9090

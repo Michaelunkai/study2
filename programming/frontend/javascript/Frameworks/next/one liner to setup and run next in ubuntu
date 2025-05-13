@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g create-next-app && yes "y" | create-next-app my-next-app && cd my-next-app && nsj && npm run dev

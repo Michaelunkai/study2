@@ -1,0 +1,1 @@
+aws lex-models create-export --name <export-name> --version <version> --resource-type <resource-type> --file-format <file-format>

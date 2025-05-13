@@ -1,0 +1,5 @@
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx
+
+
+Follow the prompts to generate and install SSL certificates.

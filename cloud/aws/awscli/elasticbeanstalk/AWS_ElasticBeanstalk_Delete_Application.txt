@@ -1,0 +1,1 @@
+aws elasticbeanstalk delete-application --application-name <app-name>

@@ -1,0 +1,84 @@
+# Complete Guide to Setting Up AWS CodeCommit Access with IAM
+
+## Step-by-Step Instructions
+
+### 1. Install and Configure AWS CLI
+
+If you haven't already, install AWS CLI and configure it with your AWS credentials:
+  
+aws configure
+
+### 2. Create an IAM User for CodeCommit Access
+
+Create a new IAM user specifically for CodeCommit access:
+  
+aws iam create-user --user-name codecommit-user
+
+### 3. Attach the Necessary IAM Policy to the User
+
+Grant the IAM user the required permissions by attaching the AWSCodeCommitPowerUser policy:
+  
+aws iam attach-user-policy --user-name codecommit-user --policy-arn arn:aws:iam::aws:policy/AWSCodeCommitPowerUser
+
+### 4. Generate Git Credentials for CodeCommit
+
+Create service-specific credentials for the IAM user to access CodeCommit:
+  
+aws iam create-service-specific-credential --user-name codecommit-user --service-name codecommit.amazonaws.com
+This command will output your CodeCommit username and password. Save these credentials securely.
+
+### 5. Create the CodeCommit Repository
+
+Create a new repository in CodeCommit:
+  
+aws codecommit create-repository --repository-name study --repository-description "My study repository"
+
+### 6. Clone the Repository
+
+Clone the newly created repository using the HTTPS URL:
+  
+git clone https://git-codecommit.<region>.amazonaws.com/v1/repos/study
+Replace `<region>` with your AWS region.
+
+### 7. Configure Git to Use the Credentials
+
+Set up Git to use the AWS CodeCommit credential helper:
+  
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+### 8. Add Files to Your Repository
+
+Navigate to the repository directory and add your files:
+  
+cd study
+echo "# Study Repository" > README.md
+
+### 9. Commit and Push Your Changes
+
+Commit your changes and push them to the remote repository:
+  
+git add .
+git commit -m "Initial commit"
+git push origin master
+
+### 10. View Your CodeCommit Credentials Again (if needed)
+
+If you need to view your CodeCommit credentials again:
+  
+aws iam list-service-specific-credentials --user-name codecommit-user --service-name codecommit.amazonaws.com
+
+## Summary
+
+1. Install and configure AWS CLI.
+2. Create an IAM user for CodeCommit access.
+3. Attach the AWSCodeCommitPowerUser policy to the IAM user.
+4. Generate Git credentials for CodeCommit.
+5. Create a new CodeCommit repository.
+6. Clone the repository.
+7. Configure Git to use the AWS CodeCommit credential helper.
+8. Add files to the repository.
+9. Commit and push changes to the remote repository.
+10. View your CodeCommit credentials if needed.
+
+Would you like me to elaborate on any of these steps?

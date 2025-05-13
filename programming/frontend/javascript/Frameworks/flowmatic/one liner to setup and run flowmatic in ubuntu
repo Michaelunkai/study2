@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g flowmatic-cli && yes "y" | flowmatic init my-flowmatic-app && cd my-flowmatic-app && nsj && npm start

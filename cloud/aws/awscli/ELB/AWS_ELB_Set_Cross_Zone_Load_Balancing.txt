@@ -1,0 +1,1 @@
+aws elb modify-load-balancer-attributes --load-balancer-name <load-balancer-name> --load-balancer-attributes <cross-zone>

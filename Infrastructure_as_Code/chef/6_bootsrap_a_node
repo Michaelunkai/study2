@@ -1,0 +1,5 @@
+Step 6: Bootstrap a Node
+6.1 Bootstrap a Node
+Bootstrap a node (replace NODE_IP, USER, and PASSWORD with your node's details):
+
+knife bootstrap NODE_IP --ssh-user USER --ssh-password 'PASSWORD' --node-name mynode --run-list

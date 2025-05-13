@@ -1,0 +1,1 @@
+curl --proto '=https' --tlsv1.2 -sSfL https://sh.vector.dev | bash && export PATH="$PATH:/root/.vector/bin" && vector --config /root/.vector/config/vector.yaml && vector --version

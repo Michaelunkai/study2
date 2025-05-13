@@ -1,0 +1,1 @@
+ mkdir ~/anchore && cd ~/anchore && curl -O https://engine.anchore.io/docs/quickstart/docker-compose.yaml && echo "default:\n  enable_auth: true\n  api_listen: '0.0.0.0:8228'" > config.yaml && docker-compose up -d && curl http://localhost:8228/v1/health

@@ -1,0 +1,21 @@
+▲A  A▼
+Install Raspberry Pi PIXEL Desktop/Theme on Debian
+What is PIXEL?
+PIXEL is the default desktop environment and theme used by Raspberry Pi OS. It officially stands for "Pi Improved Xwindows Environment, Lightweight" and is based on LXDE. -https://www.raspberrypi.com/news/introducing-pixel/
+Log into the Debian device
+Run the following commands in a terminal
+# add the raspberry pi os gpg key
+wget -O - http://archive.raspberrypi.org/debian/raspberrypi.gpg.key | sudo apt-key add -
+# add the raspberry pi os apt repository
+echo deb http://archive.raspberrypi.org/debian/ $(lsb_release -cs) main | sudo tee /etc/apt/sources.list.d/raspios.list
+# update repositories
+sudo apt update
+# install pixel
+sudo apt install raspberrypi-ui-mods -y
+When prompted, press Enter to configure the display manager
+Arrow down to select lightdm and press Enter
+After the installation completes, reboot the system
+Upon boot, the familiar Raspberry Pi login screen should be display
+Login
+Welcome to the PIXEL desktop experience
+ 

@@ -1,0 +1,1 @@
+aws ecs describe-clusters --clusters my-cluster-ad350c48

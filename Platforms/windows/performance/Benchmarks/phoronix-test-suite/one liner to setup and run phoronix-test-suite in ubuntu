@@ -1,0 +1,1 @@
+sudo apt install phoronix-test-suite -y && phoronix-test-suite default-benchmark

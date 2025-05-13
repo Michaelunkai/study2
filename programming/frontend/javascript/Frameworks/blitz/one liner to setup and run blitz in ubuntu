@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g blitz && yes "y" | blitz new my-blitz-app && cd my-blitz-app && nsj && npm start

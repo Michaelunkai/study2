@@ -1,0 +1,123 @@
+Installing Free Filezilla FTP Server with LDAP Authentication on Ubuntu
+This tutorial will guide you through the process of installing and configuring Filezilla FTP server with LDAP authentication on Ubuntu.
+
+Step 1: Update System Packages
+First, open your terminal and update the system packages.
+
+ 
+ 
+sudo apt update && sudo apt upgrade -y
+Step 2: Install Filezilla FTP Server
+Install Filezilla FTP server from the repositories.
+
+ 
+ 
+sudo apt install filezilla -y
+Step 3: Install OpenLDAP Server
+Install the OpenLDAP server and LDAP utilities.
+
+ 
+ 
+sudo apt install slapd ldap-utils -y
+Step 4: Configure OpenLDAP Server
+Reconfigure the LDAP server.
+
+ 
+ 
+sudo dpkg-reconfigure slapd
+You will be prompted to provide the following information:
+
+Omit OpenLDAP server configuration: No
+DNS domain name: Your domain name (e.g., example.com)
+Organization name: Your organization name
+Administrator password: Set a secure password
+Confirm password: Re-enter the password
+Database backend to use: HDB
+Remove the database when slapd is purged: No
+Move old database: Yes
+Allow LDAPv2 protocol: No
+Step 5: Add LDAP Users and Groups
+Create a file named base.ldif with the following content to add a base DN and a user:
+
+ldif
+ 
+dn: ou=people,dc=example,dc=com
+objectClass: organizationalUnit
+ou: people
+
+dn: cn=John Doe,ou=people,dc=example,dc=com
+objectClass: inetOrgPerson
+cn: John Doe
+sn: Doe
+uid: jdoe
+userPassword: password
+Replace example.com with your domain and password with a secure password for the user.
+
+Add the entries to LDAP:
+
+ 
+ 
+ldapadd -x -D cn=admin,dc=example,dc=com -W -f base.ldif
+Enter the LDAP admin password when prompted.
+
+Step 6: Install PAM LDAP Module
+To enable LDAP authentication, you need to install the PAM LDAP module.
+
+ 
+ 
+sudo apt install libpam-ldapd -y
+Step 7: Configure PAM for LDAP Authentication
+Edit /etc/pam.d/common-auth to include the following line:
+
+text
+ 
+auth [success=1 default=ignore] pam_unix.so nullok_secure
+auth requisite pam_deny.so
+auth required pam_permit.so
+auth optional pam_cap.so
+auth sufficient pam_ldap.so use_first_pass
+Edit /etc/pam.d/common-session to include the following line:
+
+text
+ 
+session required pam_mkhomedir.so skel=/etc/skel umask=0022
+Step 8: Configure NSS to Use LDAP
+Edit /etc/nsswitch.conf to include LDAP for passwd, group, and shadow:
+
+text
+ 
+passwd:         compat ldap
+group:          compat ldap
+shadow:         compat ldap
+Step 9: Configure Filezilla FTP Server to Use PAM
+Filezilla FTP server uses PAM for authentication by default. You need to ensure that the PAM service configuration for FTP allows LDAP authentication.
+
+Edit /etc/pam.d/vsftpd to include the following line:
+
+text
+ 
+auth sufficient pam_ldap.so
+account sufficient pam_ldap.so
+Step 10: Restart Services
+Restart the necessary services to apply the changes.
+
+ 
+ 
+sudo systemctl restart slapd
+sudo systemctl restart vsftpd
+Step 11: Test LDAP Authentication
+Create an FTP user in LDAP and test the login using an FTP client like Filezilla.
+
+If you encounter any issues during the installation or configuration, check the logs for detailed error messages:
+
+ 
+ 
+sudo tail -f /var/log/auth.log
+sudo tail -f /var/log/syslog
+This completes the installation and configuration of Filezilla FTP Server with LDAP authentication on Ubuntu.
+
+
+
+
+
+

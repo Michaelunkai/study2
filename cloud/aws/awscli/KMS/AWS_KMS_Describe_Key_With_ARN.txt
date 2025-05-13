@@ -1,0 +1,1 @@
+aws kms describe-key --key-id arn:aws:kms:<region>:<account-id>:key/<key-id>

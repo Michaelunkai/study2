@@ -1,0 +1,1 @@
+echo 'Waterline is the ORM used by Sails.js; install Sails.js via npm (npm install -g sails)'

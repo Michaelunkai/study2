@@ -1,0 +1,1 @@
+aws ssm update-association-status --name <association-name> --instance-id <instance-id> --status <status>

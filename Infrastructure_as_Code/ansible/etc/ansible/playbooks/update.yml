@@ -1,0 +1,27 @@
+---
+- name: Update and Upgrade Playbook
+  hosts: docker
+  become: yes  # Run tasks as the root user
+
+  tasks:
+    - name: Update package lists (Debian)
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Upgrade packages (Debian)
+      apt:
+        upgrade: yes
+        autoremove: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Update package lists (Red Hat)
+      dnf:
+        update_cache: yes
+      when: ansible_os_family == 'RedHat'
+
+    - name: Upgrade packages (Red Hat)
+      dnf:
+        name: "*"
+        state: latest
+      when: ansible_os_family == 'RedHat'

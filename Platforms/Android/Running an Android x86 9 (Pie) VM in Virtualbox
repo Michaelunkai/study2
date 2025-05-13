@@ -1,0 +1,42 @@
+
+Running an Android x86 9 (Pie) VM in Virtualbox
+Download Android x86 9 Pie Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Android x86 9 Pie
+Machine Folder: C:\VMs
+Type: Linux
+Version: Other Linux (64-bit)
+Memory Size: 2048 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Android x86 9 Pie.vdi
+File size: 16 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select the Acceleration tab
+Change the Paravirtualization Interface to KVM
+Select Display
+Slide the Video Memory to 128 MB
+Set the Graphics Controller option to VBoxSVGA
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the downloaded Android x86 .iso file
+Click OK
+Make sure the Android x86 9 Pie VM is selected and click Start > Normal
+At the Android x86 Live & Installation CD screen select Advanced Options... > Press Enter
+Select the Auto Installation option > Press Enter
+Select Yes to confirm > Press Enter
+At the Congratulations dialog, make sure Run Android x86 is selected and press Enter
+Complete the Android setup
+Welcome to Android 9 Pie

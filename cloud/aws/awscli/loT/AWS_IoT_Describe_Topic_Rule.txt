@@ -1,0 +1,1 @@
+aws iot describe-topic-rule --rule-name <rule-name>

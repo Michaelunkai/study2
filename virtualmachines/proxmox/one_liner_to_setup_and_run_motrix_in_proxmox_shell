@@ -1,0 +1,1 @@
+ wget https://dl.motrix.app/release/Motrix-1.8.19.AppImage &&  getfuse && chmod +x Motrix-1.8.19.AppImage && ./Motrix-1.8.19.AppImage --no-sandbox

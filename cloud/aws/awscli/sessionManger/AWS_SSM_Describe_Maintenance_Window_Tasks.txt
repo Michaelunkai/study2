@@ -1,0 +1,1 @@
+aws ssm describe-maintenance-window-tasks --window-id <window-id>

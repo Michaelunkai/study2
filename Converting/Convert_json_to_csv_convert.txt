@@ -1,0 +1,1 @@
+jq -r '(.[0] | keys_unsorted) as $keys | $keys, map([.[ $keys[] ]])[] | @csv' your_file.json > output.csv

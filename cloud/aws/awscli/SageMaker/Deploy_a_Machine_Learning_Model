@@ -1,0 +1,1 @@
+aws sagemaker create-model --model-name my-model --primary-container Image=123456789012.dkr.ecr.us-west-2.amazonaws.com/my-algorithm:latest,ModelDataUrl=s3://my-bucket/model.tar.gz --execution-role-arn arn:aws:iam::123456789012:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001

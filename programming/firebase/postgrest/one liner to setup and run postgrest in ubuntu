@@ -1,0 +1,1 @@
+docker run -d --name postgrest -p 3000:3000 -e PGRST_DB_URI=postgres://postgres:postgres@host.docker.internal/postgres postgrest/postgrest:latest

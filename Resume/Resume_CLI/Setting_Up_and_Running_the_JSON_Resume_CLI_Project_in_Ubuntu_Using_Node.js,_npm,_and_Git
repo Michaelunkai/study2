@@ -1,0 +1,78 @@
+### Detailed Step-by-Step Guide to Setting Up and Running the JSON Resume CLI Project in Ubuntu
+
+#### 1. **Install Node.js and npm**
+   Ensure that Node.js and npm are installed on your system. If they are not installed, you can install them with the following commands:
+
+     
+   sudo apt update
+   sudo apt install -y nodejs npm
+
+#### 2. **Clone the Repository**
+   Clone the `resume-cli` repository to your local machine using Git:
+
+     
+   git clone https://github.com/jsonresume/resume-cli.git
+   cd resume-cli
+
+#### 3. **Install the Required npm Packages**
+   Install the necessary npm packages for the project:
+
+     
+   npm install
+
+#### 4. **Install the Resume CLI Globally**
+   Install the Resume CLI globally so you can use the `resume` command anywhere on your system:
+
+     
+   sudo npm install -g resume-cli
+
+#### 5. **Initialize a New Resume**
+   To create a new resume file in JSON format, run the following command:
+
+     
+   resume init
+
+   This will create a `resume.json` file in the current directory.
+
+#### 6. **Edit the `resume.json` File**
+   Open the `resume.json` file in your preferred text editor and fill it with your resume details. Be sure to follow the JSON Resume schema. You can refer to the schema documentation [here](https://jsonresume.org/schema/).
+
+   Example:
+
+     
+   nano resume.json
+
+#### 7. **Validate the Resume**
+   To ensure your resume follows the JSON Resume schema, validate it with:
+
+     
+   resume validate
+
+#### 8. **Export the Resume to HTML or PDF**
+   Export your resume to an HTML or PDF format using the following command:
+
+     
+   resume export resume.html --format html --theme even
+
+   You can change the `--format` to `pdf` to export it as a PDF.
+
+#### 9. **Serve the Resume Locally**
+   To serve your resume on a local web server and view it in the browser, run:
+
+     
+   resume serve
+
+   By default, the resume will be served at `http://localhost:4000/`.
+
+   You can specify a custom port if needed:
+
+     
+   resume serve --port 8080
+
+#### 10. **Developing Themes**
+   If you want to develop or customize themes, navigate to the theme directory and use the following command to serve the resume with your custom theme:
+
+     
+   resume serve --theme .
+
+That's it! You have now set up and run the JSON Resume CLI project in Ubuntu.

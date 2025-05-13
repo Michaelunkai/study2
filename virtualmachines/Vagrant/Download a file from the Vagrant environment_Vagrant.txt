@@ -1,0 +1,1 @@
+vagrant download /vagrant/myfile.txt

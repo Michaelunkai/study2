@@ -1,0 +1,4 @@
+import boto3
+ec2 = boto3.client('ec2')
+response = ec2.create_vpc_endpoint(VpcId='<vpc-id>', ServiceName='com.amazonaws.us-west-2.s3', VpcEndpointType='Gateway')
+print(response['VpcEndpoint']['VpcEndpointId'])

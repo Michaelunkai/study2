@@ -1,0 +1,1 @@
+flatpak install flathub app.zen_browser.zen -y && flatpak run app.zen_browser.zen -y

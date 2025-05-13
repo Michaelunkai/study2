@@ -1,0 +1,31 @@
+Create Migration Scripts
+Create a directory for your migration scripts within the Flyway directory:
+
+ 
+ 
+mkdir /opt/flyway/ 
+Create your first migration script in the /opt/flyway/sql directory. Flyway uses a specific naming convention for migration files: V<version_number>__<description>.sql.
+
+Example:
+
+ 
+ 
+nano /opt/flyway/ /V1__Create_person_table. 
+Add your SQL statements to this file:
+
+ 
+ 
+CREATE TABLE person (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+ Apply Migrations
+Run Flyway to apply the migrations:
+
+ 
+ 
+flyway migrate
+Flyway will connect to the database using the details in flyway.conf and apply any pending migrations.
+
+

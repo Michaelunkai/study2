@@ -1,0 +1,103 @@
+Git doesn't have a specific set of "delta commands" per se, but many commands involve working with changes or differences (deltas) in various ways. Here are the top 20 Git commands that deal with viewing, managing, and applying changes or differences between file versions:
+
+1. **git diff**:
+   - Show changes between commits, commit and working tree, etc.
+     
+   git diff
+
+2. **git log -p**:
+   - Show the log with patch (changes) for each commit.
+     
+   git log -p
+
+3. **git  ow**:
+   - Show various types of objects, including commit changes.
+     
+   git  ow <commit>
+
+4. **git blame**:
+   - Show what revision and author last modified each line of a file.
+     
+   git blame <file>
+
+5. **git bisect**:
+   - Use binary search to find the commit that introduced a bug by comparing changes.
+     
+   git bisect start
+
+6. **git format-patch**:
+   - Prepare patches for email submission.
+     
+   git format-patch <since>
+
+7. **git apply**:
+   - Apply a patch to files and/or to the index.
+     
+   git apply <patch-file>
+
+8. **git rebase**:
+   - Reapply commits on top of another base tip.
+     
+   git rebase <branch>
+
+9. **git cherry-pick**:
+   - Apply the changes introduced by some existing commits.
+     
+   git cherry-pick <commit>
+
+10. **git sta **:
+    - Stash the changes in a dirty working directory away.
+      
+    git sta 
+
+11. **git reset**:
+    - Reset current HEAD to the specified state.
+      
+    git reset <commit>
+
+12. **git revert**:
+    - Revert some existing commits.
+      
+    git revert <commit>
+
+13. **git checkout**:
+    - Switch branches or restore working tree files.
+      
+    git checkout <branch>
+
+14. **git merge**:
+    - Join two or more development histories together.
+      
+    git merge <branch>
+
+15. **git pull**:
+    - Fetch from and integrate with another repository or a local branch.
+      
+    git pull <remote> <branch>
+
+16. **git pu **:
+    - Update remote refs along with associated objects.
+      
+    git push <remote> <branch>
+
+17. **git status**:
+    - Show the working tree status.
+      
+    git status
+
+18. **git commit**:
+    - Record changes to the repository.
+      
+    git commit -m "message"
+
+19. **git fetch**:
+    - Download objects and refs from another repository.
+      
+    git fetch <remote>
+
+20. **git archive**:
+    - Create an archive of files from a named tree.
+      
+    git archive --format=tar <tree-ish>
+
+These commands are fundamental for managing changes (deltas) in a Git repository. Each command plays a role in tracking, applying, or displaying differences between file versions and commits.

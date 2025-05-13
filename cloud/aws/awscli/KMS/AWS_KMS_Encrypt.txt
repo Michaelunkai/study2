@@ -1,0 +1,1 @@
+aws kms encrypt --key-id <key-id> --plaintext fileb://<file> --output text --query CiphertextBlob

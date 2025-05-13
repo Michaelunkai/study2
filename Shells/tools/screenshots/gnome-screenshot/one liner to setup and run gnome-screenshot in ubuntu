@@ -1,0 +1,1 @@
+create one liner, to setup and run gnome-screenshot in ubuntu, and use it in the end! # Gnome Screenshot: Default GNOME capture utility. && sudo apt install gnome-screenshot -y && gnome-screenshot &

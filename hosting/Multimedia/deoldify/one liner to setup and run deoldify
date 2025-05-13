@@ -1,0 +1,1 @@
+git clone https://github.com/jantic/DeOldify && cd DeOldify && pip install -r requirements-colab.txt && python deoldify.py

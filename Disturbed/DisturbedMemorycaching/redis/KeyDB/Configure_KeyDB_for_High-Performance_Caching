@@ -1,0 +1,20 @@
+Configure KeyDB for High-Performance Caching
+You can optimize KeyDB by editing the configuration file. Open the keydb.conf file:
+
+ 
+ 
+sudo nano /usr/local/bin/keydb.conf
+Key Performance Configuration Parameters:
+Memory optimization: Set maxmemory to limit memory usage.
+ 
+ 
+maxmemory 256mb
+Eviction policy: Set the policy to determine how KeyDB handles memory when it exceeds the limit.
+ 
+ 
+maxmemory-policy allkeys-lru
+Persistence: Disable AOF or RDB for faster performance if persistence isn't required.
+ 
+ 
+appendonly no
+save ""

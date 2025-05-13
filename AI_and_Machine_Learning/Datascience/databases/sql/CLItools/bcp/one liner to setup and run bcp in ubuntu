@@ -1,0 +1,1 @@
+create one liner, to setup and run bcp in ubuntu, and use it in the end! && sudo apt-get install mssql-tools -y && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc && source ~/.bashrc && bcp -?

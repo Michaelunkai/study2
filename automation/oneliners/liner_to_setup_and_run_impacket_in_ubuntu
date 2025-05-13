@@ -1,0 +1,1 @@
+ apt install unzip -y && pip install impacket && curl -L https://github.com/fortra/impacket/archive/refs/heads/master.zip -o impacket_master.zip && unzip impacket_master.zip && cd impacket-master && pip install . && docker build -t "impacket:latest" . && docker run -it --rm "impacket:latest"

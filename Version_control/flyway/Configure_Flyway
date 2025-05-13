@@ -1,0 +1,15 @@
+ Configure Flyway
+Create a configuration file named flyway.conf in the Flyway directory:
+
+ 
+ 
+nano /opt/flyway/conf/flyway.conf
+Add the following configuration, adjusting it to your database settings:
+
+For example, for a PostgreSQL database:
+
+plaintext
+ 
+flyway.url=jdbc:postgre ://localhost:5432/your_database
+flyway.user=your_db_user
+flyway.password=your_db_password

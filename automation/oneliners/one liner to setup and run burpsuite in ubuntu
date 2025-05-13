@@ -1,0 +1,1 @@
+wget https://portswigger.net/burp/releases/download?product=community&version=latest&type=Linux -O burpsuite.sh && chmod +x burpsuite.sh && ./burpsuite.sh

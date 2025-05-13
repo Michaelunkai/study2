@@ -1,0 +1,3 @@
+Dangerzone is an open-source tool designed for securely converting potentially dangerous documents (such as PDFs, images, or Office files) into safe PDFs. It isolates the document conversion process inside a secure container, ensuring that any potential malicious code embedded in the document cannot escape and infect the system.
+
+Dangerzone works by converting the original document into pixel data, then reassembling it into a clean PDF. The purpose is to allow users to safely open potentially unsafe documents while minimizing security risks. It's commonly used by journalists, activists, and anyone who needs to handle sensitive or risky documents securely.

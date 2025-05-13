@@ -1,0 +1,47 @@
+Web Based File Management with PHP and Tiny File Manager
+Download and Setup Tiny File Manager
+Download Tiny File Manager Download
+Extract the Tiny File Manager files
+Copy TinyFileManager.php to Apache install directory/htdocs/filemanager
+Rename TinyFileManager.php to index.php
+Edit index.php in a text editor
+Find $use_auth and set the value to false
+Save
+Open a web browser and navigate to https://DNSorIP/filemanager
+Customizing Root Location and Authentication
+Optionally, Edit Apache install directory/htdocs/filemanager/index.php
+Find $root_path and edit the value to limit the scope of the file manager
+Save index. 
+Navigate to the Apache install directory/conf in Explorer
+Edit httpd.conf in a text editor
+Find the authnz_ldap_module and make sure it is enabled by removing the # at the start of the line
+LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
+
+Find the ldap_module and make sure it is enabled by removing the # at the start of the line
+LoadModule ldap_module modules/mod_ldap.so
+
+Create a Location block to enable LDAP authentication for the specified directory
+<location /filemanager>
+# Basic authentication with LDAP against MS AD
+AuthType Basic
+AuthBasicProvider ldap
+
+# AuthLDAPURL specifies the LDAP server IP, port, base DN, scope and filter
+# using this format: ldap://host:port/basedn?attribute?scope?filter
+AuthLDAPURL "ldap://i12bretro.local:389/DC=i12bretro,DC=local?sAMAccountName?sub?(objectClass=user)" NONE
+
+# The LDAP bind username and password
+AuthLDAPBindDN "readonly_svc@i12bretro.local"
+AuthLDAPBindPassword "Read0nly!!"
+LDAPReferrals Off
+AuthUserFile /dev/null
+
+AuthName "Restricted Area [i12bretro.local]"
+# to authenticate a domain group, specify the full DN
+AuthLDAPGroupAttributeIsDN on
+require ldap-group CN=WebAuthAccess,CN=Users,DC=i12bretro,DC=local
+</location>
+
+Save httpd.conf
+Restart the Apache service
+Refre  https://DNSorIP/filemanager

@@ -1,0 +1,5 @@
+import boto3
+sqs = boto3.client('sqs')
+response = sqs.receive_message(QueueUrl='https://sqs.us-west-2.amazonaws.com/123456789012/MyQueue')
+for message in response['Messages']:
+    print(message['Body'])

@@ -1,0 +1,1 @@
+wget -qO- https://apt.puppet.com/puppet-tools-release-jammy.deb | sudo dpkg -i /dev/stdin && sudo apt update && sudo apt install -y puppet-bolt && bolt --version

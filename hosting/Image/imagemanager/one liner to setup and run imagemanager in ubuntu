@@ -1,0 +1,1 @@
+git clone https://github.com/example/imagemanager.git && cd imagemanager && npm install && npm start

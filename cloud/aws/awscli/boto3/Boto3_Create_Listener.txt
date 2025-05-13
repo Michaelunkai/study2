@@ -1,0 +1,4 @@
+import boto3
+elb = boto3.client('elbv2')
+response = elb.create_listener(LoadBalancerArn='<load-balancer-arn>', Protocol='HTTP', Port=80, DefaultActions=[{'Type': 'forward', 'TargetGroupArn': '<target-group-arn>'}])
+print(response['Listeners'][0]['ListenerArn'])

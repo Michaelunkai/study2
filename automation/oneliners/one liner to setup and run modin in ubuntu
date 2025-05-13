@@ -1,0 +1,1 @@
+pip3 install "modin[ray]" && python3 -c 'import modin.pandas as pd; print(pd.__version__)'

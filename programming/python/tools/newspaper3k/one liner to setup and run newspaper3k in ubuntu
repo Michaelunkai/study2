@@ -1,0 +1,1 @@
+pip3 install newspaper3k && python3 -c 'import newspaper; print(newspaper.__version__)'

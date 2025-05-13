@@ -1,0 +1,71 @@
+To access a Samba shared folder from your Ubuntu server, you can use the smbclient command-line utility or mount the share using the cifs filesystem. Here’s how to do it using both methods:
+
+Method 1: Using smbclient
+Install smbclient if it's not already installed:
+
+ 
+ 
+sudo apt update
+sudo apt install smbclient
+Access the Samba share:
+
+ 
+ 
+smbclient //hostname/sharename -U username
+Replace hostname with the IP address or hostname of your Ubuntu desktop, sharename with the name of the shared folder, and username with the Samba username.
+
+Navigate and interact with the shared folder using smbclient commands. For example:
+
+ 
+ 
+smb: \> ls
+smb: \> get filename
+smb: \> put localfile
+Method 2: Mounting the Share
+Install CIFS utilities if not already installed:
+
+ 
+ 
+sudo apt update
+sudo apt install cifs-utils
+Create a mount point on your Ubuntu server:
+
+ 
+ 
+sudo mkdir /mnt/samba_ are
+Mount the Samba share using the mount command:
+
+ 
+ 
+sudo mount -t cifs //hostname/sharename /mnt/samba_share -o username=username,password=password
+Replace hostname with the IP address or hostname of your Ubuntu desktop, sharename with the name of the shared folder, and username and password with the Samba username and password.
+
+Access the mounted share:
+
+ 
+ 
+cd /mnt/samba_ are
+ls
+Automate Mounting at Boot
+To automatically mount the Samba share at boot, you can add an entry to the /etc/fstab file.
+
+Edit the fstab file:
+
+ 
+ 
+sudo nano /etc/fstab
+Add the following line to the end of the file:
+
+ 
+//hostname/sharename /mnt/samba_share cifs username=username,password=password,iocharset=utf8,sec=ntlm 0 0
+Adjust hostname, sharename, username, and password as needed.
+
+Save and close the file (Ctrl+X, Y, Enter).
+
+Test the fstab entry:
+
+ 
+ 
+sudo mount -a
+Now, the Samba share will be automatically mounted on boot.
+

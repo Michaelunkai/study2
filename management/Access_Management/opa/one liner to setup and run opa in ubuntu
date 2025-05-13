@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name opa -p 8181:8181 openpolicyagent/opa:latest run --server

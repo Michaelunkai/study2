@@ -1,0 +1,1 @@
+sudo apt install -y catch2 && echo 'Catch2 installed'

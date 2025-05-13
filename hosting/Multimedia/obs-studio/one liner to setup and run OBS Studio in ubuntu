@@ -1,0 +1,1 @@
+sudo apt install -y obs-studio && obs; echo 'create one liner, to setup and run OBS Studio in ubuntu, and use it in the end!'

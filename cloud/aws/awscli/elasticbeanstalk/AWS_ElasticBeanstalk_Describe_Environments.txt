@@ -1,0 +1,1 @@
+aws elasticbeanstalk describe-environments --application-name <app-name>

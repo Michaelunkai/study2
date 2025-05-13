@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: epub2tts
+Version: 2.8.0
+Summary: Tool to read an epub to audiobook using AI TTS
+Home-page: https://github.com/aedocw/epub2tts
+Author: Christopher Aedo linkedin.com/in/aedo
+Author-email: doc@aedo.net
+License: Apache License, Version 2.0
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: coqui-tts
+Requires-Dist: deepspeed
+Requires-Dist: ebooklib
+Requires-Dist: edge-tts
+Requires-Dist: fuzzywuzzy
+Requires-Dist: kokoro
+Requires-Dist: lxml
+Requires-Dist: mutagen
+Requires-Dist: newspaper3k
+Requires-Dist: nltk
+Requires-Dist: noisereduce
+Requires-Dist: numpy
+Requires-Dist: openai
+Requires-Dist: openai-whisper
+Requires-Dist: pedalboard
+Requires-Dist: pillow
+Requires-Dist: pydub
+Requires-Dist: pysbd
+Requires-Dist: python-Levenshtein
+Requires-Dist: requests
+Requires-Dist: soundfile
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: tqdm
+Requires-Dist: transformers==4.40.2
+Requires-Dist: unidecode
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary

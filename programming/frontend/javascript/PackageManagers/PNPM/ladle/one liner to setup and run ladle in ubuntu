@@ -1,0 +1,1 @@
+pnpm add -D @ladle/react && pnpm ladle dev

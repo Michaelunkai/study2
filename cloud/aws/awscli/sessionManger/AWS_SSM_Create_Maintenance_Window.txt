@@ -1,0 +1,1 @@
+aws ssm create-maintenance-window --name <window-name> --schedule <schedule> --duration <duration> --cutoff <cutoff>

@@ -1,0 +1,1 @@
+aws ssm list-inventory-entries --instance-id <instance-id> --type-name <type-name>

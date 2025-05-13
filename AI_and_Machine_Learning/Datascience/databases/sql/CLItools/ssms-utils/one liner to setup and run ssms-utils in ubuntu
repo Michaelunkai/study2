@@ -1,0 +1,1 @@
+create one liner, to setup and run ssms-utils in ubuntu, and use it in the end! && sudo apt-get install ssms-utils -y && ssms-utils --help

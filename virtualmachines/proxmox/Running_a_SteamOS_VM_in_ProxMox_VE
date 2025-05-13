@@ -1,0 +1,47 @@
+▲A  A▼
+Running a SteamOS VM in ProxMox VE
+What is SteamOS?
+SteamOS is our Linux-based operating system. The base system draws from Debian 8, code named Debian Jessie. Our work builds on top of the solid Debian core and optimizes it for a living room experience. Most of all, it is an open Linux platform that leaves you in full control. You can take charge of your system and install new software or content that you want. -https://store.steampowered.com/steamos/buildyourown
+Log into the ProxMox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+If running ProxMox 6, download the SteamOS .iso Download | Alternate and upload it to the ProxMox ISO image library
+If running ProxMox 7, click Download from URL and paste the download URL from above > Click Query URL > Click Download
+Right click the ProxMox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the SteamOS installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+On the System tab, set the BIOS field to OVMF (UEFI), Check the Add EFI Disk checkbox, Uncheck the Pre-Enroll Keys checkbox, Machine field to q35 and the SCSI Controller to VirtIO SCSI > Next
+On the Hard Disk tab, set the Disk size to 16 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 or more > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the SteamOS VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter to select Automated install (WILL ERASE DISK!)
+Wait while SteamOS copies and installs files
+Once the installation completes a desktop environment will display and SteamOS will check for and install updates
+After updates are installed the VM will reboot
+The first reboot can take several minutes, so be patient (You can send CTRL+ALT+F2 to the VM to view the boot progress)
+Post-Installation Steps (Optional, but recommended)
+At the black screen, Send CTRL+ALT+F2
+Enter the username desktop
+Run the following command to set a password
+# set desktop user password
+passwd
+# enter and confirm a password for the desktop user
+# start the desktop environment
+startx
+Shutdown the VM
+A physical GPU passthrough is required to run Steam and games at this point (A full tutorial can be found here)
+Setting Up Steam in SteamOS
+Select a language > Click Next
+Select I Agree on the EULA screen
+Click Next at the screen calibration
+Select a timezone > Click Next
+Click the Run Steam Now button
+Select Login
+Log in with an existing Steam account
+A full tutorial for passing a physical disk to a VM can be found here
+
+ 

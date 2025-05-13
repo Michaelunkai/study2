@@ -1,0 +1,1 @@
+getjava && cd && wget https://github.com/hazelcast/hazelcast/releases/download/v5.2.1/hazelcast-5.2.1.tar.gz && tar -xvzf hazelcast-5.2.1.tar.gz && cd hazelcast-5.2.1/bin && ./hz-start

@@ -1,0 +1,1 @@
+sudo apt install -y python3-pip && pip3 install statsmodels && python3 -c "import statsmodels.api as sm; print(sm.__version__)"

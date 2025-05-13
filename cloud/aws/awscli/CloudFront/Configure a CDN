@@ -1,0 +1,1 @@
+aws cloudfront create-distribution --origin-domain-name mybucket.s3.amazonaws.com --default-root-object index.html

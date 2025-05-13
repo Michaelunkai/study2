@@ -1,0 +1,79 @@
+### **Complete Guide to Enabling System Protection and Creating Restore Points Using PowerShell Tools (VSS, Checkpoint-Computer, Get-ComputerRestorePoint)**
+
+This tutorial explains how to enable system protection, configure the Volume Shadow Copy (VSS) service, create system restore points using PowerShell, and list all existing restore points. This comprehensive guide ensures you have a fully automated script for managing restore points on your Windows machine.
+
+---
+
+### **Step 1: Enable the Volume Shadow Copy (VSS) Service**
+
+The Volume Shadow Copy service (VSS) is critical for creating restore points. Run the following command in PowerShell **as Administrator** to ensure it is enabled and running:
+
+```powershell
+Set-Service -Name "VSS" -StartupType Manual; Start-Service -Name "VSS"; Write-Output "VSS service enabled and started successfully."
+```
+
+---
+
+### **Step 2: Enable System Protection for the OS Drive**
+
+System Protection must be enabled on the drive where Windows is installed (typically `C:`). Use this command to enable system protection:
+
+```powershell
+Enable-ComputerRestore -Drive "C:"; Write-Output "System Protection enabled on C: drive."
+```
+
+---
+
+### **Step 3: Create a Restore Point**
+
+Once VSS and system protection are configured, you can create a restore point using the `Checkpoint-Computer` cmdlet. Run the following command, replacing the description with your desired text:
+
+```powershell
+Checkpoint-Computer -Description "My Custom Restore Point" -RestorePointType "MODIFY_SETTINGS"; Write-Output "Restore point created successfully."
+```
+
+---
+
+### **Step 4: List All Restore Points**
+
+To verify that the restore point was created and list all existing restore points, use the following command:
+
+```powershell
+Get-ComputerRestorePoint | Format-Table -Property CreationTime, Description, SequenceNumber, EventType -AutoSize
+```
+
+---
+
+### **Step 5: Full PowerShell Script to Automate All Steps**
+
+Combine all the steps into a single script for ease of execution:
+
+```powershell
+# Enable Volume Shadow Copy Service and Start It
+Set-Service -Name "VSS" -StartupType Manual; Start-Service -Name "VSS"; 
+
+# Enable System Protection for C: Drive
+Enable-ComputerRestore -Drive "C:"; 
+
+# Create a Restore Point
+Checkpoint-Computer -Description "My Custom Restore Point" -RestorePointType "MODIFY_SETTINGS"; 
+
+# List All Restore Points
+Get-ComputerRestorePoint | Format-Table -Property CreationTime, Description, SequenceNumber, EventType -AutoSize;
+
+Write-Output "All steps completed successfully. Restore points listed above."
+```
+
+---
+
+### **Summary**
+
+This guide covers:
+- **Tools Used**: Volume Shadow Copy (VSS), `Enable-ComputerRestore`, `Checkpoint-Computer`, `Get-ComputerRestorePoint`.
+- **Actions Performed**:
+  1. Enable and start the VSS service.
+  2. Enable system protection for the `C:` drive.
+  3. Create a system restore point.
+  4. List all restore points for verification.
+
+Run the complete script in PowerShell **as Administrator** to fully configure restore point management on your Windows system.

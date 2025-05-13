@@ -1,0 +1,21 @@
+Analyzing Images and Videos with Amazon Rekognition
+Step 1: Access Amazon Rekognition
+Log in to AWS Management Console
+
+Visit the AWS Management Console.
+Enter your AWS credentials to log in.
+Navigate to Amazon Rekognition
+
+In the AWS Management Console, search for “Amazon Rekognition” and select it.
+Step 2: Upload and Analyze Media
+Upload Images or Videos
+
+Upload the media files you want to analyze.
+Choose Analysis Features
+
+Select the analysis types you need, such as object detection, facial analysis, or text detection.
+Review Results
+
+View the analysis results, including detected objects, faces, or text.
+Free Tier Limit: 5,000 images per month for the first 12 months.
+

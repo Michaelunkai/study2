@@ -1,0 +1,11 @@
+ Monitor Your EKS Clusters
+List Deployments
+
+ 
+ 
+kubectl get deployments
+Describe Deployment
+
+ 
+ 
+kubectl describe deployment my-deployment

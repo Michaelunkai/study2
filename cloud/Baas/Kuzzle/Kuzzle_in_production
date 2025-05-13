@@ -1,0 +1,28 @@
+Kuzzle in production
+Kuzzle is production-proof, and can be deployed anywhere.
+
+With Kuzzle, it is possible to deploy applications that can serve tens of thousands of users with very good performances.
+
+Check out our support plans.
+
+Run Kuzzle
+The easiest way to start a Kuzzle application is to use Kourou:
+
+kourou app:scaffold playground
+
+ 🚀 Kourou - Scaffolds a new Kuzzle application
+
+generic
+  ✔ Checking destination
+  ✔ Prepare temporary folder
+  ✔ Cloning template repository
+  ✔ Copying template files
+  ✔ Cleaning up
+
+ [✔] Scaffolding complete!
+ [✔] Use cd playground && docker compose up -d to start your Kuzzle stack.
+Then you need to run Kuzzle services, Elasticsearch and Redis: kourou app:start-services
+
+Finally you can run your application inside Docker with npm run docker:dev
+
+Kuzzle is now listening for requests on the port 7512!

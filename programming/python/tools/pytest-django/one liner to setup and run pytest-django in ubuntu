@@ -1,0 +1,1 @@
+pip3 install pytest-django && python3 -c 'import pytest_django; print(pytest_django.__version__)'

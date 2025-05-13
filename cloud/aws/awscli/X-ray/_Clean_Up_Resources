@@ -1,0 +1,7 @@
+Clean Up Resources
+To clean up resources, detach the policy and delete the IAM role:
+
+ 
+ 
+aws iam detach-role-policy --role-name XRayServiceRole --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
+aws iam delete-role --role-name XRayServiceRole

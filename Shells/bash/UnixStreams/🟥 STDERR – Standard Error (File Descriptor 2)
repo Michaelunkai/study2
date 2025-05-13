@@ -1,0 +1,55 @@
+STDERR – Standard Error (File Descriptor 2)
+📌 Definition
+STDERR (Standard Error) is the dedicated output stream for error messages, diagnostics, and warnings. It allows these messages to be kept separate from normal output (STDOUT).
+
+⚙️ How It Works Internally
+File Descriptor: 2
+
+Like STDOUT, it writes to the terminal unless redirected.
+
+Crucially, it is not affected by a simple > redirection, which only affects STDOUT. You must use 2> to redirect STDERR specifically.
+
+💡 Key Use Cases
+Printing compile-time errors, command failures, missing files.
+
+Capturing just the error output of a program.
+
+Logging critical issues separately from regular logs.
+
+🧪 Examples
+➤ Standard error:
+bash
+Copy code
+ls nonexistingfile
+# ls: cannot access 'nonexistingfile': No such file or directory
+➤ Redirect just the error:
+bash
+Copy code
+ls nonexistingfile 2> error.txt
+➤ Redirect error + output together:
+bash
+Copy code
+some_script.sh > all.log 2>&1
+➤ View errors only:
+bash
+Copy code
+some_script.sh 1> /dev/null
+🧑‍💻 In Programming
+C:
+
+c
+Copy code
+fprintf(stderr, "An error occurred\n");
+Python:
+
+python
+Copy code
+import sys
+sys.stderr.write("Critical error\n")
+🧠 Why It Matters
+Keeps error messages visible even when output is being piped or redirected.
+
+Lets you log and analyze failures separately.
+
+Prevents corrupted data from being mixed with normal output in scripts or file processing.
+

@@ -1,0 +1,1 @@
+aws s3api create-bucket --bucket my-new-bucket-name --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2

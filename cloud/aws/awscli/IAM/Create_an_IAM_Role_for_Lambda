@@ -1,0 +1,11 @@
+ Create an IAM Role for Lambda
+Create the IAM Role:
+
+ 
+ 
+aws iam create-role --role-name lambda-ex --assume-role-policy-document file://trust-policy.json
+Attach Policy to the Role:
+
+ 
+ 
+aws iam attach-role-policy --role-name lambda-ex --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole

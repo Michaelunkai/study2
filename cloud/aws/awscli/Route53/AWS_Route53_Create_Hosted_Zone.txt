@@ -1,0 +1,1 @@
+aws route53 create-hosted-zone --name <domain-name> --caller-reference <unique-string>

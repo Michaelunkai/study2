@@ -1,0 +1,1 @@
+aws kinesis describe-stream --stream-name MyDataStream

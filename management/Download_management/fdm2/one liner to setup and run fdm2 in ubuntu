@@ -1,0 +1,1 @@
+cd /tmp && wget https://example.com/fdm2.tar.gz && tar -xzf fdm2.tar.gz && ./fdm2

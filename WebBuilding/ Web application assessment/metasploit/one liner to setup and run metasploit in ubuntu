@@ -1,0 +1,1 @@
+create one liner, to setup and run metasploit in ubuntu, and use it in the end! && curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wsl.sh | bash && msfconsole

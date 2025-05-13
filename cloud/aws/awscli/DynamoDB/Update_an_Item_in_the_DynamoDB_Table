@@ -1,0 +1,12 @@
+ Update an Item in the DynamoDB Table
+To update an existing item, use the update-item command. For example, to update the Name attribute of the item with Id = "1":
+
+ 
+ 
+aws dynamodb update-item \
+    --table-name ExampleTable \
+    --key \
+        '{"Id": {"S": "1"}}' \
+    --update-expression "set #name = :newName" \
+    --expression-attribute-names '{"#name": "Name"}' \
+    --expression-attribute-values '{":newName": {"S": "Jane Doe"}}'

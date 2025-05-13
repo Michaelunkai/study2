@@ -1,0 +1,43 @@
+▲A  A▼
+Running a Linux Mint VM in ProxMox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Download the Linux Mint iso Download and upload it to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Linux Mint installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Linux Mint VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter to Start Linux Mint (or wait 10 seconds)
+Double click the Install Linux Mint icon on the desktop
+Select a language > Click Continue
+Select a keyboard layout > Click Continue
+Choose whether or not to install multimedia codecs > Click Continue
+Click Install Now then Continue to confirm the partitions
+Select a Region > Click continue
+Enter a name, computer name, username and password > Click Continue
+Wait while Linux Mint copies files and installs
+When prompted to Restart, click Restart Now to complete the installation, the VM will reboot
+When prompted to remove the installation medium, select Hardware from the left sub-navigation menu > Double click the CD/DVD drive > Select Do not use any media > Click OK
+Select Options from the left sub-navigation menu
+Double click QEMU Guest Agent > Check the Use QEMU Guest Agent box > Click OK
+Right click the Linux Mint VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter at the remove installation medium prompt to continue the boot process
+Login with the username and password created earlier in the process
+Welcome to Linux Mint
+Optional Steps
+Launch a terminal window
+Run the following commands
+# update software repositories
+sudo apt update
+# install qemu guest agent
+sudo apt install qemu-guest-agent -y
+ 

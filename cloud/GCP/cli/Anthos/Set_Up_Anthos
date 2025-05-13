@@ -1,0 +1,16 @@
+ Set Up Anthos
+Enable Anthos API:
+
+ 
+ 
+gcloud services enable anthos.googleapis.com
+Enable Required APIs:
+
+ 
+ 
+gcloud services enable container.googleapis.com containerregistry.googleapis.com gkeconnect.googleapis.com gkehub.googleapis.com
+Install Anthos CLI:
+
+ 
+ 
+sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin

@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name lemonldap -p 8082:80 lemonldapng/lemonldap-ng:latest

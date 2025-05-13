@@ -1,0 +1,18 @@
+Create a Finagle Client (Optional)
+ 
+ 
+nano src/main/scala/FinagleClient.scala
+Paste this content manually:
+
+scala
+ 
+import com.twitter.finagle.Http
+import com.twitter.finagle.http.Request
+import com.twitter.util.Await
+
+object FinagleClient extends App {
+  val client = Http.client.newService("localhost:8080")
+  val request = Request("/")
+  val response = Await.result(client(request))
+  println(s"Response from server: ${response.contentString}")
+}

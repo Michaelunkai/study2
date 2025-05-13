@@ -1,0 +1,1 @@
+wget https://github.com/chrislusf/seaweedfs/releases/download/2.77/weed_linux_amd64.tar.gz && tar -xzf weed_linux_amd64.tar.gz && sudo mv weed /usr/local/bin/ && weed server -dir=/data -volume.max=5

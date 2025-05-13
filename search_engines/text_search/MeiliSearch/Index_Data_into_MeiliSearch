@@ -1,0 +1,30 @@
+Index Data into MeiliSearch
+Now that MeiliSearch is running, you can start indexing data into it. Let's assume you have some JSON data to index.
+
+Create a JSON file:
+ 
+ 
+nano movies.json
+Add the following sample content:
+json
+ 
+[
+  {
+    "id": "1",
+    "title": "Inception",
+    "genre": "Science Fiction",
+    "release_date": "2010-07-16"
+  },
+  {
+    "id": "2",
+    "title": "Interstellar",
+    "genre": "Adventure",
+    "release_date": "2014-11-07"
+  }
+]
+Index the data using the MeiliSearch API:
+ 
+ 
+curl -X POST 'http://127.0.0.1:7700/indexes/movies/documents' \
+     -H 'Content-Type: application/json' \
+     --data-binary @movies.json

@@ -1,0 +1,2 @@
+CHANGE MASTER TO MASTER_HOST='master_host', MASTER_USER='replication_user', MASTER_PASSWORD='password';
+START SLAVE;

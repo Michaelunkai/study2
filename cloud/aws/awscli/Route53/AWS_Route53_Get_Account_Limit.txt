@@ -1,0 +1,1 @@
+aws route53 get-account-limit --type MAX_HEALTH_CHECKS_BY_OWNER

@@ -1,0 +1,1 @@
+wget --follow-ftp http://example.com/

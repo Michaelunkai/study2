@@ -1,0 +1,2 @@
+aws logs create-log-group --log-group-name my-awstats-logs
+aws logs create-log-stream --log-group-name my-awstats-logs --log-stream-name my-stream

@@ -1,0 +1,1 @@
+pip install Naked && echo "from Naked.toolshed.shell import muterun_js; muterun_js('echo Hello Naked')" > app.py && python app.py

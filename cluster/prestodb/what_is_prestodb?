@@ -1,0 +1,41 @@
+PrestoDB (now known as Trino) is an open-source distributed SQL query engine designed for running interactive analytic queries against data sources of all sizes ranging from gigabytes to petabytes. It was initially developed by Facebook to query their large data warehouses efficiently.
+
+### Key Features of PrestoDB:
+
+1. **Distributed Query Engine**: Presto can query data wherever it’s stored, making it a powerful tool for federated queries across multiple data sources.
+  
+2. **SQL Support**: It supports standard ANSI SQL, allowing users to write queries in a language they are familiar with.
+
+3. **High Performance**: Presto is designed for low-latency and high-throughput queries, which makes it suitable for real-time analytics.
+
+4. **Scalability**: It can scale out to hundreds or thousands of nodes, making it suitable for very large data sets.
+
+5. **Pluggable Connectors**: Presto supports a variety of connectors to different data sources, including Hadoop Distributed File System (HDFS), Amazon S3, relational databases (MySQL, PostgreSQL), NoSQL databases (Cassandra), and many others.
+
+6. **Interactive Querying**: Unlike batch processing systems like Hadoop MapReduce, Presto is designed for interactive querying, providing near real-time query results.
+
+### Use Cases for PrestoDB:
+
+- **Big Data Analytics**: Perform complex queries on large datasets stored in HDFS or cloud storage like Amazon S3.
+- **Data Lakehouse**: Combine data lakes and data warehouses for more flexible data storage and querying.
+- **Federated Queries**: Query data across different data sources without needing to move or transform the data.
+- **Business Intelligence**: Enable data analysts to run ad-hoc queries for business insights.
+- **ETL Processes**: Use Presto to perform Extract, Transform, Load (ETL) operations on large datasets.
+
+### Architecture Overview:
+
+1. **Coordinator**: The coordinator is the central node that receives queries from clients, parses, plans, and optimizes the queries. It also manages the execution by distributing tasks to workers and collecting results.
+  
+2. **Workers**: Worker nodes execute tasks assigned by the coordinator. They process data and return intermediate results back to the coordinator.
+
+3. **Connectors**: Connectors are plugins that allow Presto to interact with different data sources. Each connector implements a specific API to communicate with its data source.
+
+### How Presto Works:
+
+1. **Query Submission**: The client submits a SQL query to the Presto coordinator.
+2. **Parsing and Planning**: The coordinator parses the SQL query and creates an execution plan.
+3. **Task Distribution**: The coordinator distributes tasks to the worker nodes based on the execution plan.
+4. **Data Processing**: Worker nodes process the data and perform necessary operations (e.g., filtering, aggregation).
+5. **Result Aggregation**: The coordinator collects results from the workers, aggregates them if necessary, and returns the final result to the client.
+
+PrestoDB is widely used in large organizations for its flexibility, performance, and ability to query across multiple data sources seamlessly.

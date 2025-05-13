@@ -1,0 +1,8 @@
+ Connect to Redshift Cluster
+You can connect to your Redshift cluster using SQL clients like psql or using Redshift-specific clients like Aginity or SQL Workbench/J.
+
+Using p :
+ 
+ 
+psql -h $ENDPOINT -p 5439 -U myuser -d dev
+You will be prompted for the password you set (mypassword).

@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g speedyjs-cli && yes "y" | speedyjs init my-speedyjs-app && cd my-speedyjs-app && nsj && npm start

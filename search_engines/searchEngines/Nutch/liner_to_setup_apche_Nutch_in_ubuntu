@@ -1,0 +1,1 @@
+wget https://dlcdn.apache.org/nutch/1.20/apache-nutch-1.20-bin.tar.gz && tar xzf apache-nutch-1.20-bin.tar.gz && cd apache-nutch-1.20 && bin/nutch

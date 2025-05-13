@@ -1,0 +1,1 @@
+aws polly start-speech-synthesis-task --output-format mp3 --output-s3-bucket-name <bucket-name> --voice-id Kimberly --text 'This task uses Kimberly.'

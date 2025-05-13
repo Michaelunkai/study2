@@ -1,0 +1,1 @@
+flatpak install -y flathub io.mrarm.mcpelauncher && flatpak run io.mrarm.mcpelauncher

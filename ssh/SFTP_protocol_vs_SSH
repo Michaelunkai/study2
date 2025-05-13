@@ -1,0 +1,1 @@
+SFTP (SSH File Transfer Protocol) is a secure file transfer protocol that runs over SSH (Secure Shell) and enables secure file transfers between systems. While SSH provides secure remote access and command execution, SFTP specifically facilitates secure file transfer, offering encryption, authentication, and data integrity for file exchange over a network.

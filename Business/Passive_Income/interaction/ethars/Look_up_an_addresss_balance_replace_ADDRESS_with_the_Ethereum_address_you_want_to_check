@@ -1,0 +1,2 @@
+provider.getBalance('ADDRESS').then(balance => {
+    console.log(ethers.utils.formatEther(balance));

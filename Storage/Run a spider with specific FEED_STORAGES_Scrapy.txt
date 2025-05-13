@@ -1,0 +1,1 @@
+scrapy crawl myspider -s FEED_STORAGES={'ftp': 'scrapy.extensions.feedexport.FTPFeedStorage'}

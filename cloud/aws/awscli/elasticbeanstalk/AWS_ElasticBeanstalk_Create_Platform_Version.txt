@@ -1,0 +1,1 @@
+aws elasticbeanstalk create-platform-version --platform-name <platform-name> --platform-version <version> --environment-name <env-name> --option-settings <option-settings>

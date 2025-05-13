@@ -1,0 +1,1 @@
+flatpak install flathub net.rpcs3.RPCS3 -y && flatpak run net.rpcs3.RPCS3

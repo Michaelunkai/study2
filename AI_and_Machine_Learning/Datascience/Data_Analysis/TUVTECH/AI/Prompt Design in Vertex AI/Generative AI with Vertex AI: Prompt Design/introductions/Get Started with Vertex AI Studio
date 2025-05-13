@@ -1,0 +1,99 @@
+## Mastering Prompt Design in Google Cloud’s Vertex AI
+
+**Google Cloud Skills Boost** now features a hands-on learning path that guides you from the basics of generative AI to advanced prompt-engineering techniques—all inside the real Google Cloud console. The focal point is the three-hour course **“Prompt Design in Vertex AI.”** Here’s an article-style walkthrough of what the program covers, why it matters, and how you can make the most of it.
+
+---
+
+### Why Prompt Engineering Matters
+
+Large-language-model (LLM) quality lives or dies by the phrasing of your request. A well-crafted prompt:
+
+* Eliminates ambiguity
+* Reduces hallucinations and irrelevant tangents
+* Delivers consistent, reliable output at lower cost
+
+Mastering this skill lets you squeeze maximum value from Google’s Gemini family of models—whether you’re brainstorming ideas, extracting data, or building chatbots.
+
+---
+
+### Meet Gemini—and Its Vertex AI Home
+
+**Gemini** is Google DeepMind’s flagship multimodal model family, capable of understanding and generating text, code, images, audio, and video. Within Vertex AI you access it through the **Gemini API**, which standardises calls across model sizes:
+
+| Model            | Best for          | Highlights                                        |
+| ---------------- | ----------------- | ------------------------------------------------- |
+| **Gemini Pro**   | Complex reasoning | Deep cross-modal analysis, codebase understanding |
+| **Gemini Flash** | Real-time tasks   | Sub-second latency, high throughput, lower cost   |
+
+Both models integrate natively with Google Search, code execution tools, and third-party functions—so you can chain reasoning with real-world actions.
+
+---
+
+### Course Structure at a Glance
+
+| Section                                         | Key Skills                                                              |
+| ----------------------------------------------- | ----------------------------------------------------------------------- |
+| **Generative AI with Vertex AI: Prompt Design** | Fundamentals of “unfancy” prompts—concise, specific, one task at a time |
+| **Get Started with Vertex AI Studio**           | Quick wins in the browser before you touch code                         |
+| **Gen AI SDK Kick-off**                         | Python SDK setup, first text-generation calls                           |
+| **Challenge Lab**                               | Time-boxed scenario that tests everything you’ve learned                |
+
+Total time: **≈ 3 h 45 m** (including a 45-minute lab).
+
+---
+
+### Hands-On Lab Highlights (GSP1151)
+
+1. **Open the Notebook**
+   Spin up a JupyterLab instance in Vertex AI Workbench—no local installs required.
+
+2. **Set Up Your Environment**
+   Install the Gen AI SDK, authenticate, and point the SDK at your project and region.
+
+3. **Prompt Engineering Best Practices**
+
+   * *Be concise:* Strip extra verbiage.
+   * *Be specific & well-defined:* Provide clear constraints.
+   * *One task at a time:* Don’t bundle multiple requests.
+   * *Include examples:* A few “shots” dramatically improve accuracy.
+   * *Classification over generation:* Reframe open-ended asks as categorical choices to reduce variance.
+
+4. **Reduce Output Variability**
+   Use **system instructions** to set firm boundaries (e.g., “If the user asks about X, respond with Y; otherwise apologise and refuse.”).
+
+5. **Improve Quality with Examples**
+   Demonstrations show how one-to-five well-chosen shots can outperform longer, noisier prompts—and why balance matters to avoid over-fitting.
+
+---
+
+### Prerequisites & Logistics
+
+* **Skills:** Basic Python, REST/API familiarity, and comfort in Jupyter notebooks.
+* **Tools:** Chrome (Incognito recommended) or any modern browser.
+* **Account:** The lab supplies a temporary Google Cloud login—no charges hit your personal account.
+* **Time Commitment:** Once you click *Start Lab*, the clock runs continuously; plan a contiguous session.
+
+---
+
+### Badge & Next Steps
+
+Finishing the course unlocks the **“Beginner: Introduction to Generative AI”** badge—evidence you can:
+
+* Stand up a Vertex AI Workbench notebook
+* Invoke Gemini via SDK and Studio
+* Craft prompts that are concise, specific, scoped, and example-driven
+
+Continue with:
+
+* **Vertex AI Cookbook** – searchable, copy-ready notebooks
+* **Generative AI on YouTube** – bite-sized demos
+* **Official Gemini Docs** – model specs and release notes
+
+---
+
+### Closing Thoughts
+
+Prompt design is the *force multiplier* for every generative-AI project. Google Cloud’s short, practice-oriented course lets you move beyond theory: you’ll write real prompts against real models, observe their behaviour, and refine until the output is rock solid. Whether you’re building a travel chatbot, summarising documents, or classifying support tickets, these techniques will save tokens, boost reliability, and keep your users delighted.
+
+*Last updated: 12 Feb 2025*
+*Copyright © 2025 Google LLC*

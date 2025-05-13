@@ -1,0 +1,1 @@
+git clone https://github.com/Rudrabha/Wav2Lip && cd Wav2Lip && pip install -r requirements.txt && python inference.py

@@ -1,0 +1,1 @@
+wget https://benchmark.unigine.com/files/Unigine_Superposition-1.1.run && chmod +x Unigine_Superposition-1.1.run && ./Unigine_Superposition-1.1.run

@@ -1,0 +1,1 @@
+git clone https://github.com/example/pic2share.git && cd pic2share && composer install && echo 'Configure web server'

@@ -1,0 +1,1 @@
+dotnet tool install fable --global && fable && node example.js

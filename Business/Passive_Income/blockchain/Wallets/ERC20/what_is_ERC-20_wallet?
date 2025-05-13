@@ -1,0 +1,6 @@
+An ERC-20 wallet is a digital wallet that allows users to store, receive, and send ERC-20 tokens, which are a standard for tokens created on the Ethereum blockchain. ERC-20 tokens represent a wide variety of assets, such as cryptocurrencies, project tokens, or utility tokens, and the wallet supports interaction with these tokens based on the ERC-20 protocol. 
+
+Key features of an ERC-20 wallet include:
+- **Compatibility with Ethereum**: Since ERC-20 tokens operate on the Ethereum blockchain, the wallet must be compatible with Ethereum.
+- **Token Storage and Management**: The wallet stores the user's private keys and allows management of any ERC-20 tokens.
+- **Smart Contract Interaction**: Some ERC-20 wallets enable interaction with smart contracts on the Ethereum network.

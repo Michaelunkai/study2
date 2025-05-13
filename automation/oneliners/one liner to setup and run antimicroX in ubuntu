@@ -1,0 +1,1 @@
+sudo apt install flatpak -y && flatpak install flathub io.github.antimicrox.antimicrox -y && flatpak run io.github.antimicrox.antimicrox

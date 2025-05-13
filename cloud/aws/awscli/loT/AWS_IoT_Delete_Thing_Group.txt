@@ -1,0 +1,1 @@
+aws iot delete-thing-group --thing-group-name <thing-group-name>

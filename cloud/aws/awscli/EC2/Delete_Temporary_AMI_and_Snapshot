@@ -1,0 +1,20 @@
+Delete the Temporary AMI and Snapshot Using AWS CLI
+After the new instance is up and running, and the old instance is terminated, delete the temporary AMI (ami-xxxxxxxxxxxxxxx) and its associated snapshot to avoid extra storage costs:
+
+Deregister the AMI:
+
+ 
+ 
+aws ec2 deregister-image --image-id ami-xxxxxxxxxxxxxxx
+Delete the associated snapshot:
+First, find the snapshot ID associated with the AMI using the following command:
+
+ 
+ 
+aws ec2 describe-images --image-ids ami-xxxxxxxxxxxxxxx --query 'Images[0].BlockDeviceMappings[0].Ebs.SnapshotId' --output text
+Then delete the snapshot:
+
+ 
+ 
+aws ec2 delete-snapshot --snapshot-id snap-xxxxxxxxxxxxxxx
+Replace snap-xxxxxxxxxxxxxxx with the snapshot ID obtained from the previous command.

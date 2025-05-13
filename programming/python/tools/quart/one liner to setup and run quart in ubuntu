@@ -1,0 +1,1 @@
+pip3 install quart && python3 -c 'import quart; print(quart.__version__)'

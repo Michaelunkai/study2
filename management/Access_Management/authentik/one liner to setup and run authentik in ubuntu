@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name authentik -p 9000:9000 goauthentik/all-in-one:latest

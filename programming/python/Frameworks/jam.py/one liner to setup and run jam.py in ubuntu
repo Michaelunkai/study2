@@ -1,0 +1,1 @@
+pip install jam.py && jam-project myapp && cd myapp && python run.py

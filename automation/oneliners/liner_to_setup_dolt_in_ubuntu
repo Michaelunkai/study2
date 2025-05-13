@@ -1,0 +1,1 @@
+sudo apt install -y curl unzip && curl -LO https://github.com/dolthub/dolt/releases/download/v1.43.0/dolt-linux-amd64.tar.gz && tar -xzf dolt-linux-amd64.tar.gz && sudo mv dolt-linux-amd64/bin/dolt /usr/local/bin/ && rm dolt-linux-amd64.tar.gz && dolt version

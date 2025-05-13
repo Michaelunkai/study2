@@ -1,0 +1,1 @@
+gcloud dataflow jobs run my-pipeline --gcs-location gs://dataflow-templates/latest/Word_Count --region us-central1 --staging-location gs://my-bucket/temp

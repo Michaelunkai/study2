@@ -1,0 +1,1 @@
+sudo apt install -y ntopng && sudo systemctl start ntopng && sudo systemctl status ntopng && gcl 3000

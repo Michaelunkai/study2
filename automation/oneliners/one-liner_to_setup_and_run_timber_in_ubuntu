@@ -1,0 +1,1 @@
+npm install timber && echo "const Timber = require('timber'); new Timber().start();" > app.js && node app.js

@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name vault -p 8200:8200 -e VAULT_DEV_ROOT_TOKEN_ID=root vault:1.16.2

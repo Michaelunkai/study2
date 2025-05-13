@@ -1,0 +1,1 @@
+sudo apt install -y xsensors && xsensors && echo "Xsensors started for hardware monitoring"

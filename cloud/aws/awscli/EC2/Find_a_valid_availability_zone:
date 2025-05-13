@@ -1,0 +1,1 @@
+aws ec2 describe-availability-zones --query "AvailabilityZones[*].ZoneName" --output text

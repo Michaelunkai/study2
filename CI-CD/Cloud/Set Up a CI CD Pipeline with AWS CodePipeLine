@@ -1,0 +1,1 @@
+aws codepipeline create-pipeline --cli-input-json file://pipeline.json

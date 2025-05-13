@@ -1,0 +1,1 @@
+wget -O sigdigger.AppImage https://github.com/BatchDrake/SigDigger/releases/latest/download/SigDigger-x86_64.AppImage && chmod +x sigdigger.AppImage && ./sigdigger.AppImage

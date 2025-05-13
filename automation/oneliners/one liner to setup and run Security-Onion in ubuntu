@@ -1,0 +1,1 @@
+ sudo apt update && sudo apt install -y p7zip-full curl && curl -LO https://github.com/Security-Onion-Solutions/securityonion/releases/latest/download/securityonion-iso.iso && mkdir -p ~/securityonion && 7z x securityonion-iso.iso -o~/securityonion && cd ~/securityonion && sudo bash setup

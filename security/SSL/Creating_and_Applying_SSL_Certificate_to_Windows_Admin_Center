@@ -1,0 +1,72 @@
+▲A  A▼
+Creating and Applying SSL Certificate to Windows Admin Center
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: i12bretrodc.i12bretro.local
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: i12bretrodc.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting the Certificate
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name with a .p12 extension and verify the export format is PKCS #12 (*.p12)
+Enter a password to protect the .p12 export
+Importing Certificate Into Windows Certificate Store
+Right click the Start Button > Run
+Type mmc.exe, press enter
+Click File > Add/Remove Snap-in...
+Click Certificates
+Click Add
+Select Computer account
+Click Next
+Select Local computer
+Click Fini 
+Click OK
+Expand Certificates
+Right click the Personal folder > All Tasks > Import....
+Click Next
+Click Browse > Select the exported SSL .p12 file > Click Next
+Enter the password created for the .p12 export
+Verify Include all extended properties is checked
+Click Next
+Click Next
+Click Fini 
+Double click the newly imported certificate
+Select the Details tab > Scrool to the bottom of the details pane
+Click the thumbprint line item
+Copy the thumbprint value in the lower pane to the clipboard
+Applying the Certificate to Windows Admin Center
+Download Windows Admin Center Download
+Run the downloaded .msi
+If WAC is already installed, click the change button
+Select the Use an SSL certificate installed on this computer option
+Paste in the thumbprint copied from the imported certificate
+Click Change to apply the changes
+ 

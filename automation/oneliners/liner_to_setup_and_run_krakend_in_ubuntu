@@ -1,0 +1,1 @@
+sudo apt install -y ca-certificates gnupg && sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 5DE6FD698AD6FDD2 && echo "deb https://repo.krakend.io/apt stable main" | sudo tee /etc/apt/sources.list.d/krakend.list && sudo apt-get update && sudo apt-get install -y krakend && krakend run -d -p 9099 -c /etc/krakend/krakend.json

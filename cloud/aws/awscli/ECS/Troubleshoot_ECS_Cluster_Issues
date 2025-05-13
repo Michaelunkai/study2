@@ -1,0 +1,11 @@
+Troubleshoot ECS Cluster Issues
+View Logs
+
+ 
+ 
+aws logs describe-log-streams --log-group-name /ecs/my-cluster
+Inspect ECS Events
+
+ 
+ 
+aws ecs describe-services --cluster my-cluster --services my-service --query "services[0].events"

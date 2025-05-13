@@ -1,0 +1,36 @@
+Automating Multiple Dorks
+If you want to automate running multiple dorks, you can create a script or use a loop in your terminal. Here is an example using a shell script:
+
+Create a Shell Script:
+Open a new file with nano:
+
+ 
+ 
+nano run_dorks. 
+Add the following content to the file:
+
+ 
+ 
+#!/bin/ 
+
+dorks=(
+    "inurl:admin"
+    "site:.gov filetype:pdf"
+    "intitle:index.of"
+)
+
+for dork in "${dorks[@]}"; do
+    python3 dorkify.py -d "$dork"
+done
+Save and close the file (Ctrl+O to save, Ctrl+X to exit).
+
+Make the Script Executable:
+
+ 
+ 
+chmod +x run_dorks. 
+Run the Script:
+
+ 
+ 
+./run_dorks. 

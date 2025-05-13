@@ -1,0 +1,1 @@
+ cd && getyarn && sudo apt-get install build-essential -y && git clone https://github.com/vendure-ecommerce/vendure.git && cd vendure && npm install && npm run build && cd packages/dev-server && getsqlite && DB=sqlite npm run populate && DB=sqlite npm run start

@@ -1,0 +1,1 @@
+pnpm up -L && echo "Packages upgraded!"

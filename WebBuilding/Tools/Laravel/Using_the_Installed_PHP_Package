@@ -1,0 +1,10 @@
+ Using the Installed PHP Package
+Register Service Providers (if not auto-discovered):
+
+Open config/app.php and add the PHP package service provider to the providers array.
+Register Facades (if necessary):
+
+Add the facade alias in the aliases array within config/app.php.
+Use the PHP Package in Your Laravel Application:
+
+Refer to the package documentation for detailed usage instructions and incorporate it into your Laravel PHP project.

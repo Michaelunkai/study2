@@ -1,0 +1,1 @@
+sh -c "$(curl -sSfL https://release.solana.com/v1.16.5/install)" && export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH" && echo "Solana CLI is installed."

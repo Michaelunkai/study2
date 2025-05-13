@@ -1,0 +1,27 @@
+sudo apt install -y cmake g++ && git clone --recursive https://github.com/emqx/nanomq.git && cd nanomq && mkdir build && cd build && cmake .. && make && sudo make install && sudo bash -c 'cat > /etc/nanomq.conf <<EOF
+# NanoMQ Configuration File
+
+# Listen to a specific address and port
+url = "mqtt-tcp://0.0.0.0:1883"
+
+# Enable verbose debug logging
+log_level = 4
+
+# Set the max number of concurrent connections
+max_conn = 1024
+
+# Set the number of io threads
+io_threads = 4
+
+# Set the number of worker threads
+worker_threads = 8
+
+# Define the ACL rule for subscription and publishing
+# acl_deny_action = pub
+# acl_allow_action = sub
+
+# Enable websocket support
+websocket.enable = true
+websocket.url = "ws://0.0.0.0:8083/mqtt"
+
+EOF' && sudo nanomq start --conf /etc/nanomq.conf

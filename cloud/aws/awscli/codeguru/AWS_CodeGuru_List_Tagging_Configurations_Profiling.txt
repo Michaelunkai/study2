@@ -1,0 +1,1 @@
+aws codeguruprofiler list-tagging-configurations --profiling-group-name MyProfilingGroup --include-metadata true

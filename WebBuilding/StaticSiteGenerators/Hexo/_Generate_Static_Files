@@ -1,0 +1,7 @@
+Generate Static Files
+Once you have written your post, you need to generate the static files. Run:
+
+ 
+ 
+hexo generate
+This command will create the static files in the public directory.

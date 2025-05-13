@@ -1,0 +1,1 @@
+clamscan --scan-timeout=60 file.txt

@@ -1,0 +1,168 @@
+Configuring Vector for High-Performance Log Aggregation on Ubuntu
+Step 1: Update and Upgrade Your System
+Ensure your system is up-to-date with the latest packages and security patches.
+
+ 
+ 
+sudo apt update
+sudo apt upgrade -y
+Step 2: Download and Install Vector
+Download Vector:
+
+ 
+ 
+VERSION="0.21.1"  # Replace with the latest version if different
+wget https://packages.timber.io/vector/$VERSION/vector-$VERSION-x86_64-unknown-linux-gnu.tar.gz
+Extract the Downloaded File:
+
+ 
+ 
+tar -xzvf vector-$VERSION-x86_64-unknown-linux-gnu.tar.gz
+Move Vector Binary to a Directory in Your PATH:
+
+ 
+ 
+sudo mv vector-x86_64-unknown-linux-gnu/bin/vector /usr/local/bin/
+Verify the Installation:
+
+ 
+ 
+vector --version
+Step 3: Create Configuration Directory and File
+Create Configuration Directory:
+
+ 
+ 
+sudo mkdir -p /etc/vector
+Create a Configuration File:
+
+ 
+ 
+sudo nano /etc/vector/vector.toml
+Add Basic Configuration:
+
+toml
+ 
+[sources.in]
+type = "file"
+include = ["/var/log/syslog"]
+
+[sinks.out]
+type = "console"
+inputs = ["in"]
+encoding.codec = "json"
+Step 4: Create a Systemd Service File
+Create the Service File:
+
+ 
+ 
+sudo nano /etc/systemd/system/vector.service
+Add the Following Content:
+
+ini
+ 
+[Unit]
+Description=Vector
+Documentation=https://vector.dev
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+ExecStart=/usr/local/bin/vector --config /etc/vector/vector.toml
+Restart=always
+RestartSec=10
+KillMode=process
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
+Step 5: Reload Systemd and Start Vector
+Reload Systemd:
+
+ 
+ 
+sudo systemctl daemon-reload
+Start and Enable Vector:
+
+ 
+ 
+sudo systemctl start vector
+sudo systemctl enable vector
+Check Vector Status:
+
+ 
+ 
+sudo systemctl status vector
+Step 6: Advanced Configuration for High-Performance
+To configure Vector for high-performance log aggregation using Kafka and Elasticsearch:
+
+Edit the Configuration File:
+
+ 
+ 
+sudo nano /etc/vector/vector.toml
+Update the Configuration:
+
+toml
+ 
+[sources.in]
+type = "file"
+include = ["/var/log/syslog"]
+
+[transforms.buffer]
+type = "buffer"
+inputs = ["in"]
+max_events = 50000
+
+[sinks.kafka]
+type = "kafka"
+inputs = ["buffer"]
+bootstrap_servers = "localhost:9092"
+topic = "logs"
+encoding.codec = "json"
+
+[sinks.elasticsearch]
+type = "elasticsearch"
+inputs = ["buffer"]
+endpoint = "http://localhost:9200"
+index = "vector-%Y-%m-%d"
+bulk_action = "index"
+Restart Vector:
+
+ 
+ 
+sudo systemctl restart vector
+Step 7: Install and Configure Kafka
+Install Kafka:
+
+ 
+ 
+sudo apt install -y default-jdk zookeeperd
+wget https://downloads.apache.org/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+tar -xzf kafka_2.13-2.8.0.tgz
+cd kafka_2.13-2.8.0
+Start Kafka:
+
+ 
+ 
+bin/zookeeper-server-start.sh config/zookeeper.properties &
+bin/kafka-server-start.sh config/server.properties &
+Step 8: Install and Configure Elasticsearch
+Install Elasticsearch:
+
+ 
+ 
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt update
+sudo apt install elasticsearch
+Start Elasticsearch:
+
+ 
+ 
+sudo systemctl start elasticsearch
+sudo systemctl enable elasticsearch
+Conclusion
+This guide should help you set up and configure Vector for high-performance log aggregation using Kafka and Elasticsearch on Ubuntu. By following these steps, you'll have a robust system for managing and processing your logs efficiently.

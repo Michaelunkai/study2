@@ -1,0 +1,3 @@
+import boto3
+ec2 = boto3.client('ec2')
+ec2.delete_security_group(GroupId='<group-id>')

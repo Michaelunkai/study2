@@ -1,0 +1,1 @@
+sudo apt install daemontools -y && multilog t ./log

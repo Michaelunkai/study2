@@ -1,0 +1,1 @@
+aws ssm get-document --name <document-name>

@@ -1,0 +1,1 @@
+create one liner, to setup and run azdata in ubuntu, and use it in the end! && curl -sL https://aka.ms/azdata-cli-release | bash && azdata

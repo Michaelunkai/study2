@@ -1,0 +1,1 @@
+pnpm create vite && pnpm add -D unocss open-props && pnpm dev

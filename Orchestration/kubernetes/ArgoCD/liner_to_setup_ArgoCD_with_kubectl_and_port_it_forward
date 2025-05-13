@@ -1,0 +1,1 @@
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml && until kubectl get pods -n argocd | grep -m 1 "Running"; do echo "Waiting for ArgoCD server to be ready..."; sleep 5; done && kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8044:443

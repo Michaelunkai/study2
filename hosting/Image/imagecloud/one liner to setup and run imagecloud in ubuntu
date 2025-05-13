@@ -1,0 +1,1 @@
+docker run -d --name imagecloud -p 8081:80 example/imagecloud:latest

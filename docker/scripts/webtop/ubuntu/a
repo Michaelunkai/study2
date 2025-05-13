@@ -1,0 +1,1 @@
+docker run -d --name=ubuntu24webtop -e PUID=1000 -e PGID=1000 -e TITLE="ubuntu24" -p 3000:3000 -p 3389:3389 -v /path/to/config:/config --shm-size="4gb" --restart unless-stopped ghcr.io/linuxserver/webtop:ubuntu-mate && gcl 3000

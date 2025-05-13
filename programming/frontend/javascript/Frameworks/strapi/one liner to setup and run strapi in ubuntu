@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g strapi && yes "y" | strapi new my-strapi-app && cd my-strapi-app && nsj && npm start

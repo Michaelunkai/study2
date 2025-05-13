@@ -1,0 +1,15 @@
+ Developer Setup
+If you're interested in contributing to the project, follow the developer setup instructions provided in the repository's documentation.
+
+6. Checking the Logs
+You can check the application logs to ensure everything is running smoothly:
+
+ 
+ 
+tail -f listmonk.log
+7. Stopping the Application
+To stop the application, simply terminate the process running listmonk:
+
+ 
+ 
+pkill listmonk

@@ -1,0 +1,30 @@
+▲A  A▼
+Modifying Windows 11 ISO to Remove TPM and Secure Boot Requirements
+Method 1: Use Rufus
+This method is handy if you want a quick and easy way to create USB installation media for Windows 11. You will need an 8GB or larger USB flash drive
+
+Download the Windows 11 iso Download
+Download Rufus version 3.16 or later Download
+Run the Rufus application
+Select the target USB device (double check the selection, all data on the USB device will be lost)
+Click the Select button next to Disk or ISO image > Browse to and select the downloaded Windows 11 iso file
+Select Extended Windows 11 Installation (no TPM / no Secure Boot) from the Image option dropdown
+Select MBR from the Partition scheme dropdown
+Click the Start button to write the modified installation media to the target USB device
+Wait for Rufus to write the files to the USB device
+That's it! Boot to the USB device on any machine you wish to install Windows 11 on
+Method 2: Manual Modifying the .iso
+This method is handy if you intend to install a virtual machine or prefer to use Ventoy or burn physical DVD media for your installations
+
+Download the Windows 11 iso Download
+Download AnyBurn Download
+Install and launch AnyBurn
+From the main menu, select Edit image file
+Click to folder icon > Browse to and select the downloaded Windows 11 iso file > Click Next
+Select the sources folder in the left directory tree browser
+Scroll down and click appraiserres.dll to select it > Click Remove at the top of the window > Click Yes to confirm
+Click Next after removing appraiserres.dll
+Set a destination location for the updated .iso file
+Click the Create Now button
+That's it! You can now use the .iso file to install a VM or place it on a Ventoy USB flash drive to use on other devices
+ 

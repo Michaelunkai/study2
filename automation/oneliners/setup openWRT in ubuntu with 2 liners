@@ -1,0 +1,8 @@
+wget https://downloads.openwrt.org/releases/23.05.3/targets/x86/64/openwrt-23.05.3-x86-64-generic-ext4-combined-efi.img.gz && gunzip -f openwrt-23.05.3-x86-64-generic-ext4-combined-efi.img.gz
+
+
+
+
+ sudo apt update && sudo apt install qemu-kvm qemu-utils -y && qemu-img create -f qcow2 openwrt.qcow2 1G && sudo dd if=openwrt-23.05.3-x86-64-generic-ext4-combined-efi.img of=openwrt.qcow2 bs=1M && mv openwrt.qcow2 openwrt.img && sudo qemu-system-x86_64 -m 512M -drive file=openwrt.img,format=raw -nographic -nic user,model=e1000 && sudo qemu-system-x86_64 -m 512M -drive file=openwrt.img,format=raw -netdev user,id=net0 -device e1000,netdev=net0 -nographic
+
+

@@ -1,0 +1,1 @@
+docker run -d --name kuzzle -p 7512:7512 kuzzleio/kuzzle:latest

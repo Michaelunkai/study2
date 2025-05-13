@@ -1,0 +1,1 @@
+cabal install bnfc && echo 'BNFC installed'

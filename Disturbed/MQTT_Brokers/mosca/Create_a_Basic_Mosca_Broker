@@ -1,0 +1,44 @@
+Create a Basic Mosca Broker
+Create a directory for your Mosca broker project and navigate into it:
+
+ 
+ 
+mkdir mosca_broker
+cd mosca_broker
+Create a file named broker.js:
+
+ 
+ 
+nano broker.js
+Add the following code to broker.js:
+
+javascript
+ 
+var mosca = require('mosca');
+
+var settings = {
+  port: 1883
+};
+
+var server = new mosca.Server(settings);
+
+server.on('ready', function() {
+  console.log('Mosca server is up and running');
+});
+
+server.on('clientConnected', function(client) {
+  console.log('Client connected:', client.id);
+});
+
+server.on('published', function(packet, client) {
+  console.log('Publi ed:', packet.payload);
+});
+Save and exit the file (Ctrl + X, then Y, and Enter).
+
+Step 4: Run the Mosca Broker
+To start the Mosca broker, run:
+
+ 
+ 
+node broker.js
+You should see the output indicating that the Mosca server is up and running.

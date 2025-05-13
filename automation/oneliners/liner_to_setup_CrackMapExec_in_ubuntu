@@ -1,0 +1,1 @@
+sudo apt install -y libssl-dev libffi-dev python3-dev build-essential && git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec && cd CrackMapExec && pip install . || pip install crackmapexec && cme --version

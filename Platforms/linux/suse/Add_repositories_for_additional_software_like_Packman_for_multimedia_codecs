@@ -1,0 +1,12 @@
+Add Additional Repositories: Add repositories for additional software like Packman for multimedia codecs.
+
+
+sudo zypper ar -cfp 90 http://packman.inode.at/suse/openSUSE_Tumbleweed/ packman
+sudo zypper dup --from packman
+
+
+Install Multimedia Codecs
+
+sudo zypper install --from packman gstreamer-plugins-bad gstreamer-plugins-ugly
+sudo zypper install --from packman ffmpeg
+

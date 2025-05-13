@@ -1,0 +1,1 @@
+aws s3 cp /path/to/your/image.jpg s3://your-bucket-name/

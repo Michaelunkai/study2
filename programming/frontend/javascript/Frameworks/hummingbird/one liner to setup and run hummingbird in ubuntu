@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g hummingbird-cli && yes "y" | hummingbird init my-hummingbird-app && cd my-hummingbird-app && nsj && npm start

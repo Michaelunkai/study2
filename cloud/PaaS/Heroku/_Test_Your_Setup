@@ -1,0 +1,6 @@
+Test Your Setup
+Verify: Run any Heroku CLI command, such as:
+ 
+ 
+heroku apps
+Authenticate: If prompted, use Salesforce Authenticator to approve the login.

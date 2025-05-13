@@ -1,0 +1,6 @@
+Backup:
+
+redis-cli save
+Restore:
+
+cp /var/lib/redis/dump.rdb /path/to/backup

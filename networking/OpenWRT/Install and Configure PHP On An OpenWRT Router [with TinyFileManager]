@@ -1,0 +1,42 @@
+▲A  A▼
+Install and Configure PHP On An OpenWRT Router [with TinyFileManager]
+What is OpenWRT?
+OpenWRT is an open-source project for embedded operating systems based on Linux, primarily used on embedded devices to route network traffic. The main components are Linux, util-linux, musl, and BusyBox. All components have been optimized to be small enough to fit into the limited storage and memory available in home routers. -https://en.wikipedia.org/wiki/OpenWrt
+Installing and Configuring PHP
+Log into the OpenWRT web interface
+Select System > Software from the top navigation menu
+Click the Updates lists... button
+Using the filter, install the following packages
+alternatively, run opkg install luci-app-uhttpd php7 php7-cgi tar from the command line
+luci-app-uhttpd
+php7
+php7-cgi
+tar
+Filter the software list to zoneinfo > Install required timezone files from the listing
+Refresh the OpenWRT page then select Services > uHTTPd from the top navigation menu
+Select the Full Web Server Settings tab
+On the Index page(s) field, add an entry for index.php
+On the CGI filetype handler field, add an entry for .php=/usr/bin/php-cgi
+Scroll to the bottom of the page > Click Save & Apply
+SSH into the OpenWRT device
+Run the following command to create a test php file
+# create a phpinfo test file
+echo "<?php phpinfo(); ?>" > /www/phpinfo.php
+Open a new tab in the web browser and navigate to http://DNSorIP/phpinfo.php
+Installing TinyFileManager
+Back in the SSH session, run the following commands
+# install required php modules
+opkg install php7-mod-ctype php7-mod-fileinfo php7-mod-iconv php7-mod-json php7-mod-mbstring php7-mod-session php7-mod-zip
+# download tinyfilemanager
+wget -O tinyfilemanager.tar.gz https://api.github.com/repos/prasathmani/tinyfilemanager/tarball/2.4.7 --no-check-certificate
+# create tinyfilemanager directory
+mkdir tinyfilemanager
+# extract the .tar.gz
+tar xvzf ./tinyfilemanager.tar.gz -C ./tinyfilemanager --strip-components=1
+# move tinyfilemanager.php to the webroot
+cp ./tinyfilemanager/tinyfilemanager.php /www
+Back in the web browser, navigate to http://DNSorIP/tinyfilemanager.php
+Login with username admin password admin@123
+NOTE: Authentication can be edited or disabled completely by editing tinyfilemanager.php and searching for $auth_users
+
+ 

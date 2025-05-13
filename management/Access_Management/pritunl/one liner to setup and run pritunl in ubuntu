@@ -1,0 +1,1 @@
+sudo apt update -y && sudo tee /etc/apt/sources.list.d/pritunl.list <<< "deb https://repo.pritunl.com/stable/apt jammy main" && curl -fsSL https://repo.pritunl.com/stable/apt/public.key | sudo gpg --dearmor -o /usr/share/keyrings/pritunl.gpg && sudo apt update -y && sudo apt install -y pritunl mongodb-org && sudo systemctl enable --now pritunl mongod

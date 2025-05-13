@@ -1,0 +1,1 @@
+sudo apt install -y gstreamer1.0-tools gstreamer1.0-plugins-{base,good,bad,ugly} gstreamer1.0-libav && gst-launch-1.0 videotestsrc ! autovideosink; echo 'create one liner, to setup and run GStreamer in ubuntu, and use it in the end!'

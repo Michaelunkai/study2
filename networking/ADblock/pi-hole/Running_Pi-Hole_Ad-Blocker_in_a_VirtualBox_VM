@@ -1,0 +1,101 @@
+Running Pi-Hole Ad-Blocker in a VirtualBox VM
+Creating the VM
+Download Raspberry Pi OS Download
+Launch Virtualbox
+Create a New VM by selecting Machine > New
+Name: Raspberry Pi-Hole
+Machine Folder: C:\VMs
+Type: Linux
+Version: Debian (32-bit)
+Memory Size: 1024 MB
+Hard disk: Create a virtual hard disk now
+
+Click Create
+On the Create Virtual Hard Disk dialog
+Name the virtual disk image Raspberry Pi-Hole.vdi
+File size: 12-16 GB
+Hard disk file type: VDI
+Storage on physical hard disk: Dynamically Allocated
+
+Click Create
+Select the VM and Click Settings
+Select System > Processor
+Give the VM at least 2 processors
+Select Display
+Slide the Video Memory to 128 MB
+Select Network
+Set the attached to dropdown to Bridged Adapter
+Select Storage
+Click on the CD-ROM drive
+Select the disc dropdown to the right > Choose a virtual optical disc file...
+Browse to and select the Raspberry Pi desktop .iso file
+Click OK
+Make sure the Raspberry Pi-Hole VM is selected and click Start > Normal
+Select Graphical Install
+Select a keyboard map > click Continue
+Select Guided - use entire disk > click Continue
+Click Continue, Continue, Continue
+Select Yes to confirm writing the changes to disk > click Continue
+Wait while Debian and the Raspberry Pi Desktop are installed
+Select Yes to install GRUB on the master boot record > click Continue
+Select /dev/sda > click Continue
+Click Continue to reboot the VM
+Click Next on the welcome dialog
+Set the Country, Language and Time Zone > click Next
+Enter and confirm a password for the pi user > click Next
+Click Skip to updating software
+Click Finish to reboot the VM and complete setup
+Installing Updates and Pi-Hole
+Click the Applications button > Accessories > Terminal
+Run the following commands to install updates
+sudo apt update
+sudo apt upgrade -y
+sudo apt clean
+sudo reboot now
+Select Devices > Insert Guest Additions CD image...
+If the installation autoruns, select Run
+On the desktop, Right click on the Guest Additions disc > Open in Terminal
+In the Terminal window run the following commands
+sudo   ./VBoxLinuxAdditions.run
+sudo reboot now
+The VM will reboot
+Upon rebooting, you can now full screen the VM and the internal resolution will automatically change to match the window size
+Click the Applications button > Accessories > Terminal
+Run the following command to install Pi-Hole
+curl -sSL https://install.pi-hole.net | bash
+Press Enter until the DNS selection is displayed
+Select a DNS provider and press Enter
+Press Enter through the rest of the Pi-Hole installer, selecting the defaults
+Copy the randomly generated admin password (just in case)
+Press Enter to complete the installation
+Run the following command to change the Pi-Hole admin password
+sudo pihole -a -p
+Enter and confirm the new password
+Click the Applications button > Internet > Chromium Web Browser
+Navigate to http://DNSorIP/admin
+Click Login
+Authenticate with the admin password
+Testing Pi-Hole
+Right click the VM network connection > Wireless & Wired Network Settings
+Select eth0 from the interface dropdown
+Clear out the DNS servers and input the VM IP address
+Click Apply
+Click Devices > Network > Connect Network Adapter to disable networking
+Click Devices > Network > Connect Network Adapter to re-enable networking
+In Chromium, open a new tab and navigate to https://yahoo.com
+Go back to the Pi-Hole tab and see that some DNS queries have been blocked
+Setting Up From Windows Client
+Click the Start button > Type control panel > press Enter
+Click View By > Small Icons
+Click Network and Sharing Center
+Click Change adapter settings
+Right click on the network connection > Properties
+Select Internet Protocol Version 4 (TCP/IPv4) > Properties
+Select the radio option next to Use the following DNS server addresses
+Input the IP address of the Pi-Hole VM
+Click OK on both of the open dialog windows
+Right click the Start button > Command Prompt (Admin)
+Type the following commands to flush your DNS cache and restart the network connections (note: your network connection will drop if running the commands on a remote machine)
+ipconfig /flu dns
+ipconfig /release
+ipconfig /renew

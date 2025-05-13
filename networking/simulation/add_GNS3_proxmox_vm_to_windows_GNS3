@@ -1,0 +1,16 @@
+* in GNS3 > edit > preferences > server > remote servers > add
+*add the name, ip, port, user and password. all should be shown
+in the gns3 VM ui. 
+
+click ok > apply.
+
+
+* preferences > GNS3 VM
+click the box "Enable this GNS VM" 
+chose "remote"
+click apply and ok.
+
+
+
+*in GNS vm, upgrade the VM to the latest version possible and reboot it, ands do the same
+for GNS3 in windows.

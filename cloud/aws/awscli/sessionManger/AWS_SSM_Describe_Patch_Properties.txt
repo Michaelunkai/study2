@@ -1,0 +1,1 @@
+aws ssm describe-patch-properties --operating-system <os> --property <property>

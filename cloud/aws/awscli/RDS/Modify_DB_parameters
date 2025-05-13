@@ -1,0 +1,1 @@
+ aws rds modify-db-parameter-group --db-parameter-group-name mydbparametergroup-971fd623 --parameters 'ParameterName=max_connections,ParameterValue=250,ApplyMethod=immediate'

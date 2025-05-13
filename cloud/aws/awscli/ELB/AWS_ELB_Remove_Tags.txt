@@ -1,0 +1,1 @@
+aws elb remove-tags --load-balancer-name <load-balancer-name> --tag-keys <key>

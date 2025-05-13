@@ -1,0 +1,1 @@
+flutter pub add provider && echo 'Provider added'

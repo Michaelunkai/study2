@@ -1,0 +1,14 @@
+ Create a Cookbook
+4.1 Generate a New Cookbook
+Generate a new cookbook named my_cookbook:
+
+chef generate cookbook cookbooks/my_cookbook
+4.2 Edit the Default Recipe
+Edit the default recipe to create a file with some content:
+
+nano cookbooks/my_cookbook/recipes/default.rb
+Add the following content:
+
+file '/tmp/greeting.txt' do
+  content 'Hello, world!'
+end

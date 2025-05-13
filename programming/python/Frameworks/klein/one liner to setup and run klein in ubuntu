@@ -1,0 +1,1 @@
+pip install klein && echo "from klein import route, run; @route('/')\ndef home(request): return 'Hello Klein'; run('localhost', 8080)" > app.py && python app.py

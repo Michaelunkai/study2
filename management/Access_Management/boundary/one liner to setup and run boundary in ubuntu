@@ -1,0 +1,1 @@
+sudo apt update -y && sudo apt install -y docker.io && sudo docker run -d --name boundary -p 9200:9200 hashicorp/boundary:0.15

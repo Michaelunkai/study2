@@ -1,0 +1,6 @@
+Publish a Message:
+
+redis-cli publish mychannel "Hello, World!"
+Subscribe to a Channel:
+
+redis-cli subscribe mychannel

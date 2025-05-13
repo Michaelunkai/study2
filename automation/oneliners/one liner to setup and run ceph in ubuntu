@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y ceph && sudo systemctl start ceph

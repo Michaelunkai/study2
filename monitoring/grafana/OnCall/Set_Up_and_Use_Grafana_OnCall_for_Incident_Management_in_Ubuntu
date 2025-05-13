@@ -1,0 +1,104 @@
+Setting up and using Grafana OnCall for incident management on Ubuntu involves several steps, from installing Grafana and the OnCall plugin to configuring the necessary settings. Below is a detailed step-by-step guide:
+
+### Step 1: Update and Upgrade Your System
+Before starting, it's good practice to update and upgrade your system packages.
+
+  
+sudo apt update
+sudo apt upgrade -y
+
+### Step 2: Install Grafana
+Grafana can be installed using the official APT repository.
+
+1. **Add Grafana APT repository:**
+
+     
+   sudo apt-get install -y software-properties-common
+   sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+
+2. **Add GPG key:**
+
+     
+   sudo wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+3. **Update your APT cache and install Grafana:**
+
+     
+   sudo apt update
+   sudo apt install grafana -y
+
+4. **Start and enable the Grafana service:**
+
+     
+   sudo systemctl start grafana-server
+   sudo systemctl enable grafana-server
+
+### Step 3: Install Grafana OnCall Plugin
+
+1. **Install the Grafana OnCall plugin:**
+
+     
+   sudo grafana-cli plugins install grafana-oncall-app
+
+2. **Restart the Grafana service to load the plugin:**
+
+     
+   sudo systemctl restart grafana-server
+
+### Step 4: Configure Grafana OnCall
+
+1. **Access Grafana:**
+   Open your web browser and go to `http://<your-server-ip>:3000`. The default login credentials are:
+   - Username: `admin`
+   - Password: `admin`
+
+2. **Install Grafana OnCall App:**
+   - Go to the `Configuration` section (gear icon).
+   - Select `Plugins`.
+   - Find and click on `Grafana OnCall`.
+   - Click on `Enable` to enable the plugin.
+
+3. **Set Up OnCall:**
+   - After enabling the OnCall plugin, you'll find it in the sidebar. Click on `OnCall`.
+   - Follow the on-screen instructions to set up your on-call schedules, notification channels, and incident management workflows.
+
+### Step 5: Configure Notification Channels
+
+1. **Set Up Notification Channels:**
+   - Go to `Alerting` > `Notification channels`.
+   - Click on `New Channel` and configure the necessary settings (e.g., Slack, email, etc.).
+
+2. **Integrate with OnCall:**
+   - Make sure your notification channels are integrated with the OnCall plugin for effective incident management.
+
+### Step 6: Create and Manage Alerts
+
+1. **Create Alerts:**
+   - Go to your Grafana dashboard and select a panel you want to monitor.
+   - Click on the panel title, then select `Edit`.
+   - Go to the `Alert` tab and configure the alert conditions.
+   - Set the notification channel to use OnCall.
+
+2. **Manage Incidents:**
+   - Use the OnCall interface to manage incidents, assign them to on-call staff, and track their resolution.
+
+### Step 7: Test Your Setup
+
+1. **Trigger an Alert:**
+   - Create a test scenario to trigger an alert.
+   - Ensure that the OnCall plugin captures the incident and sends notifications to the configured channels.
+
+2. **Respond to Incidents:**
+   - Use the OnCall dashboard to manage and respond to incidents.
+   - Ensure that the workflow meets your incident management needs.
+
+### Step 8: Fine-Tune and Monitor
+
+1. **Review and Fine-Tune Settings:**
+   - Regularly review your OnCall settings and workflows.
+   - Adjust notification channels, schedules, and alert conditions as needed.
+
+2. **Monitor Performance:**
+   - Continuously monitor the performance of your Grafana OnCall setup to ensure it meets your incident management requirements.
+
+By following these steps, you should have Grafana OnCall set up on your Ubuntu system for efficient incident management.

@@ -1,0 +1,2 @@
+** 
+nc -zv <public_IP> <used port>

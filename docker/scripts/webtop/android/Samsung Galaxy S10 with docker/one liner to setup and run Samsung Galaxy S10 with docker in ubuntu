@@ -1,0 +1,6 @@
+docker run -d --rm \
+  --device /dev/kvm \
+  -p 6080:6080 \
+  -e EMULATOR_DEVICE="Samsung Galaxy S10" \
+  -e WEB_VNC=true \
+  budtmo/docker-android:emulator_11.0

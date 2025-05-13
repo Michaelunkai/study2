@@ -1,0 +1,24 @@
+ Converting Text to Speech with Amazon Polly
+Step 1: Access Amazon Polly
+Log in to AWS Management Console
+
+Visit the AWS Management Console.
+Enter your AWS credentials to log in.
+Navigate to Amazon Polly
+
+In the AWS Management Console, search for “Amazon Polly” and select it.
+Step 2: Create Speech Synthesis Task
+Input Text
+
+Enter the text you want to convert into speech.
+Select Voice and Language
+
+Choose from available voices and languages.
+Configure speech settings, such as speech rate and volume.
+Synthesize Speech
+
+Click “Synthesize speech” to generate the audio.
+Step 3: Download or Stream Audio
+Access Generated Audio
+Download the generated audio file or stream it directly to your application.
+Free Tier Limit: 5 million characters of text-to-speech per month for the first 12 months.

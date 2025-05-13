@@ -1,0 +1,52 @@
+Install vsftpd:
+
+ 
+ 
+sudo apt update
+sudo apt install -y vsftpd
+Create FTP User:
+
+ 
+ 
+sudo adduser ftpuser
+sudo mkdir -p /home/ftpuser/ftp
+sudo chown nobody:nogroup /home/ftpuser/ftp
+sudo chmod a-w /home/ftpuser/ftp
+sudo mkdir -p /home/ftpuser/ftp/files
+sudo chown ftpuser:ftpuser /home/ftpuser/ftp/files
+Configure vsftpd:
+
+ 
+ 
+sudo nano /etc/vsftpd.conf
+Update the configuration:
+
+ini
+ 
+listen=YES
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+use_localtime=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+chroot_local_user=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+ssl_enable=YES
+Create SSL Certificates:
+
+ 
+ 
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+Restart vsftpd:
+
+ 
+ 
+sudo systemctl restart vsftpd
+Verify Secure FTP Access:
+Use an FTP client to connect to your server with FTP over TLS/SSL (FTPS) and verify the connection.

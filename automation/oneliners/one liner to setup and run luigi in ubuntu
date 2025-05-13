@@ -1,0 +1,1 @@
+pip3 install luigi && python3 -c 'import luigi; print(luigi.__version__)'

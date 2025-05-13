@@ -1,0 +1,1 @@
+aws kms revoke-grant --key-id <key-id> --grant-id <grant-id>

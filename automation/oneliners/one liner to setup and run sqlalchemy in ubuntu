@@ -1,0 +1,1 @@
+pip3 install SQLAlchemy && python3 -c 'import sqlalchemy; print(sqlalchemy.__version__)'

@@ -1,0 +1,15 @@
+Configure Knife
+3.1 Create knife.rb Configuration File
+Create a knife.rb configuration file in the .chef directory:
+
+nano .chef/knife.rb
+3.2 Add Configuration to knife.rb
+Add the following content to the knife.rb file:
+
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                'admin'
+client_key               "#{current_dir}/admin.pem"
+chef_server_url          'https://YOUR_CHEF_SERVER_URL/organizations/myorg'
+cookbook_path            ["#{current_dir}/../cookbooks"]

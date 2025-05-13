@@ -1,0 +1,1 @@
+aws iam attach-user-policy --user-name openshift-user --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess

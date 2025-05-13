@@ -1,0 +1,50 @@
+**Starknet.js** is a JavaScript library designed for interacting with the **StarkNet** blockchain, a Layer 2 scaling solution for Ethereum. It provides developers with a set of tools and APIs to interact with smart contracts, manage accounts, and query data on the StarkNet network directly from their JavaScript or TypeScript applications.
+
+### Key Features of Starknet.js:
+
+1. **Account Management**:
+   - Starknet.js allows you to create, manage, and interact with StarkNet accounts. It provides functionality for generating key pairs, signing transactions, and managing account states on StarkNet.
+
+2. **Smart Contract Interaction**:
+   - You can use Starknet.js to deploy, invoke, and query smart contracts deployed on StarkNet. It simplifies the process of sending transactions to smart contracts, calling functions, and getting the results.
+   
+3. **Transaction Handling**:
+   - The library allows you to submit and track transactions on the StarkNet network, including checking the status of a transaction or retrieving transaction receipts.
+
+4. **Network Interaction**:
+   - Starknet.js can connect to various StarkNet networks (e.g., testnet or mainnet) and allows developers to query blocks, events, and state data directly from the network.
+
+5. **Event and Log Querying**:
+   - Developers can query events emitted by smart contracts and filter these events based on specific parameters, allowing them to track important on-chain activities.
+
+6. **Cairo Smart Contracts**:
+   - Cairo is the programming language used for writing StarkNet smart contracts. With Starknet.js, developers can interact with these Cairo-based contracts from JavaScript, making it easier to build frontend applications that connect to StarkNet.
+
+### Typical Use Cases:
+- **dApp Development**: Starknet.js is commonly used to build decentralized applications (dApps) that require interaction with the StarkNet blockchain, such as DeFi platforms, NFT marketplaces, and gaming applications.
+  
+- **Wallet and Key Management**: Developers can use Starknet.js for managing user wallets, signing transactions, and securely interacting with the blockchain.
+
+- **Blockchain Data Querying**: It allows developers to query blockchain data like transaction history, block details, and contract events, enabling the creation of dashboards or analytic tools for StarkNet.
+
+### Example:
+A simple use case of **starknet.js** might involve querying the latest block on StarkNet:
+
+ javascript
+const { Provider } = require('starknet');
+
+(async () => {
+  const provider = new Provider({ sequencer: { network: 'goerli-alpha' } });
+  const block = await provider.getBlock('latest');
+  console.log(block);
+})();
+
+This example fetches the latest block information from the StarkNet testnet (Goerli-alpha) using the **starknet.js** library.
+
+### Installation:
+To use **starknet.js**, you can install it via npm:
+  
+npm install starknet
+
+### Conclusion:
+**Starknet.js** is a powerful JavaScript/TypeScript library for developers who want to build applications and interact with the StarkNet blockchain. It abstracts many of the complexities of blockchain interaction, making it easier to build scalable decentralized applications on top of StarkNet.

@@ -1,0 +1,1 @@
+pip3 install tables && python3 -c 'import tables; print(tables.__version__)'

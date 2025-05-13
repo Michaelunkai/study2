@@ -1,0 +1,1 @@
+pip3 install invoke && python3 -c 'import invoke; print(invoke.__version__)'

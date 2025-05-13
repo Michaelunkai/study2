@@ -1,0 +1,7 @@
+1)for vm:
+
+nano /etc/pve/qemu-server/<vmid>.conf
+
+2)for ct:
+
+nano /etc/pve/lxc/<ctid>.conf

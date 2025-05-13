@@ -1,0 +1,115 @@
+Setting up and using Kubespray for Kubernetes cluster deployment on Ubuntu involves several steps. Below is a step-by-step guide to help you through the process:
+
+### Prerequisites
+1. **Ubuntu Machines**: You need at least two Ubuntu machines (one for the Ansible control node and one or more for the Kubernetes nodes).
+2. **Root or sudo access**: Ensure you have root or sudo access on all the machines.
+3. **SSH Access**: Passwordless SSH access from the Ansible control node to all the Kubernetes nodes.
+4. **Python**: Python should be installed on all the machines.
+
+### Step 1: Set Up Ansible Control Node
+1. **Update the package list**:
+   ``` 
+   sudo apt update
+   ```
+2. **Install Ansible and other dependencies**:
+   ``` 
+   sudo apt install -y ansible  3-pip  3-dev libffi-dev libssl-dev git
+   ```
+
+### Step 2: Clone Kubespray Repository
+1. **Clone the Kubespray repository**:
+   ``` 
+   git clone https://github.com/kubernetes-sigs/kubespray.git
+   cd kubespray
+   ```
+
+### Step 3: Install Python Dependencies
+1. **Install required Python packages**:
+   ``` 
+   sudo pip3 install -r requirements.txt
+   ```
+
+### Step 4: Prepare Inventory File
+1. **Copy sample inventory**:
+   ``` 
+   cp -rfp inventory/sample inventory/mycluster
+   ```
+2. **Generate inventory file for your cluster**:
+   ``` 
+   declare -a IPS=(<IP-ADDRESS1> <IP-ADDRESS2> <IP-ADDRESS3>)
+   CONFIG_FILE=inventory/mycluster/hosts.yml  3 contrib/inventory_builder/inventory.py ${IPS[@]}
+   ```
+
+Replace `<IP-ADDRESS1>`, `<IP-ADDRESS2>`, and `<IP-ADDRESS3>` with the actual IP addresses of your nodes.
+
+### Step 5: Review and Configure Inventory
+1. **Edit the inventory file**:
+   ``` 
+   nano inventory/mycluster/hosts.yml
+   ```
+   
+   Ensure your hosts.yml file looks something like this:
+   ``` 
+   all:
+     hosts:
+       node1:
+         ansible_host: <IP-ADDRESS1>
+       node2:
+         ansible_host: <IP-ADDRESS2>
+       node3:
+         ansible_host: <IP-ADDRESS3>
+     children:
+       kube-master:
+         hosts:
+           node1:
+       kube-node:
+         hosts:
+           node2:
+           node3:
+       etcd:
+         hosts:
+           node1:
+           node2:
+           node3:
+       k8s-cluster:
+         children:
+           kube-master:
+           kube-node
+       calico-rr:
+         hosts: {}
+   ```
+
+### Step 6: Run Kubespray Playbook
+1. **Deploy the Kubernetes cluster**:
+   ``` 
+   ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml
+   ```
+
+This step may take some time as it installs and configures all the necessary components.
+
+### Step 7: Verify the Deployment
+1. **Install kubectl on your control node**:
+   ``` 
+   sudo snap install kubectl --classic
+   ```
+2. **Copy the kubeconfig file from one of the master nodes**:
+   ``` 
+   mkdir -p $HOME/.kube
+   scp root@<IP-ADDRESS1>:/etc/kubernetes/admin.conf $HOME/.kube/config
+   ```
+3. **Check the cluster status**:
+   ``` 
+   kubectl get nodes
+   ```
+
+You should see all your nodes listed with the status "Ready".
+
+### Optional: Additional Configurations
+- **Network Configuration**: Adjust network settings in `inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml`.
+- **Storage Configuration**: Configure storage settings in `inventory/mycluster/group_vars/k8s_cluster/addons.yml`.
+
+### Troubleshooting
+- **Logs**: Check logs on nodes in `/var/log` or use `kubectl logs`.
+- **Ansible Logs**: Use `-v` option with `ansible-playbook` for verbose output.
+
+Following these steps should help you set up and use Kubespray for Kubernetes cluster deployment on Ubuntu. If you encounter any issues, refer to the [Kubespray documentation](https://github.com/kubernetes-sigs/kubespray) for more detailed information and troubleshooting tips.

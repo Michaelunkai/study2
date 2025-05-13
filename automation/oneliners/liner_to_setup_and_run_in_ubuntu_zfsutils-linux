@@ -1,0 +1,1 @@
+sudo apt install -y zfsutils-linux && sudo zpool create tank /dev/sdb && echo "ZFS is running. Visit: https://openzfs.org/"

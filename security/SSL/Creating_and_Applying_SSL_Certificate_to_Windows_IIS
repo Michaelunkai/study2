@@ -1,0 +1,70 @@
+Create Your SSL Certificate
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab, right click on your Intermediate CA certificate
+Select New
+On the Source tab, make sure Use this Certificate for signing is selected
+Verify your Intermediate CA certificate is selected from the drop down
+Click the Subject tab
+Complete the Distinguished Name section
+internalName: WebDev IIS SSL
+countryName: US
+stateOrProvinceName: Virginia
+localityName: Northern
+organizationName: i12bretro
+organizationUnitName: i12bretro Certificate Authority
+commonName: webdev.i12bretro.local
+
+Click the Generate a New Key button
+Enter a name and set the key size to at least 2048
+Click Create
+Click on the Extensions tab
+Select End Entity from the type list
+Click Edit next to Subject Alternative Name
+Add any DNS or IP addresses that the certificate will identify
+Update the validity dates to fit your needs
+Click the Key Usage tab
+Under Key Usage select Digital Signature, Key Encipherment
+Under Extended Key Usage select Web Server and Web Client Authentication
+Click the Netscape tab
+Select SSL Server
+Click OK to create the certificate
+Exporting the Certificate
+In XCA, click on the Certificates tab
+Right click the SSL certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PKCS #12 (*.p12)
+Enter a password to protect the .p12 export
+Importing Certificate Into Windows Certificate Store
+Right click the Start Button > Run
+Type mmc.exe, press enter
+Click File > Add/Remove Snap-in...
+Click Certificates
+Click Add
+Select Computer account
+Click Next
+Select Local computer
+Click Fini 
+Click OK
+Expand Certificates
+Right click the Personal folder > All Tasks > Import....
+Click Next
+Click Browse > Select the exported SSL .p12 file > Click Next
+Enter the password created for the .p12 export
+Verify Include all extended properties is checked
+Click Next
+Click Next
+Click Fini 
+Setting Up SSL in IIS
+Open IIS Manager (Control Panel > Administrative Tools > Internet Information Services (IIS) Manager)
+Expand Server
+Expand Sites
+Right click on the site to apply SSL certificate to > Edit Bindings...
+Click Add...
+Set Type dropdown to https
+Set IP address, Port and Host name fields
+Select the imported certificate from the SSL Certificate dropdown
+Click OK
+Open a web browser
+Navigate to https://DNSorIP from your certificate
+Click the lock and select view certificate
+Validate the certificate and certificate chain being presented by IIS

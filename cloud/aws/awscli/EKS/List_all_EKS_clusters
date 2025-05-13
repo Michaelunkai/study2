@@ -1,0 +1,1 @@
+eks_clusters=$(aws eks list-clusters --query 'clusters[*]' --output text)

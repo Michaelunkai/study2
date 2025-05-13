@@ -1,0 +1,1 @@
+wget https://github.com/atom/atom/releases/download/v1.60.0/atom-amd64.deb && sudo apt install -y ./atom-amd64.deb && rm atom-amd64.deb && atom --no-sandbox

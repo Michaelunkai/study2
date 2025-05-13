@@ -1,0 +1,1 @@
+wget https://github.com/ko-build/ko/releases/download/v0.17.1/ko_0.17.1_Linux_x86_64.tar.gz && tar -xvzf ko_0.17.1_Linux_x86_64.tar.gz && file ko && chmod +x ko && sudo mv ko /usr/local/bin/ && rm -f ko_0.17.1_Linux_x86_64.tar.gz && ko version

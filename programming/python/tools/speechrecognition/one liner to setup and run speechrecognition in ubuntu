@@ -1,0 +1,1 @@
+pip3 install SpeechRecognition && python3 -c 'import speech_recognition; print(speech_recognition.__version__)'

@@ -1,0 +1,50 @@
+▲A  A▼
+Running iRedMail E-Mail Server in Docker
+What is iRedMail?
+[iRedMail is a] full-featured, open source mail server solution for mainstream Linux/BSD distributions. - https://github.com/iredmail/iRedMail
+Installing Docker
+Log into the Linux host and run the following commands in a terminal window
+# update software repositories
+sudo apt update
+# install prerequisites
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+# add docker gpg key
+curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+# add docker software repository
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+# install docker
+sudo apt install docker-ce docker-compose containerd.io -y
+# enable and start docker service
+sudo systemctl enable docker && sudo systemctl start docker
+# add the current user to the docker group
+sudo usermod -aG docker $USER
+# reauthenticate for the new group membership to take effect
+su - $USER
+Running iRedMail Container
+Continue with the following commands in a terminal window
+# create main working directory
+mkdir ~/docker/iRedMail -p
+# create required sub-directories
+mkdir ~/docker/iRedMail/data/{backup-mysql,clamav,custom,imapsieve_copy,mailboxes,mlmmj,mlmmj-archive,mysql,sa_rules,ssl,postfix_queue} -p
+# create config file
+touch ~/docker/iRedMail/iredmail-docker.conf
+# write hostname to config
+echo HOSTNAME=mail.i2bretro.net >> ~/docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN=i12bretro.net >> ~/docker/iRedMail/iredmail-docker.conf
+echo FIRST_MAIL_DOMAIN_ADMIN_PASSWORD=SomethingSecure >> ~/docker/iRedMail/iredmail-docker.conf
+echo MLMMJADMIN_API_TOKEN=$(openssl rand -base64 32) >> ~/docker/iRedMail/iredmail-docker.conf
+echo ROUNDCUBE_DES_KEY=$(openssl rand -base64 24) >> ~/docker/iRedMail/iredmail-docker.conf
+# output the conf file and verify the values
+cat ~/docker/iRedMail/iredmail-docker.conf
+# set owner of working directories
+sudo chown "$USER":"$USER" ~/docker -R
+# run the iRedMail container
+docker run -d --name iRedMail --env-file ~/docker/iRedMail/iredmail-docker.conf -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v ~/docker/iRedMail/data/backup-mysql:/var/vmail/backup/mysql -v ~/docker/iRedMail/data/mailboxes:/var/vmail/vmail1 -v ~/docker/iRedMail/data/mlmmj:/var/vmail/mlmmj -v ~/docker/iRedMail/data/mlmmj-archive:/var/vmail/mlmmj-archive -v ~/docker/iRedMail/data/imapsieve_copy:/var/vmail/imapsieve_copy -v ~/docker/iRedMail/data/custom:/opt/iredmail/custom -v ~/docker/iRedMail/data/ssl:/opt/iredmail/ssl -v ~/docker/iRedMail/data/mysql:/var/lib/mysql -v ~/docker/iRedMail/data/clamav:/var/lib/clamav -v ~/docker/iRedMail/data/sa_rules:/var/lib/spamassassin -v ~/docker/iRedMail/data/postfix_queue:/var/spool/postfix iredmail/mariadb:stable
+Open a web browser and navigate to http://DNSorIP/iredadmin
+Log in with postmaster@ (postmaster@i12bretro.net in this example) and FIRST_MAIL_DOMAIN_ADMIN_PASSWORD set in iredmail-docker.conf
+Welcome to iRedMail
+Open a new browser tab and navigate to http://DNSorIP to reach the RoundCube web mail interface
+Again, login with postmaster@ and the FIRST_MAIL_DOMAIN_ADMIN_PASSWORD set in iredmail-docker.conf
+Documentation: https://github.com/iredmail/dockerized
+
+ 

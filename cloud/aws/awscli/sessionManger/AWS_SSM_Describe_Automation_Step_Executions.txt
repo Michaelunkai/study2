@@ -1,0 +1,1 @@
+aws ssm describe-automation-step-executions --automation-execution-id <execution-id>

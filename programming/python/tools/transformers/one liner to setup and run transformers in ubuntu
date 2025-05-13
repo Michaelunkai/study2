@@ -1,0 +1,1 @@
+pip3 install transformers && python3 -c 'import transformers; print(transformers.__version__)'

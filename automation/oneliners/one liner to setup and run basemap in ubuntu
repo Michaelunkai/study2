@@ -1,0 +1,1 @@
+pip3 install basemap && python3 -c 'import mpl_toolkits.basemap; print("Basemap installed")'

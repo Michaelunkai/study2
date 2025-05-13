@@ -1,0 +1,1 @@
+wget https://archives.streamsets.com/datacollector/3.22.1/tarball/streamsets-datacollector-all-3.22.1.tgz && tar -xvzf streamsets-datacollector-all-3.22.1.tgz && cd streamsets-datacollector-3.22.1 && sed -i 's/http.bindHost=.*/http.bindHost=localhost/' ./etc/sdc.properties && ulimit -n 32768 && ./bin/streamsets dc && ./bin/streamsets version

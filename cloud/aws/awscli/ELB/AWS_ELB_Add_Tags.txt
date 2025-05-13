@@ -1,0 +1,1 @@
+aws elb add-tags --load-balancer-name <load-balancer-name> --tags Key=<key>,Value=<value>

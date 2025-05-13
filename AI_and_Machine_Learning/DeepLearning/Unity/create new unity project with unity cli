@@ -1,0 +1,2 @@
+mkdir -p ~/UnityProjects/MyProject
+ugs unity create --path ~/UnityProjects/MyProject --name MyProject --version 2021.3.2f1

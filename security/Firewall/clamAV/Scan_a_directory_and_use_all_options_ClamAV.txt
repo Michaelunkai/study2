@@ -1,0 +1,1 @@
+clamscan -r --infected --remove --move=/path/to/quarantine --scan-archive --bytecode /path/to/directory

@@ -1,0 +1,1 @@
+pip install responder && echo "import responder; api = responder.API(); @api.route('/'); async def hello(req, resp): resp.text = 'Hello Responder'; api.run()" > app.py && python app.py

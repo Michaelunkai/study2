@@ -1,0 +1,1 @@
+sudo apt install -y apache2 php mariadb-server && git clone https://github.com/RackTables/racktables.git /var/www/html/racktables

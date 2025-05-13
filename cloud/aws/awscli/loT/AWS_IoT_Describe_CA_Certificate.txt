@@ -1,0 +1,1 @@
+aws iot describe-ca-certificate --certificate-id <certificate-id>

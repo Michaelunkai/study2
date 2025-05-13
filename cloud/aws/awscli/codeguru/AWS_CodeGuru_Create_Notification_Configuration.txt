@@ -1,0 +1,1 @@
+aws codeguru-reviewer create-notification-configuration --resource-arn <resource-arn> --notification-target <sns-topic-arn>

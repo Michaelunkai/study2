@@ -1,0 +1,13 @@
+ Create an IoT Thing in AWS IoT Core
+3.1 Create a New IoT Thing
+ 
+ 
+aws iot create-thing --thing-name MyIotThing
+3.2 Create a Certificate for the IoT Thing
+ 
+ 
+aws iot create-keys-and-certificate --set-as-active --certificate-pem-outfile cert.pem --public-key-outfile public.key --private-key-outfile private.key
+3.3 Attach the Certificate to the IoT Thing
+ 
+ 
+aws iot attach-thing-principal --thing-name MyIotThing --principal arn:aws:iot:<region>:<account_id>:cert/<certificate_id>

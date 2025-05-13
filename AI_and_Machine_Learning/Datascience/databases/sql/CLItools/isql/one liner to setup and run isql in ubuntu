@@ -1,0 +1,1 @@
+create one liner, to setup and run isql in ubuntu, and use it in the end! && sudo apt-get install unixodbc unixodbc-dev freetds-bin -y && isql --version

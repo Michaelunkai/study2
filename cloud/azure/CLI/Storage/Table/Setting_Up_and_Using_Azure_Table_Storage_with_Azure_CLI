@@ -1,0 +1,122 @@
+### Comprehensive Guide to Setting Up and Using Azure Table Storage with Azure CLI
+
+This tutorial will guide you through the steps to set up and use Azure Table Storage using the Azure CLI. We'll cover creating a resource group, a storage account, managing tables and entities, and cleaning up resources.
+
+### Step 1: Sign in to Azure
+
+First, you need to sign in to your Azure account using the Azure CLI.
+
+  
+az login
+
+### Step 2: Create a Resource Group
+
+A resource group is a container that holds related resources for an Azure solution. Replace `myResourceGroup` with your desired resource group name and `eastus` with your desired region.
+
+  
+az group create --name myResourceGroup --location eastus
+
+### Step 3: Create a Storage Account
+
+A storage account provides a unique namespace in Azure for your data. Replace `mystorageaccount` with a unique name for your storage account.
+
+  
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus --sku Standard_LRS
+
+### Step 4: Retrieve Storage Account Connection String
+
+You'll need the connection string to interact with the storage account. Replace `mystorageaccount` with your storage account name.
+
+  
+az storage account show-connection-string --name mystorageaccount --resource-group myResourceGroup
+
+Take note of the connection string that is returned, as you will use it in the following steps.
+
+### Step 5: Create a Table
+
+Tables in Azure Storage are ideal for storing structured, non-relational data. Replace `mystorageaccount` with your storage account name and `mytable` with your desired table name.
+
+  
+az storage table create --name mytable --account-name mystorageaccount --connection-string "<your-connection-string>"
+
+### Step 6: Insert an Entity into the Table
+
+Entities are the individual items stored in a table. Replace `mytable` with your table name.
+
+  
+az storage entity insert --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --entity PartitionKey=partition1 RowKey=001 Name="John Doe" Age=30
+
+### Step 7: Query Entities from the Table
+
+You can query entities in a table to retrieve data. Replace `mytable` with your table name.
+
+  
+az storage entity query --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>"
+
+### Step 8: Update an Entity in the Table
+
+Updating an entity allows you to modify its properties. Replace `mytable` with your table name.
+
+  
+az storage entity merge --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --entity PartitionKey=partition1 RowKey=001 Name="Jane Doe" Age=32
+
+### Step 9: Delete an Entity from the Table
+
+You can delete an entity from a table by specifying its partition key and row key. Replace `mytable` with your table name.
+
+  
+az storage entity delete --table-name mytable --account-name mystorageaccount --connection-string "<your-connection-string>" --partition-key partition1 --row-key 001
+
+### Step 10: Delete the Table
+
+Deleting a table removes all entities within it. Replace `mytable` with your table name.
+
+  
+az storage table delete --name mytable --account-name mystorageaccount --connection-string "<your-connection-string>"
+
+### Cleanup
+
+If you want to remove all the resources created, you can delete the resource group. This action deletes the resource group and all resources contained within it. Replace `myResourceGroup` with your resource group name.
+
+  
+az group delete --name myResourceGroup --yes --no-wait
+
+### Full Example Script
+
+Here’s a full script that combines all the steps to set up and use Azure Table Storage with Azure CLI:
+
+  
+# Sign in to Azure
+az login
+
+# Create a Resource Group
+az group create --name myResourceGroup --location eastus
+
+# Create a Storage Account
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus --sku Standard_LRS
+
+# Retrieve Storage Account Connection String
+CONN_STRING=$(az storage account show-connection-string --name mystorageaccount --resource-group myResourceGroup --query connectionString --output tsv)
+
+# Create a Table
+az storage table create --name mytable --account-name mystorageaccount --connection-string $CONN_STRING
+
+# Insert an Entity into the Table
+az storage entity insert --table-name mytable --account-name mystorageaccount --connection-string $CONN_STRING --entity PartitionKey=partition1 RowKey=001 Name="John Doe" Age=30
+
+# Query Entities from the Table
+az storage entity query --table-name mytable --account-name mystorageaccount --connection-string $CONN_STRING
+
+# Update an Entity in the Table
+az storage entity merge --table-name mytable --account-name mystorageaccount --connection-string $CONN_STRING --entity PartitionKey=partition1 RowKey=001 Name="Jane Doe" Age=32
+
+# Delete an Entity from the Table
+az storage entity delete --table-name mytable --account-name mystorageaccount --connection-string $CONN_STRING --partition-key partition1 --row-key 001
+
+# Delete the Table
+az storage table delete --name mytable --account-name mystorageaccount --connection-string $CONN_STRING
+
+# Cleanup (Delete Resource Group)
+az group delete --name myResourceGroup --yes --no-wait
+
+This script provides a comprehensive guide to setting up and using Azure Table Storage with Azure CLI, including creating a resource group, a storage account, managing tables and entities, and cleaning up resources.

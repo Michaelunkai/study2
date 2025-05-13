@@ -1,0 +1,7 @@
+aws rekognition recognize-celebrities \
+--image "S3Object={Bucket=your-bucket-name,Name=image.jpg}"
+
+For a local image:
+aws rekognition recognize-celebrities \
+--image "Bytes=$(base64 /path/to/your/image.jpg | tr -d '\n')"
+

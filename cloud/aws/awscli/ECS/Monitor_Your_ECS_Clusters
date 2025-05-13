@@ -1,0 +1,11 @@
+ Monitor Your ECS Clusters
+List Services
+
+ 
+ 
+aws ecs list-services --cluster my-cluster
+Describe Service
+
+ 
+ 
+aws ecs describe-services --cluster my-cluster --services my-service

@@ -1,0 +1,8 @@
+The X-Ray daemon is responsible for receiving trace data and sending it to the X-Ray service. You can run the X-Ray daemon using the following command:
+
+ 
+ 
+wget https://s3.amazonaws.com/aws-xray-daemon/aws-xray-daemon-linux-3.x.zip
+unzip aws-xray-daemon-linux-3.x.zip -d xray
+sudo ./xray/aws-xray-daemon -o -n us-east-1
+Make sure to replace us-east-1 with your desired AWS region.

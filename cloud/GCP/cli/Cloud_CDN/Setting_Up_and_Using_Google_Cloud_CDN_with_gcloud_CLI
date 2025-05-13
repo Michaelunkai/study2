@@ -1,0 +1,83 @@
+### Setting Up and Using Google Cloud CDN with `gcloud` CLI
+
+Google Cloud CDN (Content Delivery Network) accelerates your web and video content delivery by using Google's global edge network to cache content close to users.
+
+Here’s a step-by-step guide on how to set up and use Google Cloud CDN with `gcloud` CLI:
+
+#### Prerequisites
+1. **Google Cloud Project**: Ensure you have a Google Cloud project. You can create one in the Google Cloud Console.
+2. **Billing Enabled**: Make sure billing is enabled for your Google Cloud project.
+3. **gcloud CLI Installed**: Install the `gcloud` CLI if you haven’t already. You can download and install it from [here](https://cloud.google.com/sdk/docs/install).
+
+#### Steps to Set Up Google Cloud CDN
+
+1. **Initialize `gcloud` CLI**:
+     
+   gcloud init
+   Follow the prompts to configure your project and set the default region and zone.
+
+2. **Create a Cloud Storage Bucket**:
+     
+   gsutil mb gs://YOUR_BUCKET_NAME
+   Replace `YOUR_BUCKET_NAME` with a unique name for your bucket.
+
+3. **Upload Content to Your Bucket**:
+     
+   gsutil cp /path/to/your/content gs://YOUR_BUCKET_NAME
+
+4. **Make Your Bucket Content Public**:
+     
+   gsutil iam ch allUsers:objectViewer gs://YOUR_BUCKET_NAME
+
+5. **Create a Backend Bucket**:
+     
+   gcloud compute backend-buckets create YOUR_BACKEND_BUCKET_NAME \
+       --gcs-bucket-name=YOUR_BUCKET_NAME \
+       --enable-cdn
+   Replace `YOUR_BACKEND_BUCKET_NAME` with a name for your backend bucket.
+
+6. **Create a URL Map**:
+     
+   gcloud compute url-maps create YOUR_URL_MAP_NAME \
+       --default-backend-bucket=YOUR_BACKEND_BUCKET_NAME
+   Replace `YOUR_URL_MAP_NAME` with a name for your URL map.
+
+7. **Create a Target HTTP Proxy**:
+     
+   gcloud compute target-http-proxies create YOUR_HTTP_PROXY_NAME \
+       --url-map=YOUR_URL_MAP_NAME
+   Replace `YOUR_HTTP_PROXY_NAME` with a name for your HTTP proxy.
+
+8. **Create a Global Forwarding Rule**:
+     
+   gcloud compute forwarding-rules create YOUR_FORWARDING_RULE_NAME \
+       --global \
+       --target-http-proxy=YOUR_HTTP_PROXY_NAME \
+       --ports=80
+   Replace `YOUR_FORWARDING_RULE_NAME` with a name for your forwarding rule.
+
+9. **Obtain Your IP Address**:
+     
+   gcloud compute forwarding-rules list --global
+   Note the IP address associated with your forwarding rule.
+
+#### Testing Your Setup
+1. **Point Your Domain to the IP Address**:
+   - Update your domain's DNS records to point to the IP address obtained in the previous step.
+
+2. **Access Your Content**:
+   - Visit your domain or IP address in a web browser to verify that your content is being served via Google Cloud CDN.
+
+#### Managing and Monitoring Your CDN
+1. **Enable Logging** (Optional):
+     
+   gcloud compute backend-buckets update YOUR_BACKEND_BUCKET_NAME \
+       --enable-cdn \
+       --cdn-cache-mode=CACHE_ALL_STATIC
+
+2. **View Cache Hit Ratio**:
+   - You can view cache hit ratio and other metrics in the Google Cloud Console under the CDN section.
+
+By following these steps, you will have set up Google Cloud CDN using the `gcloud` CLI and can now serve your content with improved performance and lower latency.
+
+If you have any specific requirements or encounter any issues, feel free to ask!

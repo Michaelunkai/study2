@@ -1,0 +1,7 @@
+ Create a SageMaker Notebook Instance
+Create a SageMaker notebook instance for data exploration and model training:
+
+ 
+ 
+aws sagemaker create-notebook-instance --notebook-instance-name MyNotebookInstance --instance-type ml.t2.medium --role-arn arn:aws:iam::your-account-id:role/SageMakerExecutionRole
+Wait for the notebook instance to be in the InService state before proceeding.

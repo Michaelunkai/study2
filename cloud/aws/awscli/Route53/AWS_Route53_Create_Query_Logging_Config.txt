@@ -1,0 +1,1 @@
+aws route53 create-query-logging-config --hosted-zone-id <hosted-zone-id> --cloudwatch-log-group-arn <log-group-arn>

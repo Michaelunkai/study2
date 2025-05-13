@@ -1,0 +1,25 @@
+Create a Redshift Cluster
+Create Cluster Subnet Group:
+
+ 
+ 
+aws redshift create-cluster-subnet-group --cluster-subnet-group-name my-subnet-group --description "My subnet group" --subnet-ids subnet-12345678 subnet-23456789
+Create Security Group:
+
+ 
+ 
+aws ec2 create-security-group --group-name redshift-sg --description "Redshift security group"
+aws ec2 authorize-security-group-ingress --group-name redshift-sg --protocol tcp --port 5439 --cidr 0.0.0.0/0
+Create Red ift Cluster:
+
+ 
+ 
+aws redshift create-cluster \
+    --cluster-identifier my-red ift-cluster \
+    --node-type dc2.large \
+    --master-username myuser \
+    --master-user-password mypassword \
+    --cluster-subnet-group-name my-subnet-group \
+    --vpc-security-group-ids sg-12345678 \
+    --iam-roles arn:aws:iam::123456789012:role/Red iftRole \
+    --number-of-nodes 2

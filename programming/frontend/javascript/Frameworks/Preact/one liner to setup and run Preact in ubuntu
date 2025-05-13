@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g preact-cli && yes "y" | preact create default my-preact-app && cd my-preact-app && nsj && npm start

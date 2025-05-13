@@ -1,0 +1,23 @@
+Fluentd and Fluent are two different logging tools, although they share some similarities in purpose. Here's a brief comparison:
+
+### **Fluentd:**
+- **Purpose:** Log collector and forwarder.
+- **Open-source:** Yes.
+- **Use case:** Centralized logging solution, aggregates logs from various sources, processes them, and sends to multiple destinations.
+- **Plugins:** Over 500 plugins for inputs, outputs, and data processing.
+- **Flexibility:** Highly customizable, used in cloud, on-premises, and hybrid environments.
+- **Primary focus:** Log data pipeline, used for general log management, and routing.
+
+### **Fluent:**
+- **Purpose:** Primarily focuses on log collection and forwarding for Microsoft Azure environments.
+- **Open-source:** No, proprietary to Microsoft.
+- **Use case:** Centralized logging within Microsoft cloud services (Azure).
+- **Plugins:** Limited to Microsoft ecosystem.
+- **Flexibility:** Primarily tied to Azure services.
+- **Primary focus:** Tailored for Azure log management.
+
+### Summary:
+- **Fluentd**: Open-source, highly flexible, supports various platforms and log sources.
+- **Fluent**: Proprietary, focused on Microsoft Azure, used primarily for Azure services logging.
+
+Fluentd is more versatile for general use, while Fluent is specialized for Azure environments.

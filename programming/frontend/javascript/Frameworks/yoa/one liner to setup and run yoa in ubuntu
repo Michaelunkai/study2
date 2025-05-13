@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g yoa-cli && yes "y" | yoa init my-yoa-app && cd my-yoa-app && nsj && npm start

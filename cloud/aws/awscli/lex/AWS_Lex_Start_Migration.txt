@@ -1,0 +1,1 @@
+aws lex-models start-migration --source-bot-name <source-bot-name> --source-bot-version <source-bot-version> --destination-bot-name <destination-bot-name>

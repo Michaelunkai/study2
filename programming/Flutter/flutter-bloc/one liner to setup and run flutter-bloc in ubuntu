@@ -1,0 +1,1 @@
+flutter pub add flutter_bloc && echo 'Bloc added'

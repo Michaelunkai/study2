@@ -1,0 +1,163 @@
+Transcript 00:00 At Google, when we put our AI 
+Principles into practice, a key part of the AI 
+governance and review process is issue 
+spotting. 00:07 This is the process of 
+identifying possible ethical issues with the 
+AI use case in question. 00:14 Google realized 
+that people needed a guide to help spot 
+ethical issues, but that guide couldn't be a 
+simple checklist, which can hinder critical 
+analysis. 00:23 Instead, our approach to issue 
+spotting is based on providing questions that 
+require people to think critically about the 
+technology that they've developed. 00:33 These 
+questions are rooted in well-established 
+ethical decision making frameworks that 
+emphasize the importance of seeking out 
+additional information and considering best- 
+and worst- case scenarios. 00:46 This helps to 
+uncover potential ethical issues that may have 
+otherwise gone unnoticed. 00:51 The questions 
+cover a variety of topics, including: overall 
+product definition, what problem is being 
+00:57 solved, its intended users, what data is 
+used, and how the model is trained and tested. 
+01:04 There are also questions that focus on 
+context such as the purpose and importance of 
+01:08 the use case, the socially beneficial 
+applications of the use case, and the 
+potential for misuse. 01:16 These questions 
+are intended to highlight the implications of 
+design decisions that could impact fair and 
+responsible use of the AI model. 01:24 We 
+assess all AI use cases starting from an 
+assumption that there are always issues we can 
+address, even if a use case seems obviously 
+socially beneficial. 01:34 If issues arise in 
+this critical thinking process that may 
+conflict with the ethical aims of the AI 
+principles, then a more in-depth review takes 
+place. 01:42 Over the course of conducting AI 
+Principles reviews, we have recognized certain 
+complex areas during AI development that 
+warrant a closer ethical review. 01:53 
+Identifying the areas of risk and harm for use 
+cases relevant to your business context is 
+critical, and particular care should be taken 
+when building AI applications in these areas. 
+02:04 These could, for example, be use cases 
+involving Surveillance or Synthetic Media 
+among many others. 02:11 Areas that are 
+complex for your business will depend a lot on 
+your domain customers. 02:16 Identifying 
+emerging areas of risk and social harm is all 
+part of an active discussion within the 
+industry, and we can expect forthcoming 
+standards and policies in this area. 02:25 
+Let’s take a look at a hypothetical use case 
+using issue spotting questions to assess 
+whether any AI Principles are being, or are at 
+risk of being, infringed. 02:35 We will review 
+a fictional product called the Autism Spectrum 
+Disorder (ASD) Carebot, adapted from a case 
+study created by the Markkula Center for 
+Applied Ethics at Santa Clara University. 
+02:48 The causes of ASD are deeply debated, 
+though research indicates that its prevalence 
+is increasing and 02:53 that children 
+diagnosed early and provided with key services 
+are more likely to reach their fullest 
+potential. 03:02 Some schools have found 
+success with robots that help students 
+practice verbal skills and social interactions 
+under 03:06 the supervision of a trained 
+therapist, but this is not yet an affordable 
+or widely accessible resource. 03:14 As a, 
+result, not all schools provide such support. 
+03:18 Now imagine that an AI product team 
+proposes to build an affordable ASD Carebot 
+aimed at preschool-age children, , and 
+intended for use in children’s homes. 03:28 
+They envision a cloud-based AI chatbot with 
+speech, gesture, facial sentiment analysis, 
+and personalized learning modules to reinforce 
+positive social interactions. 03:39 In issue 
+spotting, it’s useful to first identify the 
+questions needed to think critically about the 
+use case. 03:46 Questions such as, who are the 
+stakeholders for this product? 03:49 What do 
+they hope to gain from it? 03:51 Do different 
+stakeholders have different needs? 03:54 How 
+might each of the AI Principles either be 
+fulfilled or violated with the development and 
+use of the ASD Carebot? 04:03 Your AI 
+Principles review may ask more questions than 
+you can immediately answer, but the analysis 
+will uncover areas for exploration that will 
+ultimately impact how your team proceeds. 
+04:13 From a social benefit standpoint, the 
+aim of the product is to expand access to a 
+form of therapy not currently available for 
+all who could benefit from it. 04:22 However, 
+is this the best or right way to offer this 
+therapy and should ASD be treated as something 
+that needs this type of intervention at all? 
+04:32 The goal of avoiding the creation or 
+reinforcement of unfair bias may lead your 
+team to ask: How might the team involved 
+influence the fairness of the model? 04:42 
+Reviewing the product design and integration, 
+where should fairness be closely considered 
+and evaluated? 04:48 Do we have the necessary 
+input from the people who will be directly 
+affected by the Carebot? 04:53 Where will the 
+training data be sourced to develop the 
+underlying models for the Carebot? 04:59 Who 
+will that data represent, and are there 
+people, or groups of people, with ASD who may 
+not be well represented? 05:07 In terms of 
+safety, what could happen if this model does 
+not perform as expected or is subject to model 
+drift or decay over time? 05:15 Could human 
+safety be endangered? 05:18 Taking a look at 
+potential privacy risks and considerations, 
+the home can be seen as a highly sensitive and 
+shared environment, even more so than the 
+classroom. 05:27 What kind of data will this 
+Carebot be collecting? 05:30 Are there 
+datasets that could pose special privacy 
+risks? 05:34 What design principles could help 
+ensure appropriate privacy protections for 
+this highly sensitive use case? 05:41 To 
+evaluate how accountable the system is, the 
+developers may want to know how human 
+oversight of the 05:45 system will be ensured 
+and determine what kind of informed consent is 
+appropriate for those engaging with this 
+system. 05:53 For example, should the Carebot 
+be allowed to present itself as a “friend”? 
+05:58 Are there possible positive and negative 
+impacts to consider? 06:03 Scientific 
+excellence urges product owners to evaluate 
+whether they have the necessary expertise to 
+develop such a tool, or if they should 06:09 
+consider engaging an external partner who 
+specializes in ASD or education therapy to 
+develop a deep understanding of the needs of 
+students? 06:19 Some questions to help 
+determine this include: What kinds of testing 
+and review would be appropriate for this use 
+case to ensure that it performs and delivers 
+the desired benefits? 06:28 What are the 
+technical and scientific criteria for doing 
+this responsibly? 06:33 Lastly, the AI 
+principle be made available for uses that 
+accord with these principles suggests that 
+product 06:39 owners think about whether the 
+solution will be broadly available to users, 
+such as being ​​affordable and accessible. 06:48 
+By asking issue spotting questions teams can 
+think critically to assess the potential 
+benefits and harms of a use case. 06:54 Only 
+with a thorough review can a responsible 
+approach to a new AI application be formed.

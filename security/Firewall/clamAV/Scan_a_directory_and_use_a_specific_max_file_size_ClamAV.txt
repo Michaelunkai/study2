@@ -1,0 +1,1 @@
+clamscan -r --max-filesize=5M /path/to/directory

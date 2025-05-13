@@ -1,0 +1,1 @@
+rsync -av --log-file=/var/log/rsync.log --progress /source_directory/ /destination_directory/

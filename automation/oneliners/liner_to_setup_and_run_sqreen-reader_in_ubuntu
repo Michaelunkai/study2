@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y curl git nodejs npm nano && git clone https://github.com/sqreen-reader/sqreen-reader.github.io.git && cd sqreen-reader.github.io && npm install && npm install sqreen && echo 'const sqreen = require("sqreen"); sqreen.start({token: "YOUR_SQREEN_TOKEN"});' >> server.js && npm start

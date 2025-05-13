@@ -1,0 +1,1 @@
+sudo apt-get install -y git && git clone https://github.com/CiscoCXSecurity/enum4linux.git && cd enum4linux && chmod +x enum4linux.pl && ./enum4linux.pl

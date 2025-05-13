@@ -1,0 +1,1 @@
+flutter pub add socket_io_client && echo 'Socket.IO added'

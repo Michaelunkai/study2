@@ -1,0 +1,11 @@
+Validium is a Layer 2 scaling solution for Ethereum that is similar to zk-Rollups, but with a key difference in how it handles data availability. In a zk-Rollup, transaction data is compressed and stored on-chain, but in Validium, the transaction data is kept off-chain. 
+
+Here are the key points about Validium:
+
+1. **Layer 2 Scaling**: Like other Layer 2 solutions, it helps Ethereum scale by moving transactions off the main chain.
+2. **Zero-Knowledge Proofs (ZKP)**: Validium uses zero-knowledge proofs to ensure the validity of off-chain transactions.
+3. **Off-Chain Data**: The data is kept off-chain, unlike zk-Rollups that store compressed data on-chain.
+4. **Security**: Security relies on ZKPs for validating transactions but depends on off-chain data availability, which poses some risks in comparison to zk-Rollups.
+5. **High Throughput**: By offloading data from the Ethereum mainnet, Validium can achieve much higher throughput and lower transaction costs.
+
+It’s typically used for applications that require high throughput but where data availability off-chain is acceptable.

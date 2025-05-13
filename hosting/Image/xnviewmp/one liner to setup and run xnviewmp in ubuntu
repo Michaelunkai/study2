@@ -1,0 +1,1 @@
+wget -O xnviewmp.deb 'https://download.xnview.com/XnViewMP-linux.deb' && sudo dpkg -i xnviewmp.deb

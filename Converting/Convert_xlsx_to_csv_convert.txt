@@ -1,0 +1,1 @@
+in2csv your_file.xlsx > output.csv

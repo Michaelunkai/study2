@@ -1,0 +1,1 @@
+pip install masonite-cli && craft new myproject && cd myproject && python craft serve

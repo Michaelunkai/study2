@@ -1,0 +1,3 @@
+USW2-BoxUsage refers to the cost associated with running EC2 instances in the US West (Oregon) region. "BoxUsage" indicates the per-hour or per-second charge for using an EC2 instance, which is part of your overall AWS bill. This charge covers the basic cost of operating the instance, excluding other possible charges like data transfer or additional AWS services.
+
+In the context of your AWS billing and usage reports, you might see entries like "USW2-BoxUsage:t3.medium," which means you're being billed for the usage of a t3.medium instance in the US West (Oregon) region【7†source】【8†source】【9†source】.

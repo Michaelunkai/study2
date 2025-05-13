@@ -1,0 +1,1 @@
+pip3 install tortoise-orm && python3 -c 'import tortoise; print(tortoise.__version__)'

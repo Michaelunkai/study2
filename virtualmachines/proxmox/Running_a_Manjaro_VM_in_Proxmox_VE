@@ -1,0 +1,42 @@
+▲A  A▼
+Running a Manjaro VM in Proxmox VE
+Log into the Proxmox web UI
+Select a storage from the left navigation pane to download the .iso to
+Select ISO Images in the left sub-navigation pane
+Download the Manjaro iso Download and upload it to the Proxmox ISO image library
+Right click the Proxmox node name > Create VM
+Give the VM a unique ID and Name > Next
+On the OS tab, Select the Manjaro installation .iso file, leave the Type as Linux and the Version as 5.x - 2.6 Kernel > Next
+Leave the defaults on the System tab > Next
+On the Hard Disk tab, set the Disk size to 30 GiB or more > Next
+On the CPU tab, set Cores to 2 or more and Type to host > Next
+On the Memory tab, set the Memory to 4096 > Next
+Leave the defaults on the Network tab > Next
+Verify the summary and click Finish
+Right click the Manjaro VM in the left navigation pane > Start
+Click console in the left sub-navigation menu
+Press Enter to Start Manjaro (or wait 10 seconds)
+Click the Application button and search install > Click Install Manjaro Linux
+Select a language > Click Next
+Select a Region > Click Next
+Select a keyboard layout > Click Next
+Select Erase disk > Click Next
+Enter a name, computer name, username, password and root password > Click Next
+Choose an Office Suite to install > Click Next
+Verify the overview and click Install > Click Install now
+Wait while Manjaro copies files and installs
+When the installation completes, Check the Restart Now box and click Done, the VM will reboot
+Login with the username and password created earlier in the process
+Welcome to Manjaro Linux
+Optional Steps
+Launch a terminal window
+Run the following commands
+# initialize pacman keys
+sudo pacman-key --init
+# add arch linux pacman keys
+sudo pacman-key --populate archlinux manjaro
+# update software
+sudo pacman -Syu
+# install qemu guest agent
+sudo pacman -Syu qemu-guest-agent
+ 

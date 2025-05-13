@@ -1,0 +1,1 @@
+sudo apt install -y poppler-utils && pdftocairo -png input.pdf output

@@ -1,0 +1,361 @@
+Sure! I’ll guide you through setting up and running Couchbase on Ubuntu using the [couchbase-shell (cbsh)](https://github.com/couchbaselabs/couchbase-shell) repository. This process involves two main steps:
+
+1. **Installing Couchbase Server on Ubuntu**
+2. **Installing and Configuring Couchbase Shell (cbsh)**
+
+Let's dive into each step in detail.
+
+---
+
+## **1. Installing Couchbase Server on Ubuntu**
+
+Before using `couchbase-shell`, you need to have Couchbase Server installed and running on your Ubuntu system. Follow the steps below to install Couchbase Server.
+
+### **Step 1.1: Update Your System**
+
+First, ensure your system is up to date:
+
+  
+sudo apt update
+sudo apt upgrade -y
+
+### **Step 1.2: Add Couchbase Repository**
+
+1. **Download the Couchbase Server Debian Package**
+
+   Visit the [Couchbase Downloads Page](https://www.couchbase.com/downloads) to get the latest version URL. As of my knowledge cutoff in April 2023, you can use the following command to download Couchbase Server 7.2 (replace the version if a newer one is available):
+
+     
+   wget https://packages.couchbase.com/releases/7.2.0/couchbase-server-enterprise_7.2.0-ubuntu20.04_amd64.deb
+
+   *Note:* Ensure you download the version compatible with your Ubuntu release.
+
+2. **Install the Couchbase Server Package**
+
+     
+   sudo dpkg -i couchbase-server-enterprise_7.2.0-ubuntu20.04_amd64.deb
+
+   If you encounter dependency issues, run:
+
+     
+   sudo apt-get install -f
+
+3. **Start and Enable Couchbase Server**
+
+     
+   sudo systemctl enable couchbase-server
+   sudo systemctl start couchbase-server
+
+4. **Verify Installation**
+
+   Check if Couchbase Server is running:
+
+     
+   sudo systemctl status couchbase-server
+
+   You should see an active (running) status.
+
+### **Step 1.3: Initial Couchbase Configuration**
+
+1. **Access the Couchbase Web Console**
+
+   Open your web browser and navigate to `http://127.0.0.1:8091` (replace `127.0.0.1` with your server’s IP address if accessing remotely).
+
+2. **Set Up Admin Credentials**
+
+   Follow the on-screen instructions to set up the initial admin username and password.
+
+3. **Configure Cluster Settings**
+
+   Configure your cluster settings, including memory quotas, services (Data, Query, Index, etc.), and create your first bucket (e.g., `default`).
+
+   *For detailed guidance, refer to the [Couchbase Server Quick Start Guide](https://docs.couchbase.com/server/current/install/install-ubuntu.html).*
+
+---
+
+## **2. Installing and Configuring Couchbase Shell (cbsh)**
+
+Now that Couchbase Server is up and running, you can install `couchbase-shell` to interact with your Couchbase cluster via the command line.
+
+### **Step 2.1: Install Prerequisites**
+
+Ensure you have the necessary tools installed:
+
+  
+sudo apt update
+sudo apt install -y wget tar unzip
+
+### **Step 2.2: Download Couchbase Shell Binary**
+
+1. **Navigate to a Suitable Directory**
+
+   Choose where you want to install `cbsh`, for example, `/opt`:
+
+     
+   cd /opt
+
+2. **Download the Latest cbsh Release**
+
+   Visit the [couchbase-shell Releases Page](https://github.com/couchbaselabs/couchbase-shell/releases) to find the latest version. As per the README you provided, version `1.0.0` is the latest. Download the Linux binary:
+
+     
+   wget https://github.com/couchbaselabs/couchbase-shell/releases/download/v1.0.0/cbsh-x86_64-unknown-linux-gnu.tar.gz
+
+   *Note:* Replace the URL with the latest release if necessary.
+
+3. **Extract the Archive**
+
+     
+   tar -xzf cbsh-x86_64-unknown-linux-gnu.tar.gz
+
+4. **Move the Binary to `/usr/local/bin`**
+
+     
+   sudo mv cbsh /usr/local/bin/
+
+5. **Grant Execute Permissions**
+
+     
+   sudo chmod +x /usr/local/bin/cbsh
+
+### **Step 2.3: Verify cbsh Installation**
+
+Check if `cbsh` is installed correctly:
+
+  
+cbsh --version
+
+You should see output similar to:
+
+The Couchbase Shell 1.0.0
+
+### **Step 2.4: Configure cbsh**
+
+For a seamless experience, configure `cbsh` to connect to your Couchbase cluster automatically.
+
+1. **Create Configuration Directory**
+
+     
+   mkdir -p ~/.cbsh
+
+2. **Create the Configuration File**
+
+   Open `~/.cbsh/config` in your favorite text editor:
+
+     
+   nano ~/.cbsh/config
+
+3. **Add Cluster Configuration**
+
+   Replace the placeholder values with your actual Couchbase Server details:
+
+    toml
+   version = 1
+
+   [[cluster]]
+   identifier = "my-local-cb-node"
+   hostnames = ["127.0.0.1"]  # Replace with your Couchbase Server IP if remote
+   default-bucket = "default"  # Replace with your default bucket name
+   username = "Administrator"  # Your Couchbase admin username
+   password = "password"        # Your Couchbase admin password
+
+   *Example:*
+
+    toml
+   version = 1
+
+   [[cluster]]
+   identifier = "my-local-cb-node"
+   hostnames = ["127.0.0.1"]
+   default-bucket = "travel-sample"
+   username = "Administrator"
+   password = "your_secure_password"
+
+4. **Save and Exit**
+
+   If using `nano`, press `CTRL + O` to write changes and `CTRL + X` to exit.
+
+### **Step 2.5: Running cbsh**
+
+Now, you can start `cbsh` without passing any command-line arguments, as it will use the configuration file.
+
+  
+cbsh
+
+You should see a prompt similar to:
+
+👤 Administrator 🏠 travel-sample in 🗄 <not set>
+>
+
+### **Step 2.6: Basic cbsh Commands**
+
+Here are some basic commands to get you started:
+
+- **List Buckets**
+
+    
+  > buckets
+
+  *Sample  :*
+
+  ───┬─────────┬───────────────┬───────────┬──────────┬──────────────────────┬───────────┬───────────────┬────────┬───────
+   # │ cluster │     name      │   type    │ replicas │ min_durability_level │ ram_quota │ flush_enabled │ status │ cloud
+  ───┼─────────┼───────────────┼───────────┼──────────┼──────────────────────┼───────────┼───────────────┼────────┼───────
+   0 │ default │ beer-sample   │ couchbase │        1 │ none                 │  209.7 MB │ false         │        │ false
+   1 │ default │ default       │ couchbase │        1 │ none                 │  104.9 MB │ true          │        │ false
+   2 │ default │ targetBucket  │ couchbase │        0 │ none                 │  104.9 MB │ true          │        │ false
+   3 │ default │ travel-sample │ couchbase │        1 │ none                 │  209.7 MB │ false         │        │ false
+  ───┴─────────┴───────────────┴───────────┴──────────┴──────────────────────┴───────────┴───────────────┴────────┴───────
+
+- **Perform a N1QL Query**
+
+    
+  > query "SELECT * FROM `travel-sample` LIMIT 5;"
+
+- **Insert a Document**
+
+    
+  > doc insert travel-sample mydoc '{"name": "John Doe", "email": "john.doe@example.com"}'
+
+- **Get a Document**
+
+    
+  > doc get travel-sample mydoc
+
+- **List Users**
+
+    
+  > users
+
+### **Step 2.7: Using the Configuration File for Multiple Clusters (Optional)**
+
+If you manage multiple Couchbase clusters, you can add additional configurations to your `~/.cbsh/config` file:
+
+ toml
+version = 1
+
+[[cluster]]
+identifier = "my-local-cb-node"
+hostnames = ["127.0.0.1"]
+default-bucket = "default"
+username = "Administrator"
+password = "password"
+
+[[cluster]]
+identifier = "production-cluster"
+hostnames = ["192.168.1.100", "192.168.1.101"]
+default-bucket = "prod-bucket"
+username = "prod_admin"
+password = "prod_password"
+
+To switch between clusters within `cbsh`, use:
+
+  
+> use production-cluster
+
+---
+
+## **3. Building Couchbase Shell (cbsh) from Source (Optional)**
+
+If you prefer to build `cbsh` from source instead of using precompiled binaries, follow these steps.
+
+### **Step 3.1: Install Rust and Cargo**
+
+1. **Install Rust via rustup**
+
+     
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+   Follow the on-screen instructions. After installation, reload your shell configuration:
+
+     
+   source $HOME/.cargo/env
+
+2. **Verify Installation**
+
+     
+   rustc --version
+   cargo --version
+
+### **Step 3.2: Clone the couchbase-shell Repository**
+
+  
+git clone https://github.com/couchbaselabs/couchbase-shell.git
+cd couchbase-shell
+
+### **Step 3.3: Build cbsh**
+
+1. **Build in Debug Mode**
+
+     
+   cargo build
+
+   *Note:* Debug builds are slower and larger.
+
+2. **Build in Release Mode**
+
+   For optimized performance:
+
+     
+   cargo build --release
+
+   The binary will be located at `target/release/cbsh`.
+
+### **Step 3.4: Install cbsh Binary**
+
+1. **Move the Binary to `/usr/local/bin`**
+
+     
+   sudo mv target/release/cbsh /usr/local/bin/
+
+2. **Grant Execute Permissions**
+
+     
+   sudo chmod +x /usr/local/bin/cbsh
+
+3. **Verify Installation**
+
+     
+   cbsh --version
+
+---
+
+## **4. Additional Resources**
+
+- **Couchbase Shell Documentation:** [Couchbase Shell Docs](https://github.com/couchbaselabs/couchbase-shell/blob/main/README.md)
+- **Couchbase Server Documentation:** [Couchbase Docs](https://docs.couchbase.com/)
+- **Rust Programming Language:** [Rust Official Site](https://www.rust-lang.org/)
+
+---
+
+## **Troubleshooting Tips**
+
+- **Connection Issues:**
+  - Ensure Couchbase Server is running and accessible from your machine.
+  - Check firewall settings to allow traffic on Couchbase ports (default is `8091` for the web console).
+
+- **Authentication Errors:**
+  - Verify that the username and password in `~/.cbsh/config` are correct.
+  - Ensure the user has the necessary permissions to perform operations.
+
+- **cbsh Not Found:**
+  - Make sure `/usr/local/bin` is in your `PATH`. You can check with:
+
+      
+    echo $PATH
+
+  - If not, add it by editing `~/.bashrc` or `~/.zshrc`:
+
+      
+    export PATH=$PATH:/usr/local/bin
+
+    Then, reload the shell:
+
+      
+    source ~/. rc
+
+---
+
+By following these steps, you should have a fully functional Couchbase Server and `couchbase-shell` setup on your Ubuntu machine. This setup allows you to interact with your Couchbase cluster efficiently via the command line, leveraging the powerful features provided by `cbsh`.
+
+If you encounter any issues or have further questions, feel free to ask!

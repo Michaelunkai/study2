@@ -1,0 +1,8 @@
+Update Your EKS Clusters
+Apply Updates
+
+Modify your deployment.yaml file and apply it:
+
+ 
+ 
+kubectl apply -f deployment.yaml

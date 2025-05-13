@@ -1,0 +1,27 @@
+
+Prerequisites
+A XCA PKI database https://youtu.be/ezzj3x207lQ
+Exporting Certificates from XCA
+Launch XCA
+Open the PKI database if it is not already (File > Open DataBase), enter password
+Click on the Certificates tab
+Right click the Intermediate CA certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Right click the Root CA certificate > Export > File
+Set the file name with a .crt extension and verify the export format is PEM (*.crt)
+Click OK
+Trusting the CA Ceritificates in a Linux Environment
+Download WinSCP Download
+Extract WinSCP and run the executable
+Connect to the target Linux device server via WinSCP
+Copy the created .crt files to ~/
+Log into the target Linux device (console or ssh)
+Run the following commands in a terminal window:
+sudo mkdir /usr/local/ are/ca-certificates/self-signed
+sudo cp ~/root-ca.crt /usr/local/share/ca-certificates/self-signed
+sudo cp ~/intermediate-ca.crt /usr/local/share/ca-certificates/self-signed
+sudo update-ca-certificates
+An ouput stating 2 added should display
+Run the following command in a terminal window and verify the imported certificate authorities display in the list
+sudo ls /etc/ssl/certs

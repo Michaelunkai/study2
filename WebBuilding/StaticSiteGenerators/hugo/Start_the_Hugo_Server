@@ -1,0 +1,8 @@
+ Start the Hugo Server
+
+To preview your site, start the Hugo server:
+
+ 
+ 
+hugo server -D
+This command will start a local server, and you can view your site in a web browser at http://localhost:1313.

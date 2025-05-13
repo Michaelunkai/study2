@@ -1,0 +1,16 @@
+
+
+Ubuntu 24.04
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/vm/ubuntu2404-vm.sh)"
+
+Ubuntu 22.04
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/vm/ubuntu2204-vm.sh)"
+
+
+
+Ubuntu 
+
+
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/ubuntu.sh)"

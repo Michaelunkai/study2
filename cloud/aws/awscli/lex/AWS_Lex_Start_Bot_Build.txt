@@ -1,0 +1,1 @@
+aws lex-models start-import --payload fileb://<file-path> --resource-type <resource-type>

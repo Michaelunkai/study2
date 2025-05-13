@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g dataforge-cli && yes "y" | dataforge init my-dataforge-app && cd my-dataforge-app && nsj && npm start

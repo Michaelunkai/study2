@@ -1,0 +1,14 @@
+open server manager > manage > add roles and features > next
+> role based/feature based > next > choose the server and next >
+click the box for Web server IIS and next > click SMTP server > next > install > wait to finish
+
+go to admin powershell, type:
+iisreset
+
+
+server manager > tools > internet information services iis 6.0 manager
+
+
+under the pc name you will se that SMTP has been installed. make sure its running.
+
+

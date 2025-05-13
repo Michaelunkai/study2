@@ -1,0 +1,1 @@
+sudo apt install -y drbd-utils && sudo modprobe drbd && sudo drbdadm create-md r0 && sudo drbdadm up r0 && echo "DRBD resource 'r0' is up."

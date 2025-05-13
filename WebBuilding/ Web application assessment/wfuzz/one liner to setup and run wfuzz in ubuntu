@@ -1,0 +1,1 @@
+create one liner, to setup and run wfuzz in ubuntu, and use it in the end! && sudo apt install wfuzz -y && wfuzz -c -z file,/usr/share/wordlists/dirb/common.txt --hc 404 http://target.com/FUZZ

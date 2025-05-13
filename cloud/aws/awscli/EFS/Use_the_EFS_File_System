@@ -1,0 +1,7 @@
+Use the EFS File System
+You can now use the EFS file system just like any other file system. Create files and directories, and manage your data as needed.
+
+ 
+ 
+sudo touch /mnt/efs/testfile
+sudo mkdir /mnt/efs/testdir

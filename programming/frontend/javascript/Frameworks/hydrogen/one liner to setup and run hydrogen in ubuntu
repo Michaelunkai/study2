@@ -1,0 +1,1 @@
+cd && nvm23 && npm install -g hydrogen-cli && yes "y" | hydrogen init my-hydrogen-app && cd my-hydrogen-app && nsj && npm start

@@ -1,0 +1,9 @@
+I tried running the "speech-to-speech" project recently released by Hugging Face on my Mac, but I encountered some technical difficulties. After making a few adjustments and changes to the code, which I detailed in the issue I opened on GitHub (https://github.com/huggingface/speech-to-speech/issues/26), I managed to get the system to work smoothly. With the use of melo, the response time and speech are almost seamless.
+The system includes:
+- Voice Activity Detection (VAD) using the implementation from Silero's repo.
+- Speech-to-Text (STT) using Whisper models exclusively.
+- Language Model (LM), which is fully modular and can be changed by simply modifying the Hugging Face hub model ID.
+- Text-to-Speech (TTS) using the mini architecture of Parler-TTS.
+I demonstrated the system with an Israeli accent using phi3 in the attached video.
+Link to the project: https://github.com/huggingface/speech-to-speech
+If you have any questions or need further assistance, I'm here.
