@@ -1,0 +1,1 @@
+git clone https://github.com/mini2Dx/mini2Dx-sample-project.git && cd mini2Dx-sample-project && ./gradlew desktop:run

@@ -1,0 +1,1 @@
+git clone https://github.com/BearishSun/BansheeEngine.git && cd BansheeEngine && ./install_dependencies.sh && ./generate_project_files.sh && ./run.sh

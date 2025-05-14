@@ -1,0 +1,1 @@
+sudo apt install -y haxe && haxelib install flixel && haxelib run flixel setup

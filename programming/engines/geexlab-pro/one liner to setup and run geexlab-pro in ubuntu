@@ -1,0 +1,1 @@
+wget https://www.geeks3d.com/dl/showfile.php?id=61 -O geexlab_pro.tar.gz && tar -xzf geexlab_pro.tar.gz && chmod +x geexlab_pro.sh && ./geexlab_pro.sh

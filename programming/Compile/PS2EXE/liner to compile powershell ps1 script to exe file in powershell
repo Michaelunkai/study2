@@ -1,0 +1,1 @@
+Install-Module -Name PS2EXE -Scope CurrentUser -Force; Import-Module PS2EXE;  Invoke-ps2exe -InputFile a.ps1 -OutputFile a.exe

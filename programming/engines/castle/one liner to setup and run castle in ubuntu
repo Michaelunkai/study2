@@ -1,0 +1,1 @@
+sudo apt install fp-compiler lazarus git -y && git clone https://github.com/castle-engine/castle-engine.git && cd castle-engine && ./castle-engine_compile.sh && ./castle-engine/tools/castle-editor/castle-editor

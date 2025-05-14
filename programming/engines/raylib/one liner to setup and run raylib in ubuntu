@@ -1,0 +1,1 @@
+sudo apt install -y cmake git build-essential && git clone https://github.com/raysan5/raylib.git && cd raylib && mkdir build && cd build && cmake .. && make && sudo make install

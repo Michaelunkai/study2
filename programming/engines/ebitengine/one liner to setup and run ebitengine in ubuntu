@@ -1,0 +1,1 @@
+sudo apt install golang -y && go install github.com/hajimehoshi/ebiten/v2/cmd/ebiten@latest && echo 'package main\nimport ("github.com/hajimehoshi/ebiten/v2")\nfunc main(){}' > main.go && go run main.go

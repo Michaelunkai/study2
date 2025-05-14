@@ -1,0 +1,1 @@
+wget https://www.lexaloffle.com/dl.php?f=pico-8_0.2.6g_linux.zip -O pico8.zip && unzip pico8.zip -d pico8 && chmod +x pico8/pico8 && ./pico8/pico8

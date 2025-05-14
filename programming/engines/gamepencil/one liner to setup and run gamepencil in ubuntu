@@ -1,0 +1,1 @@
+git clone https://github.com/pawbyte/Game-Pencil-Engine.git && cd Game-Pencil-Engine && bash linux_setup.sh && ./build/gpe_project

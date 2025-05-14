@@ -1,0 +1,1 @@
+git clone https://github.com/oxygine/oxygine-framework.git && cd oxygine-framework && ./init.sh && ./build.sh

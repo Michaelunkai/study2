@@ -1,0 +1,1 @@
+choco install mingw -y; $env:Path += ";C:\ProgramData\mingw64\mingw64\bin"; g++ main.cpp -o main.exe; ./main.exe

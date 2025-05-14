@@ -1,0 +1,10 @@
+echo '#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr = malloc(10 * sizeof(int));
+    ptr[9] = 100;
+    printf("Last element: %d\n", ptr[9]);
+    // free(ptr); // Uncomment to fix memory leak
+    return 0;
+}' > test_memory_debugging_memory_leak_profiling_valgrind.c && sudo apt install -y valgrind gcc kcachegrind && gcc -g test_memory_debugging_memory_leak_profiling_valgrind.c -o test && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./test && valgrind --tool=callgrind ./test && kcachegrind callgrind.out.*

@@ -1,0 +1,1 @@
+git clone https://github.com/ndmitchell/godsg.git && cd godsg && cabal update && cabal install

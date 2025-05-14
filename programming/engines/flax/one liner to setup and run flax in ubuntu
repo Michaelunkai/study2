@@ -1,0 +1,1 @@
+git clone https://github.com/FlaxEngine/FlaxEngine.git && cd FlaxEngine && ./Development/Scripts/Linux/setup.sh && ./Development/Scripts/Linux/build.sh
