@@ -1,0 +1,2 @@
+Accessing Your Bot Remotely:
+If you've set up your bot on a server, ensure the externalUrl is properly configured to point to your public domain or IP address.

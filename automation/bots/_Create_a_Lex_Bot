@@ -1,0 +1,73 @@
+Create a Lex Bot
+Create an intent:
+
+ 
+ 
+aws lex-models put-intent \
+    --name "OrderPizzaIntent" \
+    --sample-utterances file://sample-utterances.json \
+    --fulfillment-code-hook '{"uri": "arn:aws:lambda:region:account-id:function:orderPizzaLambda", "messageVersion": "1.0"}' \
+    --slots file://slots.json
+sample-utterances.json:
+
+json
+ 
+[
+  "I want to order a pizza",
+  "Order a pizza",
+  "I'd like to order a pizza"
+]
+slots.json:
+
+json
+ 
+[
+  {
+    "name": "PizzaSize",
+    "slotType": "PizzaSize",
+    "slotConstraint": "Required",
+    "valueElicitationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "What size pizza would you like?"
+        }
+      ],
+      "maxAttempts": 2
+    }
+  },
+  {
+    "name": "PizzaCrust",
+    "slotType": "PizzaCrust",
+    "slotConstraint": "Required",
+    "valueElicitationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "What type of crust would you like?"
+        }
+      ],
+      "maxAttempts": 2
+    }
+  }
+]
+Create the Lex bot:
+
+ 
+ 
+aws lex-models put-bot \
+    --name "PizzaOrderBot" \
+    --locale "en-US" \
+    --child-directed false \
+    --intents '[{"intentName": "OrderPizzaIntent", "intentVersion": "$LATEST"}]'
+Create slot types:
+
+ 
+ 
+aws lex-models put-slot-type \
+    --name "PizzaSize" \
+    --enumeration-values '[{"value": "small"}, {"value": "medium"}, {"value": "large"}]'
+
+aws lex-models put-slot-type \
+    --name "PizzaCrust" \
+    --enumeration-values '[{"value": "thin"}, {"value": "thick"}]'

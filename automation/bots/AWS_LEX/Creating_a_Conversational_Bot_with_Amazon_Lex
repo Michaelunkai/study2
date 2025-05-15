@@ -1,0 +1,41 @@
+Creating a Conversational Bot with Amazon Lex
+Step 1: Access Amazon Lex
+Log in to AWS Management Console
+
+Visit the AWS Management Console.
+Enter your AWS credentials to log in.
+Navigate to Amazon Lex
+
+In the AWS Management Console, search for “Amazon Lex” and select it.
+Step 2: Create a New Bot
+Start Bot Creation
+
+Click on “Create bot.”
+Configure Bot Settings
+
+Choose “Custom bot.”
+Enter a name for your bot.
+Provide a brief description.
+Select or create an IAM role that Amazon Lex can use to access other AWS services.
+Click “Next.”
+Define Intents
+
+Click “Add intent” to create a new intent.
+Enter a name for the intent.
+Add sample utterances (phrases users might say to invoke this intent).
+Define any required slots (parameters) for this intent.
+Configure Responses
+
+Set up responses for the bot to provide when the intent is triggered.
+Save and Build
+
+Click “Save” and then “Build” to compile your bot.
+Step 3: Test Your Bot
+Use the Test Console
+In the Amazon Lex console, use the test chat window to interact with your bot.
+Ensure it responds correctly to your input.
+Step 4: Deploy Your Bot
+Integrate with Messaging Platforms
+Configure your bot to work with platforms like Facebook Messenger or Slack.
+Follow integration instructions in the Amazon Lex documentation.
+Free Tier Limit: 10,000 text requests and 5,000 speech requests per month for the first 12 months.

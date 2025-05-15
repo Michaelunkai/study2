@@ -1,0 +1,1 @@
+aws lex-models get-bot --name <bot-name> --version-or-alias <version-or-alias>

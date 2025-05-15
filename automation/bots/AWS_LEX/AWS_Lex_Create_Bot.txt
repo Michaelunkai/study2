@@ -1,0 +1,1 @@
+aws lex-models create-bot --name <bot-name> --description <description> --intents <intent-list> --clarification-prompt <clarification-prompt> --abort-statement <abort-statement>
