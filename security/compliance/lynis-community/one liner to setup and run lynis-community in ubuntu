@@ -1,0 +1,1 @@
+curl -s https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz | tar zx && cd lynis && sudo ./lynis audit system

@@ -1,0 +1,1 @@
+curl -sLO https://github.com/aquasecurity/kube-bench/releases/latest/download/kube-bench_ubuntu_20.04_amd64.deb && sudo dpkg -i kube-bench_ubuntu_20.04_amd64.deb && kube-bench

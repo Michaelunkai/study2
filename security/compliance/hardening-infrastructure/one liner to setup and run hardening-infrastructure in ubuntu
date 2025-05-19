@@ -1,0 +1,1 @@
+git clone https://github.com/dev-sec/ansible-collection-hardening.git && cd ansible-collection-hardening && ansible-playbook -i localhost, playbook.yml

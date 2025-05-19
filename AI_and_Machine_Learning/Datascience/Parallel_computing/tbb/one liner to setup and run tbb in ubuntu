@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y libtbb-dev && g++ -ltbb -std=c++17 -o test_tbb test.cpp && ./test_tbb

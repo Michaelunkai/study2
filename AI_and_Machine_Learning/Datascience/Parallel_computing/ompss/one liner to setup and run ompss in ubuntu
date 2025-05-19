@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y build-essential git && git clone https://github.com/bsc-pm/nanos6.git && cd nanos6 && ./configure && make -j16 && make install && export PATH=$PATH:/usr/local/nanos6/bin

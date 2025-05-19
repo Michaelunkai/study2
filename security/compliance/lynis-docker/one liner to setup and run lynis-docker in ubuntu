@@ -1,0 +1,1 @@
+docker run --rm -t --privileged -v /:/mnt ghcr.io/cisofy/lynis lynis audit system --rootdir /mnt

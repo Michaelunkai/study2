@@ -1,0 +1,1 @@
+curl -s https://securityheaders.io/?q=http%3A%2F%2Flocalhost | html2text

@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y git && git clone https://github.com/chapel-lang/chapel.git && cd chapel && ./util/buildRelease/gen_release && source ./util/setchplenv.bash && chpl hello.chpl && ./hello

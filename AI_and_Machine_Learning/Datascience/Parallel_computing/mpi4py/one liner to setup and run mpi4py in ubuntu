@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y python3-mpi4py && python3 -m mpi4py.bench helloworld

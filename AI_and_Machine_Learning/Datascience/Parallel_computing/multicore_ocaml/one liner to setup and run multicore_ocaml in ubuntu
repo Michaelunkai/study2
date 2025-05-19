@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y opam && opam init -y && eval $(opam env) && opam switch create 4.12.0+domains && eval $(opam env) && echo 'let () = Domain.spawn (fun () -> Printf.printf "Hello from another domain\\n"); Printf.printf "Main thread\\n"' > test.ml && ocamlopt -o test -domain test.ml && ./test

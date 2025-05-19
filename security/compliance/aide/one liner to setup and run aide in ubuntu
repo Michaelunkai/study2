@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y aide && sudo aideinit && sudo cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db && sudo aide --check

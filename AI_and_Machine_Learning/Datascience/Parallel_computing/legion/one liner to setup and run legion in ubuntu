@@ -1,0 +1,1 @@
+sudo apt update && sudo apt install -y git cmake g++ python3 && git clone https://github.com/StanfordLegion/legion.git && cd legion && mkdir build && cd build && cmake .. && make -j16 && ./legion_runtime

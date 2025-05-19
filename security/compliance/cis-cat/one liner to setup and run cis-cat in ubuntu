@@ -1,0 +1,1 @@
+wget https://downloads.cisecurity.org/cis-cat-full.zip && unzip cis-cat-full.zip && chmod +x CIS-CAT.sh && ./CIS-CAT.sh -a
