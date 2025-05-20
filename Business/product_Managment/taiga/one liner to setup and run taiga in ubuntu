@@ -1,0 +1,1 @@
+docker run -d --name taiga -p 9000:80 docker.io/taigaio/taiga-back:latest

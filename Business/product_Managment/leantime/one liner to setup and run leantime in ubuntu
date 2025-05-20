@@ -1,0 +1,1 @@
+docker run -d --name leantime -p 8084:80 leantime/leantime:latest

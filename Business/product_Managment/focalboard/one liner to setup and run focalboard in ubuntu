@@ -1,0 +1,1 @@
+docker run -d --name focalboard -p 8085:8000 mattermost/focalboard

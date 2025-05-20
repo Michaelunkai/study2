@@ -1,0 +1,1 @@
+docker run -d --name restyaboard -p 8086:80 restya/restyaboard

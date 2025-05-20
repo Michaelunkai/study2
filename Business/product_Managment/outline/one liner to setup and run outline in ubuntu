@@ -1,0 +1,1 @@
+docker run -d --name outline -p 3000:3000 outlinewiki/outline

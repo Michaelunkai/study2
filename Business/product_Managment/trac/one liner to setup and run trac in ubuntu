@@ -1,0 +1,1 @@
+docker run -d --name trac -p 8095:8000 elleflorio/trac

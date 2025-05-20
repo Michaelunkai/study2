@@ -1,0 +1,1 @@
+docker run -d --name redmine -p 8090:3000 redmine

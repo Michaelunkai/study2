@@ -1,0 +1,1 @@
+docker run -d --name plane -p 8800:80 ghcr.io/makeplane/plane:latest

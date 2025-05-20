@@ -1,0 +1,1 @@
+docker run -d --name zentao -p 8094:80 easysoft/zentao

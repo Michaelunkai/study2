@@ -1,0 +1,1 @@
+docker run -d --name openproject -p 8081:80 openproject/community:latest

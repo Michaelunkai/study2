@@ -1,0 +1,1 @@
+docker run -d --name projeqtor -p 8089:80 projeqtor/projeqtor

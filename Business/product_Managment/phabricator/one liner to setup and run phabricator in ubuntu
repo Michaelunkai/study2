@@ -1,0 +1,1 @@
+docker run -d --name phabricator -p 8096:80 cpotluri/phabricator

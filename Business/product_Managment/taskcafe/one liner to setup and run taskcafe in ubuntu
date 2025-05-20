@@ -1,0 +1,1 @@
+docker run -d --name taskcafe -p 8087:3333 jordanpopplewell/taskcafe
